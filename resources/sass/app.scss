@@ -1,0 +1,204 @@
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+
+// Variables
+@import 'variables';
+
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';
+
+@import 'floating-labels';
+
+a {
+    text-decoration: none;
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: $primary;
+    border-color: $primary;
+  
+    &:hover, &:active, &:focus {
+        background-color: #6f68ee;
+    }
+}
+
+.navbar {
+    .reputation {
+        padding: 5px 5px;
+    }
+  
+    .bg-secondary {
+        background-color: #515a63 !important;
+    }
+  
+    ::placeholder {
+        color: #fff;
+        opacity: 1;
+    }
+}
+
+.avatar-20 {
+    height: 20px;
+    width: 20px;
+}
+
+.avatar-30 {
+    height: 30px;
+    width: 30px;
+}
+
+.avatar-40 {
+    height: 40px;
+    width: 40px;
+}
+
+.avatar-50 {
+    height: 50px;
+    width: 50px;
+}
+
+.avatar-120 {
+    height: 120px;
+    width: 120px;
+    border: 2px solid #dedede;
+}
+
+.btn-task {
+    font-size: 12px;
+    padding: 1px 8px;
+}
+
+// Remove Bootstrap Glow on Input and Button
+
+textarea:focus,
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="datetime"]:focus,
+input[type="datetime-local"]:focus,
+input[type="date"]:focus,
+input[type="month"]:focus,
+input[type="time"]:focus,
+input[type="week"]:focus,
+input[type="number"]:focus,
+input[type="email"]:focus,
+input[type="url"]:focus,
+input[type="search"]:focus,
+input[type="tel"]:focus,
+input[type="color"]:focus,
+.uneditable-input:focus
+.btn.active.focus,
+.btn.active:focus,
+.btn.focus,
+.btn.focus:active,
+.btn:active:focus,
+.btn:focus {
+    box-shadow: none !important;
+}
+
+.fa-link {
+    color: $primary;
+}
+
+.fa-twitter {
+    color: #38A1F3;
+}
+
+.fa-twitch {
+    color: #9147ff;
+}
+
+.fa-telegram {
+    color: #0088cc;
+}
+
+.fa-github {
+    color: #333;
+}
+
+.fa-youtube {
+    color: #ff0000;
+}
+
+.fa-product-hunt {
+    color: #da552f;
+}
+
+.list-group-item {
+    padding: 0.4rem 1rem;
+}
+
+.form-check-input {
+    vertical-align: sub;
+  
+    &:disabled {
+        opacity: initial;
+    }
+}
+
+.task-font {
+    font-size: 16px;
+    a {
+        background: #d3d2e6;
+        padding: 0px 5px;
+        border-radius: 5px;
+
+        &:hover {
+            background: #c8c7d8;
+        }
+    }
+}
+
+.admin-bar {
+    font-size: 13px;
+  
+    .fa, .fab {
+        font-size: 12px;
+    }
+}
+
+.welcome-card {
+    background: linear-gradient(90deg,#6a63ec 0%, #6a63ecba 90%);
+    background-size: contain;
+}
+
+.avatar-stack {
+    .avatar {
+        height: 30px;
+        margin-right: -18px;
+        border: 2px solid white;
+        transition: all 0.2s ease;
+    }
+    span {
+        margin-left: 15px !important;
+    }
+    &:hover .avatar {
+        margin-right: -3px !important;
+    }
+    &:hover span {
+        margin-left: 5px !important;
+    }
+}
+
+.spinner-border-mini {
+    height: 13px;
+    width: 13px;
+    margin-bottom: 1px;
+    border-width: .2em;
+}
+
+.beta-badge {
+    background-color: transparent !important;
+    border: 1px solid $green;
+}
+
+.notification-count {
+    font-size: 10px;
+    padding: 2px 4px;
+    vertical-align: super;
+    margin-left: -1px;
+}
+
+.dropdown-item:active {
+    color: white !important;
+}

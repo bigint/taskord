@@ -1,0 +1,106 @@
+<div align="center">
+    <p><img src="public/images/logo.svg" height="70" alt="Taskord Logo"></p>
+    <h1>Taskord</h1>
+    <strong>✅ The Taskord Web App</strong>
+</div>
+<br>
+<div align="center">
+    <a href="https://www.php.net">
+        <img src="https://img.shields.io/badge/PHP-v7.4-blue.svg?logo=php" alt="PHP Version">
+    </a>
+    <a href="http://laravel.com">
+        <img src="https://img.shields.io/badge/Laravel-v7.x-important.svg?logo=laravel&longCache=true" alt="Laravel Version">
+    </a>
+    <a href="https://nodejs.org">
+        <img src="https://img.shields.io/badge/Node-v14.x-brightgreen.svg?logo=node.js&longCache=true" alt="Node Version">
+    </a>
+    <a href="https://github.com/taskord/taskord/actions?query=workflow%3ACI">
+        <img src="https://github.com/taskord/taskord/workflows/CI/badge.svg" alt="CI Workflow">
+    </a>
+    <a href="https://codeclimate.com/github/taskord/taskord/maintainability">
+        <img src="https://api.codeclimate.com/v1/badges/8da39d4842dba57d2b0b/maintainability" alt="CodeClimate Maintainability">
+    </a>
+    <a href="https://www.codetriage.com/taskord/taskord">
+        <img src="https://www.codetriage.com/taskord/taskord/badges/users.svg" alt="CodeTriage">
+    </a>
+    <img src="https://img.shields.io/github/languages/code-size/taskord/taskord" alt="GitHub code size in bytes">
+    <img src="https://img.shields.io/github/commit-activity/w/taskord/taskord" alt="GitHub commit activity">
+    <a href="LICENSE">
+        <img src="https://img.shields.io/badge/license-MIT-green?longCache=true" alt="MIT License">
+    </a>
+    <a href="https://twitter.com/taskord">
+        <img src="https://img.shields.io/twitter/follow/taskord?label=Follow&style=social" alt="Taskord Twitter">
+    </a>
+</div>
+<div align="center">
+    <br>
+    <a href="https://taskord.com"><b>taskord.com »</b></a>
+    <br><br>
+    <a href="https://github.com/taskord/taskord/issues/new"><b>Report Bug</b></a>
+    •
+    <a href="https://github.com/taskord/taskord/issues/new"><b>Request Feature</b></a>
+</div>
+
+## About Taskord
+
+- **✅ Tasks:** All tasks are public and added to your maker profile.
+- **🔥 Reputation:** Earn reputations by completing, praising, and commenting on tasks and questions, which helps you to stay productive.
+- **😀 Makers:** Community of peoples who ships constantly.
+- **📦 Products:** Ship your products to Taskord and make regular updates about the product and even add tasks to them.
+- **💬 Q&A:** Get your questions answered and use this feature as discussion too.
+- **🎁 Deals:** Discounts and special deals for Taskord members. Only available to patrons.
+
+## Prerequisites
+
+- [PHP](https://www.php.net): please refer to their [installation guide](https://www.php.net/manual/en/install.php).
+- [Node](https://nodejs.org): we recommend using [nvm](https://github.com/nvm-sh/nvm) to install the Node version listed on the badge.
+- [MySQL](http://www.mysql.com) 8.0 or higher.
+
+## Contributing
+
+Contributions are what makes the open-source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
+
+1. Fork the project, ie. https://github.com/taskord/taskord/-/forks/new
+2. Clone your forked repository, ie. `git clone https://github.com/<your-username>/taskord.git`
+3. Create your Feature Branch (git checkout -b AmazingFeature)
+4. Commit your changes (git commit -m 'Add some AmazingFeature)
+5. Push to the Branch (git push origin AmazingFeature)
+6. Open a Pull Request
+
+## Standard Installation
+
+1. Make sure all the prerequisites are installed.
+2. Set up your environment variables/secrets in `.env` file
+    ```sh
+    cp .env.example .env
+    ```
+3. Create free [Mailtrap](https://mailtrap.io) account, get email credentials and fill it in `.env` file
+4. Run the below commands to install Taskord
+    ```sh
+    # Install Composer Dependencies
+    composer install
+
+    # Install NPM Dependencies
+    npm install
+
+    # Build and watch assets for development
+    npm run watch
+
+    # Generate Application Key
+    php artisan key:generate
+
+    # Migrate and seed the database with fake data
+    php artisan migrate:fresh --seed
+    ```
+5. Run the Laravel Queue `php artisan queue:work --tries=3` to receive notifications via web and email
+6. That's it! Run `php artisan serve` to start the application and head to `http://localhost:8000`
+
+-----
+
+<br>
+
+<div align="center">
+    <img width="250px" src="https://i.imgur.com/yVtUpZa.gif">
+    <br>
+    <strong>Happy Shipping</strong> 🚀
+</div>

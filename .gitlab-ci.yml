@@ -1,0 +1,92 @@
+image: edbizarro/gitlab-ci-pipeline-php:7.4
+
+services:
+  - mysql:5.7
+
+variables:
+  MYSQL_ROOT_PASSWORD: root
+  MYSQL_USER: taskord
+  MYSQL_PASSWORD: taskord
+  MYSQL_DATABASE: taskord
+  DB_HOST: mysql
+
+stages:
+  - build
+  - execute
+  - cleanup
+
+cache:
+  paths:
+    - vendor/
+    - node_modules/
+
+before_script:
+  - sudo composer install
+  - sudo npm install
+  - cp .env.ci .env
+  - php --version
+  - php artisan key:generate
+  - php artisan config:cache
+  - php artisan migrate
+
+Dev Build:
+  stage: build
+  script:
+    - sudo npm run dev
+
+Prod Build:
+  stage: build
+  script:
+    - sudo npm run prod
+
+Watch Build:
+  stage: build
+  script:
+    - npm run watch & sleep 20 ; kill $! || echo $?
+
+Artisan Key:
+  stage: execute
+  script:
+    - php artisan key:generate
+
+Artisan Seed:
+  stage: execute
+  script:
+    - php artisan db:seed
+
+Artisan Serve:
+  stage: execute
+  script:
+    - php artisan serve & sleep 20 ; kill $! || echo $?
+
+Artisan Modes:
+  stage: execute
+  script:
+    - php artisan down
+    - php artisan up
+
+Artisan Seed:
+  stage: execute
+  script:
+    - php artisan db:seed
+    - php artisan db:wipe
+
+Artisan Clear:
+  stage: execute
+  script:
+    - php artisan cache:clear
+    - php artisan config:clear
+    - php artisan view:clear
+    - php artisan route:clear
+    - php artisan event:clear
+    - php artisan clear-compiled
+
+Housekeeping:
+  stage: cleanup
+  script:
+    - curl --request POST --header "PRIVATE-TOKEN:$ACCESS_TOKEN" https://gitlab.com/api/v4/projects/$CI_PROJECT_ID/housekeeping
+
+Merged Branches:
+  stage: cleanup
+  script:
+    - curl --request DELETE --header "PRIVATE-TOKEN:$ACCESS_TOKEN" https://gitlab.com/api/v4/projects/$CI_PROJECT_ID/repository/merged_branches

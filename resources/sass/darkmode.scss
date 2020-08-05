@@ -1,0 +1,112 @@
+$body-bg: #17181a !important;
+$card-bg: #343a40;
+$border-bg: #4c555d;
+$input-bg: #242629;
+
+a:hover {
+    color: #7d79cc;
+}
+
+body {
+    background-color: $body-bg;
+    color: #ffffff;
+}
+
+.card {
+    background-color: $card-bg;
+    color: #ffffff;
+    border: 1px solid $border-bg;
+    
+    .card-header {
+        background-color: #2b3034;
+    }
+}
+
+.list-group-item {
+    background-color: $card-bg;
+    border: 1px solid $border-bg;
+}
+
+.form-control:focus {
+    background-color: $input-bg;
+    border-color: $border-bg;
+}
+
+.text-black-50 {
+    color: #c0c0c0 !important;
+}
+
+.text-dark, .link-dark {
+    color: #ffffff !important;
+}
+
+.reputation {
+    color: #000000 !important;
+}
+
+.dropdown-menu {
+    background-color: $card-bg;
+
+    .dropdown-item {
+        color: #ffffff;
+
+        &:hover {
+            background-color: $body-bg;
+        }
+    }
+}
+
+.dropdown-divider {
+    border-top: 1px solid $border-bg;
+}
+
+.form-control {
+    background-color: $input-bg;
+    color: #ffffff !important;
+    border: 1px solid $border-bg;
+}
+
+.input-group-text {
+    background-color: $input-bg;
+    border: 1px solid $border-bg;
+}
+
+.form-file-label {
+    border-color: $border-bg;
+}
+
+.form-file-button {
+    background-color: $input-bg;
+    color: $border-bg;
+}
+
+.form-file-text {
+    background-color: $body-bg;
+    color: $border-bg;
+}
+
+.progress {
+    background-color: $body-bg;
+}
+
+.border-bottom {
+    border-bottom: 1px solid $border-bg !important;
+}
+
+.border {
+    border: 1px solid $border-bg !important;
+}
+
+// Hashtag
+.task-font {
+    a {
+        background: #616b75;
+        padding: 0px 5px;
+        border-radius: 5px;
+        color: #fff;
+        
+        &:hover {
+            background: #7e8c9a;
+        }
+    }
+}
