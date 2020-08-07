@@ -27,7 +27,8 @@ before_script:
 Test:
   stage: test
   script:
-    - vendor/bin/phpunit
+    - php artisan migrate:fresh --seed
+    - php artisan test
 
 Housekeeping:
   stage: deploy
