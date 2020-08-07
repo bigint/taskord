@@ -13,10 +13,10 @@
                 <i class="fab fa-laravel mr-1"></i>
                 Laravel v{{ App::VERSION() }}
             </span>
-            <a class="text-white" href="https://github.com/taskord/taskord" target="_blank">
+            <a class="text-white" href="https://gitlab.com/taskord/taskord" target="_blank">
                 <span class="font-weight-bold ml-3">
-                    <i class="fa text-white fa-github mr-1"></i>
-                    GitHub
+                    <i class="fa text-white fa-gitlab mr-1"></i>
+                    GitLab
                 </span>
             </a>
         </span>

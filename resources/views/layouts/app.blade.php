@@ -137,8 +137,8 @@
                                     </a>
                                     @endif
                                     @if (Auth::user()->isDeveloper)
-                                    <a class="dropdown-item text-dark" href="https://github.com/taskord/taskord" target="_blank">
-                                        {{ Emoji::octopus() }} GitHub
+                                    <a class="dropdown-item text-dark" href="https://gitlab.com/taskord/taskord" target="_blank">
+                                        {{ Emoji::octopus() }} GitLab
                                     </a>
                                     @endif
                                     <a class="dropdown-item text-dark" href="{{ route('logout') }}"

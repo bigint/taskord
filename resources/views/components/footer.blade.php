@@ -11,8 +11,8 @@
     <a class="pr-2" href="https://dev.to/taskord" target="_blank">
         Blog
     </a>
-    <a class="pr-2" href="https://github.com/taskord/taskord" target="_blank">
-        GitHub
+    <a class="pr-2" href="https://gitlab.com/taskord/taskord" target="_blank">
+        GitLab
     </a>
     <a class="pr-2" href="#">
         Terms
