@@ -3949,16 +3949,16 @@
         },
         {
             "name": "spatie/laravel-personal-data-export",
-            "version": "1.3.0",
+            "version": "1.3.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/laravel-personal-data-export.git",
-                "reference": "f04db2bd331f1be85f0bb7f2f52be5a57a1b3b8b"
+                "reference": "09343f655ae6ae5cc06b5939ead6f32138c8d3a6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/laravel-personal-data-export/zipball/f04db2bd331f1be85f0bb7f2f52be5a57a1b3b8b",
-                "reference": "f04db2bd331f1be85f0bb7f2f52be5a57a1b3b8b",
+                "url": "https://api.github.com/repos/spatie/laravel-personal-data-export/zipball/09343f655ae6ae5cc06b5939ead6f32138c8d3a6",
+                "reference": "09343f655ae6ae5cc06b5939ead6f32138c8d3a6",
                 "shasum": ""
             },
             "require": {
@@ -4013,7 +4013,7 @@
                     "type": "custom"
                 }
             ],
-            "time": "2020-03-03T09:38:06+00:00"
+            "time": "2020-08-06T09:06:05+00:00"
         },
         {
             "name": "spatie/temporary-directory",
