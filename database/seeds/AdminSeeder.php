@@ -30,7 +30,7 @@ class AdminSeeder extends Seeder
             'isPatron' => true,
             'created_at' => date('Y-m-d H:i:s'),
         ]);
-        
+
         DB::table('users')->insert([
             'firstname' => 'Admin',
             'username' => 'admin',
