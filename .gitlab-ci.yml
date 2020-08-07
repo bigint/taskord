@@ -20,7 +20,9 @@ cache:
 
 before_script:
   - sudo composer install
+  - sudo npm install
   - cp .env.ci .env
+  - npm run production
   - php artisan key:generate
 
 Test:
