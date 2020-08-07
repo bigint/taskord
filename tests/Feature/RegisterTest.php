@@ -16,7 +16,7 @@ class RegisterTest extends TestCase
 
     public function test_auth_register_back_to_home_url()
     {
-        $user = User::where(['email' => 'dabbit@tuta.io'])->first();
+        $user = User::where(['email' => 'test@taskord.com'])->first();
         $response = $this->actingAs($user)->get(route('register'));
 
         $response->assertStatus(302);

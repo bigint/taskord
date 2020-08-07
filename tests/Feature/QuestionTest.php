@@ -37,7 +37,7 @@ class QuestionTest extends TestCase
 
     public function test_auth_create_question()
     {
-        $user = User::where(['email' => 'dabbit@tuta.io'])->first();
+        $user = User::where(['email' => 'test@taskord.com'])->first();
         $this->actingAs($user);
 
         Livewire::test(CreateQuestion::class)
@@ -51,7 +51,7 @@ class QuestionTest extends TestCase
 
     public function test_auth_create_question_profanity()
     {
-        $user = User::where(['email' => 'dabbit@tuta.io'])->first();
+        $user = User::where(['email' => 'test@taskord.com'])->first();
         $this->actingAs($user);
 
         Livewire::test(CreateQuestion::class)
@@ -67,7 +67,7 @@ class QuestionTest extends TestCase
 
     public function test_auth_create_question_required()
     {
-        $user = User::where(['email' => 'dabbit@tuta.io'])->first();
+        $user = User::where(['email' => 'test@taskord.com'])->first();
         $this->actingAs($user);
 
         Livewire::test(CreateQuestion::class)
@@ -82,7 +82,7 @@ class QuestionTest extends TestCase
 
     public function test_praise_question()
     {
-        $user = User::where(['email' => 'dabbit@tuta.io'])->first();
+        $user = User::where(['email' => 'test@taskord.com'])->first();
         $this->actingAs($user);
         $question = Question::create([
             'user_id' =>  $user->id,
@@ -107,7 +107,7 @@ class QuestionTest extends TestCase
 
     public function test_praise_others_question()
     {
-        $user = User::where(['email' => 'dabbit@tuta.io'])->first();
+        $user = User::where(['email' => 'test@taskord.com'])->first();
         $this->actingAs($user);
         $question = Question::create([
             'user_id' => 2,
@@ -155,7 +155,7 @@ class QuestionTest extends TestCase
 
     public function test_auth_delete_question()
     {
-        $user = User::where(['email' => 'dabbit@tuta.io'])->first();
+        $user = User::where(['email' => 'test@taskord.com'])->first();
         $this->actingAs($user);
         $question = Question::create([
             'user_id' => $user->id,

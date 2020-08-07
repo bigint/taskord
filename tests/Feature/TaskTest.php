@@ -36,7 +36,7 @@ class TaskTest extends TestCase
 
     public function test_auth_create_task()
     {
-        $user = User::where(['email' => 'dabbit@tuta.io'])->first();
+        $user = User::where(['email' => 'test@taskord.com'])->first();
         $this->actingAs($user);
 
         Livewire::test(CreateTask::class)
@@ -47,7 +47,7 @@ class TaskTest extends TestCase
 
     public function test_auth_create_task_profanity()
     {
-        $user = User::where(['email' => 'dabbit@tuta.io'])->first();
+        $user = User::where(['email' => 'test@taskord.com'])->first();
         $this->actingAs($user);
 
         Livewire::test(CreateTask::class)
@@ -61,7 +61,7 @@ class TaskTest extends TestCase
 
     public function test_auth_create_task_required()
     {
-        $user = User::where(['email' => 'dabbit@tuta.io'])->first();
+        $user = User::where(['email' => 'test@taskord.com'])->first();
         $this->actingAs($user);
 
         Livewire::test(CreateTask::class)
@@ -74,7 +74,7 @@ class TaskTest extends TestCase
 
     public function test_praise_task()
     {
-        $user = User::where(['email' => 'dabbit@tuta.io'])->first();
+        $user = User::where(['email' => 'test@taskord.com'])->first();
         $this->actingAs($user);
         $task = Task::create([
             'user_id' => $user->id,
@@ -89,7 +89,7 @@ class TaskTest extends TestCase
 
     public function test_praise_others_task()
     {
-        $user = User::where(['email' => 'dabbit@tuta.io'])->first();
+        $user = User::where(['email' => 'test@taskord.com'])->first();
         $this->actingAs($user);
         $task = Task::create([
             'user_id' => 2,
@@ -104,7 +104,7 @@ class TaskTest extends TestCase
 
     public function test_delete_task()
     {
-        $user = User::where(['email' => 'dabbit@tuta.io'])->first();
+        $user = User::where(['email' => 'test@taskord.com'])->first();
         $this->actingAs($user);
         $task = Task::create([
             'user_id' => $user->id,

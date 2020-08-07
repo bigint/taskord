@@ -17,7 +17,7 @@ class SettingsTest extends TestCase
     public function test_auth_profile_settings_url()
     {
         $this->withoutMiddleware(\Illuminate\Auth\Middleware\RequirePassword::class);
-        $user = User::where(['email' => 'dabbit@tuta.io'])->first();
+        $user = User::where(['email' => 'test@taskord.com'])->first();
         $response = $this->actingAs($user)->get(route('user.settings.profile'));
 
         $response->assertStatus(200);
@@ -26,7 +26,7 @@ class SettingsTest extends TestCase
     public function test_auth_profile_settings_displays_the_profile_settings_page()
     {
         $this->withoutMiddleware(\Illuminate\Auth\Middleware\RequirePassword::class);
-        $user = User::where(['email' => 'dabbit@tuta.io'])->first();
+        $user = User::where(['email' => 'test@taskord.com'])->first();
         $response = $this->actingAs($user)->get(route('user.settings.profile'));
 
         $response->assertStatus(200);
@@ -44,7 +44,7 @@ class SettingsTest extends TestCase
     public function test_auth_account_settings_url()
     {
         $this->withoutMiddleware(\Illuminate\Auth\Middleware\RequirePassword::class);
-        $user = User::where(['email' => 'dabbit@tuta.io'])->first();
+        $user = User::where(['email' => 'test@taskord.com'])->first();
         $response = $this->actingAs($user)->get(route('user.settings.account'));
 
         $response->assertStatus(200);
@@ -53,7 +53,7 @@ class SettingsTest extends TestCase
     public function test_auth_account_settings_displays_the_account_settings_page()
     {
         $this->withoutMiddleware(\Illuminate\Auth\Middleware\RequirePassword::class);
-        $user = User::where(['email' => 'dabbit@tuta.io'])->first();
+        $user = User::where(['email' => 'test@taskord.com'])->first();
         $response = $this->actingAs($user)->get(route('user.settings.account'));
 
         $response->assertStatus(200);
@@ -71,7 +71,7 @@ class SettingsTest extends TestCase
     public function test_auth_password_settings_url()
     {
         $this->withoutMiddleware(\Illuminate\Auth\Middleware\RequirePassword::class);
-        $user = User::where(['email' => 'dabbit@tuta.io'])->first();
+        $user = User::where(['email' => 'test@taskord.com'])->first();
         $response = $this->actingAs($user)->get(route('user.settings.password'));
 
         $response->assertStatus(200);
@@ -80,7 +80,7 @@ class SettingsTest extends TestCase
     public function test_auth_password_settings_displays_the_password_settings_page()
     {
         $this->withoutMiddleware(\Illuminate\Auth\Middleware\RequirePassword::class);
-        $user = User::where(['email' => 'dabbit@tuta.io'])->first();
+        $user = User::where(['email' => 'test@taskord.com'])->first();
         $response = $this->actingAs($user)->get(route('user.settings.password'));
 
         $response->assertStatus(200);
@@ -98,7 +98,7 @@ class SettingsTest extends TestCase
     public function test_auth_delete_settings_url()
     {
         $this->withoutMiddleware(\Illuminate\Auth\Middleware\RequirePassword::class);
-        $user = User::where(['email' => 'dabbit@tuta.io'])->first();
+        $user = User::where(['email' => 'test@taskord.com'])->first();
         $response = $this->actingAs($user)->get(route('user.settings.delete'));
 
         $response->assertStatus(200);
@@ -107,7 +107,7 @@ class SettingsTest extends TestCase
     public function test_auth_delete_settings_displays_the_delete_settings_page()
     {
         $this->withoutMiddleware(\Illuminate\Auth\Middleware\RequirePassword::class);
-        $user = User::where(['email' => 'dabbit@tuta.io'])->first();
+        $user = User::where(['email' => 'test@taskord.com'])->first();
         $response = $this->actingAs($user)->get(route('user.settings.delete'));
 
         $response->assertStatus(200);

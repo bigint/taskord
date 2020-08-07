@@ -16,7 +16,7 @@ class TasksTest extends TestCase
 
     public function test_auth_tasks_url()
     {
-        $user = User::where(['email' => 'dabbit@tuta.io'])->first();
+        $user = User::where(['email' => 'test@taskord.com'])->first();
         $response = $this->actingAs($user)->get(route('tasks'));
 
         $response->assertStatus(200);
@@ -24,7 +24,7 @@ class TasksTest extends TestCase
 
     public function test_auth_tasks_displays_the_tasks_form()
     {
-        $user = User::where(['email' => 'dabbit@tuta.io'])->first();
+        $user = User::where(['email' => 'test@taskord.com'])->first();
         $response = $this->actingAs($user)->get(route('tasks'));
 
         $response->assertStatus(200);

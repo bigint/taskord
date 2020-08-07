@@ -46,7 +46,7 @@ class ProductTest extends TestCase
 
     public function test_auth_new_product_url()
     {
-        $user = User::where(['email' => 'dabbit@tuta.io'])->first();
+        $user = User::where(['email' => 'test@taskord.com'])->first();
         $response = $this->actingAs($user)->get(route('products.new'));
 
         $response->assertStatus(200);
@@ -54,7 +54,7 @@ class ProductTest extends TestCase
 
     public function test_auth_new_product_displays_the_new_product_page()
     {
-        $user = User::where(['email' => 'dabbit@tuta.io'])->first();
+        $user = User::where(['email' => 'test@taskord.com'])->first();
         $response = $this->actingAs($user)->get(route('products.new'));
 
         $response->assertStatus(200);

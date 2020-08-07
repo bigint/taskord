@@ -16,7 +16,7 @@ class LoginTest extends TestCase
 
     public function test_auth_login_back_to_home_url()
     {
-        $user = User::where(['email' => 'dabbit@tuta.io'])->first();
+        $user = User::where(['email' => 'test@taskord.com'])->first();
         $response = $this->actingAs($user)->get(route('login'));
 
         $response->assertStatus(302);
@@ -33,9 +33,9 @@ class LoginTest extends TestCase
 
     public function test_user_can_login_with_username()
     {
-        $user = User::where(['email' => 'dabbit@tuta.io'])->first();
+        $user = User::where(['email' => 'test@taskord.com'])->first();
         $response = $this->post('/login', [
-            'username' => 'dabbit',
+            'username' => 'test',
             'password' => 'test',
         ]);
 
@@ -45,9 +45,9 @@ class LoginTest extends TestCase
 
     public function test_user_can_login_with_email()
     {
-        $user = User::where(['email' => 'dabbit@tuta.io'])->first();
+        $user = User::where(['email' => 'test@taskord.com'])->first();
         $response = $this->post('/login', [
-            'username' => 'dabbit@tuta.io',
+            'username' => 'test@taskord.com',
             'password' => 'test',
         ]);
 
@@ -57,9 +57,9 @@ class LoginTest extends TestCase
 
     public function test_user_can_login_with_wrong_credentials()
     {
-        $user = User::where(['email' => 'dabbit@tuta.io'])->first();
+        $user = User::where(['email' => 'test@taskord.com'])->first();
         $response = $this->post('/login', [
-            'username' => 'dabbit',
+            'username' => 'test',
             'password' => 'wrong-password',
         ]);
 

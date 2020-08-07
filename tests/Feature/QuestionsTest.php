@@ -61,7 +61,7 @@ class QuestionsTest extends TestCase
 
     public function test_auth_new_question_url()
     {
-        $user = User::where(['email' => 'dabbit@tuta.io'])->first();
+        $user = User::where(['email' => 'test@taskord.com'])->first();
         $response = $this->actingAs($user)->get(route('questions.new'));
 
         $response->assertStatus(200);
@@ -69,7 +69,7 @@ class QuestionsTest extends TestCase
 
     public function test_auth_new_question_displays_the_new_question_page()
     {
-        $user = User::where(['email' => 'dabbit@tuta.io'])->first();
+        $user = User::where(['email' => 'test@taskord.com'])->first();
         $response = $this->actingAs($user)->get(route('questions.new'));
 
         $response->assertStatus(200);

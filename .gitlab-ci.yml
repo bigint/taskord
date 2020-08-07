@@ -22,7 +22,6 @@ before_script:
   - sudo composer install
   - cp .env.ci .env
   - php artisan key:generate
-  - php artisan migrate:fresh --seed
 
 Test:
   stage: test
