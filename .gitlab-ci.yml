@@ -17,21 +17,17 @@ stages:
 cache:
   paths:
     - vendor/
-    - node_modules/
 
 before_script:
   - sudo composer install
-  - sudo npm install
   - cp .env.ci .env
-  - php --version
   - php artisan key:generate
-  - php artisan config:cache
   - php artisan migrate:fresh --seed
 
 Test:
   stage: test
   script:
-    - php artisan test
+    - vendor/bin/phpunit
 
 Housekeeping:
   stage: deploy
