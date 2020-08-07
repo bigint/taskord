@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
 use Auth;
 
 class AdminController extends Controller
@@ -11,12 +10,12 @@ class AdminController extends Controller
     {
         return view('admin.admin');
     }
-    
+
     public function users()
     {
         return view('admin.users');
     }
-    
+
     public static function toggle()
     {
         $user = Auth::user();
