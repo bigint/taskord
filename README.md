@@ -14,17 +14,9 @@
     <a href="https://nodejs.org">
         <img src="https://img.shields.io/badge/Node-v14.x-brightgreen.svg?logo=node.js&longCache=true" alt="Node Version">
     </a>
-    <a href="https://github.com/taskord/taskord/actions?query=workflow%3ACI">
-        <img src="https://github.com/taskord/taskord/workflows/CI/badge.svg" alt="CI Workflow">
+    <a href="https://gitlab.com/taskord/taskord/-/commits/master">
+        <img src="https://gitlab.com/taskord/taskord/badges/master/pipeline.svg" alt="CI">
     </a>
-    <a href="https://codeclimate.com/github/taskord/taskord/maintainability">
-        <img src="https://api.codeclimate.com/v1/badges/8da39d4842dba57d2b0b/maintainability" alt="CodeClimate Maintainability">
-    </a>
-    <a href="https://www.codetriage.com/taskord/taskord">
-        <img src="https://www.codetriage.com/taskord/taskord/badges/users.svg" alt="CodeTriage">
-    </a>
-    <img src="https://img.shields.io/github/languages/code-size/taskord/taskord" alt="GitHub code size in bytes">
-    <img src="https://img.shields.io/github/commit-activity/w/taskord/taskord" alt="GitHub commit activity">
     <a href="LICENSE">
         <img src="https://img.shields.io/badge/license-MIT-green?longCache=true" alt="MIT License">
     </a>
@@ -36,9 +28,9 @@
     <br>
     <a href="https://taskord.com"><b>taskord.com »</b></a>
     <br><br>
-    <a href="https://github.com/taskord/taskord/issues/new"><b>Report Bug</b></a>
+    <a href="https://gitlab.com/taskord/taskord/issues/new"><b>Report Bug</b></a>
     •
-    <a href="https://github.com/taskord/taskord/issues/new"><b>Request Feature</b></a>
+    <a href="https://gitlab.com/taskord/taskord/issues/new"><b>Request Feature</b></a>
 </div>
 
 ## About Taskord
@@ -60,8 +52,8 @@
 
 Contributions are what makes the open-source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
 
-1. Fork the project, ie. https://github.com/taskord/taskord/-/forks/new
-2. Clone your forked repository, ie. `git clone https://github.com/<your-username>/taskord.git`
+1. Fork the project, ie. https://gitlab.com/taskord/taskord/-/forks/new
+2. Clone your forked repository, ie. `git clone https://gitlab.com/<your-username>/taskord.git`
 3. Create your Feature Branch (git checkout -b AmazingFeature)
 4. Commit your changes (git commit -m 'Add some AmazingFeature)
 5. Push to the Branch (git push origin AmazingFeature)
