@@ -17,17 +17,16 @@ stages:
 cache:
   paths:
     - vendor/
-
-before_script:
-  - sudo composer install
-  - sudo npm install
-  - cp .env.ci .env
-  - npm run production
-  - php artisan key:generate
+    - node_modules/
 
 Test:
   stage: test
   script:
+    - sudo composer install
+    - cp .env.ci .env
+    - php artisan key:generate
+    - sudo npm install
+    - npm run production
     - php artisan migrate:fresh --seed
     - php artisan test
 
