@@ -24,6 +24,8 @@ a {
 }
 
 .navbar {
+    box-shadow: 0 3px 6px 0 rgba(0,0,0,.05);
+    
     .reputation {
         padding: 5px 5px;
     }
@@ -201,4 +203,19 @@ input[type="color"]:focus,
 
 .dropdown-item:active {
     color: white !important;
+}
+
+.card {
+    box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.1), 0 1px 0px 0 rgba(0, 0, 0, 0.06);
+    border-radius: 5px;
+    
+    .list-group:last-child {
+        border-top-right-radius: 5px;
+        border-top-left-radius: 5px;
+    }
+}
+
+.btn {
+  box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.1), 0 1px 0px 0 rgba(0, 0, 0, 0.06);
+  border-radius: 5px;
 }
