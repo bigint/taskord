@@ -38,7 +38,7 @@ class AdminSeeder extends Seeder
             'bio' => 'Dabbing with Code',
             'email' => 'me@yogi.codes',
             'avatar' => 'https://secure.gravatar.com/avatar/1182dcc7c25fe6e84a11a5a983fa92ac?s=800',
-            'password' => Hash::make('test'),
+            'password' => Hash::make('admin'),
             'website' => 'https://yogi.codes',
             'twitter' => 'evildabbit',
             'twitch' => 'evildabbit',
