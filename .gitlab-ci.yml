@@ -1,4 +1,4 @@
-image: taskord/php:7.4
+image: registry.gitlab.com/taskord/php:7.4
 
 services:
   - mysql:5.7
