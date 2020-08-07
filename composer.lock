@@ -7889,16 +7889,16 @@
         },
         {
             "name": "phpunit/phpunit",
-            "version": "9.3.1",
+            "version": "9.3.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "3131fb15895eb1d418a1cac7af9170a30e1f9407"
+                "reference": "eacb57f3857cb6706550bd39ea500f9b1097b0bf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/3131fb15895eb1d418a1cac7af9170a30e1f9407",
-                "reference": "3131fb15895eb1d418a1cac7af9170a30e1f9407",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/eacb57f3857cb6706550bd39ea500f9b1097b0bf",
+                "reference": "eacb57f3857cb6706550bd39ea500f9b1097b0bf",
                 "shasum": ""
             },
             "require": {
@@ -7983,7 +7983,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2020-08-07T06:58:14+00:00"
+            "time": "2020-08-07T09:12:30+00:00"
         },
         {
             "name": "scrivo/highlight.php",
