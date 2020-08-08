@@ -7,6 +7,8 @@ use App\Gamify\Points\CommentCreated;
 use App\Notifications\Answered;
 use Auth;
 use Livewire\Component;
+use Notification;
+use App\Notifications\Slack\NewAnswer;
 
 class CreateAnswer extends Component
 {
@@ -59,6 +61,8 @@ class CreateAnswer extends Component
                 $this->question->user->notify(new Answered($answer));
                 givePoint(new CommentCreated($answer));
             }
+            Notification::route('slack', env('SLACK_HOOK'))
+                    ->notify(new NewAnswer($answer, Auth::user()));
 
             return session()->flash('success', 'Answer has been added!');
         } else {
