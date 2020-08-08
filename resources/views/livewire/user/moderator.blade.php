@@ -59,6 +59,38 @@
             <span wire:loading wire:target="deleteTasks" class="small ml-2 text-danger font-weight-bold">Deleting...</span>
         </div>
         <div class="mt-2">
+            <button wire:click="deleteComments" class="btn btn-sm btn-danger font-weight-bold">
+                <i class="fa fa-trash mr-1"></i>
+                <i class="fa fa-comment mr-1"></i>
+                Delete all comments
+            </button>
+            <span wire:loading wire:target="deleteComments" class="small ml-2 text-danger font-weight-bold">Deleting...</span>
+        </div>
+        <div class="mt-2">
+            <button wire:click="deleteQuestions" class="btn btn-sm btn-danger font-weight-bold">
+                <i class="fa fa-trash mr-1"></i>
+                <i class="fa fa-question-circle mr-1"></i>
+                Delete all questions
+            </button>
+            <span wire:loading wire:target="deleteQuestions" class="small ml-2 text-danger font-weight-bold">Deleting...</span>
+        </div>
+        <div class="mt-2">
+            <button wire:click="deleteAnswers" class="btn btn-sm btn-danger font-weight-bold">
+                <i class="fa fa-trash mr-1"></i>
+                <i class="fa fa-comments mr-1"></i>
+                Delete all answers
+            </button>
+            <span wire:loading wire:target="deleteAnswers" class="small ml-2 text-danger font-weight-bold">Deleting...</span>
+        </div>
+        <div class="mt-2">
+            <button wire:click="deleteProducts" class="btn btn-sm btn-danger font-weight-bold">
+                <i class="fa fa-trash mr-1"></i>
+                <i class="fa fa-box-open mr-1"></i>
+                Delete all products
+            </button>
+            <span wire:loading wire:target="deleteProducts" class="small ml-2 text-danger font-weight-bold">Deleting...</span>
+        </div>
+        <div class="mt-2">
             <button wire:click="deleteUser" class="btn btn-sm btn-danger font-weight-bold">
                 <i class="fa fa-trash mr-1"></i>
                 <i class="fa fa-user mr-1"></i>

@@ -106,6 +106,54 @@ class Moderator extends Component
             return false;
         }
     }
+    
+    public function deleteComments()
+    {
+        if (Auth::check() && Auth::user()->isStaff) {
+            $user = User::find($this->user->id);
+            $user->task_comment()->delete();
+
+            return redirect()->route('user.done', ['username' => $this->user->username]);
+        } else {
+            return false;
+        }
+    }
+    
+    public function deleteQuestions()
+    {
+        if (Auth::check() && Auth::user()->isStaff) {
+            $user = User::find($this->user->id);
+            $user->questions()->delete();
+
+            return redirect()->route('user.done', ['username' => $this->user->username]);
+        } else {
+            return false;
+        }
+    }
+    
+    public function deleteAnswers()
+    {
+        if (Auth::check() && Auth::user()->isStaff) {
+            $user = User::find($this->user->id);
+            $user->answers()->delete();
+
+            return redirect()->route('user.done', ['username' => $this->user->username]);
+        } else {
+            return false;
+        }
+    }
+    
+    public function deleteProducts()
+    {
+        if (Auth::check() && Auth::user()->isStaff) {
+            $user = User::find($this->user->id);
+            $user->products()->delete();
+
+            return redirect()->route('user.done', ['username' => $this->user->username]);
+        } else {
+            return false;
+        }
+    }
 
     public function deleteUser()
     {
