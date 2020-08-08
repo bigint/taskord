@@ -67,3 +67,17 @@ $(document).on("livewire:load", (event) => {
     }, 2000);
   });
 });
+
+$(document).on("livewire:load", (event) => {
+  $('#task-input').keyup(function () {
+    var max = 300;
+    var len = $(this).val().length;
+    if (len >= max) {
+      $('#task-len-counter').text('You have reached the limit').addClass('text-danger');
+    } else {
+      var char = max - len;
+      $('#task-len-counter').text(char + ' characters left');
+    }
+    $('#task-len-counter').removeClass('text-danger');
+  });
+});
