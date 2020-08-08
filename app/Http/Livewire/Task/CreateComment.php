@@ -7,6 +7,8 @@ use App\Notifications\TaskCommented;
 use App\TaskComment;
 use Auth;
 use Livewire\Component;
+use Notification;
+use App\Notifications\Slack\NewComment;
 
 class CreateComment extends Component
 {

@@ -47,7 +47,7 @@ class NewPraise extends Notification implements ShouldQueue
                 ->success()
                 ->content('A task was praised by @'.$this->user->username.' to @'.$this->entity->user->username)
                 ->attachment(function ($attachment) {
-                    $attachment->title('Praised by @'.$this->entity->user->username, 'https://taskord.com/@'.$this->entity->username)
+                    $attachment->title('Praised by @'.$this->entity->user->username, 'https://taskord.com/@'.$this->entity->user->username)
                                ->fields([
                                    'Task' => $this->entity->task,
                                    'ID' => $this->entity->id,
@@ -61,7 +61,7 @@ class NewPraise extends Notification implements ShouldQueue
                 ->success()
                 ->content('A comment was praised by @'.$this->user->username.' to @'.$this->entity->user->username)
                 ->attachment(function ($attachment) {
-                    $attachment->title('Praised by @'.$this->entity->user->username, 'https://taskord.com/@'.$this->entity->username)
+                    $attachment->title('Praised by @'.$this->entity->user->username, 'https://taskord.com/@'.$this->entity->user->username)
                                ->fields([
                                    'Comment' => $this->entity->comment,
                                    'ID' => $this->entity->id,
@@ -75,7 +75,7 @@ class NewPraise extends Notification implements ShouldQueue
                 ->success()
                 ->content('A question was praised by @'.$this->user->username.' to @'.$this->entity->user->username)
                 ->attachment(function ($attachment) {
-                    $attachment->title('Praised by @'.$this->entity->user->username, 'https://taskord.com/@'.$this->entity->username)
+                    $attachment->title('Praised by @'.$this->entity->user->username, 'https://taskord.com/@'.$this->entity->user->username)
                                ->fields([
                                    'Question' => $this->entity->title,
                                    'ID' => $this->entity->id,
@@ -89,7 +89,7 @@ class NewPraise extends Notification implements ShouldQueue
                 ->success()
                 ->content('A answer was praised by @'.$this->user->username.' to @'.$this->entity->user->username)
                 ->attachment(function ($attachment) {
-                    $attachment->title('Praised by @'.$this->entity->user->username, 'https://taskord.com/@'.$this->entity->username)
+                    $attachment->title('Praised by @'.$this->entity->user->username, 'https://taskord.com/@'.$this->entity->user->username)
                                ->fields([
                                    'Question' => $this->entity->answer,
                                    'ID' => $this->entity->id,
