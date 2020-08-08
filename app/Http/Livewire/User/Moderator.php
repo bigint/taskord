@@ -106,7 +106,7 @@ class Moderator extends Component
             return false;
         }
     }
-    
+
     public function deleteComments()
     {
         if (Auth::check() && Auth::user()->isStaff) {
@@ -118,7 +118,7 @@ class Moderator extends Component
             return false;
         }
     }
-    
+
     public function deleteQuestions()
     {
         if (Auth::check() && Auth::user()->isStaff) {
@@ -130,7 +130,7 @@ class Moderator extends Component
             return false;
         }
     }
-    
+
     public function deleteAnswers()
     {
         if (Auth::check() && Auth::user()->isStaff) {
@@ -142,7 +142,7 @@ class Moderator extends Component
             return false;
         }
     }
-    
+
     public function deleteProducts()
     {
         if (Auth::check() && Auth::user()->isStaff) {
