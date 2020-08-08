@@ -54,7 +54,7 @@ class NewPraise extends Notification implements ShouldQueue
                                    'Praise Count' => $this->entity->task_praise->count(),
                                ]);
                 });
-        } else if ($this->type === 'COMMENT') {
+        } elseif ($this->type === 'COMMENT') {
             return (new SlackMessage)
                 ->from('Taskord Bot', ':robot_face:')
                 ->to('#logs')
@@ -68,7 +68,7 @@ class NewPraise extends Notification implements ShouldQueue
                                    'Praise Count' => $this->entity->task_comment_praise->count(),
                                ]);
                 });
-        } else if ($this->type === 'QUESTION') {
+        } elseif ($this->type === 'QUESTION') {
             return (new SlackMessage)
                 ->from('Taskord Bot', ':robot_face:')
                 ->to('#logs')
@@ -82,7 +82,7 @@ class NewPraise extends Notification implements ShouldQueue
                                    'Praise Count' => $this->entity->question_praise->count(),
                                ]);
                 });
-        } else if ($this->type === 'ANSWER') {
+        } elseif ($this->type === 'ANSWER') {
             return (new SlackMessage)
                 ->from('Taskord Bot', ':robot_face:')
                 ->to('#logs')
