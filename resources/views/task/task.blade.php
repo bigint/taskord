@@ -18,16 +18,16 @@
                             {{ Emoji::wavingHand() }} Login or Signup to comment
                         </a>
                     @endguest
-                    @livewire('task.comments', [
-                        'task' => $task,
-                        'page' => 1,
-                        'perPage' => 10
-                    ])
                     @if (Auth::check() && !Auth::user()->isFlagged)
                         @livewire('task.create-comment', [
                             'task' => $task
                         ])
                     @endif
+                    @livewire('task.comments', [
+                        'task' => $task,
+                        'page' => 1,
+                        'perPage' => 10
+                    ])
                 </div>
                 <div class="col-sm">
                     <div class="card mb-4">
