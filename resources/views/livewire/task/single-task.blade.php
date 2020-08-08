@@ -73,18 +73,6 @@
                     @endif
                 </button>
             @endif
-            @if (Auth::user()->staffShip or Auth::id() === $task->user->id)
-                @if ($confirming === $task->id)
-                <button type="button" class="btn btn-task btn-danger" wire:click="deleteTask" wire:loading.attr="disabled">
-                    Are you sure?
-                    <span wire:target="deleteTask" wire:loading class="spinner-border spinner-border-mini ml-2" role="status"></span>
-                </button>
-                @else
-                <button type="button" class="btn btn-task btn-outline-danger" wire:click="confirmDelete" wire:loading.attr="disabled">
-                    {{ Emoji::wastebasket() }}
-                </button>
-                @endif
-            @endif
             @endauth
             @guest
                 <a href="/login" class="btn btn-task btn-outline-success mr-1">
@@ -104,6 +92,20 @@
                 </span>
                 @endif
             </a>
+            @auth
+            @if (Auth::user()->staffShip or Auth::id() === $task->user->id)
+                @if ($confirming === $task->id)
+                <button type="button" class="btn btn-task btn-danger" wire:click="deleteTask" wire:loading.attr="disabled">
+                    Are you sure?
+                    <span wire:target="deleteTask" wire:loading class="spinner-border spinner-border-mini ml-2" role="status"></span>
+                </button>
+                @else
+                <button type="button" class="btn btn-task btn-outline-danger" wire:click="confirmDelete" wire:loading.attr="disabled">
+                    {{ Emoji::wastebasket() }}
+                </button>
+                @endif
+            @endif
+            @endauth
         </div>
     </div>
     <div class="collapse mt-3 text-black-50" id="taskExpand-{{$task->id}}">

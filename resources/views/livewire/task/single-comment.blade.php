@@ -1,6 +1,6 @@
-<div class="card-body">
+<li class="list-group-item pt-3 pb-3">
     @include('components.alert')
-    <div class="align-items-center d-flex">
+    <div class="align-items-center d-flex mb-2">
         <img class="avatar-40 rounded-circle" src="{{ $comment->user->avatar }}" />
         <span class="ml-2">
             <a href="{{ route('user.done', ['username' => $comment->user->username]) }}" class="font-weight-bold text-dark">
@@ -16,7 +16,7 @@
             {{ Carbon::parse($comment->created_at)->diffForHumans() }}
         </span>
     </div>
-    <span class="ml-1 task-font">
+    <span class="task-font">
         @markdown($comment->comment)
     </span>
     <div>
@@ -62,4 +62,4 @@
             </a>
         @endguest
     </div>
-</div>
+</li>

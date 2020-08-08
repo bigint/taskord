@@ -7,13 +7,13 @@
         </div>
     </div>
     @endif
+    <ul class="list-group mt-4" wire:poll.5s>
     @foreach ($comments as $comment)
-        <div class="card mt-4" wire:poll.5s>
-            @livewire('task.single-comment', [
-                'comment' => $comment,
-            ], key($comment->id))
-        </div>
+        @livewire('task.single-comment', [
+            'comment' => $comment,
+        ], key($comment->id))
     @endforeach
+    </ul>
     <div class="mt-4">
         @if ($comments->hasMorePages())
             @livewire('task.load-more', [
