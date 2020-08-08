@@ -2,10 +2,10 @@
 
 namespace App\Http\Livewire\User;
 
+use App\Notifications\Slack\Mod;
 use App\User;
 use Auth;
 use Livewire\Component;
-use App\Notifications\Slack\Mod;
 use Notification;
 
 class Moderator extends Component
@@ -191,7 +191,6 @@ class Moderator extends Component
             Notification::route('slack', env('SLACK_HOOK'))
                     ->notify(new Mod('DELETE_USER', null, Auth::user()));
             $user->delete();
-            
 
             return redirect()->route('home');
         } else {
