@@ -4,14 +4,13 @@ namespace App\Notifications\Slack;
 
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
-use Illuminate\Notifications\Messages\MailMessage;
-use Illuminate\Notifications\Notification;
 use Illuminate\Notifications\Messages\SlackMessage;
+use Illuminate\Notifications\Notification;
 
 class NewTask extends Notification implements ShouldQueue
 {
     use Queueable;
-    
+
     protected $task;
 
     /**
@@ -37,8 +36,8 @@ class NewTask extends Notification implements ShouldQueue
 
     public function toSlack($notifiable)
     {
-        $message = "Famous Hello World!";
-        
+        $message = 'Famous Hello World!';
+
         return (new SlackMessage)
                 ->from('Taskord Bot', ':robot_face:')
                 ->to('#logs')
@@ -47,9 +46,9 @@ class NewTask extends Notification implements ShouldQueue
                 ->attachment(function ($attachment) {
                     $attachment->title('@'.$this->task->user->username, 'https://taskord.com/@'.$this->task->user->username)
                                ->fields([
-                                    'Task' => $this->task->task,
-                                    'ID' => $this->task->id,
-                                ]);
+                                   'Task' => $this->task->task,
+                                   'ID' => $this->task->id,
+                               ]);
                 });
     }
 }
