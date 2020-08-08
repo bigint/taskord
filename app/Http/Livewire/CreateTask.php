@@ -4,10 +4,12 @@ namespace App\Http\Livewire;
 
 use App\Gamify\Points\TaskCreated;
 use App\Notifications\TaskMentioned;
+use App\Notifications\Slack\NewTask;
 use App\Product;
 use App\Task;
 use App\User;
 use Auth;
+use Notification;
 use Carbon\Carbon;
 use Livewire\Component;
 use Livewire\WithFileUploads;
@@ -164,6 +166,8 @@ class CreateTask extends Component
                 }
             }
             givePoint(new TaskCreated($task));
+            Notification::route('slack', env('SLACK_HOOK'))
+                ->notify(new NewTask($task));
 
             return session()->flash('success', 'Task has been created!');
         } else {
