@@ -7,6 +7,8 @@ use App\Notifications\QuestionPraised;
 use App\QuestionPraise;
 use Auth;
 use Livewire\Component;
+use Notification;
+use App\Notifications\Slack\NewPraise;
 
 class SingleQuestion extends Component
 {
@@ -48,6 +50,8 @@ class SingleQuestion extends Component
                 $this->question->refresh();
                 $this->question->user->notify(new QuestionPraised($this->question, Auth::id()));
                 givePoint(new PraiseCreated($praise));
+                Notification::route('slack', env('SLACK_HOOK'))
+                    ->notify(new NewPraise('QUESTION', $this->question, Auth::user()));
             }
         } else {
             return session()->flash('error', 'Forbidden!');

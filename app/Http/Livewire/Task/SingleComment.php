@@ -6,6 +6,8 @@ use App\Notifications\TaskCommentPraised;
 use App\TaskCommentPraise;
 use Auth;
 use Livewire\Component;
+use Notification;
+use App\Notifications\Slack\NewPraise;
 
 class SingleComment extends Component
 {
@@ -44,6 +46,8 @@ class SingleComment extends Component
                 ]);
                 $this->comment->refresh();
                 $this->comment->user->notify(new TaskCommentPraised($this->comment, Auth::id()));
+                Notification::route('slack', env('SLACK_HOOK'))
+                    ->notify(new NewPraise('COMMENT', $this->comment, Auth::user()));
             }
         } else {
             return session()->flash('error', 'Forbidden!');

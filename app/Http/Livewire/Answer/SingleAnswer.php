@@ -7,6 +7,8 @@ use App\Gamify\Points\PraiseCreated;
 use App\Notifications\AnswerPraised;
 use Auth;
 use Livewire\Component;
+use Notification;
+use App\Notifications\Slack\NewPraise;
 
 class SingleAnswer extends Component
 {
@@ -46,6 +48,8 @@ class SingleAnswer extends Component
                 $this->answer->refresh();
                 $this->answer->user->notify(new AnswerPraised($this->answer, Auth::id()));
                 givePoint(new PraiseCreated($praise));
+                Notification::route('slack', env('SLACK_HOOK'))
+                    ->notify(new NewPraise('ANSWER', $this->answer, Auth::user()));
             }
         } else {
             return session()->flash('error', 'Forbidden!');

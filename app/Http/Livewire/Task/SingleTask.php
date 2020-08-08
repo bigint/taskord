@@ -76,7 +76,7 @@ class SingleTask extends Component
                 $this->task->user->notify(new TaskPraised($this->task, Auth::id()));
                 givePoint(new PraiseCreated($praise));
                 Notification::route('slack', env('SLACK_HOOK'))
-                    ->notify(new NewPraise($this->task, Auth::user()));
+                    ->notify(new NewPraise('TASK', $this->task, Auth::user()));
             }
         } else {
             return session()->flash('error', 'Forbidden!');

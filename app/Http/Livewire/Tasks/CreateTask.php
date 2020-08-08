@@ -11,6 +11,8 @@ use Auth;
 use Carbon\Carbon;
 use Livewire\Component;
 use Livewire\WithFileUploads;
+use Notification;
+use App\Notifications\Slack\NewTask;
 
 class CreateTask extends Component
 {
@@ -146,6 +148,8 @@ class CreateTask extends Component
             $this->emit('taskAdded');
             $this->reset();
             givePoint(new TaskCreated($task));
+            Notification::route('slack', env('SLACK_HOOK'))
+                ->notify(new NewTask($task));
         } else {
             return session()->flash('error', 'Forbidden!');
         }
