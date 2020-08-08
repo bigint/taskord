@@ -4,13 +4,13 @@ namespace App\Http\Livewire\Task;
 
 use App\Gamify\Points\PraiseCreated;
 use App\Gamify\Points\TaskCompleted;
-use App\Notifications\TaskPraised;
 use App\Notifications\Slack\NewPraise;
+use App\Notifications\TaskPraised;
 use App\TaskPraise;
 use Auth;
-use Notification;
 use Carbon\Carbon;
 use Livewire\Component;
+use Notification;
 
 class SingleTask extends Component
 {
