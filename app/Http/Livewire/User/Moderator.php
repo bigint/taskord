@@ -94,7 +94,7 @@ class Moderator extends Component
             return false;
         }
     }
-    
+
     public function deleteTasks()
     {
         if (Auth::check() && Auth::user()->isStaff) {
