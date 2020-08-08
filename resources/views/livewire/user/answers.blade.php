@@ -13,7 +13,7 @@
                 <a href="{{ route('user.done', ['username' => $answer->question->user->username]) }}">
                     <img class="rounded-circle avatar-30" src="{{ $answer->question->user->avatar }}" />
                 </a>
-                <a class="align-middle text-dark ml-2">
+                <a class="align-middle text-dark ml-2" href="{{ route('question.question', ['id' => $answer->question->id]) }}">
                     {{ $answer->question->title }}
                 </a>
             </div>
