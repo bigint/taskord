@@ -61,6 +61,8 @@ class CreateComment extends Component
                 $this->task->user->notify(new TaskCommented($comment));
                 givePoint(new CommentCreated($comment));
             }
+            Notification::route('slack', env('SLACK_HOOK'))
+                    ->notify(new NewComment($comment, Auth::user()));
 
             return session()->flash('success', 'Comment has been added!');
         } else {
