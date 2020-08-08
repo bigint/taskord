@@ -51,8 +51,17 @@
             <span wire:loading wire:target="flagUser" class="small ml-2 text-danger font-weight-bold">Flagging...</span>
         </div>
         <div class="mt-3">
+            <button wire:click="deleteTasks" class="btn btn-sm btn-danger font-weight-bold">
+                <i class="fa fa-trash mr-1"></i>
+                <i class="fa fa-check mr-1"></i>
+                Delete all tasks
+            </button>
+            <span wire:loading wire:target="deleteTasks" class="small ml-2 text-danger font-weight-bold">Deleting...</span>
+        </div>
+        <div class="mt-2">
             <button wire:click="deleteUser" class="btn btn-sm btn-danger font-weight-bold">
                 <i class="fa fa-trash mr-1"></i>
+                <i class="fa fa-user mr-1"></i>
                 Delete this user
             </button>
             <span wire:loading wire:target="deleteUser" class="small ml-2 text-danger font-weight-bold">Deleting...</span>

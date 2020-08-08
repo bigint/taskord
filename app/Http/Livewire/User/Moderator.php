@@ -94,6 +94,18 @@ class Moderator extends Component
             return false;
         }
     }
+    
+    public function deleteTasks()
+    {
+        if (Auth::check() && Auth::user()->isStaff) {
+            $user = User::find($this->user->id);
+            $user->tasks()->delete();
+
+            return redirect()->route('user.done', ['username' => $this->user->username]);
+        } else {
+            return false;
+        }
+    }
 
     public function deleteUser()
     {
