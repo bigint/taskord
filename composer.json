@@ -20,6 +20,7 @@
         "laravel/framework": "^7.0",
         "laravel/slack-notification-channel": "^2.1",
         "laravel/socialite": "^4.4",
+        "laravel/telescope": "^3.5",
         "laravel/tinker": "^2.0",
         "laravel/ui": "^2.1",
         "livewire/livewire": "^1.3",
