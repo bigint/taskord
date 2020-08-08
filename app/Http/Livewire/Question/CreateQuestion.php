@@ -6,6 +6,8 @@ use App\Gamify\Points\QuestionCreated;
 use App\Question;
 use Auth;
 use Livewire\Component;
+use Notification;
+use App\Notifications\Slack\NewQuestion;
 
 class CreateQuestion extends Component
 {
@@ -52,6 +54,8 @@ class CreateQuestion extends Component
 
             session()->flash('question_created', 'Question has been created!');
             givePoint(new QuestionCreated($question));
+            Notification::route('slack', env('SLACK_HOOK'))
+                    ->notify(new NewQuestion($question, Auth::user()));
 
             return redirect()->route('question.question', ['id' => $question->id]);
         } else {
