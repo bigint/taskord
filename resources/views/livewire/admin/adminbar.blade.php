@@ -5,20 +5,18 @@
                 <i class="fa fa-code-branch mr-1"></i>
                 {{ $branchname }}
             </span>
-            <span class="font-weight-bold ml-3">
+            <a class="text-white font-weight-bold ml-3" href="https://gitlab.com/taskord/taskord/-/releases/v{{ $version }}" target="_blank">
                 <i class="fa fa-cube mr-1"></i>
                 v{{ $version }}
-            </span>
-            <span class="font-weight-bold ml-3">
+            </a>
+            <a class="text-white font-weight-bold ml-3" href="https://github.com/laravel/framework/releases/tag/v{{ App::VERSION() }}" target="_blank">
                 <i class="fab fa-laravel mr-1"></i>
                 Laravel v{{ App::VERSION() }}
-            </span>
-            <a class="text-white" href="https://gitlab.com/taskord/taskord" target="_blank">
-                <span class="font-weight-bold ml-3">
-                    <i class="fa text-white fa-gitlab mr-1"></i>
-                    GitLab
-                </span>
             </a>
+            <span class="font-weight-bold ml-3">
+                <i class="fab fa-php mr-1"></i>
+                PHP v{{ phpversion() }}
+            </span>
         </span>
         <span class="float-right">
             <span role="button" class="dropdown dropleft">
