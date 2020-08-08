@@ -5,10 +5,10 @@ namespace App\Http\Livewire\Answer;
 use App\AnswerPraise;
 use App\Gamify\Points\PraiseCreated;
 use App\Notifications\AnswerPraised;
+use App\Notifications\Slack\NewPraise;
 use Auth;
 use Livewire\Component;
 use Notification;
-use App\Notifications\Slack\NewPraise;
 
 class SingleAnswer extends Component
 {

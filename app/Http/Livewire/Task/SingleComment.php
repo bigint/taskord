@@ -2,12 +2,12 @@
 
 namespace App\Http\Livewire\Task;
 
+use App\Notifications\Slack\NewPraise;
 use App\Notifications\TaskCommentPraised;
 use App\TaskCommentPraise;
 use Auth;
 use Livewire\Component;
 use Notification;
-use App\Notifications\Slack\NewPraise;
 
 class SingleComment extends Component
 {

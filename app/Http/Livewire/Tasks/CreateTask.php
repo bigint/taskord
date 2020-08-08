@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Tasks;
 
 use App\Gamify\Points\TaskCreated;
+use App\Notifications\Slack\NewTask;
 use App\Notifications\TaskMentioned;
 use App\Product;
 use App\Task;
@@ -12,7 +13,6 @@ use Carbon\Carbon;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 use Notification;
-use App\Notifications\Slack\NewTask;
 
 class CreateTask extends Component
 {
