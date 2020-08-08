@@ -3,11 +3,11 @@
 namespace App\Http\Livewire\Question;
 
 use App\Gamify\Points\QuestionCreated;
+use App\Notifications\Slack\NewQuestion;
 use App\Question;
 use Auth;
 use Livewire\Component;
 use Notification;
-use App\Notifications\Slack\NewQuestion;
 
 class CreateQuestion extends Component
 {

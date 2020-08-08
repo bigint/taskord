@@ -5,10 +5,10 @@ namespace App\Http\Livewire\Answer;
 use App\Answer;
 use App\Gamify\Points\CommentCreated;
 use App\Notifications\Answered;
+use App\Notifications\Slack\NewAnswer;
 use Auth;
 use Livewire\Component;
 use Notification;
-use App\Notifications\Slack\NewAnswer;
 
 class CreateAnswer extends Component
 {
