@@ -26,26 +26,6 @@
                 {{ $product->description }}
             </div>
             @endif
-            <div class="mt-2 small">
-                @if ($product->website)
-                    <a class="mr-3" href="{{ $product->website }}">
-                        <i class="fa fa-link mr-1"></i>
-                        {{ Helper::removeProtocol($product->website) }}
-                    </a>
-                @endif
-                @if ($product->twitter)
-                    <a class="mr-3" href="https://twitter.com/{{ $product->twitter }}">
-                        <i class="fa fa-twitter mr-1"></i>
-                        {{ $product->twitter }}
-                    </a>
-                @endif
-                @if ($product->producthunt)
-                    <a class="mr-3" href="https://producthunt.com/{{ $product->producthunt }}">
-                        <i class="fa fa-product-hunt mr-1"></i>
-                        {{ $product->producthunt }}
-                    </a>
-                @endif
-            </div>
             <div class="small mt-3 text-black-50">
                 <span class="mr-3">{{ Emoji::calendar() }} Lauched at {{ Carbon::parse($product->launched_at)->format("F Y") }}</span>
             </div>

@@ -15,6 +15,43 @@
         </div>
     </div>
     @endif
+    @if ($product->website or $product->twitter or $product->producthunt or $product->github)
+    <div class="card mb-4">
+        <div class="card-header">
+            Social
+        </div>
+        <ul class="list-group list-group-flush">
+            @if ($product->website)
+            <a class="list-group-item link-dark" href="{{ $product->website }}">
+                <i class="fa fa-link mr-1"></i>
+                {{ Helper::removeProtocol($product->website) }}
+            </a>
+            @endif
+            @if ($product->producthunt)
+            <a class="list-group-item link-dark" href="{{ $product->producthunt }}">
+                <i class="fa fa-product-hunt mr-1"></i>
+                {{ Helper::removeProtocol($product->producthunt) }}
+            </a>
+            @endif
+            @if ($product->twitter)
+            <a class="list-group-item link-dark" href="https://twitter.com/{{ $product->twitter }}">
+                <i class="fa fa-twitter mr-1"></i>
+                {{ $product->twitter }}
+            </a>
+            @endif
+            @if ($product->github)
+            <a class="list-group-item link-dark" href="https://github.com/{{ $product->github }}">
+                @if (Auth::check() && Auth::user()->darkMode)
+                <i class="fa fa-github text-white mr-1"></i>
+                @else
+                <i class="fa fa-github mr-1"></i>
+                @endif
+                {{ $product->github }}
+            </a>
+            @endif
+        </ul>
+    </div>
+    @endif
     <div class="card mb-4">
         <div class="card-header">
             Creator
