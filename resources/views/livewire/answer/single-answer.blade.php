@@ -1,29 +1,31 @@
 <div>
-    @include('components.alert')
-    <div class="card-body d-flex align-items-center">
-        <a href="{{ route('user.done', ['username' => $answer->user->username]) }}">
-            <img class="avatar-40 rounded-circle" src="{{ $answer->user->avatar }}" />
-        </a>
-        <span class="ml-2">
-            <a href="{{ route('user.done', ['username' => $answer->user->username]) }}" class="font-weight-bold text-dark">
-                @if ($answer->user->firstname or $answer->user->lastname)
-                    {{ $answer->user->firstname }}{{ ' '.$answer->user->lastname }}
-                @else
-                    {{ $answer->user->username }}
-                @endif
-                @if ($answer->user->isPatron)
-                    <a class="ml-1 small" href="{{ route('patron') }}" data-toggle="tooltip" data-placement="right" title="Patron">
-                        {{ Emoji::handshake() }}
-                    </a>
-                @endif
+    <div class="card-body">
+        @include('components.alert')
+        <div class="d-flex align-items-center">
+            <a href="{{ route('user.done', ['username' => $answer->user->username]) }}">
+                <img class="avatar-40 rounded-circle" src="{{ $answer->user->avatar }}" />
             </a>
-            <div class="small">{{ "@" . $answer->user->username }}</div>
-        </span>
-        <span class="align-text-top small float-right ml-auto">
-            <a class="text-black-50" href="">
-                {{ Carbon::parse($answer->created_at)->diffForHumans() }}
-            </a>
-        </span>
+            <span class="ml-2">
+                <a href="{{ route('user.done', ['username' => $answer->user->username]) }}" class="font-weight-bold text-dark">
+                    @if ($answer->user->firstname or $answer->user->lastname)
+                        {{ $answer->user->firstname }}{{ ' '.$answer->user->lastname }}
+                    @else
+                        {{ $answer->user->username }}
+                    @endif
+                    @if ($answer->user->isPatron)
+                        <a class="ml-1 small" href="{{ route('patron') }}" data-toggle="tooltip" data-placement="right" title="Patron">
+                            {{ Emoji::handshake() }}
+                        </a>
+                    @endif
+                </a>
+                <div class="small">{{ "@" . $answer->user->username }}</div>
+            </span>
+            <span class="align-text-top small float-right ml-auto">
+                <a class="text-black-50" href="">
+                    {{ Carbon::parse($answer->created_at)->diffForHumans() }}
+                </a>
+            </span>
+        </div>
     </div>
     <div class="card-body pt-1">
         <div>@markdown($answer->answer)</div>
