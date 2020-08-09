@@ -49,19 +49,19 @@ class CreateUsersTable extends Migration
 
             // Task Praised
             $table->boolean('taskPraisedEmail')->default(true);
-            $table->boolean('taskPraisedWeb')->default(true);
+            $table->boolean('taskPraisedWeb')->default(false);
 
             // Comment Praised
             $table->boolean('commentPraisedEmail')->default(true);
-            $table->boolean('commentPraisedWeb')->default(true);
+            $table->boolean('commentPraisedWeb')->default(false);
 
             // Question Praised
             $table->boolean('questionPraisedEmail')->default(true);
-            $table->boolean('questionPraisedWeb')->default(true);
+            $table->boolean('questionPraisedWeb')->default(false);
 
             // Answer Praised
             $table->boolean('answerPraisedEmail')->default(true);
-            $table->boolean('answerPraisedWeb')->default(true);
+            $table->boolean('answerPraisedWeb')->default(false);
 
             // Comment Added
             $table->boolean('commentAddedEmail')->default(true);
