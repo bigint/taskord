@@ -31,6 +31,27 @@ class ProductController extends Controller
             'pending_count' => Task::where([['product_id', $product->id], ['done', false], ['user_id', $product->user->id]])->count(),
         ]);
     }
+    
+    public function updates($slug)
+    {
+        $product = Product::where('slug', $slug)->firstOrFail();
+
+        return view('product.updates', [
+            'product' => $product,
+            'type' => 'product.pending',
+            'done_count' => Task::where([['product_id', $product->id], ['done', true], ['user_id', $product->user->id]])->count(),
+            'pending_count' => Task::where([['product_id', $product->id], ['done', false], ['user_id', $product->user->id]])->count(),
+        ]);
+    }
+    
+    public function newUpdate($slug)
+    {
+        $product = Product::where('slug', $slug)->firstOrFail();
+        
+        return view('product.new-update', [
+            'product' => $product,
+        ]);
+    }
 
     public function newest()
     {

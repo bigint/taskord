@@ -40,11 +40,9 @@
             <span class="@if (Route::currentRouteName() === 'product.pending') text-primary @endif">Pending</span>
             <span class="small font-weight-normal text-black-50">{{ $pending_count }}</span>
         </a>
-        @if (Auth::check() && Auth::user()->staffShip)
-        <a class="text-dark font-weight-bold mr-4" href="">
-            Updates <span class="small font-weight-normal text-black-50">1000</span>
+        <a class="text-dark font-weight-bold mr-4"href="{{ route('product.updates', ['slug' => $product->slug]) }}">
+            <span class="@if (Route::currentRouteName() === 'product.updates') text-primary @endif">Updates</span>
         </a>
-        @endif
         @if (Auth::check() && Auth::user()->staffShip)
         <a class="text-dark font-weight-bold mr-4" href="">
             Stats

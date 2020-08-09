@@ -72,6 +72,11 @@ class User extends Authenticatable
     {
         return $this->hasMany('App\Product');
     }
+    
+    public function product_update()
+    {
+        return $this->belongsTo('App\ProductUpdate');
+    }
 
     public function questions()
     {
