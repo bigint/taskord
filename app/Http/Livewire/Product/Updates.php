@@ -20,7 +20,7 @@ class Updates extends Component
             ->where('product_id', $this->product->id)
             ->latest()
             ->paginate(20);
-
+            
         return view('livewire.product.updates', [
             'updates' => $updates,
         ]);

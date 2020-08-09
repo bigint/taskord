@@ -3,10 +3,10 @@
     <div class="card mb-4">
         <div class="card-body">
             @if (Auth::user()->staffShip)
-            <button class="btn btn-block btn-success text-white font-weight-bold">
+            <a class="btn btn-block btn-success text-white font-weight-bold" href="{{ route('product.new-update', ['slug' => $product->slug]) }}">
                 <i class="fa fa-bell mr-1"></i>
                 Write a product update
-            </button>
+            </a>
             @endif
             <a class="btn btn-block btn-success text-white font-weight-bold" href="{{ route('product.edit', ['slug' => $product->slug]) }}">
                 <i class="fa fa-edit mr-1"></i>
