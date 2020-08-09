@@ -2,10 +2,10 @@
 
 namespace App\Http\Livewire\Product;
 
+use App\Notifications\NewProductUpdate;
 use App\ProductUpdate;
 use Auth;
 use Livewire\Component;
-use App\Notifications\NewProductUpdate;
 use Notification;
 
 class NewUpdate extends Component
