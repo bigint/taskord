@@ -2,8 +2,8 @@
 
 namespace App\Http\Livewire\Product;
 
-use Livewire\Component;
 use App\ProductUpdate;
+use Livewire\Component;
 
 class Updates extends Component
 {
@@ -13,14 +13,14 @@ class Updates extends Component
     {
         $this->product = $product;
     }
-    
+
     public function render()
     {
         $updates = ProductUpdate::cacheFor(60 * 60)
             ->where('product_id', $this->product->id)
             ->latest()
             ->paginate(20);
-            
+
         return view('livewire.product.updates', [
             'updates' => $updates,
         ]);

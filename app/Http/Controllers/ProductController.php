@@ -31,7 +31,7 @@ class ProductController extends Controller
             'pending_count' => Task::where([['product_id', $product->id], ['done', false], ['user_id', $product->user->id]])->count(),
         ]);
     }
-    
+
     public function updates($slug)
     {
         $product = Product::where('slug', $slug)->firstOrFail();
@@ -43,11 +43,11 @@ class ProductController extends Controller
             'pending_count' => Task::where([['product_id', $product->id], ['done', false], ['user_id', $product->user->id]])->count(),
         ]);
     }
-    
+
     public function newUpdate($slug)
     {
         $product = Product::where('slug', $slug)->firstOrFail();
-        
+
         if (Auth::user()->staffShip or Auth::id() === $product->user->id) {
             return view('product.new-update', [
                 'product' => $product,
