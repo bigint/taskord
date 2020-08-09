@@ -1,5 +1,5 @@
 <div>
-    @if (Auth::user()->hasSubscribed($product))
+    @if (Auth::user()->hasLiked($product))
     <button wire:click="subscribeProduct" wire:loading.attr="disabled" class="btn btn-sm btn-danger mb-2">
         <i class="fa fa-minus mr-1"></i>
         Unsubscribe

@@ -19,7 +19,7 @@
                 ])
             @endif
             <span class="small">
-                <span class="font-weight-bold">{{ $product->subscribers->count() }}</span> Subscribers
+                <span class="font-weight-bold">{{ $product->likes->count() }}</span> Subscribers
             </span>
             @if ($product->description)
             <div class="mt-3">

@@ -3,12 +3,12 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use Overtrue\LaravelSubscribe\Traits\Subscribable;
+use Overtrue\LaravelLike\Traits\Likeable;
 use Rennokki\QueryCache\Traits\QueryCacheable;
 
 class Product extends Model
 {
-    use QueryCacheable, Subscribable;
+    use QueryCacheable, Likeable;
 
     protected $cacheFor = 3600;
 

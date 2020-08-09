@@ -1,7 +1,7 @@
 <?php
 
 /*
- * This file is part of the overtrue/laravel-subscribe.
+ * This file is part of the overtrue/laravel-like.
  *
  * (c) overtrue <anzhengchao@gmail.com>
  *
@@ -12,17 +12,17 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateSubscriptionsTable extends Migration
+class CreateLikesTable extends Migration
 {
     /**
      * Run the migrations.
      */
     public function up()
     {
-        Schema::create(config('subscribe.subscriptions_table'), function (Blueprint $table) {
+        Schema::create(config('like.likes_table'), function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedBigInteger(config('subscribe.user_foreign_key'))->index()->comment('user_id');
-            $table->morphs('subscribable');
+            $table->unsignedBigInteger(config('like.user_foreign_key'))->index()->comment('user_id');
+            $table->morphs('likeable');
             $table->timestamps();
         });
     }
@@ -32,6 +32,6 @@ class CreateSubscriptionsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists(config('subscribe.subscriptions_table'));
+        Schema::dropIfExists(config('like.likes_table'));
     }
 }
