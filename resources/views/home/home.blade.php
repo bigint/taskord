@@ -29,14 +29,12 @@
                                     </a>
                                     <a href="{{ route('question.question', ['id' => $question->id]) }}">
                                         <span class="ml-1 font-weight-bold align-middle text-dark">{{ Str::words($question->title, '10') }}</span>
-                                    </a>
-                                    @if ($question->answer->count() >= 1)
-                                    <a href="">
+                                        @if ($question->answer->count() >= 1)
                                         <span class="ml-1 align-middle text-black-50">
                                             {{ $question->answer->count() }} {{ $question->answer->count() >= 1 ? 'answers' : 'answer' }}
                                         </span>
+                                        @endif
                                     </a>
-                                    @endif
                                     @if ($question->created_at->isToday())
                                     <span class="badge bg-success ml-2 align-middle">New</span>
                                     @endif
