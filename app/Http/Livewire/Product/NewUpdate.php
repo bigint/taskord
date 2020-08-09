@@ -2,16 +2,16 @@
 
 namespace App\Http\Livewire\Product;
 
-use Livewire\Component;
-use Auth;
 use App\ProductUpdate;
+use Auth;
+use Livewire\Component;
 
 class NewUpdate extends Component
 {
     public $title;
     public $body;
     public $product;
-    
+
     public function mount($product)
     {
         $this->product = $product;
@@ -63,7 +63,7 @@ class NewUpdate extends Component
             session()->flash('error', 'Forbidden!');
         }
     }
-    
+
     public function render()
     {
         return view('livewire.product.new-update');

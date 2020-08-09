@@ -35,7 +35,7 @@ class Product extends Model
     {
         return $this->hasMany('App\Task');
     }
-    
+
     public function product_update()
     {
         return $this->belongsTo('App\ProductUpdate');
