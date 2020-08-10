@@ -53,7 +53,6 @@
                         <li class="nav-item">
                             <a class="nav-link text-white font-weight-bold" href="{{ route('tasks') }}">
                                 Tasks
-                                @include('components.beta', ['background' => 'white'])
                             </a>
                         </li>
                         @endauth
@@ -110,7 +109,7 @@
                                     <a class="dropdown-item text-dark" href="{{ route('user.settings.profile') }}">
                                         {{ Emoji::gear() }} Settings
                                     </a>
-                                    <a class="dropdown-item text-dark" href="{{ route('patron') }}">
+                                    <a class="dropdown-item text-dark" href="{{ route('patron.home') }}">
                                         {{ Emoji::handshake() }} Patron
                                     </a>
                                     <div class="dropdown-divider"></div>
