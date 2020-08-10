@@ -5,43 +5,35 @@ namespace App\Http\Controllers;
 use App\Models\Product;
 use App\Models\Task;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
 
 class ProductController extends Controller
 {
-    public function done($slug)
+    public function profile($slug)
     {
         $product = Product::where('slug', $slug)->firstOrFail();
-
-        return view('product.done', [
+        $type = Route::current()->getName();
+        
+        $response = [
             'product' => $product,
-            'type' => 'product.done',
-            'done_count' => Task::where([['product_id', $product->id], ['done', true], ['user_id', $product->user->id]])->count(),
-            'pending_count' => Task::where([['product_id', $product->id], ['done', false], ['user_id', $product->user->id]])->count(),
-        ]);
-    }
-
-    public function pending($slug)
-    {
-        $product = Product::where('slug', $slug)->firstOrFail();
-
-        return view('product.pending', [
-            'product' => $product,
-            'type' => 'product.pending',
-            'done_count' => Task::where([['product_id', $product->id], ['done', true], ['user_id', $product->user->id]])->count(),
-            'pending_count' => Task::where([['product_id', $product->id], ['done', false], ['user_id', $product->user->id]])->count(),
-        ]);
-    }
-
-    public function updates($slug)
-    {
-        $product = Product::where('slug', $slug)->firstOrFail();
-
-        return view('product.updates', [
-            'product' => $product,
-            'type' => 'product.pending',
-            'done_count' => Task::where([['product_id', $product->id], ['done', true], ['user_id', $product->user->id]])->count(),
-            'pending_count' => Task::where([['product_id', $product->id], ['done', false], ['user_id', $product->user->id]])->count(),
-        ]);
+            'type' => $type,
+            'done_count' => Task::cacheFor(60 * 60)
+                ->where([
+                    ['product_id', $product->id],
+                    ['done', true],
+                    ['user_id', $product->user->id]
+                ])
+                ->count('id'),
+            'pending_count' => Task::cacheFor(60 * 60)
+                ->where([
+                    ['product_id', $product->id],
+                    ['done', false],
+                    ['user_id', $product->user->id]
+                ])
+                ->count('id'),
+        ];
+        
+        return view($type, $response);
     }
 
     public function newUpdate($slug)

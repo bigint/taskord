@@ -8,13 +8,14 @@ use App\Models\Question;
 use App\Models\Task;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
 
 class UserController extends Controller
 {
     public function profile($username)
     {
         $user = User::where('username', $username)->firstOrFail();
-        $type = \Route::current()->getName();
+        $type = Route::current()->getName();
 
         $response = [
             'user' => $user,
