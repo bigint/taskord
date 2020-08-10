@@ -32,7 +32,7 @@ class ProductController extends Controller
                 ])
                 ->count('id'),
         ];
-        
+
         if (Auth::check() && Auth::id() === $product->user->id or Auth::check() && Auth::user()->staffShip) {
             return view($type, $response);
         } elseif ($product->user->isFlagged) {
