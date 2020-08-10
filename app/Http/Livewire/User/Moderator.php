@@ -70,7 +70,7 @@ class Moderator extends Component
             return false;
         }
     }
-    
+
     public function suspendUser()
     {
         if (Auth::check() && Auth::user()->isStaff) {
@@ -79,7 +79,7 @@ class Moderator extends Component
             }
             $this->user->isSuspended = ! $this->user->isSuspended;
             $this->user->save();
-            // TODO Slack Notification
+        // TODO Slack Notification
         } else {
             return false;
         }
