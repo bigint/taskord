@@ -78,6 +78,11 @@ class Moderator extends Component
                 return false;
             }
             $this->user->isSuspended = ! $this->user->isSuspended;
+            if ($this->user->isSuspended) {
+                $this->user->isFlagged = true;
+            } else {
+                $this->user->isFlagged = false;
+            }
             $this->user->save();
         // TODO Slack Notification
         } else {
