@@ -51,6 +51,7 @@ class LoginController extends Controller
         if (Auth::attempt([$fieldType => $input['username'], 'password' => $input['password']])) {
             if (Auth::getLastAttempted()->isSuspended) {
                 Auth::logout();
+
                 return redirect()->route('suspended');
             } else {
                 $request->session()->flash('global', 'Welcome back!');
