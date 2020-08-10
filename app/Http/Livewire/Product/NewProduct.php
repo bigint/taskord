@@ -3,8 +3,8 @@
 namespace App\Http\Livewire\Product;
 
 use App\Models\Product;
-use Illuminate\Support\Facades\Auth;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 
 class NewProduct extends Component

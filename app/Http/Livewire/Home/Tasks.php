@@ -3,11 +3,11 @@
 namespace App\Http\Livewire\Home;
 
 use App\Models\Task;
-use Illuminate\Support\Facades\Auth;
 use Carbon\Carbon;
 use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 
 class Tasks extends Component
