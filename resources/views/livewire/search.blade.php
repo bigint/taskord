@@ -1,6 +1,7 @@
 <div class="d-none d-md-block mr-3">
     <input
         type="text"
+        id="search-input"
         class="form-control border-0 bg-secondary text-white"
         placeholder="Search Taskord..."
         wire:model="query"
