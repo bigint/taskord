@@ -7,8 +7,8 @@ use App\Gamify\Points\TaskCompleted;
 use App\Models\TaskPraise;
 use App\Notifications\Slack\NewPraise;
 use App\Notifications\TaskPraised;
-use Illuminate\Support\Facades\Auth;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 use Notification;
 

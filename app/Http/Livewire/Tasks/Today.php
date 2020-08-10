@@ -3,8 +3,8 @@
 namespace App\Http\Livewire\Tasks;
 
 use App\Models\Task;
-use Illuminate\Support\Facades\Auth;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 
 class Today extends Component
