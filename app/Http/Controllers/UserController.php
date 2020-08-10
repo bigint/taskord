@@ -15,7 +15,7 @@ class UserController extends Controller
     {
         $user = User::where('username', $username)->firstOrFail();
         $type = \Route::current()->getName();
-        
+
         $response = [
             'user' => $user,
             'type' => $type,
@@ -28,10 +28,10 @@ class UserController extends Controller
 
         if (Auth::check() && Auth::id() === $user->id or Auth::check() && Auth::user()->staffShip) {
             return view($type, $response);
-        } else if($user->isFlagged) {
+        } elseif ($user->isFlagged) {
             return view('errors.404');
         }
-        
+
         return view($type, $response);
     }
 
