@@ -1,10 +1,10 @@
 <div class="card p-1 rounded-0 d-flex border-bottom border-primary bg-primary text-white">
     <div class="pl-2 pr-2">
         <span class="float-left">
-            <span class="font-weight-bold">
+            <a class="text-white font-weight-bold" href="https://gitlab.com/taskord/taskord/-/tree/{{ $branchname }}" target="_blank">
                 <i class="fa fa-code-branch mr-1"></i>
                 {{ $branchname }}
-            </span>
+            </a>
             <a class="text-white font-weight-bold ml-3" href="https://gitlab.com/taskord/taskord/-/releases/v{{ $version }}" target="_blank">
                 <i class="fa fa-cube mr-1"></i>
                 v{{ $version }}
