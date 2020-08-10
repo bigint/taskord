@@ -122,7 +122,7 @@ return [
     'key' => env('APP_KEY'),
 
     'cipher' => 'AES-256-CBC',
-    
+
     'slack_hook_url' => env('SLACK_HOOK'),
 
     /*
