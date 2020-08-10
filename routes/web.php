@@ -18,13 +18,13 @@ Auth::routes();
 Route::get('/', 'HomeController@index')->name('home');
 
 Route::group(['prefix' => '@{username}', 'as' => 'user.'], function () {
-    Route::get('', 'UserController@done')->name('done');
-    Route::get('pending', 'UserController@pending')->name('pending');
-    Route::get('products', 'UserController@products')->name('products');
-    Route::get('questions', 'UserController@questions')->name('questions');
-    Route::get('answers', 'UserController@answers')->name('answers');
-    Route::get('following', 'UserController@following')->name('following');
-    Route::get('followers', 'UserController@followers')->name('followers');
+    Route::get('', 'UserController@profile')->name('done');
+    Route::get('pending', 'UserController@profile')->name('pending');
+    Route::get('products', 'UserController@profile')->name('products');
+    Route::get('questions', 'UserController@profile')->name('questions');
+    Route::get('answers', 'UserController@profile')->name('answers');
+    Route::get('following', 'UserController@profile')->name('following');
+    Route::get('followers', 'UserController@profile')->name('followers');
 });
 
 Route::group(['prefix' => 'settings', 'as' => 'user.settings.', 'middleware' => ['auth', 'password.confirm']], function () {
