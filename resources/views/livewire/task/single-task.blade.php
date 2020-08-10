@@ -12,7 +12,7 @@
                     {{ $task->user->username }}
                 @endif
                 @if ($task->user->isPatron)
-                    <a class="ml-1 small" href="{{ route('patron') }}" data-toggle="tooltip" data-placement="right" title="Patron">
+                    <a class="ml-1 small" href="{{ route('patron.home') }}" data-toggle="tooltip" data-placement="right" title="Patron">
                         {{ Emoji::handshake() }}
                     </a>
                 @endif

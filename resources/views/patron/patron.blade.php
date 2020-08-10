@@ -1,61 +1,41 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="pb-md-4 pt-md-5 text-center">
-    <h1 class="display-4">Patron</h1>
-    <p class="lead">Support Taskord!</p>
-</div>
-
 <div class="container">
-    <div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
-        <div class="col">
-            <div class="card mb-4 shadow-sm">
-                <div class="card-header">
-                    <h4 class="my-0 font-weight-normal">Tier 1</h4>
-                </div>
-                <div class="card-body">
-                    <h1>$5 <small class="text-muted">/ mo</small></h1>
-                    <ul class="list-unstyled mt-3 mb-4">
-                        <li>Soon</li>
-                        <li>Soon</li>
-                        <li>Soon</li>
-                        <li>Soon</li>
-                    </ul>
-                    <button type="button" class="btn btn-lg btn-block btn-primary">Support now</button>
-                </div>
-            </div>
+    <div class="mb-4 text-center">
+        <img src="/images/patron.svg" width="100" />
+    </div>
+    <div class="card">
+        <div class="card-header pt-3 pb-3">
+            <span class="h5">Become a Patron</span>
+            <div>Support Taskord by becoming a Patron.</div>
         </div>
-        <div class="col">
-            <div class="card mb-4 shadow-sm">
-                <div class="card-header">
-                    <h4 class="my-0 font-weight-normal">Tier 2</h4>
-                </div>
-                <div class="card-body">
-                    <h1>$20 <small class="text-muted">/ mo</small></h1>
-                    <ul class="list-unstyled mt-3 mb-4">
-                        <li>Soon</li>
-                        <li>Soon</li>
-                        <li>Soon</li>
-                        <li>Soon</li>
+        <div class="card-body">
+            <div class="row align-items-center font-monospace">
+                <div class="col-md-8">
+                    <div class="font-weight-bold mb-3">You get the following benefits</div>
+                    <ul>
+                        <li>❤️ Good karma for helping a bootstrapped startup</li>
+                        <li>💰 Financially commit to staying productive</li>
+                        <li>🔥 Enable Dark Mode on the website</li>
+                        <li>💎 Show off your support with the Patron badge</li>
+                        <li>📊 See your shipping stats</li>
+                        <li>👍 Fund on-going development of the platform</li>
                     </ul>
-                    <button type="button" class="btn btn-lg btn-block btn-primary">Support now</button>
                 </div>
-            </div>
-        </div>
-        <div class="col">
-            <div class="card mb-4 shadow-sm">
-                <div class="card-header">
-                    <h4 class="my-0 font-weight-normal">Tier 3</h4>
-                </div>
-                <div class="card-body">
-                    <h1>$50 <small class="text-muted">/ mo</small></h1>
-                    <ul class="list-unstyled mt-3 mb-4">
-                        <li>Soon</li>
-                        <li>Soon</li>
-                        <li>Soon</li>
-                        <li>Soon</li>
-                    </ul>
-                    <button type="button" class="btn btn-lg btn-block btn-primary">Support now</button>
+                <div class="col-sm">
+                    <a class="btn btn-block btn-primary">
+                        Support $5/month
+                    </a>
+                    <a class="btn btn-block btn-primary">
+                        Support $10/month
+                    </a>
+                    <a class="btn btn-block btn-primary">
+                        Support $20/month
+                    </a>
+                    <a class="btn btn-block btn-primary">
+                        Support $50/month
+                    </a>
                 </div>
             </div>
         </div>

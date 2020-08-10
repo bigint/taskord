@@ -75,14 +75,17 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['staff']],
     Route::get('adminbar', 'AdminController@toggle')->name('adminbar');
 });
 
+Route::group(['prefix' => 'patron', 'as' => 'patron.'], function () {
+    Route::get('', 'PatronController@patron')->name('home');
+    Route::get('tier/{id}', 'PatronController@tier')->name('tier');
+});
+
 // Toggles
 Route::get('darkmode', 'UserController@darkMode')->name('darkmode')->middleware('patron');
 
 Route::get('task/{id}', 'TaskController@task')->name('task');
 
 Route::get('tasks', 'TaskController@tasks')->name('tasks')->middleware('auth');
-
-Route::get('patron', 'PatronController@patron')->name('patron');
 
 Route::personalDataExports('personal-data-exports');
 

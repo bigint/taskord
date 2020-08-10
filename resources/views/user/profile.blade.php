@@ -10,7 +10,7 @@
                             <span class="ml-2 text-secondary small">#{{ $user->id }}</span>
                         @endif
                         @if ($user->isPatron)
-                            <a class="ml-2 small" href="{{ route('patron') }}" data-toggle="tooltip" data-placement="right" title="Patron">
+                            <a class="ml-2 small" href="{{ route('patron.home') }}" data-toggle="tooltip" data-placement="right" title="Patron">
                                 {{ Emoji::handshake() }}
                             </a>
                         @endif
