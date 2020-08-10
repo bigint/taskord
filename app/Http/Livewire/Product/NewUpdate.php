@@ -5,8 +5,8 @@ namespace App\Http\Livewire\Product;
 use App\Models\ProductUpdate;
 use App\Notifications\NewProductUpdate;
 use Illuminate\Support\Facades\Auth;
-use Livewire\Component;
 use Illuminate\Support\Facades\Notification;
+use Livewire\Component;
 
 class NewUpdate extends Component
 {
