@@ -2,7 +2,7 @@
 
 namespace App\Http\Livewire\Question;
 
-use App\Question;
+use App\Models\Question;
 use Auth;
 use Livewire\Component;
 

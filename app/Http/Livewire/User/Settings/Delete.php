@@ -2,7 +2,7 @@
 
 namespace App\Http\Livewire\User\Settings;
 
-use App\User;
+use App\Models\User;
 use Auth;
 use Livewire\Component;
 

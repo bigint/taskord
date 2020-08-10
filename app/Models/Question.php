@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use CyrildeWit\EloquentViewable\Contracts\Viewable;
 use CyrildeWit\EloquentViewable\InteractsWithViews;
@@ -21,16 +21,16 @@ class Question extends Model implements Viewable
 
     public function user()
     {
-        return $this->belongsTo('App\User');
+        return $this->belongsTo(\App\Models\User::class);
     }
 
     public function answer()
     {
-        return $this->hasMany('App\Answer');
+        return $this->hasMany(\App\Models\Answer::class);
     }
 
     public function question_praise()
     {
-        return $this->hasMany('App\QuestionPraise');
+        return $this->hasMany(\App\Models\QuestionPraise::class);
     }
 }

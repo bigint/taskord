@@ -2,7 +2,7 @@
 
 namespace App\Http\Livewire\User;
 
-use App\Question;
+use App\Models\Question;
 use Livewire\Component;
 
 class Questions extends Component

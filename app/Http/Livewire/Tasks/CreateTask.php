@@ -3,11 +3,11 @@
 namespace App\Http\Livewire\Tasks;
 
 use App\Gamify\Points\TaskCreated;
+use App\Models\Product;
+use App\Models\Task;
+use App\Models\User;
 use App\Notifications\Slack\NewTask;
 use App\Notifications\TaskMentioned;
-use App\Product;
-use App\Task;
-use App\User;
 use Auth;
 use Carbon\Carbon;
 use Livewire\Component;

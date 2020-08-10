@@ -2,7 +2,7 @@
 
 namespace App\Http\Livewire\Answer;
 
-use App\Answer;
+use App\Models\Answer;
 use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Collection;

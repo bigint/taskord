@@ -2,7 +2,7 @@
 
 namespace App\Http\Livewire\User;
 
-use App\Task;
+use App\Models\Task;
 use Carbon\Carbon;
 use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Pagination\Paginator;

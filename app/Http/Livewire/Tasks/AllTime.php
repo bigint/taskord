@@ -2,7 +2,7 @@
 
 namespace App\Http\Livewire\Tasks;
 
-use App\Task;
+use App\Models\Task;
 use Auth;
 use Livewire\Component;
 

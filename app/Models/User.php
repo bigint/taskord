@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -50,51 +50,51 @@ class User extends Authenticatable
 
     public function tasks()
     {
-        return $this->hasMany('App\Task');
+        return $this->hasMany(\App\Models\Task::class);
     }
 
     public function task_praise()
     {
-        return $this->hasMany('App\TaskPraise');
+        return $this->hasMany(\App\Models\TaskPraise::class);
     }
 
     public function task_comment()
     {
-        return $this->hasMany('App\TaskComment');
+        return $this->hasMany(\App\Models\TaskComment::class);
     }
 
     public function task_comment_praise()
     {
-        return $this->hasMany('App\TaskCommentPraise');
+        return $this->hasMany(\App\Models\TaskCommentPraise::class);
     }
 
     public function products()
     {
-        return $this->hasMany('App\Product');
+        return $this->hasMany(\App\Models\Product::class);
     }
 
     public function product_update()
     {
-        return $this->belongsTo('App\ProductUpdate');
+        return $this->belongsTo(\App\Models\ProductUpdate::class);
     }
 
     public function questions()
     {
-        return $this->hasMany('App\Question');
+        return $this->hasMany(\App\Models\Question::class);
     }
 
     public function question_praise()
     {
-        return $this->hasMany('App\QuestionPraise');
+        return $this->hasMany(\App\Models\QuestionPraise::class);
     }
 
     public function answers()
     {
-        return $this->hasMany('App\Answer');
+        return $this->hasMany(\App\Models\Answer::class);
     }
 
     public function answer_praise()
     {
-        return $this->hasMany('App\AnswerPraise');
+        return $this->hasMany(\App\Models\AnswerPraise::class);
     }
 }

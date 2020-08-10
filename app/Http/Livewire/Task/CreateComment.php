@@ -3,9 +3,9 @@
 namespace App\Http\Livewire\Task;
 
 use App\Gamify\Points\CommentCreated;
+use App\Models\TaskComment;
 use App\Notifications\Slack\NewComment;
 use App\Notifications\TaskCommented;
-use App\TaskComment;
 use Auth;
 use Livewire\Component;
 use Notification;

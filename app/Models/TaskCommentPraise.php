@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -10,11 +10,11 @@ class TaskCommentPraise extends Model
 
     public function task_comment()
     {
-        return $this->belongsTo('App\TaskComment');
+        return $this->belongsTo(\App\Models\TaskComment::class);
     }
 
     public function user()
     {
-        return $this->belongsTo('App\User');
+        return $this->belongsTo(\App\Models\User::class);
     }
 }

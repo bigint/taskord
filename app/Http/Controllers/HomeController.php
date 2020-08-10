@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Product;
-use App\Question;
-use App\User;
+use App\Models\Product;
+use App\Models\Question;
+use App\Models\User;
 use Carbon\Carbon;
 
 class HomeController extends Controller

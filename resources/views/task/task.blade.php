@@ -58,15 +58,15 @@
                             Product
                         </div>
                         <div class="card-body d-flex align-items-center">
-                            <a href="{{ route('product.done', ['slug' => \App\Product::find($task->product_id)->slug]) }}">
-                                <img class="rounded avatar-40 mt-1" src="{{ \App\Product::find($task->product_id)->avatar }}" />
+                            <a href="{{ route('product.done', ['slug' => \App\Models\Product::find($task->product_id)->slug]) }}">
+                                <img class="rounded avatar-40 mt-1" src="{{ \App\Models\Product::find($task->product_id)->avatar }}" />
                             </a>
                             <span class="ml-3">
                                 <a href="{{ route('user.done', ['username' => $task->user->username]) }}" class="align-text-top text-dark">
                                     <span class="font-weight-bold">
-                                        {{ \App\Product::find($task->product_id)->name }}
+                                        {{ \App\Models\Product::find($task->product_id)->name }}
                                     </span>
-                                    <div>{{ \App\Product::find($task->product_id)->description }}</div>
+                                    <div>{{ \App\Models\Product::find($task->product_id)->description }}</div>
                                 </a>
                             </span>
                         </div>

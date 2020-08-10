@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Rennokki\QueryCache\Traits\QueryCacheable;
@@ -23,21 +23,21 @@ class Task extends Model
 
     public function user()
     {
-        return $this->belongsTo('App\User');
+        return $this->belongsTo(\App\Models\User::class);
     }
 
     public function task_praise()
     {
-        return $this->hasMany('App\TaskPraise');
+        return $this->hasMany(\App\Models\TaskPraise::class);
     }
 
     public function task_comment()
     {
-        return $this->hasMany('App\TaskComment');
+        return $this->hasMany(\App\Models\TaskComment::class);
     }
 
     public function product()
     {
-        return $this->hasOne('App\Product');
+        return $this->hasOne(\App\Models\Product::class);
     }
 }

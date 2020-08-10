@@ -2,7 +2,7 @@
 
 namespace App\Http\Livewire\Product;
 
-use App\Product;
+use App\Models\Product;
 use Auth;
 use Carbon\Carbon;
 use Livewire\Component;

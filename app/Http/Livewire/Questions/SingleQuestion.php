@@ -3,9 +3,9 @@
 namespace App\Http\Livewire\Questions;
 
 use App\Gamify\Points\PraiseCreated;
+use App\Models\QuestionPraise;
 use App\Notifications\QuestionPraised;
 use App\Notifications\Slack\NewPraise;
-use App\QuestionPraise;
 use Auth;
 use Livewire\Component;
 use Notification;

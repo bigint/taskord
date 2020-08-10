@@ -4,8 +4,8 @@ namespace Tests\Feature;
 
 use App\Http\Livewire\Question\CreateQuestion;
 use App\Http\Livewire\Questions\SingleQuestion;
-use App\Question;
-use App\User;
+use App\Models\Question;
+use App\Models\User;
 use Livewire;
 use Tests\TestCase;
 

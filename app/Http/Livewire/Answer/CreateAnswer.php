@@ -2,8 +2,8 @@
 
 namespace App\Http\Livewire\Answer;
 
-use App\Answer;
 use App\Gamify\Points\CommentCreated;
+use App\Models\Answer;
 use App\Notifications\Answered;
 use App\Notifications\Slack\NewAnswer;
 use Auth;
