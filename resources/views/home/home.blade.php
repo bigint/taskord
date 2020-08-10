@@ -29,9 +29,9 @@
                                     </a>
                                     <a href="{{ route('question.question', ['id' => $question->id]) }}">
                                         <span class="ml-1 font-weight-bold align-middle text-dark">{{ Str::words($question->title, '10') }}</span>
-                                        @if ($question->answer->count() >= 1)
+                                        @if ($question->answer->count('id') >= 1)
                                         <span class="ml-1 align-middle text-black-50">
-                                            {{ $question->answer->count() }} {{ $question->answer->count() >= 1 ? 'answers' : 'answer' }}
+                                            {{ $question->answer->count('id') }} {{ $question->answer->count('id') >= 1 ? 'answers' : 'answer' }}
                                         </span>
                                         @endif
                                     </a>

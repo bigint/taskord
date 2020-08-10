@@ -32,9 +32,9 @@ class Onboarding extends Component
 
     public function render()
     {
-        $task_count = Auth::user()->tasks->count();
-        $praise_count = Auth::user()->task_praise->count();
-        $product_count = Auth::user()->products->count();
+        $task_count = Auth::user()->tasks->count('id');
+        $praise_count = Auth::user()->task_praise->count('id');
+        $product_count = Auth::user()->products->count('id');
         $has_name = Auth::user()->firstname;
         $changed_username = preg_match('/^[a-f0-9]{32}$/', Auth::user()->username);
         $completed = $this->calculateCompleteness(

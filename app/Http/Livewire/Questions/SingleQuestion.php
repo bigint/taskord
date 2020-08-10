@@ -34,7 +34,7 @@ class SingleQuestion extends Component
             $isPraised = QuestionPraise::where([
                 ['user_id', Auth::id()],
                 ['question_id', $this->question->id],
-            ])->count();
+            ])->count('id');
             if ($isPraised === 1) {
                 $praise = QuestionPraise::where([
                     ['user_id', Auth::id()],

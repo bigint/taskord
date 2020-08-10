@@ -65,7 +65,7 @@ class ProductController extends Controller
             ->take(10)
             ->get()
             ->sortByDesc(function ($product) {
-                return $product->task->count();
+                return $product->task->count('id');
             });
 
         return view('products.newest', [
@@ -82,7 +82,7 @@ class ProductController extends Controller
             ->take(10)
             ->get()
             ->sortByDesc(function ($product) {
-                return $product->task->count();
+                return $product->task->count('id');
             });
 
         return view('products.launched', [

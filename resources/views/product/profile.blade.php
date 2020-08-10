@@ -21,7 +21,7 @@
             @endif
             @endauth
             <span class="small">
-                <span class="font-weight-bold">{{ $product->likes->count() }}</span> Subscribers
+                <span class="font-weight-bold">{{ $product->likes->count('id') }}</span> Subscribers
             </span>
             @if ($product->description)
             <div class="mt-3">

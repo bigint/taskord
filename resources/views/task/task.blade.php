@@ -74,7 +74,7 @@
                         </div>
                     </div>
                     @endif
-                    @if ($task->task_comment->count() > 0)
+                    @if ($task->task_comment->count('id') > 0)
                     <div class="card mb-4">
                         <div class="card-header">
                             Users Involved

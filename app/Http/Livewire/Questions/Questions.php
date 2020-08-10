@@ -45,7 +45,7 @@ class Questions extends Component
                 ->has('answer')
                 ->get()
                 ->sortByDesc(function ($question) {
-                    return $question->answer->count();
+                    return $question->answer->count('id');
                 });
         }
 

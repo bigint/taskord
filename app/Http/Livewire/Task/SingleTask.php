@@ -59,7 +59,7 @@ class SingleTask extends Component
             $isPraised = TaskPraise::where([
                 ['user_id', Auth::id()],
                 ['task_id', $this->task->id],
-            ])->count();
+            ])->count('id');
             if ($isPraised === 1) {
                 $praise = TaskPraise::where([
                     ['user_id', Auth::id()],

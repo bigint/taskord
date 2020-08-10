@@ -31,19 +31,19 @@
         <div>@markdown($answer->answer)</div>
         <div class="mt-3">
             @auth
-            @if (Auth::user()->answer_praise->where('answer_id', $answer->id)->count() === 1)
+            @if (Auth::user()->answer_praise->where('answer_id', $answer->id)->count('id') === 1)
                 <button type="button" class="btn btn-task btn-success text-white mr-1" wire:click="togglePraise" wire:loading.attr="disabled">
                     {{ Emoji::clappingHands() }}
                     <span class="small text-dark font-weight-bold">
-                        {{ $answer->answer_praise->count() }}
+                        {{ $answer->answer_praise->count('id') }}
                     </span>
                 </button>
             @else
                 <button type="button" class="btn btn-task btn-outline-success mr-1" wire:click="togglePraise" wire:loading.attr="disabled">
                     {{ Emoji::clappingHands() }}
-                    @if ($answer->answer_praise->count() !== 0)
+                    @if ($answer->answer_praise->count('id') !== 0)
                     <span class="small text-dark font-weight-bold">
-                        {{ $answer->answer_praise->count() }}
+                        {{ $answer->answer_praise->count('id') }}
                     </span>
                     @endif
                 </button>
@@ -64,9 +64,9 @@
             @guest
                 <a href="/login" class="btn btn-task btn-outline-success mr-1">
                     {{ Emoji::clappingHands() }}
-                    @if ($answer->answer_praise->count() !== 0)
+                    @if ($answer->answer_praise->count('id') !== 0)
                     <span class="small text-dark font-weight-bold">
-                        {{ $answer->answer_praise->count() }}
+                        {{ $answer->answer_praise->count('id') }}
                     </span>
                     @endif
                 </a>

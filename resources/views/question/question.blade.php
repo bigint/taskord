@@ -67,7 +67,7 @@
                             </span>
                         </div>
                     </div>
-                    @if ($question->answer->count() > 0)
+                    @if ($question->answer->count('id') > 0)
                     <div class="card mb-4">
                         <div class="card-header">
                             Users Involved

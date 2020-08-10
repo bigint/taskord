@@ -31,7 +31,7 @@ class SingleComment extends Component
             $isPraised = TaskCommentPraise::where([
                 ['user_id', Auth::id()],
                 ['task_comment_id', $this->comment->id],
-            ])->count();
+            ])->count('id');
             if ($isPraised === 1) {
                 $praise = TaskCommentPraise::where([
                     ['user_id', Auth::id()],

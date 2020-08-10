@@ -21,19 +21,19 @@
     </span>
     <div>
         @auth
-        @if (Auth::user()->task_comment_praise->where('task_comment_id', $comment->id)->count() === 1)
+        @if (Auth::user()->task_comment_praise->where('task_comment_id', $comment->id)->count('id') === 1)
             <button type="button" class="btn btn-task btn-success text-white mr-1" wire:click="togglePraise" wire:loading.attr="disabled">
                 {{ Emoji::clappingHands() }}
                 <span class="small text-dark font-weight-bold">
-                    {{ $comment->task_comment_praise->count() }}
+                    {{ $comment->task_comment_praise->count('id') }}
                 </span>
             </button>
         @else
             <button type="button" class="btn btn-task btn-outline-success mr-1" wire:click="togglePraise" wire:loading.attr="disabled">
                 {{ Emoji::clappingHands() }}
-                @if ($comment->task_comment_praise->count() !== 0)
+                @if ($comment->task_comment_praise->count('id') !== 0)
                 <span class="small text-dark font-weight-bold">
-                    {{ $comment->task_comment_praise->count() }}
+                    {{ $comment->task_comment_praise->count('id') }}
                 </span>
                 @endif
             </button>
@@ -54,9 +54,9 @@
         @guest
             <a href="/login" class="btn btn-task btn-outline-success mr-1">
                 {{ Emoji::clappingHands() }}
-                @if ($comment->task_comment_praise->count() !== 0)
+                @if ($comment->task_comment_praise->count('id') !== 0)
                 <span class="small text-dark font-weight-bold">
-                    {{ $comment->task_comment_praise->count() }}
+                    {{ $comment->task_comment_praise->count('id') }}
                 </span>
                 @endif
             </a>

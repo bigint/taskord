@@ -44,19 +44,19 @@
         </div>
         <div class="mt-3">
             @auth
-            @if (Auth::user()->question_praise->where('question_id', $question->id)->count() === 1)
+            @if (Auth::user()->question_praise->where('question_id', $question->id)->count('id') === 1)
                 <button role="button" class="btn btn-task btn-success text-white mr-1" wire:click="togglePraise" wire:loading.attr="disabled">
                     {{ Emoji::clappingHands() }}
                     <span class="small text-dark font-weight-bold">
-                        {{ $question->question_praise->count() }}
+                        {{ $question->question_praise->count('id') }}
                     </span>
                 </button>
             @else
                 <button role="button" class="btn btn-task btn-outline-success mr-1" wire:click="togglePraise" wire:loading.attr="disabled">
                     {{ Emoji::clappingHands() }}
-                    @if ($question->question_praise->count() !== 0)
+                    @if ($question->question_praise->count('id') !== 0)
                     <span class="small text-dark font-weight-bold">
-                        {{ $question->question_praise->count() }}
+                        {{ $question->question_praise->count('id') }}
                     </span>
                     @endif
                 </button>
@@ -83,19 +83,19 @@
             @guest
                 <a href="/login" class="btn btn-task btn-outline-success mr-1">
                     {{ Emoji::clappingHands() }}
-                    @if ($question->question_praise->count() !== 0)
+                    @if ($question->question_praise->count('id') !== 0)
                     <span class="small text-dark font-weight-bold">
-                        {{ $question->question_praise->count() }}
+                        {{ $question->question_praise->count('id') }}
                     </span>
                     @endif
                 </a>
             @endguest
-            @if (views($question)->remember()->count() > 0)
+            @if (views($question)->remember()->count('id') > 0)
             <span class="align-middle ml-2 mr-2">
                 <i class="fa fa-eye mr-1"></i>
                 <span class="text-secondary">
-                    <span class="font-weight-bold">{{ views($question)->remember()->unique()->count() }}</span>
-                    {{ views($question)->remember()->unique()->count() <= 1 ? 'View' : 'Views' }}
+                    <span class="font-weight-bold">{{ views($question)->remember()->unique()->count('id') }}</span>
+                    {{ views($question)->remember()->unique()->count('id') <= 1 ? 'View' : 'Views' }}
                 </span>
             </span>
             @endif
@@ -104,9 +104,9 @@
                 @foreach ($question->answer->groupBy('user_id')->take(5) as $answer)
                 <img class="rounded-circle avatar avatar-30" src="{{ $answer[0]->user->avatar }}" />
                 @endforeach
-                @if ($question->answer->groupBy('user_id')->count() >= 5)
+                @if ($question->answer->groupBy('user_id')->count('id') >= 5)
                 <span class="ml-3 pl-1 align-middle font-weight-bold small">
-                    +{{ $question->answer->groupBy('user_id')->count() - 5 }} more
+                    +{{ $question->answer->groupBy('user_id')->count('id') - 5 }} more
                 </span>
                 @endif
             </a>

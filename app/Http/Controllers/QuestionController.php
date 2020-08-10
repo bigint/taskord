@@ -14,7 +14,7 @@ class QuestionController extends Controller
             ->take(5)
             ->get()
             ->sortByDesc(function ($question) {
-                return $question->answer->count();
+                return $question->answer->count('id');
             });
 
         return view('questions.newest', [
@@ -30,7 +30,7 @@ class QuestionController extends Controller
             ->take(5)
             ->get()
             ->sortByDesc(function ($question) {
-                return $question->answer->count();
+                return $question->answer->count('id');
             });
 
         return view('questions.unanswered', [
@@ -46,7 +46,7 @@ class QuestionController extends Controller
             ->take(5)
             ->get()
             ->sortByDesc(function ($question) {
-                return $question->answer->count();
+                return $question->answer->count('id');
             });
 
         return view('questions.popular', [

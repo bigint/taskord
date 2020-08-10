@@ -1,5 +1,5 @@
 <div>
-    @if ($notifications->count() === 0)
+    @if ($notifications->count('id') === 0)
     <div class="card-body text-center mt-5">
         <i class="fa fa-4x fa-bell mb-3 text-primary"></i>
         <div class="h4">

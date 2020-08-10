@@ -32,7 +32,7 @@ class SingleAnswer extends Component
             $isPraised = AnswerPraise::where([
                 ['user_id', Auth::id()],
                 ['answer_id', $this->answer->id],
-            ])->count();
+            ])->count('id');
             if ($isPraised === 1) {
                 $praise = AnswerPraise::where([
                     ['user_id', Auth::id()],
