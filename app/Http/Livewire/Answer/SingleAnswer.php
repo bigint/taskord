@@ -48,7 +48,7 @@ class SingleAnswer extends Component
                 $this->answer->refresh();
                 $this->answer->user->notify(new AnswerPraised($this->answer, Auth::id()));
                 givePoint(new PraiseCreated($praise));
-                Notification::route('slack', env('SLACK_HOOK'))
+                Notification::route('slack', config('app.slack_hook_url'))
                     ->notify(new NewPraise('ANSWER', $this->answer, Auth::user()));
             }
         } else {

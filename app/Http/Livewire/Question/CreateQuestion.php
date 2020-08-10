@@ -54,7 +54,7 @@ class CreateQuestion extends Component
 
             session()->flash('question_created', 'Question has been created!');
             givePoint(new QuestionCreated($question));
-            Notification::route('slack', env('SLACK_HOOK'))
+            Notification::route('slack', config('app.slack_hook_url'))
                     ->notify(new NewQuestion($question, Auth::user()));
 
             return redirect()->route('question.question', ['id' => $question->id]);

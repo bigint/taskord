@@ -46,7 +46,7 @@ class SingleComment extends Component
                 ]);
                 $this->comment->refresh();
                 $this->comment->user->notify(new TaskCommentPraised($this->comment, Auth::id()));
-                Notification::route('slack', env('SLACK_HOOK'))
+                Notification::route('slack', config('app.slack_hook_url'))
                     ->notify(new NewPraise('COMMENT', $this->comment, Auth::user()));
             }
         } else {

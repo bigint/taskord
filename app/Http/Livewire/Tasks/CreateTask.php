@@ -148,7 +148,7 @@ class CreateTask extends Component
             $this->emit('taskAdded');
             $this->reset();
             givePoint(new TaskCreated($task));
-            Notification::route('slack', env('SLACK_HOOK'))
+            Notification::route('slack', config('app.slack_hook_url'))
                 ->notify(new NewTask($task));
         } else {
             return session()->flash('error', 'Forbidden!');

@@ -61,7 +61,7 @@ class CreateAnswer extends Component
                 $this->question->user->notify(new Answered($answer));
                 givePoint(new CommentCreated($answer));
             }
-            Notification::route('slack', env('SLACK_HOOK'))
+            Notification::route('slack', config('app.slack_hook_url'))
                     ->notify(new NewAnswer($answer, Auth::user()));
 
             return session()->flash('success', 'Answer has been added!');

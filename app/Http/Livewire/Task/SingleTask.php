@@ -75,7 +75,7 @@ class SingleTask extends Component
                 $this->task->refresh();
                 $this->task->user->notify(new TaskPraised($this->task, Auth::id()));
                 givePoint(new PraiseCreated($praise));
-                Notification::route('slack', env('SLACK_HOOK'))
+                Notification::route('slack', config('app.slack_hook_url'))
                     ->notify(new NewPraise('TASK', $this->task, Auth::user()));
             }
         } else {

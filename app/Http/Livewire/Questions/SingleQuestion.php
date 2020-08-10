@@ -50,7 +50,7 @@ class SingleQuestion extends Component
                 $this->question->refresh();
                 $this->question->user->notify(new QuestionPraised($this->question, Auth::id()));
                 givePoint(new PraiseCreated($praise));
-                Notification::route('slack', env('SLACK_HOOK'))
+                Notification::route('slack', config('app.slack_hook_url'))
                     ->notify(new NewPraise('QUESTION', $this->question, Auth::user()));
             }
         } else {
