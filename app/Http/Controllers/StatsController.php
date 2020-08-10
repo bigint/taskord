@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Task;
 use App\Models\User;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\DB;
 
 class StatsController extends Controller
 {
@@ -12,8 +13,8 @@ class StatsController extends Controller
     {
         $user = User::where('username', $username)->firstOrFail();
         $tasks = Task::select([
-            \DB::raw('DATE(created_at) AS date'),
-            \DB::raw('COUNT(id) AS count'),
+            DB::raw('DATE(created_at) AS date'),
+            DB::raw('COUNT(id) AS count'),
         ])
             ->where('user_id', $user->id)
             ->whereBetween('created_at', [Carbon::now()->subDays(30), Carbon::now()])

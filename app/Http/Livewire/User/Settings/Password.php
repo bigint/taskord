@@ -2,7 +2,7 @@
 
 namespace App\Http\Livewire\User\Settings;
 
-use Hash;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 

@@ -6,7 +6,7 @@ use App\Models\ProductUpdate;
 use App\Notifications\NewProductUpdate;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
-use Notification;
+use Illuminate\Support\Facades\Notification;
 
 class NewUpdate extends Component
 {

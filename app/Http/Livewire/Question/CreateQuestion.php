@@ -7,7 +7,7 @@ use App\Models\Question;
 use App\Notifications\Slack\NewQuestion;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
-use Notification;
+use Illuminate\Support\Facades\Notification;
 
 class CreateQuestion extends Component
 {

@@ -7,7 +7,7 @@ use App\Notifications\Slack\NewPraise;
 use App\Notifications\TaskCommentPraised;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
-use Notification;
+use Illuminate\Support\Facades\Notification;
 
 class SingleComment extends Component
 {

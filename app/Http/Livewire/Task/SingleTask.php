@@ -10,7 +10,7 @@ use App\Notifications\TaskPraised;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
-use Notification;
+use Illuminate\Support\Facades\Notification;
 
 class SingleTask extends Component
 {

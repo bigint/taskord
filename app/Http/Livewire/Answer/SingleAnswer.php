@@ -8,7 +8,7 @@ use App\Notifications\AnswerPraised;
 use App\Notifications\Slack\NewPraise;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
-use Notification;
+use Illuminate\Support\Facades\Notification;
 
 class SingleAnswer extends Component
 {
