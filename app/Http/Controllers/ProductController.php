@@ -13,7 +13,7 @@ class ProductController extends Controller
     {
         $product = Product::where('slug', $slug)->firstOrFail();
         $type = Route::current()->getName();
-        
+
         $response = [
             'product' => $product,
             'type' => $type,
@@ -21,18 +21,18 @@ class ProductController extends Controller
                 ->where([
                     ['product_id', $product->id],
                     ['done', true],
-                    ['user_id', $product->user->id]
+                    ['user_id', $product->user->id],
                 ])
                 ->count('id'),
             'pending_count' => Task::cacheFor(60 * 60)
                 ->where([
                     ['product_id', $product->id],
                     ['done', false],
-                    ['user_id', $product->user->id]
+                    ['user_id', $product->user->id],
                 ])
                 ->count('id'),
         ];
-        
+
         return view($type, $response);
     }
 
