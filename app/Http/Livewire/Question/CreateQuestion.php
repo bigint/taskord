@@ -6,8 +6,8 @@ use App\Gamify\Points\QuestionCreated;
 use App\Models\Question;
 use App\Notifications\Slack\NewQuestion;
 use Illuminate\Support\Facades\Auth;
-use Livewire\Component;
 use Illuminate\Support\Facades\Notification;
+use Livewire\Component;
 
 class CreateQuestion extends Component
 {

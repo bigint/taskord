@@ -10,9 +10,9 @@ use App\Notifications\Slack\NewTask;
 use App\Notifications\TaskMentioned;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Notification;
 use Livewire\Component;
 use Livewire\WithFileUploads;
-use Illuminate\Support\Facades\Notification;
 
 class CreateTask extends Component
 {

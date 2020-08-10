@@ -2,8 +2,8 @@
 
 namespace App\Http\Livewire\User\Settings;
 
-use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use Livewire\Component;
 
 class Password extends Component

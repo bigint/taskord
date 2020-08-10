@@ -5,8 +5,8 @@ namespace App\Http\Livewire\User;
 use App\Models\User;
 use App\Notifications\Slack\Mod;
 use Illuminate\Support\Facades\Auth;
-use Livewire\Component;
 use Illuminate\Support\Facades\Notification;
+use Livewire\Component;
 
 class Moderator extends Component
 {
