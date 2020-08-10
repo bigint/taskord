@@ -7,8 +7,8 @@ use App\Models\Answer;
 use App\Notifications\Answered;
 use App\Notifications\Slack\NewAnswer;
 use Illuminate\Support\Facades\Auth;
-use Livewire\Component;
 use Illuminate\Support\Facades\Notification;
+use Livewire\Component;
 
 class CreateAnswer extends Component
 {

@@ -9,8 +9,8 @@ use App\Notifications\Slack\NewPraise;
 use App\Notifications\TaskPraised;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
-use Livewire\Component;
 use Illuminate\Support\Facades\Notification;
+use Livewire\Component;
 
 class SingleTask extends Component
 {
