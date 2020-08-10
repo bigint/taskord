@@ -14,8 +14,8 @@ class UserController extends Controller
     public function done($username)
     {
         $user = User::where('username', $username)->firstOrFail();
-
-        return view('user.done', [
+        
+        $response = [
             'user' => $user,
             'type' => 'user.done',
             'done_count' => Task::where([['user_id', $user->id], ['done', true]])->count(),
@@ -23,7 +23,15 @@ class UserController extends Controller
             'product_count' => Product::where('user_id', $user->id)->count(),
             'question_count' => Question::where('user_id', $user->id)->count(),
             'answer_count' => Answer::where('user_id', $user->id)->count(),
-        ]);
+        ];
+
+        if (Auth::check() && Auth::id() === $user->id or Auth::check() && Auth::user()->staffShip) {
+            return view('user.done', $response);
+        } else if($user->isFlagged) {
+            return view('errors.404');
+        }
+        
+        return view('user.done', $response);
     }
 
     public function pending($username)
