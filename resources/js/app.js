@@ -81,3 +81,9 @@ $(document).on("livewire:load", (event) => {
     $('#task-len-counter').removeClass('text-danger');
   });
 });
+
+// Hide search dropdown on clicking the body
+
+$("body").on("click", function(event){
+  $( "ul" ).remove( ".search-dropdown" );
+});
