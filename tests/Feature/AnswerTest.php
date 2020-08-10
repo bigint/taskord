@@ -2,11 +2,11 @@
 
 namespace Tests\Feature;
 
-use App\Answer;
 use App\Http\Livewire\Answer\CreateAnswer;
 use App\Http\Livewire\Answer\SingleAnswer;
-use App\Question;
-use App\User;
+use App\Models\Answer;
+use App\Models\Question;
+use App\Models\User;
 use Livewire;
 use Tests\TestCase;
 

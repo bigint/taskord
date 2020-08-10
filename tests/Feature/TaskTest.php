@@ -4,8 +4,8 @@ namespace Tests\Feature;
 
 use App\Http\Livewire\CreateTask;
 use App\Http\Livewire\Task\SingleTask;
-use App\Task;
-use App\User;
+use App\Models\Task;
+use App\Models\User;
 use Livewire;
 use Tests\TestCase;
 

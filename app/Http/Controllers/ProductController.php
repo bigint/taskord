@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Product;
-use App\Task;
+use App\Models\Product;
+use App\Models\Task;
 use Auth;
 
 class ProductController extends Controller

@@ -3,7 +3,7 @@
 namespace Tests\Feature;
 
 use App\Http\Livewire\Search;
-use App\Task;
+use App\Models\Task;
 use Livewire;
 use Tests\TestCase;
 

@@ -2,7 +2,7 @@
 
 namespace App\Http\Livewire\User;
 
-use App\Product;
+use App\Models\Product;
 use Livewire\Component;
 
 class Products extends Component

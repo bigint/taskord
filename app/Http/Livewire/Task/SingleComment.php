@@ -2,9 +2,9 @@
 
 namespace App\Http\Livewire\Task;
 
+use App\Models\TaskCommentPraise;
 use App\Notifications\Slack\NewPraise;
 use App\Notifications\TaskCommentPraised;
-use App\TaskCommentPraise;
 use Auth;
 use Livewire\Component;
 use Notification;

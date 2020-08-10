@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Rennokki\QueryCache\Traits\QueryCacheable;
@@ -20,11 +20,11 @@ class ProductUpdate extends Model
 
     public function user()
     {
-        return $this->belongsTo('App\User');
+        return $this->belongsTo(\App\Models\User::class);
     }
 
     public function product()
     {
-        return $this->belongsTo('App\Product');
+        return $this->belongsTo(\App\Models\Product::class);
     }
 }

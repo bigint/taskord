@@ -1,6 +1,6 @@
 <div>
     @php
-        $user = \App\User::find($data['user_id']);
+        $user = \App\Models\User::find($data['user_id']);
     @endphp
     <div class="card mb-3">
         <div class="card-body">
@@ -95,9 +95,9 @@
             @elseif ($type === "App\Notifications\Subscribed")
                 <span class="align-middle">
                     subscribed to your product
-                    <a class="font-weight-bold" href="{{ route('product.done', ['slug' => \App\Product::find($data['product_id'])->slug]) }}">
-                        <img class="rounded avatar-20 ml-2 mr-1" src="{{ \App\Product::find($data['product_id'])->avatar }}" />
-                        {{ \App\Product::find($data['product_id'])->name }}
+                    <a class="font-weight-bold" href="{{ route('product.done', ['slug' => \App\Models\Product::find($data['product_id'])->slug]) }}">
+                        <img class="rounded avatar-20 ml-2 mr-1" src="{{ \App\Models\Product::find($data['product_id'])->avatar }}" />
+                        {{ \App\Models\Product::find($data['product_id'])->name }}
                     </a>
                 </span>
             @endif

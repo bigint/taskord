@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Task;
-use App\User;
+use App\Models\Task;
+use App\Models\User;
 use Carbon\Carbon;
 
 class StatsController extends Controller

@@ -2,10 +2,10 @@
 
 namespace App\Http\Livewire;
 
-use App\Product;
-use App\Question;
-use App\Task;
-use App\User;
+use App\Models\Product;
+use App\Models\Question;
+use App\Models\Task;
+use App\Models\User;
 use Livewire\Component;
 
 class Search extends Component

@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Rennokki\QueryCache\Traits\QueryCacheable;
@@ -19,16 +19,16 @@ class Answer extends Model
 
     public function user()
     {
-        return $this->belongsTo('App\User');
+        return $this->belongsTo(\App\Models\User::class);
     }
 
     public function question()
     {
-        return $this->belongsTo('App\Question');
+        return $this->belongsTo(\App\Models\Question::class);
     }
 
     public function answer_praise()
     {
-        return $this->hasMany('App\AnswerPraise');
+        return $this->hasMany(\App\Models\AnswerPraise::class);
     }
 }

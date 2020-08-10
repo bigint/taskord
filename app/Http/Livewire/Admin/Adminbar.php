@@ -2,16 +2,16 @@
 
 namespace App\Http\Livewire\Admin;
 
-use App\Answer;
-use App\AnswerPraise;
-use App\Product;
-use App\Question;
-use App\QuestionPraise;
-use App\Task;
-use App\TaskComment;
-use App\TaskCommentPraise;
-use App\TaskPraise;
-use App\User;
+use App\Models\Answer;
+use App\Models\AnswerPraise;
+use App\Models\Product;
+use App\Models\Question;
+use App\Models\QuestionPraise;
+use App\Models\Task;
+use App\Models\TaskComment;
+use App\Models\TaskCommentPraise;
+use App\Models\TaskPraise;
+use App\Models\User;
 use Illuminate\Support\Facades\File;
 use Livewire\Component;
 

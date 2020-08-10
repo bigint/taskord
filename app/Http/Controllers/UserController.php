@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Answer;
-use App\Product;
-use App\Question;
-use App\Task;
-use App\User;
+use App\Models\Answer;
+use App\Models\Product;
+use App\Models\Question;
+use App\Models\Task;
+use App\Models\User;
 use Auth;
 
 class UserController extends Controller

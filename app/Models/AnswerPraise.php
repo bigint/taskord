@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -10,11 +10,11 @@ class AnswerPraise extends Model
 
     public function answer()
     {
-        return $this->belongsTo('App\Answer');
+        return $this->belongsTo(\App\Models\Answer::class);
     }
 
     public function user()
     {
-        return $this->belongsTo('App\User');
+        return $this->belongsTo(\App\Models\User::class);
     }
 }

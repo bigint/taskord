@@ -2,8 +2,8 @@
 
 namespace App\Http\Livewire\User;
 
+use App\Models\User;
 use App\Notifications\Slack\Mod;
-use App\User;
 use Auth;
 use Livewire\Component;
 use Notification;

@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Overtrue\LaravelLike\Traits\Likeable;
@@ -28,16 +28,16 @@ class Product extends Model
 
     public function user()
     {
-        return $this->belongsTo('App\User');
+        return $this->belongsTo(\App\Models\User::class);
     }
 
     public function task()
     {
-        return $this->hasMany('App\Task');
+        return $this->hasMany(\App\Models\Task::class);
     }
 
     public function product_update()
     {
-        return $this->belongsTo('App\ProductUpdate');
+        return $this->belongsTo(\App\Models\ProductUpdate::class);
     }
 }

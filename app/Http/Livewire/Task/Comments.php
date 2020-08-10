@@ -2,7 +2,7 @@
 
 namespace App\Http\Livewire\Task;
 
-use App\TaskComment;
+use App\Models\TaskComment;
 use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Collection;

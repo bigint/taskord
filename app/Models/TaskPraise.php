@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -10,11 +10,11 @@ class TaskPraise extends Model
 
     public function task()
     {
-        return $this->belongsTo('App\Task');
+        return $this->belongsTo(\App\Models\Task::class);
     }
 
     public function user()
     {
-        return $this->belongsTo('App\User');
+        return $this->belongsTo(\App\Models\User::class);
     }
 }

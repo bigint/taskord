@@ -2,8 +2,8 @@
 
 namespace App\Http\Livewire\Product;
 
+use App\Models\ProductUpdate;
 use App\Notifications\NewProductUpdate;
-use App\ProductUpdate;
 use Auth;
 use Livewire\Component;
 use Notification;
