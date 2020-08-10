@@ -128,4 +128,9 @@ class UserController extends Controller
             return 'enabled';
         }
     }
+    
+    public function suspended()
+    {
+        return view('auth.suspended');
+    }
 }

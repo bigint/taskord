@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\Route;
 Auth::routes();
 
 Route::get('/', 'HomeController@index')->name('home');
+Route::get('suspended', 'UserController@suspended')->name('suspended');
 
 Route::group(['prefix' => '@{username}', 'as' => 'user.'], function () {
     Route::get('', 'UserController@profile')->name('done');
