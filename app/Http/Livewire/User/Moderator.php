@@ -70,6 +70,20 @@ class Moderator extends Component
             return false;
         }
     }
+    
+    public function suspendUser()
+    {
+        if (Auth::check() && Auth::user()->isStaff) {
+            if ($this->user->id === 1) {
+                return false;
+            }
+            $this->user->isSuspended = ! $this->user->isSuspended;
+            $this->user->save();
+            // TODO Slack Notification
+        } else {
+            return false;
+        }
+    }
 
     public function enrollPatron()
     {

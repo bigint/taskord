@@ -34,6 +34,7 @@ class UserController extends Controller
                 'isBeta',
                 'isPatron',
                 'isFlagged',
+                'isSuspended',
             )
             ->where('username', $username)->firstOrFail();
         $type = Route::current()->getName();

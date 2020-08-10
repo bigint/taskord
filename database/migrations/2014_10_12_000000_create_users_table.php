@@ -42,6 +42,7 @@ class CreateUsersTable extends Migration
             $table->boolean('isBeta')->default(false);
             $table->boolean('isPatron')->default(false);
             $table->boolean('isFlagged')->default(false);
+            $table->boolean('isSuspended')->default(false);
 
             // Task Mentioned
             $table->boolean('taskMentionedEmail')->default(true);

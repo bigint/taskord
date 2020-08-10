@@ -50,6 +50,11 @@
             <label for="flagUser" class="ml-1 text-danger font-weight-bold">Flag this user</label>
             <span wire:loading wire:target="flagUser" class="small ml-2 text-danger font-weight-bold">Flagging...</span>
         </div>
+        <div class="mt-2">
+            <input wire:click="suspendUser" id="suspendUser" class="form-check-input" type="checkbox" {{ $user->isSuspended ? 'checked' : '' }}>
+            <label for="suspendUser" class="ml-1 text-danger font-weight-bold">Suspend this user</label>
+            <span wire:loading wire:target="suspendUser" class="small ml-2 text-danger font-weight-bold">Suspending...</span>
+        </div>
         <div class="mt-3">
             <button wire:click="deleteTasks" class="btn btn-sm btn-danger font-weight-bold">
                 <i class="fa fa-trash mr-1"></i>
