@@ -13,11 +13,13 @@
             <div class="text-black-50 mb-2">
                 {{ "#" . $product->slug }}
             </div>
-            @if (Auth::check() && Auth::id() !== $product->user->id)
+            @auth
+            @if (Auth::id() !== $product->user->id)
                 @livewire('product.subscribe', [
                     'product' => $product
                 ])
             @endif
+            @endauth
             <span class="small">
                 <span class="font-weight-bold">{{ $product->likes->count() }}</span> Subscribers
             </span>
@@ -43,10 +45,12 @@
         <a class="text-dark font-weight-bold mr-4"href="{{ route('product.updates', ['slug' => $product->slug]) }}">
             <span class="@if (Route::currentRouteName() === 'product.updates') text-primary @endif">Updates</span>
         </a>
-        @if (Auth::check() && Auth::user()->staffShip)
+        @auth
+        @if (Auth::user()->staffShip)
         <a class="text-dark font-weight-bold mr-4" href="">
             Stats
         </a>
         @endif
+        @endauth
     </div>
 </div>

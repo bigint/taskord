@@ -6,29 +6,35 @@
                 <div class="ml-4">
                     <div class="h5 mb-0">
                         {{ $user->firstname ? $user->firstname . ' ' . $user->lastname : '' }}
-                        @if (Auth::check() && Auth::user()->isStaff && Auth::user()->staffShip)
+                        @auth
+                        @if (Auth::user()->staffShip)
                             <span class="ml-2 text-secondary small">#{{ $user->id }}</span>
                         @endif
+                        @endauth
                         @if ($user->isPatron)
                             <a class="ml-2 small" href="{{ route('patron.home') }}" data-toggle="tooltip" data-placement="right" title="Patron">
                                 {{ Emoji::handshake() }}
                             </a>
                         @endif
-                        @if (Auth::check() && $user->isFollowing(Auth::user()))
+                        @auth
+                        @if ($user->isFollowing(Auth::user()))
                             <span class="ml-2 badge bg-light text-black-50">Follows you</span>
                         @endif
-                        @if (Auth::check() && Auth::user()->isStaff && $user->isFlagged)
+                        @if (Auth::user()->isStaff && $user->isFlagged)
                             <span class="ml-2 badge bg-danger">Flagged</span>
                         @endif
+                        @endauth
                     </div>
                     <div class="text-black-50 mb-2">
                         {{ "@" . $user->username }}
                     </div>
-                    @if (Auth::check() && Auth::id() !== $user->id && !$user->isFlagged)
+                    @auth
+                    @if (Auth::id() !== $user->id && !$user->isFlagged)
                         @livewire('user.follow', [
                             'user' => $user
                         ])
                     @endif
+                    @endauth
                     <span class="small">
                         <a class="text-dark" href="{{ route('user.following', ['username' => $user->username]) }}">
                             <span class="font-weight-bold">{{ $user->followings()->count() }}</span>
@@ -87,12 +93,14 @@
                         <span class="font-weight-bold">{{ Emoji::fire() }} {{ $user->getPoints(true) }}</span>
                         {{ $user->getPoints(true) < 2 ? 'Reputation' : 'Reputations' }}
                     </div>
-                    @if (Auth::check() && Auth::id() === $user->id)
+                    @auth
+                    @if (Auth::id() === $user->id)
                     <div class="mt-2">
                         <span>{{ Emoji::blossom() }} You are a</span>
                         <span class="font-weight-bold">{{ count($user->badges) === 0 ? 'Beginner' : $user->badges->last()->name }}</span>
                     </div>
                     @else
+                    @endauth
                     <div class="mt-2">
                         <span>{{ Emoji::blossom() }} {{ $user->username }} is a</span>
                         <span class="font-weight-bold">{{ count($user->badges) === 0 ? 'Beginner' : $user->badges->last()->name }}</span>
@@ -133,10 +141,12 @@
             <span class="@if (Route::currentRouteName() === 'user.answers') text-primary @endif">Answers</span>
             <span class="small font-weight-normal text-black-50">{{ $answer_count }}</span>
         </a>
-        @if (Auth::check() && Auth::user()->staffShip)
+        @auth
+        @if (Auth::user()->staffShip)
         <a class="text-dark font-weight-bold mr-4" href="">
             Stats
         </a>
         @endif
+        @endauth
     </div>
 </div>

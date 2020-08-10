@@ -49,11 +49,7 @@
                     </div>
                     <div class="input-group mb-3">
                         <span class="input-group-text">
-                            @if (Auth::check() && Auth::user()->darkMode)
-                            <i class="fa fa-github text-white"></i>
-                            @else
                             <i class="fa fa-github"></i>
-                            @endif
                         </span>
                         <input type="text" class="form-control" placeholder="GitHub" wire:model.lazy="github">
                     </div>

@@ -22,11 +22,13 @@
                     </span>
                     <div class="mb-2">{{ $user->bio }}</div>
                 </a>
-                @if (Auth::check() && Auth::id() !== $user->id && !$user->isFlagged)
+                @auth
+                @if (Auth::id() !== $user->id && !$user->isFlagged)
                     @livewire('user.follow', [
                         'user' => $user
                     ])
                 @endif
+                @endauth
             </span>
         </div>
     </div>

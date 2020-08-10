@@ -11,22 +11,26 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
     <link href="{{ mix('css/app.css') }}" rel="stylesheet" data-turbolinks-track="true">
-    @if (Auth::check() && Auth::user()->isPatron or Auth::check() && Auth::user()->isStaff)
+    @auth
+    @if (Auth::user()->isPatron or Auth::user()->isStaff)
     @if (Auth::user()->darkMode)
     <link href="{{ mix('css/darkmode.css') }}" rel="stylesheet" data-turbolinks-track="true">
     @endif
     @endif
+    @endauth
     @livewireStyles
 </head>
 <body>
     <div id="app">
-        @if (Auth::check() && Auth::user()->isStaff)
+        @auth
+        @if (Auth::user()->isStaff)
             @if (Auth::user()->staffShip)
             <div class="admin-bar">
                 @livewire('admin.adminbar')
             </div>
             @endif
         @endif
+        @endauth
         <nav class="navbar navbar-expand-md navbar-dark bg-dark">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
@@ -152,7 +156,8 @@
                 </div>
             </div>
         </nav>
-        @if (Auth::check() && Auth::user()->isFlagged)
+        @auth
+        @if (Auth::user()->isFlagged)
         <div class="alert alert-danger rounded-0" role="alert">
             <div class="font-weight-bold">
                 <i class="fa fa-flag mr-1"></i>
@@ -163,7 +168,6 @@
             </div>
         </div>
         @endif
-        @auth
         @if (session()->has('global'))
             <div class="alert alert-success alert-dismissible fade show rounded-0">
                 <button type="button" class="close" data-dismiss="alert">×</button>

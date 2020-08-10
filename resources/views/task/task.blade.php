@@ -13,16 +13,18 @@
                             ], key($task->id))
                         </ul>
                     </div>
+                    @auth
+                    @if (!Auth::user()->isFlagged)
+                        @livewire('task.create-comment', [
+                            'task' => $task
+                        ])
+                    @endif
+                    @endauth
                     @guest
                         <a href="/login" class="btn btn-block btn-success mt-4 text-white font-weight-bold">
                             {{ Emoji::wavingHand() }} Login or Signup to comment
                         </a>
                     @endguest
-                    @if (Auth::check() && !Auth::user()->isFlagged)
-                        @livewire('task.create-comment', [
-                            'task' => $task
-                        ])
-                    @endif
                     @livewire('task.comments', [
                         'task' => $task,
                         'page' => 1,

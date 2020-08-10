@@ -1,9 +1,11 @@
 <div class="col-sm">
-    @if (Auth::check() && Auth::user()->isStaff && Auth::user()->staffShip)
+    @auth
+    @if (Auth::user()->staffShip)
         @livewire('user.moderator', [
             'user' => $user
         ])
     @endif
+    @endauth
     @if ($user->website or $user->twitter or $user->twitch or $user->telegram or $user->github or $user->youtube)
     <div class="card mb-4">
         <div class="card-header">
@@ -36,11 +38,7 @@
             @endif
             @if ($user->github)
             <a class="list-group-item link-dark" href="https://github.com/{{ $user->github }}">
-                @if (Auth::check() && Auth::user()->darkMode)
-                <i class="fa fa-github text-white mr-1"></i>
-                @else
                 <i class="fa fa-github mr-1"></i>
-                @endif
                 {{ $user->github }}
             </a>
             @endif

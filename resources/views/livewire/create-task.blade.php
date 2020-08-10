@@ -16,7 +16,7 @@
                             class="form-check-input"
                             type="checkbox"
                             wire:click="checkState"
-                            {{ Auth::check() && Auth::user()->checkState ? 'checked' : 'unchecked' }}
+                            {{ Auth::user()->checkState ? 'checked' : 'unchecked' }}
                         >
                     </div>
                     <input id="task-input" type="text" class="form-control" placeholder="Add a Task" wire:model.debounce.5s="task">

@@ -1,5 +1,6 @@
 <div class="col-sm">
-    @if (Auth::check() and Auth::user()->staffShip or Auth::check() and Auth::id() === $product->user->id)
+    @auth
+    @if (Auth::user()->staffShip or Auth::id() === $product->user->id)
     <div class="card mb-4">
         <div class="card-body">
             <a class="btn btn-block btn-success text-white font-weight-bold" href="{{ route('product.new-update', ['slug' => $product->slug]) }}">
@@ -13,6 +14,7 @@
         </div>
     </div>
     @endif
+    @endauth
     @if ($product->website or $product->twitter or $product->producthunt or $product->github)
     <div class="card mb-4">
         <div class="card-header">
@@ -39,11 +41,7 @@
             @endif
             @if ($product->github)
             <a class="list-group-item link-dark" href="https://github.com/{{ $product->github }}">
-                @if (Auth::check() && Auth::user()->darkMode)
-                <i class="fa fa-github text-white mr-1"></i>
-                @else
                 <i class="fa fa-github mr-1"></i>
-                @endif
                 {{ $product->github }}
             </a>
             @endif
