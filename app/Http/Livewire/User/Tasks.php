@@ -42,6 +42,7 @@ class Tasks extends Component
     {
         if ($this->type === 'user.done') {
             $tasks = Task::cacheFor(60 * 60)
+                ->select('id', 'task', 'done', 'created_at', 'done_at', 'user_id')
                 ->where('user_id', $this->user_id)
                 ->where('done', true)
                 ->orderBy('done_at', 'desc')
@@ -51,6 +52,7 @@ class Tasks extends Component
                 });
         } else {
             $tasks = Task::cacheFor(60 * 60)
+                ->select('id', 'task', 'done', 'created_at', 'done_at', 'user_id')
                 ->where('user_id', $this->user_id)
                 ->where('done', false)
                 ->orderBy('created_at', 'desc')

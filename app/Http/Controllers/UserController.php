@@ -14,7 +14,28 @@ class UserController extends Controller
 {
     public function profile($username)
     {
-        $user = User::where('username', $username)->firstOrFail();
+        $user = User::select(
+                'id',
+                'username',
+                'firstname',
+                'lastname',
+                'avatar',
+                'bio',
+                'location',
+                'company',
+                'website',
+                'twitter',
+                'twitch',
+                'github',
+                'telegram',
+                'youtube',
+                'isStaff',
+                'isDeveloper',
+                'isBeta',
+                'isPatron',
+                'isFlagged',
+            )
+            ->where('username', $username)->firstOrFail();
         $type = Route::current()->getName();
 
         $response = [

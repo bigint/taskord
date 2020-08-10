@@ -46,13 +46,13 @@
                         </a>
                         <span class="font-weight-bold ml-2">
                             {{
-                                $user->task_praise->count() + 
-                                $user->task_comment_praise->count() +
-                                $user->question_praise->count() +
-                                $user->answer_praise->count()
+                                $user->task_praise->count('id') + 
+                                $user->task_comment_praise->count('id') +
+                                $user->question_praise->count('id') +
+                                $user->answer_praise->count('id')
                             }}
                         </span>
-                        {{ $user->task_praise->count() <= 1 ? "Praise" : "Praises" }}
+                        {{ $user->task_praise->count('id') <= 1 ? "Praise" : "Praises" }}
                     </span>
                     @if ($user->bio)
                     <div class="mt-3">
@@ -93,14 +93,12 @@
                         <span class="font-weight-bold">{{ Emoji::fire() }} {{ $user->getPoints(true) }}</span>
                         {{ $user->getPoints(true) < 2 ? 'Reputation' : 'Reputations' }}
                     </div>
-                    @auth
-                    @if (Auth::id() === $user->id)
+                    @if (Auth::check() && Auth::id() === $user->id)
                     <div class="mt-2">
                         <span>{{ Emoji::blossom() }} You are a</span>
                         <span class="font-weight-bold">{{ count($user->badges) === 0 ? 'Beginner' : $user->badges->last()->name }}</span>
                     </div>
                     @else
-                    @endauth
                     <div class="mt-2">
                         <span>{{ Emoji::blossom() }} {{ $user->username }} is a</span>
                         <span class="font-weight-bold">{{ count($user->badges) === 0 ? 'Beginner' : $user->badges->last()->name }}</span>

@@ -56,19 +56,19 @@
         @endif
         <div class="mt-2">
             @auth
-            @if (Auth::user()->task_praise->where('task_id', $task->id)->count() === 1)
+            @if (Auth::user()->task_praise->where('task_id', $task->id)->count('id') === 1)
                 <button type="button" class="btn btn-task btn-success text-white mr-1" wire:click="togglePraise" wire:loading.attr="disabled">
                     {{ Emoji::clappingHands() }}
                     <span class="small text-dark font-weight-bold">
-                        {{ $task->task_praise->count() }}
+                        {{ $task->task_praise->count('id') }}
                     </span>
                 </button>
             @else
                 <button type="button" class="btn btn-task btn-outline-success mr-1" wire:click="togglePraise" wire:loading.attr="disabled">
                     {{ Emoji::clappingHands() }}
-                    @if ($task->task_praise->count() !== 0)
+                    @if ($task->task_praise->count('id') !== 0)
                     <span class="small text-dark font-weight-bold">
-                        {{ $task->task_praise->count() }}
+                        {{ $task->task_praise->count('id') }}
                     </span>
                     @endif
                 </button>
@@ -77,18 +77,18 @@
             @guest
                 <a href="/login" class="btn btn-task btn-outline-success mr-1">
                     {{ Emoji::clappingHands() }}
-                    @if ($task->task_praise->count() !== 0)
+                    @if ($task->task_praise->count('id') !== 0)
                     <span class="small text-dark font-weight-bold">
-                        {{ $task->task_praise->count() }}
+                        {{ $task->task_praise->count('id') }}
                     </span>
                     @endif
                 </a>
             @endguest
             <a href="{{ route('task', ['id' => $task->id]) }}" class="btn btn-task btn-outline-primary mr-1">
                 {{ Emoji::speechBalloon() }}
-                @if ($task->task_comment->count() !== 0)
+                @if ($task->task_comment->count('id') !== 0)
                 <span class="small text-dark font-weight-bold">
-                    {{ $task->task_comment->count() }}
+                    {{ $task->task_comment->count('id') }}
                 </span>
                 @endif
             </a>

@@ -42,18 +42,18 @@ class Adminbar extends Component
         }
 
         // DB Details
-        $tasks = Task::cacheFor(60 * 60)->count();
-        $users = User::cacheFor(60 * 60)->count();
-        $products = Product::cacheFor(60 * 60)->count();
+        $tasks = Task::cacheFor(60 * 60)->count('id');
+        $users = User::cacheFor(60 * 60)->count('id');
+        $products = Product::cacheFor(60 * 60)->count('id');
         $reputations = User::cacheFor(60 * 60)->sum('reputation');
-        $questions = Question::cacheFor(60 * 60)->count();
-        $answers = Answer::cacheFor(60 * 60)->count();
-        $comments = TaskComment::cacheFor(60 * 60)->count();
+        $questions = Question::cacheFor(60 * 60)->count('id');
+        $answers = Answer::cacheFor(60 * 60)->count('id');
+        $comments = TaskComment::cacheFor(60 * 60)->count('id');
         $praises =
-            TaskPraise::count() +
-            TaskCommentPraise::count() +
-            QuestionPraise::count() +
-            AnswerPraise::count();
+            TaskPraise::count('id') +
+            TaskCommentPraise::count('id') +
+            QuestionPraise::count('id') +
+            AnswerPraise::count('id');
 
         return view('livewire.admin.adminbar', [
             'version' => $version,
