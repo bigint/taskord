@@ -59,21 +59,6 @@ class HomeController extends Controller
             ->take(10)
             ->get();
 
-        // $from = date('Y-m-d', strtotime('-10 days'));
-        // $to = date('Y-m-d');
-
-        // $stats = Auth::user()->tasks()
-        //     ->where('done', true)
-        //     ->where('created_at', '>=', \Carbon\Carbon::now()->subMonth())
-        //     ->groupBy('date')
-        //     ->orderBy('date', 'DESC')
-        //     ->get(array(
-        //         DB::raw('Date(created_at) as date'),
-        //         DB::raw('COUNT(*) as "tasks"')
-        //     ));
-
-        // dd($stats);
-
         return view('home/home', [
             'recent_questions' => $recent_questions,
             'launched_today' => $launched_today,
