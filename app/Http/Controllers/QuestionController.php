@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Question;
-use Auth;
+use Illuminate\Support\Facades\Auth;
 
 class QuestionController extends Controller
 {

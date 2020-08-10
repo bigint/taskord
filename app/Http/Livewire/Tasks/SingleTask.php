@@ -3,7 +3,7 @@
 namespace App\Http\Livewire\Tasks;
 
 use App\Gamify\Points\TaskCompleted;
-use Auth;
+use Illuminate\Support\Facades\Auth;
 use Carbon\Carbon;
 use Livewire\Component;
 

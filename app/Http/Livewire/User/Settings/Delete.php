@@ -3,7 +3,7 @@
 namespace App\Http\Livewire\User\Settings;
 
 use App\Models\User;
-use Auth;
+use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 
 class Delete extends Component

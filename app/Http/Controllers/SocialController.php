@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
-use Auth;
+use Illuminate\Support\Facades\Auth;
 use Socialite;
 
 class SocialController extends Controller

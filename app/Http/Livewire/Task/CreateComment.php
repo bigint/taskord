@@ -6,7 +6,7 @@ use App\Gamify\Points\CommentCreated;
 use App\Models\TaskComment;
 use App\Notifications\Slack\NewComment;
 use App\Notifications\TaskCommented;
-use Auth;
+use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 use Notification;
 

@@ -2,7 +2,7 @@
 
 namespace App\Http\Livewire\Notification;
 
-use Auth;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Collection;

@@ -8,7 +8,7 @@ use App\Models\Task;
 use App\Models\User;
 use App\Notifications\Slack\NewTask;
 use App\Notifications\TaskMentioned;
-use Auth;
+use Illuminate\Support\Facades\Auth;
 use Carbon\Carbon;
 use Livewire\Component;
 use Livewire\WithFileUploads;

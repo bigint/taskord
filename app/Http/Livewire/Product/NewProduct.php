@@ -3,7 +3,7 @@
 namespace App\Http\Livewire\Product;
 
 use App\Models\Product;
-use Auth;
+use Illuminate\Support\Facades\Auth;
 use Carbon\Carbon;
 use Livewire\Component;
 

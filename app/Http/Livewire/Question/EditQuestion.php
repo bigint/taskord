@@ -3,7 +3,7 @@
 namespace App\Http\Livewire\Question;
 
 use App\Models\Question;
-use Auth;
+use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 
 class EditQuestion extends Component

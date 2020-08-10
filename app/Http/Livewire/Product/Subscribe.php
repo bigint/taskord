@@ -3,7 +3,7 @@
 namespace App\Http\Livewire\Product;
 
 use App\Notifications\Subscribed;
-use Auth;
+use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 
 class Subscribe extends Component

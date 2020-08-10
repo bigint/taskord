@@ -4,7 +4,7 @@ namespace App\Http\Livewire\Product;
 
 use App\Models\ProductUpdate;
 use App\Notifications\NewProductUpdate;
-use Auth;
+use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 use Notification;
 

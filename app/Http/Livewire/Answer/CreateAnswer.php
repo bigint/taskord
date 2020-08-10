@@ -6,7 +6,7 @@ use App\Gamify\Points\CommentCreated;
 use App\Models\Answer;
 use App\Notifications\Answered;
 use App\Notifications\Slack\NewAnswer;
-use Auth;
+use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 use Notification;
 

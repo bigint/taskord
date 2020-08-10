@@ -7,7 +7,7 @@ use App\Models\Product;
 use App\Models\Question;
 use App\Models\Task;
 use App\Models\User;
-use Auth;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {

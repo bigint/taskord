@@ -3,7 +3,7 @@
 namespace App\Http\Livewire\User;
 
 use App\Notifications\Followed;
-use Auth;
+use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 
 class Follow extends Component

@@ -2,7 +2,7 @@
 
 namespace App\Http\Livewire\Home;
 
-use Auth;
+use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 
 class Onboarding extends Component

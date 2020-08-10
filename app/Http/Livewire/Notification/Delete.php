@@ -2,7 +2,7 @@
 
 namespace App\Http\Livewire\Notification;
 
-use Auth;
+use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 
 class Delete extends Component
