@@ -2,11 +2,11 @@
 
 namespace Tests\Feature;
 
-use App\Models\User;
-use App\Models\Product;
-use Tests\TestCase;
 use App\Http\Livewire\Product\NewUpdate;
+use App\Models\Product;
+use App\Models\User;
 use Livewire;
+use Tests\TestCase;
 
 class ProductTest extends TestCase
 {
@@ -39,7 +39,7 @@ class ProductTest extends TestCase
         $response->assertStatus(200);
         $response->assertViewIs('product.pending');
     }
-    
+
     public function test_product_updates_url()
     {
         $response = $this->get(route('product.updates', ['slug' => 'taskord']));
@@ -54,24 +54,24 @@ class ProductTest extends TestCase
         $response->assertStatus(200);
         $response->assertViewIs('product.updates');
     }
-    
+
     public function test_create_product_update()
     {
         $product = Product::where(['slug' => 'taskord'])->first();
-        
+
         Livewire::test(NewUpdate::class, ['product' => $product])
             ->set('title', md5(microtime()))
             ->set('body', md5(microtime()))
             ->call('submit')
             ->assertSeeHtml('Forbidden!');
     }
-    
+
     public function test_auth_product_update()
     {
         $user = User::where(['email' => 'test@taskord.com'])->first();
         $this->actingAs($user);
         $product = Product::where(['slug' => 'taskord'])->first();
-        
+
         Livewire::test(NewUpdate::class, ['product' => $product])
             ->set('title', md5(microtime()))
             ->call('submit')
@@ -80,7 +80,7 @@ class ProductTest extends TestCase
             ->call('submit')
             ->assertStatus(200);
     }
-    
+
     public function test_auth_product_update_profanity()
     {
         $user = User::where(['email' => 'test@taskord.com'])->first();
@@ -97,7 +97,7 @@ class ProductTest extends TestCase
             ])
             ->assertSeeHtml('Please check your words!');
     }
-    
+
     public function test_auth_product_update_required()
     {
         $user = User::where(['email' => 'test@taskord.com'])->first();
