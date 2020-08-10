@@ -25,7 +25,6 @@ $(window).scroll(() => {
 });
 
 // Admin Bar toggle in dropdown
-
 $(document).on('turbolinks:load', () => {
   $("#admin-bar-click").click('turbolinks:load', () => {
     $.get("/admin/adminbar", (data, status) => {
@@ -39,7 +38,6 @@ $(document).on('turbolinks:load', () => {
 });
 
 // Dark mode toggle in dropdown
-
 $(document).on('turbolinks:load', () => {
   $("#dark-mode").click('turbolinks:load', () => {
     $.get("/darkmode", (data, status) => {
@@ -53,13 +51,11 @@ $(document).on('turbolinks:load', () => {
 });
 
 // Enable Tooltips
-
 $(document).on('turbolinks:load', () => {
   $("body").tooltip({ selector: '[data-toggle=tooltip]' });
 });
 
 // Hide Alert
-
 $(document).on("livewire:load", (event) => {
   window.livewire.hook('afterDomUpdate', () => {
     setTimeout(() => {
@@ -83,7 +79,6 @@ $(document).on("livewire:load", (event) => {
 });
 
 // Hide search dropdown on clicking the body
-
 $("body").on("click", function(event){
   $( "ul" ).remove( ".search-dropdown" );
 });

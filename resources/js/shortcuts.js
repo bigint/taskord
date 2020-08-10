@@ -36,10 +36,3 @@ hotkeys('g+p', () => {
 hotkeys('g+s', () => {
   window.location.href = "/settings";
 });
-
-// Misc
-
-hotkeys('esc', () => {
-  $('#search-input').val('');
-  $( "ul" ).remove( ".search-dropdown" );
-});
