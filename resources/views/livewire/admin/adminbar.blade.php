@@ -13,10 +13,10 @@
                 <i class="fab fa-laravel mr-1"></i>
                 Laravel v{{ App::VERSION() }}
             </a>
-            <span class="font-weight-bold ml-3">
+            <a class="text-white font-weight-bold ml-3" href="http://git.php.net/?p=php-src.git;a=shortlog;h=refs/heads/PHP-{{ phpversion() }}" target="_blank">
                 <i class="fab fa-php mr-1"></i>
                 PHP v{{ phpversion() }}
-            </span>
+            </a>
         </span>
         <span class="float-right">
             <span role="button" class="dropdown dropleft">
