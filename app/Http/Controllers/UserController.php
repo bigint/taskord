@@ -19,11 +19,21 @@ class UserController extends Controller
         $response = [
             'user' => $user,
             'type' => $type,
-            'done_count' => Task::where([['user_id', $user->id], ['done', true]])->count(),
-            'pending_count' => Task::where([['user_id', $user->id], ['done', false]])->count(),
-            'product_count' => Product::where('user_id', $user->id)->count(),
-            'question_count' => Question::where('user_id', $user->id)->count(),
-            'answer_count' => Answer::where('user_id', $user->id)->count(),
+            'done_count' => Task::cacheFor(60 * 60)
+                ->where([['user_id', $user->id], ['done', true]])
+                ->count('id'),
+            'pending_count' => Task::cacheFor(60 * 60)
+                ->where([['user_id', $user->id], ['done', false]])
+                ->count('id'),
+            'product_count' => Product::cacheFor(60 * 60)
+                ->where('user_id', $user->id)
+                ->count('id'),
+            'question_count' => Question::cacheFor(60 * 60)
+                ->where('user_id', $user->id)
+                ->count('id'),
+            'answer_count' => Answer::cacheFor(60 * 60)
+                ->where('user_id', $user->id)
+                ->count('id'),
         ];
 
         if (Auth::check() && Auth::id() === $user->id or Auth::check() && Auth::user()->staffShip) {
