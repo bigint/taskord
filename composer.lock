@@ -7240,16 +7240,16 @@
         },
         {
             "name": "facade/ignition",
-            "version": "2.3.5",
+            "version": "2.3.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/facade/ignition.git",
-                "reference": "58dc4a8df3d41174c677a370b6779b694e4539e7"
+                "reference": "d7d05dba5a0bdbf018a2cb7be268f22f5d73eb81"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/facade/ignition/zipball/58dc4a8df3d41174c677a370b6779b694e4539e7",
-                "reference": "58dc4a8df3d41174c677a370b6779b694e4539e7",
+                "url": "https://api.github.com/repos/facade/ignition/zipball/d7d05dba5a0bdbf018a2cb7be268f22f5d73eb81",
+                "reference": "d7d05dba5a0bdbf018a2cb7be268f22f5d73eb81",
                 "shasum": ""
             },
             "require": {
@@ -7308,7 +7308,7 @@
                 "laravel",
                 "page"
             ],
-            "time": "2020-08-01T21:20:01+00:00"
+            "time": "2020-08-10T13:50:38+00:00"
         },
         {
             "name": "facade/ignition-contracts",
@@ -7987,16 +7987,16 @@
         },
         {
             "name": "phpunit/php-code-coverage",
-            "version": "9.1.1",
+            "version": "9.1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/php-code-coverage.git",
-                "reference": "9e17fe39fcaf66375f3d9d2258b025c3f48e42ac"
+                "reference": "5210f9269e44e6d34419cb92242ef11aee9351ac"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/9e17fe39fcaf66375f3d9d2258b025c3f48e42ac",
-                "reference": "9e17fe39fcaf66375f3d9d2258b025c3f48e42ac",
+                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/5210f9269e44e6d34419cb92242ef11aee9351ac",
+                "reference": "5210f9269e44e6d34419cb92242ef11aee9351ac",
                 "shasum": ""
             },
             "require": {
@@ -8056,7 +8056,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2020-08-10T04:37:38+00:00"
+            "time": "2020-08-10T07:24:51+00:00"
         },
         {
             "name": "phpunit/php-file-iterator",
@@ -8285,16 +8285,16 @@
         },
         {
             "name": "phpunit/phpunit",
-            "version": "9.3.4",
+            "version": "9.3.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "0bc9739bf78b91dfbcbdcb8122db68f03dc1f53c"
+                "reference": "7115b00b23bcd4f62a73855c9615694d2f206e71"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/0bc9739bf78b91dfbcbdcb8122db68f03dc1f53c",
-                "reference": "0bc9739bf78b91dfbcbdcb8122db68f03dc1f53c",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/7115b00b23bcd4f62a73855c9615694d2f206e71",
+                "reference": "7115b00b23bcd4f62a73855c9615694d2f206e71",
                 "shasum": ""
             },
             "require": {
@@ -8379,7 +8379,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2020-08-10T06:00:18+00:00"
+            "time": "2020-08-10T06:50:08+00:00"
         },
         {
             "name": "scrivo/highlight.php",
