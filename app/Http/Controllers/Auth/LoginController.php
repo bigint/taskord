@@ -6,7 +6,6 @@ use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {
@@ -48,16 +47,10 @@ class LoginController extends Controller
             'password' => 'required',
         ]);
         $fieldType = filter_var($request->username, FILTER_VALIDATE_EMAIL) ? 'email' : 'username';
-        if (Auth::attempt([$fieldType => $input['username'], 'password' => $input['password']])) {
-            if (Auth::getLastAttempted()->isSuspended) {
-                Auth::logout();
+        if (auth()->attempt([$fieldType => $input['username'], 'password' => $input['password']])) {
+            $request->session()->flash('global', 'Welcome back!');
 
-                return redirect()->route('suspended');
-            } else {
-                $request->session()->flash('global', 'Welcome back!');
-
-                return redirect()->route('home');
-            }
+            return redirect()->route('home');
         } else {
             $request->session()->flash('error', 'Invalid login credentials');
 

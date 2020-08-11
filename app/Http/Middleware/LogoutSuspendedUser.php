@@ -19,7 +19,7 @@ class LogoutSuspendedUser
         if (Auth::check() && Auth::user()->isSuspended) {
             Auth::logout();
             
-            return redirect()->route('home');
+            return redirect()->route('suspended');
         }
 
         return $next($request);
