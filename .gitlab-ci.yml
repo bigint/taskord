@@ -1,3 +1,5 @@
+image: alpine:latest
+
 services:
   - mysql:5.7
 
