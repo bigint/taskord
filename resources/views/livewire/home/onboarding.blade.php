@@ -25,6 +25,17 @@
             <div class="mb-3 text-black-50">
                 Welcome to Taskord, here are some onboarding steps!
             </div>
+            @if (session()->has('success'))
+                <div class="mb-1 text-success font-weight-bold">{{ session('success') }}</div>
+            @endif
+            @if (session()->has('error'))
+                <div class="mb-1 text-danger font-weight-bold">{{ session('error') }}</div>
+            @endif
+            <button class="btn btn-warning font-weight-bold mb-3" wire:click="slackInvite">
+                <i class="fab fa-discord"></i>
+                Inivte me to Discord
+                <span wire:target="slackInvite" wire:loading class="spinner-border spinner-border-mini ml-2" role="status"></span>
+            </button>
             @if (preg_match('/^[a-f0-9]{32}$/', Auth::user()->username))
             <div class="mb-2">
                 <input class="form-check-input" type="checkbox" disabled {{ $changed_username ? '' : 'checked' }}>

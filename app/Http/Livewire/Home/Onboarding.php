@@ -4,9 +4,24 @@ namespace App\Http\Livewire\Home;
 
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
+use App\Notifications\DiscordInvite;
 
 class Onboarding extends Component
 {
+    public function slackInvite()
+    {
+        if (Auth::check()) {
+            if (Auth::user()->isFlagged) {
+                return session()->flash('error', 'Your account is flagged!');
+            } else {
+                Auth::user()->notify(new DiscordInvite(Auth::user()));
+                return session()->flash('success', 'Please check your email!');
+            }
+        } else {
+            return session()->flash('error', 'Forbidden!');
+        }
+    }
+    
     public function calculateCompleteness($task_count, $praise_count, $product_count, $has_name)
     {
         $completed = [];
