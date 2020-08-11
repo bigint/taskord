@@ -23,6 +23,16 @@ a {
     }
 }
 
+.btn-blurple {
+    color: #fff;
+    background-color: #7289DA;
+    border-color: #7289DA;
+  
+    &:hover, &:active, &:focus {
+        background-color: #657ac3;
+    }
+}
+
 .navbar {
     .reputation {
         padding: 5px 5px;
