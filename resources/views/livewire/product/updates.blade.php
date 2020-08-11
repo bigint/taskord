@@ -1,11 +1,9 @@
 <div>
     @if (count($updates) === 0)
-    <div class="card-body text-center">
-        <i class="fa fa-4x fa-refresh mb-3 text-primary"></i>
-        <div class="h4">
-            No updates made!
-        </div>
-    </div>
+    @include('components.empty', [
+        'icon' => 'refresh',
+        'text' => 'No updates made!',
+    ])
     @endif
     @foreach ($updates as $update)
     <div class="card mb-4">

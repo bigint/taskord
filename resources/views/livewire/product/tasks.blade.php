@@ -1,11 +1,9 @@
 <div id="task-list">
     @if (count($tasks) === 0)
-    <div class="card-body text-center">
-        <i class="fa fa-4x fa-check-square mb-3 text-primary"></i>
-        <div class="h4">
-            No tasks made!
-        </div>
-    </div>
+    @include('components.empty', [
+        'icon' => 'check-square',
+        'text' => 'No tasks made!',
+    ])
     @endif
     @foreach ($tasks as $key => $groupedTask)
         @if (Carbon::now()->format('M d Y') === Carbon::parse($key)->format('M d Y'))

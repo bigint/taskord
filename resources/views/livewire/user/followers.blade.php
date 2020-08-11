@@ -1,11 +1,9 @@
 <div>
     @if (count($user->followers) === 0)
-    <div class="card-body text-center">
-        <i class="fa fa-4x fa-users mb-3 text-primary"></i>
-        <div class="h4">
-            No followers found!
-        </div>
-    </div>
+    @include('components.empty', [
+        'icon' => 'users',
+        'text' => 'No followers found!',
+    ])
     @endif
     @foreach ($user->followers as $user)
     <div class="card mb-3">

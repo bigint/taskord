@@ -1,11 +1,9 @@
 <div>
     @if ($comments->count('id') === 0)
-    <div class="card-body text-center mt-3">
-        <i class="fa fa-4x fa-comments mb-3 text-primary"></i>
-        <div class="h4">
-            No comments found!
-        </div>
-    </div>
+    @include('components.empty', [
+        'icon' => 'comments',
+        'text' => 'No comments found!',
+    ])
     @endif
     <ul class="list-group mt-4" wire:poll.5s>
     @foreach ($comments as $comment)
