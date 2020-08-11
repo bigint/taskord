@@ -69,7 +69,7 @@ class NewProduct extends Component
                 'user_id' =>  Auth::id(),
                 'name' => $this->name,
                 'slug' => $this->slug,
-                'avatar' => 'https://github.com/taskord.png',
+                'avatar' => 'https://assets.gitlab-static.net/uploads/-/system/project/avatar/20359920/68648244.png',
                 'description' => $this->description,
                 'website' => $this->website,
                 'twitter' => $this->twitter,
