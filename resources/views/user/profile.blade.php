@@ -1,4 +1,15 @@
 <div class="card">
+    @auth
+    @if (Auth::user()->isStaff && $user->isFlagged)
+        <div class="p-4 pb-0">
+            <div class="alert alert-danger alert-dismissible">
+                This user is flagged
+                {{ $user->isSuspended ? 'and suspended' : '' }}
+                as spammy!
+            </div>
+        </div>
+    @endif
+    @endauth
     <div class="row">
         <div class="col-md-7">
             <div class="card-body d-flex align-items-center">
@@ -19,9 +30,6 @@
                         @auth
                         @if ($user->isFollowing(Auth::user()))
                             <span class="ml-2 badge bg-light text-black-50">Follows you</span>
-                        @endif
-                        @if (Auth::user()->isStaff && $user->isFlagged)
-                            <span class="ml-2 badge bg-danger">Flagged</span>
                         @endif
                         @endauth
                     </div>
