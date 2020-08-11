@@ -1,5 +1,5 @@
 services:
-  - mysql:5.7
+  - mysql:latest
 
 variables:
   MYSQL_ROOT_PASSWORD: root
