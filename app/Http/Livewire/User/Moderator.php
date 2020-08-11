@@ -210,6 +210,7 @@ class Moderator extends Component
             $user = User::find($this->user->id);
             Notification::route('slack', config('app.slack_hook_url'))
                     ->notify(new Mod('DELETE_USER', null, Auth::user()));
+            $user->likes()->delete();
             $user->delete();
 
             return redirect()->route('home');

@@ -54,13 +54,13 @@
                         </a>
                         <span class="font-weight-bold ml-2">
                             {{
-                                $user->task_praise->count('id') + 
+                                $user->likes()->withType(\App\Models\Task::class)->count('id') + 
                                 $user->task_comment_praise->count('id') +
                                 $user->question_praise->count('id') +
                                 $user->answer_praise->count('id')
                             }}
                         </span>
-                        {{ $user->task_praise->count('id') <= 1 ? "Praise" : "Praises" }}
+                        {{ $user->likes()->withType(\App\Models\Task::class)->count('id') <= 1 ? "Praise" : "Praises" }}
                     </span>
                     @if ($user->bio)
                     <div class="mt-3">

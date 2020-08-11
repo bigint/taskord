@@ -53,11 +53,6 @@ class User extends Authenticatable
         return $this->hasMany(\App\Models\Task::class);
     }
 
-    public function task_praise()
-    {
-        return $this->hasMany(\App\Models\TaskPraise::class);
-    }
-
     public function task_comment()
     {
         return $this->hasMany(\App\Models\TaskComment::class);

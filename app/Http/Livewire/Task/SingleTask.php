@@ -4,7 +4,6 @@ namespace App\Http\Livewire\Task;
 
 use App\Gamify\Points\PraiseCreated;
 use App\Gamify\Points\TaskCompleted;
-use App\Models\TaskPraise;
 use App\Notifications\Slack\NewPraise;
 use App\Notifications\TaskPraised;
 use Carbon\Carbon;
@@ -56,25 +55,15 @@ class SingleTask extends Component
             if (Auth::id() === $this->task->user->id) {
                 return session()->flash('error', 'You can\'t praise your own task!');
             }
-            $isPraised = TaskPraise::where([
-                ['user_id', Auth::id()],
-                ['task_id', $this->task->id],
-            ])->count('id');
-            if ($isPraised === 1) {
-                $praise = TaskPraise::where([
-                    ['user_id', Auth::id()],
-                    ['task_id', $this->task->id],
-                ])->first();
-                $praise->delete();
+            if (Auth::user()->hasLiked($this->task)) {
+                Auth::user()->unlike($this->task);
                 $this->task->refresh();
             } else {
-                $praise = TaskPraise::create([
-                    'user_id' => Auth::id(),
-                    'task_id' => $this->task->id,
-                ]);
+                Auth::user()->like($this->task);
                 $this->task->refresh();
                 $this->task->user->notify(new TaskPraised($this->task, Auth::id()));
-                givePoint(new PraiseCreated($praise));
+                // FIXME: Not Working
+                givePoint(new PraiseCreated($this->task));
                 Notification::route('slack', config('app.slack_hook_url'))
                     ->notify(new NewPraise('TASK', $this->task, Auth::user()));
             }

@@ -10,7 +10,6 @@ use App\Models\QuestionPraise;
 use App\Models\Task;
 use App\Models\TaskComment;
 use App\Models\TaskCommentPraise;
-use App\Models\TaskPraise;
 use App\Models\User;
 use Illuminate\Support\Facades\File;
 use Livewire\Component;
@@ -49,11 +48,8 @@ class Adminbar extends Component
         $questions = Question::cacheFor(60 * 60)->count('id');
         $answers = Answer::cacheFor(60 * 60)->count('id');
         $comments = TaskComment::cacheFor(60 * 60)->count('id');
-        $praises =
-            TaskPraise::count('id') +
-            TaskCommentPraise::count('id') +
-            QuestionPraise::count('id') +
-            AnswerPraise::count('id');
+        // TODO
+        $praises = 54;
 
         return view('livewire.admin.adminbar', [
             'version' => $version,

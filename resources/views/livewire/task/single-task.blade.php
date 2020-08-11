@@ -56,19 +56,19 @@
         @endif
         <div class="mt-2">
             @auth
-            @if (Auth::user()->task_praise->where('task_id', $task->id)->count('id') === 1)
+            @if (Auth::user()->hasLiked($task))
                 <button type="button" class="btn btn-task btn-success text-white mr-1" wire:click="togglePraise" wire:loading.attr="disabled">
                     {{ Emoji::clappingHands() }}
                     <span class="small text-dark font-weight-bold">
-                        {{ $task->task_praise->count('id') }}
+                        {{ $task->likes()->count('id') }}
                     </span>
                 </button>
             @else
                 <button type="button" class="btn btn-task btn-outline-success mr-1" wire:click="togglePraise" wire:loading.attr="disabled">
                     {{ Emoji::clappingHands() }}
-                    @if ($task->task_praise->count('id') !== 0)
+                    @if ($task->likes()->count('id') !== 0)
                     <span class="small text-dark font-weight-bold">
-                        {{ $task->task_praise->count('id') }}
+                        {{ $task->likes()->count('id') }}
                     </span>
                     @endif
                 </button>
@@ -77,9 +77,9 @@
             @guest
                 <a href="/login" class="btn btn-task btn-outline-success mr-1">
                     {{ Emoji::clappingHands() }}
-                    @if ($task->task_praise->count('id') !== 0)
+                    @if ($task->likes()->count('id') !== 0)
                     <span class="small text-dark font-weight-bold">
-                        {{ $task->task_praise->count('id') }}
+                        {{ $task->likes()->count('id') }}
                     </span>
                     @endif
                 </a>

@@ -51,7 +51,7 @@ class NewPraise extends Notification implements ShouldQueue
                                ->fields([
                                    'Task' => $this->entity->task,
                                    'ID' => $this->entity->id,
-                                   'Praise Count' => $this->entity->task_praise->count(),
+                                   'Praise Count' => $this->entity->likes()->count(),
                                ]);
                 });
         } elseif ($this->type === 'COMMENT') {

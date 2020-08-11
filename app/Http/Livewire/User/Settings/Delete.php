@@ -29,9 +29,7 @@ class Delete extends Component
     {
         if (Auth::check()) {
             $user = User::find($this->user->id);
-            $user->task_praise()->delete();
-            $user->tasks()->delete();
-            $user->products()->delete();
+            $user->likes()->delete();
             $user->delete();
 
             return redirect()->route('home');
