@@ -58,8 +58,8 @@
         <ul class="list-group list-group-flush">
             @if (count($user->products) === 0)
             <div class="card-body text-center">
-                <i class="fa fa-3x fa-box-open mb-3 text-primary"></i>
-                <div class="h5">
+                <i class="fa fa-4x fa-box-open mb-3 text-primary"></i>
+                <div class="h4">
                     No products made!
                 </div>
             </div>

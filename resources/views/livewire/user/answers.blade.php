@@ -1,8 +1,8 @@
 <div>
     @if (count($answers) === 0)
     <div class="card-body text-center">
-        <i class="fa fa-3x fa-comments mb-3 text-primary"></i>
-        <div class="h5">
+        <i class="fa fa-4x fa-comments mb-3 text-primary"></i>
+        <div class="h4">
             No answers made!
         </div>
     </div>
