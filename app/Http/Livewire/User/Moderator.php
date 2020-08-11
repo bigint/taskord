@@ -84,7 +84,8 @@ class Moderator extends Component
                 $this->user->isFlagged = false;
             }
             $this->user->save();
-        // TODO Slack Notification
+            Notification::route('slack', config('app.slack_hook_url'))
+                    ->notify(new Mod('SUSPEND', $this->user, Auth::user()));
         } else {
             return false;
         }

@@ -110,6 +110,16 @@ class Mod extends Notification implements ShouldQueue
                     $attachment->title('FLAG')
                                ->content('@'.$this->user->username.' flagged @'.$this->target->username);
                 });
+        } elseif ($this->type === 'SUSPEND') {
+            return (new SlackMessage)
+                ->from('Taskord Bot', ':robot_face:')
+                ->to('#logs')
+                ->warning()
+                ->content('⚠️ Mod Event ⚠️')
+                ->attachment(function ($attachment) {
+                    $attachment->title('SUSPEND')
+                               ->content('@'.$this->user->username.' suspended @'.$this->target->username);
+                });
         } elseif ($this->type === 'DELETE_TASKS') {
             return (new SlackMessage)
                 ->from('Taskord Bot', ':robot_face:')
