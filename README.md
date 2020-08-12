@@ -54,20 +54,20 @@ Contributions are what makes the open-source community such an amazing place to 
 
 1. Fork the project, ie. https://gitlab.com/taskord/taskord/-/forks/new
 2. Clone your forked repository, ie. `git clone https://gitlab.com/<your-username>/taskord.git`
-3. Create your Feature Branch (git checkout -b AmazingFeature)
-4. Commit your changes (git commit -m 'Add some AmazingFeature)
-5. Push to the Branch (git push origin AmazingFeature)
-6. Open a Pull Request
+3. Create your Feature Branch (`git checkout -b AmazingFeature`)
+4. Commit your changes (`git commit -m 'Add some AmazingFeature`)
+5. Push to the Branch (`git push origin AmazingFeature`)
+6. Open a Merge Request
 
 ## Standard Installation
 
 1. Make sure all the prerequisites are installed.
-2. Set up your environment variables/secrets in `.env` file
+2. Set up your environment variables/secrets in the `.env` file
     ```sh
     cp .env.example .env
     ```
-3. Create free [Mailtrap](https://mailtrap.io) account, get email credentials and fill it in `.env` file
-4. Run the below commands to install Taskord
+3. Create a free [Mailtrap](https://mailtrap.io) account, get your email credentials and fill it in the `.env` file
+4. Run the commands below to install Taskord
     ```sh
     # Install Composer Dependencies
     composer install
@@ -84,9 +84,9 @@ Contributions are what makes the open-source community such an amazing place to 
     # Migrate and seed the database with fake data
     php artisan migrate:fresh --seed
     ```
-5. Run the Laravel Queue `php artisan queue:work --tries=3` to receive notifications via web and email
+5. Run the Laravel Queue with `php artisan queue:work --tries=3` to receive notifications via web and email
 6. That's it! Run `php artisan serve` to start the application and head to `http://localhost:8000`
-7. Login with default credentials, username as `admin` and password as `admin`.
+7. Login with the default credentials, username as `admin` and password as `admin`.
 -----
 
 <br>
