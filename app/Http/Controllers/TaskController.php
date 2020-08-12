@@ -18,7 +18,7 @@ class TaskController extends Controller
         } else {
             return view('errors.404');
         }
-        
+
         return view('task/task', $response);
     }
 
