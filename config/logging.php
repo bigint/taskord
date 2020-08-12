@@ -30,7 +30,7 @@ return [
     |
     | Available Drivers: "single", "daily", "slack", "syslog",
     |                    "errorlog", "monolog",
-    |                    "custom", "stack"
+    |                    "custom", "stack", "discord"
     |
     */
 
@@ -60,6 +60,13 @@ return [
             'username' => 'Laravel Log',
             'emoji' => ':boom:',
             'level' => 'critical',
+        ],
+        
+        'discord' => [
+            'driver' => 'custom',
+            'via'    => MarvinLabs\DiscordLogger\Logger::class,
+            'level'  => 'debug',
+            'url'    => env('LOG_DISCORD_WEBHOOK_URL'),
         ],
 
         'papertrail' => [

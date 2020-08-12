@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "4e2fc524d2a9fc75d471c480649ed3ef",
+    "content-hash": "b23bef46ed80402bd9d66825c520d7ba",
     "packages": [
         {
             "name": "albertcht/invisible-recaptcha",
@@ -2019,6 +2019,66 @@
             ],
             "description": "A front-end framework for Laravel.",
             "time": "2020-07-16T14:43:11+00:00"
+        },
+        {
+            "name": "marvinlabs/laravel-discord-logger",
+            "version": "v1.1.5",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/marvinlabs/laravel-discord-logger.git",
+                "reference": "615706a49d57cd3f3ba087dadae94c13e235260c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/marvinlabs/laravel-discord-logger/zipball/615706a49d57cd3f3ba087dadae94c13e235260c",
+                "reference": "615706a49d57cd3f3ba087dadae94c13e235260c",
+                "shasum": ""
+            },
+            "require": {
+                "ext-json": "*",
+                "guzzlehttp/guzzle": "^6.3",
+                "illuminate/support": "^5.5|^6.0|^7.0",
+                "php": ">=7.1"
+            },
+            "require-dev": {
+                "mockery/mockery": "^0.9",
+                "orchestra/testbench": "^3.6",
+                "phpunit/phpunit": "^7.0",
+                "roave/security-advisories": "dev-master"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "MarvinLabs\\DiscordLogger\\ServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "MarvinLabs\\DiscordLogger\\": "src/DiscordLogger"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Vincent Mimoun-Prat",
+                    "email": "contact@vincentprat.info",
+                    "homepage": "https://vincentprat.info",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Logging to a discord channel in Laravel",
+            "keywords": [
+                "discord",
+                "laravel",
+                "logger",
+                "logging"
+            ],
+            "time": "2020-03-12T08:20:52+00:00"
         },
         {
             "name": "monolog/monolog",
