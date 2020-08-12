@@ -11,7 +11,7 @@
             @if (count($tasks) === 0)
             @include('components.empty', [
                 'icon' => 'check-square',
-                'text' => 'Enjoy your day',
+                'text' => 'All done!',
             ])
             @endif
             @foreach($tasks as $task)
