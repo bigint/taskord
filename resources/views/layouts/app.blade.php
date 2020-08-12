@@ -85,7 +85,7 @@
                             <li class="nav-item mr-2">
                                 <div class="nav-link">
                                     <span class="badge rounded-pill bg-warning text-dark reputation">
-                                        {{ Emoji::fire() }} {{ Auth::user()->getPoints(true) }}
+                                        {{ Emoji::fire() }} {{ number_format(Auth::user()->getPoints(true)) }}
                                     </span>
                                 </div>
                             </li>

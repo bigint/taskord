@@ -100,7 +100,7 @@
                 <div class="h5">Highlights</div>
                 <div class="mt-3">
                     <div>
-                        <span class="font-weight-bold">{{ Emoji::fire() }} {{ $user->getPoints(true) }}</span>
+                        <span class="font-weight-bold">{{ Emoji::fire() }} {{ number_format($user->getPoints(true)) }}</span>
                         {{ $user->getPoints(true) < 2 ? 'Reputation' : 'Reputations' }}
                     </div>
                     @if (Auth::check() && Auth::id() === $user->id)
