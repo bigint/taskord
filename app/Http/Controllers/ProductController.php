@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
+use App\Models\ProductUpdate;
 use App\Models\Task;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -29,6 +30,11 @@ class ProductController extends Controller
                     ['product_id', $product->id],
                     ['done', false],
                     ['user_id', $product->user->id],
+                ])
+                ->count('id'),
+            'updates_count' => ProductUpdate::cacheFor(60 * 60)
+                ->where([
+                    ['product_id', $product->id],
                 ])
                 ->count('id'),
         ];

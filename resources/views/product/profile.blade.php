@@ -44,6 +44,7 @@
         </a>
         <a class="text-dark font-weight-bold mr-4"href="{{ route('product.updates', ['slug' => $product->slug]) }}">
             <span class="@if (Route::currentRouteName() === 'product.updates') text-primary @endif">Updates</span>
+            <span class="small font-weight-normal text-black-50">{{ number_format($updates_count) }}</span>
         </a>
         @auth
         @if (Auth::user()->staffShip)
