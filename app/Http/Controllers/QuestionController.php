@@ -58,12 +58,19 @@ class QuestionController extends Controller
     public function question($id)
     {
         $question = Question::where('id', $id)->firstOrFail();
-        views($question)->record();
-
-        return view('question.question', [
+        $response = [
             'type' => 'question.question',
             'question' => $question,
-        ]);
+        ];
+        
+        if (Auth::check() && Auth::id() === $question->user->id or Auth::check() && Auth::user()->staffShip) {
+            views($question)->record();
+            return view('question.question', $response);
+        } else {
+            return view('errors.404');
+        }
+
+        return view('question.question', $response);
     }
 
     public function new()
