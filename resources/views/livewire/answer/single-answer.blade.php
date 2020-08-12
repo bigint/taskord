@@ -35,7 +35,7 @@
                 <button type="button" class="btn btn-task btn-success text-white mr-1" wire:click="togglePraise" wire:loading.attr="disabled">
                     {{ Emoji::clappingHands() }}
                     <span class="small text-dark font-weight-bold">
-                        {{ $answer->likes()->count('id') }}
+                        {{ number_format($answer->likes()->count('id')) }}
                     </span>
                 </button>
             @else
@@ -43,7 +43,7 @@
                     {{ Emoji::clappingHands() }}
                     @if ($answer->likes()->count('id') !== 0)
                     <span class="small text-dark font-weight-bold">
-                        {{ $answer->likes()->count('id') }}
+                        {{ number_format($answer->likes()->count('id')) }}
                     </span>
                     @endif
                 </button>
@@ -66,7 +66,7 @@
                     {{ Emoji::clappingHands() }}
                     @if ($answer->likes()->count('id') !== 0)
                     <span class="small text-dark font-weight-bold">
-                        {{ $answer->likes()->count('id') }}
+                        {{ number_format($answer->likes()->count('id')) }}
                     </span>
                     @endif
                 </a>

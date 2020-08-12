@@ -21,7 +21,7 @@
             @endif
             @endauth
             <span class="small">
-                <span class="font-weight-bold">{{ $product->likes->count('id') }}</span> Subscribers
+                <span class="font-weight-bold">{{ number_format($product->likes->count('id')) }}</span> Subscribers
             </span>
             @if ($product->description)
             <div class="mt-3">
@@ -36,11 +36,11 @@
     <div class="card-footer text-muted">
         <a class="text-dark font-weight-bold mr-4" href="{{ route('product.done', ['slug' => $product->slug]) }}">
             <span class="@if (Route::currentRouteName() === 'product.done') text-primary @endif">Done</span>
-            <span class="small font-weight-normal text-black-50">{{ $done_count }}</span>
+            <span class="small font-weight-normal text-black-50">{{ number_format($done_count) }}</span>
         </a>
         <a class="text-dark font-weight-bold mr-4" href="{{ route('product.pending', ['slug' => $product->slug]) }}">
             <span class="@if (Route::currentRouteName() === 'product.pending') text-primary @endif">Pending</span>
-            <span class="small font-weight-normal text-black-50">{{ $pending_count }}</span>
+            <span class="small font-weight-normal text-black-50">{{ number_format($pending_count) }}</span>
         </a>
         <a class="text-dark font-weight-bold mr-4"href="{{ route('product.updates', ['slug' => $product->slug]) }}">
             <span class="@if (Route::currentRouteName() === 'product.updates') text-primary @endif">Updates</span>

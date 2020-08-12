@@ -48,7 +48,7 @@
                 <button role="button" class="btn btn-task btn-success text-white mr-1" wire:click="togglePraise" wire:loading.attr="disabled">
                     {{ Emoji::clappingHands() }}
                     <span class="small text-dark font-weight-bold">
-                        {{ $question->likes()->count('id') }}
+                        {{ number_format($question->likes()->count('id')) }}
                     </span>
                 </button>
             @else
@@ -56,7 +56,7 @@
                     {{ Emoji::clappingHands() }}
                     @if ($question->likes()->count('id') !== 0)
                     <span class="small text-dark font-weight-bold">
-                        {{ $question->likes()->count('id') }}
+                        {{ number_format($question->likes()->count('id')) }}
                     </span>
                     @endif
                 </button>
@@ -85,7 +85,7 @@
                     {{ Emoji::clappingHands() }}
                     @if ($question->likes()->count('id') !== 0)
                     <span class="small text-dark font-weight-bold">
-                        {{ $question->likes()->count('id') }}
+                        {{ number_format($question->likes()->count('id')) }}
                     </span>
                     @endif
                 </a>
@@ -94,7 +94,7 @@
             <span class="align-middle ml-2 mr-2">
                 <i class="fa fa-eye mr-1"></i>
                 <span class="text-secondary">
-                    <span class="font-weight-bold">{{ views($question)->remember()->unique()->count('id') }}</span>
+                    <span class="font-weight-bold">{{ number_format(views($question)->remember()->unique()->count('id')) }}</span>
                     {{ views($question)->remember()->unique()->count('id') <= 1 ? 'View' : 'Views' }}
                 </span>
             </span>
@@ -106,7 +106,7 @@
                 @endforeach
                 @if ($question->answer->groupBy('user_id')->count('id') >= 5)
                 <span class="ml-3 pl-1 align-middle font-weight-bold small">
-                    +{{ $question->answer->groupBy('user_id')->count('id') - 5 }} more
+                    +{{ number_format($question->answer->groupBy('user_id')->count('id') - 5) }} more
                 </span>
                 @endif
             </a>

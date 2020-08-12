@@ -49,15 +49,17 @@
                             Following
                         </a>
                         <a class="text-dark" href="{{ route('user.followers', ['username' => $user->username]) }}">
-                            <span class="font-weight-bold ml-2">{{ $user->followers()->count() }}</span>
+                            <span class="font-weight-bold ml-2">{{ number_format($user->followers()->count()) }}</span>
                             {{ $user->followers()->count() <= 1 ? "Follower" : "Followers" }}
                         </a>
                         <span class="font-weight-bold ml-2">
                             {{
-                                $user->likes()->withType(\App\Models\Task::class)->count('id') + 
-                                $user->likes()->withType(\App\Models\Comment::class)->count('id') +
-                                $user->likes()->withType(\App\Models\Question::class)->count('id') +
-                                $user->likes()->withType(\App\Models\Answer::class)->count('id')
+                                number_format(
+                                    $user->likes()->withType(\App\Models\Task::class)->count('id') + 
+                                    $user->likes()->withType(\App\Models\Comment::class)->count('id') +
+                                    $user->likes()->withType(\App\Models\Question::class)->count('id') +
+                                    $user->likes()->withType(\App\Models\Answer::class)->count('id')
+                                )
                             }}
                         </span>
                         {{ $user->likes()->withType(\App\Models\Task::class)->count('id') <= 1 ? "Praise" : "Praises" }}
@@ -129,23 +131,23 @@
     <div class="card-footer text-muted">
         <a class="text-dark font-weight-bold mr-4" href="{{ route('user.done', ['username' => $user->username]) }}">
             <span class="@if (Route::currentRouteName() === 'user.done') text-primary @endif">Done</span>
-            <span class="small font-weight-normal text-black-50">{{ $done_count }}</span>
+            <span class="small font-weight-normal text-black-50">{{ number_format($done_count) }}</span>
         </a>
         <a class="text-dark font-weight-bold mr-4" href="{{ route('user.pending', ['username' => $user->username]) }}">
             <span class="@if (Route::currentRouteName() === 'user.pending') text-primary @endif">Pending</span>
-            <span class="small font-weight-normal text-black-50">{{ $pending_count }}</span>
+            <span class="small font-weight-normal text-black-50">{{ number_format($pending_count) }}</span>
         </a>
         <a class="text-dark font-weight-bold mr-4" href="{{ route('user.products', ['username' => $user->username]) }}">
             <span class="@if (Route::currentRouteName() === 'user.products') text-primary @endif">Products</span>
-            <span class="small font-weight-normal text-black-50">{{ $product_count }}</span>
+            <span class="small font-weight-normal text-black-50">{{ number_format($product_count) }}</span>
         </a>
         <a class="text-dark font-weight-bold mr-4" href="{{ route('user.questions', ['username' => $user->username]) }}">
             <span class="@if (Route::currentRouteName() === 'user.questions') text-primary @endif">Questions</span>
-            <span class="small font-weight-normal text-black-50">{{ $question_count }}</span>
+            <span class="small font-weight-normal text-black-50">{{ number_format($question_count) }}</span>
         </a>
         <a class="text-dark font-weight-bold mr-4" href="{{ route('user.answers', ['username' => $user->username]) }}">
             <span class="@if (Route::currentRouteName() === 'user.answers') text-primary @endif">Answers</span>
-            <span class="small font-weight-normal text-black-50">{{ $answer_count }}</span>
+            <span class="small font-weight-normal text-black-50">{{ number_format($answer_count) }}</span>
         </a>
         @auth
         @if (Auth::user()->staffShip)
