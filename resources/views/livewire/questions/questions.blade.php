@@ -1,9 +1,11 @@
 <div>
     @foreach ($questions as $question)
-        @livewire('questions.single-question', [
-            'type' => $type,
-            'question' => $question,
-        ], key($question->id))
+        @if (!$question->user->isFlagged)
+            @livewire('questions.single-question', [
+                'type' => $type,
+                'question' => $question,
+            ], key($question->id))
+        @endif
     @endforeach
     <div class="mt-4">
         @if ($questions->hasMorePages())
