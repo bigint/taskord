@@ -180,8 +180,8 @@
             @yield('content')
         </main>
     </div>
-    <script src="{{ asset('js/app.js') }}" defer data-turbolinks-track="true" data-turbolinks-eval=false></script>
-    <script src="https://kit.fontawesome.com/4f46a7856f.js" crossorigin="anonymous"></script>
-    @livewireScripts
 </body>
+<script src="{{ asset('js/app.js') }}" defer data-turbolinks-track="true" data-turbolinks-eval=false></script>
+<script src="https://kit.fontawesome.com/4f46a7856f.js" crossorigin="anonymous"></script>
+@livewireScripts
 </html>
