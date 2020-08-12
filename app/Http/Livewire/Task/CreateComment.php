@@ -4,7 +4,7 @@ namespace App\Http\Livewire\Task;
 
 use App\Gamify\Points\CommentCreated;
 use App\Models\Comment;
-use App\Notifications\TaskCommented;
+use App\Notifications\Commented;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 
@@ -56,7 +56,7 @@ class CreateComment extends Component
             $this->comment = '';
 
             if (Auth::id() !== $this->task->user->id) {
-                $this->task->user->notify(new TaskCommented($comment));
+                $this->task->user->notify(new Commented($comment));
                 givePoint(new CommentCreated($comment));
             }
 

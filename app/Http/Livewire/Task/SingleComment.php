@@ -2,7 +2,7 @@
 
 namespace App\Http\Livewire\Task;
 
-use App\Notifications\TaskCommentPraised;
+use App\Notifications\CommentPraised;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 
@@ -31,7 +31,7 @@ class SingleComment extends Component
             } else {
                 Auth::user()->like($this->comment);
                 $this->comment->refresh();
-                $this->comment->user->notify(new TaskCommentPraised($this->comment, Auth::id()));
+                $this->comment->user->notify(new CommentPraised($this->comment, Auth::id()));
             }
         } else {
             return session()->flash('error', 'Forbidden!');

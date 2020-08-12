@@ -9,7 +9,7 @@
                     $type === "App\Notifications\TaskPraised" or
                     $type === "App\Notifications\QuestionPraised" or
                     $type === "App\Notifications\AnswerPraised" or
-                    $type === "App\Notifications\TaskCommentPraised"
+                    $type === "App\Notifications\CommentPraised"
                 )
                     {{ Emoji::clappingHands() }}
                 @elseif ($type === "App\Notifications\TaskMentioned")
@@ -20,7 +20,7 @@
                 )
                     {{ Emoji::plusSign() }}
                 @elseif (
-                    $type === "App\Notifications\TaskCommented" or
+                    $type === "App\Notifications\Commented" or
                     $type === "App\Notifications\Answered"
                 )
                     {{ Emoji::speechBalloon() }}
@@ -50,7 +50,7 @@
                         {{ $data['task'] }}
                     </a>
                 </div>
-            @elseif ($type === "App\Notifications\TaskCommentPraised")
+            @elseif ($type === "App\Notifications\CommentPraised")
                 <span class="align-middle">praised your task comment</span>
                 <div class="font-weight-bold mt-2">
                     <a class="text-dark" href="{{ route('task', ['id' => $data['task_id']]) }}">
@@ -71,7 +71,7 @@
                         {{ Str::words($data['answer'], '15') }}
                     </a>
                 </div>
-            @elseif ($type === "App\Notifications\TaskCommented")
+            @elseif ($type === "App\Notifications\Commented")
                 <span class="align-middle">commented on your task</span>
                 <div class="font-weight-bold mt-2">
                     <a class="text-dark" href="{{ route('task', ['id' => $data['task_id']]) }}">
