@@ -5,7 +5,6 @@ namespace App\Http\Livewire\Answer;
 use App\Gamify\Points\CommentCreated;
 use App\Models\Answer;
 use App\Notifications\Answered;
-use App\Notifications\Slack\NewAnswer;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Notification;
 use Livewire\Component;
@@ -61,8 +60,6 @@ class CreateAnswer extends Component
                 $this->question->user->notify(new Answered($answer));
                 givePoint(new CommentCreated($answer));
             }
-            Notification::route('slack', config('app.slack_hook_url'))
-                    ->notify(new NewAnswer($answer, Auth::user()));
 
             return session()->flash('success', 'Answer has been added!');
         } else {

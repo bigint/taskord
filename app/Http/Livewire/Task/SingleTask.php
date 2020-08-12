@@ -4,7 +4,6 @@ namespace App\Http\Livewire\Task;
 
 use App\Gamify\Points\PraiseCreated;
 use App\Gamify\Points\TaskCompleted;
-use App\Notifications\Slack\NewPraise;
 use App\Notifications\TaskPraised;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
@@ -64,8 +63,6 @@ class SingleTask extends Component
                 $this->task->user->notify(new TaskPraised($this->task, Auth::id()));
                 // FIXME: Not Working
                 givePoint(new PraiseCreated($this->task));
-                Notification::route('slack', config('app.slack_hook_url'))
-                    ->notify(new NewPraise('TASK', $this->task, Auth::user()));
             }
         } else {
             return session()->flash('error', 'Forbidden!');

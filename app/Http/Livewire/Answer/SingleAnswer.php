@@ -4,7 +4,6 @@ namespace App\Http\Livewire\Answer;
 
 use App\Gamify\Points\PraiseCreated;
 use App\Notifications\AnswerPraised;
-use App\Notifications\Slack\NewPraise;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Notification;
 use Livewire\Component;
@@ -36,8 +35,6 @@ class SingleAnswer extends Component
                 $this->answer->refresh();
                 $this->answer->user->notify(new AnswerPraised($this->answer, Auth::id()));
                 givePoint(new PraiseCreated($this->answer));
-                Notification::route('slack', config('app.slack_hook_url'))
-                    ->notify(new NewPraise('ANSWER', $this->answer, Auth::user()));
             }
         } else {
             return session()->flash('error', 'Forbidden!');

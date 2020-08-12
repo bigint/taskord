@@ -6,7 +6,6 @@ use App\Gamify\Points\TaskCreated;
 use App\Models\Product;
 use App\Models\Task;
 use App\Models\User;
-use App\Notifications\Slack\NewTask;
 use App\Notifications\TaskMentioned;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
@@ -166,8 +165,6 @@ class CreateTask extends Component
                 }
             }
             givePoint(new TaskCreated($task));
-            Notification::route('slack', config('app.slack_hook_url'))
-                ->notify(new NewTask($task));
 
             return session()->flash('success', 'Task has been created!');
         } else {

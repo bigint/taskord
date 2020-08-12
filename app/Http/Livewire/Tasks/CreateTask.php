@@ -6,7 +6,6 @@ use App\Gamify\Points\TaskCreated;
 use App\Models\Product;
 use App\Models\Task;
 use App\Models\User;
-use App\Notifications\Slack\NewTask;
 use App\Notifications\TaskMentioned;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
@@ -148,8 +147,6 @@ class CreateTask extends Component
             $this->emit('taskAdded');
             $this->reset();
             givePoint(new TaskCreated($task));
-            Notification::route('slack', config('app.slack_hook_url'))
-                ->notify(new NewTask($task));
         } else {
             return session()->flash('error', 'Forbidden!');
         }

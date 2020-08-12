@@ -2,7 +2,6 @@
 
 namespace App\Http\Livewire\Task;
 
-use App\Notifications\Slack\NewPraise;
 use App\Notifications\TaskCommentPraised;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Notification;
@@ -34,8 +33,6 @@ class SingleComment extends Component
                 Auth::user()->like($this->comment);
                 $this->comment->refresh();
                 $this->comment->user->notify(new TaskCommentPraised($this->comment, Auth::id()));
-                Notification::route('slack', config('app.slack_hook_url'))
-                    ->notify(new NewPraise('COMMENT', $this->comment, Auth::user()));
             }
         } else {
             return session()->flash('error', 'Forbidden!');
