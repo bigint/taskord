@@ -11,7 +11,7 @@ return [
     ],
 
     /**
-     * The converter to use to turn a log record into a discord message
+     * The converter to use to turn a log record into a discord message.
      *
      * Bundled converters:
      * - \MarvinLabs\DiscordLogger\Converters\SimpleRecordConverter::class
