@@ -4,7 +4,6 @@ namespace App\Http\Livewire\Task;
 
 use App\Notifications\TaskCommentPraised;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Notification;
 use Livewire\Component;
 
 class SingleComment extends Component

@@ -9,7 +9,6 @@ use App\Models\User;
 use App\Notifications\TaskMentioned;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Notification;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 
