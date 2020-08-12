@@ -5,7 +5,6 @@ namespace App\Http\Livewire\Question;
 use App\Gamify\Points\QuestionCreated;
 use App\Models\Question;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Notification;
 use Livewire\Component;
 
 class CreateQuestion extends Component

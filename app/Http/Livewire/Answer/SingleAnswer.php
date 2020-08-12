@@ -5,7 +5,6 @@ namespace App\Http\Livewire\Answer;
 use App\Gamify\Points\PraiseCreated;
 use App\Notifications\AnswerPraised;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Notification;
 use Livewire\Component;
 
 class SingleAnswer extends Component
