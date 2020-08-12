@@ -10,6 +10,7 @@ use App\Models\Task;
 use App\Models\User;
 use Illuminate\Support\Facades\File;
 use Livewire\Component;
+use Overtrue\LaravelLike\Like;
 
 class Adminbar extends Component
 {
@@ -45,20 +46,20 @@ class Adminbar extends Component
         $questions = Question::cacheFor(60 * 60)->count('id');
         $answers = Answer::cacheFor(60 * 60)->count('id');
         $comments = Comment::cacheFor(60 * 60)->count('id');
-        // TODO
-        $praises = 54;
+        $praises = Like::where('likeable_type', '!=', 'App\Models\Product')
+            ->count('id');
 
         return view('livewire.admin.adminbar', [
             'version' => $version,
             'branchname' => $branchname,
-            'tasks' => $tasks,
-            'users' => $users,
-            'products' => $products,
-            'reputations' => $reputations,
-            'questions' => $questions,
-            'answers' => $answers,
-            'comments' => $comments,
-            'praises' => $praises,
+            'tasks' => number_format($tasks),
+            'users' => number_format($users),
+            'products' => number_format($products),
+            'reputations' => number_format($reputations),
+            'questions' => number_format($questions),
+            'answers' => number_format($answers),
+            'comments' => number_format($comments),
+            'praises' => number_format($praises),
         ]);
     }
 }
