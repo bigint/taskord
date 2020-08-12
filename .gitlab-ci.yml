@@ -30,7 +30,6 @@ Test:
     - php artisan test
 
 Housekeeping:
-  image: alpine
   stage: deploy
   script:
     - curl --request POST --header "PRIVATE-TOKEN:$ACCESS_TOKEN" https://gitlab.com/api/v4/projects/$CI_PROJECT_ID/housekeeping
@@ -38,7 +37,6 @@ Housekeeping:
     - master
 
 Merged Branches:
-  image: alpine
   stage: deploy
   script:
     - curl --request DELETE --header "PRIVATE-TOKEN:$ACCESS_TOKEN" https://gitlab.com/api/v4/projects/$CI_PROJECT_ID/repository/merged_branches
