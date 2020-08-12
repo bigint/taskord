@@ -8,7 +8,7 @@ use Livewire\Component;
 
 class Onboarding extends Component
 {
-    public function slackInvite()
+    public function discordInvite()
     {
         if (Auth::check()) {
             if (Auth::user()->isFlagged) {
