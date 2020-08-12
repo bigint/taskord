@@ -33,8 +33,12 @@ Housekeeping:
   stage: deploy
   script:
     - curl --request POST --header "PRIVATE-TOKEN:$ACCESS_TOKEN" https://gitlab.com/api/v4/projects/$CI_PROJECT_ID/housekeeping
+  only:
+    - master
 
 Merged Branches:
   stage: deploy
   script:
     - curl --request DELETE --header "PRIVATE-TOKEN:$ACCESS_TOKEN" https://gitlab.com/api/v4/projects/$CI_PROJECT_ID/repository/merged_branches
+  only:
+    - master
