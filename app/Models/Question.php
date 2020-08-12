@@ -6,10 +6,11 @@ use CyrildeWit\EloquentViewable\Contracts\Viewable;
 use CyrildeWit\EloquentViewable\InteractsWithViews;
 use Illuminate\Database\Eloquent\Model;
 use Rennokki\QueryCache\Traits\QueryCacheable;
+use Overtrue\LaravelLike\Traits\Likeable;
 
 class Question extends Model implements Viewable
 {
-    use QueryCacheable, InteractsWithViews;
+    use QueryCacheable, InteractsWithViews, Likeable;
 
     protected $cacheFor = 3600;
 
@@ -27,10 +28,5 @@ class Question extends Model implements Viewable
     public function answer()
     {
         return $this->hasMany(\App\Models\Answer::class);
-    }
-
-    public function question_praise()
-    {
-        return $this->hasMany(\App\Models\QuestionPraise::class);
     }
 }

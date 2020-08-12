@@ -135,6 +135,7 @@ class Moderator extends Component
     {
         if (Auth::check() && Auth::user()->isStaff) {
             $user = User::find($this->user->id);
+            $user->tasks()->likes()->delete();
             $user->tasks()->delete();
             Notification::route('slack', config('app.slack_hook_url'))
                     ->notify(new Mod('DELETE_TASKS', $this->user, Auth::user()));

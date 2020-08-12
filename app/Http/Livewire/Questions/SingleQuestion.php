@@ -31,25 +31,14 @@ class SingleQuestion extends Component
             if (Auth::id() === $this->question->user->id) {
                 return session()->flash('error', 'You can\'t praise your own question!');
             }
-            $isPraised = QuestionPraise::where([
-                ['user_id', Auth::id()],
-                ['question_id', $this->question->id],
-            ])->count('id');
-            if ($isPraised === 1) {
-                $praise = QuestionPraise::where([
-                    ['user_id', Auth::id()],
-                    ['question_id', $this->question->id],
-                ])->first();
-                $praise->delete();
+            if (Auth::user()->hasLiked($this->question)) {
+                Auth::user()->unlike($this->question);
                 $this->question->refresh();
             } else {
-                $praise = QuestionPraise::create([
-                    'user_id' => Auth::id(),
-                    'question_id' => $this->question->id,
-                ]);
+                Auth::user()->like($this->question);
                 $this->question->refresh();
                 $this->question->user->notify(new QuestionPraised($this->question, Auth::id()));
-                givePoint(new PraiseCreated($praise));
+                givePoint(new PraiseCreated($this->question));
                 Notification::route('slack', config('app.slack_hook_url'))
                     ->notify(new NewPraise('QUESTION', $this->question, Auth::user()));
             }

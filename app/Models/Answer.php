@@ -4,10 +4,11 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Rennokki\QueryCache\Traits\QueryCacheable;
+use Overtrue\LaravelLike\Traits\Likeable;
 
 class Answer extends Model
 {
-    use QueryCacheable;
+    use QueryCacheable, Likeable;
 
     protected $cacheFor = 3600;
 
@@ -25,10 +26,5 @@ class Answer extends Model
     public function question()
     {
         return $this->belongsTo(\App\Models\Question::class);
-    }
-
-    public function answer_praise()
-    {
-        return $this->hasMany(\App\Models\AnswerPraise::class);
     }
 }

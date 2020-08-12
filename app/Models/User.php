@@ -73,18 +73,8 @@ class User extends Authenticatable
         return $this->hasMany(\App\Models\Question::class);
     }
 
-    public function question_praise()
-    {
-        return $this->hasMany(\App\Models\QuestionPraise::class);
-    }
-
     public function answers()
     {
         return $this->hasMany(\App\Models\Answer::class);
-    }
-
-    public function answer_praise()
-    {
-        return $this->hasMany(\App\Models\AnswerPraise::class);
     }
 }

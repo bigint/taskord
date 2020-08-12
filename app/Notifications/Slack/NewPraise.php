@@ -79,7 +79,7 @@ class NewPraise extends Notification implements ShouldQueue
                                ->fields([
                                    'Question' => $this->entity->title,
                                    'ID' => $this->entity->id,
-                                   'Praise Count' => $this->entity->question_praise->count(),
+                                   'Praise Count' => $this->entity->likes()->withType(\App\Models\Question::class)->count('id'),
                                ]);
                 });
         } elseif ($this->type === 'ANSWER') {
@@ -93,7 +93,7 @@ class NewPraise extends Notification implements ShouldQueue
                                ->fields([
                                    'Question' => $this->entity->answer,
                                    'ID' => $this->entity->id,
-                                   'Praise Count' => $this->entity->answer_praise->count(),
+                                   'Praise Count' => $this->entity->likes()->withType(\App\Models\Answer::class)->count('id'),
                                ]);
                 });
         }

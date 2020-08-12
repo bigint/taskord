@@ -44,19 +44,19 @@
         </div>
         <div class="mt-3">
             @auth
-            @if (Auth::user()->question_praise->where('question_id', $question->id)->count('id') === 1)
+            @if (Auth::user()->hasLiked($question))
                 <button role="button" class="btn btn-task btn-success text-white mr-1" wire:click="togglePraise" wire:loading.attr="disabled">
                     {{ Emoji::clappingHands() }}
                     <span class="small text-dark font-weight-bold">
-                        {{ $question->question_praise->count('id') }}
+                        {{ $question->likes()->count('id') }}
                     </span>
                 </button>
             @else
                 <button role="button" class="btn btn-task btn-outline-success mr-1" wire:click="togglePraise" wire:loading.attr="disabled">
                     {{ Emoji::clappingHands() }}
-                    @if ($question->question_praise->count('id') !== 0)
+                    @if ($question->likes()->count('id') !== 0)
                     <span class="small text-dark font-weight-bold">
-                        {{ $question->question_praise->count('id') }}
+                        {{ $question->likes()->count('id') }}
                     </span>
                     @endif
                 </button>
@@ -83,9 +83,9 @@
             @guest
                 <a href="/login" class="btn btn-task btn-outline-success mr-1">
                     {{ Emoji::clappingHands() }}
-                    @if ($question->question_praise->count('id') !== 0)
+                    @if ($question->likes()->count('id') !== 0)
                     <span class="small text-dark font-weight-bold">
-                        {{ $question->question_praise->count('id') }}
+                        {{ $question->likes()->count('id') }}
                     </span>
                     @endif
                 </a>

@@ -29,25 +29,14 @@ class SingleAnswer extends Component
             if (Auth::id() === $this->answer->user->id) {
                 return session()->flash('error', 'You can\'t praise your own answer!');
             }
-            $isPraised = AnswerPraise::where([
-                ['user_id', Auth::id()],
-                ['answer_id', $this->answer->id],
-            ])->count('id');
-            if ($isPraised === 1) {
-                $praise = AnswerPraise::where([
-                    ['user_id', Auth::id()],
-                    ['answer_id', $this->answer->id],
-                ])->first();
-                $praise->delete();
+            if (Auth::user()->hasLiked($this->answer)) {
+                Auth::user()->unlike($this->answer);
                 $this->answer->refresh();
             } else {
-                $praise = AnswerPraise::create([
-                    'user_id' => Auth::id(),
-                    'answer_id' => $this->answer->id,
-                ]);
+                Auth::user()->like($this->answer);
                 $this->answer->refresh();
                 $this->answer->user->notify(new AnswerPraised($this->answer, Auth::id()));
-                givePoint(new PraiseCreated($praise));
+                givePoint(new PraiseCreated($this->answer));
                 Notification::route('slack', config('app.slack_hook_url'))
                     ->notify(new NewPraise('ANSWER', $this->answer, Auth::user()));
             }
