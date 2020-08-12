@@ -18,7 +18,7 @@ class TaskController extends Controller
         } elseif ($task->user->isFlagged) {
             return view('errors.404');
         }
-        
+
         return view('task/task', $response);
     }
 
