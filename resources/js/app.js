@@ -7,7 +7,7 @@ Turbolinks.start();
 
 $(document).ready(() => {
   (async () => {
-    const target = document.querySelector('#load-more')
+    const target = document.querySelector('#load-more');
     if (await isInViewport(target)) {
       $("#load-more").click();
       $("#load-more").html("Loading");
@@ -56,7 +56,7 @@ $(document).on('turbolinks:load', () => {
 });
 
 // Hide Alert
-$(document).on("livewire:load", (event) => {
+$(document).on("livewire:load", (_event) => {
   window.livewire.hook('afterDomUpdate', () => {
     setTimeout(() => {
       $('.fade').fadeOut('fast');
@@ -64,21 +64,23 @@ $(document).on("livewire:load", (event) => {
   });
 });
 
-$(document).on("livewire:load", (event) => {
-  $('#task-input').keyup(function () {
-    var max = 300;
-    var len = $(this).val().length;
+$(document).on("livewire:load", (_event) => {
+  $('#task-input').keyup( () => {
+    const max = 300;
+    const len = $(this).val().length;
+
     if (len >= max) {
       $('#task-len-counter').text('You have reached the limit').addClass('text-danger');
     } else {
-      var char = max - len;
-      $('#task-len-counter').text(char + ' characters left');
+      const char = max - len;
+      $('#task-len-counter').text(`${char} characters left`);
     }
+
     $('#task-len-counter').removeClass('text-danger');
   });
 });
 
 // Hide search dropdown on clicking the body
-$("body").on("click", function(event){
-  $( "ul" ).remove( ".search-dropdown" );
+$("body").on("click", (_event) => {
+  $("ul").remove(".search-dropdown");
 });
