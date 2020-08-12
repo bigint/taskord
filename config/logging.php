@@ -61,7 +61,7 @@ return [
             'emoji' => ':boom:',
             'level' => 'critical',
         ],
-        
+
         'discord' => [
             'driver' => 'custom',
             'via'    => MarvinLabs\DiscordLogger\Logger::class,
