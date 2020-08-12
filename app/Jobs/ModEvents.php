@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Log;
 class ModEvents implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
-    
+
     protected $type;
     protected $message;
 
@@ -34,11 +34,11 @@ class ModEvents implements ShouldQueue
      */
     public function handle()
     {
-        if ($this->type === "INFO") {
+        if ($this->type === 'INFO') {
             Log::info($this->message);
-        } else if ($this->type === "WARNING") {
+        } elseif ($this->type === 'WARNING') {
             Log::warning($this->message);
-        } else if ($this->type === "CRITICAL") {
+        } elseif ($this->type === 'CRITICAL') {
             Log::critical($this->message);
         }
     }
