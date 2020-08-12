@@ -28,22 +28,11 @@ class SingleComment extends Component
             if (Auth::id() === $this->comment->user->id) {
                 return session()->flash('error', 'You can\'t praise your own comment!');
             }
-            $isPraised = TaskCommentPraise::where([
-                ['user_id', Auth::id()],
-                ['task_comment_id', $this->comment->id],
-            ])->count('id');
-            if ($isPraised === 1) {
-                $praise = TaskCommentPraise::where([
-                    ['user_id', Auth::id()],
-                    ['task_comment_id', $this->comment->id],
-                ])->first();
-                $praise->delete();
+            if (Auth::user()->hasLiked($this->comment)) {
+                Auth::user()->unlike($this->comment);
                 $this->comment->refresh();
             } else {
-                $praise = TaskCommentPraise::create([
-                    'user_id' => Auth::id(),
-                    'task_comment_id' => $this->comment->id,
-                ]);
+                Auth::user()->like($this->comment);
                 $this->comment->refresh();
                 $this->comment->user->notify(new TaskCommentPraised($this->comment, Auth::id()));
                 Notification::route('slack', config('app.slack_hook_url'))
@@ -66,7 +55,7 @@ class SingleComment extends Component
                 return session()->flash('error', 'Your account is flagged!');
             }
             if (Auth::user()->staffShip or Auth::id() === $this->comment->user->id) {
-                $this->comment->task_comment_praise()->delete();
+                $this->comment->likes()->delete();
                 $this->comment->delete();
                 $this->emit('taskCommentDeleted');
             } else {

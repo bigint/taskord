@@ -55,7 +55,7 @@
                         <span class="font-weight-bold ml-2">
                             {{
                                 $user->likes()->withType(\App\Models\Task::class)->count('id') + 
-                                $user->task_comment_praise->count('id') +
+                                $user->likes()->withType(\App\Models\TaskComment::class)->count('id') +
                                 $user->question_praise->count('id') +
                                 $user->answer_praise->count('id')
                             }}

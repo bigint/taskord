@@ -4,10 +4,11 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Rennokki\QueryCache\Traits\QueryCacheable;
+use Overtrue\LaravelLike\Traits\Likeable;
 
 class TaskComment extends Model
 {
-    use QueryCacheable;
+    use QueryCacheable, Likeable;
 
     protected $cacheFor = 3600;
 
@@ -25,10 +26,5 @@ class TaskComment extends Model
     public function task()
     {
         return $this->belongsTo(\App\Models\Task::class);
-    }
-
-    public function task_comment_praise()
-    {
-        return $this->hasMany(\App\Models\TaskCommentPraise::class);
     }
 }
