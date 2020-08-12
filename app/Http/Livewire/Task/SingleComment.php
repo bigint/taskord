@@ -43,7 +43,7 @@ class SingleComment extends Component
         $this->confirming = $this->comment->id;
     }
 
-    public function deleteTaskComment()
+    public function deleteComment()
     {
         if (Auth::check()) {
             if (Auth::user()->isFlagged) {
@@ -52,7 +52,7 @@ class SingleComment extends Component
             if (Auth::user()->staffShip or Auth::id() === $this->comment->user->id) {
                 $this->comment->likes()->delete();
                 $this->comment->delete();
-                $this->emit('taskCommentDeleted');
+                $this->emit('commentDeleted');
             } else {
                 return session()->flash('error', 'Forbidden!');
             }

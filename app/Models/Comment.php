@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 use Overtrue\LaravelLike\Traits\Likeable;
 use Rennokki\QueryCache\Traits\QueryCacheable;
 
-class TaskComment extends Model
+class Comment extends Model
 {
     use QueryCacheable, Likeable;
 

@@ -167,7 +167,7 @@ class Moderator extends Component
     {
         if (Auth::check() && Auth::user()->isStaff) {
             $user = User::find($this->user->id);
-            $user->task_comment()->delete();
+            $user->comment()->delete();
             ModEvents::dispatch('CRITICAL', '@'.Auth::user()->username.' deleted all comments made by @'.$this->user->username);
 
             return redirect()->route('user.done', ['username' => $this->user->username]);

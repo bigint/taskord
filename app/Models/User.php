@@ -53,9 +53,9 @@ class User extends Authenticatable
         return $this->hasMany(\App\Models\Task::class);
     }
 
-    public function task_comment()
+    public function comment()
     {
-        return $this->hasMany(\App\Models\TaskComment::class);
+        return $this->hasMany(\App\Models\Comment::class);
     }
 
     public function products()

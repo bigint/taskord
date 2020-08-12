@@ -3,7 +3,7 @@
 namespace App\Http\Livewire\Task;
 
 use App\Gamify\Points\CommentCreated;
-use App\Models\TaskComment;
+use App\Models\Comment;
 use App\Notifications\TaskCommented;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
@@ -46,7 +46,7 @@ class CreateComment extends Component
                 return session()->flash('error', 'Your account is flagged!');
             }
 
-            $comment = TaskComment::create([
+            $comment = Comment::create([
                 'user_id' =>  Auth::id(),
                 'task_id' =>  $this->task->id,
                 'comment' => $this->comment,

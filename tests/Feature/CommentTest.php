@@ -5,14 +5,14 @@ namespace Tests\Feature;
 use App\Http\Livewire\Task\CreateComment;
 use App\Http\Livewire\Task\SingleComment;
 use App\Models\Task;
-use App\Models\TaskComment;
+use App\Models\Comment;
 use App\Models\User;
 use Livewire;
 use Tests\TestCase;
 
 class CommentTest extends TestCase
 {
-    public function test_create_task_comment()
+    public function test_create_comment()
     {
         $task = Task::create([
             'user_id' => 1,
@@ -26,7 +26,7 @@ class CommentTest extends TestCase
             ->assertSeeHtml('Forbidden!');
     }
 
-    public function test_auth_create_task_comment()
+    public function test_auth_create_comment()
     {
         $user = User::where(['email' => 'test@taskord.com'])->first();
         $this->actingAs($user);
@@ -42,7 +42,7 @@ class CommentTest extends TestCase
             ->assertSeeHtml('Comment has been added!');
     }
 
-    public function test_auth_create_task_comment_profanity()
+    public function test_auth_create_comment_profanity()
     {
         $user = User::where(['email' => 'test@taskord.com'])->first();
         $this->actingAs($user);
@@ -61,7 +61,7 @@ class CommentTest extends TestCase
             ->assertSeeHtml('Please check your words!');
     }
 
-    public function test_auth_create_task_comment_required()
+    public function test_auth_create_comment_required()
     {
         $user = User::where(['email' => 'test@taskord.com'])->first();
         $this->actingAs($user);
@@ -79,11 +79,11 @@ class CommentTest extends TestCase
             ->assertSeeHtml('The comment field is required.');
     }
 
-    public function test_praise_task_comment()
+    public function test_praise_comment()
     {
         $user = User::where(['email' => 'test@taskord.com'])->first();
         $this->actingAs($user);
-        $task_comment = TaskComment::create([
+        $task_comment = Comment::create([
             'user_id' =>  $user->id,
             'task_id' =>  1,
             'comment' => md5(microtime()),
@@ -98,7 +98,7 @@ class CommentTest extends TestCase
     {
         $user = User::where(['email' => 'test@taskord.com'])->first();
         $this->actingAs($user);
-        $task_comment = TaskComment::create([
+        $task_comment = Comment::create([
             'user_id' =>  2,
             'task_id' =>  1,
             'comment' => md5(microtime()),
@@ -111,14 +111,14 @@ class CommentTest extends TestCase
 
     public function test_delete_task_comment()
     {
-        $task_comment = TaskComment::create([
+        $task_comment = Comment::create([
             'user_id' =>  1,
             'task_id' =>  1,
             'comment' => md5(microtime()),
         ]);
 
         Livewire::test(SingleComment::class, ['comment' => $task_comment])
-            ->call('deleteTaskComment')
+            ->call('deleteComment')
             ->assertSeeHtml('Forbidden!');
     }
 
@@ -126,14 +126,14 @@ class CommentTest extends TestCase
     {
         $user = User::where(['email' => 'test@taskord.com'])->first();
         $this->actingAs($user);
-        $task_comment = TaskComment::create([
+        $task_comment = Comment::create([
             'user_id' =>  $user->id,
             'task_id' =>  1,
             'comment' => md5(microtime()),
         ]);
 
         Livewire::test(SingleComment::class, ['comment' => $task_comment])
-            ->call('deleteTaskComment')
-            ->assertEmitted('taskCommentDeleted');
+            ->call('deleteComment')
+            ->assertEmitted('commentDeleted');
     }
 }

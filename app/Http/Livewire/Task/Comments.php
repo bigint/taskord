@@ -2,7 +2,7 @@
 
 namespace App\Http\Livewire\Task;
 
-use App\Models\TaskComment;
+use App\Models\Comment;
 use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Collection;
@@ -12,7 +12,7 @@ class Comments extends Component
 {
     public $listeners = [
         'commentAdded' => 'render',
-        'taskCommentDeleted' => 'render',
+        'commentDeleted' => 'render',
     ];
 
     public $task;
@@ -36,7 +36,7 @@ class Comments extends Component
 
     public function render()
     {
-        $comments = TaskComment::cacheFor(60 * 60)
+        $comments = Comment::cacheFor(60 * 60)
             ->where('task_id', $this->task->id)
             ->orderBy('created_at', 'DESC')
             ->get();

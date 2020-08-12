@@ -6,7 +6,7 @@ use App\Models\Answer;
 use App\Models\Product;
 use App\Models\Question;
 use App\Models\Task;
-use App\Models\TaskComment;
+use App\Models\Comment;
 use App\Models\User;
 use Illuminate\Support\Facades\File;
 use Livewire\Component;
@@ -44,7 +44,7 @@ class Adminbar extends Component
         $reputations = User::cacheFor(60 * 60)->sum('reputation');
         $questions = Question::cacheFor(60 * 60)->count('id');
         $answers = Answer::cacheFor(60 * 60)->count('id');
-        $comments = TaskComment::cacheFor(60 * 60)->count('id');
+        $comments = Comment::cacheFor(60 * 60)->count('id');
         // TODO
         $praises = 54;
 
