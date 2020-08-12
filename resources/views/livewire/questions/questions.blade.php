@@ -1,6 +1,6 @@
 <div>
     @foreach ($questions as $question)
-        @if (!$question->user->isFlagged)
+        @if (!$question->user->isFlagged or Auth::check() && Auth::user()->staffShip)
             @livewire('questions.single-question', [
                 'type' => $type,
                 'question' => $question,

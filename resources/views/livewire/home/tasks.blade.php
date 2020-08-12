@@ -25,7 +25,7 @@
         <div class="card mb-4" wire:poll.5s>
             <ul class="list-group list-group-flush">
                 @foreach ($groupedTask as $task)
-                    @if (!$task->user->isFlagged)
+                    @if (!$task->user->isFlagged or Auth::check() && Auth::user()->staffShip)
                         @livewire('task.single-task', [
                             'task' => $task
                         ], key($task->id))
