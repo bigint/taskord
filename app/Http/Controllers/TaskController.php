@@ -15,7 +15,7 @@ class TaskController extends Controller
         ];
         if (Auth::check() && Auth::id() === $task->user->id or Auth::check() && Auth::user()->staffShip) {
             return view('task/task', $response);
-        } else {
+        } elseif ($task->user->isFlagged) {
             return view('errors.404');
         }
         

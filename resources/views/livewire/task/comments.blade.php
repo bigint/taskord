@@ -7,9 +7,11 @@
     @endif
     <ul class="list-group mt-4" wire:poll.5s>
     @foreach ($comments as $comment)
-        @livewire('task.single-comment', [
-            'comment' => $comment,
-        ], key($comment->id))
+        @if (!$comment->user->isFlagged or Auth::check() && Auth::user()->staffShip)
+            @livewire('task.single-comment', [
+                'comment' => $comment,
+            ], key($comment->id))
+        @endif
     @endforeach
     </ul>
     <div class="mt-4">

@@ -6,11 +6,13 @@
     ])
     @endif
     @foreach ($answers as $answer)
-        <div class="card mt-4">
-            @livewire('answer.single-answer', [
-                'answer' => $answer
-            ], key($answer->id))
-        </div>
+        @if (!$answer->user->isFlagged or Auth::check() && Auth::user()->staffShip)
+            <div class="card mt-4">
+                @livewire('answer.single-answer', [
+                    'answer' => $answer
+                ], key($answer->id))
+            </div>
+        @endif
     @endforeach
     <div class="mt-4">
     @if ($answers->hasMorePages())

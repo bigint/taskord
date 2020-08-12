@@ -66,7 +66,7 @@ class QuestionController extends Controller
         if (Auth::check() && Auth::id() === $question->user->id or Auth::check() && Auth::user()->staffShip) {
             views($question)->record();
             return view('question.question', $response);
-        } else {
+        } elseif ($question->user->isFlagged) {
             return view('errors.404');
         }
 
