@@ -56,6 +56,7 @@
         @endif
         <div class="mt-2">
             @auth
+            @if (!$task->user->isPrivate)
             @if (Auth::user()->hasLiked($task))
                 <button type="button" class="btn btn-task btn-success text-white mr-1" wire:click="togglePraise" wire:loading.attr="disabled">
                     {{ Emoji::clappingHands() }}
@@ -72,6 +73,7 @@
                     </span>
                     @endif
                 </button>
+            @endif
             @endif
             @endauth
             @guest
