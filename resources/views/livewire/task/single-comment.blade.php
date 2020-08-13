@@ -24,7 +24,7 @@
         @if (Auth::user()->hasLiked($comment))
             <button type="button" class="btn btn-task btn-success text-white mr-1" wire:click="togglePraise" wire:loading.attr="disabled">
                 {{ Emoji::clappingHands() }}
-                <span class="small text-dark font-weight-bold">
+                <span class="small text-white font-weight-bold">
                     {{ number_format($comment->likes()->count('id')) }}
                 </span>
             </button>
