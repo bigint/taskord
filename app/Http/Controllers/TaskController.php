@@ -13,9 +13,12 @@ class TaskController extends Controller
         $response = [
             'task' => $task,
         ];
-        if (Auth::check() && Auth::id() === $task->user->id or Auth::check() && Auth::user()->staffShip) {
+        if (
+            Auth::check() && Auth::id() === $task->user->id or
+            Auth::check() && Auth::user()->staffShip
+        ) {
             return view('task/task', $response);
-        } elseif ($task->user->isFlagged) {
+        } elseif ($task->user->isFlagged or $task->user->isPrivate) {
             return view('errors.404');
         }
 
