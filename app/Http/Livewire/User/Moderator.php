@@ -63,7 +63,7 @@ class Moderator extends Component
             return false;
         }
     }
-    
+
     public function privateUser()
     {
         if (Auth::check() && Auth::user()->isStaff) {
