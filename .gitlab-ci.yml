@@ -19,12 +19,14 @@ variables:
   DB_HOST: mysql
   a11y_urls: "http://dev.taskord.com:8000"
   DAST_WEBSITE: "http://dev.taskord.com:8000"
+  URL: "http://dev.taskord.com:8000"
 
 stages:
   - test
   - deploy
   - dast
   - accessibility
+  - performance
 
 cache:
   paths:
@@ -56,7 +58,3 @@ Merged Branches:
     - curl --request DELETE --header "PRIVATE-TOKEN:$ACCESS_TOKEN" https://gitlab.com/api/v4/projects/$CI_PROJECT_ID/repository/merged_branches
   only:
     - master
-
-performance:
-  variables:
-    URL: "http://dev.taskord.com:8000"
