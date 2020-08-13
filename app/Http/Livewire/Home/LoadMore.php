@@ -50,7 +50,7 @@ class LoadMore extends Component
                 $tasks = Task::cacheFor(60 * 60)
                     ->select('id', 'task', 'done', 'done_at', 'user_id')
                     ->whereIn('user_id', $userIds)
-                    ->whereHas('user', function($q) {
+                    ->whereHas('user', function ($q) {
                         $q->where([
                             ['isFlagged', false],
                             ['isPrivate', false],
@@ -65,7 +65,7 @@ class LoadMore extends Component
             } else {
                 $tasks = Task::cacheFor(60 * 60)
                     ->select('id', 'task', 'done', 'done_at', 'user_id')
-                    ->whereHas('user', function($q) {
+                    ->whereHas('user', function ($q) {
                         $q->where([
                             ['isFlagged', false],
                             ['isPrivate', false],
