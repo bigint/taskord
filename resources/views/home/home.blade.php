@@ -109,6 +109,10 @@
                                             {{ '@'.Auth::user()->username }}
                                         </div>
                                     </span>
+                                    <a class="btn btn-sm btn-success text-white float-right ml-auto" href="{{ route('user.settings.profile') }}">
+                                        <i class="fa fa-gear mr-1"></i>
+                                        Edit Profile
+                                    </a>
                                 </div>
                             </div>
                             <div class="card-footer small font-weight-bold d-flex justify-content-between">
