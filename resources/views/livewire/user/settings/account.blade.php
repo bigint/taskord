@@ -30,11 +30,28 @@
                     <span wire:target="updateAccount" wire:loading class="spinner-border spinner-border-sm ml-2" role="status"></span>
                 </button>
             </form>
-            <div class="mt-3">
-                <input wire:click="enrollBeta" id="enrollBeta" class="form-check-input" type="checkbox" {{ $user->isBeta ? 'checked' : '' }}>
-                <label for="enrollBeta" class="ml-1">Enroll to Beta</label>
-                <span wire:loading wire:target="enrollBeta" class="small ml-2 text-success font-weight-bold">Enrolling...</span>
+        </div>
+    </div>
+    <div class="card mb-4">
+        <div class="card-header pt-3 pb-3">
+            <span class="h5">Beta</span>
+            <div>
+                Get release earlier.
+                @include('components.beta', [
+                    'background' => 'dark',
+                ])
             </div>
+        </div>
+        <div class="card-body">
+            @if (session()->has('isBeta'))
+                <div class="alert alert-success alert-dismissible fade show mb-3">
+                    <button type="button" class="close" data-dismiss="alert">×</button>
+                    {{ session('isBeta') }}
+                </div>
+            @endif
+            <input wire:click="enrollBeta" id="enrollBeta" class="form-check-input" type="checkbox" {{ $user->isBeta ? 'checked' : '' }}>
+            <label for="enrollBeta" class="ml-1">Enroll to Beta</label>
+            <span wire:loading wire:target="enrollBeta" class="small ml-2 text-success font-weight-bold">Enrolling...</span>
         </div>
     </div>
     <div class="card">

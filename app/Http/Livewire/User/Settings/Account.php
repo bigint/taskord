@@ -25,9 +25,9 @@ class Account extends Component
                 $this->user->isBeta = ! $this->user->isBeta;
                 $this->user->save();
                 if ($this->user->isBeta) {
-                    session()->flash('success', 'Your are now beta member!');
+                    session()->flash('isBeta', 'Your are now beta member!');
                 } else {
-                    session()->flash('warning', 'Your are no longer a beta member!');
+                    session()->flash('isBeta', 'Your are no longer a beta member!');
                 }
             } else {
                 return session()->flash('error', 'Forbidden!');
@@ -41,7 +41,7 @@ class Account extends Component
     {
         if (Auth::check()) {
             if (!$this->user->isPatron) {
-                return session()->flash('isPrivate', 'Forbidden!');
+                return session()->flash('error', 'Forbidden!');
             }
             
             if (Auth::check() && Auth::id() === $this->user->id) {
@@ -53,7 +53,7 @@ class Account extends Component
                     return session()->flash('isPrivate', 'All your tasks are now public');
                 }
             } else {
-                return false;
+                return session()->flash('error', 'Forbidden!');
             }
         } else {
             return session()->flash('error', 'Forbidden!');
