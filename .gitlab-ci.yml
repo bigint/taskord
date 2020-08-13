@@ -5,6 +5,7 @@ include:
   - template: Secret-Detection.gitlab-ci.yml
   - template: Code-Quality.gitlab-ci.yml
   - template: Accessibility.gitlab-ci.yml
+  - template: DAST.gitlab-ci.yml
 
 services:
   - mysql:latest
@@ -16,6 +17,7 @@ variables:
   MYSQL_DATABASE: taskord
   DB_HOST: mysql
   a11y_urls: "http://dev.taskord.com:8000"
+  DAST_WEBSITE: "http://dev.taskord.com:8000"
 
 stages:
   - test
