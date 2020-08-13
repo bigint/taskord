@@ -26,7 +26,7 @@
                     @else
                     @include('components.empty', [
                         'icon' => 'lock',
-                        'text' => 'This profile is private',
+                        'text' => 'All tasks are private',
                     ])
                     @endif
                 </div>
