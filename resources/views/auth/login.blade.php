@@ -70,6 +70,10 @@
                     <i class="fa fa-lock mr-1"></i>
                     Login
                 </button>
+                <button class="btn btn-lg btn-dark btn-block" type="submit">
+                    <i class="fa fa-link mr-1 text-white"></i>
+                    Send magic link
+                </button>
                 <div class="mt-3 row">
                     <div class="col-6">
                         <a href="/login/google" class="btn btn-lg btn-outline-danger btn-block" type="submit">
