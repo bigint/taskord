@@ -6,6 +6,7 @@ include:
   - template: Code-Quality.gitlab-ci.yml
   - template: Accessibility.gitlab-ci.yml
   - template: DAST.gitlab-ci.yml
+  - template: Verify/Browser-Performance.gitlab-ci.yml
 
 services:
   - mysql:latest
@@ -55,3 +56,7 @@ Merged Branches:
     - curl --request DELETE --header "PRIVATE-TOKEN:$ACCESS_TOKEN" https://gitlab.com/api/v4/projects/$CI_PROJECT_ID/repository/merged_branches
   only:
     - master
+
+performance:
+  variables:
+    URL: "http://dev.taskord.com:8000"
