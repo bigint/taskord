@@ -36,14 +36,14 @@ class Account extends Component
             return session()->flash('error', 'Forbidden!');
         }
     }
-    
+
     public function enrollPrivate()
     {
         if (Auth::check()) {
             if (!$this->user->isPatron) {
                 return session()->flash('error', 'Forbidden!');
             }
-            
+
             if (Auth::check() && Auth::id() === $this->user->id) {
                 $this->user->isPrivate = ! $this->user->isPrivate;
                 $this->user->save();
