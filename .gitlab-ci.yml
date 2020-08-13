@@ -3,6 +3,10 @@ include:
   - template: License-Scanning.gitlab-ci.yml
   - template: SAST.gitlab-ci.yml
   - template: Secret-Detection.gitlab-ci.yml
+  - template: DAST.gitlab-ci.yml
+
+variables:
+  DAST_WEBSITE: http://dev.taskord.com:8000
 
 services:
   - mysql:latest
