@@ -55,14 +55,11 @@
                         <span class="font-weight-bold ml-2">
                             {{
                                 number_format(
-                                    $user->likes()->withType(\App\Models\Task::class)->count('id') + 
-                                    $user->likes()->withType(\App\Models\Comment::class)->count('id') +
-                                    $user->likes()->withType(\App\Models\Question::class)->count('id') +
-                                    $user->likes()->withType(\App\Models\Answer::class)->count('id')
+                                    $user->likes()->where('likeable_type', '!=', 'App\Models\Product')->count('id')
                                 )
                             }}
                         </span>
-                        {{ $user->likes()->withType(\App\Models\Task::class)->count('id') <= 1 ? "Praise" : "Praises" }}
+                        {{ $user->likes()->where('likeable_type', '!=', 'App\Models\Product')->count('id') <= 1 ? "Praise" : "Praises" }}
                     </span>
                     @if ($user->bio)
                     <div class="mt-3">
