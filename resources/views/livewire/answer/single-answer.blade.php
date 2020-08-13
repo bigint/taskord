@@ -34,7 +34,7 @@
             @if (Auth::user()->hasLiked($answer))
                 <button type="button" class="btn btn-task btn-success text-white mr-1" wire:click="togglePraise" wire:loading.attr="disabled">
                     {{ Emoji::clappingHands() }}
-                    <span class="small text-dark font-weight-bold">
+                    <span class="small text-white font-weight-bold">
                         {{ number_format($answer->likes()->count('id')) }}
                     </span>
                 </button>
