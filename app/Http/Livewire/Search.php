@@ -28,6 +28,12 @@ class Search extends Component
     public function updatedQuery()
     {
         $this->tasks = Task::cacheFor(60 * 60)
+            ->whereHas('user', function ($q) {
+                $q->where([
+                    ['isFlagged', false],
+                    ['isPrivate', false],
+                ]);
+            })
             ->where('task', 'LIKE', '%'.$this->query.'%')
             ->limit(3)
             ->get();
