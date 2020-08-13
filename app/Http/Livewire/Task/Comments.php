@@ -38,6 +38,11 @@ class Comments extends Component
     {
         $comments = Comment::cacheFor(60 * 60)
             ->where('task_id', $this->task->id)
+            ->whereHas('user', function ($q) {
+                $q->where([
+                    ['isFlagged', false],
+                ]);
+            })
             ->orderBy('created_at', 'DESC')
             ->get();
 
