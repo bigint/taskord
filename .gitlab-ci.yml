@@ -3,7 +3,7 @@ include:
   - template: License-Scanning.gitlab-ci.yml
   - template: SAST.gitlab-ci.yml
   - template: Secret-Detection.gitlab-ci.yml
-  - template: DAST.gitlab-ci.yml
+  - template: Code-Quality.gitlab-ci.yml
 
 services:
   - mysql:latest
@@ -14,7 +14,6 @@ variables:
   MYSQL_PASSWORD: taskord
   MYSQL_DATABASE: taskord
   DB_HOST: mysql
-  DAST_WEBSITE: http://dev.taskord.com:8000
 
 stages:
   - test
