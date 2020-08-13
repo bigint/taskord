@@ -38,7 +38,7 @@ class Search extends Component
             ->limit(3)
             ->get();
         $this->users = User::cacheFor(60 * 60)
-            ->select('username', 'firstname', 'lastname', 'avatar')
+            ->select('username', 'firstname', 'lastname', 'avatar', 'isFlagged')
             ->where('username', 'LIKE', '%'.$this->query.'%')
             ->orWhere('firstname', 'LIKE', '%'.$this->query.'%')
             ->orWhere('lastname', 'LIKE', '%'.$this->query.'%')
@@ -52,6 +52,11 @@ class Search extends Component
             ->get();
         $this->questions = Question::cacheFor(60 * 60)
             ->select('id', 'title', 'user_id')
+            ->whereHas('user', function ($q) {
+                $q->where([
+                    ['isFlagged', false],
+                ]);
+            })
             ->where('title', 'LIKE', '%'.$this->query.'%')
             ->limit(3)
             ->get();
