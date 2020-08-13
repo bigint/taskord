@@ -34,7 +34,16 @@
         <nav class="navbar navbar-expand-md navbar-dark bg-dark">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
+                    @auth
+                    @if (Auth::user()->isBeta)
+                    <img src="/images/beta.svg" height="35" alt="">
+                    @else
                     <img src="/images/logo.svg" height="35" alt="">
+                    @endif
+                    @endauth
+                    @guest
+                    <img src="/images/logo.svg" height="35" alt="">
+                    @endguest
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
