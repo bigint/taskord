@@ -41,6 +41,7 @@ class CreateUsersTable extends Migration
             $table->boolean('darkMode')->default(false);
             $table->boolean('isBeta')->default(false);
             $table->boolean('isPatron')->default(false);
+            $table->boolean('isPrivate')->default(false);
             $table->boolean('isFlagged')->default(false);
             $table->boolean('isSuspended')->default(false);
 

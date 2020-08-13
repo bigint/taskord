@@ -27,10 +27,15 @@
             <label for="enrollDarkMode" class="ml-1">Enable Dark Mode</label>
             <span wire:loading wire:target="enrollDarkMode" class="small ml-2 text-success font-weight-bold">Enrolling...</span>
         </div>
-        <div class="mb-3">
+        <div class="mb-2">
             <input wire:click="enrollDeveloper" id="enrollDeveloper" class="form-check-input" type="checkbox" {{ $user->isDeveloper ? 'checked' : '' }}>
             <label for="enrollDeveloper" class="ml-1">Enroll to Contributor</label>
             <span wire:loading wire:target="enrollDeveloper" class="small ml-2 text-success font-weight-bold">Enrolling...</span>
+        </div>
+        <div class="mb-3">
+            <input wire:click="privateUser" id="privateUser" class="form-check-input" type="checkbox" {{ $user->isPrivate ? 'checked' : '' }}>
+            <label for="privateUser" class="ml-1 text-danger font-weight-bold">Make user Private</label>
+            <span wire:loading wire:target="privateUser" class="small ml-2 text-danger font-weight-bold">Enrolling...</span>
         </div>
         <div>
             <button wire:click="masquerade" class="btn btn-sm btn-warning font-weight-bold">

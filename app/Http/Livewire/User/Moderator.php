@@ -63,6 +63,24 @@ class Moderator extends Component
             return false;
         }
     }
+    
+    public function privateUser()
+    {
+        if (Auth::check() && Auth::user()->isStaff) {
+            if ($this->user->id === 1) {
+                return false;
+            }
+            $this->user->isPrivate = ! $this->user->isPrivate;
+            $this->user->save();
+            if ($this->user->isPrivate) {
+                ModEvents::dispatch('WARNING', '@'.$this->user->username.' is marked as private user by @'.Auth::user()->username);
+            } else {
+                ModEvents::dispatch('WARNING', '@'.$this->user->username.' is un-marked as private user by @'.Auth::user()->username);
+            }
+        } else {
+            return false;
+        }
+    }
 
     public function flagUser()
     {
