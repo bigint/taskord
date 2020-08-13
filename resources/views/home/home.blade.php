@@ -93,34 +93,42 @@
                 <div class="col-sm">
                     @auth
                         @livewire('home.onboarding')
-                        @if (Auth::user()->firstname or Auth::user()->lastname)
                         <div class="card mb-4">
-                            <div class="card-header">
-                                <div class="h5 pt-2">
+                            <div class="card-body">
+                                <div class="d-flex align-items-center">
                                     <a href="{{ route('user.done', ['username' => Auth::user()->username]) }}">
-                                        <img class="rounded-circle avatar-30" src="{{ Auth::user()->avatar }}" />
+                                        <img class="rounded-circle avatar-50 mt-1" src="{{ Auth::user()->avatar }}" />
                                     </a>
-                                    <span class="align-middle">
-                                        <span class="ml-2">Hi</span>
-                                        <a href="{{ route('user.done', ['username' => Auth::user()->username]) }}">
-                                            <span class="font-weight-bold text-dark">
-                                                @if (Auth::user()->firstname or Auth::user()->lastname)
-                                                    {{ Auth::user()->firstname }}{{ ' '.Auth::user()->lastname }}
-                                                @else
-                                                    {{ Auth::user()->username }}
-                                                @endif
-                                                {{ Emoji::wavingHand() }}
-                                            </span>
-                                        </a>
+                                    <span class="ml-3">
+                                        @if (Auth::user()->firstname or Auth::user()->lastname)
+                                        <div class="h5">
+                                            {{ Auth::user()->firstname }}{{ ' '.Auth::user()->lastname }}
+                                        </div>
+                                        @endif
+                                        <div class="font-weight-bold">
+                                            {{ '@'.Auth::user()->username }}
+                                        </div>
                                     </span>
-                                    @include('components.beta', ['background' => 'dark'])
                                 </div>
                             </div>
-                            <div class="card-body">
-                                Soon
+                            <div class="card-footer small font-weight-bold d-flex justify-content-between">
+                                <span>
+                                    <i class="fa fa-plus mr-1"></i>
+                                    {{ Auth::user()->followings()->count() }}
+                                    Following
+                                </span>
+                                <span>
+                                    <i class="fa fa-users mr-1"></i>
+                                    {{ number_format(Auth::user()->followers()->count()) }}
+                                    {{ Auth::user()->followers()->count() <= 1 ? "Follower" : "Followers" }}
+                                </span>
+                                <span>
+                                    <i class="fa fa-fire mr-1"></i>
+                                    {{ number_format(Auth::user()->getPoints(true)) }}
+                                    {{ Auth::user()->getPoints(true) < 2 ? 'Reputation' : 'Reputations' }}
+                                </span>
                             </div>
                         </div>
-                        @endif
                     @endauth
                     <div class="card mb-4">
                         <div class="card-header">
