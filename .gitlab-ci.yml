@@ -6,7 +6,6 @@ include:
   - template: Code-Quality.gitlab-ci.yml
   - template: Accessibility.gitlab-ci.yml
   - template: DAST.gitlab-ci.yml
-  - template: Verify/Browser-Performance.gitlab-ci.yml
 
 services:
   - mysql:latest
@@ -19,14 +18,12 @@ variables:
   DB_HOST: mysql
   a11y_urls: "http://dev.taskord.com:8000"
   DAST_WEBSITE: "http://dev.taskord.com:8000"
-  URL: "http://dev.taskord.com:8000"
 
 stages:
   - test
   - deploy
   - dast
   - accessibility
-  - performance
 
 cache:
   paths:
