@@ -12,12 +12,23 @@
                         @livewire('create-task')
                     @endif
                     @endauth
+                    @if (
+                        !$user->isPrivate or
+                        Auth::id() === $user->id or
+                        Auth::check() && Auth::user()->staffShip
+                    )
                     @livewire('user.tasks', [
                         'type' => 'user.pending',
                         'user' => $user,
                         'page' => 1,
                         'perPage' => 3
                     ])
+                    @else
+                    @include('components.empty', [
+                        'icon' => 'lock',
+                        'text' => 'All tasks are private',
+                    ])
+                    @endif
                 </div>
                 @include('user.sidebar')
             </div>
