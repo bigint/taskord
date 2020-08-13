@@ -129,6 +129,11 @@
         </div>
     </div>
     <div class="card-footer text-muted">
+        @if (
+            !$user->isPrivate or
+            Auth::id() === $user->id or
+            Auth::check() && Auth::user()->staffShip
+        )
         <a class="text-dark font-weight-bold mr-4" href="{{ route('user.done', ['username' => $user->username]) }}">
             <span class="@if (Route::currentRouteName() === 'user.done') text-primary @endif">Done</span>
             <span class="small font-weight-normal text-black-50">{{ number_format($done_count) }}</span>
@@ -137,6 +142,7 @@
             <span class="@if (Route::currentRouteName() === 'user.pending') text-primary @endif">Pending</span>
             <span class="small font-weight-normal text-black-50">{{ number_format($pending_count) }}</span>
         </a>
+        @endif
         <a class="text-dark font-weight-bold mr-4" href="{{ route('user.products', ['username' => $user->username]) }}">
             <span class="@if (Route::currentRouteName() === 'user.products') text-primary @endif">Products</span>
             <span class="small font-weight-normal text-black-50">{{ number_format($product_count) }}</span>
