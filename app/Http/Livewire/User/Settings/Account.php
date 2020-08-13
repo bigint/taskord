@@ -36,6 +36,29 @@ class Account extends Component
             return session()->flash('error', 'Forbidden!');
         }
     }
+    
+    public function enrollPrivate()
+    {
+        if (Auth::check()) {
+            if (!$this->user->isPatron) {
+                return session()->flash('isPrivate', 'Forbidden!');
+            }
+            
+            if (Auth::check() && Auth::id() === $this->user->id) {
+                $this->user->isPrivate = ! $this->user->isPrivate;
+                $this->user->save();
+                if ($this->user->isPrivate) {
+                    return session()->flash('isPrivate', 'All your tasks are now private');
+                } else {
+                    return session()->flash('isPrivate', 'All your tasks are now public');
+                }
+            } else {
+                return false;
+            }
+        } else {
+            return session()->flash('error', 'Forbidden!');
+        }
+    }
 
     public function updated($field)
     {

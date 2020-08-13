@@ -37,4 +37,32 @@
             </div>
         </div>
     </div>
+    <div class="card">
+        <div class="card-header pt-3 pb-3">
+            <span class="h5">Private Tasks</span>
+            <div>
+                All your tasks will hidden from public.
+                @include('components.patron', [
+                    'background' => 'dark',
+                ])
+            </div>
+        </div>
+        <div class="card-body">
+            @if (session()->has('isPrivate'))
+                <div class="alert alert-success alert-dismissible fade show mb-3">
+                    <button type="button" class="close" data-dismiss="alert">×</button>
+                    {{ session('isPrivate') }}
+                </div>
+            @endif
+            @if ($user->isPatron)
+            <input wire:click="enrollPrivate" id="enrollPrivate" class="form-check-input" type="checkbox" {{ $user->isPrivate ? 'checked' : '' }}>
+            <label for="enrollPrivate" class="ml-1">Hide all tasks from public</label>
+            <span wire:loading wire:target="enrollPrivate" class="small ml-2 text-success font-weight-bold">Enrolling...</span>
+            @else
+            <a class="btn btn-success text-white" href={{ route('patron.home') }}>
+                Support Taskord
+            </a>
+            @endif
+        </div>
+    </div>
 </div>
