@@ -40,7 +40,7 @@ class Account extends Component
     public function enrollPrivate()
     {
         if (Auth::check()) {
-            if (!$this->user->isPatron) {
+            if (! $this->user->isPatron) {
                 return session()->flash('error', 'Forbidden!');
             }
 
