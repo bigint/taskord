@@ -112,16 +112,16 @@
                                 </div>
                             </div>
                             <div class="card-footer small font-weight-bold d-flex justify-content-between">
-                                <span>
+                                <a class="text-dark" href="{{ route('user.following', ['username' => Auth::user()->username]) }}">
                                     <i class="fa fa-plus mr-1"></i>
                                     {{ Auth::user()->followings()->count() }}
                                     Following
-                                </span>
-                                <span>
+                                </a>
+                                <a class="text-dark" href="{{ route('user.followers', ['username' => Auth::user()->username]) }}">
                                     <i class="fa fa-users mr-1"></i>
                                     {{ number_format(Auth::user()->followers()->count()) }}
                                     {{ Auth::user()->followers()->count() <= 1 ? "Follower" : "Followers" }}
-                                </span>
+                                </a>
                                 <span>
                                     <i class="fa fa-fire mr-1"></i>
                                     {{ number_format(Auth::user()->getPoints(true)) }}
