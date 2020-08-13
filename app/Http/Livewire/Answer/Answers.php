@@ -38,6 +38,11 @@ class Answers extends Component
     {
         $answers = Answer::cacheFor(60 * 60)
             ->where('question_id', $this->question->id)
+            ->whereHas('user', function ($q) {
+                $q->where([
+                    ['isFlagged', false],
+                ]);
+            })
             ->orderBy('created_at', 'DESC')
             ->get();
 
