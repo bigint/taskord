@@ -91,3 +91,11 @@ Route::get('tasks', 'TaskController@tasks')->name('tasks')->middleware('auth');
 Route::personalDataExports('personal-data-exports');
 
 Route::get('streaks/{username}', 'StatsController@streaks')->name('streak');
+
+// Pages
+Route::get('about', 'PagesController@about')->name('about');
+Route::get('reputation', 'PagesController@reputation')->name('reputation');
+Route::get('terms', 'PagesController@terms')->name('terms');
+Route::get('privacy', 'PagesController@privacy')->name('privacy');
+Route::get('security', 'PagesController@security')->name('security');
+Route::get('open', 'PagesController@open')->name('open');
