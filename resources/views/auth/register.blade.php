@@ -88,20 +88,26 @@
                     <label for="password-confirm">Confirm Password</label>
                 </div>
                 <button class="btn btn-lg btn-primary btn-block" type="submit">
-                    <i class="fa fa-user-plus mr-1"></i>
-                    Sign up
+                    <span class="small">
+                        <i class="fa fa-user-plus mr-1"></i>
+                        Sign up
+                    </span>
                 </button>
                 <div class="mt-3 row">
                     <div class="col-6">
                         <a href="/login/google" class="btn btn-lg btn-outline-danger btn-block" type="submit">
-                            <i class="fa fa-google mr-1"></i>
-                            Google
+                            <span class="small">
+                                <i class="fa fa-google mr-1"></i>
+                                Google
+                            </span>
                         </a>
                     </div>
                     <div class="col-6">
                         <a href="/login/twitter" class="btn btn-lg btn-outline-primary btn-block" type="submit">
-                            <i class="fa fa-twitter mr-1"></i>
-                            Twitter
+                            <span class="small">
+                                <i class="fa fa-twitter mr-1"></i>
+                                Twitter
+                            </span>
                         </a>
                     </div>
                 </div>

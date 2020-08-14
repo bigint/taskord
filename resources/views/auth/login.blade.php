@@ -17,7 +17,7 @@
                         Sign in to your account
                     </h1>
                     <p>
-                        Or <a class="font-weight-bold" href="/">apply for early access</a>
+                        Or <a class="font-weight-bold" href="/">signup now!</a>
                     </p>
                 </div>
                 <div class="form-label-group">
@@ -42,7 +42,6 @@
                         class="form-control {{ session('error') ? 'is-invalid' : '' }}"
                         placeholder="Password"
                         autocomplete="current-password"
-                        required
                     >
                     <label for="password">Password</label>
                     @if (session()->has('error'))
@@ -66,25 +65,35 @@
                         </a>
                     @endif
                 </div>
-                <button class="btn btn-lg btn-primary btn-block" type="submit">
-                    <i class="fa fa-lock mr-1"></i>
-                    Login
-                </button>
-                <button class="btn btn-lg btn-dark btn-block" type="submit">
-                    <i class="fa fa-link mr-1 text-white"></i>
-                    Send magic link
-                </button>
+                <div class="btn-group btn-block" role="group">
+                    <button class="btn btn-lg btn-primary" name="submit" value="login" type="submit">
+                        <span class="small">
+                            <i class="fa fa-lock mr-1"></i>
+                            Login
+                        </span>
+                    </button>
+                    <button class="btn btn-lg btn-dark" name="submit" value="magic-link" type="submit">
+                        <span class="small">
+                            <i class="fa fa-magic mr-1"></i>
+                            Magic link
+                        </span>
+                    </button>
+                </div>
                 <div class="mt-3 row">
                     <div class="col-6">
                         <a href="/login/google" class="btn btn-lg btn-outline-danger btn-block" type="submit">
-                            <i class="fa fa-google mr-1"></i>
-                            Google
+                            <span class="small">
+                                <i class="fa fa-google mr-1"></i>
+                                Google
+                            </span>
                         </a>
                     </div>
                     <div class="col-6">
                         <a href="/login/twitter" class="btn btn-lg btn-outline-primary btn-block" type="submit">
-                            <i class="fa fa-twitter mr-1"></i>
-                            Twitter
+                            <span class="small">
+                                <i class="fa fa-twitter mr-1"></i>
+                                Twitter
+                            </span>
                         </a>
                     </div>
                 </div>

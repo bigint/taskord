@@ -69,17 +69,4 @@ class AnswerPraised extends Notification implements ShouldQueue
             'user_id' => $this->user_id,
         ];
     }
-
-    /**
-     * Get the array representation of the notification.
-     *
-     * @param  mixed  $notifiable
-     * @return array
-     */
-    public function toArray($notifiable)
-    {
-        return [
-            //
-        ];
-    }
 }

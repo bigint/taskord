@@ -99,19 +99,19 @@
                                     <a href="{{ route('user.done', ['username' => Auth::user()->username]) }}">
                                         <img class="rounded-circle avatar-50 mt-1" src="{{ Auth::user()->avatar }}" />
                                     </a>
-                                    <span class="ml-3">
+                                    <a class="ml-3 text-dark" href="{{ route('user.done', ['username' => Auth::user()->username]) }}">
                                         @if (Auth::user()->firstname or Auth::user()->lastname)
                                         <div class="h5">
                                             {{ Auth::user()->firstname }}{{ ' '.Auth::user()->lastname }}
                                         </div>
                                         @endif
-                                        <div class="font-weight-bold">
-                                            {{ '@'.Auth::user()->username }}
+                                        <div class="small font-weight-bold">
+                                            {{ '@'.Str::limit(Auth::user()->username, '20') }}
                                         </div>
-                                    </span>
+                                    </a>
                                     <a class="btn btn-sm btn-success text-white float-right ml-auto" href="{{ route('user.settings.profile') }}">
                                         <i class="fa fa-gear mr-1"></i>
-                                        Edit Profile
+                                        Update
                                     </a>
                                 </div>
                             </div>

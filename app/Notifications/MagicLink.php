@@ -7,20 +7,20 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
 
-class Followed extends Notification implements ShouldQueue
+class MagicLink extends Notification implements ShouldQueue
 {
     use Queueable;
 
-    protected $user;
+    protected $url;
 
     /**
      * Create a new notification instance.
      *
      * @return void
      */
-    public function __construct($user)
+    public function __construct($url)
     {
-        $this->user = $user;
+        $this->url = $url;
     }
 
     /**
@@ -31,17 +31,7 @@ class Followed extends Notification implements ShouldQueue
      */
     public function via($notifiable)
     {
-        $pref = [];
-
-        if ($notifiable->userFollowedEmail) {
-            array_push($pref, 'mail');
-        }
-
-        if ($notifiable->userFollowedWeb) {
-            array_push($pref, 'database');
-        }
-
-        return $pref;
+        return ['mail'];
     }
 
     /**
@@ -53,15 +43,8 @@ class Followed extends Notification implements ShouldQueue
     public function toMail($notifiable)
     {
         return (new MailMessage)
-                    ->line('The introduction to the notification.')
-                    ->action('Notification Action', url('/'))
-                    ->line('Thank you for using our application!');
-    }
-
-    public function toDatabase($notifiable)
-    {
-        return [
-            'user_id' => $this->user->id,
-        ];
+                    ->line('Here is your magic link!.')
+                    ->action('Login now', url($this->url))
+                    ->line('Thank you for using Taskord!');
     }
 }

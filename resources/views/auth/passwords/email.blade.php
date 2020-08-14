@@ -37,8 +37,10 @@
                     @enderror
                 </div>
                 <button class="btn btn-lg btn-primary btn-block" type="submit">
-                    <i class="fa fa-envelope mr-1"></i>
-                    Send Password Reset Link
+                    <span class="small">
+                        <i class="fa fa-envelope mr-1"></i>
+                        Send Password Reset Link
+                    </span>
                 </button>
             </form>
         </div>
