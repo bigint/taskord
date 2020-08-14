@@ -19,7 +19,7 @@
                         <li>💰 Financially commit to staying productive</li>
                         <li>🔥 Enable Dark Mode on the website</li>
                         <li>💎 Show off your support with the Patron badge</li>
-                        <li>📊 See your shipping stats</li>
+                        <li>🔒 Make your tasks private</li>
                         <li>👍 Fund on-going development of the platform</li>
                     </ul>
                 </div>
