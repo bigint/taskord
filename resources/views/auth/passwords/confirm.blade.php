@@ -42,8 +42,10 @@
                     </a>
                 @endif
                 <button class="btn btn-lg btn-primary btn-block mt-3" type="submit">
-                    <i class="fa fa-check mr-1"></i>
-                    Confirm Password
+                    <span class="small">
+                        <i class="fa fa-check mr-1"></i>
+                        Confirm Password
+                    </span>
                 </button>
             </form>
         </div>

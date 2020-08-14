@@ -67,8 +67,10 @@
                     <label for="password-confirm">Confirm Password</label>
                 </div>
                 <button class="btn btn-lg btn-primary btn-block" type="submit">
-                    <i class="fa fa-refresh mr-1"></i>
-                    Reset Password
+                    <span class="small">
+                        <i class="fa fa-refresh mr-1"></i>
+                        Reset Password
+                    </span>
                 </button>
             </form>
         </div>
