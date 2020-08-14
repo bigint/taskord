@@ -10,13 +10,13 @@ class PatronController extends Controller
             return view('errors.404');
         }
 
-        return view('patron.tier', [
+        return view('pages.patron.tier', [
             'tier' => $id,
         ]);
     }
 
     public function patron()
     {
-        return view('patron.patron');
+        return view('pages.patron.patron');
     }
 }
