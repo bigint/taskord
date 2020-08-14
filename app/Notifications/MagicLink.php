@@ -10,7 +10,7 @@ use Illuminate\Notifications\Notification;
 class MagicLink extends Notification implements ShouldQueue
 {
     use Queueable;
-    
+
     protected $url;
 
     /**
