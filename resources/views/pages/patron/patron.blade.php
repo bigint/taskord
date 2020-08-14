@@ -24,16 +24,16 @@
                     </ul>
                 </div>
                 <div class="col-sm">
-                    <a class="btn btn-block btn-primary">
+                    <a class="btn btn-block btn-primary" href="{{ route('patron.tier', ['id' => 1]) }}">
                         Support $5/month
                     </a>
-                    <a class="btn btn-block btn-primary">
+                    <a class="btn btn-block btn-primary" href="{{ route('patron.tier', ['id' => 2]) }}">
                         Support $10/month
                     </a>
-                    <a class="btn btn-block btn-primary">
+                    <a class="btn btn-block btn-primary" href="{{ route('patron.tier', ['id' => 3]) }}">
                         Support $20/month
                     </a>
-                    <a class="btn btn-block btn-primary">
+                    <a class="btn btn-block btn-primary" href="{{ route('patron.tier', ['id' => 4]) }}">
                         Support $50/month
                     </a>
                 </div>
