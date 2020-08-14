@@ -78,7 +78,6 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['staff']],
 
 Route::group(['prefix' => 'patron', 'as' => 'patron.'], function () {
     Route::get('', 'PatronController@patron')->name('home');
-    Route::get('tier/{id}', 'PatronController@tier')->name('tier');
 });
 
 // Toggles
