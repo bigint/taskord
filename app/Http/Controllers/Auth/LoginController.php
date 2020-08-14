@@ -6,6 +6,9 @@ use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
+use Grosv\LaravelPasswordlessLogin\LoginUrl;
+use App\Models\User;
+use App\Notifications\MagicLink;
 
 class LoginController extends Controller
 {
@@ -38,9 +41,35 @@ class LoginController extends Controller
     {
         $this->middleware('guest')->except('logout');
     }
+    
+    function sendLoginLink($request)
+    {
+        $username = $request->input('username');
+        if (filter_var($username, FILTER_VALIDATE_EMAIL)) {
+            $user = User::where('email', $username)->first();
+        } else {
+            $user = User::where('username', $username)->first();
+        }
+
+        if (!$user) {
+            $request->session()->flash('error', 'No user found with this email');
+            return redirect()->back();
+        } else {
+            $generator = new LoginUrl($user);
+            $generator->setRedirectUrl('/');
+            $url = $generator->generate();
+            $user->notify(new MagicLink($url));
+            $request->session()->flash('global', 'Magic link has been sent to your email');
+            return redirect()->route('home');
+        }
+    }
 
     public function login(Request $request)
     {
+        if ($request->input('submit') === "magic-link") {
+            return $this->sendLoginLink($request);
+        }
+        
         $input = $request->all();
         $this->validate($request, [
             'username' => 'required',

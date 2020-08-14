@@ -42,7 +42,6 @@
                         class="form-control {{ session('error') ? 'is-invalid' : '' }}"
                         placeholder="Password"
                         autocomplete="current-password"
-                        required
                     >
                     <label for="password">Password</label>
                     @if (session()->has('error'))
@@ -66,11 +65,11 @@
                         </a>
                     @endif
                 </div>
-                <button class="btn btn-lg btn-primary btn-block" type="submit">
+                <button class="btn btn-lg btn-primary btn-block" name="submit" value="login" type="submit">
                     <i class="fa fa-lock mr-1"></i>
                     Login
                 </button>
-                <button class="btn btn-lg btn-dark btn-block" type="submit">
+                <button class="btn btn-lg btn-dark btn-block" name="submit" value="magic-link" type="submit">
                     <i class="fa fa-link mr-1 text-white"></i>
                     Send magic link
                 </button>
