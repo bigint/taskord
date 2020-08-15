@@ -27,7 +27,7 @@ class PatronController extends Controller
             $user = User::where('email', $request->email)->first();
             if ($request->alert_name === 'subscription_payment_succeeded') {
                 return $this->handleSubscriptionPaymentSucceeded($user, $request);
-            } else if ($request->alert_name === 'subscription_created') {
+            } elseif ($request->alert_name === 'subscription_created') {
                 return $this->handleSubscriptionCreated($user, $request);
             } else {
                 return 'WIP';
@@ -36,7 +36,7 @@ class PatronController extends Controller
             return 'Forbidden';
         }
     }
-    
+
     public function handleSubscriptionPaymentSucceeded($user, $request)
     {
         if ($user) {
@@ -51,7 +51,7 @@ class PatronController extends Controller
                 ]);
                 $user->isPatron = true;
                 $user->save();
-    
+
                 return 'Success';
             } else {
                 return 'Already Subscribed';
@@ -60,11 +60,11 @@ class PatronController extends Controller
             return 'No user';
         }
     }
-    
+
     public function handleSubscriptionCreated($user, $request)
     {
         if ($user) {
-            $user->patron->update_url =  $request->update_url;
+            $user->patron->update_url = $request->update_url;
             $user->patron->cancel_url = $request->cancel_url;
             $user->patron->save();
 
