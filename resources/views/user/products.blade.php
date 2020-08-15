@@ -1,5 +1,15 @@
 @extends('layouts.app')
 
+@php
+if ($user->lastname) {
+    $name = $user->firstname.' '.$user->lastname;
+} else {
+    $name = $user->firstname;
+}
+@endphp
+
+@section('pageTitle', $user->username.' ('.$name.') / Products · ')
+
 @section('content')
 <div class="container">
     @include('user.profile')
