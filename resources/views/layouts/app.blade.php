@@ -122,7 +122,7 @@
                                     <a class="dropdown-item text-dark" href="{{ route('user.settings.profile') }}">
                                         {{ Emoji::gear() }} Settings
                                     </a>
-                                    <a class="dropdown-item text-dark" href="{{ route('patron.home') }}">
+                                    <a class="dropdown-item text-dark" href="{{ route('patron.home') }}" data-turbolinks="false">
                                         {{ Emoji::handshake() }} Patron
                                     </a>
                                     <div class="dropdown-divider"></div>
