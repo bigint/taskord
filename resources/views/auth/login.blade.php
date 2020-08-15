@@ -101,8 +101,4 @@
         </div>
     </div>
 </div>
-<div id="g_id_onload"
-     data-client_id="346444434882-1i78rglmvn9gt506jo39qp4utagookt6.apps.googleusercontent.com"
-     data-login_uri="https://stg.taskord.com/login">
-</div>
 @endsection
