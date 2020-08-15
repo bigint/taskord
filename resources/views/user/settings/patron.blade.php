@@ -42,11 +42,20 @@
                                         <span class="font-weight-bold">Next bill date:</span>
                                         <span>{{ Carbon::parse($user->patron->next_bill_date)->format('d M Y') }}</span>
                                     </div>
-                                    <a class="btn btn-primary text-white mt-2" href="{{ $user->patron->receipt_url }}" target="_blank">
-                                        View Receipt
-                                    </a>
-                                    {{ $user->patron->cancel_url }}
-                                    {{ $user->patron->update_url }}
+                                    <div class="mt-2">
+                                        <a class="btn btn-primary" href="{{ $user->patron->receipt_url }}" target="_blank">
+                                            <i class="fa fa-eye mr-1"></i>
+                                            View Last Receipt
+                                        </a>
+                                        <a class="btn btn-success text-white" href="{{ $user->patron->update_url }}" target="_blank">
+                                            <i class="fa fa-pen mr-1"></i>
+                                            Update Payment
+                                        </a>
+                                        <a class="btn btn-danger" href="{{ $user->patron->cancel_url }}" target="_blank">
+                                            <i class="fa fa-times mr-1"></i>
+                                            Cancel Patron
+                                        </a>
+                                    </div>
                                 </div>
                                 @else
                                     <div>You are using gifted account!</div>
