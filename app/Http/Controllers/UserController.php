@@ -88,6 +88,15 @@ class UserController extends Controller
         ]);
     }
 
+    public function patronSettings()
+    {
+        $user = Auth::user();
+
+        return view('user.settings.patron', [
+            'user' => $user,
+        ]);
+    }
+
     public function passwordSettings()
     {
         $user = Auth::user();

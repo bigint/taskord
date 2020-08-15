@@ -31,6 +31,7 @@ Route::group(['prefix' => '@{username}', 'as' => 'user.'], function () {
 Route::group(['prefix' => 'settings', 'as' => 'user.settings.', 'middleware' => ['auth', 'password.confirm']], function () {
     Route::get('', 'UserController@profileSettings')->name('profile');
     Route::get('account', 'UserController@accountSettings')->name('account');
+    Route::get('patron', 'UserController@patronSettings')->name('patron');
     Route::get('password', 'UserController@passwordSettings')->name('password');
     Route::get('notifications', 'UserController@notificationsSettings')->name('notifications');
     Route::get('delete', 'UserController@deleteSettings')->name('delete');
