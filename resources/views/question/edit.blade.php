@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('pageTitle', $question->title.' / Edit · ')
+
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
