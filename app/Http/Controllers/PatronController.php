@@ -27,15 +27,17 @@ class PatronController extends Controller
             $user = User::where('email', $request->email)->first();
             if (Patron::where('user_id', $user->id)->count() === 0) {
                 if ($user) {
-                    $patron = Patron::create([
+                    Patron::create([
                         'user_id' => $user->id,
                         'checkout_id' => $request->checkout_id,
                         'cancel_url' => $request->cancel_url,
                         'event_time' => $request->event_time,
                         'next_bill_date' => $request->next_bill_date,
                     ]);
+                    $user->isPatron = true;
+                    $user->save();
 
-                    return $patron;
+                    return 'Success';
                 } else {
                     return 'No user';
                 }
