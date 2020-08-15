@@ -37,10 +37,10 @@ class PatronController extends Controller
                     ]);
                     $user->isPatron = true;
                     $user->save();
-    
+
                     return 'Success';
                 } else {
-                    return 'Already Subscribed';    
+                    return 'Already Subscribed';
                 }
             } else {
                 return 'No user';
