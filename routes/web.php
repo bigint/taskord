@@ -99,4 +99,4 @@ Route::get('privacy', 'PagesController@privacy')->name('privacy');
 Route::get('security', 'PagesController@security')->name('security');
 Route::get('open', 'PagesController@open')->name('open');
 
-Route::post('success', 'PatronController@success')->name('success');
+Route::post('paddle/webhook', 'PatronController@handleWebhook')->name('paddle.webhook');
