@@ -24,11 +24,12 @@
                     </ul>
                 </div>
                 <div class="col-sm">
+                    @auth
                     <a
                         class="paddle_button btn btn-block btn-primary"
                         data-theme="none"
                         data-product="619848"
-                        data-email="{{ Auth::check() ? Auth::user()->email : '' }}"
+                        data-email="{{ Auth::user()->email }}"
                     >
                         Support $5/month
                     </a>
@@ -36,7 +37,7 @@
                         class="paddle_button btn btn-block btn-primary"
                         data-theme="none"
                         data-product="621377"
-                        data-email="{{ Auth::check() ? Auth::user()->email : '' }}"
+                        data-email="{{ Auth::user()->email }}"
                     >
                         Support $10/month
                     </a>
@@ -44,7 +45,7 @@
                         class="paddle_button btn btn-block btn-primary"
                         data-theme="none"
                         data-product="621379"
-                        data-email="{{ Auth::check() ? Auth::user()->email : '' }}"
+                        data-email="{{ Auth::user()->email }}"
                     >
                         Support $20/month
                     </a>
@@ -52,10 +53,16 @@
                         class="paddle_button btn btn-block btn-primary"
                         data-theme="none"
                         data-product="621380"
-                        data-email="{{ Auth::check() ? Auth::user()->email : '' }}"
+                        data-email="{{ Auth::user()->email }}"
                     >
                         Support $50/month
                     </a>
+                    @endauth
+                    @guest
+                    <a class="btn btn-block btn-success text-white" href="{{ route('login') }}">
+                        Login to support!
+                    </a>
+                    @endguest
                 </div>
             </div>
         </div>
