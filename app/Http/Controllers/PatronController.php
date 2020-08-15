@@ -25,27 +25,28 @@ class PatronController extends Controller
         $verification = openssl_verify($data, $signature, $public_key, OPENSSL_ALGO_SHA1);
         if ($verification == 1) {
             $user = User::where('email', $request->email)->first();
-            if (Patron::where('user_id', $user->id)->count() === 0) {
-                if ($user) {
+            if ($user) {
+                if (Patron::where('user_id', $user->id)->count() === 0) {
                     Patron::create([
                         'user_id' => $user->id,
                         'checkout_id' => $request->checkout_id,
-                        'cancel_url' => $request->cancel_url,
+                        'subscription_plan_id' => $request->subscription_plan_id,
+                        'receipt_url' => $request->receipt_url,
                         'event_time' => $request->event_time,
                         'next_bill_date' => $request->next_bill_date,
                     ]);
                     $user->isPatron = true;
                     $user->save();
-
+    
                     return 'Success';
                 } else {
-                    return 'No user';
+                    return 'Already Subscribed';    
                 }
             } else {
-                return 'Already Subscribed';
+                return 'No user';
             }
         } else {
-            return 'Forbidden!';
+            return 'Forbidden';
         }
     }
 

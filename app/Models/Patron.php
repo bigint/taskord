@@ -9,7 +9,8 @@ class Patron extends Model
     protected $fillable = [
         'user_id',
         'checkout_id',
-        'cancel_url',
+        'subscription_plan_id',
+        'receipt_url',
         'event_time',
         'next_bill_date',
     ];

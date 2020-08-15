@@ -17,7 +17,8 @@ class CreatePatronsTable extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->string('checkout_id');
-            $table->string('cancel_url');
+            $table->integer('subscription_plan_id');
+            $table->string('receipt_url');
             $table->dateTime('event_time');
             $table->date('next_bill_date');
             $table->timestamps();
