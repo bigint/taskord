@@ -33,6 +33,7 @@ class UserController extends Controller
                 'isDeveloper',
                 'isBeta',
                 'isPatron',
+                'darkMode',
                 'isPrivate',
                 'isFlagged',
                 'isSuspended',
