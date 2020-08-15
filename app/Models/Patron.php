@@ -13,7 +13,7 @@ class Patron extends Model
         'event_time',
         'next_bill_date',
     ];
-    
+
     public function user()
     {
         return $this->belongsTo(\App\Models\User::class);
