@@ -25,28 +25,52 @@ class PatronController extends Controller
         $verification = openssl_verify($data, $signature, $public_key, OPENSSL_ALGO_SHA1);
         if ($verification == 1) {
             $user = User::where('email', $request->email)->first();
-            if ($user) {
-                if (Patron::where('user_id', $user->id)->count() === 0) {
-                    Patron::create([
-                        'user_id' => $user->id,
-                        'checkout_id' => $request->checkout_id,
-                        'subscription_plan_id' => $request->subscription_plan_id,
-                        'receipt_url' => $request->receipt_url,
-                        'event_time' => $request->event_time,
-                        'next_bill_date' => $request->next_bill_date,
-                    ]);
-                    $user->isPatron = true;
-                    $user->save();
-
-                    return 'Success';
-                } else {
-                    return 'Already Subscribed';
-                }
+            if ($request->alert_name === 'subscription_payment_succeeded') {
+                return $this->handleSubscriptionPaymentSucceeded($user, $request);
+            } else if ($request->alert_name === 'subscription_created') {
+                return $this->handleSubscriptionCreated($user, $request);
             } else {
-                return 'No user';
+                return 'WIP';
             }
         } else {
             return 'Forbidden';
+        }
+    }
+    
+    public function handleSubscriptionPaymentSucceeded($user, $request)
+    {
+        if ($user) {
+            if (Patron::where('user_id', $user->id)->count() === 0) {
+                Patron::create([
+                    'user_id' => $user->id,
+                    'checkout_id' => $request->checkout_id,
+                    'subscription_plan_id' => $request->subscription_plan_id,
+                    'receipt_url' => $request->receipt_url,
+                    'event_time' => $request->event_time,
+                    'next_bill_date' => $request->next_bill_date,
+                ]);
+                $user->isPatron = true;
+                $user->save();
+    
+                return 'Success';
+            } else {
+                return 'Already Subscribed';
+            }
+        } else {
+            return 'No user';
+        }
+    }
+    
+    public function handleSubscriptionCreated($user, $request)
+    {
+        if ($user) {
+            $user->patron->update_url =  $request->update_url;
+            $user->patron->cancel_url = $request->cancel_url;
+            $user->patron->save();
+
+            return 'Success';
+        } else {
+            return 'No user';
         }
     }
 

@@ -45,6 +45,8 @@
                                     <a class="btn btn-primary text-white mt-2" href="{{ $user->patron->receipt_url }}" target="_blank">
                                         View Receipt
                                     </a>
+                                    {{ $user->patron->cancel_url }}
+                                    {{ $user->patron->update_url }}
                                 </div>
                                 @else
                                     <div>You are using gifted account!</div>

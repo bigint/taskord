@@ -11,6 +11,8 @@ class Patron extends Model
         'checkout_id',
         'subscription_plan_id',
         'receipt_url',
+        'cancel_url',
+        'update_url',
         'event_time',
         'next_bill_date',
     ];
