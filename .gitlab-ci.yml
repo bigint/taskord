@@ -16,8 +16,8 @@ variables:
   MYSQL_PASSWORD: taskord
   MYSQL_DATABASE: taskord
   DB_HOST: mysql
-  a11y_urls: "http://dev.taskord.com:8000"
-  DAST_WEBSITE: "http://dev.taskord.com:8000"
+  a11y_urls: "https://stg.taskord.com"
+  DAST_WEBSITE: "https://stg.taskord.com"
 
 stages:
   - test
