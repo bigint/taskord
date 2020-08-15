@@ -20,6 +20,7 @@
                                     Support now!
                                 </a>
                             @else
+                                @if ($user->patron)
                                 <div>
                                     <div>
                                         <span class="font-weight-bold">Checkout ID:</span>
@@ -45,6 +46,12 @@
                                         View Receipt
                                     </a>
                                 </div>
+                                @else
+                                    <div>You are using gifted account!</div>
+                                    <a class="btn btn-success text-white mt-2" href="{{ route('patron.home') }}" data-turbolinks="false">
+                                        Support now!
+                                    </a>
+                                @endif
                             @endif
                         </div>
                     </div>
