@@ -101,4 +101,8 @@
         </div>
     </div>
 </div>
+<div id="g_id_onload"
+     data-client_id="{{ env('GOOGLE_CLIENT_ID') }}"
+     data-login_uri="https://stg.taskord.com">
+</div>
 @endsection

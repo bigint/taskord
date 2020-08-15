@@ -192,5 +192,6 @@
 </body>
 <script src="{{ asset('js/app.js') }}" defer data-turbolinks-track="true" data-turbolinks-eval=false></script>
 <script src="https://kit.fontawesome.com/4f46a7856f.js" crossorigin="anonymous"></script>
+<script src="https://accounts.google.com/gsi/client" async defer></script>
 @livewireScripts
 </html>
