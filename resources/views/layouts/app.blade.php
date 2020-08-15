@@ -93,9 +93,9 @@
                             @livewire('notification.icon')
                             <li class="nav-item mr-2">
                                 <div class="nav-link">
-                                    <span class="badge rounded-pill bg-warning text-dark reputation">
+                                    <a class="badge rounded-pill bg-warning text-dark reputation" href="{{ route('reputation') }}">
                                         {{ Emoji::fire() }} {{ number_format(Auth::user()->getPoints(true)) }}
-                                    </span>
+                                    </a>
                                 </div>
                             </li>
                             <li class="nav-item dropdown">
