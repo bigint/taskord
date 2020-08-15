@@ -73,7 +73,7 @@ class PatronController extends Controller
             return 'No user';
         }
     }
-    
+
     public function handleSubscriptionCancelled($user, $request)
     {
         if ($user) {
