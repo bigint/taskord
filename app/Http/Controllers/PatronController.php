@@ -29,8 +29,8 @@ class PatronController extends Controller
                 return $this->handleSubscriptionPaymentSucceeded($user, $request);
             } elseif ($request->alert_name === 'subscription_created') {
                 return $this->handleSubscriptionCreated($user, $request);
-            } else {
-                return 'WIP';
+            } elseif ($request->alert_name === 'subscription_cancelled') {
+                return $this->handleSubscriptionCancelled($user, $request);
             }
         } else {
             return 'Forbidden';
@@ -67,6 +67,21 @@ class PatronController extends Controller
             $user->patron->update_url = $request->update_url;
             $user->patron->cancel_url = $request->cancel_url;
             $user->patron->save();
+
+            return 'Success';
+        } else {
+            return 'No user';
+        }
+    }
+    
+    public function handleSubscriptionCancelled($user, $request)
+    {
+        if ($user) {
+            $user->patron->delete();
+            $user->isPatron = false;
+            $user->darkMode = false;
+            $user->isPrivate = false;
+            $user->save();
 
             return 'Success';
         } else {

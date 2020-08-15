@@ -25,6 +25,17 @@
                 </div>
                 <div class="col-sm">
                     @auth
+                    @if (Auth::user()->isPatron)
+                    <div class="text-center">
+                        <div class="h5">
+                            {{ Emoji::redHeart() }}
+                            You are already a patron!
+                        </div>
+                        <a class="text-primary" href="{{ route('user.settings.patron') }}">
+                            Go to settings
+                        </a>
+                    </div>
+                    @else
                     <a
                         class="paddle_button btn btn-block btn-primary"
                         data-theme="none"
@@ -61,6 +72,7 @@
                     >
                         Support $50/month
                     </a>
+                    @endif
                     @endauth
                     @guest
                     <a class="btn btn-block btn-success text-white" href="{{ route('login') }}">
