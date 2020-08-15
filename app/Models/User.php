@@ -77,7 +77,7 @@ class User extends Authenticatable
     {
         return $this->hasMany(\App\Models\Answer::class);
     }
-    
+
     public function patron()
     {
         return $this->hasOne(\App\Models\Patron::class);
