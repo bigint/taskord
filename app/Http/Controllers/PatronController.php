@@ -8,10 +8,11 @@ class PatronController extends Controller
 {
     public function success(Request $request)
     {
-        dd("yo");
+        dd('yo');
+
         return response()->json(['success' => 'success'], 200);
     }
-    
+
     public function patron()
     {
         return view('pages.patron');
