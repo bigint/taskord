@@ -98,3 +98,5 @@ Route::get('terms', 'PagesController@terms')->name('terms');
 Route::get('privacy', 'PagesController@privacy')->name('privacy');
 Route::get('security', 'PagesController@security')->name('security');
 Route::get('open', 'PagesController@open')->name('open');
+
+Route::post('success', 'PatronController@success')->name('success');
