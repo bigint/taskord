@@ -17,6 +17,7 @@ variables:
   DB_HOST: mysql
   a11y_urls: "https://stg.taskord.com"
   DAST_WEBSITE: "https://stg.taskord.com"
+  SAST_EXCLUDED_PATHS: node_modules, vendor
 
 stages:
   - test
