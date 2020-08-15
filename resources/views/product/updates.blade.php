@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('pageTitle', $product->name.' / Updates · ')
+
 @section('content')
 <div class="container">
     @include('product.profile')
