@@ -1,6 +1,10 @@
 @extends('layouts.app')
 
-@section('pageTitle', 'Products / Newest · ')
+@section('pageTitle', 'Products / Newest ·')
+@section('title', 'Products / Newest ·')
+@section('description', 'Public products available in Taskord.')
+@section('image', '')
+@section('url', url()->current())
 
 @section('content')
 <div class="container">
