@@ -1,5 +1,11 @@
 @extends('layouts.app')
 
+@section('pageTitle', 'Patron ·')
+@section('title', 'Patron ·')
+@section('description', 'Get things done socially with Taskord.')
+@section('image', '')
+@section('url', url()->current())
+
 @section('content')
 <div class="container">
     <div class="mb-4 text-center">

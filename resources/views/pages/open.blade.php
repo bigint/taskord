@@ -1,5 +1,11 @@
 @extends('layouts.app')
 
+@section('pageTitle', 'Open ·')
+@section('title', 'Open ·')
+@section('description', 'Get things done socially with Taskord.')
+@section('image', '')
+@section('url', url()->current())
+
 @section('content')
 <div class="container">
     <div class="card">
