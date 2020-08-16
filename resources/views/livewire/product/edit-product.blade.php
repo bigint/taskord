@@ -39,30 +39,45 @@
                         <span class="input-group-text">
                             <i class="fa fa-link"></i>
                         </span>
-                        <input type="text" value="{{ $website }}" class="form-control" placeholder="Website" wire:model.lazy="website">
+                        <input type="text" value="{{ $website }}" class="form-control @error('website') is-invalid @enderror" placeholder="Website" wire:model="website">
+                        @error('website')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
                     </div>
                     <div class="input-group mb-3">
                         <span class="input-group-text">
                             <i class="fa fa-twitter"></i>
                         </span>
-                        <input type="text" value="{{ $twitter }}" class="form-control" placeholder="Twitter" wire:model.lazy="twitter">
+                        <input type="text" value="{{ $twitter }}" class="form-control @error('twitter') is-invalid @enderror" placeholder="Twitter" wire:model="twitter">
+                        @error('twitter')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
                     </div>
                     <div class="input-group mb-3">
                         <span class="input-group-text">
                             <i class="fa fa-github"></i>
                         </span>
-                        <input type="text" value="{{ $github }}" class="form-control" placeholder="GitHub" wire:model.lazy="github">
+                        <input type="text" value="{{ $github }}" class="form-control @error('github') is-invalid @enderror" placeholder="GitHub" wire:model="github">
+                        @error('github')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
                     </div>
                     <div class="input-group mb-3">
                         <span class="input-group-text">
                             <i class="fa fa-product-hunt"></i>
                         </span>
-                        <input type="text" value="{{ $producthunt }}" class="form-control" placeholder="Product Hunt" wire:model="producthunt">
-                    </div>
-                    <div class="mb-3">
-                        <div class="font-weight-bold mb-2">Status</div>
-                        <input id="launched" class="form-check-input" type="checkbox" wire:model="launched" {{ $launched ? 'checked' : 'unchecked' }}>
-                        <label for="launched" class="ml-1">This product is launched</label>
+                        <input type="text" value="{{ $producthunt }}" class="form-control @error('producthunt') is-invalid @enderror" placeholder="Product Hunt" wire:model="producthunt">
+                        @error('producthunt')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
                     </div>
                     <button type="submit" class="btn btn-primary">
                         Save

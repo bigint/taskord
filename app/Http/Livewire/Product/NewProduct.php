@@ -25,6 +25,10 @@ class NewProduct extends Component
                 'name' => 'required|profanity',
                 'slug' => 'required|profanity|min:3|max:20|unique:products|alpha_dash',
                 'description' => 'nullable|profanity',
+                'website' => 'nullable|active_url',
+                'twitter' => 'nullable|alpha_dash|max:30',
+                'github' => 'nullable|alpha_dash|max:30',
+                'producthunt' => 'nullable|alpha_dash|max:30',
             ],
             [
                 'name.profanity' => 'Please check your words!',
@@ -43,6 +47,10 @@ class NewProduct extends Component
                 'name' => 'required|profanity',
                 'slug' => 'required|profanity|min:3|max:20|unique:products|alpha_dash',
                 'description' => 'nullable|profanity',
+                'website' => 'nullable|active_url',
+                'twitter' => 'nullable|alpha_dash|max:30',
+                'github' => 'nullable|alpha_dash|max:30',
+                'producthunt' => 'nullable|alpha_dash|max:30',
             ],
             [
                 'name.profanity' => 'Please check your words!',

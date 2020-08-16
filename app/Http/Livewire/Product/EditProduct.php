@@ -39,6 +39,10 @@ class EditProduct extends Component
                 'name' => 'required|profanity',
                 'slug' => 'required|profanity|min:3|max:20|alpha_dash|unique:products,slug,'.$this->product->id,
                 'description' => 'nullable|profanity',
+                'website' => 'nullable|active_url',
+                'twitter' => 'nullable|alpha_dash|max:30',
+                'github' => 'nullable|alpha_dash|max:30',
+                'producthunt' => 'nullable|alpha_dash|max:30',
             ],
             [
                 'name.profanity' => 'Please check your words!',
@@ -57,6 +61,10 @@ class EditProduct extends Component
                 'name' => 'required|profanity',
                 'slug' => 'required|profanity|min:3|max:20|alpha_dash|unique:products,slug,'.$this->product->id,
                 'description' => 'nullable|profanity',
+                'website' => 'nullable|active_url',
+                'twitter' => 'nullable|alpha_dash|max:30',
+                'github' => 'nullable|alpha_dash|max:30',
+                'producthunt' => 'nullable|alpha_dash|max:30',
             ],
             [
                 'name.profanity' => 'Please check your words!',
