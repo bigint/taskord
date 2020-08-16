@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('pageTitle', 'Settings / Patron · ')
+@section('pageTitle', 'Settings / Patron ·')
 
 @section('content')
 <div class="container">

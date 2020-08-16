@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('pageTitle', 'Settings / Delete · ')
+@section('pageTitle', 'Settings / Delete ·')
 
 @section('content')
 <div class="container">

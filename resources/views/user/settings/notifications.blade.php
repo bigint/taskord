@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('pageTitle', 'Settings / Notifications · ')
+@section('pageTitle', 'Settings / Notifications ·')
 
 @section('content')
 <div class="container">
