@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="theme-color" content="#343a40">
-    <title>@yield('pageTitle') Taskord</title>
     <meta name="description" content="@yield('description')">
     <meta name="twitter:card" content="summary">
     <meta name="twitter:site" content="@taskord">
@@ -16,6 +15,7 @@
     <meta property="og:url" content="@yield('url')">
     <meta property="og:type" content="article">
     <meta name="apple-mobile-web-app-capable" content="yes">
+    <title>@yield('pageTitle') Taskord</title>
     <link rel="icon" href="/images/logo.svg" sizes="any" type="image/svg+xml">
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
