@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('pageTitle', $product->name.' / Edit · ')
+@section('pageTitle', $product->name.' / Edit ·')
 
 @section('content')
 <div class="container">

@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('pageTitle', $product->name.' / New Update · ')
+@section('pageTitle', $product->name.' / New Update ·')
 
 @section('content')
 <div class="container">
