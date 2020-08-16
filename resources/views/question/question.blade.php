@@ -1,6 +1,10 @@
 @extends('layouts.app')
 
-@section('pageTitle', $question->title.' · ')
+@section('pageTitle', $question->title.' ·')
+@section('title', 'Question by @'.$question->user->username.' ·')
+@section('description', $question->title)
+@section('image', $question->user->avatar)
+@section('url', url()->current())
 
 @section('content')
 <div class="container">

@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('pageTitle', $question->title.' / Edit · ')
+@section('pageTitle', $question->title.' / Edit ·')
 
 @section('content')
 <div class="container">
