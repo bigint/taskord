@@ -13,6 +13,7 @@
     <meta property="og:description" content="@yield('description')">
     <meta property="og:image" content="@yield('image')">
     <meta property="og:url" content="@yield('url')">
+    <meta property="og:type" content="article">
     <link rel="icon" href="/images/logo.svg" sizes="any" type="image/svg+xml">
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
