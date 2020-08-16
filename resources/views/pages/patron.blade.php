@@ -40,7 +40,7 @@
                         class="paddle_button btn btn-block btn-primary"
                         data-theme="none"
                         data-product="619848"
-                        data-message="Support Taskord!"
+                        data-message="Support $5/month for Taskord!"
                         data-email="{{ Auth::user()->email }}"
                     >
                         Support $5/month
@@ -49,7 +49,7 @@
                         class="paddle_button btn btn-block btn-primary"
                         data-theme="none"
                         data-product="621377"
-                        data-message="Support Taskord!"
+                        data-message="Support $10/month for Taskord!"
                         data-email="{{ Auth::user()->email }}"
                     >
                         Support $10/month
@@ -58,7 +58,7 @@
                         class="paddle_button btn btn-block btn-primary"
                         data-theme="none"
                         data-product="621379"
-                        data-message="Support Taskord!"
+                        data-message="Support $20/month for Taskord!"
                         data-email="{{ Auth::user()->email }}"
                     >
                         Support $20/month
@@ -67,7 +67,7 @@
                         class="paddle_button btn btn-block btn-primary"
                         data-theme="none"
                         data-product="621380"
-                        data-message="Support Taskord!"
+                        data-message="Support $50/month for Taskord!"
                         data-email="{{ Auth::user()->email }}"
                     >
                         Support $50/month
