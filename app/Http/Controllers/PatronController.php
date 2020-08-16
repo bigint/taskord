@@ -29,7 +29,10 @@ class PatronController extends Controller
                 return $this->handleSubscriptionPaymentSucceeded($user, $request);
             } elseif ($request->alert_name === 'subscription_created') {
                 return $this->handleSubscriptionCreated($user, $request);
-            } elseif ($request->alert_name === 'subscription_cancelled') {
+            } elseif (
+                $request->alert_name === 'subscription_cancelled' or
+                $request->alert_name === 'subscription_payment_refunded'
+            ) {
                 return $this->handleSubscriptionCancelled($user, $request);
             }
         } else {
