@@ -4,6 +4,7 @@
 @section('title', 'Task by @'.$task->user->username.' ·')
 @section('description', $task->task)
 @section('image', $task->user->avatar)
+@section('url', url()->current())
 
 @section('content')
 <div class="container">

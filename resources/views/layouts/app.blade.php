@@ -7,11 +7,12 @@
     <meta name="theme-color" content="#343a40">
     <title>@yield('pageTitle') {{ config('app.name', 'Taskord') }}</title>
     <meta name="description" content="@yield('description')">
-    <meta name="twitter:card" content="summary" />
-    <meta name="twitter:site" content="@taskord" />
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@taskord">
     <meta property="og:title" content="@yield('title') Taskord">
     <meta property="og:description" content="@yield('description')">
-    <meta property="og:image" content="@yield('image')" />
+    <meta property="og:image" content="@yield('image')">
+    <meta property="og:url" content="@yield('url')">
     <link rel="icon" href="/images/logo.svg" sizes="any" type="image/svg+xml">
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
