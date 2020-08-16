@@ -78,7 +78,7 @@ class PatronController extends Controller
             return 'No user';
         }
     }
-    
+
     public function handleSubscriptionUpdated($user, $request)
     {
         if ($user) {
