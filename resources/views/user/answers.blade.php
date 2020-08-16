@@ -8,7 +8,7 @@ if ($user->lastname) {
 }
 @endphp
 
-@section('pageTitle', $user->username.' ('.$name.') / Answers · ')
+@section('pageTitle', $user->username.' ('.$name.') / Answers ·')
 @section('pageTitle', $user->username.' ('.$name.') / Answers ·')
 @section('title', $user->username.' ('.$name.') ·')
 @section('description', $user->bio)
