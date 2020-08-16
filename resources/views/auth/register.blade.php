@@ -1,5 +1,11 @@
 @extends('layouts.app')
 
+@section('pageTitle', 'Signup ·')
+@section('title', 'Signup ·')
+@section('description', 'Get things done socially with Taskord.')
+@section('image', '')
+@section('url', url()->current())
+
 @section('content')
 <div class="container">
     <div class="row justify-content-center">

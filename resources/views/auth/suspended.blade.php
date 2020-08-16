@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('pageTitle', 'Suspended ·')
+
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
