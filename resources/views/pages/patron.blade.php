@@ -25,7 +25,7 @@
                 </div>
                 <div class="col-sm">
                     @auth
-                    @if (Auth::user()->isPatron)
+                    @if (Auth::user()->isPatron and Auth::user()->patron()->count() === 1)
                     <div class="text-center">
                         <div class="h5">
                             {{ Emoji::redHeart() }}
