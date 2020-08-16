@@ -2,7 +2,7 @@
     @if (count($updates) === 0)
     @include('components.empty', [
         'icon' => 'refresh',
-        'text' => 'No updates made!',
+        'text' => 'No updates made',
     ])
     @endif
     @foreach ($updates as $update)

@@ -2,7 +2,7 @@
     @if (count($questions) === 0)
     @include('components.empty', [
         'icon' => 'question',
-        'text' => 'No questions asked!',
+        'text' => 'No questions asked',
     ])
     @endif
     @foreach ($questions as $question)

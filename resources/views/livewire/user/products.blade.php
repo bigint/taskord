@@ -2,7 +2,7 @@
     @if (count($products) === 0)
     @include('components.empty', [
         'icon' => 'box-open',
-        'text' => 'No products made!',
+        'text' => 'No products made',
     ])
     @endif
     @foreach ($products as $product)

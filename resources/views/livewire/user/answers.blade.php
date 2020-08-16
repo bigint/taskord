@@ -2,7 +2,7 @@
     @if (count($answers) === 0)
     @include('components.empty', [
         'icon' => 'comments',
-        'text' => 'No answers made!',
+        'text' => 'No answers made',
     ])
     @endif
     @foreach ($answers as $answer)
