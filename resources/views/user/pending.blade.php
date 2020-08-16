@@ -8,7 +8,12 @@ if ($user->lastname) {
 }
 @endphp
 
-@section('pageTitle', $user->username.' ('.$name.') / Pending · ')
+@section('pageTitle', $user->username.' ('.$name.') / Pending ·')
+@section('pageTitle', $user->username.' ('.$name.') / Pending ·')
+@section('title', $user->username.' ('.$name.') ·')
+@section('description', $user->bio)
+@section('image', $user->avatar)
+@section('url', url()->current())
 
 @section('content')
 <div class="container">
