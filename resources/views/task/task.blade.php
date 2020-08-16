@@ -1,6 +1,9 @@
 @extends('layouts.app')
 
-@section('pageTitle', $task->task.' · ')
+@section('pageTitle', $task->task.' ·')
+@section('title', 'Task by @'.$task->user->username.' ·')
+@section('description', $task->task)
+@section('image', $task->user->avatar)
 
 @section('content')
 <div class="container">
