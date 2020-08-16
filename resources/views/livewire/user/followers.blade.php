@@ -2,7 +2,7 @@
     @if (count($user->followers) === 0)
     @include('components.empty', [
         'icon' => 'users',
-        'text' => 'No followers found!',
+        'text' => $user->username.' doesn’t have any followers yet.',
     ])
     @endif
     @foreach ($user->followers as $user)
