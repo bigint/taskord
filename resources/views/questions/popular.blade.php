@@ -1,6 +1,10 @@
 @extends('layouts.app')
 
 @section('pageTitle', 'Questions / Popular · ')
+@section('title', 'Questions / Popular ·')
+@section('description', 'Browse questions and discuss, answer, give feedbacks, etc.')
+@section('image', '')
+@section('url', url()->current())
 
 @section('content')
 <div class="container">
