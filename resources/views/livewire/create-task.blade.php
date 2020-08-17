@@ -19,7 +19,7 @@
                             {{ Auth::check() && Auth::user()->checkState ? 'checked' : 'unchecked' }}
                         >
                     </div>
-                    <input id="task-input" type="text" class="form-control" placeholder="Add a Task" wire:model.debounce.5s="task">
+                    <input type="text" class="form-control" placeholder="Add a Task" wire:model.debounce.5s="task">
                 </div>
                 <div class="d-flex justify-content-between">
                 <div class="form-file form-file-sm w-25">
@@ -29,9 +29,6 @@
                         <span class="form-file-button">Browse</span>
                     </label>
                 </div>
-                <span class="ml-auto mr-3 text-black-50 font-weight-bold">
-                    <span id="task-len-counter"></span>
-                </span>
                 <button wire:loading.attr="disabled" class="btn btn-sm btn-primary" type="submit">
                     <i class="fa fa-plus mr-1"></i>
                     Add Task
