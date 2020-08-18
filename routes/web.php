@@ -28,7 +28,7 @@ Route::group(['prefix' => '@{username}', 'as' => 'user.'], function () {
     Route::get('followers', 'UserController@profile')->name('followers');
 });
 
-Route::group(['prefix' => 'settings', 'as' => 'user.settings.', 'middleware' => ['auth', 'password.confirm']], function () {
+Route::group(['prefix' => 'settings', 'as' => 'user.settings.', 'middleware' => ['auth']], function () {
     Route::get('', 'UserController@profileSettings')->name('profile');
     Route::get('account', 'UserController@accountSettings')->name('account');
     Route::get('patron', 'UserController@patronSettings')->name('patron');
