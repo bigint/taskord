@@ -22,14 +22,14 @@
     <div>
         @auth
         @if (Auth::user()->hasLiked($comment))
-            <button type="button" class="btn btn-task btn-success text-white mr-1" wire:click="togglePraise" wire:loading.attr="disabled">
+            <button type="button" class="btn btn-task btn-success text-white mr-1" wire:click="togglePraise" wire:loading.attr="disabled" wire:offline.attr="disabled">
                 {{ Emoji::clappingHands() }}
                 <span class="small text-white font-weight-bold">
                     {{ number_format($comment->likes()->count('id')) }}
                 </span>
             </button>
         @else
-            <button type="button" class="btn btn-task btn-outline-success mr-1" wire:click="togglePraise" wire:loading.attr="disabled">
+            <button type="button" class="btn btn-task btn-outline-success mr-1" wire:click="togglePraise" wire:loading.attr="disabled" wire:offline.attr="disabled">
                 {{ Emoji::clappingHands() }}
                 @if ($comment->likes()->count('id') !== 0)
                 <span class="small text-dark font-weight-bold">
@@ -40,12 +40,12 @@
         @endif
         @if (Auth::user()->staffShip or Auth::id() === $comment->user->id)
             @if ($confirming === $comment->id)
-            <button type="button" class="btn btn-task btn-danger" wire:click="deleteComment" wire:loading.attr="disabled">
+            <button type="button" class="btn btn-task btn-danger" wire:click="deleteComment" wire:loading.attr="disabled" wire:offline.attr="disabled">
                 Are you sure?
                 <span wire:target="deleteComment" wire:loading class="spinner-border spinner-border-mini ml-2" role="status"></span>
             </button>
             @else
-            <button type="button" class="btn btn-task btn-outline-danger" wire:click="confirmDelete" wire:loading.attr="disabled">
+            <button type="button" class="btn btn-task btn-outline-danger" wire:click="confirmDelete" wire:loading.attr="disabled" wire:offline.attr="disabled">
                 {{ Emoji::wastebasket() }}
             </button>
             @endif

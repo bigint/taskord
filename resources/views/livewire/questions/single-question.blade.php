@@ -45,14 +45,14 @@
         <div class="mt-3">
             @auth
             @if (Auth::user()->hasLiked($question))
-                <button role="button" class="btn btn-task btn-success text-white mr-1" wire:click="togglePraise" wire:loading.attr="disabled">
+                <button role="button" class="btn btn-task btn-success text-white mr-1" wire:click="togglePraise" wire:loading.attr="disabled" wire:offline.attr="disabled">
                     {{ Emoji::clappingHands() }}
                     <span class="small text-white font-weight-bold">
                         {{ number_format($question->likes()->count('id')) }}
                     </span>
                 </button>
             @else
-                <button role="button" class="btn btn-task btn-outline-success mr-1" wire:click="togglePraise" wire:loading.attr="disabled">
+                <button role="button" class="btn btn-task btn-outline-success mr-1" wire:click="togglePraise" wire:loading.attr="disabled" wire:offline.attr="disabled">
                     {{ Emoji::clappingHands() }}
                     @if ($question->likes()->count('id') !== 0)
                     <span class="small text-dark font-weight-bold">
@@ -69,12 +69,12 @@
                 </span>
             </a>
             @if ($confirming === $question->id)
-            <button role="button" class="btn btn-task btn-danger mr-1" wire:click="deleteQuestion" wire:loading.attr="disabled">
+            <button role="button" class="btn btn-task btn-danger mr-1" wire:click="deleteQuestion" wire:loading.attr="disabled" wire:offline.attr="disabled">
                 Are you sure?
                 <span wire:target="deleteQuestion" wire:loading class="spinner-border spinner-border-mini ml-2" role="status"></span>
             </button>
             @else
-            <button role="button" class="btn btn-task btn-outline-danger mr-1" wire:click="confirmDelete" wire:loading.attr="disabled">
+            <button role="button" class="btn btn-task btn-outline-danger mr-1" wire:click="confirmDelete" wire:loading.attr="disabled" wire:offline.attr="disabled">
                 {{ Emoji::wastebasket() }}
             </button>
             @endif
