@@ -59,14 +59,14 @@
             @auth
             @if (!$task->user->isPrivate)
             @if (Auth::user()->hasLiked($task))
-                <button type="button" class="btn btn-task btn-success text-white mr-1" wire:click="togglePraise" wire:loading.attr="disabled">
+                <button type="button" class="btn btn-task btn-success text-white mr-1" wire:click="togglePraise" wire:loading.attr="disabled" wire:offline.attr="disabled">
                     {{ Emoji::clappingHands() }}
                     <span class="small text-white font-weight-bold">
                         {{ number_format($task->likes()->count('id')) }}
                     </span>
                 </button>
             @else
-                <button type="button" class="btn btn-task btn-outline-success mr-1" wire:click="togglePraise" wire:loading.attr="disabled">
+                <button type="button" class="btn btn-task btn-outline-success mr-1" wire:click="togglePraise" wire:loading.attr="disabled" wire:offline.attr="disabled">
                     {{ Emoji::clappingHands() }}
                     @if ($task->likes()->count('id') !== 0)
                     <span class="small text-dark font-weight-bold">
@@ -98,12 +98,12 @@
             @auth
             @if (Auth::user()->staffShip or Auth::id() === $task->user->id)
                 @if ($confirming === $task->id)
-                <button type="button" class="btn btn-task btn-danger" wire:click="deleteTask" wire:loading.attr="disabled">
+                <button type="button" class="btn btn-task btn-danger" wire:click="deleteTask" wire:loading.attr="disabled" wire:offline.attr="disabled">
                     Are you sure?
                     <span wire:target="deleteTask" wire:loading class="spinner-border spinner-border-mini ml-2" role="status"></span>
                 </button>
                 @else
-                <button type="button" class="btn btn-task btn-outline-danger" wire:click="confirmDelete" wire:loading.attr="disabled">
+                <button type="button" class="btn btn-task btn-outline-danger" wire:click="confirmDelete" wire:loading.attr="disabled" wire:offline.attr="disabled">
                     {{ Emoji::wastebasket() }}
                 </button>
                 @endif

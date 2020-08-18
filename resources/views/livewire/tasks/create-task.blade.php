@@ -21,7 +21,7 @@
                         <span class="form-file-button">Browse</span>
                     </label>
                 </div>
-                <button wire:loading.attr="disabled" class="btn btn-sm btn-primary" type="submit">
+                <button wire:loading.attr="disabled" wire:offline.attr="disabled" class="btn btn-sm btn-primary" type="submit">
                     <i class="fa fa-plus mr-1"></i>
                     Add Task
                     <span wire:target="submit" wire:loading class="spinner-border spinner-border-mini ml-2" role="status"></span>
