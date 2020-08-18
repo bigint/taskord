@@ -31,7 +31,7 @@
             @if (session()->has('error'))
                 <div class="mb-1 text-danger font-weight-bold">{{ session('error') }}</div>
             @endif
-            <button class="btn btn-blurple font-weight-bold mb-3" wire:click="discordInvite">
+            <button class="btn btn-blurple font-weight-bold mb-3" wire:click="discordInvite" wire:loading.attr="disabled">
                 <i class="fab fa-discord"></i>
                 Inivte me to Discord
                 <span wire:target="discordInvite" wire:loading class="spinner-border spinner-border-mini ml-2" role="status"></span>
