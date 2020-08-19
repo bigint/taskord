@@ -25,12 +25,10 @@ class PatronController extends Controller
         $verification = openssl_verify($data, $signature, $public_key, OPENSSL_ALGO_SHA1);
         if ($verification == 1) {
             $user = User::where('email', $request->email)->first();
-            if ($request->alert_name === 'subscription_payment_succeeded') {
-                return $this->handleSubscriptionPaymentSucceeded($user, $request);
+            if ($request->alert_name === 'subscription_created') {
+                return $this->handleSubscriptionCreated($user, $request);
             } elseif ($request->alert_name === 'subscription_updated') {
                 return $this->handleSubscriptionUpdated($user, $request);
-            } elseif ($request->alert_name === 'subscription_created') {
-                return $this->handleSubscriptionCreated($user, $request);
             } elseif (
                 $request->alert_name === 'subscription_cancelled' or
                 $request->alert_name === 'subscription_payment_refunded'
@@ -42,7 +40,7 @@ class PatronController extends Controller
         }
     }
 
-    public function handleSubscriptionPaymentSucceeded($user, $request)
+    public function handleSubscriptionCreated($user, $request)
     {
         if ($user) {
             if (Patron::where('user_id', $user->id)->count() === 0) {
@@ -50,7 +48,8 @@ class PatronController extends Controller
                     'user_id' => $user->id,
                     'checkout_id' => $request->checkout_id,
                     'subscription_plan_id' => $request->subscription_plan_id,
-                    'receipt_url' => $request->receipt_url,
+                    'update_url' => $request->update_url,
+                    'cancel_url' => $request->cancel_url,
                     'event_time' => $request->event_time,
                     'next_bill_date' => $request->next_bill_date,
                 ]);
@@ -61,19 +60,6 @@ class PatronController extends Controller
             } else {
                 return 'Already Subscribed';
             }
-        } else {
-            return 'No user';
-        }
-    }
-
-    public function handleSubscriptionCreated($user, $request)
-    {
-        if ($user) {
-            $user->patron->update_url = $request->update_url;
-            $user->patron->cancel_url = $request->cancel_url;
-            $user->patron->save();
-
-            return 'Success';
         } else {
             return 'No user';
         }

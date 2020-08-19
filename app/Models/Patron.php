@@ -10,7 +10,6 @@ class Patron extends Model
         'user_id',
         'checkout_id',
         'subscription_plan_id',
-        'receipt_url',
         'cancel_url',
         'update_url',
         'event_time',

@@ -43,10 +43,6 @@
                                         <span>{{ Carbon::parse($user->patron->next_bill_date)->format('d M Y') }}</span>
                                     </div>
                                     <div class="mt-2">
-                                        <a class="btn btn-primary" href="{{ $user->patron->receipt_url }}" target="_blank">
-                                            <i class="fa fa-eye mr-1"></i>
-                                            View Last Receipt
-                                        </a>
                                         @if ($user->patron->update_url)
                                         <a class="btn btn-success text-white" href="{{ $user->patron->update_url }}" target="_blank">
                                             <i class="fa fa-pen mr-1"></i>
