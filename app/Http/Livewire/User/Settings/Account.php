@@ -64,7 +64,7 @@ class Account extends Component
     {
         if (Auth::check()) {
             $this->validateOnly($field, [
-                'username' => 'required|profanity|min:3|max:20|alpha_dash|unique:users,username,'.$this->user->id,
+                'username' => 'required|profanity|min:2|max:20|alpha_dash|unique:users,username,'.$this->user->id,
                 'email' => 'required|email|max:255|unique:users,email,'.$this->user->id,
             ],
             [
@@ -80,7 +80,7 @@ class Account extends Component
     {
         if (Auth::check()) {
             $validatedData = $this->validate([
-                'username' => 'required|profanity|min:3|max:20|alpha_dash|unique:users,username,'.$this->user->id,
+                'username' => 'required|profanity|min:2|max:20|alpha_dash|unique:users,username,'.$this->user->id,
                 'email' => 'required|email:rfc,dns|max:255|unique:users,email,'.$this->user->id,
             ],
             [

@@ -37,7 +37,7 @@ class AdminSeeder extends Seeder
             'company' => 'Taskord',
             'bio' => 'Dabbing with Code',
             'email' => 'me@yogi.codes',
-            'avatar' => 'https://secure.gravatar.com/avatar/1182dcc7c25fe6e84a11a5a983fa92ac?s=800',
+            'avatar' => 'https://pbs.twimg.com/profile_images/1274435026482937858/JZmznbJO_400x400.jpg',
             'password' => Hash::make('admin'),
             'website' => 'https://yogi.codes',
             'twitter' => 'evildabbit',
