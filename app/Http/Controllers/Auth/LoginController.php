@@ -9,6 +9,7 @@ use App\Providers\RouteServiceProvider;
 use Grosv\LaravelPasswordlessLogin\LoginUrl;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
+use App\Jobs\AuthGetIP;
 
 class LoginController extends Controller
 {
@@ -61,6 +62,7 @@ class LoginController extends Controller
             $url = $generator->generate();
             $user->notify(new MagicLink($url));
             $request->session()->flash('global', 'Magic link has been sent to your email');
+            AuthGetIP::dispatch($user, $request->ip());
 
             return redirect()->route('home');
         }
@@ -80,6 +82,7 @@ class LoginController extends Controller
         $fieldType = filter_var($request->username, FILTER_VALIDATE_EMAIL) ? 'email' : 'username';
         if (auth()->attempt([$fieldType => $input['username'], 'password' => $input['password']])) {
             $request->session()->flash('global', 'Welcome back!');
+            AuthGetIP::dispatch(auth()->user(), $request->ip());
 
             return redirect()->route('home');
         } else {

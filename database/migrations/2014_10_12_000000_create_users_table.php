@@ -44,6 +44,7 @@ class CreateUsersTable extends Migration
             $table->boolean('isPrivate')->default(false);
             $table->boolean('isFlagged')->default(false);
             $table->boolean('isSuspended')->default(false);
+            $table->string('lastIP')->nullable();
 
             // Task Mentioned
             $table->boolean('taskMentionedEmail')->default(true);

@@ -3,6 +3,27 @@
         Moderator
     </div>
     <div class="card-body">
+        @if ($user->lastIP)
+        <div class="mb-3">
+            <span class="font-weight-bold">
+                Last IP
+            </span>
+            <a class="text-decoration-underline font-weight-bold" href="https://ipinfo.io/{{ $user->lastIP }}" target="_blank">{{ $user->lastIP }}</a>
+            @php
+                if ($user->lastIP) {
+                    $usersCount = \App\Models\User::where('lastIP', $user->lastIP)->count();
+                } else {
+                    $usersCount = 0;
+                }
+            @endphp
+            @if ($usersCount > 1)
+            <div class="small mt-1">
+                <i class="fa fa-exclamation-triangle text-danger mr-1"></i>
+                <span class="font-weight-bold">{{ $usersCount }}</span>  {{ $usersCount < 1 ? 'user' : 'users' }} associated with the same IP
+            </div>
+            @endif
+        </div>
+        @endif
         <div class="text-info h5 mb-3">
             <i class="fa fa-flag-checkered mr-1"></i>
             Flags
