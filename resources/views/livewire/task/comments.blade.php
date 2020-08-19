@@ -5,7 +5,7 @@
         'text' => 'No comments found!',
     ])
     @endif
-    <ul class="list-group mt-4" wire:poll.5s>
+    <ul class="list-group mt-4">
     @foreach ($comments as $comment)
         @livewire('task.single-comment', [
             'comment' => $comment,

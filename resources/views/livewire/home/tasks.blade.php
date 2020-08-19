@@ -22,7 +22,7 @@
             <span class="h5">{{ Carbon::parse($key)->format('Y') }}</span>
         </div>
         @endif
-        <div class="card mb-4" wire:poll.5s>
+        <div class="card mb-4">
             <ul class="list-group list-group-flush">
                 @foreach ($groupedTask as $task)
                     @livewire('task.single-task', [
