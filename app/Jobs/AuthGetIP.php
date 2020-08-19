@@ -11,7 +11,7 @@ use Illuminate\Queue\SerializesModels;
 class AuthGetIP implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
-    
+
     protected $user;
     protected $ip;
 
