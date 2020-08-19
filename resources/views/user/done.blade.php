@@ -1,15 +1,17 @@
 @extends('layouts.app')
 
 @php
-if ($user->lastname) {
-    $name = $user->firstname.' '.$user->lastname;
+if ($user->lastname and $user->lastname) {
+    $name = '('.$user->firstname.' '.$user->lastname.')';
+} else if ($user->firstname) {
+    $name = '('.$user->firstname.')';
 } else {
-    $name = $user->firstname;
+    $name = '';
 }
 @endphp
 
-@section('pageTitle', $user->username.' ('.$name.') ·')
-@section('title', $user->username.' ('.$name.') ·')
+@section('pageTitle', $user->username.' '.$name.' ·')
+@section('title', $user->username.' '.$name.' ·')
 @section('description', $user->bio)
 @section('image', $user->avatar)
 @section('url', url()->current())
