@@ -4,9 +4,9 @@ namespace App\Http\Livewire\User;
 
 use App\Jobs\ModEvents;
 use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
-use Carbon\Carbon;
 
 class Moderator extends Component
 {
@@ -269,7 +269,7 @@ class Moderator extends Component
         $updated_at = Carbon::parse($user->updated_at);
         $current_date = Carbon::now();
         $isActive = $updated_at->diffInDays($current_date, false) >= 90 ? false : true;
-        
+
         return view('livewire.user.moderator', [
             'isActive' => $isActive,
         ]);
