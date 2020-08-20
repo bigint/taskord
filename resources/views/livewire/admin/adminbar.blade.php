@@ -82,6 +82,13 @@
                     </li>
                 </ul>
             </span>
+            <span class="font-weight-bold mr-3">
+                <i class="fa fa-wrench mr-1"></i>
+                {{ $jobs }}
+                <span class="font-weight-normal">
+                    {{ $jobs > 1 ? 'jobs' : 'job' }}
+                </span>
+            </span>
             <span class="font-weight-bold">
                 <i class="fa fa-clock mr-1"></i>
                 {{ round(microtime(true) - LARAVEL_START, 2) * 1000 }}ms

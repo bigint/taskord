@@ -9,6 +9,7 @@ use App\Models\Question;
 use App\Models\Task;
 use App\Models\User;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Queue;
 use Livewire\Component;
 use Overtrue\LaravelLike\Like;
 
@@ -48,6 +49,7 @@ class Adminbar extends Component
         $comments = Comment::cacheFor(60 * 60)->count('id');
         $praises = Like::where('likeable_type', '!=', 'App\Models\Product')
             ->count('id');
+        $jobs = Queue::size();
 
         return view('livewire.admin.adminbar', [
             'version' => $version,
@@ -60,6 +62,7 @@ class Adminbar extends Component
             'answers' => number_format($answers),
             'comments' => number_format($comments),
             'praises' => number_format($praises),
+            'jobs' => number_format($jobs),
         ]);
     }
 }
