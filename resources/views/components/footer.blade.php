@@ -20,4 +20,11 @@
     <a class="pr-2" href="https://taskord.freshdesk.com/support/tickets/new" target="_blank">
         Contact
     </a>
+    @auth
+    @if (Auth::user()->staffShip)
+    <span class="pr-2 text-danger">
+        Admin mode on
+    </span>
+    @endif
+    @endauth
 </div>
