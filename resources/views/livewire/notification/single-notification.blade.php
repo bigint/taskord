@@ -68,21 +68,21 @@
                 <span class="align-middle">praised your answer</span>
                 <div class="font-weight-bold mt-2">
                     <a class="text-dark" href="{{ route('question.question', ['id' => $data['question_id']]) }}">
-                        {{ Str::words($data['answer'], '15') }}
+                        {{ $data['answer'] }}
                     </a>
                 </div>
             @elseif ($type === "App\Notifications\Commented")
                 <span class="align-middle">commented on your task</span>
                 <div class="font-weight-bold mt-2">
                     <a class="text-dark" href="{{ route('task', ['id' => $data['task_id']]) }}">
-                        @markdown(Str::words($data['comment'], '15'))
+                        @markdown($data['comment'])
                     </a>
                 </div>
             @elseif ($type === "App\Notifications\Answered")
                 <span class="align-middle">answered to your question</span>
                 <div class="font-weight-bold mt-2">
                     <a class="text-dark" href="{{ route('question.question', ['id' => $data['question_id']]) }}">
-                        @markdown(Str::words($data['answer'], '15'))
+                        @markdown($data['answer'])
                     </a>
                 </div>
             @elseif ($type === "App\Notifications\Followed")
