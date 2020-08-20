@@ -29,6 +29,7 @@ class AdminSeeder extends Seeder
             'isBeta' => true,
             'isPatron' => true,
             'created_at' => date('Y-m-d H:i:s'),
+            'updated_at' => '2020-04-20 13:14:01',
         ]);
 
         DB::table('users')->insert([
