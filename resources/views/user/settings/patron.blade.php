@@ -28,7 +28,15 @@
                                     </div>
                                     <div>
                                         <span class="font-weight-bold">Subscribed to:</span>
+                                        @if ($user->patron->subscription_plan_id === 619848)
+                                        <span>Tier 1</span>
+                                        @elseif ($user->patron->subscription_plan_id === 621377)
+                                        <span>Tier 2</span>
+                                        @elseif ($user->patron->subscription_plan_id === 621379)
+                                        <span>Tier 3</span>
+                                        @elseif ($user->patron->subscription_plan_id === 621380)
                                         <span>Tier 4</span>
+                                        @endif
                                     </div>
                                     <div>
                                         <span class="font-weight-bold">Subscribed at:</span>
