@@ -32,7 +32,7 @@
                                         <img class="rounded-circle avatar-30" src="{{ $question->user->avatar }}" />
                                     </a>
                                     <a href="{{ route('question.question', ['id' => $question->id]) }}">
-                                        <span class="align-middle d-inline-block font-weight-bold ml-1 text-dark text-truncate w-75">
+                                        <span class="align-middle d-inline-block font-weight-bold ml-1 text-dark text-truncate w-50">
                                             {{ $question->title }}
                                         </span>
                                         @if ($question->answer->count('id') >= 1)
@@ -165,6 +165,11 @@
                             </li>
                             @endforeach
                         </ul>
+                        @if ($recently_joined_count > 5)
+                        <div class="card-footer">
+                            <span class="font-weight-bold">{{ $recently_joined_count - 5 }} more...</span>
+                        </div>
+                        @endif
                     </div>
                     <div class="card mb-4">
                         <div class="card-header">
