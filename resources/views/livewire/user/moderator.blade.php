@@ -4,20 +4,19 @@
     </div>
     <div class="card-body">
         @if ($isActive)
-        <div class="font-weight-bold mb-3 text-success">
+        <div class="font-weight-bold mb-2 text-success">
             <span>Active User</span>
         </div>
         @else
-        <div class="font-weight-bold mb-3 text-danger">
+        <div class="font-weight-bold mb-2 text-danger">
             <span>Dormant User</span>
         </div>
         @endif
         @if ($user->lastIP)
         <div class="mb-3">
-            <span class="font-weight-bold">
-                Last IP
-            </span>
-            <a class="text-decoration-underline font-weight-bold" href="https://ipinfo.io/{{ $user->lastIP }}" target="_blank">{{ $user->lastIP }}</a>
+            <h5>
+                <a class="badge pill bg-success font-monospace" href="https://ipinfo.io/{{ $user->lastIP }}" target="_blank">{{ $user->lastIP }}</a>
+            </h5>
             @php
                 if ($user->lastIP) {
                     $usersCount = \App\Models\User::where('lastIP', $user->lastIP)->count();
