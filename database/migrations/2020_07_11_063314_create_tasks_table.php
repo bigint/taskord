@@ -17,7 +17,7 @@ class CreateTasksTable extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->foreignId('product_id')->onDelete('cascade')->nullable();
-            $table->string('task');
+            $table->text('task');
             $table->string('image')->nullable();
             $table->boolean('done');
             $table->string('type')->default('user');

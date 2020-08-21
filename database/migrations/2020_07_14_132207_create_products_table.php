@@ -19,7 +19,7 @@ class CreateProductsTable extends Migration
             $table->string('slug')->unique();
             $table->string('name');
             $table->string('avatar');
-            $table->string('description')->nullable();
+            $table->text('description')->nullable();
             $table->string('website')->nullable();
             $table->string('twitter')->nullable();
             $table->string('github')->nullable();
