@@ -40,13 +40,13 @@ class Adminbar extends Component
         }
 
         // DB Details
-        $tasks = Task::cacheFor(60 * 60)->count('id');
-        $users = User::cacheFor(60 * 60)->count('id');
-        $products = Product::cacheFor(60 * 60)->count('id');
-        $reputations = User::cacheFor(60 * 60)->sum('reputation');
-        $questions = Question::cacheFor(60 * 60)->count('id');
-        $answers = Answer::cacheFor(60 * 60)->count('id');
-        $comments = Comment::cacheFor(60 * 60)->count('id');
+        $tasks = Task::count('id');
+        $users = User::count('id');
+        $products = Product::count('id');
+        $reputations = User::sum('reputation');
+        $questions = Question::count('id');
+        $answers = Answer::count('id');
+        $comments = Comment::count('id');
         $praises = Like::where('likeable_type', '!=', 'App\Models\Product')
             ->count('id');
         $jobs = Queue::size();

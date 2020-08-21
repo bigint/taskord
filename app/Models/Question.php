@@ -13,6 +13,7 @@ class Question extends Model implements Viewable
     use QueryCacheable, InteractsWithViews, Likeable;
 
     protected $cacheFor = 3600;
+    protected static $flushCacheOnUpdate = true;
 
     protected $fillable = [
         'user_id',

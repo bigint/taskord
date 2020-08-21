@@ -14,6 +14,7 @@ class User extends Authenticatable
     use Notifiable, Followable, Liker, Gamify, QueryCacheable;
 
     protected $cacheFor = 3600;
+    protected static $flushCacheOnUpdate = true;
 
     /**
      * The attributes that are mass assignable.

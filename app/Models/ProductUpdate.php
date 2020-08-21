@@ -10,6 +10,7 @@ class ProductUpdate extends Model
     use QueryCacheable;
 
     protected $cacheFor = 3600;
+    protected static $flushCacheOnUpdate = true;
 
     protected $fillable = [
         'user_id',

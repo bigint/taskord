@@ -11,6 +11,7 @@ class Comment extends Model
     use QueryCacheable, Likeable;
 
     protected $cacheFor = 3600;
+    protected static $flushCacheOnUpdate = true;
 
     protected $fillable = [
         'user_id',
