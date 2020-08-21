@@ -8,16 +8,7 @@
             unchecked
         />
         <span class="ml-1 task-font">
-            {!!
-                Purify::clean(
-                    preg_replace('/@(\w+)/',  
-                        '<a href="@$1">@$1</a>', 
-                        preg_replace('/#(\w+)/',
-                            '<a href="product/$1">#$1</a>',
-                        $task->task)
-                    )
-                )
-            !!}
+            {!! Purify::clean(Helper::renderTask($task->task)) !!}
         </span>
         <span class="d-flex small float-right ml-auto">
             <a class="mr-3 text-black-50" href="{{ route('task', ['id' => $task->id]) }}">

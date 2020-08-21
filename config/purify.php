@@ -68,7 +68,7 @@ return [
         */
 
         //'HTML.Allowed' => 'h1,h2,h3,h4,h5,h6,b,strong,i,em,a[href|title],ul,ol,li,p[style],br,span,img[width|height|alt|src]',
-        'HTML.Allowed' => 'a[href]',
+        'HTML.Allowed' => 'a[href|class]',
 
         /*
         |--------------------------------------------------------------------------
@@ -100,7 +100,7 @@ return [
         */
 
         //'CSS.AllowedProperties' => 'font,font-size,font-weight,font-style,font-family,text-decoration,padding-left,color,background-color,text-align',
-        'CSS.AllowedProperties' => '',
+        'CSS.AllowedProperties' => 'background, padding',
 
         /*
         |--------------------------------------------------------------------------
