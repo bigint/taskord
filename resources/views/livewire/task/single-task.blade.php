@@ -52,10 +52,10 @@
             @if (Auth::user()->hasLiked($task))
                 <button type="button" class="btn btn-task btn-success text-white mr-1" wire:click="togglePraise" wire:loading.attr="disabled" wire:offline.attr="disabled">
                     {{ Emoji::clappingHands() }}
-                    <span class="small text-white font-weight-bold align-text-bottom">
+                    <span class="small text-white font-weight-bold">
                         {{ number_format($task->likes()->count('id')) }}
                     </span>
-                    <span class="avatar-stack align-text-bottom ml-1">
+                    <span class="avatar-stack ml-1">
                     @foreach($task->likers->take(5) as $user)
                     <img class="praise-avatar rounded-circle {{ $loop->last ? 'mr-0' : '' }}" src="{{ $user->avatar }}" />
                     @endforeach
@@ -65,10 +65,10 @@
                 <button type="button" class="btn btn-task btn-outline-success mr-1" wire:click="togglePraise" wire:loading.attr="disabled" wire:offline.attr="disabled">
                     {{ Emoji::clappingHands() }}
                     @if ($task->likes()->count('id') !== 0)
-                    <span class="small text-dark font-weight-bold align-text-bottom">
+                    <span class="small text-dark font-weight-bold">
                         {{ number_format($task->likes()->count('id')) }}
                     </span>
-                    <span class="avatar-stack align-text-bottom ml-1">
+                    <span class="avatar-stack ml-1">
                     @foreach($task->likers->take(5) as $user)
                     <img class="praise-avatar rounded-circle {{ $loop->last ? 'mr-0' : '' }}" src="{{ $user->avatar }}" />
                     @endforeach
@@ -82,10 +82,10 @@
                 <a href="/login" class="btn btn-task btn-outline-success mr-1">
                     {{ Emoji::clappingHands() }}
                     @if ($task->likes()->count('id') !== 0)
-                    <span class="small text-dark font-weight-bold align-text-bottom">
+                    <span class="small text-dark font-weight-bold">
                         {{ number_format($task->likes()->count('id')) }}
                     </span>
-                    <span class="avatar-stack align-text-bottom ml-1">
+                    <span class="avatar-stack ml-1">
                     @foreach($task->likers->take(5) as $user)
                     <img class="praise-avatar rounded-circle {{ $loop->last ? 'mr-0' : '' }}" src="{{ $user->avatar }}" />
                     @endforeach
