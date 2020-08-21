@@ -97,4 +97,41 @@
         </div>
     </div>
 </div>
+<script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "QAPage",
+        "mainEntity": {
+            "@type": "Question",
+            "name": "{{ $question->title }}",
+            "text": "",
+            "answerCount": {{ $question->answer->count('id') }},
+            "upvoteCount": {{ $question->likes()->count('id') }},
+            "dateCreated": "{{ $question->created_at }}",
+            "author": { "@type": "Person", "name": "{{ $question->user->username }}" },
+            @foreach ($question->answer->take(1) as $answer)
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "{{ $answer->answer }}",
+                "dateCreated": "{{ $answer->created_at }}",
+                "upvoteCount": 1,
+                "url": "https://taskord.com/question/{{ $answer->question->id }}",
+                "author": { "@type": "Person", "name": "{{ $answer->user->username }}" }
+            },
+            @endforeach
+            "suggestedAnswer": [
+            @foreach ($question->answer->take(10) as $answer)
+                {
+                    "@type": "Answer",
+                    "text": "{{ $answer->answer }}",
+                    "dateCreated": "{{ $answer->created_at }}",
+                    "upvoteCount": {{ $answer->likes()->count('id') }},
+                    "url": "https://taskord.com/question/{{ $answer->question->id }}",
+                    "author": { "@type": "Person", "name": "{{ $answer->user->username }}" }
+                }{{ $loop->last ? '' : ',' }}
+            @endforeach
+            ]
+        }
+    }
+</script>
 @endsection
