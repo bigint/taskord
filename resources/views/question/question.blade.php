@@ -104,7 +104,6 @@
         "mainEntity": {
             "@type": "Question",
             "name": "{{ $question->title }}",
-            "text": "",
             "answerCount": {{ $question->answer->count('id') }},
             "upvoteCount": {{ $question->likes()->count('id') }},
             "dateCreated": "{{ $question->created_at }}",
@@ -120,7 +119,7 @@
             },
             @endforeach
             "suggestedAnswer": [
-            @foreach ($question->answer->take(10) as $answer)
+                @foreach ($question->answer->take(10) as $answer)
                 {
                     "@type": "Answer",
                     "text": "{{ $answer->answer }}",
@@ -129,7 +128,7 @@
                     "url": "https://taskord.com/question/{{ $answer->question->id }}",
                     "author": { "@type": "Person", "name": "{{ $answer->user->username }}" }
                 }{{ $loop->last ? '' : ',' }}
-            @endforeach
+                @endforeach
             ]
         }
     }
