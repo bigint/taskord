@@ -1,6 +1,6 @@
 <?php
 
-use Faker\Factory as Faker;
+use Faker\Generator as Faker;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
@@ -12,10 +12,8 @@ class UserSeeder extends Seeder
      *
      * @return void
      */
-    public function run()
+    public function run(Faker $faker)
     {
-        $faker = Faker::create();
-
         foreach (range(1, 100) as $index) {
             DB::table('users')->insert([
                 'firstname' => $faker->firstName,

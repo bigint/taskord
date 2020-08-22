@@ -1,6 +1,6 @@
 <?php
 
-use Faker\Factory as Faker;
+use Faker\Generator as Faker;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
@@ -11,9 +11,8 @@ class ProductSeeder extends Seeder
      *
      * @return void
      */
-    public function run()
+    public function run(Faker $faker)
     {
-        $faker = Faker::create();
         DB::table('products')->insert([
             'slug' => 'taskord',
             'name' => 'Taskord',

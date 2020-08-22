@@ -1,6 +1,6 @@
 <?php
 
-use Faker\Factory as Faker;
+use Faker\Generator as Faker;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
@@ -11,9 +11,8 @@ class LoadTest extends Seeder
      *
      * @return void
      */
-    public function run()
+    public function run(Faker $faker)
     {
-        $faker = Faker::create();
         foreach (range(1, 1000000) as $index) {
             echo "$index \n";
             DB::table('tasks')->insert([

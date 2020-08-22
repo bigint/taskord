@@ -1,6 +1,6 @@
 <?php
 
-use Faker\Factory as Faker;
+use Faker\Generator as Faker;
 use Illuminate\Database\Seeder;
 
 class AnswerSeeder extends Seeder
@@ -10,9 +10,8 @@ class AnswerSeeder extends Seeder
      *
      * @return void
      */
-    public function run()
+    public function run(Faker $faker)
     {
-        $faker = Faker::create();
         foreach (range(1, 500) as $index) {
             DB::table('answers')->insert([
                 'user_id' => $faker->numberBetween($min = 1, $max = 50),
