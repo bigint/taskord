@@ -28,6 +28,7 @@ class Search extends Component
     public function updatedQuery()
     {
         $this->tasks = Task::cacheFor(60 * 60)
+            ->select('id', 'task', 'done', 'user_id')
             ->whereHas('user', function ($q) {
                 $q->where([
                     ['isFlagged', false],
@@ -35,20 +36,20 @@ class Search extends Component
                 ]);
             })
             ->where('task', 'LIKE', '%'.$this->query.'%')
-            ->limit(3)
+            ->take(3)
             ->get();
         $this->users = User::cacheFor(60 * 60)
             ->select('username', 'firstname', 'lastname', 'avatar', 'isFlagged')
             ->where('username', 'LIKE', '%'.$this->query.'%')
             ->orWhere('firstname', 'LIKE', '%'.$this->query.'%')
             ->orWhere('lastname', 'LIKE', '%'.$this->query.'%')
-            ->limit(3)
+            ->take(3)
             ->get();
         $this->products = Product::cacheFor(60 * 60)
             ->select('slug', 'name', 'avatar', 'user_id')
             ->where('slug', 'LIKE', '%'.$this->query.'%')
             ->orWhere('name', 'LIKE', '%'.$this->query.'%')
-            ->limit(3)
+            ->take(3)
             ->get();
         $this->questions = Question::cacheFor(60 * 60)
             ->select('id', 'title', 'user_id')
@@ -58,7 +59,7 @@ class Search extends Component
                 ]);
             })
             ->where('title', 'LIKE', '%'.$this->query.'%')
-            ->limit(3)
+            ->take(3)
             ->get();
     }
 

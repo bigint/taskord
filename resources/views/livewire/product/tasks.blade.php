@@ -12,10 +12,13 @@
         'text' => $message,
     ])
     @endif
+    @if ($page === 1)
+    <ul class="list-group">
+    @endif
     @foreach ($tasks as $task)
-    <li class="list-group-item p-3 {{ $loop->last ? 'border-bottom-0' : '' }}">
+    <li class="list-group-item p-3">
         @livewire('task.single-task', [
-            'task' => $task
+            'task' => $task,
         ], key($task->id))
     </li>
     @endforeach
@@ -25,5 +28,8 @@
             'product' => $task->product,
             'page' => $page,
         ])
+    @endif
+    @if ($page === 1)
+    </ul>
     @endif
 </div>

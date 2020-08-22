@@ -1,4 +1,4 @@
-<span>
+<span class="{{ Route::currentRouteName() === 'task' ? 'p-3' : '' }}">
     @include('components.alert')
     <div class="align-items-center d-flex">
         <a href="{{ route('user.done', ['username' => $task->user->username]) }}">
