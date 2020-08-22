@@ -40,7 +40,15 @@
                         Markdown is supported
                     </div>
                     @endif
-                    <button type="submit" class="btn btn-primary">Update</button>
+                    <div class="mb-3">
+                        <div class="font-weight-bold mb-2">Patron only</div>
+                        <input id="patronOnly" class="form-check-input" type="checkbox" wire:model="patronOnly">
+                        <label for="patronOnly" class="ml-1">This question will visible only for patrons</label>
+                    </div>
+                    <button type="submit" class="btn btn-primary">
+                        Update
+                        <span wire:target="submit" wire:loading class="spinner-border spinner-border-sm ml-2" role="status"></span>
+                    </button>
                 </form>
             </div>
         </div>

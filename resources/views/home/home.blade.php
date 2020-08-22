@@ -32,9 +32,7 @@
                                         <img class="rounded-circle avatar-30" src="{{ $question->user->avatar }}" />
                                     </a>
                                     <a href="{{ route('question.question', ['id' => $question->id]) }}">
-                                        <span class="align-middle d-inline-block font-weight-bold ml-1 text-dark text-truncate w-50">
-                                            {{ $question->title }}
-                                        </span>
+                                        <span class="ml-1 font-weight-bold align-middle text-dark">{{ Str::words($question->title, '10') }}</span>
                                         @if ($question->answer->count('id') >= 1)
                                         <span class="ml-1 align-middle text-black-50">
                                             {{ $question->answer->count('id') }} {{ $question->answer->count('id') >= 1 ? 'answers' : 'answer' }}
