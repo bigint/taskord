@@ -40,12 +40,22 @@
                         Markdown is supported
                     </div>
                     @endif
+                    @auth
+                    @if (Auth::user()->isPatron)
                     <div class="mb-3">
                         <div class="font-weight-bold mb-2">Patron only</div>
                         <input id="patronOnly" class="form-check-input" type="checkbox" wire:model="patronOnly">
                         <label for="patronOnly" class="ml-1">This question will visible only for patrons</label>
                     </div>
-                    <button type="submit" class="btn btn-primary">
+                    @else
+                    <div class="mb-2">
+                        <a class="text-primary" href="{{ route('patron.home') }}" data-turbolinks="false">
+                            {{ Emoji::redHeart() }} Support Taskord to post patron only questions!
+                        </a>
+                    </div>
+                    @endif
+                    @endauth
+                    <button type="submit" class="btn btn-primary mt-2">
                         Ask
                         <span wire:target="submit" wire:loading class="spinner-border spinner-border-sm ml-2" role="status"></span>
                     </button>
