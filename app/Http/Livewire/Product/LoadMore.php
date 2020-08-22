@@ -19,23 +19,13 @@ class LoadMore extends Component
     public $type;
     public $page;
     public $perPage;
-    public $loadMore;
 
-    public function mount($product, $type, $page = 1, $perPage = 1)
+    public function mount($product, $type, $page = 1)
     {
         $this->product = $product;
         $this->type = $type;
-        $this->page = $page + 1; //increment the page
-        $this->perPage = $perPage;
-        $this->loadMore = false; //show the button
-    }
-
-    public function paginate($items, $options = [])
-    {
-        $page = $this->page ?: (Paginator::resolveCurrentPage() ?: 1);
-        $items = $items instanceof Collection ? $items : Collection::make($items);
-
-        return new LengthAwarePaginator($items->forPage($page, $this->perPage), $items->count(), $this->perPage, $page, $options);
+        $this->page = $page + 1;
+        $this->loadMore = false;
     }
 
     public function loadMore()
@@ -47,6 +37,7 @@ class LoadMore extends Component
     {
         if ($this->loadMore) {
             $tasks = Task::cacheFor(60 * 60)
+                ->select('id', 'task', 'done', 'created_at', 'done_at', 'user_id', 'product_id')
                 ->where([
                     ['product_id', $this->product->id],
                     ['user_id', $this->product->user->id],
@@ -54,13 +45,10 @@ class LoadMore extends Component
                 ])
                 ->orderBy('created_at', 'desc')
                 ->orderBy('done_at', 'desc')
-                ->get()
-                ->groupBy(function ($date) {
-                    return Carbon::parse($date->done_at)->format('d-M-y');
-                });
+                ->paginate(20, null, null, $this->page);
 
             return view('livewire.user.tasks', [
-                'tasks' => $this->paginate($tasks),
+                'tasks' => $tasks,
             ]);
         } else {
             return view('livewire.load-more');

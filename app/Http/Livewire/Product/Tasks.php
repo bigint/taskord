@@ -20,27 +20,18 @@ class Tasks extends Component
     public $product;
     public $type;
     public $page;
-    public $perPage;
 
-    public function mount($product, $type, $page, $perPage)
+    public function mount($product, $type, $page)
     {
         $this->product = $product;
         $this->type = $type;
         $this->page = $page ? $page : 1;
-        $this->perPage = $perPage ? $perPage : 1;
-    }
-
-    public function paginate($items, $options = [])
-    {
-        $page = $this->page ?: (Paginator::resolveCurrentPage() ?: 1);
-        $items = $items instanceof Collection ? $items : Collection::make($items);
-
-        return new LengthAwarePaginator($items->forPage($page, $this->perPage), $items->count(), $this->perPage, $page, $options);
     }
 
     public function render()
     {
         $tasks = Task::cacheFor(60 * 60)
+            ->select('id', 'task', 'done', 'created_at', 'done_at', 'user_id', 'product_id')
             ->where([
                 ['product_id', $this->product->id],
                 ['user_id', $this->product->user->id],
@@ -48,13 +39,10 @@ class Tasks extends Component
             ])
             ->orderBy('created_at', 'desc')
             ->orderBy('done_at', 'desc')
-            ->get()
-            ->groupBy(function ($date) {
-                return Carbon::parse($date->done_at)->format('d-M-y');
-            });
+            ->paginate(20, null, null, $this->page);
 
         return view('livewire.product.tasks', [
-            'tasks' => $this->paginate($tasks),
+            'tasks' =>$tasks,
             'page' => $this->page,
         ]);
     }

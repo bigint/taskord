@@ -5,7 +5,7 @@
         'text' => 'No tasks made!',
     ])
     @endif
-    @foreach ($tasks as $key => $task)
+    @foreach ($tasks as $task)
     <li class="list-group-item p-3 {{ $loop->last ? 'border-bottom-0' : '' }}">
         @livewire('task.single-task', [
             'task' => $task

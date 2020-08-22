@@ -12,39 +12,18 @@
         'text' => $message,
     ])
     @endif
-    @foreach ($tasks as $key => $groupedTask)
-        @if (Carbon::now()->format('M d Y') === Carbon::parse($key)->format('M d Y'))
-        <div class="mb-2">
-            <span class="h5 font-weight-bold">Today,</span>
-            <span class="h5">{{ Carbon::parse($key)->format('M d') }}</span>
-        </div>
-        @elseif (Carbon::now()->subDays(1)->format('M d Y') === Carbon::parse($key)->format('M d Y'))
-        <div class="mb-2">
-            <span class="h5 font-weight-bold">Yesterday,</span>
-            <span class="h5">{{ Carbon::parse($key)->format('M d') }}</span>
-        </div>
-        @else
-        <div class="mb-2">
-            <span class="h5 font-weight-bold">{{ Carbon::parse($key)->format('M d,') }}</span>
-            <span class="h5">{{ Carbon::parse($key)->format('Y') }}</span>
-        </div>
-        @endif
-        <div class="card mb-4">
-            <ul class="list-group list-group-flush">
-                @foreach ($groupedTask as $task)
-                    @livewire('task.single-task', [
-                        'task' => $task
-                    ], key($task->id))
-                @endforeach
-            </ul>
-        </div>
+    @foreach ($tasks as $task)
+    <li class="list-group-item p-3 {{ $loop->last ? 'border-bottom-0' : '' }}">
+        @livewire('task.single-task', [
+            'task' => $task
+        ], key($task->id))
+    </li>
     @endforeach
     @if ($tasks->hasMorePages())
         @livewire('product.load-more', [
             'type' => $type,
             'product' => $task->product,
             'page' => $page,
-            'perPage' => $perPage
         ])
     @endif
 </div>

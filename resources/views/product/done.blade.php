@@ -22,7 +22,6 @@
                         'type' => 'product.done',
                         'product' => $product,
                         'page' => 1,
-                        'perPage' => 3
                     ])
                 </div>
                 @include('product.sidebar')

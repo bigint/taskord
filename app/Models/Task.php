@@ -35,6 +35,6 @@ class Task extends Model
 
     public function product()
     {
-        return $this->hasOne(\App\Models\Product::class);
+        return $this->belongsTo(\App\Models\Product::class);
     }
 }

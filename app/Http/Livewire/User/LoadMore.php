@@ -15,27 +15,17 @@ class LoadMore extends Component
         'taskAdded' => 'render',
     ];
 
-    public $user_id;
+    public $user;
     public $type;
     public $page;
-    public $perPage;
     public $loadMore;
 
-    public function mount($user, $type, $page = 1, $perPage = 1)
+    public function mount($user, $type, $page = 1)
     {
-        $this->user_id = $user->id;
+        $this->user = $user;
         $this->type = $type;
-        $this->page = $page + 1; //increment the page
-        $this->perPage = $perPage;
-        $this->loadMore = false; //show the button
-    }
-
-    public function paginate($items, $options = [])
-    {
-        $page = $this->page ?: (Paginator::resolveCurrentPage() ?: 1);
-        $items = $items instanceof Collection ? $items : Collection::make($items);
-
-        return new LengthAwarePaginator($items->forPage($page, $this->perPage), $items->count(), $this->perPage, $page, $options);
+        $this->page = $page + 1;
+        $this->loadMore = false;
     }
 
     public function loadMore()
@@ -46,30 +36,17 @@ class LoadMore extends Component
     public function render()
     {
         if ($this->loadMore) {
-            if ($this->type === 'user.done') {
-                $tasks = Task::cacheFor(60 * 60)
-                    ->select('id', 'task', 'done', 'created_at', 'done_at', 'user_id')
-                    ->where('user_id', $this->user_id)
-                    ->where('done', true)
-                    ->orderBy('done_at', 'desc')
-                    ->get()
-                    ->groupBy(function ($date) {
-                        return Carbon::parse($date->done_at)->format('d-M-y');
-                    });
-            } else {
-                $tasks = Task::cacheFor(60 * 60)
-                    ->select('id', 'task', 'done', 'created_at', 'done_at', 'user_id')
-                    ->where('user_id', $this->user_id)
-                    ->where('done', false)
-                    ->orderBy('created_at', 'desc')
-                    ->get()
-                    ->groupBy(function ($date) {
-                        return Carbon::parse($date->done_at)->format('d-M-y');
-                    });
-            }
+            $tasks = Task::cacheFor(60 * 60)
+                ->select('id', 'task', 'done', 'created_at', 'done_at', 'user_id')
+                ->where([
+                    ['user_id', $this->user->id],
+                    ['done', $this->type === 'user.done' ? true : false],
+                ])
+                ->orderBy('done_at', 'desc')
+                ->paginate(20, null, null, $this->page);
 
             return view('livewire.user.tasks', [
-                'tasks' => $this->paginate($tasks),
+                'tasks' => $tasks,
             ]);
         } else {
             return view('livewire.load-more');
