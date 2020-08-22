@@ -18,6 +18,7 @@ class CreateQuestionsTable extends Migration
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->text('title');
             $table->text('body');
+            $table->boolean('patronOnly')->default(false);
             $table->timestamps();
         });
     }

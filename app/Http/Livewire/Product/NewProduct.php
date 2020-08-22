@@ -67,7 +67,6 @@ class NewProduct extends Component
             if ($launched) {
                 $launched_status = true;
                 $launched_at = Carbon::now();
-                $updated_at = Carbon::now();
             } else {
                 $launched_status = false;
                 $launched_at = null;

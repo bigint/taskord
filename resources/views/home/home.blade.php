@@ -27,7 +27,7 @@
                         </div>
                         <div class="card-body">
                             @foreach ($recent_questions as $question)
-                                <div class="{{ $loop->index === count($recent_questions) - 1 ? '' : 'mb-2' }}">
+                                <div class="{{ $loop->index === count($recent_questions) - 1 ? '' : 'mb-2' }} {{ $question->patronOnly ? 'bg-patron' : '' }}">
                                     <a href="{{ route('user.done', ['username' => $question->user->username]) }}">
                                         <img class="rounded-circle avatar-30" src="{{ $question->user->avatar }}" />
                                     </a>

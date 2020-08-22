@@ -11,6 +11,7 @@ class CreateQuestion extends Component
 {
     public $title;
     public $body;
+    public $patronOnly;
 
     public function updated($field)
     {
@@ -43,11 +44,14 @@ class CreateQuestion extends Component
             if (Auth::user()->isFlagged) {
                 return session()->flash('error', 'Your account is flagged!');
             }
+            
+            $patronOnly = ! $this->patronOnly ? false : true;
 
             $question = Question::create([
                 'user_id' =>  Auth::id(),
                 'title' => $this->title,
                 'body' => $this->body,
+                'patronOnly' => $patronOnly,
             ]);
 
             session()->flash('question_created', 'Question has been created!');

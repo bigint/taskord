@@ -19,6 +19,7 @@ class Question extends Model implements Viewable
         'user_id',
         'title',
         'body',
+        'patronOnly',
     ];
 
     public function user()

@@ -62,16 +62,32 @@ class QuestionController extends Controller
             'type' => 'question.question',
             'question' => $question,
         ];
+        
 
-        if (Auth::check() && Auth::id() === $question->user->id or Auth::check() && Auth::user()->staffShip) {
+        if (
+            Auth::check() && Auth::id() === $question->user->id or
+            Auth::check() && Auth::user()->staffShip
+        ) {
             views($question)->record();
 
             return view('question.question', $response);
+        } elseif (Auth::check() && $question->patronOnly) {
+            if (Auth::check() && !Auth::user()->isPatron) {
+                return redirect()->route('patron.home');
+            } else {
+                views($question)->record();
+
+                return view('question.question', $response);
+            }
         } elseif ($question->user->isFlagged) {
             return view('errors.404');
         }
-
-        return view('question.question', $response);
+        
+        if ($question->patronOnly) {
+            return redirect()->route('patron.home');
+        } else {
+            return view('question.question', $response);
+        }
     }
 
     public function new()

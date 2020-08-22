@@ -1,5 +1,5 @@
 <div class="card mb-2">
-    <div class="card-body">
+    <div class="card-body {{ $question->patronOnly ? 'bg-patron' : '' }}">
         @include('components.alert')
         <div class="d-flex align-items-center">
             <a href="{{ route('user.done', ['username' => $question->user->username]) }}">
@@ -27,7 +27,7 @@
             </span>
         </div>
     </div>
-    <div class="card-body pt-1">
+    <div class="card-body pt-1 {{ $question->patronOnly ? 'bg-patron' : '' }}">
         <a href="{{ route('question.question', ['id' => $question->id]) }}" class="h5 align-text-top font-weight-bold text-dark">
             @if ($type !== "question.question")
                 {{ Str::words($question->title, '10') }}
@@ -37,7 +37,9 @@
         </a>
         <div class="mt-2">
             @if ($type !== "question.question")
-                @markdown(Str::words($question->body, '30'))
+                @if (!$question->patronOnly)
+                    @markdown(Str::words($question->body, '30'))
+                @endif
             @else
                 @markdown($question->body)
             @endif
