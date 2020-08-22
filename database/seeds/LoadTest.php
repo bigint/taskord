@@ -14,7 +14,7 @@ class LoadTest extends Seeder
     public function run()
     {
         $faker = Faker::create();
-        foreach (range(1, 100000) as $index) {
+        foreach (range(1, 1000000) as $index) {
             echo "$index \n";
             DB::table('tasks')->insert([
                 'user_id' => $faker->numberBetween($min = 1, $max = 50),

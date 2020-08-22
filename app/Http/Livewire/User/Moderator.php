@@ -183,6 +183,7 @@ class Moderator extends Component
             $user = User::find($this->user->id);
             $user->timestamps = false;
             $user->tasks()->delete();
+            $user->tasks()->flushQueryCache();
             ModEvents::dispatch('CRITICAL', '@'.Auth::user()->username.' deleted all tasks made by @'.$this->user->username);
 
             return redirect()->route('user.done', ['username' => $this->user->username]);

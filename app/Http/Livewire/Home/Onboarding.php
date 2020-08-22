@@ -5,6 +5,8 @@ namespace App\Http\Livewire\Home;
 use App\Notifications\DiscordInvite;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
+use App\Models\Task;
+use App\Models\Product;
 
 class Onboarding extends Component
 {
@@ -48,8 +50,10 @@ class Onboarding extends Component
 
     public function render()
     {
-        $task_count = Auth::user()->tasks->count('id');
+        $task_count = Task::select('id')->where('user_id', Auth::id())->count('id');
         $praise_count = Auth::user()->likes()->count('id');
+        // TODO
+        //$product_count = Product::select('id')->where('user_id', Auth::id())->count('id');
         $product_count = Auth::user()->products->count('id');
         $has_name = Auth::user()->firstname;
         $changed_username = preg_match('/^[a-f0-9]{32}$/', Auth::user()->username);
