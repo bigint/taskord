@@ -1,5 +1,5 @@
-<div class="card mb-2">
-    <div class="card-body {{ $question->patronOnly ? 'bg-patron' : '' }}">
+<div class="card mb-2 {{ $question->patronOnly ? 'bg-patron' : '' }}">
+    <div class="card-body">
         @include('components.alert')
         <div class="d-flex align-items-center">
             <a href="{{ route('user.done', ['username' => $question->user->username]) }}">
@@ -27,7 +27,7 @@
             </span>
         </div>
     </div>
-    <div class="card-body pt-1 {{ $question->patronOnly ? 'bg-patron' : '' }}">
+    <div class="card-body pt-1">
         <a href="{{ route('question.question', ['id' => $question->id]) }}" class="h5 align-text-top font-weight-bold text-dark">
             @if ($type !== "question.question")
                 {{ Str::words($question->title, '10') }}
