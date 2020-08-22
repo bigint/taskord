@@ -21,7 +21,7 @@
                         {{ $task->done ? "checked" : "unchecked" }}
                         disabled
                     />
-                    <a class="ml-1 task-font text-dark" href="#">{{ $task->task }}</a>
+                    <a class="ml-1 task-font text-dark" href="{{ route('task', ['id' => $task->id]) }}">{{ $task->task }}</a>
                     <span class="small ml-2">👏
                         <span class="text-black-50">{{ $task->likes()->count('id') }}</span>
                     </span>
