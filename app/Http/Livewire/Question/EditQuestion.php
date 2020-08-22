@@ -54,7 +54,7 @@ class EditQuestion extends Component
             }
 
             $question = Question::where('id', $this->question->id)->firstOrFail();
-            
+
             $patronOnly = ! $this->patronOnly ? false : true;
 
             if (Auth::user()->staffShip or Auth::id() === $question->user_id) {
