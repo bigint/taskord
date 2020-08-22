@@ -19,20 +19,10 @@ class Tasks extends Component
     ];
 
     public $page;
-    public $perPage;
 
-    public function mount($page, $perPage)
+    public function mount($page)
     {
         $this->page = $page ? $page : 1;
-        $this->perPage = $perPage ? $perPage : 1;
-    }
-
-    public function paginate($items, $options = [])
-    {
-        $page = $this->page ?: (Paginator::resolveCurrentPage() ?: 1);
-        $items = $items instanceof Collection ? $items : Collection::make($items);
-
-        return new LengthAwarePaginator($items->forPage($page, $this->perPage), $items->count(), $this->perPage, $page, $options);
     }
 
     public function render()
@@ -52,10 +42,7 @@ class Tasks extends Component
                 })
                 ->where('done', true)
                 ->orderBy('done_at', 'desc')
-                ->get()
-                ->groupBy(function ($date) {
-                    return Carbon::parse($date->done_at)->format('d-M-y');
-                });
+                ->paginate(20, null, null, $this->page);
         } else {
             $tasks = Task::cacheFor(60 * 60)
                 ->select('id', 'task', 'done', 'done_at', 'user_id')
@@ -67,14 +54,11 @@ class Tasks extends Component
                 })
                 ->where('done', true)
                 ->orderBy('done_at', 'desc')
-                ->get()
-                ->groupBy(function ($date) {
-                    return Carbon::parse($date->done_at)->format('d-M-y');
-                });
+                ->paginate(20, null, null, $this->page);
         }
 
         return view('livewire.home.tasks', [
-            'tasks' => $this->paginate($tasks),
+            'tasks' => $tasks,
             'page' => $this->page,
         ]);
     }

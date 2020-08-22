@@ -93,7 +93,6 @@
                     @endauth
                     @livewire('home.tasks', [
                         'page' => 1,
-                        'perPage' => 2
                     ])
                 </div>
                 <div class="col-sm">
