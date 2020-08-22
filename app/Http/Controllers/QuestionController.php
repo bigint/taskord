@@ -62,7 +62,6 @@ class QuestionController extends Controller
             'type' => 'question.question',
             'question' => $question,
         ];
-        
 
         if (
             Auth::check() && Auth::id() === $question->user->id or
@@ -72,7 +71,7 @@ class QuestionController extends Controller
 
             return view('question.question', $response);
         } elseif (Auth::check() && $question->patronOnly) {
-            if (Auth::check() && !Auth::user()->isPatron) {
+            if (Auth::check() && ! Auth::user()->isPatron) {
                 return redirect()->route('patron.home');
             } else {
                 views($question)->record();
@@ -82,7 +81,7 @@ class QuestionController extends Controller
         } elseif ($question->user->isFlagged) {
             return view('errors.404');
         }
-        
+
         if ($question->patronOnly) {
             return redirect()->route('patron.home');
         } else {

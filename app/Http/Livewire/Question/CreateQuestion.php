@@ -44,7 +44,7 @@ class CreateQuestion extends Component
             if (Auth::user()->isFlagged) {
                 return session()->flash('error', 'Your account is flagged!');
             }
-            
+
             $patronOnly = ! $this->patronOnly ? false : true;
 
             $question = Question::create([
