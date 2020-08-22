@@ -45,10 +45,7 @@ class LoadMore extends Component
                     })
                     ->where('done', true)
                     ->orderBy('done_at', 'desc')
-                    ->get()
-                    ->groupBy(function ($date) {
-                        return Carbon::parse($date->done_at)->format('d-M-y');
-                    });
+                    ->paginate(20, null, null, $this->page);
             } else {
                 $tasks = Task::cacheFor(60 * 60)
                     ->select('id', 'task', 'done', 'done_at', 'user_id')
