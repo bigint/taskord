@@ -91,6 +91,15 @@ Route::get('tasks', 'TaskController@tasks')->name('tasks')->middleware('auth');
 
 Route::get('streaks/{username}', 'StatsController@streaks')->name('streak');
 
+Route::group(['prefix' => 'search', 'as' => 'search.'], function () {
+    Route::get('', 'SearchController@search')->name('home');
+    Route::get('tasks', 'SearchController@tasks')->name('tasks');
+    Route::get('comments', 'SearchController@comments')->name('comments');
+    Route::get('questions', 'SearchController@questions')->name('questions');
+    Route::get('answers', 'SearchController@answers')->name('answers');
+    Route::get('users', 'SearchController@users')->name('users');
+});
+
 // Pages
 Route::get('about', 'PagesController@about')->name('about');
 Route::get('reputation', 'PagesController@reputation')->name('reputation');
