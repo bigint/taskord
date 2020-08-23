@@ -36,6 +36,7 @@ class SearchController extends Controller
 
         return view('search.result', [
             'type' => 'tasks',
+            'searchTerm' => $searchTerm,
             'tasks' =>  $tasks,
         ]);
     }
@@ -62,6 +63,7 @@ class SearchController extends Controller
 
         return view('search.result', [
             'type' => 'comments',
+            'searchTerm' => $searchTerm,
             'comments' =>  $comments,
         ]);
     }
@@ -88,6 +90,7 @@ class SearchController extends Controller
 
         return view('search.result', [
             'type' => 'questions',
+            'searchTerm' => $searchTerm,
             'questions' =>  $questions,
         ]);
     }

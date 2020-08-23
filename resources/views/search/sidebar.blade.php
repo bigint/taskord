@@ -3,21 +3,21 @@
         <ul class="list-group list-group-flush">
             <a
                 class="list-group-item text-dark pt-2 pb-2 @if (Route::currentRouteName() === 'search.tasks') active text-white @endif"
-                href="{{ route('search.tasks') }}"
+                href="{{ route('search.tasks', ['q' => $searchTerm]) }}"
             >
                 <i class="fa fa-check mr-1"></i>
                 Tasks
             </a>
             <a
-                class="list-group-item text-dark pt-2 pb-2 @if (Route::currentRouteName() === 'search.tasks') active text-white @endif"
-                href="{{ route('search.tasks') }}"
+                class="list-group-item text-dark pt-2 pb-2 @if (Route::currentRouteName() === 'search.comments') active text-white @endif"
+                href="{{ route('search.comments', ['q' => $searchTerm]) }}"
             >
                 <i class="fa fa-comments mr-1"></i>
                 Task Comments
             </a>
             <a
-                class="list-group-item text-dark pt-2 pb-2 @if (Route::currentRouteName() === 'search.tasks') active text-white @endif"
-                href="{{ route('search.tasks') }}"
+                class="list-group-item text-dark pt-2 pb-2 @if (Route::currentRouteName() === 'search.questions') active text-white @endif"
+                href="{{ route('search.questions', ['q' => $searchTerm]) }}"
             >
                 <i class="fa fa-question mr-1"></i>
                 Questions
