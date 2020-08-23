@@ -41,6 +41,8 @@ class Delete extends Component
     public function exportAccount()
     {
         if (Auth::check()) {
+            dispatch(new CreatePersonalDataExportJob(auth()->user()));
+            dd('dsd');
         } else {
             return session()->flash('error', 'Forbidden!');
         }

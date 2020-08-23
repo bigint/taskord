@@ -88,8 +88,6 @@ Route::get('task/{id}', 'TaskController@task')->name('task');
 
 Route::get('tasks', 'TaskController@tasks')->name('tasks')->middleware('auth');
 
-Route::personalDataExports('personal-data-exports');
-
 Route::get('streaks/{username}', 'StatsController@streaks')->name('streak');
 
 // Pages
