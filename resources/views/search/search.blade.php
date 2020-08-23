@@ -9,21 +9,14 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm">
-                    Soon
+        <div class="col-lg-8">
+            <form action="/search/tasks" method="GET" role="search">
+                @csrf
+                <div class="input-group">
+                    <input type="text" class="form-control" name="q" placeholder="Search users">
+                    </span>
                 </div>
-                <div class="col-md-8">
-                    <form action="/search/tasks" method="GET" role="search">
-                        @csrf
-                        <div class="input-group">
-                            <input type="text" class="form-control" name="q" placeholder="Search users">
-                            </span>
-                        </div>
-                    </form>
-                </div>
-            </div>
+            </form>
         </div>
     </div>
 </div>
