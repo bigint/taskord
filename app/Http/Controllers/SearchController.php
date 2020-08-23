@@ -2,10 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use App\Models\User;
-use App\Models\Task;
 use App\Models\Question;
+use App\Models\Task;
+use Illuminate\Http\Request;
 
 class SearchController extends Controller
 {
@@ -33,18 +32,16 @@ class SearchController extends Controller
         } else {
             return redirect()->route('search.home');
         }
-        
 
         return view('search.tasks', [
             'tasks' =>  $tasks,
         ]);
     }
-    
+
     public function comments(Request $request)
     {
-        
     }
-    
+
     public function questions(Request $request)
     {
         $searchTerm = $request->input('q');
@@ -69,19 +66,16 @@ class SearchController extends Controller
             'questions' =>  $questions,
         ]);
     }
-    
+
     public function answers(Request $request)
     {
-        
     }
-    
+
     public function products(Request $request)
     {
-        
     }
-    
+
     public function users(Request $request)
     {
-        
     }
 }
