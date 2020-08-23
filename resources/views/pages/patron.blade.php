@@ -21,12 +21,12 @@
                 <div class="col-md-8">
                     <div class="font-weight-bold mb-3">You get the following benefits</div>
                     <ul>
-                        <li>❤️ Good karma for helping a bootstrapped startup</li>
-                        <li>💰 Financially commit to staying productive</li>
-                        <li>🔥 Enable Dark Mode on the website</li>
-                        <li>💎 Show off your support with the Patron badge</li>
-                        <li>🔒 Make your tasks private</li>
-                        <li>👍 Fund on-going development of the platform</li>
+                        <li>🌑 Enable Awesome Dark Mode</li>
+                        <li>💬 Patrons only discussion to make it more meaningful</li>
+                        <li>🔒 Make your tasks private and get personal things done</li>
+                        <li>🤝 Show off your support with the Patron badge</li>
+                        <li>👍 Fund on-going development of the platform and server fee</li>
+                        <li>More coming soon...</li>
                     </ul>
                 </div>
                 <div class="col-sm">
