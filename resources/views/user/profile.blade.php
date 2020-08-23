@@ -36,31 +36,9 @@
                     <div class="text-black-50 mb-2">
                         {{ "@" . $user->username }}
                     </div>
-                    @auth
-                    @if (Auth::id() !== $user->id && !$user->isFlagged)
-                        @livewire('user.follow', [
-                            'user' => $user
-                        ])
-                    @endif
-                    @endauth
-                    <span class="small">
-                        <a class="text-dark" href="{{ route('user.following', ['username' => $user->username]) }}">
-                            <span class="font-weight-bold">{{ $user->followings()->count() }}</span>
-                            Following
-                        </a>
-                        <a class="text-dark" href="{{ route('user.followers', ['username' => $user->username]) }}">
-                            <span class="font-weight-bold ml-2">{{ number_format($user->followers()->count()) }}</span>
-                            {{ $user->followers()->count() <= 1 ? "Follower" : "Followers" }}
-                        </a>
-                        <span class="font-weight-bold ml-2">
-                            {{
-                                number_format(
-                                    $user->likes()->where('likeable_type', '!=', 'App\Models\Product')->count('id')
-                                )
-                            }}
-                        </span>
-                        {{ $user->likes()->where('likeable_type', '!=', 'App\Models\Product')->count('id') <= 1 ? "Praise" : "Praises" }}
-                    </span>
+                    @livewire('user.follow', [
+                        'user' => $user
+                    ])
                     @if ($user->bio)
                     <div class="mt-3">
                         {{ $user->bio }}
