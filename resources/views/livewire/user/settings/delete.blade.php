@@ -7,10 +7,10 @@
         </div>
         <div class="card-body">
             <div class="h5 mb-3">Export your account</div>
-            <button wire:click="exportAccount" class="btn btn-success text-white">
+            <a class="btn btn-success text-white" href="{{ route('user.settings.export') }}" target="_blank">
                 <i class="fa fa-question mr-1"></i>
                 Export now
-            </button>
+            </a>
             <div class="h5 text-danger mt-3 mb-3">Delete your Account</div>
             @if ($confirming === Auth::id())
             <button wire:click="deleteAccount" class="btn btn-danger">

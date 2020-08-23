@@ -3,6 +3,13 @@
 namespace App\Http\Livewire\User\Settings;
 
 use App\Models\User;
+use App\Models\Task;
+use App\Models\Product;
+use App\Models\ProductUpdate;
+use App\Models\Patron;
+use App\Models\Question;
+use App\Models\Answer;
+use App\Models\Comment;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 
@@ -33,16 +40,6 @@ class Delete extends Component
             $user->delete();
 
             return redirect()->route('home');
-        } else {
-            return session()->flash('error', 'Forbidden!');
-        }
-    }
-
-    public function exportAccount()
-    {
-        if (Auth::check()) {
-            dispatch(new CreatePersonalDataExportJob(auth()->user()));
-            dd('dsd');
         } else {
             return session()->flash('error', 'Forbidden!');
         }

@@ -4,11 +4,15 @@ namespace App\Http\Controllers;
 
 use App\Models\Answer;
 use App\Models\Product;
+use App\Models\ProductUpdate;
+use App\Models\Patron;
 use App\Models\Question;
 use App\Models\Task;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Models\Comment;
+use Carbon\Carbon;
 
 class UserController extends Controller
 {
@@ -114,6 +118,41 @@ class UserController extends Controller
         return view('user.settings.notifications', [
             'user' => $user,
         ]);
+    }
+    
+    public function exportAccount()
+    {
+        if (Auth::check()) {
+            $dataArray = array();
+            $account = User::find(Auth::id());
+            $tasks = Task::where('user_id', Auth::id())->get();
+            $comment = Comment::where('user_id', Auth::id())->get();
+            $products = Product::where('user_id', Auth::id())->get();
+            $product_updates = ProductUpdate::where('user_id', Auth::id())->get();
+            $questions = Question::where('user_id', Auth::id())->get();
+            $answers = Answer::where('user_id', Auth::id())->get();
+            $patron = Patron::where('user_id', Auth::id())->get();
+            $data = collect([
+                'account' => $account,
+                'tasks' => $tasks,
+                'comments' => $comment,
+                'products' => $products,
+                'product_updates' => $product_updates,
+                'questions' => $questions,
+                'answers' => $answers,
+                'patron' => $patron,
+            ])->toJson(JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
+            
+            
+            $file_name = Carbon::now()->format('d_m_Y_h_i_s').'_'.$account->username.'_data.json';
+            $response = response($data, 200, [
+                'Content-Type' => 'application/json',
+                'Content-Disposition' => 'attachment; filename="'.$file_name.'"',
+            ]);
+            return $response;
+        } else {
+            return session()->flash('error', 'Forbidden!');
+        }
     }
 
     public function deleteSettings()
