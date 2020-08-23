@@ -18,7 +18,6 @@
                     @csrf
                     <div class="input-group mb-4">
                         <input type="text" class="form-control" name="q" value="{{ $searchTerm }}" placeholder="Search tasks">
-                        </span>
                     </div>
                 </form>
                 @if (!$tasks)

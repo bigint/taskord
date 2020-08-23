@@ -1,12 +1,15 @@
 <div class="d-none d-md-block mr-3">
-    <input
-        type="text"
-        id="search-input"
-        name="q"
-        class="form-control border-0 bg-secondary text-white"
-        placeholder="Search Taskord..."
-        wire:model="query"
-    />
+    <form action="/search/tasks" method="GET" role="search" autocomplete="off">
+        @csrf
+        <input
+            type="text"
+            id="search-input"
+            name="q"
+            class="form-control border-0 bg-secondary text-white"
+            placeholder="Search Taskord..."
+            wire:model="query"
+        />
+    </form>
     <ul class="position-absolute mt-2 w-50 list-group shadow-sm search-dropdown" style="z-index:3">
         @if (!empty($query))
         <li class="list-group-item">
