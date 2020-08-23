@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Answer;
 use App\Models\Comment;
 use App\Models\Question;
-use App\Models\Answer;
 use App\Models\Task;
 use Illuminate\Http\Request;
 
