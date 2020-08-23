@@ -77,7 +77,7 @@
                     <li class="dropdown-item" wire:click="refreshStats">
                         <span class="mr-3">
                             <i class="fa fa-refresh mr-1"></i>
-                            Refresh and Clean Cache
+                            Refresh
                         </span>
                     </li>
                 </ul>
