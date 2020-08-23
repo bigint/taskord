@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Comment;
 use App\Models\Question;
+use App\Models\Answer;
 use App\Models\Task;
 use Illuminate\Http\Request;
 
@@ -73,7 +74,6 @@ class SearchController extends Controller
         $searchTerm = $request->input('q');
         if ($searchTerm) {
             $questions = Question::cacheFor(60 * 60)
-                ->select('id', 'title', 'user_id')
                 ->whereHas('user', function ($q) {
                     $q->where([
                         ['isFlagged', false],
@@ -97,6 +97,28 @@ class SearchController extends Controller
 
     public function answers(Request $request)
     {
+        $searchTerm = $request->input('q');
+        if ($searchTerm) {
+            $answers = Answer::cacheFor(60 * 60)
+                ->whereHas('user', function ($q) {
+                    $q->where([
+                        ['isFlagged', false],
+                    ]);
+                })
+                ->where('answer', 'LIKE', '%'.$searchTerm.'%')
+                ->paginate(10);
+            if (count($answers) === 0) {
+                $answers = null;
+            }
+        } else {
+            return redirect()->route('search.home');
+        }
+
+        return view('search.result', [
+            'type' => 'answers',
+            'searchTerm' => $searchTerm,
+            'answers' =>  $answers,
+        ]);
     }
 
     public function products(Request $request)

@@ -23,8 +23,8 @@
                 Questions
             </a>
             <a
-                class="list-group-item text-dark pt-2 pb-2 @if (Route::currentRouteName() === 'search.tasks') active text-white @endif"
-                href="{{ route('search.tasks') }}"
+                class="list-group-item text-dark pt-2 pb-2 @if (Route::currentRouteName() === 'search.answers') active text-white @endif"
+                href="{{ route('search.answers', ['q' => $searchTerm]) }}"
             >
                 <i class="fa fa-comment mr-1"></i>
                 Answers

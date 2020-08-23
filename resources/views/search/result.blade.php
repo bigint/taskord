@@ -92,6 +92,41 @@
                         </div>
                         @endif
                     @endif
+                    
+                    @if ($type === 'answers')
+                        <form action="/search/answers" method="GET" role="search">
+                            @csrf
+                            <div class="input-group mb-4">
+                                <input type="text" class="form-control" name="q" placeholder="Search tasks">
+                                </span>
+                            </div>
+                        </form>
+                        @if (!$answers)
+                        @include('components.empty', [
+                            'icon' => 'check-square',
+                            'text' => 'No questions found',
+                        ])
+                        @else
+                        @foreach ($answers as $answer)
+                            <div class="card mb-2">
+                                <div class="card-header h6 pt-3 pb-3">
+                                    <a href="{{ route('user.done', ['username' => $answer->question->user->username]) }}">
+                                        <img class="rounded-circle avatar-30" src="{{ $answer->question->user->avatar }}" />
+                                    </a>
+                                    <a class="align-middle text-dark ml-2" href="{{ route('question.question', ['id' => $answer->question->id]) }}">
+                                        {{ $answer->question->title }}
+                                    </a>
+                                </div>
+                                @livewire('answer.single-answer', [
+                                    'answer' => $answer
+                                ], key($answer->id))
+                            </div>
+                        @endforeach
+                        <div class="mt-3">
+                            {{ $answers->appends(request()->input())->links() }}
+                        </div>
+                        @endif
+                    @endif
                 </div>
             </div>
         </div>
