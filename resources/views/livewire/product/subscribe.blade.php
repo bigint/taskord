@@ -1,4 +1,6 @@
 <div>
+    @auth
+    @if (Auth::id() !== $product->user->id)
     @if (Auth::user()->hasLiked($product))
     <button wire:click="subscribeProduct" wire:loading.attr="disabled" class="btn btn-sm btn-danger mb-2">
         <i class="fa fa-minus mr-1"></i>
@@ -15,4 +17,9 @@
     @if (session()->has('error'))
         <span class="ml-2 text-danger font-weight-bold">{{ session('error') }}</span>
     @endif
+    @endif
+    @endauth
+    <div class="small">
+        <span class="font-weight-bold">{{ number_format($product->likes->count('id')) }}</span> Subscribers
+    </div>
 </div>

@@ -25,6 +25,7 @@ class Subscribe extends Component
                 return session()->flash('error', 'You can\'t subscribe your own product!');
             } else {
                 Auth::user()->toggleLike($this->product);
+                $this->product->refresh();
                 if (Auth::user()->hasLiked($this->product)) {
                     $this->product->user->notify(new Subscribed($this->product, Auth::id()));
                 }

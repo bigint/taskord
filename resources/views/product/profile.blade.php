@@ -13,16 +13,9 @@
             <div class="text-black-50 mb-2">
                 {{ "#" . $product->slug }}
             </div>
-            @auth
-            @if (Auth::id() !== $product->user->id)
-                @livewire('product.subscribe', [
-                    'product' => $product
-                ])
-            @endif
-            @endauth
-            <span class="small">
-                <span class="font-weight-bold">{{ number_format($product->likes->count('id')) }}</span> Subscribers
-            </span>
+            @livewire('product.subscribe', [
+                'product' => $product
+            ])
             @if ($product->description)
             <div class="mt-3">
                 {{ $product->description }}
