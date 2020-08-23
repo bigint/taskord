@@ -19,7 +19,7 @@
                         <form action="/search/tasks" method="GET" role="search">
                             @csrf
                             <div class="input-group mb-4">
-                                <input type="text" class="form-control" name="q" placeholder="Search tasks">
+                                <input type="text" class="form-control" name="q" value="{{ $searchTerm }}" placeholder="Search tasks">
                                 </span>
                             </div>
                         </form>
@@ -42,11 +42,36 @@
                         @endif
                     @endif
                     
+                    @if ($type === 'comments')
+                        <form action="/search/comments" method="GET" role="search">
+                            @csrf
+                            <div class="input-group mb-4">
+                                <input type="text" class="form-control" name="q" value="{{ $searchTerm }}" placeholder="Search comments">
+                                </span>
+                            </div>
+                        </form>
+                        @if (!$comments)
+                        @include('components.empty', [
+                            'icon' => 'check-square',
+                            'text' => 'No questions found',
+                        ])
+                        @else
+                        @foreach ($comments as $comment)
+                        @livewire('task.single-comment', [
+                            'comment' => $comment,
+                        ], key($comment->id))
+                        @endforeach
+                        <div class="mt-3">
+                            {{ $comments->appends(request()->input())->links() }}
+                        </div>
+                        @endif
+                    @endif
+                    
                     @if ($type === 'questions')
                         <form action="/search/questions" method="GET" role="search">
                             @csrf
                             <div class="input-group mb-4">
-                                <input type="text" class="form-control" name="q" placeholder="Search tasks">
+                                <input type="text" class="form-control" name="q" value="{{ $searchTerm }}" placeholder="Search questions">
                                 </span>
                             </div>
                         </form>
@@ -68,36 +93,11 @@
                         @endif
                     @endif
                     
-                    @if ($type === 'comments')
-                        <form action="/search/comments" method="GET" role="search">
-                            @csrf
-                            <div class="input-group mb-4">
-                                <input type="text" class="form-control" name="q" placeholder="Search tasks">
-                                </span>
-                            </div>
-                        </form>
-                        @if (!$comments)
-                        @include('components.empty', [
-                            'icon' => 'check-square',
-                            'text' => 'No questions found',
-                        ])
-                        @else
-                        @foreach ($comments as $comment)
-                        @livewire('task.single-comment', [
-                            'comment' => $comment,
-                        ], key($comment->id))
-                        @endforeach
-                        <div class="mt-3">
-                            {{ $comments->appends(request()->input())->links() }}
-                        </div>
-                        @endif
-                    @endif
-                    
                     @if ($type === 'answers')
                         <form action="/search/answers" method="GET" role="search">
                             @csrf
                             <div class="input-group mb-4">
-                                <input type="text" class="form-control" name="q" placeholder="Search tasks">
+                                <input type="text" class="form-control" name="q" value="{{ $searchTerm }}" placeholder="Search answers">
                                 </span>
                             </div>
                         </form>
