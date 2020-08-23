@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Question;
+use App\Models\Comment;
 use App\Models\Task;
 use Illuminate\Http\Request;
 
@@ -33,13 +34,36 @@ class SearchController extends Controller
             return redirect()->route('search.home');
         }
 
-        return view('search.tasks', [
+        return view('search.result', [
+            'type' => 'tasks',
             'tasks' =>  $tasks,
         ]);
     }
 
     public function comments(Request $request)
     {
+        $searchTerm = $request->input('q');
+        if ($searchTerm) {
+            $comments = Comment::cacheFor(60 * 60)
+                ->whereHas('user', function ($q) {
+                    $q->where([
+                        ['isFlagged', false],
+                        ['isPrivate', false],
+                    ]);
+                })
+                ->where('comment', 'LIKE', '%'.$searchTerm.'%')
+                ->paginate(10);
+            if (count($comments) === 0) {
+                $comments = null;
+            }
+        } else {
+            return redirect()->route('search.home');
+        }
+
+        return view('search.result', [
+            'type' => 'comments',
+            'comments' =>  $comments,
+        ]);
     }
 
     public function questions(Request $request)
@@ -62,7 +86,8 @@ class SearchController extends Controller
             return redirect()->route('search.home');
         }
 
-        return view('search.questions', [
+        return view('search.result', [
+            'type' => 'questions',
             'questions' =>  $questions,
         ]);
     }
