@@ -28,8 +28,8 @@ class CreateTask extends Component
             $hashtags = array_keys($hashtagsArray);
         }
         if (count($hashtags) > 0) {
-            $products = array();
-            foreach($hashtags as $hashtag) {
+            $products = [];
+            foreach ($hashtags as $hashtag) {
                 $slug = str_replace('#', '', $hashtag);
                 $product = Product::where('slug', $slug)->first();
                 if ($product) {
