@@ -28,11 +28,17 @@ class CreateTask extends Component
             $hashtags = array_keys($hashtagsArray);
         }
         if (count($hashtags) > 0) {
-            $slug = str_replace('#', '', $hashtags[0]);
-            $product = Product::where('slug', $slug)->get();
+            $products = array();
+            foreach($hashtags as $hashtag) {
+                $slug = str_replace('#', '', $hashtag);
+                $product = Product::where('slug', $slug)->first();
+                if ($product) {
+                    array_push($products, $product->id);
+                }
+            }
 
-            if (count($product) > 0) {
-                return $product[0]->id;
+            if (count($products) > 0) {
+                return $products;
             } else {
                 return false;
             }
@@ -115,7 +121,7 @@ class CreateTask extends Component
                 return session()->flash('error', 'Your already posted this task, wait for sometime!');
             }
 
-            $product = $this->getProductIDFromHashtag($this->task);
+            $products = $this->getProductIDFromHashtag($this->task);
             $users = $this->getUserIDFromMention($this->task);
 
             if ($product) {
