@@ -50,6 +50,7 @@
             @auth
             @if (!$task->user->isPrivate)
             @if (Auth::user()->hasLiked($task))
+            <span>
                 <button type="button" class="btn btn-task btn-success text-white mr-1" wire:click="togglePraise" wire:loading.attr="disabled" wire:offline.attr="disabled" wire:key="{{ $task->id }}">
                     {{ Emoji::clappingHands() }}
                     <span class="small text-white font-weight-bold">
@@ -61,7 +62,9 @@
                     @endforeach
                     </span>
                 </button>
+            </span>
             @else
+            <span>
                 <button type="button" class="btn btn-task btn-outline-success mr-1" wire:click="togglePraise" wire:loading.attr="disabled" wire:offline.attr="disabled" wire:key="{{ $task->id }}">
                     {{ Emoji::clappingHands() }}
                     @if ($task->likes()->count('id') !== 0)
@@ -75,6 +78,7 @@
                     </span>
                     @endif
                 </button>
+            </span>
             @endif
             @endif
             @endauth
