@@ -123,7 +123,6 @@ class UserController extends Controller
     public function exportAccount()
     {
         if (Auth::check()) {
-            $dataArray = [];
             $account = User::find(Auth::id());
             $tasks = Task::where('user_id', Auth::id())->get();
             $comment = Comment::where('user_id', Auth::id())->get();
