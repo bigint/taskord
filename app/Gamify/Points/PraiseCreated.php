@@ -3,12 +3,11 @@
 namespace App\Gamify\Points;
 
 use QCod\Gamify\PointType;
-use Illuminate\Support\Facades\Auth;
 
 class PraiseCreated extends PointType
 {
     public $allowDuplicates = false;
-    
+
     /**
      * Number of points.
      *
