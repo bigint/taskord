@@ -240,6 +240,7 @@ return [
         'Socialite' => Laravel\Socialite\Facades\Socialite::class,
         'Purify' => Stevebauman\Purify\Facades\Purify::class,
         'Markdown' => GrahamCampbell\Markdown\Facades\Markdown::class,
+        'Throttle' => GrahamCampbell\Throttle\Facades\Throttle::class,
 
         // Helper
         'Helper' => App\Helpers\Helper::class,

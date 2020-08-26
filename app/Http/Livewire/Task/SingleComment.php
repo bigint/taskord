@@ -4,7 +4,9 @@ namespace App\Http\Livewire\Task;
 
 use App\Gamify\Points\PraiseCreated;
 use App\Notifications\CommentPraised;
+use GrahamCampbell\Throttle\Facades\Throttle;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Request;
 use Livewire\Component;
 
 class SingleComment extends Component
@@ -19,6 +21,12 @@ class SingleComment extends Component
 
     public function togglePraise()
     {
+        $throttler = Throttle::get(Request::instance(), 50, 5);
+        $throttler->hit();
+        if (! $throttler->check()) {
+            return session()->flash('error', 'Your are rate limited, try again later!');
+        }
+
         if (Auth::check()) {
             if (Auth::user()->isFlagged) {
                 return session()->flash('error', 'Your account is flagged!');
