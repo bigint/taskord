@@ -3,7 +3,6 @@
 namespace App\Http\Livewire\Tasks;
 
 use App\Gamify\Points\TaskCreated;
-use App\Models\Product;
 use App\Models\Task;
 use App\Models\User;
 use App\Notifications\TaskMentioned;
