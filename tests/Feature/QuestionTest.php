@@ -49,22 +49,6 @@ class QuestionTest extends TestCase
             ->assertStatus(200);
     }
 
-    public function test_auth_create_question_profanity()
-    {
-        $user = User::where(['email' => 'test@taskord.com'])->first();
-        $this->actingAs($user);
-
-        Livewire::test(CreateQuestion::class)
-            ->set('title', 'Bitch')
-            ->set('body', 'Bitch')
-            ->call('submit')
-            ->assertHasErrors([
-                'title' => 'profanity',
-                'body' => 'profanity',
-            ])
-            ->assertSeeHtml('Please check your words!');
-    }
-
     public function test_auth_create_question_required()
     {
         $user = User::where(['email' => 'test@taskord.com'])->first();
