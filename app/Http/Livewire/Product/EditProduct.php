@@ -36,18 +36,13 @@ class EditProduct extends Component
     {
         if (Auth::check()) {
             $this->validateOnly($field, [
-                'name' => 'required|profanity',
-                'slug' => 'required|profanity|min:3|max:20|alpha_dash|unique:products,slug,'.$this->product->id,
-                'description' => 'nullable|profanity',
+                'name' => 'required',
+                'slug' => 'required|min:3|max:20|alpha_dash|unique:products,slug,'.$this->product->id,
+                'description' => 'nullable',
                 'website' => 'nullable|active_url',
                 'twitter' => 'nullable|alpha_dash|max:30',
                 'github' => 'nullable|alpha_dash|max:30',
                 'producthunt' => 'nullable|alpha_dash|max:30',
-            ],
-            [
-                'name.profanity' => 'Please check your words!',
-                'slug.profanity' => 'Please check your words!',
-                'description.profanity' => 'Please check your words!',
             ]);
         } else {
             session()->flash('error', 'Forbidden!');
@@ -58,18 +53,13 @@ class EditProduct extends Component
     {
         if (Auth::check()) {
             $validatedData = $this->validate([
-                'name' => 'required|profanity',
-                'slug' => 'required|profanity|min:3|max:20|alpha_dash|unique:products,slug,'.$this->product->id,
-                'description' => 'nullable|profanity',
+                'name' => 'required',
+                'slug' => 'required|min:3|max:20|alpha_dash|unique:products,slug,'.$this->product->id,
+                'description' => 'nullable',
                 'website' => 'nullable|active_url',
                 'twitter' => 'nullable|alpha_dash|max:30',
                 'github' => 'nullable|alpha_dash|max:30',
                 'producthunt' => 'nullable|alpha_dash|max:30',
-            ],
-            [
-                'name.profanity' => 'Please check your words!',
-                'slug.profanity' => 'Please check your words!',
-                'description.profanity' => 'Please check your words!',
             ]);
 
             if (Auth::user()->isFlagged) {
