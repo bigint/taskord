@@ -40,7 +40,7 @@ Test:
     - sudo npm install
     - npm run production
     - php artisan migrate:fresh --seed
-    - php artisan test
+    - vendor/bin/phpunit --coverage-text --colors=never
 
 Housekeeping:
   stage: deploy
