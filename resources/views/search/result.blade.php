@@ -22,8 +22,8 @@
                 </form>
                 @if (!$tasks)
                 @include('components.empty', [
-                    'icon' => 'check-square',
-                    'text' => 'No questions found',
+                    'icon' => 'search',
+                    'text' => 'We couldn’t find any tasks matching "'.$searchTerm.'"',
                 ])
                 @else
                 @foreach ($tasks as $task)
@@ -49,8 +49,8 @@
                 </form>
                 @if (!$comments)
                 @include('components.empty', [
-                    'icon' => 'check-square',
-                    'text' => 'No questions found',
+                    'icon' => 'search',
+                    'text' => 'We couldn’t find any comments matching "'.$searchTerm.'"',
                 ])
                 @else
                 @foreach ($comments as $comment)
@@ -74,8 +74,8 @@
                 </form>
                 @if (!$questions)
                 @include('components.empty', [
-                    'icon' => 'check-square',
-                    'text' => 'No questions found',
+                    'icon' => 'search',
+                    'text' => 'We couldn’t find any questions matching "'.$searchTerm.'"',
                 ])
                 @else
                 @foreach ($questions as $question)
@@ -100,8 +100,8 @@
                 </form>
                 @if (!$answers)
                 @include('components.empty', [
-                    'icon' => 'check-square',
-                    'text' => 'No questions found',
+                    'icon' => 'search',
+                    'text' => 'We couldn’t find any answers matching "'.$searchTerm.'"',
                 ])
                 @else
                 @foreach ($answers as $answer)
