@@ -6,10 +6,10 @@ use App\Gamify\Points\PraiseCreated;
 use App\Gamify\Points\TaskCompleted;
 use App\Notifications\TaskPraised;
 use Carbon\Carbon;
-use Illuminate\Support\Facades\Auth;
-use Livewire\Component;
-use Illuminate\Support\Facades\Request;
 use GrahamCampbell\Throttle\Facades\Throttle;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Request;
+use Livewire\Component;
 
 class SingleTask extends Component
 {
@@ -28,7 +28,7 @@ class SingleTask extends Component
         if (! $throttler->check()) {
             return session()->flash('error', 'Your are rate limited, try again later!');
         }
-        
+
         if (Auth::check()) {
             if (Auth::id() === $this->task->user->id) {
                 if ($this->task->done) {
@@ -59,7 +59,7 @@ class SingleTask extends Component
         if (! $throttler->check()) {
             return session()->flash('error', 'Your are rate limited, try again later!');
         }
-        
+
         if (Auth::check()) {
             if (Auth::user()->isFlagged) {
                 return session()->flash('error', 'Your account is flagged!');

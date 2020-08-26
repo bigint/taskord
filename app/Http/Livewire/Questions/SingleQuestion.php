@@ -4,10 +4,10 @@ namespace App\Http\Livewire\Questions;
 
 use App\Gamify\Points\PraiseCreated;
 use App\Notifications\QuestionPraised;
-use Illuminate\Support\Facades\Auth;
-use Livewire\Component;
-use Illuminate\Support\Facades\Request;
 use GrahamCampbell\Throttle\Facades\Throttle;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Request;
+use Livewire\Component;
 
 class SingleQuestion extends Component
 {
@@ -28,7 +28,7 @@ class SingleQuestion extends Component
         if (! $throttler->check()) {
             return session()->flash('error', 'Your are rate limited, try again later!');
         }
-        
+
         if (Auth::check()) {
             if (Auth::user()->isFlagged) {
                 return session()->flash('error', 'Your account is flagged!');
