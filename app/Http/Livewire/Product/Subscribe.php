@@ -3,10 +3,10 @@
 namespace App\Http\Livewire\Product;
 
 use App\Notifications\Subscribed;
-use Illuminate\Support\Facades\Auth;
-use Livewire\Component;
-use Illuminate\Support\Facades\Request;
 use GrahamCampbell\Throttle\Facades\Throttle;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Request;
+use Livewire\Component;
 
 class Subscribe extends Component
 {
@@ -24,8 +24,7 @@ class Subscribe extends Component
         if (! $throttler->check()) {
             return session()->flash('error', 'Please slow down!');
         }
-        
-        
+
         if (Auth::check()) {
             if (Auth::user()->isFlagged) {
                 return session()->flash('error', 'Your account is flagged!');

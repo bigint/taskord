@@ -7,11 +7,11 @@ use App\Models\Task;
 use App\Models\User;
 use App\Notifications\TaskMentioned;
 use Carbon\Carbon;
+use GrahamCampbell\Throttle\Facades\Throttle;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Request;
 use Livewire\Component;
 use Livewire\WithFileUploads;
-use Illuminate\Support\Facades\Request;
-use GrahamCampbell\Throttle\Facades\Throttle;
 
 class CreateTask extends Component
 {
@@ -68,7 +68,7 @@ class CreateTask extends Component
         if (! $throttler->check()) {
             return session()->flash('error', 'Your are rate limited, try again later!');
         }
-        
+
         if (Auth::check()) {
             $validatedData = $this->validate([
                 'task' => 'required|min:5|max:10000',
