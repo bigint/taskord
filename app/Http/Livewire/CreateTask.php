@@ -87,11 +87,8 @@ class CreateTask extends Component
     {
         if (Auth::check()) {
             $validatedData = $this->validate([
-                'task' => 'required|min:5|max:10000|profanity',
+                'task' => 'required|min:5|max:10000',
                 'image' => 'nullable|mimes:jpeg,jpg,png,gif|max:2048',
-            ],
-            [
-                'task.profanity' => 'Please check your words!',
             ]);
 
             if (Auth::user()->isFlagged) {

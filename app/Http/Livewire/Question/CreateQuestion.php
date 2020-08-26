@@ -17,12 +17,8 @@ class CreateQuestion extends Component
     {
         if (Auth::check()) {
             $this->validateOnly($field, [
-                'title' => 'required|profanity|min:5|max:100',
-                'body' => 'required|profanity|min:3|max:10000',
-            ],
-            [
-                'title.profanity' => 'Please check your words!',
-                'body.profanity' => 'Please check your words!',
+                'title' => 'required|min:5|max:100',
+                'body' => 'required|min:3|max:10000',
             ]);
         } else {
             session()->flash('error', 'Forbidden!');
@@ -33,12 +29,8 @@ class CreateQuestion extends Component
     {
         if (Auth::check()) {
             $validatedData = $this->validate([
-                'title' => 'required|profanity|min:5|max:100',
-                'body' => 'required|profanity|min:3|max:10000',
-            ],
-            [
-                'title.profanity' => 'Please check your words!',
-                'body.profanity' => 'Please check your words!',
+                'title' => 'required|min:5|max:100',
+                'body' => 'required|min:3|max:10000',
             ]);
 
             if (Auth::user()->isFlagged) {

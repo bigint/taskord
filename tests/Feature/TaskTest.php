@@ -45,20 +45,6 @@ class TaskTest extends TestCase
             ->assertSeeHtml('Task has been created!');
     }
 
-    public function test_auth_create_task_profanity()
-    {
-        $user = User::where(['email' => 'test@taskord.com'])->first();
-        $this->actingAs($user);
-
-        Livewire::test(CreateTask::class)
-            ->set('task', 'Bitch')
-            ->call('submit')
-            ->assertHasErrors([
-                'task' => 'profanity',
-            ])
-            ->assertSeeHtml('Please check your words!');
-    }
-
     public function test_auth_create_task_required()
     {
         $user = User::where(['email' => 'test@taskord.com'])->first();
