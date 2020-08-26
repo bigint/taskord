@@ -3,7 +3,6 @@
 namespace App\Http\Livewire;
 
 use App\Gamify\Points\TaskCreated;
-use App\Models\Product;
 use App\Models\Task;
 use App\Models\User;
 use App\Notifications\TaskMentioned;
@@ -19,7 +18,7 @@ class CreateTask extends Component
     public $task;
     public $image;
     public $type;
-    
+
     public function mount($type)
     {
         $this->type = $type;
@@ -114,7 +113,7 @@ class CreateTask extends Component
             } else {
                 $done_at = null;
             }
-            
+
             if ($this->type === 'product') {
                 $product_id = 1;
             } else {
