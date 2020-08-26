@@ -22,10 +22,7 @@ class CreateComment extends Component
     {
         if (Auth::check()) {
             $this->validateOnly($field, [
-                'comment' => 'required|profanity',
-            ],
-            [
-                'comment.profanity' => 'Please check your words!',
+                'comment' => 'required',
             ]);
         } else {
             session()->flash('error', 'Forbidden!');
@@ -36,10 +33,7 @@ class CreateComment extends Component
     {
         if (Auth::check()) {
             $validatedData = $this->validate([
-                'comment' => 'required|profanity',
-            ],
-            [
-                'comment.profanity' => 'Please check your words!',
+                'comment' => 'required',
             ]);
 
             if (Auth::user()->isFlagged) {

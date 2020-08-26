@@ -81,23 +81,6 @@ class ProductTest extends TestCase
             ->assertStatus(200);
     }
 
-    public function test_auth_product_update_profanity()
-    {
-        $user = User::where(['email' => 'test@taskord.com'])->first();
-        $this->actingAs($user);
-        $product = Product::where(['slug' => 'taskord'])->first();
-
-        Livewire::test(NewUpdate::class, ['product' => $product])
-            ->set('title', 'Bitch')
-            ->set('body', 'Bitch')
-            ->call('submit')
-            ->assertHasErrors([
-                'title' => 'profanity',
-                'body' => 'profanity',
-            ])
-            ->assertSeeHtml('Please check your words!');
-    }
-
     public function test_auth_product_update_required()
     {
         $user = User::where(['email' => 'test@taskord.com'])->first();

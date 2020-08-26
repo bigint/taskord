@@ -42,25 +42,6 @@ class CommentTest extends TestCase
             ->assertSeeHtml('Comment has been added!');
     }
 
-    public function test_auth_create_comment_profanity()
-    {
-        $user = User::where(['email' => 'test@taskord.com'])->first();
-        $this->actingAs($user);
-        $task = Task::create([
-            'user_id' => 1,
-            'task' => md5(microtime()),
-            'done' => true,
-        ]);
-
-        Livewire::test(CreateComment::class, ['task' => $task])
-            ->set('comment', 'Bitch')
-            ->call('submit')
-            ->assertHasErrors([
-                'comment' => 'profanity',
-            ])
-            ->assertSeeHtml('Please check your words!');
-    }
-
     public function test_auth_create_comment_required()
     {
         $user = User::where(['email' => 'test@taskord.com'])->first();

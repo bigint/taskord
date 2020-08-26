@@ -42,25 +42,6 @@ class AnswerTest extends TestCase
             ->assertSeeHtml('Answer has been added!');
     }
 
-    public function test_auth_create_answer_profanity()
-    {
-        $user = User::where(['email' => 'test@taskord.com'])->first();
-        $this->actingAs($user);
-        $question = Question::create([
-            'user_id' => 1,
-            'title' => md5(microtime()),
-            'body' => md5(microtime()),
-        ]);
-
-        Livewire::test(CreateAnswer::class, ['question' => $question])
-            ->set('answer', 'Bitch')
-            ->call('submit')
-            ->assertHasErrors([
-                'answer' => 'profanity',
-            ])
-            ->assertSeeHtml('Please check your words!');
-    }
-
     public function test_auth_create_answer_required()
     {
         $user = User::where(['email' => 'test@taskord.com'])->first();
