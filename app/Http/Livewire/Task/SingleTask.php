@@ -60,7 +60,6 @@ class SingleTask extends Component
                 Auth::user()->like($this->task);
                 $this->task->refresh();
                 $this->task->user->notify(new TaskPraised($this->task, Auth::id()));
-                // FIXME: Not Working
                 givePoint(new PraiseCreated($this->task));
             }
         } else {

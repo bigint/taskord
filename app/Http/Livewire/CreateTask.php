@@ -129,7 +129,6 @@ class CreateTask extends Component
             $this->emit('taskAdded');
             $this->reset();
             if ($users) {
-                $ids = [];
                 for ($i = 0; $i < count($users); $i++) {
                     $user = User::where('username', $users[$i])->first();
                     if ($user !== null) {

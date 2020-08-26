@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Task;
 
+use App\Gamify\Points\PraiseCreated;
 use App\Notifications\CommentPraised;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
@@ -32,6 +33,7 @@ class SingleComment extends Component
                 Auth::user()->like($this->comment);
                 $this->comment->refresh();
                 $this->comment->user->notify(new CommentPraised($this->comment, Auth::id()));
+                givePoint(new PraiseCreated($this->comment));
             }
         } else {
             return session()->flash('error', 'Forbidden!');

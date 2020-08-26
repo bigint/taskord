@@ -6,6 +6,8 @@ use QCod\Gamify\PointType;
 
 class TaskCompleted extends PointType
 {
+    public $allowDuplicates = false;
+    
     /**
      * Number of points.
      *
