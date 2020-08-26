@@ -10,7 +10,7 @@
                 </div>
             @enderror
             <div class="mb-3">
-                <textarea placeholder="Add a comment" class="form-control" rows="3" wire:model="comment"></textarea>
+                <textarea placeholder="Add a comment" class="form-control" rows="3" wire:model.lazy="comment"></textarea>
             </div>
             @if ($comment)
             <div>
