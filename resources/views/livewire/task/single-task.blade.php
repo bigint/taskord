@@ -40,10 +40,10 @@
         <span class="ml-1 task-font">
             {!! Purify::clean(Helper::renderTask($task->task)) !!}
             @if ($task->type === 'product')
-            <span class="small text-secondary">
+            <span class="small text-black-50">
                 on
                 <img class="rounded mb-1 ml-1 avatar-15" src="{{ $task->product->avatar }}" />
-                <a class="text-secondary" href="{{ route('product.done', ['slug' => $task->product->slug]) }}">
+                <a class="text-black-50" href="{{ route('product.done', ['slug' => $task->product->slug]) }}">
                     {{ $task->product->name }}
                 </a>
             </span>

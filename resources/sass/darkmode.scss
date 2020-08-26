@@ -97,20 +97,6 @@ body {
     border: 1px solid $border-bg !important;
 }
 
-// Hashtag
-.task-font {
-    a {
-        background: #616b75;
-        padding: 0px 5px;
-        border-radius: 5px;
-        color: #fff;
-        
-        &:hover {
-            background: #7e8c9a;
-        }
-    }
-}
-
 .fa-github {
     color: white;
 }
