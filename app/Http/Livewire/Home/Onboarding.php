@@ -7,11 +7,19 @@ use App\Models\Task;
 use App\Notifications\DiscordInvite;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
+use GrahamCampbell\Throttle\Facades\Throttle;
+use Illuminate\Support\Facades\Request;
 
 class Onboarding extends Component
 {
     public function discordInvite()
     {
+        $throttler = Throttle::get(Request::instance(), 5, 10);
+        $throttler->hit();
+        if (!$throttler->check()) {
+            return session()->flash('error', 'Your are rate limited try after 10 minutes!');
+        }
+
         if (Auth::check()) {
             if (Auth::user()->isFlagged) {
                 return session()->flash('error', 'Your account is flagged!');
