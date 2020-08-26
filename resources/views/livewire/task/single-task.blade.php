@@ -42,7 +42,9 @@
             @if ($task->type === 'product')
             <span class="small text-secondary">
                 on
-                {{ $task->product->name }}
+                <a class="text-secondary" href="{{ route('product.done', ['slug' => $task->product->slug]) }}">
+                    {{ $task->product->name }}
+                </a>
             </span>
             @endif
         </span>
