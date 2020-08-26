@@ -199,6 +199,7 @@
         </main>
     </div>
 </body>
+<script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.3.5/dist/alpine.min.js" defer></script>
 <script src="{{ asset('js/app.js') }}" defer data-turbolinks-track="true" data-turbolinks-eval=false></script>
 <script src="https://kit.fontawesome.com/4f46a7856f.js" crossorigin="anonymous"></script>
 @livewireScripts

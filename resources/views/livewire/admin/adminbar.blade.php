@@ -19,6 +19,18 @@
             </a>
         </span>
         <span class="float-right">
+            <span
+                class="font-weight-bold mr-3"
+                x-data="{ status: '' }"
+                x-init="
+                        fetch('https://check-host.net/check-http?host=https://stg.taskord.com&max_nodes=1')
+                            .then(response => response.json())
+                            .then(data => status = data.ok)
+                        "
+            >
+            	<span x-text='`${status}`'></span>
+            </span>
+            
             <span role="button" class="dropdown dropleft">
                 <span class="font-weight-bold mr-3" data-toggle="dropdown">
                     <i class="fa fa-chart-pie mr-1"></i>
