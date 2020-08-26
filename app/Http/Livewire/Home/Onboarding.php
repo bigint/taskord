@@ -14,10 +14,10 @@ class Onboarding extends Component
 {
     public function discordInvite()
     {
-        $throttler = Throttle::get(Request::instance(), 5, 10);
+        $throttler = Throttle::get(Request::instance(), 3, 10);
         $throttler->hit();
         if (! $throttler->check()) {
-            return session()->flash('error', 'Your are rate limited try after 10 minutes!');
+            return session()->flash('error', 'Your are rate limited, try after 10 minutes!');
         }
 
         if (Auth::check()) {
