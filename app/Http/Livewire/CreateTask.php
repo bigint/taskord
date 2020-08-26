@@ -25,7 +25,7 @@ class CreateTask extends Component
         $this->type = $type;
         $this->product_id = $product_id;
     }
-    
+
     private function resetInputFields()
     {
         $this->task = '';
@@ -121,7 +121,7 @@ class CreateTask extends Component
             } else {
                 $done_at = null;
             }
-            
+
             $task = Task::create([
                 'user_id' =>  Auth::id(),
                 'product_id' =>  $this->product_id,
