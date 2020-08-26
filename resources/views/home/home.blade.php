@@ -86,7 +86,9 @@
                     @endif
                     @auth
                         @if (!Auth::user()->isFlagged)
-                        @livewire('create-task')
+                        @livewire('create-task', [
+                            'type' => 'user'
+                        ])
                         @endif
                     @endauth
                     <div class="h5">

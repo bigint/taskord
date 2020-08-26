@@ -18,33 +18,11 @@ class CreateTask extends Component
 
     public $task;
     public $image;
-
-    public function getProductIDFromHashtag($string)
+    public $type;
+    
+    public function mount($type)
     {
-        $hashtags = false;
-        preg_match_all("/(#\w+)/u", $string, $matches);
-        if ($matches) {
-            $hashtagsArray = array_count_values($matches[0]);
-            $hashtags = array_keys($hashtagsArray);
-        }
-        if (count($hashtags) > 0) {
-            $products = [];
-            foreach ($hashtags as $hashtag) {
-                $slug = str_replace('#', '', $hashtag);
-                $product = Product::where('slug', $slug)->first();
-                if ($product) {
-                    array_push($products, $product->id);
-                }
-            }
-
-            if (count($products) > 0) {
-                return $products;
-            } else {
-                return false;
-            }
-        } else {
-            return false;
-        }
+        $this->type = $type;
     }
 
     public function getUserIDFromMention($string)
@@ -121,16 +99,7 @@ class CreateTask extends Component
                 return session()->flash('error', 'Your already posted this task, wait for sometime!');
             }
 
-            $products = $this->getProductIDFromHashtag($this->task);
             $users = $this->getUserIDFromMention($this->task);
-
-            if ($product) {
-                $type = 'product';
-                $product_id = $product;
-            } else {
-                $type = 'user';
-                $product_id = null;
-            }
 
             if ($this->image) {
                 $image = $this->image->store('photos');
@@ -145,6 +114,12 @@ class CreateTask extends Component
             } else {
                 $done_at = null;
             }
+            
+            if ($this->type === 'product') {
+                $product_id = 1;
+            } else {
+                $product_id = null;
+            }
 
             $task = Task::create([
                 'user_id' =>  Auth::id(),
@@ -153,7 +128,7 @@ class CreateTask extends Component
                 'done' => $state,
                 'done_at' => $done_at,
                 'image' => $image,
-                'type' => $type,
+                'type' => $this->type,
             ]);
 
             $this->emit('taskAdded');
