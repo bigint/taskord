@@ -10,7 +10,6 @@
     "require": {
         "php": "^7.2.5",
         "albertcht/invisible-recaptcha": "^1.9",
-        "askedio/laravel5-profanity-filter": "^1.10",
         "cyrildewit/eloquent-viewable": "^5.2",
         "fideloper/proxy": "^4.2",
         "fruitcake/laravel-cors": "^2.0",
