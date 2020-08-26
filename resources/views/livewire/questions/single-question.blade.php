@@ -52,6 +52,11 @@
                     <span class="small text-white font-weight-bold">
                         {{ number_format($question->likes()->count('id')) }}
                     </span>
+                    <span class="avatar-stack ml-1">
+                    @foreach($question->likers->take(5) as $user)
+                    <img class="praise-avatar rounded-circle {{ $loop->last ? 'mr-0' : '' }}" src="{{ $user->avatar }}" />
+                    @endforeach
+                    </span>
                 </button>
             @else
                 <button role="button" class="btn btn-task btn-outline-success mr-1" wire:click="togglePraise" wire:loading.attr="disabled" wire:offline.attr="disabled">
@@ -59,6 +64,11 @@
                     @if ($question->likes()->count('id') !== 0)
                     <span class="small text-dark font-weight-bold">
                         {{ number_format($question->likes()->count('id')) }}
+                    </span>
+                    <span class="avatar-stack ml-1">
+                    @foreach($question->likers->take(5) as $user)
+                    <img class="praise-avatar rounded-circle {{ $loop->last ? 'mr-0' : '' }}" src="{{ $user->avatar }}" />
+                    @endforeach
                     </span>
                     @endif
                 </button>
@@ -88,6 +98,11 @@
                     @if ($question->likes()->count('id') !== 0)
                     <span class="small text-dark font-weight-bold">
                         {{ number_format($question->likes()->count('id')) }}
+                    </span>
+                    <span class="avatar-stack ml-1">
+                    @foreach($question->likers->take(5) as $user)
+                    <img class="praise-avatar rounded-circle {{ $loop->last ? 'mr-0' : '' }}" src="{{ $user->avatar }}" />
+                    @endforeach
                     </span>
                     @endif
                 </a>
