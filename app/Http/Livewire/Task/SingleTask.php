@@ -54,6 +54,12 @@ class SingleTask extends Component
 
     public function togglePraise()
     {
+        $throttler = Throttle::get(Request::instance(), 50, 5);
+        $throttler->hit();
+        if (! $throttler->check()) {
+            return session()->flash('error', 'Your are rate limited, try again later!');
+        }
+        
         if (Auth::check()) {
             if (Auth::user()->isFlagged) {
                 return session()->flash('error', 'Your account is flagged!');

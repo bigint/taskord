@@ -6,6 +6,8 @@ use App\Gamify\Points\PraiseCreated;
 use App\Notifications\AnswerPraised;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
+use Illuminate\Support\Facades\Request;
+use GrahamCampbell\Throttle\Facades\Throttle;
 
 class SingleAnswer extends Component
 {
@@ -19,6 +21,12 @@ class SingleAnswer extends Component
 
     public function togglePraise()
     {
+        $throttler = Throttle::get(Request::instance(), 50, 5);
+        $throttler->hit();
+        if (! $throttler->check()) {
+            return session()->flash('error', 'Your are rate limited, try again later!');
+        }
+        
         if (Auth::check()) {
             if (Auth::user()->isFlagged) {
                 return session()->flash('error', 'Your account is flagged!');
