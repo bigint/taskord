@@ -87,7 +87,8 @@
                     @auth
                         @if (!Auth::user()->isFlagged)
                         @livewire('create-task', [
-                            'type' => 'user'
+                            'type' => 'user',
+                            'product_id' => null,
                         ])
                         @endif
                     @endauth

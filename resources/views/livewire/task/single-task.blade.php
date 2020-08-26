@@ -39,6 +39,12 @@
         />
         <span class="ml-1 task-font">
             {!! Purify::clean(Helper::renderTask($task->task)) !!}
+            @if ($task->type === 'product')
+            <span class="small text-secondary">
+                on
+                {{ $task->product->name }}
+            </span>
+            @endif
         </span>
         {{$task->image}}
         @if ($task->image)

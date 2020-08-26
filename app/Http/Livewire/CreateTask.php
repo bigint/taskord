@@ -18,10 +18,12 @@ class CreateTask extends Component
     public $task;
     public $image;
     public $type;
+    public $product_id;
 
-    public function mount($type)
+    public function mount($type, $product_id)
     {
         $this->type = $type;
+        $this->product_id = $product_id;
     }
 
     public function getUserIDFromMention($string)
@@ -114,15 +116,9 @@ class CreateTask extends Component
                 $done_at = null;
             }
 
-            if ($this->type === 'product') {
-                $product_id = 1;
-            } else {
-                $product_id = null;
-            }
-
             $task = Task::create([
                 'user_id' =>  Auth::id(),
-                'product_id' =>  $product_id,
+                'product_id' =>  $this->product_id,
                 'task' => $this->task,
                 'done' => $state,
                 'done_at' => $done_at,

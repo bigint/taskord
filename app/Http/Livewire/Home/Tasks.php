@@ -41,7 +41,7 @@ class Tasks extends Component
                 ->paginate(20, null, null, $this->page);
         } else {
             $tasks = Task::cacheFor(60 * 60)
-                ->select('id', 'task', 'done', 'done_at', 'user_id')
+                ->select('id', 'task', 'done', 'type', 'done_at', 'user_id', 'product_id')
                 ->whereHas('user', function ($q) {
                     $q->where([
                         ['isFlagged', false],
