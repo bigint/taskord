@@ -15,7 +15,10 @@
                 <div class="col-md-8">
                     @auth
                     @if (Auth::id() === $product->user->id && !$product->user->isFlagged)
-                        @livewire('create-task')
+                        @livewire('create-task', [
+                            'type' => 'product',
+                            'product_id' => $product->id,
+                        ])
                     @endif
                     @endauth
                     @livewire('product.tasks', [

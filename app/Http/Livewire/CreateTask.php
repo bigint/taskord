@@ -3,7 +3,6 @@
 namespace App\Http\Livewire;
 
 use App\Gamify\Points\TaskCreated;
-use App\Models\Product;
 use App\Models\Task;
 use App\Models\User;
 use App\Notifications\TaskMentioned;
@@ -18,27 +17,13 @@ class CreateTask extends Component
 
     public $task;
     public $image;
+    public $type;
+    public $product_id;
 
-    public function getProductIDFromHashtag($string)
+    public function mount($type, $product_id)
     {
-        $hashtags = false;
-        preg_match_all("/(#\w+)/u", $string, $matches);
-        if ($matches) {
-            $hashtagsArray = array_count_values($matches[0]);
-            $hashtags = array_keys($hashtagsArray);
-        }
-        if (count($hashtags) > 0) {
-            $slug = str_replace('#', '', $hashtags[0]);
-            $product = Product::where('slug', $slug)->get();
-
-            if (count($product) > 0) {
-                return $product[0]->id;
-            } else {
-                return false;
-            }
-        } else {
-            return false;
-        }
+        $this->type = $type;
+        $this->product_id = $product_id;
     }
 
     public function getUserIDFromMention($string)
@@ -115,16 +100,7 @@ class CreateTask extends Component
                 return session()->flash('error', 'Your already posted this task, wait for sometime!');
             }
 
-            $product = $this->getProductIDFromHashtag($this->task);
             $users = $this->getUserIDFromMention($this->task);
-
-            if ($product) {
-                $type = 'product';
-                $product_id = $product;
-            } else {
-                $type = 'user';
-                $product_id = null;
-            }
 
             if ($this->image) {
                 $image = $this->image->store('photos');
@@ -142,12 +118,12 @@ class CreateTask extends Component
 
             $task = Task::create([
                 'user_id' =>  Auth::id(),
-                'product_id' =>  $product_id,
+                'product_id' =>  $this->product_id,
                 'task' => $this->task,
                 'done' => $state,
                 'done_at' => $done_at,
                 'image' => $image,
-                'type' => $type,
+                'type' => $this->type,
             ]);
 
             $this->emit('taskAdded');
