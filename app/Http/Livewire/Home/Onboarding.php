@@ -5,10 +5,10 @@ namespace App\Http\Livewire\Home;
 use App\Models\Product;
 use App\Models\Task;
 use App\Notifications\DiscordInvite;
-use Illuminate\Support\Facades\Auth;
-use Livewire\Component;
 use GrahamCampbell\Throttle\Facades\Throttle;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Request;
+use Livewire\Component;
 
 class Onboarding extends Component
 {
@@ -16,7 +16,7 @@ class Onboarding extends Component
     {
         $throttler = Throttle::get(Request::instance(), 5, 10);
         $throttler->hit();
-        if (!$throttler->check()) {
+        if (! $throttler->check()) {
             return session()->flash('error', 'Your are rate limited try after 10 minutes!');
         }
 
