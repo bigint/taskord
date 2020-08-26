@@ -27,6 +27,11 @@
                 <span class="small text-white font-weight-bold">
                     {{ number_format($comment->likes()->count('id')) }}
                 </span>
+                <span class="avatar-stack ml-1">
+                @foreach($comment->likers->take(5) as $user)
+                <img class="praise-avatar rounded-circle {{ $loop->last ? 'mr-0' : '' }}" src="{{ $user->avatar }}" />
+                @endforeach
+                </span>
             </button>
         @else
             <button type="button" class="btn btn-task btn-outline-success mr-1" wire:click="togglePraise" wire:loading.attr="disabled" wire:offline.attr="disabled">
@@ -34,6 +39,11 @@
                 @if ($comment->likes()->count('id') !== 0)
                 <span class="small text-dark font-weight-bold">
                     {{ number_format($comment->likes()->count('id')) }}
+                </span>
+                <span class="avatar-stack ml-1">
+                @foreach($comment->likers->take(5) as $user)
+                <img class="praise-avatar rounded-circle {{ $loop->last ? 'mr-0' : '' }}" src="{{ $user->avatar }}" />
+                @endforeach
                 </span>
                 @endif
             </button>
@@ -57,6 +67,11 @@
                 @if ($comment->likes()->count('id') !== 0)
                 <span class="small text-dark font-weight-bold">
                     {{ number_format($comment->likes()->count('id')) }}
+                </span>
+                <span class="avatar-stack ml-1">
+                @foreach($comment->likers->take(5) as $user)
+                <img class="praise-avatar rounded-circle {{ $loop->last ? 'mr-0' : '' }}" src="{{ $user->avatar }}" />
+                @endforeach
                 </span>
                 @endif
             </a>
