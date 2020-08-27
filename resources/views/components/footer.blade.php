@@ -5,7 +5,7 @@
     <a class="pr-2" href="{{ route('about') }}">
         About
     </a>
-    <a class="pr-2" href="#">
+    <a class="pr-2" href="https://status.taskord.com">
         Status
     </a>
     <a class="pr-2" href="https://dev.to/taskord" target="_blank">
