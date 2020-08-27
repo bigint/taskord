@@ -21,6 +21,7 @@ class CreateTask extends Component
     public $image;
     public $type;
     public $product_id;
+    public $due_at;
 
     public function mount($type, $product_id)
     {
@@ -134,6 +135,7 @@ class CreateTask extends Component
                 'done' => $state,
                 'done_at' => $done_at,
                 'image' => $image,
+                'due_at' => $this->due_at,
                 'type' => $this->type,
             ]);
 
