@@ -11,14 +11,11 @@
             {!! Purify::clean(Helper::renderTask($task->task)) !!}
         </span>
         <span class="d-flex small float-right ml-auto">
-            <span class="font-weight-bold">
+            <span class="font-weight-bold mr-2">
                 @if ($task->due_at)
                     {!! Helper::dueDate($task->due_at) !!}
                 @endif
             </span>
-            <a class="mr-3 text-black-50" href="{{ route('task', ['id' => $task->id]) }}">
-                {{ !$task->done_at ? Carbon::parse($task->created_at)->diffForHumans() : Carbon::parse($task->done_at)->diffForHumans() }}
-            </a>
             @if (Auth::id() === $task->user->id)
                 @if ($confirming === $task->id)
                 <button type="button" class="btn btn-task btn-danger" wire:click="deleteTask" wire:loading.attr="disabled">
