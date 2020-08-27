@@ -19,6 +19,7 @@ class Task extends Model
         'task',
         'done',
         'done_at',
+        'due_at',
         'image',
         'type',
     ];
