@@ -5,8 +5,8 @@ include:
   - template: Secret-Detection.gitlab-ci.yml
   - template: Accessibility.gitlab-ci.yml
   - template: DAST.gitlab-ci.yml
-  - template: Browser-Performance-Testing.gitlab-ci.yml
   - template: Code-Quality.gitlab-ci.yml
+  - template: Jobs/Browser-Performance-Testing.gitlab-ci.yml
 
 services:
   - mysql:latest
