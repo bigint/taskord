@@ -11,6 +11,10 @@ include:
 services:
   - mysql:latest
 
+performance:
+  variables:
+    URL: "https://stg.taskord.com"
+
 variables:
   MYSQL_ROOT_PASSWORD: root
   MYSQL_USER: taskord
