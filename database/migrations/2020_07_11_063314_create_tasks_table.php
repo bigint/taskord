@@ -22,6 +22,7 @@ class CreateTasksTable extends Migration
             $table->boolean('done');
             $table->string('type')->default('user');
             $table->dateTime('done_at')->nullable();
+            $table->date('due_at')->nullable();
             $table->timestamps();
         });
     }

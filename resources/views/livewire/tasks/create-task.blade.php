@@ -21,6 +21,9 @@
                         <span class="form-file-button">Browse</span>
                     </label>
                 </div>
+                <div class="form-group ml-auto mr-2 d-none d-sm-block">
+                    <input class="form-control form-control-sm" name="date" type="date" placeholder="Due date" />
+                </div>
                 <button wire:loading.attr="disabled" wire:offline.attr="disabled" class="btn btn-sm btn-primary" type="submit">
                     <i class="fa fa-plus mr-1"></i>
                     Add Task

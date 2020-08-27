@@ -224,3 +224,14 @@ input[type="color"]:focus,
 .recent-questions {
     border-radius: 15px !important;
 }
+
+input[type="date"]:before {
+    content: attr(placeholder) !important;
+    color: #aaa;
+    margin-right: 0.5em;
+}
+
+input[type="date"]:focus:before,
+input[type="date"]:valid:before {
+    content: "";
+}
