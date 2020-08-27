@@ -4,6 +4,8 @@
 
 namespace App\Helpers;
 
+use Carbon\Carbon;
+
 class Helper
 {
     public static function removeProtocol($url)
@@ -21,6 +23,19 @@ class Helper
             return preg_replace($reg_exUrl, "<a class='link' href=$url[0]>$truncate</a> ", $users);
         } else {
             return $users;
+        }
+    }
+    
+    public static function dueDate($date)
+    {
+        $diff = Carbon::parse($date)->diffInDays(Carbon::today());
+        
+        if ($diff > 1) {
+            return "<span class='mr-2 text-success'>Due in $diff days</span>";
+        }
+        
+        if ($diff === 1) {
+            return "<span class='mr-2 text-info'>Due tomorrow</span>";
         }
     }
 }

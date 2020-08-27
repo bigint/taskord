@@ -19,6 +19,7 @@ class CreateTask extends Component
 
     public $task;
     public $image;
+    public $due_at;
 
     public function getUserIDFromMention($string)
     {
@@ -101,6 +102,7 @@ class CreateTask extends Component
                 'task' => $this->task,
                 'done' => false,
                 'image' => $image,
+                'due_at' => $this->due_at,
                 'type' => 'user',
             ]);
 
