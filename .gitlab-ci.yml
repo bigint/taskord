@@ -26,6 +26,7 @@ stages:
   - deploy
   - dast
   - accessibility
+  - performance
 
 cache:
   paths:
