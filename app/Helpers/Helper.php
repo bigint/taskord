@@ -37,5 +37,9 @@ class Helper
         if ($diff === 1) {
             return "<span class='mr-2 text-info'>Due tomorrow</span>";
         }
+        
+        if ($diff === 0) {
+            return "<span class='mr-2 text-danger'>Due today</span>";
+        }
     }
 }
