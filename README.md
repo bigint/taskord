@@ -87,6 +87,11 @@ Contributions are what makes the open-source community such an amazing place to 
 5. Run the Laravel Queue with `php artisan queue:work --tries=3` to receive notifications via web and email
 6. That's it! Run `php artisan serve` to start the application and head to `http://localhost:8000`
 7. Login with the default credentials, username as `admin` and password as `admin`.
+
+### Production Installation
+
+[View Full Production Installation Documentation.](/docs/installation.md)
+
 -----
 
 <br>
