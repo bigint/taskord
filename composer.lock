@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "10c173caf18551200058417c89beaee7",
+    "content-hash": "ca81ddf36a710e649dfe82cb3912c77c",
     "packages": [
         {
             "name": "albertcht/invisible-recaptcha",
@@ -930,45 +930,6 @@
                 "throttling"
             ],
             "time": "2020-08-14T14:48:59+00:00"
-        },
-        {
-            "name": "grkamil/laravel-telegram-logging",
-            "version": "v1.2.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/GrKamil/laravel-telegram-logging.git",
-                "reference": "14724a733e6d4b37c8add2bff5d4382e8855ffeb"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/GrKamil/laravel-telegram-logging/zipball/14724a733e6d4b37c8add2bff5d4382e8855ffeb",
-                "reference": "14724a733e6d4b37c8add2bff5d4382e8855ffeb",
-                "shasum": ""
-            },
-            "require": {
-                "laravel/framework": "5.6.*|5.7.*|5.8.*|^6.0|^7.0",
-                "monolog/monolog": "^1.23|^2.0",
-                "php": "^7.1.3"
-            },
-            "type": "library",
-            "extra": {
-                "laravel": {
-                    "providers": [
-                        "Logger\\TelegramLoggerServiceProvider"
-                    ]
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Logger\\": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "description": "Send logs to Telegram chat via Telegram bot",
-            "time": "2020-03-23T08:42:49+00:00"
         },
         {
             "name": "grosv/laravel-passwordless-login",
@@ -6414,6 +6375,45 @@
                 "dump"
             ],
             "time": "2020-06-24T13:36:18+00:00"
+        },
+        {
+            "name": "taskord/telegram-logger",
+            "version": "v1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://gitlab.com/taskord/telegram-logger.git",
+                "reference": "a06f8e84aed637d0f7f688fbdbd74dbce69e5298"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://gitlab.com/api/v4/projects/taskord%2Ftelegram-logger/repository/archive.zip?sha=a06f8e84aed637d0f7f688fbdbd74dbce69e5298",
+                "reference": "a06f8e84aed637d0f7f688fbdbd74dbce69e5298",
+                "shasum": ""
+            },
+            "require": {
+                "laravel/framework": "5.6.*|5.7.*|5.8.*|^6.0|^7.0",
+                "monolog/monolog": "^1.23|^2.0",
+                "php": "^7.1.3"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Logger\\TelegramLoggerServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Logger\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Send logs to Telegram chat via Telegram bot",
+            "time": "2020-08-28T02:58:37+00:00"
         },
         {
             "name": "tijsverkoyen/css-to-inline-styles",
