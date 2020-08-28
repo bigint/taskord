@@ -67,7 +67,14 @@ Merged Branches:
 
 Deploy Production:
   stage: deploy
-  image: alpine
+  environment: 
+    name: Staging
+    url: "https://taskord.com"
+  before_script:
+  - 'which ssh-agent || ( apt-get update -y && sudo apt install openssh-client -y )'
+  - mkdir -p ~/.ssh
+  - eval $(ssh-agent -s)
+  - '[[ -f /.dockerenv ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
   script:
-    - apk add openssh-client
-    - ssh -o StrictHostKeyChecking=no -i "$taskordpk" "$taskord_prod_user"@"$taskord_prod_ip"
+    - ssh-add <(echo "$PRIVATE_KEY")
+    - ssh -o StrictHostKeyChecking=no ubuntu@"$TASKORD_SERVER" 'ls'
