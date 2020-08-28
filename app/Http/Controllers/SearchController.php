@@ -20,11 +20,11 @@ class SearchController extends Controller
         $searchTerm = $request->input('q');
         if ($searchTerm) {
             $tasks = Task::whereHas('user', function ($q) {
-                    $q->where([
-                        ['isFlagged', false],
-                        ['isPrivate', false],
-                    ]);
-                })
+                $q->where([
+                    ['isFlagged', false],
+                    ['isPrivate', false],
+                ]);
+            })
                 ->where('task', 'LIKE', '%'.$searchTerm.'%')
                 ->paginate(10);
             if (count($tasks) === 0) {
@@ -46,11 +46,11 @@ class SearchController extends Controller
         $searchTerm = $request->input('q');
         if ($searchTerm) {
             $comments = Comment::whereHas('user', function ($q) {
-                    $q->where([
-                        ['isFlagged', false],
-                        ['isPrivate', false],
-                    ]);
-                })
+                $q->where([
+                    ['isFlagged', false],
+                    ['isPrivate', false],
+                ]);
+            })
                 ->where('comment', 'LIKE', '%'.$searchTerm.'%')
                 ->paginate(10);
             if (count($comments) === 0) {
@@ -72,10 +72,10 @@ class SearchController extends Controller
         $searchTerm = $request->input('q');
         if ($searchTerm) {
             $questions = Question::whereHas('user', function ($q) {
-                    $q->where([
-                        ['isFlagged', false],
-                    ]);
-                })
+                $q->where([
+                    ['isFlagged', false],
+                ]);
+            })
                 ->where('title', 'LIKE', '%'.$searchTerm.'%')
                 ->paginate(10);
             if (count($questions) === 0) {
@@ -97,10 +97,10 @@ class SearchController extends Controller
         $searchTerm = $request->input('q');
         if ($searchTerm) {
             $answers = Answer::whereHas('user', function ($q) {
-                    $q->where([
-                        ['isFlagged', false],
-                    ]);
-                })
+                $q->where([
+                    ['isFlagged', false],
+                ]);
+            })
                 ->where('answer', 'LIKE', '%'.$searchTerm.'%')
                 ->paginate(10);
             if (count($answers) === 0) {

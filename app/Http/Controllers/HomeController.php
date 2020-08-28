@@ -37,9 +37,9 @@ class HomeController extends Controller
             ->take(4)
             ->get();
         $recently_users = User::where([
-                ['created_at', '>=', Carbon::now()->subdays(7)],
-                ['isFlagged', false],
-            ])
+            ['created_at', '>=', Carbon::now()->subdays(7)],
+            ['isFlagged', false],
+        ])
             ->orderBy('created_at', 'DESC');
         $recently_joined = $recently_users->take(5)
             ->get();
