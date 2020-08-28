@@ -75,3 +75,5 @@ Deploy Production:
     - cat $PRIVATE_KEY > taskord.pem
     - chmod 400 taskord.pem
     - ssh -o StrictHostKeyChecking=no -i "taskord.pem" ubuntu@deploy.taskord.com 'cd /var/www/taskord; ./deploy.sh'
+  only:
+    - taskord/taskord
