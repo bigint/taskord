@@ -33,27 +33,27 @@ class Questions extends Component
     {
         if ($this->type === 'questions.newest') {
             $questions = Question::whereHas('user', function ($q) {
-                    $q->where([
-                        ['isFlagged', false],
-                    ]);
-                })
+                $q->where([
+                    ['isFlagged', false],
+                ]);
+            })
                 ->latest()
                 ->get();
         } elseif ($this->type === 'questions.unanswered') {
             $questions = Question::whereHas('user', function ($q) {
-                    $q->where([
-                        ['isFlagged', false],
-                    ]);
-                })
+                $q->where([
+                    ['isFlagged', false],
+                ]);
+            })
                 ->doesntHave('answer')
                 ->latest()
                 ->get();
         } elseif ($this->type === 'questions.popular') {
             $questions = Question::whereHas('user', function ($q) {
-                    $q->where([
-                        ['isFlagged', false],
-                    ]);
-                })
+                $q->where([
+                    ['isFlagged', false],
+                ]);
+            })
                 ->has('answer')
                 ->get()
                 ->sortByDesc(function ($question) {
