@@ -19,20 +19,20 @@ class ProductController extends Controller
             'product' => $product,
             'type' => $type,
             'done_count' => Task::where([
-                    ['product_id', $product->id],
-                    ['done', true],
-                    ['user_id', $product->user->id],
-                ])
+                ['product_id', $product->id],
+                ['done', true],
+                ['user_id', $product->user->id],
+            ])
                 ->count('id'),
             'pending_count' => Task::where([
-                    ['product_id', $product->id],
-                    ['done', false],
-                    ['user_id', $product->user->id],
-                ])
+                ['product_id', $product->id],
+                ['done', false],
+                ['user_id', $product->user->id],
+            ])
                 ->count('id'),
             'updates_count' => ProductUpdate::where([
-                    ['product_id', $product->id],
-                ])
+                ['product_id', $product->id],
+            ])
                 ->count('id'),
         ];
 
