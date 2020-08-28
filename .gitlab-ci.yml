@@ -27,8 +27,8 @@ variables:
   SAST_EXCLUDED_PATHS: node_modules, vendor
 
 stages:
-  - test
   - deploy
+  - test
   - dast
   - accessibility
   - performance
@@ -64,3 +64,14 @@ Merged Branches:
     - curl --request DELETE --header "PRIVATE-TOKEN:$ACCESS_TOKEN" https://gitlab.com/api/v4/projects/$CI_PROJECT_ID/repository/merged_branches
   only:
     - main
+
+Deploy Production:
+  stage: deploy
+  when: manual
+  environment: 
+    name: Production
+    url: "https://taskord.com"
+  script:
+    - cat $PRIVATE_KEY > taskord.pem
+    - chmod 400 taskord.pem
+    - ssh -o StrictHostKeyChecking=no -i "taskord.pem" ubuntu@deploy.taskord.com 'cd /var/www/taskord; ./deploy.sh'
