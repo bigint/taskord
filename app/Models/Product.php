@@ -4,14 +4,10 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Overtrue\LaravelLike\Traits\Likeable;
-use Rennokki\QueryCache\Traits\QueryCacheable;
 
 class Product extends Model
 {
-    use QueryCacheable, Likeable;
-
-    protected $cacheFor = 3600;
-    protected static $flushCacheOnUpdate = true;
+    use Likeable;
 
     protected $fillable = [
         'user_id',

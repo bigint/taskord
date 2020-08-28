@@ -7,14 +7,10 @@ use Illuminate\Notifications\Notifiable;
 use Overtrue\LaravelFollow\Followable;
 use Overtrue\LaravelLike\Traits\Liker;
 use QCod\Gamify\Gamify;
-use Rennokki\QueryCache\Traits\QueryCacheable;
 
 class User extends Authenticatable
 {
-    use Notifiable, Followable, Liker, Gamify, QueryCacheable;
-
-    protected $cacheFor = 3600;
-    protected static $flushCacheOnUpdate = true;
+    use Notifiable, Followable, Liker, Gamify;
 
     /**
      * The attributes that are mass assignable.

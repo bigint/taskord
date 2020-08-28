@@ -10,10 +10,7 @@ use Rennokki\QueryCache\Traits\QueryCacheable;
 
 class Question extends Model implements Viewable
 {
-    use QueryCacheable, InteractsWithViews, Likeable;
-
-    protected $cacheFor = 3600;
-    protected static $flushCacheOnUpdate = true;
+    use InteractsWithViews, Likeable;
 
     protected $fillable = [
         'user_id',
