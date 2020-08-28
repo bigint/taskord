@@ -30,7 +30,7 @@ return [
     |
     | Available Drivers: "single", "daily", "slack", "syslog",
     |                    "errorlog", "monolog",
-    |                    "custom", "stack", "discord"
+    |                    "custom", "stack", "telegram"
     |
     */
 
@@ -62,11 +62,10 @@ return [
             'level' => 'critical',
         ],
 
-        'discord' => [
+        'telegram' => [
             'driver' => 'custom',
-            'via'    => MarvinLabs\DiscordLogger\Logger::class,
+            'via'    => Logger\TelegramLogger::class,
             'level'  => 'debug',
-            'url'    => env('LOG_DISCORD_WEBHOOK_URL'),
         ],
 
         'papertrail' => [
