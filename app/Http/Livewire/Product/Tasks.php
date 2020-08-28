@@ -26,8 +26,7 @@ class Tasks extends Component
 
     public function render()
     {
-        $tasks = Task::cacheFor(60 * 60)
-            ->select('id', 'task', 'done', 'created_at', 'done_at', 'user_id', 'product_id')
+        $tasks = Task::select('id', 'task', 'done', 'created_at', 'done_at', 'user_id', 'product_id')
             ->where([
                 ['product_id', $this->product->id],
                 ['user_id', $this->product->user->id],

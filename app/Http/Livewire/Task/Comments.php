@@ -36,8 +36,7 @@ class Comments extends Component
 
     public function render()
     {
-        $comments = Comment::cacheFor(60 * 60)
-            ->where('task_id', $this->task->id)
+        $comments = Comment::where('task_id', $this->task->id)
             ->whereHas('user', function ($q) {
                 $q->where([
                     ['isFlagged', false],
