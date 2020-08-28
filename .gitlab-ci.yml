@@ -67,10 +67,12 @@ Merged Branches:
 
 Deploy Production:
   stage: deploy
-  script:
+  image: alpine
+  before_script::
+    - apk add openssh-client
+    - eval $(ssh-agent -s)
+    - echo "$taskordpk" | tr -d '\r' | ssh-add -
     - mkdir -p ~/.ssh
-    - echo "$taskordpk" | tr -d '\r' > ~/.ssh/id_rsa
-    - chmod 600 ~/.ssh/id_rsa
-    - eval "$(ssh-agent -s)"
-    - ssh-add ~/.ssh/id_rsa
-    - ssh-keyscan -H "$taskord_prod_ip" >> ~/.ssh/known_hosts
+    - chmod 700 ~/.ssh
+  script:
+    - ssh -o StrictHostKeyChecking=no "$taskord_prod_user"@"$taskord_prod_ip" "ls"
