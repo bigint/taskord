@@ -27,8 +27,8 @@ variables:
   SAST_EXCLUDED_PATHS: node_modules, vendor
 
 stages:
-  - deploy
   - test
+  - deploy
   - dast
   - accessibility
   - performance
