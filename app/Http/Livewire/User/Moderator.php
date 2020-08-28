@@ -4,7 +4,6 @@ namespace App\Http\Livewire\User;
 
 use App\Jobs\ModEvents;
 use App\Models\User;
-use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 
