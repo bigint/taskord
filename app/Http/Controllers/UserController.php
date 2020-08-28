@@ -43,6 +43,7 @@ class UserController extends Controller
                 'isFlagged',
                 'isSuspended',
                 'lastIP',
+                'updated_at',
             )
             ->where('username', $username)->firstOrFail();
         $type = Route::current()->getName();

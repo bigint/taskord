@@ -3,15 +3,6 @@
         Moderator
     </div>
     <div class="card-body">
-        @if ($isActive)
-        <div class="font-weight-bold mb-2 text-success">
-            <span>Active User</span>
-        </div>
-        @else
-        <div class="font-weight-bold mb-2 text-danger">
-            <span>Dormant User</span>
-        </div>
-        @endif
         @if ($user->lastIP)
         <div class="mb-3">
             <h5>

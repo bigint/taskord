@@ -266,13 +266,6 @@ class Moderator extends Component
 
     public function render()
     {
-        $user = User::find($this->user->id);
-        $updated_at = Carbon::parse($user->updated_at);
-        $current_date = Carbon::now();
-        $isActive = $updated_at->diffInDays($current_date, false) >= 90 ? false : true;
-
-        return view('livewire.user.moderator', [
-            'isActive' => $isActive,
-        ]);
+        return view('livewire.user.moderator');
     }
 }

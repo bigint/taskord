@@ -33,7 +33,7 @@ class LoadMore extends Component
             if (Auth::check() && $user->onlyFollowingsTasks) {
                 $userIds = $user->followings->pluck('id');
                 $userIds->push(Auth::id());
-                $tasks = Task::cacheFor(60 * 60)
+                $tasks = Task::dontCache()
                     ->select('id', 'task', 'done', 'done_at', 'user_id')
                     ->whereIn('user_id', $userIds)
                     ->whereHas('user', function ($q) {
@@ -46,7 +46,7 @@ class LoadMore extends Component
                     ->orderBy('done_at', 'desc')
                     ->paginate(20, null, null, $this->page);
             } else {
-                $tasks = Task::cacheFor(60 * 60)
+                $tasks = Task::dontCache()
                     ->select('id', 'task', 'done', 'done_at', 'user_id')
                     ->whereHas('user', function ($q) {
                         $q->where([
