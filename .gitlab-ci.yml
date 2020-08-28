@@ -71,7 +71,7 @@ Deploy Production:
     name: Production
     url: "https://taskord.com"
   script:
-    - echo $PRIVATE_KEY
-    - echo $PRIVATE_KEY > taskord.pem
+    - cat $PRIVATE_KEY
+    - cat $PRIVATE_KEY > taskord.pem
     - chmod 400 taskord.pem
     - ssh -o StrictHostKeyChecking=no -i "taskord.pem" ubuntu@deploy.taskord.com 'ls'
