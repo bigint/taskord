@@ -68,5 +68,9 @@ Merged Branches:
 Deploy Production:
   stage: deploy
   script:
-    - ssh -i "$taskordpk" "$taskord_prod_user"@"$taskord_prod_ip"
-    - ls
+    - mkdir -p ~/.ssh
+    - echo "$taskordpk" | tr -d '\r' > ~/.ssh/id_rsa
+    - chmod 600 ~/.ssh/id_rsa
+    - eval "$(ssh-agent -s)"
+    - ssh-add ~/.ssh/id_rsa
+    - ssh-keyscan -H "$taskord_prod_ip" >> ~/.ssh/known_hosts
