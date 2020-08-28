@@ -67,10 +67,11 @@ Merged Branches:
 
 Deploy Production:
   stage: deploy
+  when: manual
   environment: 
     name: Production
     url: "https://taskord.com"
   script:
     - cat $PRIVATE_KEY > taskord.pem
     - chmod 400 taskord.pem
-    - ssh -o StrictHostKeyChecking=no -i "taskord.pem" ubuntu@deploy.taskord.com 'cd /var/www/taskord && git pull origin main && composer install && npm install && npm run prod'
+    - ssh -o StrictHostKeyChecking=no -i "taskord.pem" ubuntu@deploy.taskord.com 'cd /var/www/taskord; ./deploy.sh'
