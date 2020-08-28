@@ -19,8 +19,7 @@ class SearchController extends Controller
     {
         $searchTerm = $request->input('q');
         if ($searchTerm) {
-            $tasks = Task::cacheFor(60 * 60)
-                ->whereHas('user', function ($q) {
+            $tasks = Task::whereHas('user', function ($q) {
                     $q->where([
                         ['isFlagged', false],
                         ['isPrivate', false],
@@ -46,8 +45,7 @@ class SearchController extends Controller
     {
         $searchTerm = $request->input('q');
         if ($searchTerm) {
-            $comments = Comment::cacheFor(60 * 60)
-                ->whereHas('user', function ($q) {
+            $comments = Comment::whereHas('user', function ($q) {
                     $q->where([
                         ['isFlagged', false],
                         ['isPrivate', false],
@@ -73,8 +71,7 @@ class SearchController extends Controller
     {
         $searchTerm = $request->input('q');
         if ($searchTerm) {
-            $questions = Question::cacheFor(60 * 60)
-                ->whereHas('user', function ($q) {
+            $questions = Question::whereHas('user', function ($q) {
                     $q->where([
                         ['isFlagged', false],
                     ]);
@@ -99,8 +96,7 @@ class SearchController extends Controller
     {
         $searchTerm = $request->input('q');
         if ($searchTerm) {
-            $answers = Answer::cacheFor(60 * 60)
-                ->whereHas('user', function ($q) {
+            $answers = Answer::whereHas('user', function ($q) {
                     $q->where([
                         ['isFlagged', false],
                     ]);

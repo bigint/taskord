@@ -36,8 +36,7 @@ class Answers extends Component
 
     public function render()
     {
-        $answers = Answer::cacheFor(60 * 60)
-            ->where('question_id', $this->question->id)
+        $answers = Answer::where('question_id', $this->question->id)
             ->whereHas('user', function ($q) {
                 $q->where([
                     ['isFlagged', false],

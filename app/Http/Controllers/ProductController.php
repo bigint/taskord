@@ -18,22 +18,19 @@ class ProductController extends Controller
         $response = [
             'product' => $product,
             'type' => $type,
-            'done_count' => Task::cacheFor(60 * 60)
-                ->where([
+            'done_count' => Task::where([
                     ['product_id', $product->id],
                     ['done', true],
                     ['user_id', $product->user->id],
                 ])
                 ->count('id'),
-            'pending_count' => Task::cacheFor(60 * 60)
-                ->where([
+            'pending_count' => Task::where([
                     ['product_id', $product->id],
                     ['done', false],
                     ['user_id', $product->user->id],
                 ])
                 ->count('id'),
-            'updates_count' => ProductUpdate::cacheFor(60 * 60)
-                ->where([
+            'updates_count' => ProductUpdate::where([
                     ['product_id', $product->id],
                 ])
                 ->count('id'),
@@ -65,8 +62,7 @@ class ProductController extends Controller
 
     public function newest()
     {
-        $products = Product::cacheFor(60 * 60)
-            ->where('launched', true)
+        $products = Product::where('launched', true)
             ->orderBy('created_at', 'DESC')
             ->take(10)
             ->get()
@@ -82,8 +78,7 @@ class ProductController extends Controller
 
     public function launched()
     {
-        $products = Product::cacheFor(60 * 60)
-            ->where('launched', true)
+        $products = Product::where('launched', true)
             ->orderBy('created_at', 'DESC')
             ->take(10)
             ->get()

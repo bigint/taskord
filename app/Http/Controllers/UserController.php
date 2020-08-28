@@ -51,20 +51,15 @@ class UserController extends Controller
         $response = [
             'user' => $user,
             'type' => $type,
-            'done_count' => Task::cacheFor(60 * 60)
-                ->where([['user_id', $user->id], ['done', true]])
+            'done_count' => Task::where([['user_id', $user->id], ['done', true]])
                 ->count('id'),
-            'pending_count' => Task::cacheFor(60 * 60)
-                ->where([['user_id', $user->id], ['done', false]])
+            'pending_count' => Task::where([['user_id', $user->id], ['done', false]])
                 ->count('id'),
-            'product_count' => Product::cacheFor(60 * 60)
-                ->where('user_id', $user->id)
+            'product_count' => Product::where('user_id', $user->id)
                 ->count('id'),
-            'question_count' => Question::cacheFor(60 * 60)
-                ->where('user_id', $user->id)
+            'question_count' => Question::where('user_id', $user->id)
                 ->count('id'),
-            'answer_count' => Answer::cacheFor(60 * 60)
-                ->where('user_id', $user->id)
+            'answer_count' => Answer::where('user_id', $user->id)
                 ->count('id'),
         ];
 
