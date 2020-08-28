@@ -73,4 +73,4 @@ Deploy Production:
   script:
     - echo "$PRIVATE_KEY" > taskord.pem
     - chmod 400 taskord.pem
-    - ssh -o StrictHostKeyChecking=no -i "taskord.pem" ubuntu@$TASKORD_SERVER 'ls'
+    - ssh -o StrictHostKeyChecking=no -i "taskord.pem" ubuntu@deploy.taskord.com 'ls'
