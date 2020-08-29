@@ -79,6 +79,16 @@
                             </span>
                         @enderror
                     </div>
+                    <div class="mb-3">
+                        <div class="font-weight-bold mb-2">Status</div>
+                        <input id="launched" class="form-check-input" type="checkbox" wire:model="launched">
+                        <label for="launched" class="ml-1">This product is launched</label>
+                    </div>
+                    <div class="mb-3">
+                        <div class="font-weight-bold mb-2">Deprecated</div>
+                        <input id="deprecated" class="form-check-input" type="checkbox" wire:model="deprecated">
+                        <label for="deprecated" class="ml-1">This product is no longer available</label>
+                    </div>
                     <button type="submit" class="btn btn-primary">
                         Save
                         <span wire:target="submit" wire:loading class="spinner-border spinner-border-sm ml-2" role="status"></span>
