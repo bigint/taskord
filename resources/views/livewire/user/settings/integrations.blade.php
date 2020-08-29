@@ -16,6 +16,20 @@
                         </span>
                     @enderror
                 </div>
+                <div class="mb-3 d-flex">
+                    <span class="form-check">
+                        <input class="form-check-input" type="radio" name="exampleRadios" id="simple" value="simple" wire:model="type" checked>
+                        <label class="form-check-label" for="simple">
+                            Simple Webhook
+                        </label>
+                    </span>
+                    <span class="form-check ml-3">
+                        <input class="form-check-input" type="radio" name="exampleRadios" id="github" value="github" wire:model="type">
+                        <label class="form-check-label" for="github">
+                            GitHub
+                        </label>
+                    </span>
+                </div>
                 <button type="submit" class="btn btn-primary">
                     Create Hook
                     <span wire:target="submit" wire:loading class="spinner-border spinner-border-sm ml-2" role="status"></span>
@@ -32,7 +46,7 @@
                     </div>
                 </div>
             @endif
-            <div class="h5 mt-3">Parameters</div>
+            <div class="h5 mt-4 mb-3">Simple Webhook Parameters</div>
             <table class="table table-bordered align-middle text-dark">
                 <thead>
                     <tr>
