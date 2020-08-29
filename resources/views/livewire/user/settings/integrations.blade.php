@@ -31,6 +31,31 @@
                     </div>
                 </div>
             @endif
+            <div class="h5 mt-3">Parameters</div>
+            <table class="table table-bordered align-middle">
+                <thead>
+                    <tr>
+                        <th scope="col">Parameter</th>
+                        <th scope="col">Type</th>
+                        <th scope="col">Required</th>
+                        <th scope="col">Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>task</td>
+                        <td>String</td>
+                        <td>Yes</td>
+                        <td>The body of the task</td>
+                    </tr>
+                    <tr>
+                        <td>done</td>
+                        <td>Boolean</td>
+                        <td>Yes</td>
+                        <td>Is it a completed task?</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     </div>
     <div class="card mb-4">
@@ -45,7 +70,7 @@
                 'text' => 'No webhooks found',
             ])
             @else
-            <table class="table">
+            <table class="table table-bordered align-middle">
                 <thead>
                     <tr>
                         <th scope="col">Type</th>
@@ -73,7 +98,7 @@
                             {{ Carbon::parse($webhook->created_at)->format('M d, Y') }}
                         </td>
                         <td>
-                            <button wire:click="deleteWebhook({{ $webhook->id }})" class="btn btn-sm btn-danger">
+                            <button wire:click="deleteWebhook({{ $webhook->id }})" class="btn btn-sm btn-block btn-danger">
                                 <i class="fa fa-trash mr-1"></i>
                                 Delete
                             </button>
