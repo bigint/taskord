@@ -91,19 +91,4 @@ class ProductController extends Controller
             'products' => $products,
         ]);
     }
-
-    public function edit($slug)
-    {
-        $product = Product::where('slug', $slug)->firstOrFail();
-
-        if (Auth::user()->staffShip or Auth::id() === $product->user_id) {
-            return view('product.edit', [
-                'product' => $product,
-            ]);
-        } else {
-            return redirect()->route('product.done', [
-                'slug' => $product->slug,
-            ]);
-        }
-    }
 }
