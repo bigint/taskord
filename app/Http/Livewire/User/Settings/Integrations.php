@@ -2,10 +2,10 @@
 
 namespace App\Http\Livewire\User\Settings;
 
-use Livewire\Component;
-use Illuminate\Support\Facades\Auth;
-use Carbon\Carbon;
 use App\Models\Webhook;
+use Carbon\Carbon;
+use Illuminate\Support\Facades\Auth;
+use Livewire\Component;
 
 class Integrations extends Component
 {
@@ -16,7 +16,7 @@ class Integrations extends Component
     {
         $this->user = $user;
     }
-    
+
     public function submit()
     {
         if (Auth::check()) {
