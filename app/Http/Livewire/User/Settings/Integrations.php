@@ -22,6 +22,11 @@ class Integrations extends Component
             $this->validate([
                 'name' => 'required|min:2|max:20',
             ]);
+            
+            if (Auth::user()->isFlagged) {
+                return session()->flash('error', 'Your account is flagged!');
+            }
+            
             if (Auth::id() === $this->user->id) {
                 $webhook = Webhook::create([
                     'user_id' => Auth::id(),

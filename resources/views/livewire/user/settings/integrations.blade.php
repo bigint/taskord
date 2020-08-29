@@ -5,6 +5,7 @@
             <div>TODO</div>
         </div>
         <div class="card-body">
+            @include('components.alert')
             <span class="h5">Create Webhook</span>
             <form wire:submit.prevent="submit">
                 <div class="mb-3 mt-3">
