@@ -20,6 +20,7 @@ class CreateTasksTable extends Migration
             $table->text('task');
             $table->string('image')->nullable();
             $table->boolean('done');
+            $table->string('source');
             $table->string('type')->default('user');
             $table->dateTime('done_at')->nullable();
             $table->date('due_at')->nullable();

@@ -104,6 +104,7 @@ class CreateTask extends Component
                 'image' => $image,
                 'due_at' => $this->due_at,
                 'type' => 'user',
+                'source' => 'Taskord for Web',
             ]);
 
             if ($users) {

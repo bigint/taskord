@@ -151,6 +151,15 @@ class UserController extends Controller
         }
     }
 
+    public function integrationsSettings()
+    {
+        $user = Auth::user();
+
+        return view('user.settings.integrations', [
+            'user' => $user,
+        ]);
+    }
+
     public function deleteSettings()
     {
         $user = Auth::user();

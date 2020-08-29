@@ -138,6 +138,8 @@
                     Carbon::parse($task->created_at)->format('g:i A · M d, Y') :
                     Carbon::parse($task->done_at)->format('g:i A · M d, Y')
             }}
+            · via
+            <span class="font-weight-bold">{{ $task->source }}</span>
         </a>
     </div>
 </span>

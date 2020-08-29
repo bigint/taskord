@@ -38,8 +38,14 @@ Route::group(['prefix' => 'settings', 'as' => 'user.settings.', 'middleware' => 
     Route::get('patron', 'UserController@patronSettings')->name('patron');
     Route::get('password', 'UserController@passwordSettings')->name('password');
     Route::get('notifications', 'UserController@notificationsSettings')->name('notifications');
+    Route::get('integrations', 'UserController@integrationsSettings')->name('integrations');
     Route::get('export', 'UserController@exportAccount')->name('export');
     Route::get('delete', 'UserController@deleteSettings')->name('delete');
+});
+
+Route::group(['prefix' => 'webhook'], function () {
+    Route::post('web/{token}', 'WebhookController@web');
+    //Route::post('github/{token}', 'WebhookController@github');
 });
 
 Route::get('login/{provider}', 'SocialController@redirect');
