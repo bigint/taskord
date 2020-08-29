@@ -45,6 +45,7 @@ Route::group(['prefix' => 'settings', 'as' => 'user.settings.', 'middleware' => 
 
 Route::group(['prefix' => 'webhook'], function () {
     Route::post('web/{token}', 'WebhookController@web');
+    //Route::post('github/{token}', 'WebhookController@github');
 });
 
 Route::get('login/{provider}', 'SocialController@redirect');
