@@ -23,7 +23,7 @@
             Activity by month
         </div>
         <div class="card-body">
-            <canvas id="myChart" height="50"></canvas>
+            <canvas id="myChart" height="40"></canvas>
         </div>
     </div>
     @if ($product->website or $product->twitter or $product->producthunt or $product->github)
@@ -86,8 +86,9 @@
             data: {
                 labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
                 datasets: [{
-                    data: {{ '['.implode(",", $graph).']' }}
-                }]
+                    data: {{ '['.implode(",", $graph).']' }},
+                    backgroundColor: '#e3f9ec',
+                }],
             },
             options: {
                 responsive: false,
@@ -96,8 +97,8 @@
                 },
                 elements: {
                     line: {
-                        borderColor: '#000000',
-                        borderWidth: 1
+                        borderColor: '#38c172',
+                        borderWidth: 2
                     },
                     point: {
                         radius: 0
