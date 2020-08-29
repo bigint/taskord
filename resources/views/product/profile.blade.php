@@ -5,9 +5,9 @@
             <div class="h5 mb-0">
                 {{ $product->name }}
                 @if ($product->launched)
-                    <a href="{{ route('products.launched') }}" class="ml-2 small" data-toggle="tooltip" data-placement="right" title="Launched">
+                    <span class="ml-1 small" title="Launched">
                         {{ Emoji::rocket() }}
-                    </a>
+                    </span>
                 @endif
                 @if ($product->deprecated)
                     <span class="ml-1 small" title="Deprecated">
