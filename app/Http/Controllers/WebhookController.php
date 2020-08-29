@@ -4,20 +4,40 @@ namespace App\Http\Controllers;
 
 use App\Models\Task;
 use App\Models\Webhook;
+use App\Models\User;
 use Carbon\Carbon;
-use Illuminate\Http\Request;
+use Illuminate\Http\Request as WebhookRequest;
+use Illuminate\Support\Facades\Request;
+use GrahamCampbell\Throttle\Facades\Throttle;
 
 class WebhookController extends Controller
 {
-    public function web($token, Request $request)
+    public function web($token, WebhookRequest $request)
     {
+        $throttler = Throttle::get(Request::instance(), 20, 5);
+        $throttler->hit();
+        if (! $throttler->check()) {
+            return response()->json([
+                'status' => 'failed',
+                'message' => 'Your are rate limited, try again later!',
+            ]);
+        }
+        
         $webhook = Webhook::where('token', $token)->first();
+        if (User::find($webhook->user_id)->isFlagged) {
+            return response()->json([
+                'status' => 'failed',
+                'message' => 'Your account is flagged!',
+            ]);
+        }
+        
         if (! $webhook) {
             return response()->json([
                 'status' => 'failed',
                 'message' => 'No webhook exists',
             ]);
         }
+        
         $request_body = $request->json()->all();
         if (
             ! array_key_exists('task', $request_body) or
