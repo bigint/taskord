@@ -26,7 +26,7 @@ class Tasks extends Component
 
     public function render()
     {
-        $tasks = Task::select('id', 'task', 'done', 'type', 'created_at', 'done_at', 'user_id', 'product_id')
+        $tasks = Task::select('id', 'task', 'done', 'type', 'created_at', 'done_at', 'user_id', 'product_id', 'source')
             ->where([
                 ['user_id', $this->user->id],
                 ['done', $this->type === 'user.done' ? true : false],
