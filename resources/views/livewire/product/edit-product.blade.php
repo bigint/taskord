@@ -1,13 +1,15 @@
-<div class="row">
-    <div class="col-md-8">
-        <div class="card">
-            <div class="h5 pt-3 pb-3 text-success card-header">
-                <i class="fa fa-box-open mr-1"></i>
-                Edit Product
+<div wire:ignore.self class="modal" id="editProductModal" tabindex="-1" role="dialog" aria-labelledby="editProductModalTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Edit Product</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
             </div>
-            <div class="card-body">
-                @include('components.alert')
-                <form wire:target="submit" wire:submit.prevent="submit">
+            <form wire:target="submit" wire:submit.prevent="submit">
+                <div class="modal-body">
+                    @include('components.alert')
                     <div class="mb-3">
                         <label class="form-label font-weight-bold">Name of the product</label>
                         <input type="text" value="{{ $name }}" class="form-control @error('name') is-invalid @enderror" placeholder="Simply the name of the product" wire:model="name">
@@ -89,46 +91,25 @@
                         <input id="deprecated" class="form-check-input" type="checkbox" wire:model="deprecated">
                         <label for="deprecated" class="ml-1">This product is no longer available</label>
                     </div>
+                </div>
+                <div class="modal-footer">
+                    @if ($confirming === $product->id)
+                    <button type="button" wire:click="deleteProduct" class="btn btn-danger">
+                        <span class="font-weight-bold">Are you sure?</span>
+                        <span wire:target="deleteProduct" wire:loading class="spinner-border spinner-border-sm ml-2" role="status"></span>
+                    </button>
+                    @else
+                    <button type="button" wire:click="confirmDelete" class="btn btn-danger">
+                        <span class="font-weight-bold">Delete</span> {{ $slug }}
+                    </button>
+                    @endif
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                     <button type="submit" class="btn btn-primary">
-                        Save
+                        Update
                         <span wire:target="submit" wire:loading class="spinner-border spinner-border-sm ml-2" role="status"></span>
                     </button>
-                </form>
-                <div class="h5 text-danger mt-3 mb-3">Danger Zone</div>
-                @if ($confirming === $product->id)
-                <button type="button" wire:click="deleteProduct" class="btn btn-danger">
-                    <span class="font-weight-bold">Are you sure?</span>
-                    <span wire:target="deleteProduct" wire:loading class="spinner-border spinner-border-sm ml-2" role="status"></span>
-                </button>
-                @else
-                <button type="button" wire:click="confirmDelete" class="btn btn-danger">
-                    <span class="font-weight-bold">Delete</span> {{ $slug }}
-                </button>
-                @endif
-            </div>
+                </div>
+            </form>
         </div>
-    </div>
-    <div class="col-sm">
-        <div class="card mb-4">
-            <div class="card-header">
-                Preview
-            </div>
-            <div class="d-flex list-group-item align-items-center p-3">
-                <span class="rounded bg-secondary p-4 mt-1 ml-2" src="" height="50" width="50" /></span>
-                <span class="ml-3">
-                    <span class="mr-2 h5 align-text-top font-weight-bold text-dark">
-                        {{ $name ? $name : 'Product Name' }}
-                        <span class="small ml-2">{{ $launched ? '🚀' : '' }}</span>
-                    </span>
-                    <div>{{ $description ? $description : 'Product Description' }}</div>
-                    <button class="btn btn-sm btn-primary mt-2">
-                        <i class="fa fa-plus mr-1"></i>
-                        Subscribe
-                    </button>
-                </span>
-                <img class="ml-auto rounded-circle float-right avatar-30 mt-1 ml-2" src="@auth{{ Auth::user()->avatar }}@endauth" />
-            </div>
-        </div>
-        @include('components.footer')
     </div>
 </div>

@@ -7,12 +7,15 @@
                 <i class="fa fa-bell mr-1"></i>
                 Write a product update
             </a>
-            <a class="btn btn-block btn-success text-white font-weight-bold" href="{{ route('product.edit', ['slug' => $product->slug]) }}">
+            <button type="button" class="btn btn-block btn-success text-white font-weight-bold" data-toggle="modal" data-target="#editProductModal">
                 <i class="fa fa-edit mr-1"></i>
                 Edit Product
-            </a>
+            </button>
         </div>
     </div>
+    @livewire('product.edit-product', [
+        'product' => $product
+    ])
     @endif
     @endauth
     @if ($product->website or $product->twitter or $product->producthunt or $product->github)
