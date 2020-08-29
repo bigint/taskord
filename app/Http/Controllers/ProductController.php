@@ -5,10 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\Product;
 use App\Models\ProductUpdate;
 use App\Models\Task;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Route;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
 
 class ProductController extends Controller
 {
@@ -19,21 +18,21 @@ class ProductController extends Controller
         $tasks = Task::where('product_id', $product->id)
             ->select('id', 'created_at')
             ->get()
-            ->groupBy(function($date) {
+            ->groupBy(function ($date) {
                 return Carbon::parse($date->created_at)->format('m');
             });
         $taskmcount = [];
         $countArr = [];
-        
+
         foreach ($tasks as $key => $value) {
-            $taskmcount[(int)$key] = count($value);
+            $taskmcount[(int) $key] = count($value);
         }
-        
-        for($i = 1; $i <= 12; $i++) {
-            if(!empty($taskmcount[$i])) {
-                $countArr[$i] = $taskmcount[$i];    
+
+        for ($i = 1; $i <= 12; $i++) {
+            if (! empty($taskmcount[$i])) {
+                $countArr[$i] = $taskmcount[$i];
             } else {
-                $countArr[$i] = 0;    
+                $countArr[$i] = 0;
             }
         }
 
