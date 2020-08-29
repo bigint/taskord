@@ -17,6 +17,7 @@ class CreateWebhooksTable extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->string('token');
+            $table->string('name');
             $table->string('type');
             $table->timestamps();
         });

@@ -6,7 +6,21 @@
             <div>TODO</div>
         </div>
         <div class="card-body">
-            
+            <span class="h5">Create Webhook</span>
+            <form wire:submit.prevent="submit">
+                <div class="mb-3 mt-3">
+                    <input type="text" class="form-control @error('name') is-invalid @enderror" wire:model="name" placeholder="Webhook Name">
+                    @error('name')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
+                </div>
+                <button type="submit" class="btn btn-primary">
+                    Create Hook
+                    <span wire:target="submit" wire:loading class="spinner-border spinner-border-sm ml-2" role="status"></span>
+                </button>
+            </form>
         </div>
     </div>
 </div>
