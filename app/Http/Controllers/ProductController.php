@@ -6,7 +6,9 @@ use App\Models\Product;
 use App\Models\ProductUpdate;
 use App\Models\Task;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
+use Carbon\Carbon;
 
 class ProductController extends Controller
 {
@@ -14,10 +16,33 @@ class ProductController extends Controller
     {
         $product = Product::where('slug', $slug)->firstOrFail();
         $type = Route::current()->getName();
+        $tasks = Task::where('product_id', $product->id)
+            ->select('id', 'created_at')
+            ->get()
+            ->groupBy(function($date) {
+                return Carbon::parse($date->created_at)->format('m');
+            });
+        $taskmcount = [];
+        $countArr = [];
+        
+        foreach ($tasks as $key => $value) {
+            $taskmcount[(int)$key] = count($value);
+        }
+        
+        for($i = 1; $i <= 12; $i++) {
+            if(!empty($taskmcount[$i])) {
+                $countArr[$i] = $taskmcount[$i];    
+            } else {
+                $countArr[$i] = 0;    
+            }
+        }
+
+        //dd($countArr);
 
         $response = [
             'product' => $product,
             'type' => $type,
+            'graph' => $countArr,
             'done_count' => Task::where([
                 ['product_id', $product->id],
                 ['done', true],

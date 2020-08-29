@@ -86,7 +86,9 @@
             data: {
                 labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
                 datasets: [{
-                    data: [435, 321, 532, 801, 1231, 1098, 732, 321, 451, 482, 513, 397]
+                    data:   @foreach($graph as $count)
+                                {{ $loop->first ? '[' : '' }}{{$count}},{{ $loop->last ? ']' : '' }}
+                            @endforeach
                 }]
             },
             options: {
