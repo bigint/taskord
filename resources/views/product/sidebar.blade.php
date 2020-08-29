@@ -79,7 +79,7 @@
         </ul>
     </div>
     @include('components.footer')
-    <script>
+    <script type="text/javascript">
         const ctx = document.getElementById('myChart').getContext('2d');
         const chart = new Chart(ctx, {
             type: 'line',
