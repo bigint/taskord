@@ -15,6 +15,9 @@ class CreateWebhooksTable extends Migration
     {
         Schema::create('webhooks', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
+            $table->string('token');
+            $table->string('type');
             $table->timestamps();
         });
     }
