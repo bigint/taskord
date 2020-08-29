@@ -27,7 +27,7 @@ class Integrations extends Component
                 $webhook = Webhook::create([
                     'user_id' => Auth::id(),
                     'name' => $this->name,
-                    'token' => md5(Auth::id().Carbon::now()),
+                    'token' => md5(uniqid(Auth::id(), true)),
                     'type' => 'web',
                 ]);
                 session()->flash('created', $webhook);
