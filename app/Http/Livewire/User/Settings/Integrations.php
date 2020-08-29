@@ -2,7 +2,6 @@
 
 namespace App\Http\Livewire\User\Settings;
 
-use App\Models\User;
 use Livewire\Component;
 
 class Delete extends Component
