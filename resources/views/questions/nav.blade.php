@@ -8,8 +8,11 @@
     <a class="mb-2 btn btn-{{ Route::currentRouteName() === 'questions.popular' ? '' : 'outline-' }}primary mr-2" href="{{ route('questions.popular') }}">
         Popular
     </a>
-    <a class="btn btn-success float-md-right mb-2 text-white" href="{{ route('questions.new') }}">
+    @auth
+    <button type="button" class="mb-2 btn btn-success float-md-right text-white" data-toggle="modal" data-target="#newQuestionModal">
         <i class="fa fa-plus"></i>
         Ask a Question
-    </a>
+    </button>
+    @livewire('question.create-question')
+    @endauth
 </div>
