@@ -26,6 +26,7 @@ class CreateProductsTable extends Migration
             $table->string('producthunt')->nullable();
             $table->boolean('launched')->default(false);
             $table->dateTime('launched_at')->nullable();
+            $table->boolean('deprecated')->default(false);
             $table->timestamps();
         });
     }
