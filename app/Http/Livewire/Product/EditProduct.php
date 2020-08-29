@@ -17,6 +17,7 @@ class EditProduct extends Component
     public $github;
     public $producthunt;
     public $launched;
+    public $deprecated;
     public $confirming;
 
     public function mount($product)
@@ -30,6 +31,7 @@ class EditProduct extends Component
         $this->github = $product->github;
         $this->producthunt = $product->producthunt;
         $this->launched = $product->launched;
+        $this->deprecated = $product->deprecated;
     }
 
     public function updated($field)
@@ -77,6 +79,7 @@ class EditProduct extends Component
                 $product->github = $this->github;
                 $product->producthunt = $this->producthunt;
                 $product->launched = $this->launched;
+                $product->deprecated = $this->deprecated;
                 $product->save();
 
                 session()->flash('global', 'Product has been updated!');
@@ -89,7 +92,7 @@ class EditProduct extends Component
             session()->flash('error', 'Forbidden!');
         }
     }
-
+    
     public function confirmDelete()
     {
         $this->confirming = $this->product->id;
