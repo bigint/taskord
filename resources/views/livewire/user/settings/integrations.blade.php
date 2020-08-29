@@ -2,7 +2,7 @@
     <div class="card mb-4">
         <div class="card-header pt-3 pb-3">
             <span class="h5">Integrations</span>
-            <div>TODO</div>
+            <div>Just send a POST event from anywhere</div>
         </div>
         <div class="card-body">
             @include('components.alert')
@@ -61,7 +61,7 @@
     <div class="card mb-4">
         <div class="card-header pt-3 pb-3">
             <span class="h5">Active webhooks</span>
-            <div>TODO</div>
+            <div>Webhooks that are active</div>
         </div>
         <div class="card-body">
             @if (count($user->webhooks) === 0)
