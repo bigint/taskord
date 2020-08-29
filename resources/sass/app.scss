@@ -235,3 +235,8 @@ input[type="date"]:focus:before,
 input[type="date"]:valid:before {
     content: "";
 }
+
+.sticky-footer {
+    position: sticky;
+    top: 25px;
+}
