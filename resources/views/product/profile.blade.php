@@ -9,6 +9,11 @@
                         {{ Emoji::rocket() }}
                     </a>
                 @endif
+                @if ($product->deprecated)
+                    <span class="ml-1 small" title="Deprecated">
+                        <i class="fa fa-ghost text-danger"></i>
+                    </span>
+                @endif
             </div>
             <div class="text-black-50 mb-2">
                 {{ "#" . $product->slug }}
