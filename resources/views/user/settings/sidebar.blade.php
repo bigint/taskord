@@ -38,11 +38,13 @@
             >
                 <i class="fa fa-bell mr-1"></i>
                 Notifications
-                @if (Route::currentRouteName() === 'user.settings.notifications')
-                @include('components.beta', ['background' => 'white'])
-                @else
-                @include('components.beta', ['background' => 'dark'])
-                @endif
+            </a>
+            <a
+                class="list-group-item text-dark pt-2 pb-2 @if (Route::currentRouteName() === 'user.settings.integrations') active text-white @endif"
+                href="{{ route('user.settings.integrations') }}"
+            >
+                <i class="fa fa-bell mr-1"></i>
+                Integrations
             </a>
             <a
                 class="list-group-item text-danger pt-2 pb-2 @if (Route::currentRouteName() === 'user.settings.delete') bg-danger text-white @endif"
