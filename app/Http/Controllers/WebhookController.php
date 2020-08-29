@@ -23,7 +23,7 @@ class WebhookController extends Controller
             'source' => $type,
         ]);
     }
-    
+
     public function web($token, WebhookRequest $request)
     {
         $throttler = Throttle::get(Request::instance(), 20, 5);
@@ -42,14 +42,14 @@ class WebhookController extends Controller
                 'message' => 'No webhook exists',
             ]);
         }
-        
+
         if (User::find($webhook->user_id)->isFlagged) {
             return response()->json([
                 'status' => 'failed',
                 'message' => 'Your account is flagged!',
             ]);
         }
-        
+
         if ($webhook->type === 'web') {
             $request_body = $request->json()->all();
             if (
@@ -66,9 +66,8 @@ class WebhookController extends Controller
             } else {
                 $done_at = null;
             }
-            
-            $this->createTask
-            (
+
+            $this->createTask(
                 $webhook,
                 $request_body['task'],
                 $request_body['done'],
@@ -82,13 +81,12 @@ class WebhookController extends Controller
         } elseif ($webhook->type === 'github') {
             $request_body = $request->json()->all();
             if (count($request_body['commits']) === 1) {
-                $task = $request_body['commits'][0]['message']. ' on '.$request_body['repository']['name'];
+                $task = $request_body['commits'][0]['message'].' on '.$request_body['repository']['name'];
             } else {
                 $task = 'Pushed '.count($request_body['commits']).' changes to '.$request_body['repository']['name'];
             }
-            
-            $this->createTask
-            (
+
+            $this->createTask(
                 $webhook,
                 $task,
                 true,
