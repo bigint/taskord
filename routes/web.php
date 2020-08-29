@@ -67,12 +67,10 @@ Route::group(['prefix' => 'questions', 'as' => 'questions.'], function () {
     Route::get('', 'QuestionController@newest')->name('newest');
     Route::get('unanswered', 'QuestionController@unanswered')->name('unanswered');
     Route::get('popular', 'QuestionController@popular')->name('popular');
-    Route::get('new', 'QuestionController@new')->name('new')->middleware('auth');
 });
 
 Route::group(['prefix' => 'question', 'as' => 'question.'], function () {
     Route::get('{id}', 'QuestionController@question')->name('question');
-    Route::get('edit/{id}', 'QuestionController@edit')->name('edit')->middleware('auth');
 });
 
 Route::group(['prefix' => 'notifications', 'as' => 'notifications.', 'middleware' => ['auth']], function () {
