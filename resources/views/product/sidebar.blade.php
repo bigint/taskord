@@ -20,7 +20,7 @@
     @endauth
     <div class="card mb-4">
         <div class="card-header">
-            Activity
+            Activity by month
         </div>
         <div class="card-body">
             <canvas id="myChart" height="50"></canvas>
