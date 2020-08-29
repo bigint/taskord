@@ -18,13 +18,13 @@
                 </div>
                 <div class="mb-3 d-flex">
                     <span class="form-check">
-                        <input class="form-check-input" type="radio" name="exampleRadios" id="web" value="web" wire:model="type" checked data-toggle="collapse" data-target="#simpleDocs" aria-expanded="true" aria-controls="simpleDocs">
+                        <input class="form-check-input" type="radio" name="exampleRadios" id="web" value="web" wire:model="type">
                         <label class="form-check-label" for="web">
                             Simple Webhook
                         </label>
                     </span>
                     <span class="form-check ml-3">
-                        <input class="form-check-input" type="radio" name="exampleRadios" id="github" value="github" wire:model="type" data-toggle="collapse" data-target="#githubDocs" aria-expanded="false" aria-controls="githubDocs">
+                        <input class="form-check-input" type="radio" name="exampleRadios" id="github" value="github" wire:model="type">
                         <label class="form-check-label" for="github">
                             GitHub
                         </label>
@@ -49,16 +49,16 @@
             <div class="h5 mt-4 mb-3">Webhook Docs</div>
             <div class="accordion" id="webhookDocs">
                 <div class="card">
-                    <div class="card-header" id="simpleDocs">
-                        <h2>
-                            <span class="text-dark text-decoration-none border-0 bg-transparent h5">
+                    <div class="card-header" id="headingOne">
+                        <h2 class="mb-0">
+                            <button class="text-dark text-decoration-none border-0 bg-transparent h5" type="button" checked data-toggle="collapse" data-target="#simpleDocs" aria-expanded="true" aria-controls="simpleDocs">
                                 <i class="fa fa-globe mr-1"></i>
                                 Simple Webhook
-                            </span>
+                            </button>
                         </h2>
                     </div>
-                    <div id="simpleDocs" class="collapse show" aria-labelledby="simpleDocs" data-parent="#webhookDocs">
-                        <div class="card-body">
+                    <div id="simpleDocs" class="collapse show" aria-labelledby="headingOne" data-parent="#webhookDocs">
+                        <div class="card-body pb-0">
                             <table class="table table-bordered align-middle text-dark">
                                 <thead>
                                     <tr>
@@ -87,17 +87,24 @@
                     </div>
                 </div>
                 <div class="card">
-                    <div class="card-header" id="githubDocs">
-                        <h2>
-                            <span class="text-dark text-decoration-none border-0 bg-transparent h5">
+                    <div class="card-header" id="headingTwo">
+                        <h2 class="mb-0">
+                            <button class="text-dark text-decoration-none border-0 bg-transparent h5" type="button" data-toggle="collapse" data-target="#githubDocs" aria-expanded="false" aria-controls="githubDocs">
                                 <i class="fa fa-github mr-1"></i>
                                 GitHub
-                            </span>
+                            </button>
                         </h2>
                     </div>
-                    <div id="githubDocs" class="collapse" aria-labelledby="githubDocs" data-parent="#webhookDocs">
-                        <div class="card-body">
-                            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                    <div id="githubDocs" class="collapse" aria-labelledby="headingTwo" data-parent="#webhookDocs">
+                        <div class="card-body pb-0">
+                            <ol>
+                                <li>Go to repository settings</li>
+                                <li>Click "Add webhook" button</li>
+                                <li>In "Payload URL" paste the URL generated below</li>
+                                <li>In "Content type" select "application/json"</li>
+                                <li>Click "Add webhook" button to save</li>
+                                <li>Voila! 🎉</li>
+                            </ol>
                         </div>
                     </div>
                 </div>
