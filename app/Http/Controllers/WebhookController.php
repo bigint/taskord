@@ -2,17 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Webhook;
 use App\Models\Task;
-use Illuminate\Http\Request;
+use App\Models\Webhook;
 use Carbon\Carbon;
+use Illuminate\Http\Request;
 
 class WebhookController extends Controller
 {
     public function web($token, Request $request)
     {
         $webhook = Webhook::where('token', $token)->first();
-        if (!$webhook) {
+        if (! $webhook) {
             return response()->json([
                 'status' => 'failed',
                 'message' => 'No webhook exists',
@@ -20,8 +20,8 @@ class WebhookController extends Controller
         }
         $request_body = $request->json()->all();
         if (
-            !array_key_exists('task', $request_body) or
-            !array_key_exists('done', $request_body)
+            ! array_key_exists('task', $request_body) or
+            ! array_key_exists('done', $request_body)
         ) {
             return response()->json([
                 'status' => 'failed',
@@ -41,6 +41,7 @@ class WebhookController extends Controller
             'type' => 'user',
             'source' => 'Webhook',
         ]);
+
         return response()->json([
             'status' => 'success',
         ]);
