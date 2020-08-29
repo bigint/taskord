@@ -18,6 +18,14 @@
     ])
     @endif
     @endauth
+    <div class="card mb-4">
+        <div class="card-header">
+            Activity
+        </div>
+        <div class="card-body">
+            <canvas id="myChart" width="200" height="50"></canvas>
+        </div>
+    </div>
     @if ($product->website or $product->twitter or $product->producthunt or $product->github)
     <div class="card mb-4">
         <div class="card-header">
@@ -71,4 +79,42 @@
         </ul>
     </div>
     @include('components.footer')
+    <script>
+        const ctx = document.getElementById('myChart').getContext('2d');
+        const chart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+                datasets: [{
+                    data: [435, 321, 532, 801, 1231, 1098, 732, 321, 451, 482, 513, 397]
+                }]
+            },
+            options: {
+                responsive: false,
+                legend: {
+                    display: false
+                },
+                elements: {
+                    line: {
+                        borderColor: '#000000',
+                        borderWidth: 1
+                    },
+                    point: {
+                        radius: 0
+                    }
+                },
+                tooltips: {
+                    enabled: false
+                },
+                scales: {
+                    yAxes: [{
+                        display: false
+                    }],
+                    xAxes: [{
+                        display: false
+                    }]
+                }
+            }
+        });
+    </script>
 </div>
