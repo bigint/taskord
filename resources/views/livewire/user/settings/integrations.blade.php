@@ -33,7 +33,7 @@
                 </div>
             @endif
             <div class="h5 mt-3">Parameters</div>
-            <table class="table table-bordered align-middle">
+            <table class="table table-bordered align-middle text-dark">
                 <thead>
                     <tr>
                         <th scope="col">Parameter</th>
@@ -71,7 +71,7 @@
                 'text' => 'No webhooks found',
             ])
             @else
-            <table class="table table-bordered align-middle">
+            <table class="table table-bordered align-middle text-dark">
                 <thead>
                     <tr>
                         <th scope="col">Type</th>
