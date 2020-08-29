@@ -151,7 +151,7 @@ class UserController extends Controller
         }
     }
     
-    public function integrationSettings()
+    public function integrationsSettings()
     {
         $user = Auth::user();
 

@@ -38,6 +38,7 @@ Route::group(['prefix' => 'settings', 'as' => 'user.settings.', 'middleware' => 
     Route::get('patron', 'UserController@patronSettings')->name('patron');
     Route::get('password', 'UserController@passwordSettings')->name('password');
     Route::get('notifications', 'UserController@notificationsSettings')->name('notifications');
+    Route::get('integrations', 'UserController@integrationsSettings')->name('integrations');
     Route::get('export', 'UserController@exportAccount')->name('export');
     Route::get('delete', 'UserController@deleteSettings')->name('delete');
 });
