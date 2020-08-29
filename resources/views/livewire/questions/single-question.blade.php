@@ -74,12 +74,17 @@
                 </button>
             @endif
             @if (Auth::user()->staffShip or Auth::id() === $question->user->id)
-            <a role="button" class="btn btn-task btn-outline-info text-white mr-1" href="{{ route('question.edit', ['id' => $question->id]) }}">
+            @if ($type === "question.question")
+            <button role="button" class="btn btn-task btn-outline-info text-white mr-1" data-toggle="modal" data-target="#editQuestionModal">
                 {{ Emoji::writingHand() }}
                 <span class="small text-dark font-weight-bold">
                     Edit
                 </span>
-            </a>
+            </button>
+            @livewire('question.edit-question', [
+                'question' => $question
+            ])
+            @endif
             @if ($confirming === $question->id)
             <button role="button" class="btn btn-task btn-danger mr-1" wire:click="deleteQuestion" wire:loading.attr="disabled" wire:offline.attr="disabled">
                 Are you sure?
