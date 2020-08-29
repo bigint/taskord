@@ -16,11 +16,12 @@ class ProductController extends Controller
         $product = Product::where('slug', $slug)->firstOrFail();
         $type = Route::current()->getName();
         $tasks = Task::where('product_id', $product->id)
-            ->select('id', 'created_at')
+            ->select('created_at')
             ->get()
             ->groupBy(function ($date) {
                 return Carbon::parse($date->created_at)->format('m');
             });
+        
         $taskmcount = [];
         $countArr = [];
 
