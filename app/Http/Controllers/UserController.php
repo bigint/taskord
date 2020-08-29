@@ -150,7 +150,7 @@ class UserController extends Controller
             return session()->flash('error', 'Forbidden!');
         }
     }
-    
+
     public function integrationsSettings()
     {
         $user = Auth::user();
