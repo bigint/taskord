@@ -14,6 +14,7 @@ class Task extends Model
         'product_id',
         'task',
         'done',
+        'source',
         'done_at',
         'due_at',
         'image',
