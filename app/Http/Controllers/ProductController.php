@@ -37,8 +37,6 @@ class ProductController extends Controller
             }
         }
 
-        //dd($countArr);
-
         $response = [
             'product' => $product,
             'type' => $type,

@@ -23,7 +23,7 @@
             Activity
         </div>
         <div class="card-body">
-            <canvas id="myChart" width="200" height="50"></canvas>
+            <canvas id="myChart" height="50"></canvas>
         </div>
     </div>
     @if ($product->website or $product->twitter or $product->producthunt or $product->github)
