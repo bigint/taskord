@@ -92,11 +92,6 @@ class ProductController extends Controller
         ]);
     }
 
-    public function new()
-    {
-        return view('product.new');
-    }
-
     public function edit($slug)
     {
         $product = Product::where('slug', $slug)->firstOrFail();
