@@ -20,6 +20,9 @@ class Integrations extends Component
     public function submit()
     {
         if (Auth::check()) {
+            $this->validate([
+                'name' => 'required|min:2|max:20',
+            ]);
             if (Auth::id() === $this->user->id) {
                 $webhook = Webhook::create([
                     'user_id' => Auth::id(),
@@ -31,6 +34,18 @@ class Integrations extends Component
             } else {
                 return session()->flash('error', 'Forbidden!');
             }
+        } else {
+            return session()->flash('error', 'Forbidden!');
+        }
+    }
+    
+    public function deleteWebhook($id)
+    {
+        if (Auth::check()) {
+            $webhook = Webhook::find($id);
+            $webhook->delete();
+
+            return redirect()->route('user.settings.integrations');
         } else {
             return session()->flash('error', 'Forbidden!');
         }

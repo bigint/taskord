@@ -59,20 +59,20 @@
                     <tr>
                         <td>
                             @if ($webhook->type === 'web')
-                            <i class="fa fa-globe mr-1"></i>
+                            <i title="Web | ID: {{ $webhook->id }}" class="fa fa-globe mr-1"></i>
                             @endif
                         </td>
-                        <td>
+                        <td class="font-weight-bold">
                             {{ Str::limit($webhook->name, '20') }}
                         </td>
-                        <td>
+                        <td class="font-monospace">
                             {{ Str::limit($webhook->token, '4', '****************') }}
                         </td>
                         <td>
                             {{ Carbon::parse($webhook->created_at)->format('M d, Y') }}
                         </td>
                         <td>
-                            <button class="btn btn-sm btn-danger">
+                            <button wire:click="deleteWebhook({{ $webhook->id }})" class="btn btn-sm btn-danger">
                                 <i class="fa fa-trash mr-1"></i>
                                 Delete
                             </button>
