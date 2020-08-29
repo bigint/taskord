@@ -30,7 +30,6 @@ class WebhookController extends Controller
         $throttler->hit();
         if (! $throttler->check()) {
             return response()->json([
-                'status' => 'failed',
                 'message' => 'Your are rate limited, try again later!',
             ], 429);
         }
@@ -38,14 +37,12 @@ class WebhookController extends Controller
         $webhook = Webhook::where('token', $token)->first();
         if (! $webhook) {
             return response()->json([
-                'status' => 'failed',
                 'message' => 'No webhook exists',
             ], 401);
         }
 
         if (User::find($webhook->user_id)->isFlagged) {
             return response()->json([
-                'status' => 'failed',
                 'message' => 'Your account is flagged!',
             ], 401);
         }
@@ -57,7 +54,6 @@ class WebhookController extends Controller
                 ! array_key_exists('done', $request_body)
             ) {
                 return response()->json([
-                    'status' => 'failed',
                     'message' => 'Invalid parameters',
                 ], 422);
             }
@@ -79,7 +75,13 @@ class WebhookController extends Controller
                 'status' => 'success',
             ], 200);
         } elseif ($webhook->type === 'github') {
+            if ($request->header('X-GitHub-Event') === 'ping') {
+                return response()->json([
+                    'message' => 'Webhook Connected!',
+                ], 200);
+            }
             $request_body = $request->json()->all();
+
             if (count($request_body['commits']) === 1) {
                 $task = $request_body['commits'][0]['message'].' on '.$request_body['repository']['name'];
             } else {
