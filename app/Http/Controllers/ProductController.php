@@ -21,7 +21,7 @@ class ProductController extends Controller
             ->groupBy(function ($date) {
                 return Carbon::parse($date->created_at)->format('m');
             });
-        
+
         $taskmcount = [];
         $countArr = [];
 
