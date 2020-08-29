@@ -51,10 +51,10 @@
                 <div class="card">
                     <div class="card-header" id="headingOne">
                         <h2 class="mb-0">
-                            <button class="text-dark text-decoration-none border-0 bg-transparent h5" type="button" checked data-toggle="collapse" data-target="#simpleDocs" aria-expanded="true" aria-controls="simpleDocs">
+                            <a class="text-dark h5" type="button" checked data-toggle="collapse" data-target="#simpleDocs" aria-expanded="true" aria-controls="simpleDocs">
                                 <i class="fa fa-globe mr-1"></i>
                                 Simple Webhook
-                            </button>
+                            </a>
                         </h2>
                     </div>
                     <div id="simpleDocs" class="collapse show" aria-labelledby="headingOne" data-parent="#webhookDocs">
@@ -89,10 +89,10 @@
                 <div class="card">
                     <div class="card-header" id="headingTwo">
                         <h2 class="mb-0">
-                            <button class="text-dark text-decoration-none border-0 bg-transparent h5" type="button" data-toggle="collapse" data-target="#githubDocs" aria-expanded="false" aria-controls="githubDocs">
+                            <a class="text-dark h5" type="button" data-toggle="collapse" data-target="#githubDocs" aria-expanded="false" aria-controls="githubDocs">
                                 <i class="fa fa-github mr-1"></i>
                                 GitHub
-                            </button>
+                            </a>
                         </h2>
                     </div>
                     <div id="githubDocs" class="collapse" aria-labelledby="headingTwo" data-parent="#webhookDocs">
