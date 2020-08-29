@@ -67,4 +67,5 @@
             </li>
         </ul>
     </div>
+    @include('components.footer')
 </div>
