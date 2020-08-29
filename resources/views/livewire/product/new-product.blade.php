@@ -1,16 +1,18 @@
-<div class="row">
-    <div class="col-md-8">
-        <div class="card">
-            <div class="h5 pt-3 pb-3 text-success card-header">
-                <i class="fa fa-box-open mr-1"></i>
-                New Product
+<div wire:ignore.self class="modal" id="newProductModal" tabindex="-1" role="dialog" aria-labelledby="newProductModalTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">New Product</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
             </div>
-            <div class="card-body">
-                @include('components.alert')
-                <form wire:target="submit" wire:submit.prevent="submit">
+            <form wire:target="submit" wire:submit.prevent="submit">
+                <div class="modal-body">
+                    @include('components.alert')
                     <div class="mb-3">
                         <label class="form-label font-weight-bold">Name of the product</label>
-                        <input type="text" class="form-control @error('name') is-invalid @enderror" placeholder="Simply the name of the product" wire:model="name">
+                        <input type="text" class="form-control @error('name') is-invalid @enderror" placeholder="Simply the name of the product" wire:model.lazy="name">
                         @error('name')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -19,7 +21,7 @@
                     </div>
                     <div class="mb-3">
                         <label class="form-label font-weight-bold">Slug</label>
-                        <input type="text" class="form-control @error('slug') is-invalid @enderror" placeholder="Product Slug (/taskord)" wire:model="slug">
+                        <input type="text" class="form-control @error('slug') is-invalid @enderror" placeholder="Product Slug (/taskord)" wire:model.lazy="slug">
                         @error('slug')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -28,7 +30,7 @@
                     </div>
                     <div class="mb-3">
                         <label class="form-label font-weight-bold">Description</label>
-                        <textarea class="form-control @error('description') is-invalid @enderror" rows="3" placeholder="Some words about your awesome product" wire:model="description"></textarea>
+                        <textarea class="form-control @error('description') is-invalid @enderror" rows="3" placeholder="Some words about your awesome product" wire:model.lazy="description"></textarea>
                         @error('description')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -39,7 +41,7 @@
                         <span class="input-group-text">
                             <i class="fa fa-link"></i>
                         </span>
-                        <input type="text" class="form-control @error('website') is-invalid @enderror" placeholder="Website" wire:model="website">
+                        <input type="text" class="form-control @error('website') is-invalid @enderror" placeholder="Website" wire:model.lazy="website">
                         @error('website')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -50,7 +52,7 @@
                         <span class="input-group-text">
                             <i class="fa fa-twitter"></i>
                         </span>
-                        <input type="text" class="form-control @error('twitter') is-invalid @enderror" placeholder="Twitter" wire:model="twitter">
+                        <input type="text" class="form-control @error('twitter') is-invalid @enderror" placeholder="Twitter" wire:model.lazy="twitter">
                         @error('twitter')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -61,7 +63,7 @@
                         <span class="input-group-text">
                             <i class="fa fa-github"></i>
                         </span>
-                        <input type="text" class="form-control @error('github') is-invalid @enderror" placeholder="GitHub" wire:model="github">
+                        <input type="text" class="form-control @error('github') is-invalid @enderror" placeholder="GitHub" wire:model.lazy="github">
                         @error('github')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -72,7 +74,7 @@
                         <span class="input-group-text">
                             <i class="fa fa-product-hunt"></i>
                         </span>
-                        <input type="text" class="form-control @error('producthunt') is-invalid @enderror" placeholder="Product Hunt" wire:model="producthunt">
+                        <input type="text" class="form-control @error('producthunt') is-invalid @enderror" placeholder="Product Hunt" wire:model.lazy="producthunt">
                         @error('producthunt')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -81,40 +83,18 @@
                     </div>
                     <div class="mb-3">
                         <div class="font-weight-bold mb-2">Status</div>
-                        <input id="launched" class="form-check-input" type="checkbox" wire:model="launched">
+                        <input id="launched" class="form-check-input" type="checkbox" wire:model.lazy="launched">
                         <label for="launched" class="ml-1">This product is launched</label>
                     </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                     <button type="submit" class="btn btn-primary">
-                        Save
+                        Create Product
                         <span wire:target="submit" wire:loading class="spinner-border spinner-border-sm ml-2" role="status"></span>
                     </button>
-                </form>
-            </div>
+                </div>
+            </form>
         </div>
-    </div>
-    <div class="col-sm">
-        <div class="card mb-4">
-            <div class="card-header">
-                Preview
-            </div>
-            <ul class="list-group list-group-flush">
-                <li class="d-flex align-items-center p-3">
-                    <span class="rounded bg-secondary p-4 mt-1 ml-2" src="" height="50" width="50" /></span>
-                    <span class="ml-3">
-                        <span class="mr-2 h5 align-text-top font-weight-bold text-dark">
-                            {{ $name ? $name : 'Product Name' }}
-                            <span class="small ml-2">{{ $launched ? '🚀' : '' }}</span>
-                        </span>
-                        <div>{{ $description ? $description : 'Product Description' }}</div>
-                        <button class="btn btn-sm btn-primary mt-2">
-                            <i class="fa fa-plus mr-1"></i>
-                            Subscribe
-                        </button>
-                    </span>
-                    <img class="ml-auto rounded-circle float-right avatar-30 mt-1 ml-2" src="@auth{{ Auth::user()->avatar }}@endauth" />
-                </li>
-            </ul>
-        </div>
-        @include('components.footer')
     </div>
 </div>

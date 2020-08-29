@@ -1,4 +1,4 @@
-<li wire:poll.5s class="nav-item mr-2">
+<li class="nav-item mr-2">
     <a class="nav-link text-white" href="{{ route('notifications.unread') }}">
         {{ Emoji::bell() }}
         @auth
