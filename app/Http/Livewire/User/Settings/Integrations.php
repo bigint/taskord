@@ -3,7 +3,6 @@
 namespace App\Http\Livewire\User\Settings;
 
 use App\Models\Webhook;
-use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 
