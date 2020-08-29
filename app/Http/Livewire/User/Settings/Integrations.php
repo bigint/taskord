@@ -10,6 +10,7 @@ class Integrations extends Component
 {
     public $user;
     public $name;
+    public $type = 'web';
 
     public function mount($user)
     {
@@ -32,7 +33,7 @@ class Integrations extends Component
                     'user_id' => Auth::id(),
                     'name' => $this->name,
                     'token' => md5(uniqid(Auth::id(), true)),
-                    'type' => 'web',
+                    'type' => $this->type,
                 ]);
                 session()->flash('created', $webhook);
             } else {
