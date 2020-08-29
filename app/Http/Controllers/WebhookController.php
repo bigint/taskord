@@ -12,6 +12,18 @@ use Illuminate\Support\Facades\Request;
 
 class WebhookController extends Controller
 {
+    public function createTask($webhook, $task, $done, $done_at, $type)
+    {
+        $task = Task::create([
+            'user_id' =>  $webhook->user_id,
+            'task' => $task,
+            'done' => $done,
+            'done_at' => $done_at,
+            'type' => 'user',
+            'source' => $type,
+        ]);
+    }
+    
     public function web($token, WebhookRequest $request)
     {
         $throttler = Throttle::get(Request::instance(), 20, 5);
@@ -24,17 +36,17 @@ class WebhookController extends Controller
         }
 
         $webhook = Webhook::where('token', $token)->first();
-        if (User::find($webhook->user_id)->isFlagged) {
-            return response()->json([
-                'status' => 'failed',
-                'message' => 'Your account is flagged!',
-            ]);
-        }
-
         if (! $webhook) {
             return response()->json([
                 'status' => 'failed',
                 'message' => 'No webhook exists',
+            ]);
+        }
+        
+        if (User::find($webhook->user_id)->isFlagged) {
+            return response()->json([
+                'status' => 'failed',
+                'message' => 'Your account is flagged!',
             ]);
         }
         
@@ -54,15 +66,16 @@ class WebhookController extends Controller
             } else {
                 $done_at = null;
             }
-            $task = Task::create([
-                'user_id' =>  $webhook->user_id,
-                'task' => $request_body['task'],
-                'done' => $request_body['done'],
-                'done_at' => $done_at,
-                'type' => 'user',
-                'source' => 'Webhook',
-            ]);
-    
+            
+            $this->createTask
+            (
+                $webhook,
+                $request_body['task'],
+                $request_body['done'],
+                $done_at,
+                'Webhook'
+            );
+
             return response()->json([
                 'status' => 'success',
             ]);
@@ -73,15 +86,15 @@ class WebhookController extends Controller
             } else {
                 $task = 'Pushed '.count($request_body['commits']).' changes to '.$request_body['repository']['name'];
             }
-
-            $task = Task::create([
-                'user_id' =>  $webhook->user_id,
-                'task' => $task,
-                'done' => true,
-                'done_at' => Carbon::now(),
-                'type' => 'user',
-                'source' => 'GitHub',
-            ]);
+            
+            $this->createTask
+            (
+                $webhook,
+                $task,
+                true,
+                Carbon::now(),
+                'GitHub'
+            );
 
             return response()->json([
                 'status' => 'success',
