@@ -32,7 +32,7 @@ class WebhookController extends Controller
             return response()->json([
                 'status' => 'failed',
                 'message' => 'Your are rate limited, try again later!',
-            ]);
+            ], 429);
         }
 
         $webhook = Webhook::where('token', $token)->first();
@@ -40,14 +40,14 @@ class WebhookController extends Controller
             return response()->json([
                 'status' => 'failed',
                 'message' => 'No webhook exists',
-            ]);
+            ], 401);
         }
 
         if (User::find($webhook->user_id)->isFlagged) {
             return response()->json([
                 'status' => 'failed',
                 'message' => 'Your account is flagged!',
-            ]);
+            ], 401);
         }
 
         if ($webhook->type === 'web') {
@@ -59,7 +59,7 @@ class WebhookController extends Controller
                 return response()->json([
                     'status' => 'failed',
                     'message' => 'Invalid parameters',
-                ]);
+                ], 422);
             }
             if ($request_body['done']) {
                 $done_at = Carbon::now();
@@ -77,7 +77,7 @@ class WebhookController extends Controller
 
             return response()->json([
                 'status' => 'success',
-            ]);
+            ], 200);
         } elseif ($webhook->type === 'github') {
             $request_body = $request->json()->all();
             if (count($request_body['commits']) === 1) {
@@ -96,7 +96,7 @@ class WebhookController extends Controller
 
             return response()->json([
                 'status' => 'success',
-            ]);
+            ], 200);
         }
     }
 }
