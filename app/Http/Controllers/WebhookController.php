@@ -3,12 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\Task;
-use App\Models\Webhook;
 use App\Models\User;
+use App\Models\Webhook;
 use Carbon\Carbon;
+use GrahamCampbell\Throttle\Facades\Throttle;
 use Illuminate\Http\Request as WebhookRequest;
 use Illuminate\Support\Facades\Request;
-use GrahamCampbell\Throttle\Facades\Throttle;
 
 class WebhookController extends Controller
 {
@@ -22,7 +22,7 @@ class WebhookController extends Controller
                 'message' => 'Your are rate limited, try again later!',
             ]);
         }
-        
+
         $webhook = Webhook::where('token', $token)->first();
         if (User::find($webhook->user_id)->isFlagged) {
             return response()->json([
@@ -30,14 +30,14 @@ class WebhookController extends Controller
                 'message' => 'Your account is flagged!',
             ]);
         }
-        
+
         if (! $webhook) {
             return response()->json([
                 'status' => 'failed',
                 'message' => 'No webhook exists',
             ]);
         }
-        
+
         $request_body = $request->json()->all();
         if (
             ! array_key_exists('task', $request_body) or
