@@ -4,7 +4,7 @@ namespace App\Http\Livewire\User\Settings;
 
 use Livewire\Component;
 
-class Delete extends Component
+class Integrations extends Component
 {
     public $user;
 
