@@ -38,6 +38,12 @@
             <div>TODO</div>
         </div>
         <div class="card-body">
+            @if (count($user->webhooks) === 0)
+            @include('components.empty', [
+                'icon' => 'globe',
+                'text' => 'No webhooks found',
+            ])
+            @else
             <table class="table">
                 <thead>
                     <tr>
@@ -75,6 +81,7 @@
                     @endforeach
                 </tbody>
             </table>
+            @endif
         </div>
     </div>
 </div>
