@@ -37,33 +37,55 @@ class WebhookController extends Controller
                 'message' => 'No webhook exists',
             ]);
         }
-
-        $request_body = $request->json()->all();
-        if (
-            ! array_key_exists('task', $request_body) or
-            ! array_key_exists('done', $request_body)
-        ) {
+        
+        if ($webhook->type === 'web') {
+            $request_body = $request->json()->all();
+            if (
+                ! array_key_exists('task', $request_body) or
+                ! array_key_exists('done', $request_body)
+            ) {
+                return response()->json([
+                    'status' => 'failed',
+                    'message' => 'Invalid parameters',
+                ]);
+            }
+            if ($request_body['done']) {
+                $done_at = Carbon::now();
+            } else {
+                $done_at = null;
+            }
+            $task = Task::create([
+                'user_id' =>  $webhook->user_id,
+                'task' => $request_body['task'],
+                'done' => $request_body['done'],
+                'done_at' => $done_at,
+                'type' => 'user',
+                'source' => 'Webhook',
+            ]);
+    
             return response()->json([
-                'status' => 'failed',
-                'message' => 'Invalid parameters',
+                'status' => 'success',
+            ]);
+        } elseif ($webhook->type === 'github') {
+            $request_body = $request->json()->all();
+            if (count($request_body['commits']) === 1) {
+                $task = $request_body['commits'][0]['message']. ' on '.$request_body['repository']['name'];
+            } else {
+                $task = 'Pushed '.count($request_body['commits']).' changes to '.$request_body['repository']['name'];
+            }
+
+            $task = Task::create([
+                'user_id' =>  $webhook->user_id,
+                'task' => $task,
+                'done' => true,
+                'done_at' => Carbon::now(),
+                'type' => 'user',
+                'source' => 'GitHub',
+            ]);
+
+            return response()->json([
+                'status' => 'success',
             ]);
         }
-        if ($request_body['done']) {
-            $done_at = Carbon::now();
-        } else {
-            $done_at = null;
-        }
-        $task = Task::create([
-            'user_id' =>  $webhook->user_id,
-            'task' => $request_body['task'],
-            'done' => $request_body['done'],
-            'done_at' => $done_at,
-            'type' => 'user',
-            'source' => 'Webhook',
-        ]);
-
-        return response()->json([
-            'status' => 'success',
-        ]);
     }
 }

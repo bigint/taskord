@@ -18,8 +18,8 @@
                 </div>
                 <div class="mb-3 d-flex">
                     <span class="form-check">
-                        <input class="form-check-input" type="radio" name="exampleRadios" id="simple" value="simple" wire:model="type" checked>
-                        <label class="form-check-label" for="simple">
+                        <input class="form-check-input" type="radio" name="exampleRadios" id="web" value="web" wire:model="type" checked>
+                        <label class="form-check-label" for="web">
                             Simple Webhook
                         </label>
                     </span>
@@ -100,7 +100,9 @@
                     <tr>
                         <td>
                             @if ($webhook->type === 'web')
-                            <i title="Web | ID: {{ $webhook->id }}" class="fa fa-globe mr-1"></i>
+                            <i title="Simple Webhook | ID: {{ $webhook->id }}" class="fa fa-globe mr-1"></i>
+                            @elseif ($webhook->type === 'github')
+                            <i title="GitHub | ID: {{ $webhook->id }}" class="fa fa-github mr-1"></i>
                             @endif
                         </td>
                         <td class="font-weight-bold">

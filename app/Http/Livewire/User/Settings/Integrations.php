@@ -10,7 +10,7 @@ class Integrations extends Component
 {
     public $user;
     public $name;
-    public $type = 'simple';
+    public $type = 'web';
 
     public function mount($user)
     {
@@ -19,7 +19,6 @@ class Integrations extends Component
 
     public function submit()
     {
-        dd($this->type);
         if (Auth::check()) {
             $this->validate([
                 'name' => 'required|min:2|max:20',
@@ -34,7 +33,7 @@ class Integrations extends Component
                     'user_id' => Auth::id(),
                     'name' => $this->name,
                     'token' => md5(uniqid(Auth::id(), true)),
-                    'type' => 'web',
+                    'type' => $this->type,
                 ]);
                 session()->flash('created', $webhook);
             } else {
