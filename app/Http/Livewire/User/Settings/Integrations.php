@@ -27,8 +27,7 @@ class Integrations extends Component
                     'token' => md5(Auth::id().Carbon::now()),
                     'type' => 'web',
                 ]);
-                dd($webhook);
-                session()->flash('success', 'Webhook has been created!');
+                session()->flash('created', $webhook);
             } else {
                 return session()->flash('error', 'Forbidden!');
             }

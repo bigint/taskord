@@ -1,5 +1,4 @@
 <div class="col-md-8">
-    @include('components.alert')
     <div class="card mb-4">
         <div class="card-header pt-3 pb-3">
             <span class="h5">Integrations</span>
@@ -21,6 +20,11 @@
                     <span wire:target="submit" wire:loading class="spinner-border spinner-border-sm ml-2" role="status"></span>
                 </button>
             </form>
+            @if (session()->has('created'))
+                <div class="mt-2">
+                    {{ session('created')->name }}
+                </div>
+            @endif
         </div>
     </div>
 </div>
