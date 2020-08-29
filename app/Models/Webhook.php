@@ -12,7 +12,7 @@ class Webhook extends Model
         'token',
         'type',
     ];
-    
+
     public function user()
     {
         return $this->belongsTo(\App\Models\User::class);
