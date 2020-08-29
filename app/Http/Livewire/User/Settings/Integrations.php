@@ -38,7 +38,7 @@ class Integrations extends Component
             return session()->flash('error', 'Forbidden!');
         }
     }
-    
+
     public function deleteWebhook($id)
     {
         if (Auth::check()) {
