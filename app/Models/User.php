@@ -80,4 +80,9 @@ class User extends Authenticatable
     {
         return $this->hasOne(\App\Models\Patron::class);
     }
+    
+    public function webhooks()
+    {
+        return $this->hasMany(\App\Models\Webhook::class);
+    }
 }
