@@ -26,7 +26,7 @@
                         Here's your webhook for Taskord. Keep it secret; we won't show it to you again.
                     </span>
                     <div class="font-weight-bold text-primary font-monospace mt-2">
-                        https://taskord.com/webhook/{{ session('created')->token }}
+                        https://taskord.com/webhook/web/{{ session('created')->token }}
                     </div>
                 </div>
             @endif

@@ -43,6 +43,10 @@ Route::group(['prefix' => 'settings', 'as' => 'user.settings.', 'middleware' => 
     Route::get('delete', 'UserController@deleteSettings')->name('delete');
 });
 
+Route::group(['prefix' => 'webhook'], function () {
+    Route::post('web/{token}', 'WebhookController@web');
+});
+
 Route::get('login/{provider}', 'SocialController@redirect');
 Route::get('login/{provider}/callback', 'SocialController@Callback');
 
