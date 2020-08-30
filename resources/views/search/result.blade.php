@@ -154,8 +154,21 @@
                                             {{ Emoji::rocket() }}
                                         </a>
                                     @endif
+                                    @if ($product->deprecated)
+                                        <span class="ml-1 small" title="Deprecated">
+                                            <i class="fa fa-ghost text-danger"></i>
+                                        </span>
+                                    @endif
                                 </a>
+                                <div class="text-black-50 mb-2">
+                                    {{ "#" . $product->slug }}
+                                </div>
                                 <div>{{ $product->description }}</div>
+                                <div class="mt-2">
+                                    @livewire('product.subscribe', [
+                                        'product' => $product
+                                    ], key($product->id))
+                                </div>
                             </span>
                             <a class="ml-auto" href="{{ route('user.done', ['username' => $product->user->username]) }}">
                                 <img class="rounded-circle float-right avatar-30 mt-1 ml-2" src="{{ $product->user->avatar }}" height="50" width="50" />
