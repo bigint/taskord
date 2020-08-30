@@ -126,10 +126,8 @@
                     <div id="gitlabDocs" class="collapse" aria-labelledby="headingThree" data-parent="#webhookDocs">
                         <div class="card-body pb-0">
                             <ol>
-                                <li>Go to repository settings</li>
-                                <li>Click "Add webhook" button</li>
-                                <li>In "Payload URL" paste the URL generated below</li>
-                                <li>In "Content type" select "application/json"</li>
+                                <li>Go to Settings ➜ Webhooks</li>
+                                <li>In "URL" paste the URL generated below</li>
                                 <li>Click "Add webhook" button to save</li>
                                 <li>Voila! 🎉</li>
                             </ol>
