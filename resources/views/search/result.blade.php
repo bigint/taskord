@@ -187,7 +187,7 @@
                     <li class="list-group-item">
                         <div class="d-flex align-items-center">
                             <a href="{{ route('user.done', ['username' => $user->username]) }}">
-                                <img class="rounded avatar-50 mt-1 ml-2" src="{{ $user->avatar }}" height="50" width="50" />
+                                <img class="rounded-circle avatar-50 mt-1 ml-2" src="{{ $user->avatar }}" height="50" width="50" />
                             </a>
                             <span class="ml-3">
                                 <a href="{{ route('user.done', ['username' => $user->username]) }}" class="mr-2 h5 align-text-top font-weight-bold text-dark">
