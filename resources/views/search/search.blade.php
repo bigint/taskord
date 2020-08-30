@@ -14,6 +14,7 @@
                 @csrf
                 <div class="input-group">
                     <input type="text" class="form-control" name="q" placeholder="Search Taskord">
+                    <button type="submit" class="btn btn-secondary">Search</button>
                 </div>
             </form>
         </div>
