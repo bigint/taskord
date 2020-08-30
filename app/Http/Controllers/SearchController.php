@@ -4,9 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Answer;
 use App\Models\Comment;
+use App\Models\Product;
 use App\Models\Question;
 use App\Models\Task;
-use App\Models\Product;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -14,13 +14,14 @@ class SearchController extends Controller
 {
     public function search()
     {
-        $phrases = array (
+        $phrases = [
             number_format(Task::count('id')).' tasks',
             number_format(Comment::count('id')).' task comments',
             number_format(Question::count('id')).' questions',
             number_format(User::count('id')).' users',
             number_format(Product::count('id')).' products',
-        );
+        ];
+
         return view('search.search', [
             'random' => $phrases[array_rand($phrases)],
         ]);
