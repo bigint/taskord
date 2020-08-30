@@ -20,7 +20,7 @@
             <form action="/search/tasks" method="GET" role="search">
                 @csrf
                 <div class="input-group mt-3">
-                    <input type="text" class="form-control" name="q" placeholder="Search Taskord">
+                    <input type="text" class="form-control" name="q" placeholder="Search Taskord" autofocus>
                     <button type="submit" class="btn btn-secondary">Search</button>
                 </div>
             </form>
