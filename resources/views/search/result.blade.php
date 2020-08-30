@@ -125,6 +125,30 @@
                 </div>
                 @endif
             @endif
+            
+            @if ($type === 'products')
+                <form action="/search/products" method="GET" role="search">
+                    @csrf
+                    <div class="input-group mb-4">
+                        <input type="text" class="form-control" name="q" value="{{ $searchTerm }}" placeholder="Search answers">
+                        <button type="submit" class="btn btn-secondary">Search</button>
+                    </div>
+                </form>
+                @if (!$products)
+                @include('components.empty', [
+                    'icon' => 'search',
+                    'text' => 'We couldn’t find any products matching "'.$searchTerm.'"',
+                ])
+                @else
+                @foreach ($products as $products)
+                    <div class="card mb-2">
+                        {{ $products }}
+                    </div>
+                @endforeach
+                <div class="mt-3">
+                </div>
+                @endif
+            @endif
         </div>
     </div>
 </div>

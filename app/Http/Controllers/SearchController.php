@@ -131,6 +131,27 @@ class SearchController extends Controller
 
     public function products(Request $request)
     {
+        $searchTerm = $request->input('q');
+        if ($searchTerm) {
+            $products = Product::whereHas('user', function ($q) {
+                $q->where([
+                    ['isFlagged', false],
+                ]);
+            })
+                ->where('name', 'LIKE', '%'.$searchTerm.'%')
+                ->paginate(10);
+            if (count($products) === 0) {
+                $products = null;
+            }
+        } else {
+            return redirect()->route('search.home');
+        }
+
+        return view('search.result', [
+            'type' => 'products',
+            'searchTerm' => $searchTerm,
+            'products' =>  $products,
+        ]);
     }
 
     public function users(Request $request)

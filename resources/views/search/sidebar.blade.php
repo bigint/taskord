@@ -32,15 +32,15 @@
             @auth
             @if (Auth::user()->staffShip)
             <a
-                class="list-group-item text-dark pt-2 pb-2 @if (Route::currentRouteName() === 'search.tasks') active text-white @endif"
-                href="{{ route('search.tasks') }}"
+                class="list-group-item text-dark pt-2 pb-2 @if (Route::currentRouteName() === 'search.products') active text-white @endif"
+                href="{{ route('search.products', ['q' => $searchTerm]) }}"
             >
                 <i class="fa fa-box-open mr-1"></i>
                 Products
             </a>
             <a
-                class="list-group-item text-dark pt-2 pb-2 @if (Route::currentRouteName() === 'search.tasks') active text-white @endif"
-                href="{{ route('search.tasks') }}"
+                class="list-group-item text-dark pt-2 pb-2 @if (Route::currentRouteName() === 'search.users') active text-white @endif"
+                href="{{ route('search.users', ['q' => $searchTerm]) }}"
             >
                 <i class="fa fa-users mr-1"></i>
                 Users
