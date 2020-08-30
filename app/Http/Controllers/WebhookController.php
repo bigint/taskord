@@ -74,7 +74,7 @@ class WebhookController extends Controller
             return response()->json([
                 'status' => 'success',
             ], 200);
-        } elseif ($webhook->type === 'github') {
+        } elseif ($webhook->type === 'github' or $webhook->type === 'gitlab') {
             if ($request->header('X-GitHub-Event') === 'ping') {
                 return response()->json([
                     'message' => 'Webhook Connected!',
@@ -93,7 +93,7 @@ class WebhookController extends Controller
                 $task,
                 true,
                 Carbon::now(),
-                'GitHub'
+                $webhook->type === 'github' ? 'GitHub' : 'GitLab'
             );
 
             return response()->json([
