@@ -2,7 +2,7 @@
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">New Question</h5>
+                <h5 class="modal-title">New Deal</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
                 </button>
@@ -28,20 +28,6 @@
                             </span>
                         @enderror
                     </div>
-                    @if ($body)
-                    <div>
-                        <div class="h6 font-weight-bold mb-3">
-                            <i class="fab fa-markdown mr-1"></i>
-                            Markdown Preview
-                        </div>
-                        <span class="task-font">@markdown($body)</span>
-                    </div>
-                    @else
-                    <div class="h6 font-weight-bold mb-3">
-                        <i class="fab fa-markdown mr-1"></i>
-                        Markdown is supported
-                    </div>
-                    @endif
                     @auth
                     @if (Auth::user()->isPatron)
                     <div class="mb-3">

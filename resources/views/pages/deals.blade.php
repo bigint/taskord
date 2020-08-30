@@ -12,6 +12,15 @@
         <div class="card-header pt-3 pb-3">
             <span class="h5">Deals</span>
             <div>Sub-heading</div>
+            @auth
+            @if (Auth::user()->staffShip)
+            <button type="button" class="mt-2 btn btn-success text-white" data-toggle="modal" data-target="#newQuestionModal">
+                <i class="fa fa-plus"></i>
+                Ask a Deal
+            </button>
+            @livewire('pages.create-deal')
+            @endif
+            @endauth
         </div>
         <div class="card-body">
             Soon
