@@ -12,20 +12,10 @@
             <div class="mb-3">
                 <textarea placeholder="Add a answer" class="form-control" rows="3" wire:model.lazy="answer"></textarea>
             </div>
-            @if ($answer)
-            <div>
-                <div class="h6 font-weight-bold mb-3">
-                    <i class="fab fa-markdown mr-1"></i>
-                    Markdown Preview
-                </div>
-                <span class="task-font">@markdown($answer)</span>
-            </div>
-            @else
             <div class="h6 font-weight-bold mb-3">
                 <i class="fab fa-markdown mr-1"></i>
                 Markdown is supported
             </div>
-            @endif
             <button class="btn btn-sm btn-primary" type="submit" wire:click="submit">
                 <i class="fa fa-plus mr-1"></i>
                 Add answer
