@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
-@section('pageTitle', 'Search ·')
-@section('title', 'Search ·')
+@section('pageTitle', 'Search · '.$searchTerm.' ·')
+@section('title', 'Search · '.$searchTerm.' ·')
 @section('description', 'Browse questions and discuss, answer, give feedbacks, etc.')
 @section('image', '')
 @section('url', url()->current())
