@@ -48,8 +48,7 @@ Test:
     - sudo npm install
     - npm run production
     - php artisan migrate:fresh --seed
-    - php artisan test
-  allow_failure: true
+    - vendor/bin/phpunit --coverage-text --colors=never
 
 Housekeeping:
   stage: deploy
