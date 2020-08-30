@@ -130,7 +130,50 @@
                 <form action="/search/products" method="GET" role="search">
                     @csrf
                     <div class="input-group mb-4">
-                        <input type="text" class="form-control" name="q" value="{{ $searchTerm }}" placeholder="Search answers">
+                        <input type="text" class="form-control" name="q" value="{{ $searchTerm }}" placeholder="Search products">
+                        <button type="submit" class="btn btn-secondary">Search</button>
+                    </div>
+                </form>
+                @if (!$products)
+                @include('components.empty', [
+                    'icon' => 'search',
+                    'text' => 'We couldn’t find any products matching "'.$searchTerm.'"',
+                ])
+                @else
+                @foreach ($products as $product)
+                    <li class="list-group-item">
+                        <div class="d-flex align-items-center">
+                            <a href="{{ route('product.done', ['slug' => $product->slug]) }}">
+                                <img class="rounded avatar-50 mt-1 ml-2" src="{{ $product->avatar }}" height="50" width="50" />
+                            </a>
+                            <span class="ml-3">
+                                <a href="{{ route('product.done', ['slug' => $product->slug]) }}" class="mr-2 h5 align-text-top font-weight-bold text-dark">
+                                    {{ $product->name }}
+                                    @if ($product->launched)
+                                        <a href="{{ route('products.launched') }}" class="small" data-toggle="tooltip" data-placement="right" title="Launched">
+                                            {{ Emoji::rocket() }}
+                                        </a>
+                                    @endif
+                                </a>
+                                <div>{{ $product->description }}</div>
+                            </span>
+                            <a class="ml-auto" href="{{ route('user.done', ['username' => $product->user->username]) }}">
+                                <img class="rounded-circle float-right avatar-30 mt-1 ml-2" src="{{ $product->user->avatar }}" height="50" width="50" />
+                            </a>
+                        </div>
+                    </li>
+                @endforeach
+                <div class="mt-3">
+                    {{ $products->appends(request()->input())->links() }}
+                </div>
+                @endif
+            @endif
+            
+            @if ($type === 'users')
+                <form action="/search/users" method="GET" role="search">
+                    @csrf
+                    <div class="input-group mb-4">
+                        <input type="text" class="form-control" name="q" value="{{ $searchTerm }}" placeholder="Search users">
                         <button type="submit" class="btn btn-secondary">Search</button>
                     </div>
                 </form>

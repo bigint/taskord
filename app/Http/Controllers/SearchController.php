@@ -156,5 +156,26 @@ class SearchController extends Controller
 
     public function users(Request $request)
     {
+        $searchTerm = $request->input('q');
+        if ($searchTerm) {
+            $users = User::whereHas('user', function ($q) {
+                $q->where([
+                    ['isFlagged', false],
+                ]);
+            })
+                ->where('username', 'LIKE', '%'.$searchTerm.'%')
+                ->paginate(10);
+            if (count($users) === 0) {
+                $users = null;
+            }
+        } else {
+            return redirect()->route('search.home');
+        }
+
+        return view('search.result', [
+            'type' => 'users',
+            'searchTerm' => $searchTerm,
+            'users' =>  $users,
+        ]);
     }
 }
