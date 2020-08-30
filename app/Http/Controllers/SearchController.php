@@ -159,6 +159,8 @@ class SearchController extends Controller
         $searchTerm = $request->input('q');
         if ($searchTerm) {
             $users = User::where('username', 'LIKE', '%'.$searchTerm.'%')
+                ->orWhere('firstname', 'LIKE', '%'.$searchTerm.'%')
+                ->orWhere('lastname', 'LIKE', '%'.$searchTerm.'%')
                 ->paginate(10);
             if (count($users) === 0) {
                 $users = null;
