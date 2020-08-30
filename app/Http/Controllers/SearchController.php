@@ -158,12 +158,7 @@ class SearchController extends Controller
     {
         $searchTerm = $request->input('q');
         if ($searchTerm) {
-            $users = User::whereHas('user', function ($q) {
-                $q->where([
-                    ['isFlagged', false],
-                ]);
-            })
-                ->where('username', 'LIKE', '%'.$searchTerm.'%')
+            $users = User::where('username', 'LIKE', '%'.$searchTerm.'%')
                 ->paginate(10);
             if (count($users) === 0) {
                 $users = null;
