@@ -30,11 +30,13 @@
                         <span class="form-file-button">Browse</span>
                     </label>
                 </div>
+                @auth
                 @if (!Auth::user()->checkState)
                 <div class="form-group ml-auto mr-2 d-none d-sm-block">
                     <input class="form-control form-control-sm" wire:model.lazy="due_at" type="date" placeholder="Due date" />
                 </div>
                 @endif
+                @endauth
                 <button wire:loading.attr="disabled" wire:offline.attr="disabled" class="btn btn-sm btn-primary" type="submit">
                     <i class="fa fa-plus mr-1"></i>
                     Add Task
