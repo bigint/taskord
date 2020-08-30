@@ -13,11 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Auth::routes([
-    'register' => false,
-    'reset' => false,
-    'verify' => false,
-]);
+Auth::routes();
 
 Route::get('/', 'HomeController@index')->name('home');
 Route::get('suspended', 'UserController@suspended')->name('suspended');

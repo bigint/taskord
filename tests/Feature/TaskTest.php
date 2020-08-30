@@ -28,7 +28,10 @@ class TaskTest extends TestCase
 
     public function test_create_task()
     {
-        Livewire::test(CreateTask::class)
+        Livewire::test(CreateTask::class, [
+                'type' => 'user',
+                'product_id' => null,
+            ])
             ->set('task', md5(microtime()))
             ->call('submit')
             ->assertSeeHtml('Forbidden!');
@@ -39,7 +42,10 @@ class TaskTest extends TestCase
         $user = User::where(['email' => 'test@taskord.com'])->first();
         $this->actingAs($user);
 
-        Livewire::test(CreateTask::class)
+        Livewire::test(CreateTask::class, [
+                'type' => 'user',
+                'product_id' => null,
+            ])
             ->set('task', md5(microtime()))
             ->call('submit')
             ->assertSeeHtml('Task has been created!');
@@ -50,7 +56,10 @@ class TaskTest extends TestCase
         $user = User::where(['email' => 'test@taskord.com'])->first();
         $this->actingAs($user);
 
-        Livewire::test(CreateTask::class)
+        Livewire::test(CreateTask::class, [
+                'type' => 'user',
+                'product_id' => null,
+            ])
             ->call('submit')
             ->assertHasErrors([
                 'task' => 'required',
@@ -65,6 +74,7 @@ class TaskTest extends TestCase
         $task = Task::create([
             'user_id' => $user->id,
             'task' => md5(microtime()),
+            'source' => 'PHPUnit',
             'done' => true,
         ]);
 
@@ -80,6 +90,7 @@ class TaskTest extends TestCase
         $task = Task::create([
             'user_id' => 2,
             'task' => md5(microtime()),
+            'source' => 'PHPUnit',
             'done' => true,
         ]);
 
@@ -95,6 +106,7 @@ class TaskTest extends TestCase
         $task = Task::create([
             'user_id' => $user->id,
             'task' => md5(microtime()),
+            'source' => 'PHPUnit',
             'done' => true,
         ]);
 
