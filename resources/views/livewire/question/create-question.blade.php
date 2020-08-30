@@ -28,20 +28,10 @@
                             </span>
                         @enderror
                     </div>
-                    @if ($body)
-                    <div>
-                        <div class="h6 font-weight-bold mb-3">
-                            <i class="fab fa-markdown mr-1"></i>
-                            Markdown Preview
-                        </div>
-                        <span class="task-font">@markdown($body)</span>
-                    </div>
-                    @else
                     <div class="h6 font-weight-bold mb-3">
                         <i class="fab fa-markdown mr-1"></i>
                         Markdown is supported
                     </div>
-                    @endif
                     @auth
                     @if (Auth::user()->isPatron)
                     <div class="mb-3">
