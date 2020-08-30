@@ -15,6 +15,12 @@ class CreateDealsTable extends Migration
     {
         Schema::create('deals', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->integer('offer');
+            $table->text('description');
+            $table->string('website');
+            $table->string('coupon');
+            $table->string('logo');
             $table->timestamps();
         });
     }
