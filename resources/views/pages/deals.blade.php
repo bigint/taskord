@@ -31,7 +31,7 @@
                     <div>
                         <img class="rounded avatar-100" src="{{ $deal->logo }}" />
                     </div>
-                    <div class="ml-3">
+                    <div class="ml-4">
                         <span class="h4">
                             {{ $deal->name }}
                         </span>
