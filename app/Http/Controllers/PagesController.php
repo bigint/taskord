@@ -28,6 +28,11 @@ class PagesController extends Controller
     {
         return view('pages/security');
     }
+    
+    public function deals()
+    {
+        return view('pages/deals');
+    }
 
     public function open()
     {
