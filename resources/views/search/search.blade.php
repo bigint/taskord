@@ -13,8 +13,7 @@
             <form action="/search/tasks" method="GET" role="search">
                 @csrf
                 <div class="input-group">
-                    <input type="text" class="form-control" name="q" placeholder="Search users">
-                    </span>
+                    <input type="text" class="form-control" name="q" placeholder="Search Taskord">
                 </div>
             </form>
         </div>
