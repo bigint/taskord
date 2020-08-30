@@ -11,6 +11,14 @@ use Tests\TestCase;
 
 class QuestionTest extends TestCase
 {
+    public $user;
+
+    public function setUp(): void
+    {
+        parent::setUp();
+        $this->user = User::where(['email' => 'test@taskord.com'])->first();
+    }
+    
     public function test_question_url()
     {
         $response = $this->get(route('question.question', ['id' => 1]));
@@ -37,8 +45,7 @@ class QuestionTest extends TestCase
 
     public function test_auth_create_question()
     {
-        $user = User::where(['email' => 'test@taskord.com'])->first();
-        $this->actingAs($user);
+        $this->actingAs($this->user);
 
         Livewire::test(CreateQuestion::class)
             ->set('title', md5(microtime()))
@@ -51,8 +58,7 @@ class QuestionTest extends TestCase
 
     public function test_auth_create_question_required()
     {
-        $user = User::where(['email' => 'test@taskord.com'])->first();
-        $this->actingAs($user);
+        $this->actingAs($this->user);
 
         Livewire::test(CreateQuestion::class)
             ->call('submit')
@@ -66,10 +72,9 @@ class QuestionTest extends TestCase
 
     public function test_praise_question()
     {
-        $user = User::where(['email' => 'test@taskord.com'])->first();
-        $this->actingAs($user);
+        $this->actingAs($this->user);
         $question = Question::create([
-            'user_id' =>  $user->id,
+            'user_id' =>  $this->user->id,
             'title' => md5(microtime()),
             'body' => md5(microtime()),
         ]);
@@ -91,8 +96,7 @@ class QuestionTest extends TestCase
 
     public function test_praise_others_question()
     {
-        $user = User::where(['email' => 'test@taskord.com'])->first();
-        $this->actingAs($user);
+        $this->actingAs($this->user);
         $question = Question::create([
             'user_id' => 2,
             'title' => md5(microtime()),
@@ -139,10 +143,9 @@ class QuestionTest extends TestCase
 
     public function test_auth_delete_question()
     {
-        $user = User::where(['email' => 'test@taskord.com'])->first();
-        $this->actingAs($user);
+        $this->actingAs($this->user);
         $question = Question::create([
-            'user_id' => $user->id,
+            'user_id' => $this->user->id,
             'title' => md5(microtime()),
             'body' => md5(microtime()),
         ]);
@@ -154,7 +157,7 @@ class QuestionTest extends TestCase
             ->call('deleteQuestion');
 
         $question = Question::create([
-            'user_id' => $user->id,
+            'user_id' => $this->user->id,
             'title' => md5(microtime()),
             'body' => md5(microtime()),
         ]);

@@ -12,6 +12,14 @@ use Tests\TestCase;
 
 class CommentTest extends TestCase
 {
+    public $user;
+
+    public function setUp(): void
+    {
+        parent::setUp();
+        $this->user = User::where(['email' => 'test@taskord.com'])->first();
+    }
+    
     public function test_create_comment()
     {
         $task = Task::create([
@@ -29,8 +37,7 @@ class CommentTest extends TestCase
 
     public function test_auth_create_comment()
     {
-        $user = User::where(['email' => 'test@taskord.com'])->first();
-        $this->actingAs($user);
+        $this->actingAs($this->user);
         $task = Task::create([
             'user_id' => 1,
             'task' => md5(microtime()),
@@ -46,8 +53,7 @@ class CommentTest extends TestCase
 
     public function test_auth_create_comment_required()
     {
-        $user = User::where(['email' => 'test@taskord.com'])->first();
-        $this->actingAs($user);
+        $this->actingAs($this->user);
         $task = Task::create([
             'user_id' => 1,
             'task' => md5(microtime()),
@@ -65,10 +71,9 @@ class CommentTest extends TestCase
 
     public function test_praise_comment()
     {
-        $user = User::where(['email' => 'test@taskord.com'])->first();
-        $this->actingAs($user);
+        $this->actingAs($this->user);
         $task_comment = Comment::create([
-            'user_id' =>  $user->id,
+            'user_id' =>  $this->user->id,
             'task_id' =>  1,
             'comment' => md5(microtime()),
         ]);
@@ -80,8 +85,7 @@ class CommentTest extends TestCase
 
     public function test_praise_others_task_comment()
     {
-        $user = User::where(['email' => 'test@taskord.com'])->first();
-        $this->actingAs($user);
+        $this->actingAs($this->user);
         $task_comment = Comment::create([
             'user_id' =>  2,
             'task_id' =>  1,
@@ -108,10 +112,9 @@ class CommentTest extends TestCase
 
     public function test_auth_delete_task_comment()
     {
-        $user = User::where(['email' => 'test@taskord.com'])->first();
-        $this->actingAs($user);
+        $this->actingAs($this->user);
         $task_comment = Comment::create([
-            'user_id' =>  $user->id,
+            'user_id' =>  $this->user->id,
             'task_id' =>  1,
             'comment' => md5(microtime()),
         ]);

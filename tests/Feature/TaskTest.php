@@ -11,6 +11,14 @@ use Tests\TestCase;
 
 class TaskTest extends TestCase
 {
+    public $user;
+
+    public function setUp(): void
+    {
+        parent::setUp();
+        $this->user = User::where(['email' => 'test@taskord.com'])->first();
+    }
+    
     public function test_task_url()
     {
         $response = $this->get(route('task', ['id' => 1]));
@@ -39,8 +47,7 @@ class TaskTest extends TestCase
 
     public function test_auth_create_task()
     {
-        $user = User::where(['email' => 'test@taskord.com'])->first();
-        $this->actingAs($user);
+        $this->actingAs($this->user);
 
         Livewire::test(CreateTask::class, [
             'type' => 'user',
@@ -53,8 +60,7 @@ class TaskTest extends TestCase
 
     public function test_auth_create_task_required()
     {
-        $user = User::where(['email' => 'test@taskord.com'])->first();
-        $this->actingAs($user);
+        $this->actingAs($this->user);
 
         Livewire::test(CreateTask::class, [
             'type' => 'user',
@@ -69,10 +75,9 @@ class TaskTest extends TestCase
 
     public function test_praise_task()
     {
-        $user = User::where(['email' => 'test@taskord.com'])->first();
-        $this->actingAs($user);
+        $this->actingAs($this->user);
         $task = Task::create([
-            'user_id' => $user->id,
+            'user_id' => $this->user->id,
             'task' => md5(microtime()),
             'source' => 'PHPUnit',
             'done' => true,
@@ -85,8 +90,7 @@ class TaskTest extends TestCase
 
     public function test_praise_others_task()
     {
-        $user = User::where(['email' => 'test@taskord.com'])->first();
-        $this->actingAs($user);
+        $this->actingAs($this->user);
         $task = Task::create([
             'user_id' => 2,
             'task' => md5(microtime()),
@@ -101,10 +105,9 @@ class TaskTest extends TestCase
 
     public function test_delete_task()
     {
-        $user = User::where(['email' => 'test@taskord.com'])->first();
-        $this->actingAs($user);
+        $this->actingAs($this->user);
         $task = Task::create([
-            'user_id' => $user->id,
+            'user_id' => $this->user->id,
             'task' => md5(microtime()),
             'source' => 'PHPUnit',
             'done' => true,

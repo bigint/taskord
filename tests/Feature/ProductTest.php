@@ -10,6 +10,14 @@ use Tests\TestCase;
 
 class ProductTest extends TestCase
 {
+    public $user;
+
+    public function setUp(): void
+    {
+        parent::setUp();
+        $this->user = User::where(['email' => 'test@taskord.com'])->first();
+    }
+    
     public function test_product_done_url()
     {
         $response = $this->get(route('product.done', ['slug' => 'taskord']));
@@ -68,8 +76,7 @@ class ProductTest extends TestCase
 
     public function test_auth_product_update()
     {
-        $user = User::where(['email' => 'test@taskord.com'])->first();
-        $this->actingAs($user);
+        $this->actingAs($this->user);
         $product = Product::where(['slug' => 'taskord'])->first();
 
         Livewire::test(NewUpdate::class, ['product' => $product])
@@ -83,8 +90,7 @@ class ProductTest extends TestCase
 
     public function test_auth_product_update_required()
     {
-        $user = User::where(['email' => 'test@taskord.com'])->first();
-        $this->actingAs($user);
+        $this->actingAs($this->user);
         $product = Product::where(['slug' => 'taskord'])->first();
 
         Livewire::test(NewUpdate::class, ['product' => $product])

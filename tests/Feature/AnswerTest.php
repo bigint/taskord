@@ -12,6 +12,14 @@ use Tests\TestCase;
 
 class AnswerTest extends TestCase
 {
+    public $user;
+
+    public function setUp(): void
+    {
+        parent::setUp();
+        $this->user = User::where(['email' => 'test@taskord.com'])->first();
+    }
+    
     public function test_create_answer()
     {
         $question = Question::create([
@@ -28,8 +36,7 @@ class AnswerTest extends TestCase
 
     public function test_auth_create_answer()
     {
-        $user = User::where(['email' => 'test@taskord.com'])->first();
-        $this->actingAs($user);
+        $this->actingAs($this->user);
         $question = Question::create([
             'user_id' => 1,
             'title' => md5(microtime()),
@@ -44,8 +51,7 @@ class AnswerTest extends TestCase
 
     public function test_auth_create_answer_required()
     {
-        $user = User::where(['email' => 'test@taskord.com'])->first();
-        $this->actingAs($user);
+        $this->actingAs($this->user);
         $question = Question::create([
             'user_id' => 1,
             'title' => md5(microtime()),
@@ -62,10 +68,9 @@ class AnswerTest extends TestCase
 
     public function test_praise_answer()
     {
-        $user = User::where(['email' => 'test@taskord.com'])->first();
-        $this->actingAs($user);
+        $this->actingAs($this->user);
         $answer = Answer::create([
-            'user_id' =>  $user->id,
+            'user_id' =>  $this->user->id,
             'question_id' =>  1,
             'answer' => md5(microtime()),
         ]);
@@ -77,8 +82,7 @@ class AnswerTest extends TestCase
 
     public function test_praise_others_answer()
     {
-        $user = User::where(['email' => 'test@taskord.com'])->first();
-        $this->actingAs($user);
+        $this->actingAs($this->user);
         $answer = Answer::create([
             'user_id' =>  2,
             'question_id' =>  1,
@@ -105,8 +109,7 @@ class AnswerTest extends TestCase
 
     public function test_auth_delete_answer()
     {
-        $user = User::where(['email' => 'test@taskord.com'])->first();
-        $this->actingAs($user);
+        $this->actingAs($this->user);
         $answer = Answer::create([
             'user_id' =>  1,
             'question_id' =>  1,
