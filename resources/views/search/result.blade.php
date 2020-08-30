@@ -191,7 +191,11 @@
                             </a>
                             <span class="ml-3">
                                 <a href="{{ route('user.done', ['username' => $user->username]) }}" class="mr-2 h5 align-text-top font-weight-bold text-dark">
-                                    {{ $user->username }}
+                                    @if ($user->firstname or $user->lastname)
+                                        {{ $user->firstname }}{{ ' '.$user->lastname }}
+                                    @else
+                                        {{ $user->username }}
+                                    @endif
                                 </a>
                                 <div>{{ $user->bio }}</div>
                             </span>
