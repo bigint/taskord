@@ -18,7 +18,7 @@ class QuestionTest extends TestCase
         parent::setUp();
         $this->user = User::where(['email' => 'test@taskord.com'])->first();
     }
-    
+
     public function test_question_url()
     {
         $response = $this->get(route('question.question', ['id' => 1]));

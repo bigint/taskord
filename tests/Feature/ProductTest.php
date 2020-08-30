@@ -17,7 +17,7 @@ class ProductTest extends TestCase
         parent::setUp();
         $this->user = User::where(['email' => 'test@taskord.com'])->first();
     }
-    
+
     public function test_product_done_url()
     {
         $response = $this->get(route('product.done', ['slug' => 'taskord']));

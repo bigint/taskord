@@ -14,7 +14,7 @@ class SettingsTest extends TestCase
         parent::setUp();
         $this->user = User::where(['email' => 'test@taskord.com'])->first();
     }
-    
+
     public function test_profile_settings_url()
     {
         $response = $this->get(route('user.settings.profile'));
