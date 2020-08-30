@@ -17,6 +17,7 @@ class CommentTest extends TestCase
         $task = Task::create([
             'user_id' => 1,
             'task' => md5(microtime()),
+            'source' => 'PHPUnit',
             'done' => true,
         ]);
 
@@ -33,6 +34,7 @@ class CommentTest extends TestCase
         $task = Task::create([
             'user_id' => 1,
             'task' => md5(microtime()),
+            'source' => 'PHPUnit',
             'done' => true,
         ]);
 
@@ -49,6 +51,7 @@ class CommentTest extends TestCase
         $task = Task::create([
             'user_id' => 1,
             'task' => md5(microtime()),
+            'source' => 'PHPUnit',
             'done' => true,
         ]);
 

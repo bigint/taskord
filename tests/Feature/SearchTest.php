@@ -19,6 +19,7 @@ class SearchTest extends TestCase
         Task::create([
             'user_id' => 1,
             'task' => 'Test Search',
+            'source' => 'PHPUnit',
             'done' => true,
         ]);
 
