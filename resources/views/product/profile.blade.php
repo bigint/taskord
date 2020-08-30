@@ -26,8 +26,9 @@
                 {{ $product->description }}
             </div>
             @endif
-            <div class="small mt-3 text-black-50">
-                <span class="mr-3">{{ Emoji::calendar() }} Lauched at {{ Carbon::parse($product->launched_at)->format("F Y") }}</span>
+            <div class="small mt-3">
+                <i class="fa fa-calendar-alt mr-1 text-black-50"></i>
+                <span>Lauched at {{ Carbon::parse($product->launched_at)->format("F Y") }}</span>
             </div>
         </div>
     </div>

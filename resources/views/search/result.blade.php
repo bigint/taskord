@@ -164,7 +164,11 @@
                                     {{ "#" . $product->slug }}
                                 </div>
                                 <div>{{ $product->description }}</div>
-                                <div class="mt-2">
+                                <div class="small mt-2">
+                                    <i class="fa fa-calendar-alt mr-1 text-black-50"></i>
+                                    <span>Lauched at {{ Carbon::parse($product->launched_at)->format("F Y") }}</span>
+                                </div>
+                                <div class="mt-3">
                                     @livewire('product.subscribe', [
                                         'product' => $product
                                     ], key($product->id))
