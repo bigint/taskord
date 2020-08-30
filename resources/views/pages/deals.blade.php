@@ -11,7 +11,7 @@
     <div class="card">
         <div class="card-header pt-3 pb-3">
             <span class="h5">Deals</span>
-            <div>Sub-heading</div>
+            <div>Discounts and special deals for Taskord members. Only available for patrons.</div>
             @auth
             @if (Auth::user()->staffShip)
             <button type="button" class="mt-2 btn btn-success text-white" data-toggle="modal" data-target="#newQuestionModal">
@@ -58,6 +58,7 @@
                             <a class="text-black-50" href="{{ route('login') }}">Login to view coupon code.</a>
                         </div>
                         @endguest
+                        @auth
                         @if (Auth::user()->staffShip)
                             <div class="mt-3">
                                 <code>
@@ -65,6 +66,7 @@
                                 </code>
                             </div>
                         @endif
+                        @endauth
                     </div>
                 </div>
             @endforeach
