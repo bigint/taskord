@@ -12,7 +12,7 @@
                     @include('components.alert')
                     <div class="mb-3">
                         <label class="form-label font-weight-bold">Title</label>
-                        <input type="text" value="{{ $title }}" class="form-control @error('title') is-invalid @enderror" placeholder="Ask and discuss!" wire:model="title">
+                        <input type="text" value="{{ $title }}" class="form-control @error('title') is-invalid @enderror" placeholder="Ask and discuss!" wire:model.lazy="title">
                         @error('title')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -21,7 +21,7 @@
                     </div>
                     <div class="mb-3">
                         <label class="form-label font-weight-bold">Body</label>
-                        <textarea class="form-control @error('body') is-invalid @enderror" rows="6" placeholder="What's on your mind?" wire:model="body">{{ $body }}</textarea>
+                        <textarea class="form-control @error('body') is-invalid @enderror" rows="6" placeholder="What's on your mind?" wire:model.lazy="body">{{ $body }}</textarea>
                         @error('body')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -34,7 +34,7 @@
                     </div>
                     <div class="mb-3">
                         <div class="font-weight-bold mb-2">Patron only</div>
-                        <input id="patronOnly" class="form-check-input" type="checkbox" wire:model="patronOnly">
+                        <input id="patronOnly" class="form-check-input" type="checkbox" wire:model.lazy="patronOnly">
                         <label for="patronOnly" class="ml-1">This question will visible only for patrons</label>
                     </div>
                 </div>
