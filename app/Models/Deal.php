@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Deals extends Model
+class Deal extends Model
 {
     protected $fillable = [
         'name',

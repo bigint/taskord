@@ -13,18 +13,6 @@ class CreateQuestion extends Component
     public $body;
     public $patronOnly;
 
-    public function updated($field)
-    {
-        if (Auth::check()) {
-            $this->validateOnly($field, [
-                'title' => 'required|min:5|max:100',
-                'body' => 'required|min:3|max:10000',
-            ]);
-        } else {
-            session()->flash('error', 'Forbidden!');
-        }
-    }
-
     public function submit()
     {
         if (Auth::check()) {
