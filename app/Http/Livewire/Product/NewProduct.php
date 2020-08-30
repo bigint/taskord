@@ -18,23 +18,6 @@ class NewProduct extends Component
     public $producthunt;
     public $launched;
 
-    public function updated($field)
-    {
-        if (Auth::check()) {
-            $this->validateOnly($field, [
-                'name' => 'required',
-                'slug' => 'required|min:3|max:20|unique:products|alpha_dash',
-                'description' => 'nullable',
-                'website' => 'nullable|active_url',
-                'twitter' => 'nullable|alpha_dash|max:30',
-                'github' => 'nullable|alpha_dash|max:30',
-                'producthunt' => 'nullable|alpha_dash|max:30',
-            ]);
-        } else {
-            session()->flash('error', 'Forbidden!');
-        }
-    }
-
     public function submit()
     {
         if (Auth::check()) {
