@@ -212,6 +212,9 @@
                                     @endif
                                     @endauth
                                 </a>
+                                <div class="text-black-50 mb-2">
+                                    {{ "@" . $user->username }}
+                                </div>
                                 <div>{{ $user->bio }}</div>
                                 <div class="small mt-2">
                                     <span>
