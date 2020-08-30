@@ -167,6 +167,8 @@
                             <i title="Simple Webhook | ID: {{ $webhook->id }}" class="fa fa-globe mr-1"></i>
                             @elseif ($webhook->type === 'github')
                             <i title="GitHub | ID: {{ $webhook->id }}" class="fa fa-github mr-1"></i>
+                            @elseif ($webhook->type === 'gitlab')
+                            <i title="GitLab | ID: {{ $webhook->id }}" class="fa fa-gitlab mr-1"></i>
                             @endif
                         </td>
                         <td class="font-weight-bold">
