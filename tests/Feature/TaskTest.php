@@ -29,9 +29,9 @@ class TaskTest extends TestCase
     public function test_create_task()
     {
         Livewire::test(CreateTask::class, [
-                'type' => 'user',
-                'product_id' => null,
-            ])
+            'type' => 'user',
+            'product_id' => null,
+        ])
             ->set('task', md5(microtime()))
             ->call('submit')
             ->assertSeeHtml('Forbidden!');
@@ -43,9 +43,9 @@ class TaskTest extends TestCase
         $this->actingAs($user);
 
         Livewire::test(CreateTask::class, [
-                'type' => 'user',
-                'product_id' => null,
-            ])
+            'type' => 'user',
+            'product_id' => null,
+        ])
             ->set('task', md5(microtime()))
             ->call('submit')
             ->assertSeeHtml('Task has been created!');
@@ -57,9 +57,9 @@ class TaskTest extends TestCase
         $this->actingAs($user);
 
         Livewire::test(CreateTask::class, [
-                'type' => 'user',
-                'product_id' => null,
-            ])
+            'type' => 'user',
+            'product_id' => null,
+        ])
             ->call('submit')
             ->assertHasErrors([
                 'task' => 'required',
