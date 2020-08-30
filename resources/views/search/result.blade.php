@@ -196,6 +196,21 @@
                                     @else
                                         {{ $user->username }}
                                     @endif
+                                    @auth
+                                    @if (Auth::user()->staffShip)
+                                        <span class="ml-2 text-secondary small">#{{ $user->id }}</span>
+                                    @endif
+                                    @endauth
+                                    @if ($user->isPatron)
+                                        <a class="ml-2 small" href="{{ route('patron.home') }}" title="Patron">
+                                            {{ Emoji::handshake() }}
+                                        </a>
+                                    @endif
+                                    @auth
+                                    @if ($user->isFollowing(Auth::user()))
+                                        <span class="ml-2 badge bg-light text-black-50">Follows you</span>
+                                    @endif
+                                    @endauth
                                 </a>
                                 <div>{{ $user->bio }}</div>
                                 <div class="small mt-2">
@@ -220,6 +235,11 @@
                                     <span class="badge rounded-pill bg-primary ml-1">Staff</span>
                                     @endif
                                     @endif
+                                </div>
+                                <div class="mt-3">
+                                    @livewire('user.follow', [
+                                        'user' => $user
+                                    ], key($user->id))
                                 </div>
                             </span>
                         </div>

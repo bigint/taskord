@@ -16,14 +16,18 @@
                 <img class="rounded-circle avatar-120" src="{{ $user->avatar }}" />
                 <div class="ml-4">
                     <div class="h5 mb-0">
-                        {{ $user->firstname ? $user->firstname . ' ' . $user->lastname : '' }}
+                        @if ($user->firstname or $user->lastname)
+                            {{ $user->firstname }}{{ ' '.$user->lastname }}
+                        @else
+                            {{ $user->username }}
+                        @endif
                         @auth
                         @if (Auth::user()->staffShip)
                             <span class="ml-2 text-secondary small">#{{ $user->id }}</span>
                         @endif
                         @endauth
                         @if ($user->isPatron)
-                            <a class="ml-2 small" href="{{ route('patron.home') }}" data-toggle="tooltip" data-placement="right" title="Patron">
+                            <a class="ml-2 small" href="{{ route('patron.home') }}" title="Patron">
                                 {{ Emoji::handshake() }}
                             </a>
                         @endif
