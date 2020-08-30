@@ -6,13 +6,24 @@ use App\Models\Answer;
 use App\Models\Comment;
 use App\Models\Question;
 use App\Models\Task;
+use App\Models\Product;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class SearchController extends Controller
 {
     public function search()
     {
-        return view('search.search');
+        $phrases = array (
+            number_format(Task::count('id')).' tasks',
+            number_format(Comment::count('id')).' task comments',
+            number_format(Question::count('id')).' questions',
+            number_format(User::count('id')).' users',
+            number_format(Product::count('id')).' products',
+        );
+        return view('search.search', [
+            'random' => $phrases[array_rand($phrases)],
+        ]);
     }
 
     public function tasks(Request $request)
