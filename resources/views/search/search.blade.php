@@ -7,7 +7,7 @@
 @section('url', url()->current())
 
 @section('content')
-<div class="container">
+<div class="container pt-5">
     <div class="row justify-content-center">
         <div class="col-lg-8">
             <div class="h4 font-weight-normal">

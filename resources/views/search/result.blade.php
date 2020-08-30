@@ -18,6 +18,7 @@
                     @csrf
                     <div class="input-group mb-4">
                         <input type="text" class="form-control" name="q" value="{{ $searchTerm }}" placeholder="Search tasks">
+                        <button type="submit" class="btn btn-secondary">Search</button>
                     </div>
                 </form>
                 @if (!$tasks)
@@ -44,7 +45,7 @@
                     @csrf
                     <div class="input-group mb-4">
                         <input type="text" class="form-control" name="q" value="{{ $searchTerm }}" placeholder="Search comments">
-                        </span>
+                        <button type="submit" class="btn btn-secondary">Search</button>
                     </div>
                 </form>
                 @if (!$comments)
@@ -69,7 +70,7 @@
                     @csrf
                     <div class="input-group mb-4">
                         <input type="text" class="form-control" name="q" value="{{ $searchTerm }}" placeholder="Search questions">
-                        </span>
+                        <button type="submit" class="btn btn-secondary">Search</button>
                     </div>
                 </form>
                 @if (!$questions)
@@ -95,7 +96,7 @@
                     @csrf
                     <div class="input-group mb-4">
                         <input type="text" class="form-control" name="q" value="{{ $searchTerm }}" placeholder="Search answers">
-                        </span>
+                        <button type="submit" class="btn btn-secondary">Search</button>
                     </div>
                 </form>
                 @if (!$answers)
