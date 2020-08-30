@@ -83,9 +83,9 @@ class WebhookController extends Controller
             $request_body = $request->json()->all();
 
             if (count($request_body['commits']) === 1) {
-                $task = $request_body['commits'][0]['message'].' on '.$request_body['repository']['name'];
+                $task = $request_body['commits'][0]['message'].' on "'.$request_body['repository']['name'].'"';
             } else {
-                $task = 'Pushed '.count($request_body['commits']).' changes to '.$request_body['repository']['name'];
+                $task = 'Pushed '.count($request_body['commits']).' changes to "'.$request_body['repository']['name'].'"';
             }
 
             $this->createTask(
