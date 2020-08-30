@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Deal;
+
 class PagesController extends Controller
 {
     public function about()
@@ -31,7 +33,11 @@ class PagesController extends Controller
     
     public function deals()
     {
-        return view('pages/deals');
+        $deals = Deal::all();
+        
+        return view('pages/deals', [
+            'deals' => $deals,
+        ]);
     }
 
     public function open()

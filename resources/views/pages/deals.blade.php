@@ -23,7 +23,7 @@
             @endauth
         </div>
         <div class="card-body">
-            Soon
+            {{ $deals }}
         </div>
     </div>
 </div>
