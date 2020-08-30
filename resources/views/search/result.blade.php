@@ -141,7 +141,7 @@
                 ])
                 @else
                 @foreach ($products as $product)
-                    <li class="list-group-item">
+                    <li class="list-group-item pt-3 pb-3">
                         <div class="d-flex align-items-center">
                             <a href="{{ route('product.done', ['slug' => $product->slug]) }}">
                                 <img class="rounded avatar-50 mt-1 ml-2" src="{{ $product->avatar }}" height="50" width="50" />
@@ -184,7 +184,7 @@
                 ])
                 @else
                 @foreach ($users as $user)
-                    <li class="list-group-item">
+                    <li class="list-group-item pt-3 pb-3">
                         <div class="d-flex align-items-center">
                             <a href="{{ route('user.done', ['username' => $user->username]) }}">
                                 <img class="rounded-circle avatar-50 mt-1 ml-2" src="{{ $user->avatar }}" height="50" width="50" />
@@ -198,7 +198,7 @@
                                     @endif
                                 </a>
                                 <div>{{ $user->bio }}</div>
-                                <div class="small mt-1">
+                                <div class="small mt-2">
                                     <span>
                                         <i class="fa fa-calendar-alt mr-1 text-black-50"></i>
                                         Joined {{ Carbon::parse($user->created_at)->format("F Y") }}
