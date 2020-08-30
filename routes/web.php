@@ -113,5 +113,6 @@ Route::get('terms', 'PagesController@terms')->name('terms');
 Route::get('privacy', 'PagesController@privacy')->name('privacy');
 Route::get('security', 'PagesController@security')->name('security');
 Route::get('open', 'PagesController@open')->name('open');
+Route::get('deals', 'PagesController@deals')->name('deals');
 
 Route::post('paddle/webhook', 'PatronController@handleWebhook')->name('paddle.webhook');
