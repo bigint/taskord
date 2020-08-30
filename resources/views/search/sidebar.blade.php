@@ -29,8 +29,6 @@
                 <i class="fa fa-comment mr-1"></i>
                 Answers
             </a>
-            @auth
-            @if (Auth::user()->staffShip)
             <a
                 class="list-group-item text-dark pt-2 pb-2 @if (Route::currentRouteName() === 'search.products') active text-white @endif"
                 href="{{ route('search.products', ['q' => $searchTerm]) }}"
@@ -45,8 +43,6 @@
                 <i class="fa fa-users mr-1"></i>
                 Users
             </a>
-            @endif
-            @endauth
         </ul>
     </div>
 </div>
