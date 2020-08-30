@@ -138,7 +138,8 @@ class SearchController extends Controller
                     ['isFlagged', false],
                 ]);
             })
-                ->where('name', 'LIKE', '%'.$searchTerm.'%')
+                ->where('slug', 'LIKE', '%'.$searchTerm.'%')
+                ->orWhere('name', 'LIKE', '%'.$searchTerm.'%')
                 ->paginate(10);
             if (count($products) === 0) {
                 $products = null;
