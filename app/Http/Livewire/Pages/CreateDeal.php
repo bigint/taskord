@@ -21,7 +21,7 @@ class CreateDeal extends Component
             $validatedData = $this->validate([
                 'name' => 'required|min:2',
                 'description' => 'required|min:5',
-                'offer' => 'required|integer',
+                'offer' => 'required|integer|max:100',
                 'coupon' => 'required',
                 'website' => 'required|active_url',
                 'logo' => 'required|active_url',
