@@ -198,6 +198,29 @@
                                     @endif
                                 </a>
                                 <div>{{ $user->bio }}</div>
+                                <div class="small mt-1">
+                                    <span>
+                                        <i class="fa fa-calendar-alt mr-1 text-black-50"></i>
+                                        Joined {{ Carbon::parse($user->created_at)->format("F Y") }}
+                                    </span>
+                                    @if ($user->location)
+                                    <span class="ml-3">
+                                        <a class="text-dark" target="_blank" rel="noreferrer" href="https://www.google.com/maps/search/{{ urlencode($user->location) }}">
+                                            <i class="fa fa-compass mr-1 text-black-50"></i>
+                                            {{ $user->location }}
+                                        </a>
+                                    </span>
+                                    @endif
+                                    @if ($user->company)
+                                    <span class="ml-3">
+                                        <i class="fa fa-briefcase mr-1 text-black-50"></i>
+                                        {{ $user->company }}
+                                    </span>
+                                    @if ($user->isStaff)
+                                    <span class="badge rounded-pill bg-primary ml-1">Staff</span>
+                                    @endif
+                                    @endif
+                                </div>
                             </span>
                         </div>
                     </li>
