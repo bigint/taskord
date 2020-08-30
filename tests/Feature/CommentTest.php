@@ -19,7 +19,7 @@ class CommentTest extends TestCase
         parent::setUp();
         $this->user = User::where(['email' => 'test@taskord.com'])->first();
     }
-    
+
     public function test_create_comment()
     {
         $task = Task::create([
