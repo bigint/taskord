@@ -45,7 +45,7 @@ class CreateDeal extends Component
             session()->flash('error', 'Forbidden!');
         }
     }
-    
+
     public function render()
     {
         return view('livewire.pages.create-deal');

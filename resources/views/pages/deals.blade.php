@@ -59,10 +59,11 @@
                         </div>
                         @endguest
                         @if (Auth::user()->staffShip)
-                        <button type="button" class="mt-3 btn btn-sm btn-danger text-white" wire:click="deleteDeal">
-                            <i class="fa fa-trash mr-1"></i>
-                            Delete
-                        </button>
+                            <div class="mt-3">
+                                <code>
+                                    Deal::find({{ $deal->id }})->delete()
+                                </code>
+                            </div>
                         @endif
                     </div>
                 </div>
