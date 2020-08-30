@@ -45,7 +45,7 @@
                         @auth
                         @if (Auth::user()->isPatron)
                         <div class="mt-2">
-                            Copuon Code
+                            Coupon Code
                             <code class="ml-2 font-weight-bold">
                                 {{ $deal->coupon }}
                             </code>
