@@ -2,9 +2,9 @@
 
 namespace App\Http\Livewire\Pages;
 
-use Livewire\Component;
 use App\Models\Deal;
 use Illuminate\Support\Facades\Auth;
+use Livewire\Component;
 
 class CreateDeal extends Component
 {
@@ -14,7 +14,7 @@ class CreateDeal extends Component
     public $coupon;
     public $website;
     public $logo;
-    
+
     public function submit()
     {
         if (Auth::check()) {

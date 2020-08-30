@@ -30,11 +30,11 @@ class PagesController extends Controller
     {
         return view('pages/security');
     }
-    
+
     public function deals()
     {
         $deals = Deal::all();
-        
+
         return view('pages/deals', [
             'deals' => $deals,
         ]);
