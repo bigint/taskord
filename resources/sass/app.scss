@@ -245,3 +245,14 @@ input[type="date"]:valid:before {
     position: sticky;
     top: 25px;
 }
+
+.pagination {
+   justify-content: center;
+}
+
+.page-link {
+    background-color: transparent;
+    border: none;
+    border-radius: 5px;
+    margin: 10px;
+}

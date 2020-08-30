@@ -103,6 +103,7 @@ Route::group(['prefix' => 'search', 'as' => 'search.'], function () {
     Route::get('comments', 'SearchController@comments')->name('comments');
     Route::get('questions', 'SearchController@questions')->name('questions');
     Route::get('answers', 'SearchController@answers')->name('answers');
+    Route::get('products', 'SearchController@products')->name('products');
     Route::get('users', 'SearchController@users')->name('users');
 });
 
