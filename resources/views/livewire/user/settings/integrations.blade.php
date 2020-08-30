@@ -30,8 +30,8 @@
                         </label>
                     </span>
                     <span class="form-check ml-3">
-                        <input class="form-check-input" type="radio" id="github" value="github" wire:model="type">
-                        <label class="form-check-label" for="github">
+                        <input class="form-check-input" type="radio" id="gitlab" value="gitlab" wire:model="type">
+                        <label class="form-check-label" for="gitlab">
                             GitLab
                         </label>
                     </span>
@@ -102,6 +102,28 @@
                         </h2>
                     </div>
                     <div id="githubDocs" class="collapse" aria-labelledby="headingTwo" data-parent="#webhookDocs">
+                        <div class="card-body pb-0">
+                            <ol>
+                                <li>Go to repository settings</li>
+                                <li>Click "Add webhook" button</li>
+                                <li>In "Payload URL" paste the URL generated below</li>
+                                <li>In "Content type" select "application/json"</li>
+                                <li>Click "Add webhook" button to save</li>
+                                <li>Voila! 🎉</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header" id="headingThree">
+                        <h2 class="mb-0">
+                            <a class="text-dark h5" type="button" data-toggle="collapse" data-target="#gitlabDocs" aria-expanded="false" aria-controls="gitlabDocs">
+                                <i class="fa fa-gitlab mr-1"></i>
+                                GitLab
+                            </a>
+                        </h2>
+                    </div>
+                    <div id="gitlabDocs" class="collapse" aria-labelledby="headingThree" data-parent="#webhookDocs">
                         <div class="card-body pb-0">
                             <ol>
                                 <li>Go to repository settings</li>
