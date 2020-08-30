@@ -26,20 +26,10 @@
                             </span>
                         @enderror
                     </div>
-                    @if ($body)
-                    <div>
-                        <div class="h6 font-weight-bold mb-3">
-                            <i class="fab fa-markdown mr-1"></i>
-                            Markdown Preview
-                        </div>
-                        <span class="task-font">@markdown($body)</span>
-                    </div>
-                    @else
                     <div class="h6 font-weight-bold mb-3">
                         <i class="fab fa-markdown mr-1"></i>
                         Markdown is supported
                     </div>
-                    @endif
                     <button type="submit" class="btn btn-primary">
                         Post Update
                         <span wire:target="submit" wire:loading class="spinner-border spinner-border-sm ml-2" role="status"></span>
