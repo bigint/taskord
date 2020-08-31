@@ -20,12 +20,6 @@ class Adminbar extends Component
 
     public function refreshStats()
     {
-        Task::flushQueryCache();
-        User::flushQueryCache();
-        Product::flushQueryCache();
-        Question::flushQueryCache();
-        Answer::flushQueryCache();
-        Comment::flushQueryCache();
         $this->emitSelf('refreshStats');
     }
 

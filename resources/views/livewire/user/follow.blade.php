@@ -28,13 +28,19 @@
             <span class="font-weight-bold ml-2">{{ number_format($user->followers()->count()) }}</span>
             {{ $user->followers()->count('id') <= 1 ? "Follower" : "Followers" }}
         </a>
+        @php
+            $likes = $user->likes(App\Models\Task::class)->count('id') +
+                $user->likes(App\Models\Comment::class)->count('id') +
+                $user->likes(App\Models\Question::class)->count('id') +
+                $user->likes(App\Models\Answer::class)->count('id')
+        @endphp
         <span class="font-weight-bold ml-2">
             {{
                 number_format(
-                    $user->likes()->count('id')
+                    $likes
                 )
             }}
         </span>
-        {{ $user->likes()->count('id') <= 1 ? "Praise" : "Praises" }}
+        {{ $likes <= 1 ? "Praise" : "Praises" }}
     </div>
 </div>
