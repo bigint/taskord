@@ -35,6 +35,7 @@ class Integrations extends Component
                     'token' => md5(uniqid(Auth::id(), true)),
                     'type' => $this->type,
                 ]);
+                $this->name = '';
                 session()->flash('created', $webhook);
             } else {
                 return session()->flash('error', 'Forbidden!');
