@@ -16,6 +16,7 @@ class Integrations extends Component
     
     public $listeners = [
         'webhookDeleted' => 'render',
+        'webhookAdded' => 'render',
     ];
 
     public function mount($user)
@@ -25,10 +26,10 @@ class Integrations extends Component
 
     public function submit()
     {
-        $throttler = Throttle::get(Request::instance(), 3, 10);
+        $throttler = Throttle::get(Request::instance(), 5, 5);
         $throttler->hit();
         if (! $throttler->check()) {
-            return session()->flash('error', 'Your are rate limited, try after 10 minutes!');
+            return session()->flash('error', 'Your are rate limited, try again later!');
         }
 
         if (Auth::check()) {
@@ -48,6 +49,7 @@ class Integrations extends Component
                     'type' => $this->type,
                 ]);
                 $this->name = '';
+                $this->emit('webhookAdded');
                 session()->flash('created', $webhook);
             } else {
                 return session()->flash('error', 'Forbidden!');
