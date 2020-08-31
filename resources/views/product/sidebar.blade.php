@@ -42,7 +42,7 @@
             </a>
             @endif
             @if ($product->producthunt)
-            <a class="list-group-item link-dark" href="{{ $product->producthunt }}">
+            <a class="list-group-item link-dark" href="https://www.producthunt.com/posts/{{ $product->producthunt }}">
                 <i class="fa fa-product-hunt mr-1"></i>
                 {{ Helper::removeProtocol($product->producthunt) }}
             </a>
