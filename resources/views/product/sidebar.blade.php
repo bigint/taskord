@@ -3,16 +3,19 @@
     @if (Auth::user()->staffShip or Auth::id() === $product->user->id)
     <div class="card mb-4">
         <div class="card-body">
-            <a class="btn btn-block btn-success text-white font-weight-bold" href="{{ route('product.new-update', ['slug' => $product->slug]) }}">
+            <button type="button" class="btn btn-block btn-success text-white font-weight-bold" data-toggle="modal" data-target="#newUpdateModal">
                 <i class="fa fa-bell mr-1"></i>
                 Write a product update
-            </a>
+            </button>
             <button type="button" class="btn btn-block btn-success text-white font-weight-bold" data-toggle="modal" data-target="#editProductModal">
                 <i class="fa fa-edit mr-1"></i>
                 Edit Product
             </button>
         </div>
     </div>
+    @livewire('product.update.new-update', [
+        'product' => $product
+    ])
     @livewire('product.edit-product', [
         'product' => $product
     ])
