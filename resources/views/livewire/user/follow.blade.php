@@ -21,12 +21,12 @@
     @endauth
     <div class="small">
         <a class="text-dark" href="{{ route('user.following', ['username' => $user->username]) }}">
-            <span class="font-weight-bold">{{ $user->followings()->count() }}</span>
+            <span class="font-weight-bold">{{ $user->followings()->count('id') }}</span>
             Following
         </a>
         <a class="text-dark" href="{{ route('user.followers', ['username' => $user->username]) }}">
             <span class="font-weight-bold ml-2">{{ number_format($user->followers()->count()) }}</span>
-            {{ $user->followers()->count() <= 1 ? "Follower" : "Followers" }}
+            {{ $user->followers()->count('id') <= 1 ? "Follower" : "Followers" }}
         </a>
         <span class="font-weight-bold ml-2">
             {{
