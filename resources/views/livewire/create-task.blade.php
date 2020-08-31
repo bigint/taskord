@@ -33,7 +33,7 @@
                 @auth
                 @if (!Auth::user()->checkState)
                 <div class="form-group ml-auto mr-2 d-none d-sm-block">
-                    <input class="form-control form-control-sm" wire:model.lazy="due_at" type="date" placeholder="Due date" />
+                    <input class="form-control form-control-sm" wire:model.lazy="due_at" type="date" placeholder="Due date" min="{{ Carbon::today()->format('Y-m-d') }}" />
                 </div>
                 @endif
                 @endauth
