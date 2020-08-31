@@ -1,7 +1,7 @@
 <div>
     @auth
     @if (Auth::id() !== $product->user->id)
-    @if (Auth::user()->hasLiked($product))
+    @if (Auth::user()->hasSubscribed($product))
     <button wire:click="subscribeProduct" wire:loading.attr="disabled" class="btn btn-sm btn-danger mb-2">
         <i class="fa fa-minus mr-1"></i>
         Unsubscribe
@@ -20,6 +20,6 @@
     @endif
     @endauth
     <div class="small">
-        <span class="font-weight-bold">{{ number_format($product->likes->count('id')) }}</span> Subscribers
+        <span class="font-weight-bold">{{ number_format($product->subscribersCount()) }}</span> Subscribers
     </div>
 </div>

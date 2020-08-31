@@ -21,20 +21,26 @@
     @endauth
     <div class="small">
         <a class="text-dark" href="{{ route('user.following', ['username' => $user->username]) }}">
-            <span class="font-weight-bold">{{ $user->followings()->count() }}</span>
+            <span class="font-weight-bold">{{ $user->followings()->count('id') }}</span>
             Following
         </a>
         <a class="text-dark" href="{{ route('user.followers', ['username' => $user->username]) }}">
             <span class="font-weight-bold ml-2">{{ number_format($user->followers()->count()) }}</span>
-            {{ $user->followers()->count() <= 1 ? "Follower" : "Followers" }}
+            {{ $user->followers()->count('id') <= 1 ? "Follower" : "Followers" }}
         </a>
+        @php
+            $likes = $user->likes(App\Models\Task::class)->count('id') +
+                $user->likes(App\Models\Comment::class)->count('id') +
+                $user->likes(App\Models\Question::class)->count('id') +
+                $user->likes(App\Models\Answer::class)->count('id')
+        @endphp
         <span class="font-weight-bold ml-2">
             {{
                 number_format(
-                    $user->likes()->where('likeable_type', '!=', 'App\Models\Product')->count('id')
+                    $likes
                 )
             }}
         </span>
-        {{ $user->likes()->where('likeable_type', '!=', 'App\Models\Product')->count('id') <= 1 ? "Praise" : "Praises" }}
+        {{ $likes <= 1 ? "Praise" : "Praises" }}
     </div>
 </div>

@@ -27,7 +27,7 @@
                     />
                     <a class="ml-1 task-font text-dark" href="{{ route('task', ['id' => $task->id]) }}">{{ $task->task }}</a>
                     <span class="small ml-2">👏
-                        <span class="text-black-50">{{ $task->likes()->count('id') }}</span>
+                        <span class="text-black-50">{{ $task->likerscount() }}</span>
                     </span>
                 </span>
                 <a href="{{ route('user.done', ['username' => $task->user->username]) }}">

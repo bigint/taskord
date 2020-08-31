@@ -3,11 +3,11 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Overtrue\LaravelLike\Traits\Likeable;
+use Multicaret\Acquaintances\Traits\CanBeSubscribed;
 
 class Product extends Model
 {
-    use Likeable;
+    use CanBeSubscribed;
 
     protected $fillable = [
         'user_id',

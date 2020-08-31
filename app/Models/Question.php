@@ -5,11 +5,11 @@ namespace App\Models;
 use CyrildeWit\EloquentViewable\Contracts\Viewable;
 use CyrildeWit\EloquentViewable\InteractsWithViews;
 use Illuminate\Database\Eloquent\Model;
-use Overtrue\LaravelLike\Traits\Likeable;
+use Multicaret\Acquaintances\Traits\CanBeLiked;
 
 class Question extends Model implements Viewable
 {
-    use InteractsWithViews, Likeable;
+    use InteractsWithViews, CanBeLiked;
 
     protected $fillable = [
         'user_id',

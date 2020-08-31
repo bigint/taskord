@@ -11,7 +11,6 @@ use App\Models\User;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Queue;
 use Livewire\Component;
-use Overtrue\LaravelLike\Like;
 
 class Adminbar extends Component
 {
@@ -21,12 +20,6 @@ class Adminbar extends Component
 
     public function refreshStats()
     {
-        Task::flushQueryCache();
-        User::flushQueryCache();
-        Product::flushQueryCache();
-        Question::flushQueryCache();
-        Answer::flushQueryCache();
-        Comment::flushQueryCache();
         $this->emitSelf('refreshStats');
     }
 
@@ -53,8 +46,6 @@ class Adminbar extends Component
         $questions = Question::count('id');
         $answers = Answer::count('id');
         $comments = Comment::count('id');
-        $praises = Like::where('likeable_type', '!=', 'App\Models\Product')
-            ->count('id');
         $jobs = Queue::size();
 
         return view('livewire.admin.adminbar', [
@@ -67,7 +58,6 @@ class Adminbar extends Component
             'questions' => number_format($questions),
             'answers' => number_format($answers),
             'comments' => number_format($comments),
-            'praises' => number_format($praises),
             'jobs' => number_format($jobs),
         ]);
     }

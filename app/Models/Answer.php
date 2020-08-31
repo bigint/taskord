@@ -3,11 +3,11 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Overtrue\LaravelLike\Traits\Likeable;
+use Multicaret\Acquaintances\Traits\CanBeLiked;
 
 class Answer extends Model
 {
-    use Likeable;
+    use CanBeLiked;
 
     protected $fillable = [
         'user_id',
