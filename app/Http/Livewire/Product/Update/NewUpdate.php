@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire\Product;
+namespace App\Http\Livewire\Product\Update;
 
 use App\Models\Product;
 use App\Models\ProductUpdate;

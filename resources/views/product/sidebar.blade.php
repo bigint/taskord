@@ -13,7 +13,7 @@
             </button>
         </div>
     </div>
-    @livewire('product.new-update', [
+    @livewire('product.update.new-update', [
         'product' => $product
     ])
     @livewire('product.edit-product', [
