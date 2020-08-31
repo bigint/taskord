@@ -3,7 +3,6 @@
 namespace App\Http\Livewire\Task;
 
 use App\Gamify\Points\PraiseCreated;
-use App\Models\User;
 use App\Notifications\CommentPraised;
 use GrahamCampbell\Throttle\Facades\Throttle;
 use Illuminate\Support\Facades\Auth;
