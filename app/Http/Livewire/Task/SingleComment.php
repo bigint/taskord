@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Task;
 
 use App\Gamify\Points\PraiseCreated;
+use App\Models\User;
 use App\Notifications\CommentPraised;
 use GrahamCampbell\Throttle\Facades\Throttle;
 use Illuminate\Support\Facades\Auth;
@@ -60,7 +61,6 @@ class SingleComment extends Component
                 return session()->flash('error', 'Your account is flagged!');
             }
             if (Auth::user()->staffShip or Auth::id() === $this->comment->user->id) {
-                $this->comment->likes()->delete();
                 $this->comment->delete();
                 $this->emit('commentDeleted');
             } else {

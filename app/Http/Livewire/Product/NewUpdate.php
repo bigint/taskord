@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Product;
 
 use App\Models\ProductUpdate;
+use App\Models\Product;
 use App\Notifications\NewProductUpdate;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Notification;
@@ -51,7 +52,11 @@ class NewUpdate extends Component
             ]);
 
             session()->flash('global', 'Update has been created!');
-            Notification::send($this->product->subscribers(), new NewProductUpdate($update));
+            Notification::send
+            (
+                Product::find($this->product->id)->subscribers()->get(),
+                new NewProductUpdate($update)
+            );
 
             return redirect()->route('product.updates', ['slug' => $update->product->slug]);
         } else {
