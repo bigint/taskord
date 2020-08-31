@@ -46,7 +46,6 @@ class Adminbar extends Component
         $questions = Question::count('id');
         $answers = Answer::count('id');
         $comments = Comment::count('id');
-        $praises = 20;
         $jobs = Queue::size();
 
         return view('livewire.admin.adminbar', [
@@ -59,7 +58,6 @@ class Adminbar extends Component
             'questions' => number_format($questions),
             'answers' => number_format($answers),
             'comments' => number_format($comments),
-            'praises' => number_format($praises),
             'jobs' => number_format($jobs),
         ]);
     }

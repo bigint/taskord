@@ -63,12 +63,6 @@
                     </li>
                     <li class="dropdown-item">
                         <span class="mr-3">
-                            <i class="fa fa-gift mr-1"></i>
-                            <span class="font-weight-bold">{{ $praises }}</span> Praises
-                        </span>
-                    </li>
-                    <li class="dropdown-item">
-                        <span class="mr-3">
                             <i class="fa fa-fire mr-1"></i>
                             <span class="font-weight-bold">{{ $reputations }}</span> Reputations
                         </span>
