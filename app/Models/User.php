@@ -6,12 +6,13 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Multicaret\Acquaintances\Traits\CanBeFollowed;
 use Multicaret\Acquaintances\Traits\CanFollow;
-use Overtrue\LaravelLike\Traits\Liker;
+use Multicaret\Acquaintances\Traits\CanLike;
 use QCod\Gamify\Gamify;
 
 class User extends Authenticatable
 {
-    use Notifiable, Liker, Gamify;
+    use CanLike;
+    use Notifiable, Gamify;
     use CanFollow, CanBeFollowed;
 
     /**
