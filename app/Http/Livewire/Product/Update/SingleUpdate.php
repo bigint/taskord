@@ -60,7 +60,7 @@ class SingleUpdate extends Component
 
             if (Auth::user()->staffShip or Auth::id() === $this->update->user->id) {
                 $this->update->delete();
-                $this->emitUp('updateDeleted');
+                $this->emit('updateDeleted');
             } else {
                 return session()->flash('error', 'Forbidden!');
             }

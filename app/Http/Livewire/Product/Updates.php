@@ -8,6 +8,10 @@ use Livewire\Component;
 class Updates extends Component
 {
     public $product;
+    
+    public $listeners = [
+        'updateDeleted' => 'render',
+    ];
 
     public function mount($product)
     {
