@@ -68,21 +68,6 @@ class ProductController extends Controller
         return view($type, $response);
     }
 
-    public function newUpdate($slug)
-    {
-        $product = Product::where('slug', $slug)->firstOrFail();
-
-        if (Auth::user()->staffShip or Auth::id() === $product->user->id) {
-            return view('product.new-update', [
-                'product' => $product,
-            ]);
-        } else {
-            return redirect()->route('product.done', [
-                'slug' => $product->slug,
-            ]);
-        }
-    }
-
     public function newest()
     {
         $products = Product::where('launched', true)
