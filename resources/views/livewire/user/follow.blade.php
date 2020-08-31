@@ -31,10 +31,10 @@
         <span class="font-weight-bold ml-2">
             {{
                 number_format(
-                    $user->likes()->where('likeable_type', '!=', 'App\Models\Product')->count('id')
+                    $user->likes()->count('id')
                 )
             }}
         </span>
-        {{ $user->likes()->where('likeable_type', '!=', 'App\Models\Product')->count('id') <= 1 ? "Praise" : "Praises" }}
+        {{ $user->likes()->count('id') <= 1 ? "Praise" : "Praises" }}
     </div>
 </div>
