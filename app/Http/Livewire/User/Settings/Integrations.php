@@ -13,6 +13,10 @@ class Integrations extends Component
     public $user;
     public $name;
     public $type = 'web';
+    
+    public $listeners = [
+        'webhookDeleted' => 'render',
+    ];
 
     public function mount($user)
     {
@@ -58,8 +62,7 @@ class Integrations extends Component
         if (Auth::check()) {
             $webhook = Webhook::find($id);
             $webhook->delete();
-
-            return redirect()->route('user.settings.integrations');
+            $this->emit('webhookDeleted');
         } else {
             return session()->flash('error', 'Forbidden!');
         }
