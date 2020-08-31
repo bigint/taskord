@@ -1,13 +1,15 @@
-<div class="row justify-content-center">
-    <div class="col-lg-8">
-        <div class="card">
-            <div class="h5 pt-3 pb-3 text-success card-header">
-                <i class="fa fa-refresh mr-1"></i>
-                New Update
+<div wire:ignore.self class="modal" id="newUpdateModal" tabindex="-1" role="dialog" aria-labelledby="newUpdateModalTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">New Update</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
             </div>
-            <div class="card-body">
-                @include('components.alert')
-                <form wire:target="submit" wire:submit.prevent="submit">
+            <form wire:target="submit" wire:submit.prevent="submit">
+                <div class="modal-body">
+                    @include('components.alert')
                     <div class="mb-3">
                         <label class="form-label font-weight-bold">Title</label>
                         <input type="text" class="form-control @error('title') is-invalid @enderror" placeholder="What's New?" wire:model.lazy="title">
@@ -30,12 +32,15 @@
                         <i class="fab fa-markdown mr-1"></i>
                         Markdown is supported
                     </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                     <button type="submit" class="btn btn-primary">
                         Post Update
                         <span wire:target="submit" wire:loading class="spinner-border spinner-border-sm ml-2" role="status"></span>
                     </button>
-                </form>
-            </div>
+                </div>
+            </form>
         </div>
     </div>
 </div>
