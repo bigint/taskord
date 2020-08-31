@@ -13,7 +13,7 @@ class Integrations extends Component
     public $user;
     public $name;
     public $type = 'web';
-    
+
     public $listeners = [
         'webhookDeleted' => 'render',
         'webhookAdded' => 'render',
