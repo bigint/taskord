@@ -2,7 +2,7 @@
 
 namespace Tests\Feature;
 
-use App\Http\Livewire\Product\NewUpdate;
+use App\Http\Livewire\Product\Update\NewUpdate;
 use App\Models\Product;
 use App\Models\User;
 use Livewire;
