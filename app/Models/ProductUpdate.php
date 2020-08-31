@@ -8,7 +8,7 @@ use Multicaret\Acquaintances\Traits\CanBeLiked;
 class ProductUpdate extends Model
 {
     use CanBeLiked;
-    
+
     protected $fillable = [
         'user_id',
         'product_id',

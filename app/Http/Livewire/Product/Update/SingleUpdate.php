@@ -2,21 +2,21 @@
 
 namespace App\Http\Livewire\Product\Update;
 
-use Livewire\Component;
+use GrahamCampbell\Throttle\Facades\Throttle;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Request;
-use GrahamCampbell\Throttle\Facades\Throttle;
+use Livewire\Component;
 
 class SingleUpdate extends Component
 {
     public $update;
     public $confirming;
-    
+
     public function mount($update)
     {
         $this->update = $update;
     }
-    
+
     public function togglePraise()
     {
         $throttler = Throttle::get(Request::instance(), 50, 5);
@@ -68,7 +68,7 @@ class SingleUpdate extends Component
             return session()->flash('error', 'Forbidden!');
         }
     }
-    
+
     public function render()
     {
         return view('livewire.product.update.single-update');
