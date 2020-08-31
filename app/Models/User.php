@@ -4,13 +4,15 @@ namespace App\Models;
 
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
-use Overtrue\LaravelFollow\Followable;
+use Multicaret\Acquaintances\Traits\CanBeFollowed;
+use Multicaret\Acquaintances\Traits\CanFollow;
 use Overtrue\LaravelLike\Traits\Liker;
 use QCod\Gamify\Gamify;
 
 class User extends Authenticatable
 {
-    use Notifiable, Followable, Liker, Gamify;
+    use Notifiable, Liker, Gamify;
+    use CanFollow, CanBeFollowed;
 
     /**
      * The attributes that are mass assignable.
