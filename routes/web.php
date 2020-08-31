@@ -51,7 +51,6 @@ Route::group(['prefix' => 'product/{slug}', 'as' => 'product.'], function () {
     Route::get('', 'ProductController@profile')->name('done');
     Route::get('pending', 'ProductController@profile')->name('pending');
     Route::get('updates', 'ProductController@profile')->name('updates');
-    Route::get('updates/new', 'ProductController@newUpdate')->name('new-update')->middleware('auth');
 });
 
 Route::group(['prefix' => 'products', 'as' => 'products.'], function () {
