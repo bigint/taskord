@@ -1,6 +1,5 @@
 <?php
 
-
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 
@@ -12,7 +11,6 @@ class CreateAcquaintancesInteractionsTable extends Migration
     public function up()
     {
         Schema::create(config('acquaintances.tables.interactions', 'interactions'), function (Blueprint $table) {
-
             $userModel = config('auth.providers.users.model');
             $userModel = (new $userModel);
 
@@ -23,7 +21,6 @@ class CreateAcquaintancesInteractionsTable extends Migration
             $table->integer('relation_value')->nullable();
             $table->string('relation_type')->nullable();
             $table->timestamp('created_at');
-
 
             $table->foreign('user_id')
                   ->references($userModel->getKeyName())
