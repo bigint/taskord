@@ -26,7 +26,6 @@
         "marvinlabs/laravel-discord-logger": "^1.1",
         "multicaret/laravel-acquaintances": "^3.3",
         "nesbot/carbon": "^2.36",
-        "overtrue/laravel-follow": "^2.1",
         "overtrue/laravel-like": "^2.0",
         "qcod/laravel-gamify": "^1.0",
         "rebing/graphql-laravel": "^5.1",
