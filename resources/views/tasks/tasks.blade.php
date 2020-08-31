@@ -6,7 +6,11 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-lg-8">
-            @livewire('tasks.create-task')
+            @auth
+                @if (!Auth::user()->isFlagged)
+                @livewire('tasks.create-task')
+                @endif
+            @endauth
             @livewire('tasks.today')
             @livewire('tasks.all-time')
         </div>
