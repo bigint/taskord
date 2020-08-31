@@ -3,10 +3,10 @@
 namespace App\Http\Livewire\User\Settings;
 
 use App\Models\Webhook;
-use Illuminate\Support\Facades\Auth;
-use Livewire\Component;
 use GrahamCampbell\Throttle\Facades\Throttle;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Request;
+use Livewire\Component;
 
 class Integrations extends Component
 {
@@ -26,7 +26,7 @@ class Integrations extends Component
         if (! $throttler->check()) {
             return session()->flash('error', 'Your are rate limited, try after 10 minutes!');
         }
-        
+
         if (Auth::check()) {
             $this->validate([
                 'name' => 'required|min:2|max:20',
