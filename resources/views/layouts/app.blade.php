@@ -83,6 +83,7 @@
                                 More
                             </a>
                             <ul class="dropdown-menu shadow-sm border" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item text-dark" href="{{ route('deals') }}">{{ Emoji::wrappedGift() }} Deals</a></li>
                                 <li><a class="dropdown-item text-dark" href="#">{{ Emoji::thinkingFace() }} Help</a></li>
                                 <li><a class="dropdown-item text-dark" href="#">{{ Emoji::barChart() }} Open</a></li>
                             </ul>
