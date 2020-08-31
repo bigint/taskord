@@ -114,6 +114,7 @@ Route::get('deals', 'PagesController@deals')->name('deals');
 
 Route::post('paddle/webhook', 'PatronController@handleWebhook')->name('paddle.webhook');
 
+// https://web.dev/change-password-url
 Route::get('.well-known/change-password', function () {
     return redirect()->route('user.settings.password');
 });
