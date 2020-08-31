@@ -51,7 +51,7 @@ class NewUpdate extends Component
             ]);
 
             session()->flash('global', 'Update has been created!');
-            Notification::send($this->product->likes, new NewProductUpdate($update));
+            Notification::send($this->product->subscribers(), new NewProductUpdate($update));
 
             return redirect()->route('product.updates', ['slug' => $update->product->slug]);
         } else {

@@ -7,6 +7,7 @@ use Illuminate\Notifications\Notifiable;
 use Multicaret\Acquaintances\Traits\CanBeFollowed;
 use Multicaret\Acquaintances\Traits\CanFollow;
 use Multicaret\Acquaintances\Traits\CanLike;
+use Multicaret\Acquaintances\Traits\CanSubscribe;
 use QCod\Gamify\Gamify;
 
 class User extends Authenticatable
@@ -14,6 +15,7 @@ class User extends Authenticatable
     use CanLike;
     use Notifiable, Gamify;
     use CanFollow, CanBeFollowed;
+    use CanSubscribe;
 
     /**
      * The attributes that are mass assignable.

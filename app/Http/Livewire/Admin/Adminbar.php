@@ -11,7 +11,6 @@ use App\Models\User;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Queue;
 use Livewire\Component;
-use Overtrue\LaravelLike\Like;
 
 class Adminbar extends Component
 {
@@ -53,8 +52,7 @@ class Adminbar extends Component
         $questions = Question::count('id');
         $answers = Answer::count('id');
         $comments = Comment::count('id');
-        $praises = Like::where('likeable_type', '!=', 'App\Models\Product')
-            ->count('id');
+        $praises = 20;
         $jobs = Queue::size();
 
         return view('livewire.admin.adminbar', [

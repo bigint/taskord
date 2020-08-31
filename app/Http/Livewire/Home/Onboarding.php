@@ -59,7 +59,7 @@ class Onboarding extends Component
     public function render()
     {
         $task_count = Task::select('id')->where('user_id', Auth::id())->count('id');
-        $praise_count = Auth::user()->likes()->count('id');
+        $praise_count = Auth::user()->likes(Task::class)->count('id');
         // TODO
         //$product_count = Product::select('id')->where('user_id', Auth::id())->count('id');
         $product_count = Auth::user()->products->count('id');
