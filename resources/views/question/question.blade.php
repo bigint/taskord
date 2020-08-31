@@ -105,7 +105,7 @@
             "@type": "Question",
             "name": "{{ $question->title }}",
             "answerCount": {{ $question->answer->count('id') }},
-            "upvoteCount": {{ $question->likes()->count('id') }},
+            "upvoteCount": {{ $question->likerscount() }},
             "dateCreated": "{{ $question->created_at }}",
             "author": { "@type": "Person", "name": "{{ $question->user->username }}" },
             @foreach ($question->answer->take(1) as $answer)
@@ -124,7 +124,7 @@
                     "@type": "Answer",
                     "text": "{{ $answer->answer }}",
                     "dateCreated": "{{ $answer->created_at }}",
-                    "upvoteCount": {{ $answer->likes()->count('id') }},
+                    "upvoteCount": {{ $answer->likerscount() }},
                     "url": "https://taskord.com/question/{{ $answer->question->id }}",
                     "author": { "@type": "Person", "name": "{{ $answer->user->username }}" }
                 }{{ $loop->last ? '' : ',' }}

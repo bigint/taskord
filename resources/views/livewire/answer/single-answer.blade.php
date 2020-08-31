@@ -35,7 +35,7 @@
                 <button type="button" class="btn btn-task btn-success text-white mr-1" wire:click="togglePraise" wire:loading.attr="disabled" wire:offline.attr="disabled">
                     {{ Emoji::clappingHands() }}
                     <span class="small text-white font-weight-bold">
-                        {{ number_format($answer->likes()->count('id')) }}
+                        {{ number_format($answer->likerscount()) }}
                     </span>
                     <span class="avatar-stack ml-1">
                     @foreach($answer->likers->take(5) as $user)
@@ -46,9 +46,9 @@
             @else
                 <button type="button" class="btn btn-task btn-outline-success mr-1" wire:click="togglePraise" wire:loading.attr="disabled" wire:offline.attr="disabled">
                     {{ Emoji::clappingHands() }}
-                    @if ($answer->likes()->count('id') !== 0)
+                    @if ($answer->likerscount() !== 0)
                     <span class="small text-dark font-weight-bold">
-                        {{ number_format($answer->likes()->count('id')) }}
+                        {{ number_format($answer->likerscount()) }}
                     </span>
                     <span class="avatar-stack ml-1">
                     @foreach($answer->likers->take(5) as $user)
@@ -74,9 +74,9 @@
             @guest
                 <a href="/login" class="btn btn-task btn-outline-success mr-1">
                     {{ Emoji::clappingHands() }}
-                    @if ($answer->likes()->count('id') !== 0)
+                    @if ($answer->likerscount() !== 0)
                     <span class="small text-dark font-weight-bold">
-                        {{ number_format($answer->likes()->count('id')) }}
+                        {{ number_format($answer->likerscount()) }}
                     </span>
                     <span class="avatar-stack ml-1">
                     @foreach($answer->likers->take(5) as $user)
