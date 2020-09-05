@@ -9,7 +9,7 @@ use Livewire\WithFileUploads;
 class Profile extends Component
 {
     use WithFileUploads;
-    
+
     public $user;
     // Profile
     public $firstname;
@@ -64,7 +64,7 @@ class Profile extends Component
             return session()->flash('error', 'Forbidden!');
         }
     }
-    
+
     public function updatedAvatar()
     {
         if (Auth::check()) {
@@ -87,7 +87,7 @@ class Profile extends Component
                 'company' => 'nullable|max:30',
                 'avatar' => 'nullable|mimes:jpeg,jpg,png,gif|max:2048',
             ]);
-            
+
             if ($this->avatar) {
                 $avatar = $this->avatar->store('user_avatars');
             } else {
