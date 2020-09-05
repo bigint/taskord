@@ -87,7 +87,7 @@ class Profile extends Component
                 'company' => 'nullable|max:30',
                 'avatar' => 'nullable|mimes:jpeg,jpg,png,gif|max:2048',
             ]);
-            
+
             if ($this->avatar) {
                 $avatar = $this->avatar->store('user_avatars');
                 $this->user->avatar = config('app.url').'/storage/'.$avatar;
