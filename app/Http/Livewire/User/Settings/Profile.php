@@ -100,7 +100,7 @@ class Profile extends Component
                 $this->user->bio = $this->bio;
                 $this->user->location = $this->location;
                 $this->user->company = $this->company;
-                $this->user->avatar = $avatar;
+                $this->user->avatar = config('app.url').'/storage/'.$avatar;
                 $this->user->save();
 
                 return session()->flash('profile', 'Your profile has been updated!');
