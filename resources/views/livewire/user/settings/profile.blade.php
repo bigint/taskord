@@ -58,12 +58,15 @@
                         </span>
                     @enderror
                 </div>
-                <div class="form-file form-file-sm w-25">
-                    <input type="file" wire:model="avatar" class="form-file-input">
-                    <label class="form-file-label">
-                        <span class="form-file-text">Choose file...</span>
-                        <span class="form-file-button">Browse</span>
-                    </label>
+                <div class="mb-3">
+                    <label class="form-label">Avatar</label>
+                    <div class="form-file w-25">
+                        <input type="file" wire:model="avatar" class="form-file-input">
+                        <label class="form-file-label">
+                            <span class="form-file-text">Choose file...</span>
+                            <span class="form-file-button">Browse</span>
+                        </label>
+                    </div>
                 </div>
                 @error('avatar')
                 <div class="text-danger font-weight-bold mt-3">{{ $message }}</div>
