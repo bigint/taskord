@@ -9,6 +9,7 @@ use Carbon\Carbon;
 use GrahamCampbell\Throttle\Facades\Throttle;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Request;
+use Illuminate\Support\Facades\Storage;
 use Livewire\Component;
 
 class SingleTask extends Component
@@ -94,6 +95,7 @@ class SingleTask extends Component
             }
 
             if (Auth::user()->staffShip or Auth::id() === $this->task->user->id) {
+                Storage::delete($this->task->image);
                 $this->task->delete();
                 $this->emitUp('taskDeleted');
             } else {
