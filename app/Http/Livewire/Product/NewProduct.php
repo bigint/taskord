@@ -11,7 +11,7 @@ use Livewire\WithFileUploads;
 class NewProduct extends Component
 {
     use WithFileUploads;
-    
+
     public $name;
     public $slug;
     public $description;
@@ -32,7 +32,7 @@ class NewProduct extends Component
             return session()->flash('error', 'Forbidden!');
         }
     }
-    
+
     public function submit()
     {
         if (Auth::check()) {
@@ -59,7 +59,7 @@ class NewProduct extends Component
                 $launched_status = false;
                 $launched_at = null;
             }
-            
+
             if ($this->avatar) {
                 $avatar = $this->avatar->store('logos');
                 $url = config('app.url').'/storage/'.$avatar;
