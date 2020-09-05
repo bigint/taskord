@@ -176,7 +176,7 @@
                     </div>
                     <div class="card mb-4">
                         <div class="card-header">
-                            ✨ New Products
+                            ✨ Recently Launched
                         </div>
                         <ul class="list-group list-group-flush">
                             @foreach ($products as $product)
