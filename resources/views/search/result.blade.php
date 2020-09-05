@@ -109,7 +109,7 @@
                     <div class="card mb-2">
                         <div class="card-header h6 pt-3 pb-3">
                             <a href="{{ route('user.done', ['username' => $answer->question->user->username]) }}">
-                                <img class="rounded-circle avatar-30" src="{{ $answer->question->user->avatar }}" />
+                                <img class="rounded-circle avatar-30" src="{{ asset('storage/' . $answer->question->user->avatar) }}" />
                             </a>
                             <a class="align-middle text-dark ml-2" href="{{ route('question.question', ['id' => $answer->question->id]) }}">
                                 {{ $answer->question->title }}
@@ -175,7 +175,7 @@
                                 </div>
                             </span>
                             <a class="ml-auto" href="{{ route('user.done', ['username' => $product->user->username]) }}">
-                                <img class="rounded-circle float-right avatar-30 mt-1 ml-2" src="{{ $product->user->avatar }}" height="50" width="50" />
+                                <img class="rounded-circle float-right avatar-30 mt-1 ml-2" src="{{ asset('storage/' . $product->user->avatar) }}" height="50" width="50" />
                             </a>
                         </div>
                     </li>
@@ -204,7 +204,7 @@
                     <li class="list-group-item pt-3 pb-3">
                         <div class="d-flex align-items-center">
                             <a href="{{ route('user.done', ['username' => $user->username]) }}">
-                                <img class="rounded-circle avatar-50 mt-1 ml-2" src="{{ $user->avatar }}" height="50" width="50" />
+                                <img class="rounded-circle avatar-50 mt-1 ml-2" src="{{ asset('storage/' . $user->avatar) }}" height="50" width="50" />
                             </a>
                             <span class="ml-3">
                                 <a href="{{ route('user.done', ['username' => $user->username]) }}" class="mr-2 h5 align-text-top font-weight-bold text-dark">

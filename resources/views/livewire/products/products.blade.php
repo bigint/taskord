@@ -32,7 +32,7 @@
                     <div>{{ $product->description }}</div>
                 </span>
                 <a class="ml-auto" href="{{ route('user.done', ['username' => $product->user->username]) }}">
-                    <img class="rounded-circle float-right avatar-30 mt-1 ml-2" src="{{ $product->user->avatar }}" height="50" width="50" />
+                    <img class="rounded-circle float-right avatar-30 mt-1 ml-2" src="{{ asset('storage/' . $product->user->avatar) }}" height="50" width="50" />
                 </a>
             </div>
         </div>

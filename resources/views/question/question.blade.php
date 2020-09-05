@@ -3,7 +3,7 @@
 @section('pageTitle', $question->title.' ·')
 @section('title', 'Question by @'.$question->user->username.' ·')
 @section('description', $question->title)
-@section('image', $question->user->avatar)
+@section('image', asset('storage/' . $question->user->avatar))
 @section('url', url()->current())
 
 @section('content')
@@ -57,7 +57,7 @@
                         </div>
                         <div class="card-body d-flex align-items-center">
                             <a href="{{ route('user.done', ['username' => $question->user->username]) }}">
-                                <img class="rounded-circle avatar-40 mt-1" src="{{ $question->user->avatar }}" />
+                                <img class="rounded-circle avatar-40 mt-1" src="{{ asset('storage/' . $question->user->avatar) }}" />
                             </a>
                             <span class="ml-3">
                                 <a href="{{ route('user.done', ['username' => $question->user->username]) }}" class="align-text-top text-dark">
@@ -85,7 +85,7 @@
                                     href="{{ route('user.done', ['username' => $answer[0]->user->username]) }}"
                                     class="mr-1"
                                 >
-                                    <img class="rounded-circle avatar-30 mb-2" src="{{ $answer[0]->user->avatar }}" />
+                                    <img class="rounded-circle avatar-30 mb-2" src="{{ asset('storage/' . $answer[0]->user->avatar) }}" />
                                 </a>
                             @endforeach
                         </div>

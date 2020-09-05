@@ -18,7 +18,7 @@
                     {{ views($question)->remember()->unique()->count('id') <= 1 ? 'View' : 'Views' }}
                 </div>
             </div>
-            <img class="rounded-circle avatar-30 ml-3 float-right" src="{{ $question->user->avatar }}" />
+            <img class="rounded-circle avatar-30 ml-3 float-right" src="{{ asset('storage/' . $question->user->avatar) }}" />
         </li>
         @endforeach
     </ul>
