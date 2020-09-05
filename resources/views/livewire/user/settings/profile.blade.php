@@ -68,19 +68,26 @@
                         </label>
                     </div>
                 </div>
+                <div wire:loading wire:target="avatar">
+                    <div class="spinner-border spinner-border-sm" role="status">
+                      <span class="sr-only">Loading...</span>
+                    </div>
+                </div>
                 @error('avatar')
                 <div class="text-danger font-weight-bold mt-3">{{ $message }}</div>
                 @else
                 @if ($avatar)
-                <div class="h5 mt-3">Preview</div>
-                <img class="avatar-100 rounded-circle" src="{{ $avatar->temporaryUrl() }}">
-                @endif
-                @enderror
+                <div>
+                    <img class="avatar-100 rounded-circle mt-2 mb-3" src="{{ $avatar->temporaryUrl() }}">
+                </div>
+                @else
                 @if ($user->avatar)
                 <div>
-                    <img class="avatar-100 rounded-circle mt-3 mb-3" src="{{ $user->avatar }}" />
+                    <img class="avatar-100 rounded-circle mt-2 mb-3" src="{{ $user->avatar }}" />
                 </div>
                 @endif
+                @endif
+                @enderror
                 <button type="submit" class="btn btn-primary">
                     Save
                     <span wire:target="updateProfile" wire:loading class="spinner-border spinner-border-sm ml-2" role="status"></span>
