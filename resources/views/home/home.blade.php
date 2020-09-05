@@ -29,7 +29,7 @@
                             @foreach ($recent_questions as $question)
                                 <div class="{{ $loop->index === count($recent_questions) - 1 ? '' : 'mb-2' }} {{ $question->patronOnly ? 'bg-patron recent-questions' : '' }}">
                                     <a href="{{ route('user.done', ['username' => $question->user->username]) }}">
-                                        <img class="rounded-circle avatar-30" src="{{ asset('storage/' . $question->user->avatar) }}" />
+                                        <img class="rounded-circle avatar-30" src="{{ $question->user->avatar }}" />
                                     </a>
                                     <a href="{{ route('question.question', ['id' => $question->id]) }}">
                                         <span class="ml-1 font-weight-bold align-middle text-dark">{{ Str::words($question->title, '10') }}</span>
@@ -71,7 +71,7 @@
                                         <div>{{ $product->description }}</div>
                                     </span>
                                     <a class="ml-auto" href="{{ route('user.done', ['username' => $product->user->username]) }}">
-                                        <img class="rounded-circle float-right avatar-30 mt-1 ml-2" src="{{ asset('storage/' . $product->user->avatar) }}" height="50" width="50" />
+                                        <img class="rounded-circle float-right avatar-30 mt-1 ml-2" src="{{ $product->user->avatar }}" height="50" width="50" />
                                     </a>
                                 </div>
                             </li>
@@ -106,7 +106,7 @@
                             <div class="card-body">
                                 <div class="d-flex align-items-center">
                                     <a href="{{ route('user.done', ['username' => Auth::user()->username]) }}">
-                                        <img class="rounded-circle avatar-50 mt-1" src="{{ asset('storage/' . Auth::user()->avatar) }}" />
+                                        <img class="rounded-circle avatar-50 mt-1" src="{{ Auth::user()->avatar }}" />
                                     </a>
                                     <a class="ml-3 text-dark" href="{{ route('user.done', ['username' => Auth::user()->username]) }}">
                                         @if (Auth::user()->firstname or Auth::user()->lastname)
@@ -151,7 +151,7 @@
                             @foreach ($recently_joined as $user)
                             <li class="d-flex list-group-item align-items-center">
                                 <a href="{{ route('user.done', ['username' => $user->username]) }}">
-                                    <img class="rounded-circle avatar-40 mt-1" src="{{ asset('storage/' . $user->avatar) }}" />
+                                    <img class="rounded-circle avatar-40 mt-1" src="{{ $user->avatar }}" />
                                 </a>
                                 <span class="ml-3">
                                     <a href="{{ route('user.done', ['username' => $user->username]) }}" class="align-text-top text-dark">
@@ -193,7 +193,7 @@
                                     @endif
                                 </a>
                                 <a href="{{ route('user.done', ['username' => $product->user->username]) }}">
-                                    <img class="rounded-circle float-right avatar-30 mt-1 ml-2" src="{{ asset('storage/' . $product->user->avatar) }}" height="50" width="50" />
+                                    <img class="rounded-circle float-right avatar-30 mt-1 ml-2" src="{{ $product->user->avatar }}" height="50" width="50" />
                                 </a>
                             </li>
                             @endforeach
@@ -223,7 +223,7 @@
                                     </span>
                                 </span>
                                 <a href="{{ route('user.done', ['username' => $user->username]) }}">
-                                    <img class="rounded-circle avatar-30 mt-1 ml-2" src="{{ asset('storage/' . $user->avatar) }}" height="50" width="50" />
+                                    <img class="rounded-circle avatar-30 mt-1 ml-2" src="{{ $user->avatar }}" height="50" width="50" />
                                 </a>
                                 <a href="{{ route('user.done', ['username' => $user->username]) }}" class="ml-2 mr-2 align-text-top font-weight-bold text-dark">
                                     @if ($user->firstname or $user->lastname)
