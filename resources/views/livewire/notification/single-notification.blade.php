@@ -26,7 +26,7 @@
                     {{ Emoji::speechBalloon() }}
                 @endif
                 <a href="{{ route('user.done', ['username' => $user->username]) }}">
-                    <img class="rounded-circle avatar-20 ml-2 mr-1" src="{{ $user->avatar }}" />
+                    <img class="rounded-circle avatar-20 ml-2 mr-1" src="{{ asset('storage/' . $user->avatar) }}" />
                     <span class="align-middle">
                         @if ($user->firstname or $user->lastname)
                             {{ $user->firstname }}{{ ' '.$user->lastname }}
@@ -96,7 +96,7 @@
                 <span class="align-middle">
                     subscribed to your product
                     <a class="font-weight-bold" href="{{ route('product.done', ['slug' => \App\Models\Product::find($data['product_id'])->slug]) }}">
-                        <img class="rounded avatar-20 ml-2 mr-1" src="{{ \App\Models\Product::find($data['product_id'])->avatar }}" />
+                        <img class="rounded avatar-20 ml-2 mr-1" src="{{ asset('storage/' . \App\Models\Product::find($data['product_id'])->avatar) }}" />
                         {{ \App\Models\Product::find($data['product_id'])->name }}
                     </a>
                 </span>

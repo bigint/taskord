@@ -113,7 +113,7 @@
                             </li>
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" href="#" role="button" data-toggle="dropdown" v-pre>
-                                    <img class="rounded-circle avatar-30 mt-1" src="{{ Auth::user()->avatar }}" />
+                                    <img class="rounded-circle avatar-30 mt-1" src="{{ asset('storage/' . Auth::user()->avatar) }}" />
                                 </a>
 
                                 <div class="dropdown-menu shadow-sm border dropdown-menu-right mt-2" aria-labelledby="navbarDropdown">

@@ -1,7 +1,7 @@
 <div class="card mb-4">
     <div class="card-header h6 pt-3 pb-3">
         <a href="">
-            <img class="rounded-circle avatar-30" src="{{ $update->user->avatar }}" />
+            <img class="rounded-circle avatar-30" src="{{ asset('storage/' . $update->user->avatar) }}" />
         </a>
         <a class="align-middle text-dark ml-2" href="">
             {{ $update->title }}
@@ -22,7 +22,7 @@
                     </span>
                     <span class="avatar-stack ml-1">
                     @foreach($update->likers->take(5) as $user)
-                    <img class="praise-avatar rounded-circle {{ $loop->last ? 'mr-0' : '' }}" src="{{ $user->avatar }}" />
+                    <img class="praise-avatar rounded-circle {{ $loop->last ? 'mr-0' : '' }}" src="{{ asset('storage/' . $user->avatar) }}" />
                     @endforeach
                     </span>
                 </button>
@@ -37,7 +37,7 @@
                     </span>
                     <span class="avatar-stack ml-1">
                     @foreach($update->likers->take(5) as $user)
-                    <img class="praise-avatar rounded-circle {{ $loop->last ? 'mr-0' : '' }}" src="{{ $user->avatar }}" />
+                    <img class="praise-avatar rounded-circle {{ $loop->last ? 'mr-0' : '' }}" src="{{ asset('storage/' . $user->avatar) }}" />
                     @endforeach
                     </span>
                     @endif
@@ -55,7 +55,7 @@
                     </span>
                     <span class="avatar-stack ml-1">
                     @foreach($update->likers->take(5) as $user)
-                    <img class="praise-avatar rounded-circle {{ $loop->last ? 'mr-0' : '' }}" src="{{ $user->avatar }}" />
+                    <img class="praise-avatar rounded-circle {{ $loop->last ? 'mr-0' : '' }}" src="{{ asset('storage/' . $user->avatar) }}" />
                     @endforeach
                     </span>
                     @endif
