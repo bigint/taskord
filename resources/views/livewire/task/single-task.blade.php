@@ -51,7 +51,7 @@
         </span>
         @if ($task->image)
         <div>
-            <img class="img-fluid border mt-3 rounded" src="{{ $task->image }}" />
+            <img class="img-fluid border mt-3 rounded" src="{{ asset('storage/' . $task->image) }}" />
         </div>
         @endif
         <div class="mt-2">
