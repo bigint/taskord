@@ -58,6 +58,26 @@
                         </span>
                     @enderror
                 </div>
+                <div class="form-file form-file-sm w-25">
+                    <input type="file" wire:model="avatar" class="form-file-input">
+                    <label class="form-file-label">
+                        <span class="form-file-text">Choose file...</span>
+                        <span class="form-file-button">Browse</span>
+                    </label>
+                </div>
+                @error('avatar')
+                <div class="text-danger font-weight-bold mt-3">{{ $message }}</div>
+                @else
+                @if ($avatar)
+                <div class="h5 mt-3">Preview</div>
+                <img class="avatar-100 rounded-circle" src="{{ $avatar->temporaryUrl() }}">
+                @endif
+                @enderror
+                @if ($user->avatar)
+                <div>
+                    <img class="avatar-100 rounded-circle mt-3 mb-3" src="{{ asset('storage/' . $user->avatar) }}" />
+                </div>
+                @endif
                 <button type="submit" class="btn btn-primary">
                     Save
                     <span wire:target="updateProfile" wire:loading class="spinner-border spinner-border-sm ml-2" role="status"></span>

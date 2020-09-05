@@ -4,9 +4,12 @@ namespace App\Http\Livewire\User\Settings;
 
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
+use Livewire\WithFileUploads;
 
 class Profile extends Component
 {
+    use WithFileUploads;
+    
     public $user;
     // Profile
     public $firstname;
@@ -14,6 +17,7 @@ class Profile extends Component
     public $bio;
     public $location;
     public $company;
+    public $avatar;
     // Social
     public $website;
     public $twitter;
@@ -60,6 +64,17 @@ class Profile extends Component
             return session()->flash('error', 'Forbidden!');
         }
     }
+    
+    public function updatedAvatar()
+    {
+        if (Auth::check()) {
+            $this->validate([
+                'avatar' => 'nullable|mimes:jpeg,jpg,png,gif|max:2048',
+            ]);
+        } else {
+            return session()->flash('error', 'Forbidden!');
+        }
+    }
 
     public function updateProfile()
     {
@@ -70,7 +85,14 @@ class Profile extends Component
                 'bio' => 'nullable|max:1000',
                 'location' => 'nullable|max:30',
                 'company' => 'nullable|max:30',
+                'avatar' => 'nullable|mimes:jpeg,jpg,png,gif|max:2048',
             ]);
+            
+            if ($this->avatar) {
+                $avatar = $this->avatar->store('user_avatars');
+            } else {
+                $avatar = null;
+            }
 
             if (Auth::check()) {
                 $this->user->firstname = $this->firstname;
@@ -78,6 +100,7 @@ class Profile extends Component
                 $this->user->bio = $this->bio;
                 $this->user->location = $this->location;
                 $this->user->company = $this->company;
+                $this->user->avatar = $avatar;
                 $this->user->save();
 
                 return session()->flash('profile', 'Your profile has been updated!');
