@@ -89,7 +89,7 @@ class Profile extends Component
             ]);
 
             if ($this->avatar) {
-                $avatar = $this->avatar->store('user_avatars');
+                $avatar = $this->avatar->store('avatars');
                 $this->user->avatar = config('app.url').'/storage/'.$avatar;
             }
 

@@ -5,12 +5,16 @@ namespace App\Http\Livewire\Product;
 use App\Models\Product;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
+use Livewire\WithFileUploads;
 
 class EditProduct extends Component
 {
+    use WithFileUploads;
+    
     public $product;
     public $name;
     public $slug;
+    public $avatar;
     public $description;
     public $website;
     public $twitter;
@@ -33,21 +37,15 @@ class EditProduct extends Component
         $this->launched = $product->launched;
         $this->deprecated = $product->deprecated;
     }
-
-    public function updated($field)
+    
+    public function updatedAvatar()
     {
         if (Auth::check()) {
-            $this->validateOnly($field, [
-                'name' => 'required',
-                'slug' => 'required|min:3|max:20|alpha_dash|unique:products,slug,'.$this->product->id,
-                'description' => 'nullable',
-                'website' => 'nullable|active_url',
-                'twitter' => 'nullable|alpha_dash|max:30',
-                'github' => 'nullable|alpha_dash|max:30',
-                'producthunt' => 'nullable|alpha_dash|max:30',
+            $this->validate([
+                'avatar' => 'nullable|mimes:jpeg,jpg,png,gif|max:2048',
             ]);
         } else {
-            session()->flash('error', 'Forbidden!');
+            return session()->flash('error', 'Forbidden!');
         }
     }
 
@@ -62,6 +60,7 @@ class EditProduct extends Component
                 'twitter' => 'nullable|alpha_dash|max:30',
                 'github' => 'nullable|alpha_dash|max:30',
                 'producthunt' => 'nullable|alpha_dash|max:30',
+                'avatar' => 'nullable|mimes:jpeg,jpg,png,gif|max:2048',
             ]);
 
             if (Auth::user()->isFlagged) {
@@ -69,6 +68,11 @@ class EditProduct extends Component
             }
 
             $product = Product::where('id', $this->product->id)->firstOrFail();
+            
+            if ($this->avatar) {
+                $avatar = $this->avatar->store('logos');
+                $product->avatar = config('app.url').'/storage/'.$avatar;
+            }
 
             if (Auth::user()->staffShip or Auth::id() === $product->user->id) {
                 $product->name = $this->name;
