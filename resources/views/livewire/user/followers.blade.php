@@ -8,7 +8,7 @@
     @foreach ($user->followers as $user)
     <div class="card mb-3">
         <div class="card-body d-flex align-items-center">
-        <img class="rounded-circle avatar-40 mt-1" src="{{ asset('storage/' . $user->avatar) }}" />
+        <img class="rounded-circle avatar-40 mt-1" src="{{ $user->avatar }}" />
             <span class="ml-3">
                 <a href="{{ route('user.done', ['username' => $user->username]) }}" class="align-text-top text-dark">
                     <span class="font-weight-bold">

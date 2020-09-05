@@ -31,7 +31,7 @@
                     </span>
                 </span>
                 <a href="{{ route('user.done', ['username' => $task->user->username]) }}">
-                    <img class="rounded-circle float-right avatar-30" src="{{ asset('storage/' . $task->user->avatar) }}" />
+                    <img class="rounded-circle float-right avatar-30" src="{{ $task->user->avatar }}" />
                 </a>
             </li>
             @endforeach
@@ -44,7 +44,7 @@
         @if (count($users) > 0)
             @foreach ($users as $user)
             <li class="list-group-item">
-                <img class="rounded-circle avatar-30" src="{{ asset('storage/' . $user->avatar) }}" />
+                <img class="rounded-circle avatar-30" src="{{ $user->avatar }}" />
                 <span>
                     <a class="ml-2 task-font text-dark align-middle" href="{{ route('user.done', ['username' => $user->username]) }}">
                         <span class="font-weight-bold">
@@ -75,7 +75,7 @@
                     </a>
                 </span>
                 <a href="{{ route('user.done', ['username' => $product->user->username]) }}">
-                    <img class="rounded-circle float-right avatar-30" src="{{ asset('storage/' . $product->user->avatar) }}" />
+                    <img class="rounded-circle float-right avatar-30" src="{{ $product->user->avatar }}" />
                 </a>
             </li>
             @endforeach
@@ -94,7 +94,7 @@
                     </a>
                 </span>
                 <a href="{{ route('user.done', ['username' => $question->user->username]) }}">
-                    <img class="rounded-circle float-right avatar-30" src="{{ asset('storage/' . $question->user->avatar) }}" />
+                    <img class="rounded-circle float-right avatar-30" src="{{ $question->user->avatar }}" />
                 </a>
             </li>
             @endforeach

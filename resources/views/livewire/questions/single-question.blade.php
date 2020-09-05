@@ -3,7 +3,7 @@
         @include('components.alert')
         <div class="d-flex align-items-center">
             <a href="{{ route('user.done', ['username' => $question->user->username]) }}">
-                <img class="avatar-40 rounded-circle" src="{{ asset('storage/' . $question->user->avatar) }}" />
+                <img class="avatar-40 rounded-circle" src="{{ $question->user->avatar }}" />
             </a>
             <span class="ml-2">
                 <a href="{{ route('user.done', ['username' => $question->user->username]) }}" class="font-weight-bold text-dark">
@@ -54,7 +54,7 @@
                     </span>
                     <span class="avatar-stack ml-1">
                     @foreach($question->likers->take(5) as $user)
-                    <img class="praise-avatar rounded-circle {{ $loop->last ? 'mr-0' : '' }}" src="{{ asset('storage/' . $user->avatar) }}" />
+                    <img class="praise-avatar rounded-circle {{ $loop->last ? 'mr-0' : '' }}" src="{{ $user->avatar }}" />
                     @endforeach
                     </span>
                 </button>
@@ -67,7 +67,7 @@
                     </span>
                     <span class="avatar-stack ml-1">
                     @foreach($question->likers->take(5) as $user)
-                    <img class="praise-avatar rounded-circle {{ $loop->last ? 'mr-0' : '' }}" src="{{ asset('storage/' . $user->avatar) }}" />
+                    <img class="praise-avatar rounded-circle {{ $loop->last ? 'mr-0' : '' }}" src="{{ $user->avatar }}" />
                     @endforeach
                     </span>
                     @endif
@@ -106,7 +106,7 @@
                     </span>
                     <span class="avatar-stack ml-1">
                     @foreach($question->likers->take(5) as $user)
-                    <img class="praise-avatar rounded-circle {{ $loop->last ? 'mr-0' : '' }}" src="{{ asset('storage/' . $user->avatar) }}" />
+                    <img class="praise-avatar rounded-circle {{ $loop->last ? 'mr-0' : '' }}" src="{{ $user->avatar }}" />
                     @endforeach
                     </span>
                     @endif
@@ -124,7 +124,7 @@
             @if ($type !== "question.question")
             <a href="{{ route('question.question', ['id' => $question->id]) }}" class="avatar-stack text-dark">
                 @foreach ($question->answer->groupBy('user_id')->take(5) as $answer)
-                <img class="rounded-circle avatar avatar-30" src="{{ asset('storage/' . $answer[0]->user->avatar) }}" />
+                <img class="rounded-circle avatar avatar-30" src="{{ $answer[0]->user->avatar }}" />
                 @endforeach
                 @if ($question->answer->groupBy('user_id')->count('id') >= 5)
                 <span class="ml-3 pl-1 align-middle font-weight-bold small">

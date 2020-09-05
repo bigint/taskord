@@ -2,7 +2,7 @@
     @include('components.alert')
     <div class="align-items-center d-flex">
         <a href="{{ route('user.done', ['username' => $task->user->username]) }}">
-            <img class="avatar-40 rounded-circle" src="{{ asset('storage/' . $task->user->avatar) }}" />
+            <img class="avatar-40 rounded-circle" src="{{ $task->user->avatar }}" />
         </a>
         <span class="ml-2">
             <a href="{{ route('user.done', ['username' => $task->user->username]) }}" class="font-weight-bold text-dark">
@@ -66,7 +66,7 @@
                     </span>
                     <span class="avatar-stack ml-1">
                     @foreach($task->likers->take(5) as $user)
-                    <img class="praise-avatar rounded-circle {{ $loop->last ? 'mr-0' : '' }}" src="{{ asset('storage/' . $user->avatar) }}" />
+                    <img class="praise-avatar rounded-circle {{ $loop->last ? 'mr-0' : '' }}" src="{{ $user->avatar }}" />
                     @endforeach
                     </span>
                 </button>
@@ -81,7 +81,7 @@
                     </span>
                     <span class="avatar-stack ml-1">
                     @foreach($task->likers->take(5) as $user)
-                    <img class="praise-avatar rounded-circle {{ $loop->last ? 'mr-0' : '' }}" src="{{ asset('storage/' . $user->avatar) }}" />
+                    <img class="praise-avatar rounded-circle {{ $loop->last ? 'mr-0' : '' }}" src="{{ $user->avatar }}" />
                     @endforeach
                     </span>
                     @endif
@@ -99,7 +99,7 @@
                     </span>
                     <span class="avatar-stack ml-1">
                     @foreach($task->likers->take(5) as $user)
-                    <img class="praise-avatar rounded-circle {{ $loop->last ? 'mr-0' : '' }}" src="{{ asset('storage/' . $user->avatar) }}" />
+                    <img class="praise-avatar rounded-circle {{ $loop->last ? 'mr-0' : '' }}" src="{{ $user->avatar }}" />
                     @endforeach
                     </span>
                     @endif
