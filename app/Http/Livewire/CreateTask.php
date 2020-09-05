@@ -139,6 +139,7 @@ class CreateTask extends Component
                 'type' => $this->type,
                 'source' => 'Taskord for Web',
             ]);
+            dd($task);
 
             $this->emit('taskAdded');
             $this->resetInputFields();
