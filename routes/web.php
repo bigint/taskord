@@ -28,6 +28,8 @@ Route::group(['prefix' => '@{username}', 'as' => 'user.'], function () {
     Route::get('followers', 'UserController@profile')->name('followers');
 });
 
+Route::get('avatar/{username}.png', 'UserController@avatar')->name('avatar');
+
 Route::group(['prefix' => 'settings', 'as' => 'user.settings.', 'middleware' => ['auth']], function () {
     Route::get('', 'UserController@profileSettings')->name('profile');
     Route::get('account', 'UserController@accountSettings')->name('account');

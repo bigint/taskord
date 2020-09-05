@@ -168,6 +168,12 @@ class UserController extends Controller
             'user' => $user,
         ]);
     }
+    
+    public function avatar($username)
+    {
+        $avatar = User::where('username', $username)->first();
+        return redirect($avatar->avatar);
+    }
 
     public function darkMode()
     {
