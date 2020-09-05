@@ -3,7 +3,7 @@
 @section('pageTitle', $task->task.' ·')
 @section('title', 'Task by @'.$task->user->username.' ·')
 @section('description', $task->task)
-@section('image', asset('storage/' . $task->user->avatar))
+@section('image', $task->user->avatar)
 @section('url', url()->current())
 
 @section('content')
@@ -44,7 +44,7 @@
                         </div>
                         <div class="card-body d-flex align-items-center">
                             <a href="{{ route('user.done', ['username' => $task->user->username]) }}">
-                                <img class="rounded-circle avatar-40 mt-1" src="{{ asset('storage/' . $task->user->avatar) }}" />
+                                <img class="rounded-circle avatar-40 mt-1" src="{{ $task->user->avatar }}" />
                             </a>
                             <span class="ml-3">
                                 <a href="{{ route('user.done', ['username' => $task->user->username]) }}" class="align-text-top text-dark">
@@ -67,7 +67,7 @@
                         </div>
                         <div class="card-body d-flex align-items-center">
                             <a href="{{ route('product.done', ['slug' => \App\Models\Product::find($task->product_id)->slug]) }}">
-                                <img class="rounded avatar-40 mt-1" src="{{ asset('storage/' . \App\Models\Product::find($task->product_id)->avatar) }}" />
+                                <img class="rounded avatar-40 mt-1" src="{{ \App\Models\Product::find($task->product_id)->avatar }}" />
                             </a>
                             <span class="ml-3">
                                 <a href="{{ route('user.done', ['username' => $task->user->username]) }}" class="align-text-top text-dark">
@@ -92,7 +92,7 @@
                                     href="{{ route('user.done', ['username' => $comment[0]->user->username]) }}"
                                     class="mr-1"
                                 >
-                                    <img class="rounded-circle avatar-30 mb-2" src="{{ asset('storage/' . $comment[0]->user->avatar) }}" />
+                                    <img class="rounded-circle avatar-30 mb-2" src="{{ $comment[0]->user->avatar }}" />
                                 </a>
                             @endforeach
                         </div>

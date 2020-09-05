@@ -1,7 +1,7 @@
 <li class="list-group-item pt-3 pb-3">
     @include('components.alert')
     <div class="align-items-center d-flex mb-2">
-        <img class="avatar-40 rounded-circle" src="{{ asset('storage/' . $comment->user->avatar) }}" />
+        <img class="avatar-40 rounded-circle" src="{{ $comment->user->avatar }}" />
         <span class="ml-2">
             <a href="{{ route('user.done', ['username' => $comment->user->username]) }}" class="font-weight-bold text-dark">
                 @if ($comment->user->firstname or $comment->user->lastname)
@@ -29,7 +29,7 @@
                 </span>
                 <span class="avatar-stack ml-1">
                 @foreach($comment->likers->take(5) as $user)
-                <img class="praise-avatar rounded-circle {{ $loop->last ? 'mr-0' : '' }}" src="{{ asset('storage/' . $user->avatar) }}" />
+                <img class="praise-avatar rounded-circle {{ $loop->last ? 'mr-0' : '' }}" src="{{ $user->avatar }}" />
                 @endforeach
                 </span>
             </button>
@@ -42,7 +42,7 @@
                 </span>
                 <span class="avatar-stack ml-1">
                 @foreach($comment->likers->take(5) as $user)
-                <img class="praise-avatar rounded-circle {{ $loop->last ? 'mr-0' : '' }}" src="{{ asset('storage/' . $user->avatar) }}" />
+                <img class="praise-avatar rounded-circle {{ $loop->last ? 'mr-0' : '' }}" src="{{ $user->avatar }}" />
                 @endforeach
                 </span>
                 @endif
@@ -70,7 +70,7 @@
                 </span>
                 <span class="avatar-stack ml-1">
                 @foreach($comment->likers->take(5) as $user)
-                <img class="praise-avatar rounded-circle {{ $loop->last ? 'mr-0' : '' }}" src="{{ asset('storage/' . $user->avatar) }}" />
+                <img class="praise-avatar rounded-circle {{ $loop->last ? 'mr-0' : '' }}" src="{{ $user->avatar }}" />
                 @endforeach
                 </span>
                 @endif

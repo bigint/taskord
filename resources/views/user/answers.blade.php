@@ -14,7 +14,7 @@ if ($user->lastname and $user->lastname) {
 @section('title', $user->username.' '.$name.' / Answers ·')
 @section('title', $user->username.' ('.$name.') ·')
 @section('description', $user->bio)
-@section('image', asset('storage/' . $user->avatar))
+@section('image', $user->avatar)
 @section('url', url()->current())
 
 @section('content')
