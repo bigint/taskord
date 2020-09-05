@@ -75,7 +75,7 @@
                 @enderror
                 @if ($user->avatar)
                 <div>
-                    <img class="avatar-100 rounded-circle mt-3 mb-3" src="{{ asset('storage/' . $user->avatar) }}" />
+                    <img class="avatar-100 rounded-circle mt-3 mb-3" src="{{ $user->avatar }}" />
                 </div>
                 @endif
                 <button type="submit" class="btn btn-primary">
