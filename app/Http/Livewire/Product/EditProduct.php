@@ -14,8 +14,8 @@ class EditProduct extends Component
     public $product;
     public $name;
     public $slug;
-    public $avatar;
     public $description;
+    public $avatar;
     public $website;
     public $twitter;
     public $github;

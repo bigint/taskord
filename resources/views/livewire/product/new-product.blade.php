@@ -37,6 +37,30 @@
                             </span>
                         @enderror
                     </div>
+                    <div class="mb-3">
+                        <label class="form-label font-weight-bold">Logo</label>
+                        <div class="form-file w-50">
+                            <input type="file" wire:model="avatar" class="form-file-input">
+                            <label class="form-file-label">
+                                <span class="form-file-text">Choose file...</span>
+                                <span class="form-file-button">Browse</span>
+                            </label>
+                        </div>
+                    </div>
+                    <div wire:loading wire:target="avatar">
+                        <div class="spinner-border spinner-border-sm" role="status">
+                          <span class="sr-only">Loading...</span>
+                        </div>
+                    </div>
+                    @error('avatar')
+                    <div class="text-danger font-weight-bold mt-3">{{ $message }}</div>
+                    @else
+                    @if ($avatar)
+                    <div>
+                        <img class="avatar-100 rounded mb-3" src="{{ $avatar->temporaryUrl() }}">
+                    </div>
+                    @endif
+                    @enderror
                     <div class="input-group mb-3">
                         <span class="input-group-text">
                             <i class="fa fa-link"></i>

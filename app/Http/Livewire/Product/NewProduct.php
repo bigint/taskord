@@ -6,18 +6,33 @@ use App\Models\Product;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
+use Livewire\WithFileUploads;
 
 class NewProduct extends Component
 {
+    use WithFileUploads;
+    
     public $name;
     public $slug;
     public $description;
+    public $avatar;
     public $website;
     public $twitter;
     public $github;
     public $producthunt;
     public $launched;
 
+    public function updatedAvatar()
+    {
+        if (Auth::check()) {
+            $this->validate([
+                'avatar' => 'nullable|mimes:jpeg,jpg,png,gif|max:2048',
+            ]);
+        } else {
+            return session()->flash('error', 'Forbidden!');
+        }
+    }
+    
     public function submit()
     {
         if (Auth::check()) {
@@ -44,12 +59,19 @@ class NewProduct extends Component
                 $launched_status = false;
                 $launched_at = null;
             }
+            
+            if ($this->avatar) {
+                $avatar = $this->avatar->store('logos');
+                $url = config('app.url').'/storage/'.$avatar;
+            } else {
+                $url = 'https://avatar.tobi.sh/'.md5($this->slug).'.svg?text=📦';
+            }
 
             $product = Product::create([
                 'user_id' =>  Auth::id(),
                 'name' => $this->name,
                 'slug' => $this->slug,
-                'avatar' => 'https://assets.gitlab-static.net/uploads/-/system/project/avatar/20359920/68648244.png',
+                'avatar' => $url,
                 'description' => $this->description,
                 'website' => $this->website,
                 'twitter' => $this->twitter,
