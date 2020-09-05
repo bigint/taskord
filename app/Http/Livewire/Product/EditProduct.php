@@ -10,7 +10,7 @@ use Livewire\WithFileUploads;
 class EditProduct extends Component
 {
     use WithFileUploads;
-    
+
     public $product;
     public $name;
     public $slug;
@@ -37,7 +37,7 @@ class EditProduct extends Component
         $this->launched = $product->launched;
         $this->deprecated = $product->deprecated;
     }
-    
+
     public function updatedAvatar()
     {
         if (Auth::check()) {
@@ -68,7 +68,7 @@ class EditProduct extends Component
             }
 
             $product = Product::where('id', $this->product->id)->firstOrFail();
-            
+
             if ($this->avatar) {
                 $avatar = $this->avatar->store('logos');
                 $product->avatar = config('app.url').'/storage/'.$avatar;
