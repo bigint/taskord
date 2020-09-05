@@ -87,11 +87,10 @@ class Profile extends Component
                 'company' => 'nullable|max:30',
                 'avatar' => 'nullable|mimes:jpeg,jpg,png,gif|max:2048',
             ]);
-
+            
             if ($this->avatar) {
                 $avatar = $this->avatar->store('user_avatars');
-            } else {
-                $avatar = null;
+                $this->user->avatar = config('app.url').'/storage/'.$avatar;
             }
 
             if (Auth::check()) {
@@ -100,7 +99,6 @@ class Profile extends Component
                 $this->user->bio = $this->bio;
                 $this->user->location = $this->location;
                 $this->user->company = $this->company;
-                $this->user->avatar = config('app.url').'/storage/'.$avatar;
                 $this->user->save();
 
                 return session()->flash('profile', 'Your profile has been updated!');
