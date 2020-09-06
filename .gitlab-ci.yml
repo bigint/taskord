@@ -1,20 +1,10 @@
 include:
   - template: Dependency-Scanning.gitlab-ci.yml
   - template: License-Scanning.gitlab-ci.yml
-  - template: SAST.gitlab-ci.yml
   - template: Secret-Detection.gitlab-ci.yml
-  - template: Accessibility.gitlab-ci.yml
-  - template: DAST.gitlab-ci.yml
-  - template: Code-Quality.gitlab-ci.yml
-  - template: Coverage-Fuzzing.gitlab-ci.yml
-  - template: Jobs/Browser-Performance-Testing.gitlab-ci.yml
 
 services:
   - mysql:latest
-
-performance:
-  variables:
-    URL: "https://stg.taskord.com"
 
 variables:
   MYSQL_ROOT_PASSWORD: root
@@ -22,16 +12,10 @@ variables:
   MYSQL_PASSWORD: taskord
   MYSQL_DATABASE: taskord
   DB_HOST: mysql
-  a11y_urls: "https://stg.taskord.com"
-  DAST_WEBSITE: "https://stg.taskord.com"
-  SAST_EXCLUDED_PATHS: "node_modules, vendor"
 
 stages:
   - test
   - deploy
-  - dast
-  - accessibility
-  - performance
 
 cache:
   paths:
