@@ -11,7 +11,7 @@
                 @endif
             </a>
         </span>
-        <span class="align-text-top small float-right ml-auto">
+        <span class="align-text-top small float-right ml-auto text-black-50">
             {{ Carbon::parse($comment->created_at)->diffForHumans() }}
         </span>
     </div>
