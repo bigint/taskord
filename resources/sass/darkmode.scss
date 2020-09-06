@@ -114,3 +114,15 @@ body {
         color: black;
     }
 }
+
+.modal-content {
+    background-color: $card-bg;
+}
+
+.modal-header {
+    border-bottom: 1px solid $border-bg;
+}
+
+.modal-footer {
+    border-top: 1px solid $border-bg;
+}
