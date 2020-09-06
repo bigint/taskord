@@ -107,7 +107,7 @@ class Profile extends Component
             return session()->flash('error', 'Forbidden!');
         }
     }
-    
+
     public function useGravatar()
     {
         if (Auth::check()) {
