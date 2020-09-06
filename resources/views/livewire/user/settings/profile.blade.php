@@ -66,6 +66,10 @@
                             <span class="form-file-text">Choose file...</span>
                             <span class="form-file-button">Browse</span>
                         </label>
+                        <button wire:click="useGravatar" class="btn btn-success text-white mt-3">
+                            Use Gravatar
+                            <span wire:target="useGravatar" wire:loading class="spinner-border spinner-border-sm ml-2" role="status"></span>
+                        </button>
                     </div>
                 </div>
                 <div wire:loading wire:target="avatar">

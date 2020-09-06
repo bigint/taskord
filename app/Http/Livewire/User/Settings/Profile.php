@@ -107,6 +107,18 @@ class Profile extends Component
             return session()->flash('error', 'Forbidden!');
         }
     }
+    
+    public function useGravatar()
+    {
+        if (Auth::check()) {
+            $this->user->avatar = 'https://secure.gravatar.com/avatar/'.md5(Auth::user()->email).'?s=500';
+            $this->user->save();
+
+            return session()->flash('profile', 'Your profile has been updated!');
+        } else {
+            return session()->flash('error', 'Forbidden!');
+        }
+    }
 
     public function updateSocial()
     {
