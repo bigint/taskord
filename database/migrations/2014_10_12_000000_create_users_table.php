@@ -45,42 +45,6 @@ class CreateUsersTable extends Migration
             $table->boolean('isFlagged')->default(false);
             $table->boolean('isSuspended')->default(false);
             $table->string('lastIP')->nullable();
-
-            // Task Mentioned
-            $table->boolean('taskMentionedEmail')->default(true);
-            $table->boolean('taskMentionedWeb')->default(true);
-
-            // Task Praised
-            $table->boolean('taskPraisedEmail')->default(false);
-            $table->boolean('taskPraisedWeb')->default(true);
-
-            // Comment Praised
-            $table->boolean('commentPraisedEmail')->default(false);
-            $table->boolean('commentPraisedWeb')->default(true);
-
-            // Question Praised
-            $table->boolean('questionPraisedEmail')->default(false);
-            $table->boolean('questionPraisedWeb')->default(true);
-
-            // Answer Praised
-            $table->boolean('answerPraisedEmail')->default(false);
-            $table->boolean('answerPraisedWeb')->default(true);
-
-            // Comment Added
-            $table->boolean('commentAddedEmail')->default(true);
-            $table->boolean('commentAddedWeb')->default(true);
-
-            // Answer Added
-            $table->boolean('answerAddedEmail')->default(true);
-            $table->boolean('answerAddedWeb')->default(true);
-
-            // User Followed
-            $table->boolean('userFollowedEmail')->default(true);
-            $table->boolean('userFollowedWeb')->default(true);
-
-            // Product Subscribed
-            $table->boolean('productSubscribedWeb')->default(true);
-            $table->boolean('productSubscribedEmail')->default(true);
             $table->rememberToken();
             $table->timestamps();
         });
