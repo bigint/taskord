@@ -14,7 +14,7 @@ class AddUserNotificationsToUsersTable extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            
+
             // Task Mentioned
             $table->boolean('taskMentionedEmail')->default(true);
             $table->boolean('taskMentionedWeb')->default(true);
@@ -50,7 +50,7 @@ class AddUserNotificationsToUsersTable extends Migration
             // Product Subscribed
             $table->boolean('productSubscribedWeb')->default(true);
             $table->boolean('productSubscribedEmail')->default(true);
-            
+
             // New Product Updates
             $table->boolean('productUpdatesWeb')->default(true);
             $table->boolean('productUpdatesEmail')->default(true);
