@@ -13,12 +13,15 @@
             <div class="row">
                 <div class="col-md-8">
                     <div class="card">
-                        <ul class="list-group list-group-flush">
-                            @livewire('task.single-task', [
-                                'task' => $task
-                            ], key($task->id))
-                        </ul>
+                        @livewire('task.single-task', [
+                            'task' => $task
+                        ], key($task->id))
                     </div>
+                    @livewire('task.comments', [
+                        'task' => $task,
+                        'page' => 1,
+                        'perPage' => 10
+                    ])
                     @auth
                     @if (!Auth::user()->isFlagged)
                         @livewire('task.create-comment', [
@@ -31,11 +34,6 @@
                             {{ Emoji::wavingHand() }} Login or Signup to comment
                         </a>
                     @endguest
-                    @livewire('task.comments', [
-                        'task' => $task,
-                        'page' => 1,
-                        'perPage' => 10
-                    ])
                 </div>
                 <div class="col-sm">
                     <div class="card mb-4">

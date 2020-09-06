@@ -42,7 +42,7 @@ class Comments extends Component
                     ['isFlagged', false],
                 ]);
             })
-            ->orderBy('created_at', 'DESC')
+            ->oldest()
             ->get();
 
         return view('livewire.task.comments', [
