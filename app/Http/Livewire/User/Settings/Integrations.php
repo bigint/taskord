@@ -16,7 +16,6 @@ class Integrations extends Component
 
     public $listeners = [
         'webhookDeleted' => 'render',
-        'webhookAdded' => 'render',
     ];
 
     public function mount($user)
@@ -49,7 +48,6 @@ class Integrations extends Component
                     'type' => $this->type,
                 ]);
                 $this->name = '';
-                $this->emit('webhookAdded');
                 session()->flash('created', $webhook);
             } else {
                 return session()->flash('error', 'Forbidden!');
