@@ -6,7 +6,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="theme-color" content="#343a40">
     <meta name="description" content="@yield('description')">
-    <meta name="twitter:card" content="summary">
+    <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@taskord">
     <meta property="og:site_name" content="Taskord">
     <meta property="og:title" content="@yield('title') Taskord">
