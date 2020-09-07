@@ -13,37 +13,37 @@
         </div>
         <ul class="list-group list-group-flush">
             @if ($user->website)
-            <a class="list-group-item link-dark" href="{{ $user->website }}">
+            <a class="list-group-item link-dark" href="{{ $user->website }}" target="_blank">
                 <i class="fa fa-link mr-1"></i>
                 {{ Helper::removeProtocol($user->website) }}
             </a>
             @endif
             @if ($user->twitter)
-            <a class="list-group-item link-dark" href="https://twitter.com/{{ $user->twitter }}">
+            <a class="list-group-item link-dark" href="https://twitter.com/{{ $user->twitter }}" target="_blank">
                 <i class="fa fa-twitter mr-1"></i>
                 {{ $user->twitter }}
             </a>
             @endif
             @if ($user->twitch)
-            <a class="list-group-item link-dark" href="https://twitch.tv/{{ $user->twitch }}">
+            <a class="list-group-item link-dark" href="https://twitch.tv/{{ $user->twitch }}" target="_blank">
                 <i class="fa fa-twitch mr-1"></i>
                 {{ $user->twitch }}
             </a>
             @endif
             @if ($user->telegram)
-            <a class="list-group-item link-dark" href="https://t.me/{{ $user->telegram }}">
+            <a class="list-group-item link-dark" href="https://t.me/{{ $user->telegram }}" target="_blank">
                 <i class="fa fa-telegram mr-1"></i>
                 {{ $user->telegram }}
             </a>
             @endif
             @if ($user->github)
-            <a class="list-group-item link-dark" href="https://github.com/{{ $user->github }}">
+            <a class="list-group-item link-dark" href="https://github.com/{{ $user->github }}" target="_blank">
                 <i class="fa fa-github mr-1"></i>
                 {{ $user->github }}
             </a>
             @endif
             @if ($user->youtube)
-            <a class="list-group-item link-dark" href="https://youtube.com/{{ $user->youtube }}">
+            <a class="list-group-item link-dark" href="https://youtube.com/{{ $user->youtube }}" target="_blank">
                 <i class="fa fa-youtube mr-1"></i>
                 {{ $user->youtube }}
             </a>

@@ -36,25 +36,25 @@
         </div>
         <ul class="list-group list-group-flush">
             @if ($product->website)
-            <a class="list-group-item link-dark" href="{{ $product->website }}">
+            <a class="list-group-item link-dark" href="{{ $product->website }}" target="_blank">
                 <i class="fa fa-link mr-1"></i>
                 {{ Helper::removeProtocol($product->website) }}
             </a>
             @endif
             @if ($product->producthunt)
-            <a class="list-group-item link-dark" href="https://www.producthunt.com/posts/{{ $product->producthunt }}">
+            <a class="list-group-item link-dark" href="https://www.producthunt.com/posts/{{ $product->producthunt }}" target="_blank">
                 <i class="fa fa-product-hunt mr-1"></i>
                 {{ Helper::removeProtocol($product->producthunt) }}
             </a>
             @endif
             @if ($product->twitter)
-            <a class="list-group-item link-dark" href="https://twitter.com/{{ $product->twitter }}">
+            <a class="list-group-item link-dark" href="https://twitter.com/{{ $product->twitter }}" target="_blank">
                 <i class="fa fa-twitter mr-1"></i>
                 {{ $product->twitter }}
             </a>
             @endif
             @if ($product->github)
-            <a class="list-group-item link-dark" href="https://github.com/{{ $product->github }}">
+            <a class="list-group-item link-dark" href="https://github.com/{{ $product->github }}" target="_blank">
                 <i class="fa fa-github mr-1"></i>
                 {{ $product->github }}
             </a>
