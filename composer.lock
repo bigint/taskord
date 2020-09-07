@@ -2093,16 +2093,16 @@
         },
         {
             "name": "livewire/livewire",
-            "version": "v2.0.2",
+            "version": "v2.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/livewire/livewire.git",
-                "reference": "4d9da0ec4cf2c2a9c0472a1e3f277dd858131ec5"
+                "reference": "78358db519ac3cfd3884029b3a9640d9793018fb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/livewire/livewire/zipball/4d9da0ec4cf2c2a9c0472a1e3f277dd858131ec5",
-                "reference": "4d9da0ec4cf2c2a9c0472a1e3f277dd858131ec5",
+                "url": "https://api.github.com/repos/livewire/livewire/zipball/78358db519ac3cfd3884029b3a9640d9793018fb",
+                "reference": "78358db519ac3cfd3884029b3a9640d9793018fb",
                 "shasum": ""
             },
             "require": {
@@ -2154,7 +2154,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2020-09-07T16:11:40+00:00"
+            "time": "2020-09-07T17:22:55+00:00"
         },
         {
             "name": "marvinlabs/laravel-discord-logger",
