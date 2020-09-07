@@ -9,7 +9,7 @@
             <form wire:submit.prevent="updatePassword">
                 <div class="mb-3">
                     <label class="form-label">Existing Password</label>
-                    <input type="password" class="form-control @error('currentPassword') is-invalid @enderror" wire:model.lazy="currentPassword">
+                    <input type="password" class="form-control @error('currentPassword') is-invalid @enderror" wire:model.defer="currentPassword">
                     @error('currentPassword')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
