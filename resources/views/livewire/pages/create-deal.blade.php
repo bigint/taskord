@@ -12,7 +12,7 @@
                     @include('components.alert')
                     <div class="mb-3">
                         <label class="form-label font-weight-bold">Name</label>
-                        <input type="text" class="form-control @error('name') is-invalid @enderror" placeholder="Product Name" wire:model.lazy="name">
+                        <input type="text" class="form-control @error('name') is-invalid @enderror" placeholder="Product Name" wire:model.defer="name">
                         @error('name')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -21,7 +21,7 @@
                     </div>
                     <div class="mb-3">
                         <label class="form-label font-weight-bold">Description</label>
-                        <textarea class="form-control @error('description') is-invalid @enderror" rows="6" placeholder="About the product" wire:model.lazy="description"></textarea>
+                        <textarea class="form-control @error('description') is-invalid @enderror" rows="6" placeholder="About the product" wire:model.defer="description"></textarea>
                         @error('description')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -30,7 +30,7 @@
                     </div>
                     <div class="mb-3">
                         <label class="form-label font-weight-bold">Offer %</label>
-                        <input type="text" class="form-control @error('offer') is-invalid @enderror" placeholder="Offer in %" wire:model.lazy="offer">
+                        <input type="text" class="form-control @error('offer') is-invalid @enderror" placeholder="Offer in %" wire:model.defer="offer">
                         @error('offer')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -39,7 +39,7 @@
                     </div>
                     <div class="mb-3">
                         <label class="form-label font-weight-bold">Coupon code</label>
-                        <input type="text" class="form-control @error('coupon') is-invalid @enderror" placeholder="Coupon code" wire:model.lazy="coupon">
+                        <input type="text" class="form-control @error('coupon') is-invalid @enderror" placeholder="Coupon code" wire:model.defer="coupon">
                         @error('coupon')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -48,7 +48,7 @@
                     </div>
                     <div class="mb-3">
                         <label class="form-label font-weight-bold">Website URL</label>
-                        <input type="text" class="form-control @error('website') is-invalid @enderror" placeholder="Website URL" wire:model.lazy="website">
+                        <input type="text" class="form-control @error('website') is-invalid @enderror" placeholder="Website URL" wire:model.defer="website">
                         @error('website')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -57,7 +57,7 @@
                     </div>
                     <div class="mb-3">
                         <label class="form-label font-weight-bold">Logo URL</label>
-                        <input type="text" class="form-control @error('logo') is-invalid @enderror" placeholder="Logo URL" wire:model.lazy="logo">
+                        <input type="text" class="form-control @error('logo') is-invalid @enderror" placeholder="Logo URL" wire:model.defer="logo">
                         @error('logo')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>

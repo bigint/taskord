@@ -12,7 +12,7 @@
                     @include('components.alert')
                     <div class="mb-3">
                         <label class="form-label font-weight-bold">Title</label>
-                        <input type="text" class="form-control @error('title') is-invalid @enderror" placeholder="What's New?" wire:model.lazy="title">
+                        <input type="text" class="form-control @error('title') is-invalid @enderror" placeholder="What's New?" wire:model.defer="title">
                         @error('title')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -21,7 +21,7 @@
                     </div>
                     <div class="mb-3">
                         <label class="form-label font-weight-bold">Body</label>
-                        <textarea class="form-control @error('body') is-invalid @enderror" rows="6" placeholder="What's new on {{ $product->name }}?" wire:model.lazy="body"></textarea>
+                        <textarea class="form-control @error('body') is-invalid @enderror" rows="6" placeholder="What's new on {{ $product->name }}?" wire:model.defer="body"></textarea>
                         @error('body')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
