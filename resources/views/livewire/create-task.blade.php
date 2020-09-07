@@ -20,7 +20,7 @@
                             {{ Auth::check() && Auth::user()->checkState ? 'checked' : 'unchecked' }}
                         >
                     </div>
-                    <input type="text" class="form-control" placeholder="Add a Task" wire:model.lazy="task">
+                    <input type="text" class="form-control" placeholder="Add a Task" wire:model.defer="task">
                 </div>
                 <div class="d-flex justify-content-between">
                 <div class="form-file form-file-sm w-25">
@@ -33,7 +33,7 @@
                 @auth
                 @if (!Auth::user()->checkState)
                 <div class="form-group ml-auto mr-2 d-none d-sm-block">
-                    <input class="form-control form-control-sm" wire:model.lazy="due_at" type="date" placeholder="Due date" min="{{ Carbon::today()->format('Y-m-d') }}" />
+                    <input class="form-control form-control-sm" wire:model.defer="due_at" type="date" placeholder="Due date" min="{{ Carbon::today()->format('Y-m-d') }}" />
                 </div>
                 @endif
                 @endauth
