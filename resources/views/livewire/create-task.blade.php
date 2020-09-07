@@ -24,7 +24,7 @@
                 </div>
                 <div class="d-flex justify-content-between">
                 <div class="form-file form-file-sm w-25">
-                    <input type="file" wire:model="image" class="form-file-input">
+                    <input type="file" wire:model="image" class="form-file-input" accept="image/*">
                     <label class="form-file-label">
                         <span class="form-file-text">Choose file...</span>
                         <span class="form-file-button">Browse</span>
