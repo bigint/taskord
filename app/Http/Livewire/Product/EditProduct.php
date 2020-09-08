@@ -6,6 +6,7 @@ use App\Models\Product;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 use Livewire\WithFileUploads;
+use Illuminate\Support\Facades\Storage;
 
 class EditProduct extends Component
 {
@@ -70,6 +71,10 @@ class EditProduct extends Component
             $product = Product::where('id', $this->product->id)->firstOrFail();
 
             if ($this->avatar) {
+                $old_avatar = explode('storage/', $this->product->avatar);
+                if (array_key_exists(1, $old_avatar)) {
+                    Storage::delete($old_avatar[1]);
+                }
                 $avatar = $this->avatar->store('logos');
                 $product->avatar = config('app.url').'/storage/'.$avatar;
             }
