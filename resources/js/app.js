@@ -25,15 +25,13 @@ $(window).scroll(() => {
 });
 
 // Admin Bar toggle in dropdown
-$(document).on('turbolinks:load', () => {
-  $("#admin-bar-click").click('turbolinks:load', () => {
-    $.get("/admin/adminbar", (data, status) => {
-      if(data === "enabled" || data === "disabled") {
-        if (status === "success") {
-          location.reload();
-        }
+$("#admin-bar-click").click(() => {
+  $.get("/admin/adminbar", (data, status) => {
+    if(data === "enabled" || data === "disabled") {
+      if (status === "success") {
+        location.reload();
       }
-    });
+    }
   });
 });
 
