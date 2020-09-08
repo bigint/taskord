@@ -136,7 +136,7 @@ return [
         'notifiable' => \Spatie\Backup\Notifications\Notifiable::class,
 
         'mail' => [
-            'to' => 'backup@yogi.codes',
+            'to' => 'taskord@icloud.com',
 
             'from' => [
                 'address' => env('MAIL_FROM_ADDRESS'),
