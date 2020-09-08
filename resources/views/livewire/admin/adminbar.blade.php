@@ -80,7 +80,7 @@
                 <i class="fa fa-wrench mr-1"></i>
                 {{ $jobs }}
                 <span class="font-weight-normal">
-                    {{ $jobs != 1 ? 'jobs' : 'job' }}
+                    jobs
                 </span>
             </span>
             <span class="font-weight-bold">
