@@ -265,7 +265,7 @@ class Notifications extends Component
             return session()->flash('error', 'Forbidden!');
         }
     }
-    
+
     public function productUpdatesWeb()
     {
         if (Auth::check()) {
