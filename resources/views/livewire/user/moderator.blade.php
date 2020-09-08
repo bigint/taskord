@@ -4,15 +4,26 @@
     </div>
     <div class="card-body">
         <div class="mb-1">
+            <i class="fa fa-clock text-black-50 mr-1"></i>
             <span class="h6">Last Updated:</span>
             <span class="font-weight-bold">
                 {{ Carbon::parse($user->updated_at)->format('M d, Y g:i A') }}
             </span>
         </div>
+        <div class="mb-1">
+            <i class="fa fa-envelope text-black-50 mr-1"></i>
+            <span class="h6">User Email:</span>
+            <a class="font-weight-bold" href="mailto://{{ $user->email }}">
+                {{ $user->email }}
+            </a>
+        </div>
         @if ($user->lastIP)
         <div class="mb-3">
             <h5>
-                <span class="h6">Last login IP:</span>
+                <span class="h6">
+                    <i class="fa fa-address-card text-black-50 mr-1"></i>
+                    Last login IP:
+                </span>
                 <a class="badge pill bg-success font-monospace" href="https://ipinfo.io/{{ $user->lastIP }}" target="_blank">{{ $user->lastIP }}</a>
             </h5>
             @php

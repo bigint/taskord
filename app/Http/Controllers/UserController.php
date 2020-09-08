@@ -20,6 +20,7 @@ class UserController extends Controller
     {
         $user = User::select(
                 'id',
+                'email',
                 'username',
                 'firstname',
                 'lastname',
