@@ -1,9 +1,6 @@
 require('./bootstrap');
 require('./shortcuts');
-const Turbolinks = require("turbolinks");
 import {isInViewport} from "observe-element-in-viewport";
-
-//Turbolinks.start();
 
 $(document).ready(() => {
   (async () => {
