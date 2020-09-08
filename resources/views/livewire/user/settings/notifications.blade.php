@@ -140,6 +140,21 @@
                     </span>
                 </div>
             </li>
+            <li class="list-group-item pt-3 pb-3">
+                <div class="h5">Product Updates</div>
+                <span class="small">Notifications for the product updates for the product you subscribed.</span>
+                <div class="mt-3">
+                    <span>
+                        <input wire:click="productUpdatesEmail" id="productUpdatesEmail" class="form-check-input" type="checkbox" {{ $user->productUpdatesEmail ? 'checked' : '' }}>
+                        <label for="productUpdatesEmail" class="ml-1">Email</label>
+                    </span>
+                    <span class="ml-4">
+                        <input wire:click="productUpdatesWeb" id="productUpdatesWeb" class="form-check-input" type="checkbox" {{ $user->productUpdatesWeb ? 'checked' : '' }}>
+                        <label for="productUpdatesWeb" class="ml-1">Web</label>
+                        <span wire:loading wire:target="productUpdatesEmail, productUpdatesWeb" class="small ml-2 text-success font-weight-bold">Updating...</span>
+                    </span>
+                </div>
+            </li>
         </ul>
     </div>
 </div>

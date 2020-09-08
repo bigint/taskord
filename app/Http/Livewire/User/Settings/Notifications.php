@@ -265,6 +265,34 @@ class Notifications extends Component
             return session()->flash('error', 'Forbidden!');
         }
     }
+    
+    public function productUpdatesWeb()
+    {
+        if (Auth::check()) {
+            if (Auth::id() === $this->user->id) {
+                $this->user->productUpdatesWeb = ! $this->user->productUpdatesWeb;
+                $this->user->save();
+            } else {
+                return session()->flash('error', 'Forbidden!');
+            }
+        } else {
+            return session()->flash('error', 'Forbidden!');
+        }
+    }
+
+    public function productUpdatesEmail()
+    {
+        if (Auth::check()) {
+            if (Auth::id() === $this->user->id) {
+                $this->user->productUpdatesEmail = ! $this->user->productUpdatesEmail;
+                $this->user->save();
+            } else {
+                return session()->flash('error', 'Forbidden!');
+            }
+        } else {
+            return session()->flash('error', 'Forbidden!');
+        }
+    }
 
     public function render()
     {
