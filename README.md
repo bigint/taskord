@@ -1,7 +1,7 @@
 <div align="center">
     <p><img src="public/images/logo.svg" height="70" alt="Taskord Logo"></p>
     <h1>Taskord</h1>
-    <strong>✅ The Taskord Web App</strong>
+    <strong>✅ Get things done socially</strong>
 </div>
 <br>
 <div align="center">
