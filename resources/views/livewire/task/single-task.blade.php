@@ -28,7 +28,15 @@
     <div class="mt-3 mb-1">
         @if ($task->source === 'GitLab')
         <span>
-            <i class="fa fa-gitlab task-gitlab"></i>
+            <i class="fa fa-gitlab task-gitlab task-font"></i>
+        </span>
+        @elseif ($task->source === 'GitHub')
+        <span>
+            <i class="fa fa-github task-github task-font"></i>
+        </span>
+        @elseif ($task->source === 'Webhook')
+        <span>
+            <i class="fa fa-globe text-info task-font"></i>
         </span>
         @else
         <input
