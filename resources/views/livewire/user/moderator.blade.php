@@ -3,9 +3,16 @@
         Moderator
     </div>
     <div class="card-body">
+        <div class="mb-1">
+            <span class="h6">Last Updated:</span>
+            <span class="font-weight-bold">
+                {{ Carbon::parse($user->updated_at)->format('M d, Y g:i A') }}
+            </span>
+        </div>
         @if ($user->lastIP)
         <div class="mb-3">
             <h5>
+                <span class="h6">Last login IP:</span>
                 <a class="badge pill bg-success font-monospace" href="https://ipinfo.io/{{ $user->lastIP }}" target="_blank">{{ $user->lastIP }}</a>
             </h5>
             @php
