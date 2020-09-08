@@ -18,7 +18,7 @@
                 </div>
                 <div class="mb-3 d-flex">
                     <span class="form-check">
-                        <input class="form-check-input" type="radio" id="web" name="type" value="web" wire:model.defer="type">
+                        <input class="form-check-input" type="radio" id="web" name="type" value="web" wire:model.defer="type" checked>
                         <label class="form-check-label" for="web">
                             Simple Webhook
                         </label>
