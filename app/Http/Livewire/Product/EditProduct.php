@@ -115,6 +115,10 @@ class EditProduct extends Component
             }
 
             if (Auth::user()->staffShip or Auth::id() === $this->product->user->id) {
+                $avatar = explode('storage/', $this->product->avatar);
+                if (array_key_exists(1, $avatar)) {
+                    Storage::delete($avatar[1]);
+                }
                 $this->product->delete();
                 session()->flash('product_deleted', 'Product has been deleted!');
 
