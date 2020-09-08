@@ -36,15 +36,13 @@ $("#admin-bar-click").click(() => {
 });
 
 // Dark mode toggle in dropdown
-$(document).on('turbolinks:load', () => {
-  $("#dark-mode").click('turbolinks:load', () => {
-    $.get("/darkmode", (data, status) => {
-      if(data === "enabled" || data === "disabled") {
-        if (status === "success") {
-          location.reload();
-        }
+$("#dark-mode").click(() => {
+  $.get("/darkmode", (data, status) => {
+    if(data === "enabled" || data === "disabled") {
+      if (status === "success") {
+        location.reload();
       }
-    });
+    }
   });
 });
 
