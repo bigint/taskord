@@ -96,7 +96,7 @@ class CreateTask extends Component
             } else {
                 $image = null;
             }
-            
+
             $task = Task::create([
                 'user_id' =>  Auth::id(),
                 'product_id' =>  $this->product,
@@ -104,7 +104,7 @@ class CreateTask extends Component
                 'done' => false,
                 'image' => $image,
                 'due_at' => $this->due_at,
-                'type' => $this->product? 'product' : 'user',
+                'type' => $this->product ? 'product' : 'user',
                 'source' => 'Taskord for Web',
             ]);
 
