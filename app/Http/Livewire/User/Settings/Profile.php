@@ -3,9 +3,9 @@
 namespace App\Http\Livewire\User\Settings;
 
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 use Livewire\Component;
 use Livewire\WithFileUploads;
-use Illuminate\Support\Facades\Storage;
 
 class Profile extends Component
 {
@@ -88,7 +88,7 @@ class Profile extends Component
                 'company' => 'nullable|max:30',
                 'avatar' => 'nullable|mimes:jpeg,jpg,png,gif|max:2048',
             ]);
-            
+
             if ($this->avatar) {
                 $old_avatar = explode('storage/', $this->user->avatar);
                 if (array_key_exists(1, $old_avatar)) {
