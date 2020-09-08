@@ -50,7 +50,10 @@ class HomeController extends Controller
             ->take(5)
             ->get();
         $reputations = User::select('username', 'firstname', 'lastname', 'avatar', 'reputation')
-            ->where('isFlagged', false)
+            ->where([
+                ['isFlagged', false],
+                ['id', '!=', 1]
+            ])
             ->orderBy('reputation', 'DESC')
             ->take(10)
             ->get();
