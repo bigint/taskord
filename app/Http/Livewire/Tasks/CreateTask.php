@@ -20,6 +20,7 @@ class CreateTask extends Component
     public $task;
     public $image;
     public $due_at;
+    public $product;
 
     public function getUserIDFromMention($string)
     {
@@ -95,15 +96,15 @@ class CreateTask extends Component
             } else {
                 $image = null;
             }
-
+            
             $task = Task::create([
                 'user_id' =>  Auth::id(),
-                'product_id' =>  null,
+                'product_id' =>  $this->product,
                 'task' => $this->task,
                 'done' => false,
                 'image' => $image,
                 'due_at' => $this->due_at,
-                'type' => 'user',
+                'type' => $this->product? 'product' : 'user',
                 'source' => 'Taskord for Web',
             ]);
 

@@ -21,6 +21,16 @@
                         <span class="form-file-button">Browse</span>
                     </label>
                 </div>
+                @if (Auth::user()->products->count('id') > 0)
+                <div class="form-group w-25 ml-2">
+                    <select class="form-select form-select-sm" wire:model="product">
+                        <option selected>Choose Product</option>
+                        @foreach (Auth::user()->products as $product)
+                        <option value="{{ $product->id }}">{{ $product->name }}</option>
+                        @endforeach
+                    </select>
+                </div>
+                @endif
                 <div class="form-group ml-auto mr-2 d-none d-sm-block">
                     <input class="form-control form-control-sm" wire:model.defer="due_at" type="date" placeholder="Due date" min="{{ Carbon::today()->format('Y-m-d') }}" />
                 </div>
