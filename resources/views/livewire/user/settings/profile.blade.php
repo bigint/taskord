@@ -15,7 +15,7 @@
             <form wire:submit.prevent="updateProfile">
                 <div class="mb-3">
                     <label class="form-label">Firstname</label>
-                    <input type="text" class="form-control @error('firstname') is-invalid @enderror" value="{{ $user->firstname }}" wire:model="firstname">
+                    <input type="text" class="form-control @error('firstname') is-invalid @enderror" value="{{ $user->firstname }}" wire:model.defer="firstname">
                     @error('firstname')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
@@ -24,7 +24,7 @@
                 </div>
                 <div class="mb-3">
                     <label class="form-label">Lastname</label>
-                    <input type="text" class="form-control @error('lastname') is-invalid @enderror" value="{{ $user->lastname }}" wire:model="lastname">
+                    <input type="text" class="form-control @error('lastname') is-invalid @enderror" value="{{ $user->lastname }}" wire:model.defer="lastname">
                     @error('lastname')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
@@ -33,7 +33,7 @@
                 </div>
                 <div class="mb-3">
                     <label class="form-label">Bio</label>
-                    <textarea class="form-control @error('bio') is-invalid @enderror"rows="3" wire:model="bio">{{ $user->bio }}</textarea>
+                    <textarea class="form-control @error('bio') is-invalid @enderror"rows="3" wire:model.defer="bio">{{ $user->bio }}</textarea>
                     @error('bio')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
@@ -42,7 +42,7 @@
                 </div>
                 <div class="mb-3">
                     <label class="form-label">Location</label>
-                    <input type="text" class="form-control @error('location') is-invalid @enderror" value="{{ $user->location }}" wire:model="location">
+                    <input type="text" class="form-control @error('location') is-invalid @enderror" value="{{ $user->location }}" wire:model.defer="location">
                     @error('location')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
@@ -51,7 +51,7 @@
                 </div>
                 <div class="mb-3">
                     <label class="form-label">Company</label>
-                    <input type="text" class="form-control @error('company') is-invalid @enderror" value="{{ $user->company }}" wire:model="company">
+                    <input type="text" class="form-control @error('company') is-invalid @enderror" value="{{ $user->company }}" wire:model.defer="company">
                     @error('company')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
@@ -135,7 +135,7 @@
                     <span class="input-group-text">
                         <i class="fa fa-link"></i>
                     </span>
-                    <input type="text" class="form-control @error('website') is-invalid @enderror" placeholder="Website" value="{{ $user->website }}" wire:model="website">
+                    <input type="text" class="form-control @error('website') is-invalid @enderror" placeholder="Website" value="{{ $user->website }}" wire:model.defer="website">
                     @error('website')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
@@ -146,7 +146,7 @@
                     <span class="input-group-text">
                         <i class="fa fa-twitter"></i>
                     </span>
-                    <input type="text" class="form-control @error('twitter') is-invalid @enderror" placeholder="Twitter" value="{{ $user->twitter }}" wire:model="twitter">
+                    <input type="text" class="form-control @error('twitter') is-invalid @enderror" placeholder="Twitter" value="{{ $user->twitter }}" wire:model.defer="twitter">
                     @error('twitter')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
@@ -157,7 +157,7 @@
                     <span class="input-group-text">
                         <i class="fa fa-twitch"></i>
                     </span>
-                    <input type="text" class="form-control @error('twitch') is-invalid @enderror" placeholder="Twitch" value="{{ $user->twitch }}" wire:model="twitch">
+                    <input type="text" class="form-control @error('twitch') is-invalid @enderror" placeholder="Twitch" value="{{ $user->twitch }}" wire:model.defer="twitch">
                     @error('twitch')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
@@ -168,7 +168,7 @@
                     <span class="input-group-text">
                         <i class="fa fa-telegram"></i>
                     </span>
-                    <input type="text" class="form-control @error('telegram') is-invalid @enderror" placeholder="Telegram" value="{{ $user->telegram }}" wire:model="telegram">
+                    <input type="text" class="form-control @error('telegram') is-invalid @enderror" placeholder="Telegram" value="{{ $user->telegram }}" wire:model.defer="telegram">
                     @error('telegram')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
@@ -179,7 +179,7 @@
                     <span class="input-group-text">
                         <i class="fa fa-github"></i>
                     </span>
-                    <input type="text" class="form-control @error('github') is-invalid @enderror" placeholder="GitHub" value="{{ $user->github }}" wire:model="github">
+                    <input type="text" class="form-control @error('github') is-invalid @enderror" placeholder="GitHub" value="{{ $user->github }}" wire:model.defer="github">
                     @error('github')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
@@ -190,7 +190,7 @@
                     <span class="input-group-text">
                         <i class="fa fa-youtube"></i>
                     </span>
-                    <input type="text" class="form-control @error('youtube') is-invalid @enderror" placeholder="YouTube" value="{{ $user->youtube }}" wire:model="youtube">
+                    <input type="text" class="form-control @error('youtube') is-invalid @enderror" placeholder="YouTube" value="{{ $user->youtube }}" wire:model.defer="youtube">
                     @error('youtube')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>

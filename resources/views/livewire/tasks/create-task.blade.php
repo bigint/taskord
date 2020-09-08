@@ -11,7 +11,7 @@
             @enderror
             <form wire:submit.prevent="submit">
                 <div class="mb-3">
-                    <input type="text" class="form-control" placeholder="Add a Task to work on" wire:model.lazy="task">
+                    <input type="text" class="form-control" placeholder="Add a Task to work on" wire:model.defer="task">
                 </div>
                 <div class="d-flex justify-content-between">
                 <div class="form-file form-file-sm w-25">
@@ -22,7 +22,7 @@
                     </label>
                 </div>
                 <div class="form-group ml-auto mr-2 d-none d-sm-block">
-                    <input class="form-control form-control-sm" wire:model.lazy="due_at" type="date" placeholder="Due date" min="{{ Carbon::today()->format('Y-m-d') }}" />
+                    <input class="form-control form-control-sm" wire:model.defer="due_at" type="date" placeholder="Due date" min="{{ Carbon::today()->format('Y-m-d') }}" />
                 </div>
                 <button wire:loading.attr="disabled" wire:offline.attr="disabled" class="btn btn-sm btn-primary" type="submit">
                     <i class="fa fa-plus mr-1"></i>

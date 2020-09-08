@@ -9,7 +9,7 @@
             <span class="h5">Create Webhook</span>
             <form wire:submit.prevent="submit">
                 <div class="mb-3 mt-3">
-                    <input type="text" class="form-control @error('name') is-invalid @enderror" wire:model="name" placeholder="Webhook Name">
+                    <input type="text" class="form-control @error('name') is-invalid @enderror" wire:model.defer="name" placeholder="Webhook Name">
                     @error('name')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
@@ -18,19 +18,19 @@
                 </div>
                 <div class="mb-3 d-flex">
                     <span class="form-check">
-                        <input class="form-check-input" type="radio" id="web" value="web" wire:model="type">
+                        <input class="form-check-input" type="radio" id="web" value="web" wire:model.defer="type">
                         <label class="form-check-label" for="web">
                             Simple Webhook
                         </label>
                     </span>
                     <span class="form-check ml-3">
-                        <input class="form-check-input" type="radio" id="github" value="github" wire:model="type">
+                        <input class="form-check-input" type="radio" id="github" value="github" wire:model.defer="type">
                         <label class="form-check-label" for="github">
                             GitHub
                         </label>
                     </span>
                     <span class="form-check ml-3">
-                        <input class="form-check-input" type="radio" id="gitlab" value="gitlab" wire:model="type">
+                        <input class="form-check-input" type="radio" id="gitlab" value="gitlab" wire:model.defer="type">
                         <label class="form-check-label" for="gitlab">
                             GitLab
                         </label>

@@ -9,7 +9,7 @@
             </div>
         @enderror
         <div class="mb-3">
-            <textarea placeholder="Add a comment" class="form-control" rows="3" wire:model.lazy="comment"></textarea>
+            <textarea placeholder="Add a comment" class="form-control" rows="3" wire:model.defer="comment"></textarea>
         </div>
         <div class="h6 font-weight-bold mb-3">
             <i class="fab fa-markdown mr-1"></i>
