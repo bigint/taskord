@@ -20,11 +20,11 @@
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
-    <link href="{{ mix('css/app.css') }}" rel="stylesheet" data-turbolinks-track="true">
+    <link href="{{ mix('css/app.css') }}" rel="stylesheet">
     @auth
     @if (Auth::user()->isPatron or Auth::user()->isStaff)
     @if (Auth::user()->darkMode)
-    <link href="{{ mix('css/darkmode.css') }}" rel="stylesheet" data-turbolinks-track="true">
+    <link href="{{ mix('css/darkmode.css') }}" rel="stylesheet">
     @endif
     @endif
     @endauth
@@ -135,7 +135,7 @@
                                     <a class="dropdown-item text-dark" href="{{ route('user.settings.profile') }}">
                                         {{ Emoji::gear() }} Settings
                                     </a>
-                                    <a class="dropdown-item text-dark" href="{{ route('patron.home') }}" data-turbolinks="false">
+                                    <a class="dropdown-item text-dark" href="{{ route('patron.home') }}">
                                         {{ Emoji::handshake() }} Patron
                                     </a>
                                     <div class="dropdown-divider"></div>
@@ -203,8 +203,8 @@
         </main>
     </div>
 </body>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js" defer data-turbolinks-track="true" data-turbolinks-eval=false></script>
-<script src="{{ asset('js/app.js') }}" defer data-turbolinks-track="true" data-turbolinks-eval=false></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js" defer></script>
+<script src="{{ asset('js/app.js') }}" defer></script>
 <script src="https://kit.fontawesome.com/4f46a7856f.js" crossorigin="anonymous"></script>
 @livewireScripts
 </html>
