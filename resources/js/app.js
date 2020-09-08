@@ -46,11 +46,6 @@ $("#dark-mode").click(() => {
   });
 });
 
-// Enable Tooltips
-$(document).on('turbolinks:load', () => {
-  $("body").tooltip({ selector: '[data-toggle=tooltip]' });
-});
-
 // Hide Alert
 $(document).on("livewire:load", (_event) => {
   window.livewire.hook('afterDomUpdate', () => {
