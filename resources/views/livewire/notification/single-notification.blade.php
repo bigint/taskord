@@ -1,7 +1,6 @@
 <div>
     @php
-        if ($data['user_id']) {
-        dump('here');
+        if ($data['user_id'] === null) {
             $user = \App\Models\User::where('username', 'ghost')->first();
         } else {
             $user = \App\Models\User::find($data['user_id']);
