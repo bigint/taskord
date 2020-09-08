@@ -18,19 +18,19 @@
                 </div>
                 <div class="mb-3 d-flex">
                     <span class="form-check">
-                        <input class="form-check-input" type="radio" id="web" value="web" wire:model.defer="type">
+                        <input class="form-check-input" type="radio" id="web" name="type" value="web" wire:model.defer="type">
                         <label class="form-check-label" for="web">
                             Simple Webhook
                         </label>
                     </span>
                     <span class="form-check ml-3">
-                        <input class="form-check-input" type="radio" id="github" value="github" wire:model.defer="type">
+                        <input class="form-check-input" type="radio" id="github" name="type" value="github" wire:model.defer="type">
                         <label class="form-check-label" for="github">
                             GitHub
                         </label>
                     </span>
                     <span class="form-check ml-3">
-                        <input class="form-check-input" type="radio" id="gitlab" value="gitlab" wire:model.defer="type">
+                        <input class="form-check-input" type="radio" id="gitlab" name="type" value="gitlab" wire:model.defer="type">
                         <label class="form-check-label" for="gitlab">
                             GitLab
                         </label>

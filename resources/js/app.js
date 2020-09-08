@@ -3,7 +3,7 @@ require('./shortcuts');
 const Turbolinks = require("turbolinks");
 import {isInViewport} from "observe-element-in-viewport";
 
-Turbolinks.start();
+//Turbolinks.start();
 
 $(document).ready(() => {
   (async () => {
