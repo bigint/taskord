@@ -95,6 +95,7 @@ class SingleTask extends Component
             }
 
             if (Auth::user()->staffShip or Auth::id() === $this->task->user->id) {
+                dd($this->task->image);
                 Storage::delete($this->task->image);
                 $this->task->delete();
                 $this->emitUp('taskDeleted');

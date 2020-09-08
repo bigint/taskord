@@ -5,6 +5,7 @@ namespace App\Http\Livewire\User\Settings;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 use Livewire\WithFileUploads;
+use Illuminate\Support\Facades\Storage;
 
 class Profile extends Component
 {
@@ -87,8 +88,12 @@ class Profile extends Component
                 'company' => 'nullable|max:30',
                 'avatar' => 'nullable|mimes:jpeg,jpg,png,gif|max:2048',
             ]);
-
+            
             if ($this->avatar) {
+                $old_avatar = explode('storage/', $this->user->avatar);
+                if (array_key_exists(1, $old_avatar)) {
+                    Storage::delete($old_avatar[1]);
+                }
                 $avatar = $this->avatar->store('avatars');
                 $this->user->avatar = config('app.url').'/storage/'.$avatar;
             }
@@ -111,6 +116,10 @@ class Profile extends Component
     public function useGravatar()
     {
         if (Auth::check()) {
+            $old_avatar = explode('storage/', $this->user->avatar);
+            if (array_key_exists(1, $old_avatar)) {
+                Storage::delete($old_avatar[1]);
+            }
             $this->user->avatar = 'https://secure.gravatar.com/avatar/'.md5(Auth::user()->email).'?s=500';
             $this->user->save();
 
