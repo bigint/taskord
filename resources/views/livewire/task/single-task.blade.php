@@ -26,6 +26,11 @@
         </span>
     </div>
     <div class="mt-3 mb-1">
+        @if ($task->source === 'GitLab')
+        <span>
+            <i class="fa fa-gitlab task-gitlab"></i>
+        </span>
+        @else
         <input
             class="form-check-input"
             type="checkbox"
@@ -37,6 +42,7 @@
                 "enabled" : "disabled"
             }}
         />
+        @endif
         <span class="ml-1 task-font">
             {!! Purify::clean(Helper::renderTask($task->task)) !!}
             @if ($task->type === 'product')
