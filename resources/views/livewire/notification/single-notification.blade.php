@@ -1,5 +1,6 @@
 <div>
     @php
+        dump($data['user_id']);
         if ($data['user_id']) {
             $user = \App\Models\User::where('username', 'ghost')->first();
         } else {
