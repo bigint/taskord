@@ -26,8 +26,7 @@
         "bootstrap": "^5.0.0-alpha1",
         "hotkeys-js": "^3.8.1",
         "jquery": "^3.2",
-        "observe-element-in-viewport": "0.0.15",
-        "turbolinks": "^5.2.0"
+        "observe-element-in-viewport": "0.0.15"
     },
     "engines": {
         "node": "14.x"

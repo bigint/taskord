@@ -1,9 +1,6 @@
 require('./bootstrap');
 require('./shortcuts');
-const Turbolinks = require("turbolinks");
 import {isInViewport} from "observe-element-in-viewport";
-
-//Turbolinks.start();
 
 $(document).ready(() => {
   (async () => {
@@ -25,34 +22,25 @@ $(window).scroll(() => {
 });
 
 // Admin Bar toggle in dropdown
-$(document).on('turbolinks:load', () => {
-  $("#admin-bar-click").click('turbolinks:load', () => {
-    $.get("/admin/adminbar", (data, status) => {
-      if(data === "enabled" || data === "disabled") {
-        if (status === "success") {
-          location.reload();
-        }
+$("#admin-bar-click").click(() => {
+  $.get("/admin/adminbar", (data, status) => {
+    if(data === "enabled" || data === "disabled") {
+      if (status === "success") {
+        location.reload();
       }
-    });
+    }
   });
 });
 
 // Dark mode toggle in dropdown
-$(document).on('turbolinks:load', () => {
-  $("#dark-mode").click('turbolinks:load', () => {
-    $.get("/darkmode", (data, status) => {
-      if(data === "enabled" || data === "disabled") {
-        if (status === "success") {
-          location.reload();
-        }
+$("#dark-mode").click(() => {
+  $.get("/darkmode", (data, status) => {
+    if(data === "enabled" || data === "disabled") {
+      if (status === "success") {
+        location.reload();
       }
-    });
+    }
   });
-});
-
-// Enable Tooltips
-$(document).on('turbolinks:load', () => {
-  $("body").tooltip({ selector: '[data-toggle=tooltip]' });
 });
 
 // Hide Alert
