@@ -30,6 +30,9 @@ class Delete extends Component
     {
         if (Auth::check()) {
             $user = User::find($this->user->id);
+            foreach ($user->tasks as $task) {
+                Storage::delete($task->image);
+            }
             $avatar = explode('storage/', $user->avatar);
             if (array_key_exists(1, $avatar)) {
                 Storage::delete($avatar[1]);
