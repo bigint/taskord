@@ -99,8 +99,8 @@ class CreateTask extends Component
                 'task' => 'required|min:5|max:10000',
                 'image' => 'nullable|mimes:jpeg,jpg,png,gif|max:2048',
             ]);
-            
-            if (!Auth::user()->hasVerifiedEmail()) {
+
+            if (! Auth::user()->hasVerifiedEmail()) {
                 return session()->flash('warning', 'Your email is not verified!');
             }
 
