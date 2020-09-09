@@ -4272,21 +4272,21 @@
         },
         {
             "name": "stevebauman/purify",
-            "version": "v3.0.2",
+            "version": "v3.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/stevebauman/purify.git",
-                "reference": "eac2e29ddb7c5e6079f7c4f4955cdbff0b224153"
+                "reference": "08e8830f0ab9d302f8d76d4f5854910b24bacbb3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/stevebauman/purify/zipball/eac2e29ddb7c5e6079f7c4f4955cdbff0b224153",
-                "reference": "eac2e29ddb7c5e6079f7c4f4955cdbff0b224153",
+                "url": "https://api.github.com/repos/stevebauman/purify/zipball/08e8830f0ab9d302f8d76d4f5854910b24bacbb3",
+                "reference": "08e8830f0ab9d302f8d76d4f5854910b24bacbb3",
                 "shasum": ""
             },
             "require": {
                 "ezyang/htmlpurifier": "^4.9.0",
-                "illuminate/support": "~5.5|~6.0|~7.0",
+                "illuminate/support": "~5.5|~6.0|~7.0|~8.0",
                 "php": ">=7.1"
             },
             "require-dev": {
@@ -4329,7 +4329,7 @@
                 "purification",
                 "purify"
             ],
-            "time": "2020-03-03T12:37:07+00:00"
+            "time": "2020-09-08T20:33:16+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",
