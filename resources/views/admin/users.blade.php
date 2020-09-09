@@ -31,7 +31,9 @@
                                 <img class="avatar-30 rounded-circle mr-2" src="{{ $user->avatar }}" />
                             </td>
                             <td class="font-weight-bold">
-                                {{ $user->firstname.' '.$user->lastname }}
+                                <a href="{{ route('user.done', ['username' => $user->username]) }}" target="_blank">
+                                    {{ $user->firstname.' '.$user->lastname }}
+                                </a>
                             </td>
                             <td>{{ '@'.$user->username }}</td>
                             <td>
@@ -43,7 +45,7 @@
                                 @endif
                             </td>
                             <td>
-                                <code>{{ $user->lastIP }}</code>
+                                <a class="font-monospace" href="https://ipinfo.io/{{ $user->lastIP }}" target="_blank">{{ $user->lastIP }}</a>
                             </td>
                             <td>
                                 @if ($user->provider === 'google')
