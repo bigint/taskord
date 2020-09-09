@@ -10,7 +10,7 @@
                 {{ Carbon::parse($user->updated_at)->format('M d, Y g:i A') }}
             </span>
         </div>
-        <div class="mb-1">
+        <div class="{{ $user->lastIP ? 'mb-1' : 'mb-3' }}">
             <i class="fa fa-envelope text-black-50 mr-1"></i>
             <span class="h6">User Email:</span>
             <a class="font-weight-bold" href="mailto://{{ $user->email }}">
