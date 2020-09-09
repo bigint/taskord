@@ -26,6 +26,9 @@ class Subscribe extends Component
         }
 
         if (Auth::check()) {
+            if (!Auth::user()->hasVerifiedEmail()) {
+                return session()->flash('error', 'Your email is not verified!');
+            }
             if (Auth::user()->isFlagged) {
                 return session()->flash('error', 'Your account is flagged!');
             }

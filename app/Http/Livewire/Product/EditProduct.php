@@ -110,6 +110,10 @@ class EditProduct extends Component
     public function deleteProduct()
     {
         if (Auth::check()) {
+            if (!Auth::user()->hasVerifiedEmail()) {
+                return session()->flash('warning', 'Your email is not verified!');
+            }
+            
             if (Auth::user()->isFlagged) {
                 return session()->flash('error', 'Your account is flagged!');
             }

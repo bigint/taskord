@@ -45,6 +45,10 @@ class NewProduct extends Component
                 'github' => 'nullable|alpha_dash|max:30',
                 'producthunt' => 'nullable|alpha_dash|max:30',
             ]);
+            
+            if (!Auth::user()->hasVerifiedEmail()) {
+                return session()->flash('warning', 'Your email is not verified!');
+            }
 
             if (Auth::user()->isFlagged) {
                 return session()->flash('error', 'Your account is flagged!');

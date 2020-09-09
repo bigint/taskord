@@ -190,7 +190,7 @@
             </div>
         </div>
         @endif
-        @if (!Auth::user()->email_verified_at)
+        @if (!Auth::user()->hasVerifiedEmail())
         <div class="alert alert-warning rounded-0" role="alert">
             <div class="font-weight-bold">
                 <i class="fa fa-envelope mr-1"></i>
