@@ -29,6 +29,7 @@ class SocialController extends Controller
                 'avatar' => $userSocial->getAvatar(),
                 'provider_id' => $userSocial->getId(),
                 'provider' => $provider,
+                'email_verified_at' => date('Y-m-d H:i:s'),
             ]);
 
             if ($provider === 'twitter') {
