@@ -30,6 +30,7 @@ class AdminSeeder extends Seeder
             'isPatron' => true,
             'created_at' => date('Y-m-d H:i:s'),
             'updated_at' => '2020-04-20 13:14:01',
+            'email_verified_at' => date('Y-m-d H:i:s'),
         ]);
 
         DB::table('users')->insert([
@@ -49,6 +50,7 @@ class AdminSeeder extends Seeder
             'isBeta' => true,
             'isPatron' => true,
             'created_at' => date('Y-m-d H:i:s'),
+            'email_verified_at' => date('Y-m-d H:i:s'),
         ]);
     }
 }
