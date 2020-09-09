@@ -53,10 +53,12 @@ class TaskMentioned extends Notification implements ShouldQueue
     public function toMail($notifiable)
     {
         return (new MailMessage)
-                    ->greeting('Hello @'.$notifiable->username.',')
+                    ->subject('@'.$this->task->user->username.' mentioned your in the Task')
+                    ->greeting('Hello @'.$notifiable->username.' 👋')
                     ->line('@'.$this->task->user->username.' mentioned your in the Task.')
+                    ->line($this->task->task)
                     ->action('Go to Task', url('/task/'.$this->task->id))
-                    ->line('Thank you for using our Taskord!');
+                    ->line('Thank you for using Taskord!');
     }
 
     public function toDatabase($notifiable)

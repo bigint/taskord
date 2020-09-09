@@ -2,6 +2,7 @@
 
 namespace App\Notifications;
 
+use App\Models\User;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
@@ -52,10 +53,14 @@ class Followed extends Notification implements ShouldQueue
      */
     public function toMail($notifiable)
     {
+        $user = User::find($this->user->id);
+
         return (new MailMessage)
-                    ->line('The introduction to the notification.')
-                    ->action('Notification Action', url('/'))
-                    ->line('Thank you for using our application!');
+                    ->subject('@'.$user->username.' followed you')
+                    ->greeting('Hello @'.$notifiable->username.' 👋')
+                    ->line('@'.$user->username.' followed you on Taskord.')
+                    ->action('Go to user profile @'.$user->username, url('/@'.$user->username))
+                    ->line('Thank you for using Taskord!');
     }
 
     public function toDatabase($notifiable)

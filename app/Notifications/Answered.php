@@ -2,6 +2,7 @@
 
 namespace App\Notifications;
 
+use App\Models\User;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
@@ -54,10 +55,16 @@ class Answered extends Notification implements ShouldQueue
      */
     public function toMail($notifiable)
     {
+        $user = User::find($this->user_id);
+
         return (new MailMessage)
-                    ->line('Comment Praised')
-                    ->action('Notification Action', url('/'))
-                    ->line('Thank you for using our application!');
+                    ->subject('@'.$user->username.' answered your question')
+                    ->greeting('Hello @'.$notifiable->username.' 👋')
+                    ->line('👏 Your question has new answer by @'.$user->username)
+                    ->line('Question: '.$this->answer->question->title)
+                    ->line('Answer: '.$this->answer->answer)
+                    ->action('Go to Question', url('/question/'.$this->answer->question->id))
+                    ->line('Thank you for using Taskord!');
     }
 
     public function toDatabase($notifiable)

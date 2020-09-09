@@ -2,6 +2,7 @@
 
 namespace App\Notifications;
 
+use App\Models\User;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
@@ -54,10 +55,14 @@ class AnswerPraised extends Notification implements ShouldQueue
      */
     public function toMail($notifiable)
     {
+        $user = User::find($this->user_id);
+
         return (new MailMessage)
-                    ->line('The introduction to the notification.')
-                    ->action('Notification Action', url('/'))
-                    ->line('Thank you for using our application!');
+                    ->subject('@'.$user->username.' praised your answer')
+                    ->greeting('Hello @'.$notifiable->username.' 👋')
+                    ->line('👏 Your answer was praised by @'.$user->username)
+                    ->line($this->answer->answer)
+                    ->line('Thank you for using Taskord!');
     }
 
     public function toDatabase($notifiable)
