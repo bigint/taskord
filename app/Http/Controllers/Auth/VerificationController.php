@@ -3,10 +3,10 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\User;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\VerifiesEmails;
 use Illuminate\Http\Request;
-use App\Models\User;
 
 class VerificationController extends Controller
 {
@@ -41,15 +41,17 @@ class VerificationController extends Controller
         $this->middleware('signed')->only('verify');
         $this->middleware('throttle:6,1')->only('verify', 'resend');
     }
-    
+
     public function resend(Request $request)
     {
         if ($request->user()->hasVerifiedEmail()) {
             $request->session()->flash('global', 'Your email is already verified!');
+
             return redirect()->route('home');
         } else {
             $request->user()->sendEmailVerificationNotification();
             $request->session()->flash('global', 'Verification link has been sent to your email!');
+
             return redirect()->route('home');
         }
     }
