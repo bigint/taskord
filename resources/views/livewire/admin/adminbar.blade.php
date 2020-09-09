@@ -83,10 +83,15 @@
                     jobs
                 </span>
             </span>
-            <span class="font-weight-bold">
+            <span class="font-weight-bold mr-3">
                 <i class="fa fa-clock mr-1"></i>
                 {{ round(microtime(true) - LARAVEL_START, 2) * 1000 }}ms
                 <span class="font-weight-normal">response total</span>
+            </span>
+            <span class="font-weight-bold">
+                <a href="{{ route('admin.stats') }}">
+                    <i class="fa fa-rocket text-white"></i>
+                </a>
             </span>
         </span>
     </div>
