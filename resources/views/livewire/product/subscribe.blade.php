@@ -20,6 +20,7 @@
     @endif
     @endauth
     <div class="small">
-        <span class="font-weight-bold">{{ number_format($product->subscribersCount()) }}</span> Subscribers
+        <span class="font-weight-bold">{{ number_format($product->subscribersCount()) }}</span>
+        {{ $product->subscribersCount() === 1 ? 'Subscriber' : 'Subscribers' }}
     </div>
 </div>
