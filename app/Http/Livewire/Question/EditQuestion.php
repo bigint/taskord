@@ -40,8 +40,8 @@ class EditQuestion extends Component
                 'title' => 'required|min:5|max:100',
                 'body' => 'required|min:3|max:10000',
             ]);
-            
-            if (!Auth::user()->hasVerifiedEmail()) {
+
+            if (! Auth::user()->hasVerifiedEmail()) {
                 return session()->flash('warning', 'Your email is not verified!');
             }
 

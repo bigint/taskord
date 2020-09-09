@@ -35,8 +35,8 @@ class CreateComment extends Component
             $validatedData = $this->validate([
                 'comment' => 'required',
             ]);
-            
-            if (!Auth::user()->hasVerifiedEmail()) {
+
+            if (! Auth::user()->hasVerifiedEmail()) {
                 return session()->flash('warning', 'Your email is not verified!');
             }
 
