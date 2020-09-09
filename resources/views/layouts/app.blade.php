@@ -190,6 +190,19 @@
             </div>
         </div>
         @endif
+        @if (!Auth::user()->email_verified_at)
+        <div class="alert alert-warning rounded-0" role="alert">
+            <div class="font-weight-bold">
+                <i class="fa fa-envelope mr-1"></i>
+                Verify Your Email Address
+            </div>
+            <form class="mt-1" method="POST" action="{{ route('verification.resend') }}">
+                @csrf
+                Before proceeding, please check your email for a verification link. If you did not receive the email,
+                <button type="submit" class="btn btn-link p-0 m-0 align-baseline">click here to request another</button>.
+            </form>
+        </div>
+        @endif
         @endauth
         @if (session()->has('global'))
             <div class="alert alert-success alert-dismissible fade show rounded-0">
