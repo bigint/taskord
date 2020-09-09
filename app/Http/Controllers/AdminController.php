@@ -15,6 +15,7 @@ class AdminController extends Controller
     public function users()
     {
         $users = User::latest('created_at')->paginate(50);
+
         return view('admin.users', [
             'users' => $users,
         ]);
