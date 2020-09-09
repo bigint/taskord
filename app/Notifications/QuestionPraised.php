@@ -6,6 +6,7 @@ use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
+use App\Models\User;
 
 class QuestionPraised extends Notification implements ShouldQueue
 {
@@ -54,10 +55,15 @@ class QuestionPraised extends Notification implements ShouldQueue
      */
     public function toMail($notifiable)
     {
+        $user = User::find($this->user_id);
+
         return (new MailMessage)
-                    ->line('The introduction to the notification.')
-                    ->action('Notification Action', url('/'))
-                    ->line('Thank you for using our application!');
+                    ->subject('@'.$user->username.' praised your question')
+                    ->greeting('Hello @'.$notifiable->username.' 👋')
+                    ->line('👏 Your question was praised by @'.$user->username)
+                    ->line($this->question->title)
+                    ->action('Go to Question', url('/question/'.$this->question->id))
+                    ->line('Thank you for using Taskord!');
     }
 
     public function toDatabase($notifiable)
