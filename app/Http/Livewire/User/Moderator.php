@@ -6,6 +6,7 @@ use App\Jobs\ModEvents;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
+use Illuminate\Support\Facades\Storage;
 
 class Moderator extends Component
 {
@@ -181,6 +182,9 @@ class Moderator extends Component
         if (Auth::check() && Auth::user()->isStaff) {
             $user = User::find($this->user->id);
             $user->timestamps = false;
+            foreach ($user->tasks as $task) {
+                Storage::delete($task->image);
+            }
             $user->tasks()->delete();
             ModEvents::dispatch('CRITICAL', '@'.Auth::user()->username.' deleted all tasks made by @'.$this->user->username);
 
@@ -237,6 +241,12 @@ class Moderator extends Component
         if (Auth::check() && Auth::user()->isStaff) {
             $user = User::find($this->user->id);
             $user->timestamps = false;
+            foreach ($user->products as $product) {
+                $avatar = explode('storage/', $product->avatar);
+                if (array_key_exists(1, $avatar)) {
+                    Storage::delete($avatar[1]);
+                }
+            }
             $user->products()->delete();
             ModEvents::dispatch('CRITICAL', '@'.Auth::user()->username.' deleted all products made by @'.$this->user->username);
 
@@ -254,6 +264,22 @@ class Moderator extends Component
             }
             $user = User::find($this->user->id);
             ModEvents::dispatch('CRITICAL', '@'.Auth::user()->username.' deleted the user @'.$this->user->username);
+            // Delete Task Images
+            foreach ($user->tasks as $task) {
+                Storage::delete($task->image);
+            }
+            // Delete Product Logos
+            foreach ($user->products as $product) {
+                $avatar = explode('storage/', $product->avatar);
+                if (array_key_exists(1, $avatar)) {
+                    Storage::delete($avatar[1]);
+                }
+            }
+            // Delete User Avatar
+            $avatar = explode('storage/', $user->avatar);
+            if (array_key_exists(1, $avatar)) {
+                Storage::delete($avatar[1]);
+            }
             $user->delete();
 
             return redirect()->route('home');
