@@ -18,6 +18,7 @@
                             <th scope="col">Username</th>
                             <th scope="col">Email</th>
                             <th scope="col">Last IP</th>
+                            <th scope="col">Via</th>
                             <th scope="col">Created</th>
                             <th scope="col">Last updated</th>
                         </tr>
@@ -43,6 +44,15 @@
                             </td>
                             <td>
                                 <code>{{ $user->lastIP }}</code>
+                            </td>
+                            <td>
+                                @if ($user->provider === 'google')
+                                    <i class="fa fa-google text-danger"></i>
+                                @elseif ($user->provider === 'twitter')
+                                    <i class="fa fa-twitter text-info"></i>
+                                @else
+                                    <i class="fa fa-globe text-success"></i>
+                                @endif
                             </td>
                             <td>{{ Carbon::parse($user->created_at)->format('M d, Y') }}</td>
                             <td>{{ Carbon::parse($user->updated_at)->format('M d, Y') }}</td>
