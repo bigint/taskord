@@ -70,18 +70,20 @@
             <label for="enrollDeveloper" class="ml-1">Enroll to Contributor</label>
             <span wire:loading wire:target="enrollDeveloper" class="small ml-2 text-success font-weight-bold">Enrolling...</span>
         </div>
-        <div class="mb-3">
+        <div>
             <input wire:click="privateUser" id="privateUser" class="form-check-input" type="checkbox" {{ $user->isPrivate ? 'checked' : '' }}>
             <label for="privateUser" class="ml-1 text-danger font-weight-bold">Make user Private</label>
             <span wire:loading wire:target="privateUser" class="small ml-2 text-danger font-weight-bold">Enrolling...</span>
         </div>
-        <div>
+        @if (!$user->isStaff)
+        <div class="mt-3">
             <button wire:click="masquerade" class="btn btn-sm btn-warning font-weight-bold">
                 <i class="fa fa-user-secret mr-1"></i>
                 Masquerade
             </button>
             <span wire:loading wire:target="Masquerade" class="small ml-2 text-danger font-weight-bold">masquerading...</span>
         </div>
+        @endif
         @if (!$user->isStaff)
         <hr>
         <div class="text-danger h5 mb-3">
