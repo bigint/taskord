@@ -16,6 +16,7 @@
                             <th scope="col">Avatar</th>
                             <th scope="col">Name</th>
                             <th scope="col">Username</th>
+                            <th scope="col">Email</th>
                             <th scope="col">Last IP</th>
                             <th scope="col">Created</th>
                             <th scope="col">Last updated</th>
@@ -32,7 +33,17 @@
                                 {{ $user->firstname.' '.$user->lastname }}
                             </td>
                             <td>{{ '@'.$user->username }}</td>
-                            <td>{{ $user->lastIP }}</td>
+                            <td>
+                                {{ $user->email }}
+                                @if ($user->hasVerifiedEmail())
+                                <i class="fa fa-check text-success ml-1" title="Email Verified"></i>
+                                @else
+                                <i class="fa fa-times text-danger ml-1" title="Email not Verified"></i>
+                                @endif
+                            </td>
+                            <td>
+                                <code>{{ $user->lastIP }}</code>
+                            </td>
                             <td>{{ Carbon::parse($user->created_at)->format('M d, Y') }}</td>
                             <td>{{ Carbon::parse($user->updated_at)->format('M d, Y') }}</td>
                         </tr>
