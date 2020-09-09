@@ -45,6 +45,7 @@ class UserController extends Controller
                 'isSuspended',
                 'lastIP',
                 'updated_at',
+                'email_verified_at',
             )
             ->where('username', $username)->firstOrFail();
         $type = Route::current()->getName();
