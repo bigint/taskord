@@ -10,6 +10,7 @@ use Multicaret\Acquaintances\Traits\CanLike;
 use Multicaret\Acquaintances\Traits\CanSubscribe;
 use QCod\Gamify\Gamify;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
+use App\Jobs\VerifyEmailQueue;
 
 class User extends Authenticatable implements MustVerifyEmail
 {
@@ -90,5 +91,10 @@ class User extends Authenticatable implements MustVerifyEmail
     public function webhooks()
     {
         return $this->hasMany(\App\Models\Webhook::class);
+    }
+    
+    public function sendEmailVerificationNotification()
+    {
+        VerifyEmailQueue::dispatch($this);
     }
 }
