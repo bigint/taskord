@@ -5,8 +5,8 @@ namespace App\Http\Livewire\User;
 use App\Jobs\ModEvents;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
-use Livewire\Component;
 use Illuminate\Support\Facades\Storage;
+use Livewire\Component;
 
 class Moderator extends Component
 {
