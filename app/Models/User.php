@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Jobs\VerifyEmailQueue;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -10,7 +11,6 @@ use Multicaret\Acquaintances\Traits\CanFollow;
 use Multicaret\Acquaintances\Traits\CanLike;
 use Multicaret\Acquaintances\Traits\CanSubscribe;
 use QCod\Gamify\Gamify;
-use App\Jobs\VerifyEmailQueue;
 
 class User extends Authenticatable implements MustVerifyEmail
 {
@@ -92,7 +92,7 @@ class User extends Authenticatable implements MustVerifyEmail
     {
         return $this->hasMany(\App\Models\Webhook::class);
     }
-    
+
     public function sendEmailVerificationNotification()
     {
         VerifyEmailQueue::dispatch($this);
