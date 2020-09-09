@@ -33,6 +33,12 @@ class Delete extends Component
             foreach ($user->tasks as $task) {
                 Storage::delete($task->image);
             }
+            foreach ($user->products as $product) {
+                $avatar = explode('storage/', $product->avatar);
+                if (array_key_exists(1, $avatar)) {
+                    Storage::delete($avatar[1]);
+                }
+            }
             $avatar = explode('storage/', $user->avatar);
             if (array_key_exists(1, $avatar)) {
                 Storage::delete($avatar[1]);
