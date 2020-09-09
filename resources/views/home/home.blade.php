@@ -133,7 +133,7 @@
                                 <a class="text-dark" href="{{ route('user.followers', ['username' => Auth::user()->username]) }}">
                                     <i class="fa fa-users mr-1 text-black-50"></i>
                                     {{ number_format(Auth::user()->followers()->count()) }}
-                                    {{ Auth::user()->followers()->count() <= 1 ? "Follower" : "Followers" }}
+                                    {{ Auth::user()->followers()->count() === 1 ? "Follower" : "Followers" }}
                                 </a>
                                 <span>
                                     <i class="fa fa-fire mr-1 text-black-50"></i>
