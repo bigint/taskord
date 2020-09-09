@@ -2,11 +2,16 @@
 
 @section('content')
 <div class="container">
-    <div class="row justify-content-center mt-4">
+    <div class="row justify-content-center">
         <div class="container">
-            <div class="row">
-                @include('admin.sidebar')
-                WIP
+            @include('admin.sidebar')
+            <div class="card">
+                <div class="card-header">
+                    Featured
+                </div>
+                <div class="card-body">
+                    WIP
+                </div>
             </div>
         </div>
     </div>

@@ -16,6 +16,7 @@
             <a class="font-weight-bold" href="mailto://{{ $user->email }}">
                 {{ $user->email }}
             </a>
+            {{$user->hasVerifiedEmail()}}
             @if ($user->hasVerifiedEmail())
             <i class="fa fa-check text-success ml-1" title="Email Verified"></i>
             @else
