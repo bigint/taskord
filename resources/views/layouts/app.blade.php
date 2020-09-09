@@ -178,6 +178,13 @@
                 </div>
             </div>
         </nav>
+        @if (session()->has('global'))
+            <div class="alert alert-success alert-dismissible fade show rounded-0 mb-0">
+                <button type="button" class="close" data-dismiss="alert">×</button>
+                <i class="fa fa-check mr-1"></i>
+                {{ session('global') }}
+            </div>
+        @endif
         @auth
         @if (Auth::user()->isFlagged)
         <div class="alert alert-danger rounded-0" role="alert">
@@ -204,13 +211,6 @@
         </div>
         @endif
         @endauth
-        @if (session()->has('global'))
-            <div class="alert alert-success alert-dismissible fade show rounded-0">
-                <button type="button" class="close" data-dismiss="alert">×</button>
-                <i class="fa fa-check mr-1"></i>
-                {{ session('global') }}
-            </div>
-        @endif
         <main class="py-4">
             @yield('content')
         </main>
