@@ -2,11 +2,11 @@
 
 namespace App\Notifications;
 
+use App\Models\User;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
-use App\Models\User;
 
 class TaskPraised extends Notification implements ShouldQueue
 {
@@ -56,7 +56,7 @@ class TaskPraised extends Notification implements ShouldQueue
     public function toMail($notifiable)
     {
         $user = User::find($this->user_id);
-        
+
         return (new MailMessage)
                     ->subject('@'.$user->username.' praised your task')
                     ->greeting('Hello @'.$notifiable->username.' 👋')
