@@ -61,8 +61,9 @@ class TaskPraised extends Notification implements ShouldQueue
                     ->subject('@'.$user->username.' praised your task')
                     ->greeting('Hello @'.$notifiable->username.' 👋')
                     ->line('👏 Your task was praised by @'.$user->username)
+                    ->line($this->task->task)
                     ->action('Go to Task', url('/task/'.$this->task->id))
-                    ->line('Thank you for using our application!');
+                    ->line('Thank you for using Taskord!');
     }
 
     public function toDatabase($notifiable)
