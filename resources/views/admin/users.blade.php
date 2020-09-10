@@ -7,7 +7,7 @@
 @section('url', url()->current())
 
 @section('content')
-<div class="container">
+<div class="container-fluid">
     <div class="row justify-content-center">
         <div class="container">
             @include('admin.sidebar')
