@@ -53,7 +53,7 @@ class EditProduct extends Component
     public function submit()
     {
         if (Auth::check()) {
-            $validatedData = $this->validate([
+            $this->validate([
                 'name' => 'required',
                 'slug' => 'required|min:3|max:20|alpha_dash|unique:products,slug,'.$this->product->id,
                 'description' => 'nullable',

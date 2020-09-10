@@ -32,7 +32,7 @@ class CreateComment extends Component
     public function submit()
     {
         if (Auth::check()) {
-            $validatedData = $this->validate([
+            $this->validate([
                 'comment' => 'required',
             ]);
 

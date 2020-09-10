@@ -18,7 +18,7 @@ class CreateDeal extends Component
     public function submit()
     {
         if (Auth::check()) {
-            $validatedData = $this->validate([
+            $this->validate([
                 'name' => 'required|min:2',
                 'description' => 'required|min:5',
                 'offer' => 'required|integer|max:100',

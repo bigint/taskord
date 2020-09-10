@@ -80,7 +80,7 @@ class Profile extends Component
     public function updateProfile()
     {
         if (Auth::check()) {
-            $validatedData = $this->validate([
+            $this->validate([
                 'firstname' => 'nullable|max:30',
                 'lastname' => 'nullable|max:30',
                 'bio' => 'nullable|max:1000',
@@ -132,7 +132,7 @@ class Profile extends Component
     public function updateSocial()
     {
         if (Auth::check()) {
-            $validatedData = $this->validate([
+            $this->validate([
                 'website' => 'nullable|active_url',
                 'twitter' => 'nullable|alpha_dash|max:30',
                 'twitch' => 'nullable|alpha_dash|max:200',

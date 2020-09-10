@@ -75,7 +75,7 @@ class Account extends Component
     public function updateAccount()
     {
         if (Auth::check()) {
-            $validatedData = $this->validate([
+            $this->validate([
                 'username' => 'required|min:2|max:20|alpha_dash|unique:users,username,'.$this->user->id,
                 'email' => 'required|email:rfc,dns|max:255|unique:users,email,'.$this->user->id,
             ]);

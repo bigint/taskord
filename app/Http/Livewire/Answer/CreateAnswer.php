@@ -32,7 +32,7 @@ class CreateAnswer extends Component
     public function submit()
     {
         if (Auth::check()) {
-            $validatedData = $this->validate([
+            $this->validate([
                 'answer' => 'required',
             ]);
 
