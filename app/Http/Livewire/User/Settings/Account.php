@@ -79,11 +79,11 @@ class Account extends Component
                 'username' => 'required|min:2|max:20|alpha_dash|unique:users,username,'.$this->user->id,
                 'email' => 'required|email:rfc,dns|max:255|unique:users,email,'.$this->user->id,
             ]);
-            
+
             if ($this->email !== $this->user->email) {
                 $this->user->email_verified_at = null;
             }
-            
+
             if (Auth::check() && Auth::id() === $this->user->id) {
                 $this->user->username = $this->username;
                 $this->user->email = $this->email;
