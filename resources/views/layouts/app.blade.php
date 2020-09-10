@@ -75,6 +75,7 @@
                         <li class="nav-item">
                             <a class="nav-link text-white font-weight-bold" href="{{ route('tasks') }}">
                                 Tasks
+                                @include('components.beta', ['background' => 'white'])
                             </a>
                         </li>
                         @endauth
