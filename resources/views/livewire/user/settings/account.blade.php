@@ -57,9 +57,7 @@
             <span class="h5">Private Tasks</span>
             <div>
                 All your tasks will hidden from public.
-                @include('components.patron', [
-                    'background' => 'dark',
-                ])
+                @include('components.beta', ['background' => 'light'])
             </div>
         </div>
         <div class="card-body">
