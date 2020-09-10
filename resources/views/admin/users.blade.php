@@ -71,7 +71,9 @@
                                     @endif
                                 </td>
                                 <td>
-                                    <a class="font-monospace" href="https://ipinfo.io/{{ $user->lastIP }}" target="_blank">{{ $user->lastIP }}</a>
+                                    <a class="font-monospace" href="https://ipinfo.io/{{ $user->lastIP }}" target="_blank">
+                                        {{ Str::limit($user->lastIP, 15, '..') }}
+                                    </a>
                                 </td>
                                 <td>
                                     @if ($user->provider === 'google')
