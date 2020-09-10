@@ -77,7 +77,6 @@ Route::group(['prefix' => 'notifications', 'as' => 'notifications.', 'middleware
 });
 
 Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['staff']], function () {
-    Route::get('', 'AdminController@admin')->name('stats');
     Route::get('users', 'AdminController@users')->name('users');
     Route::get('adminbar', 'AdminController@toggle')->name('adminbar');
 });

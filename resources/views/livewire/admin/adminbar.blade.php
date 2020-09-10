@@ -89,7 +89,7 @@
                 <span class="font-weight-normal">response total</span>
             </span>
             <span class="font-weight-bold">
-                <a href="{{ route('admin.stats') }}">
+                <a href="{{ route('admin.users') }}">
                     <i class="fa fa-rocket text-white"></i>
                 </a>
             </span>

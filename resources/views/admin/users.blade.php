@@ -10,7 +10,7 @@
 <div class="container-fluid">
     <div class="row justify-content-center">
         <div class="container">
-            @include('admin.sidebar')
+            @include('admin.nav')
             <div class="card">
                 <div class="card-header">
                     Users
