@@ -202,7 +202,7 @@
         <div class="alert alert-warning rounded-0" role="alert">
             <div class="font-weight-bold">
                 <i class="fa fa-envelope mr-1"></i>
-                Verify Your Email Address
+                Verify Your Email Address @include('components.beta', ['background' => 'light'])
             </div>
             <form class="mt-1" method="POST" action="{{ route('verification.resend') }}">
                 @csrf

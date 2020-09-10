@@ -103,7 +103,7 @@
                     @endif
                     @if ($user->isDeveloper)
                     <div class="mt-2">
-                        <span class="font-weight-bold">{{ Emoji::checkBoxWithCheck() }} Taskord Code Contributor</span>
+                        <span class="font-weight-bold">{{ Emoji::checkBoxWithCheck() }} Taskord Contributor</span>
                     </div>
                     @endif
                 </div>
