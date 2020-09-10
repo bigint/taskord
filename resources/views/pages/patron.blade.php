@@ -78,6 +78,15 @@
                     >
                         Support $50/month
                     </a>
+                    <a
+                        class="paddle_button btn btn-block btn-primary"
+                        data-theme="none"
+                        data-product="629491"
+                        data-message="Support $100 onetime for lifetime pro in Taskord!"
+                        data-email="{{ Auth::user()->email }}"
+                    >
+                        Support $100 onetime
+                    </a>
                     @endif
                     @endauth
                     @guest
