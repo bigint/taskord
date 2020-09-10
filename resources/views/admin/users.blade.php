@@ -62,7 +62,9 @@
                                     @else
                                     <span>
                                         💰
-                                        @if (!$user->patron)
+                                        @if ($user->patron)
+                                        🤝
+                                        @else
                                         🎁
                                         @endif
                                     </span>
