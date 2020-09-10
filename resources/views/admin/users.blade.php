@@ -13,7 +13,7 @@
             @include('admin.nav')
             <div class="card">
                 <div class="card-header">
-                    Users
+                    <span class="h6">Users</span>
                 </div>
                 <div class="table-responsive">
                     <table class="table text-dark">
