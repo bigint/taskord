@@ -37,9 +37,7 @@
             <span class="h5">Beta</span>
             <div>
                 Get release earlier.
-                @include('components.beta', [
-                    'background' => 'dark',
-                ])
+                @include('components.beta', ['background' => 'light'])
             </div>
         </div>
         <div class="card-body">
