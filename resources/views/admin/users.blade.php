@@ -15,7 +15,7 @@
                 <div class="card-header">
                     Users
                 </div>
-                <table class="table table-striped table-hover text-center">
+                <table class="table text-center text-dark">
                     <thead>
                         <tr>
                             <th scope="col">#</th>
