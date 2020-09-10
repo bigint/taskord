@@ -3478,21 +3478,21 @@
         },
         {
             "name": "qcod/laravel-gamify",
-            "version": "1.0.4",
+            "version": "1.0.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/qcod/laravel-gamify.git",
-                "reference": "4319296eee6a97db4e75cdba028260fec7a97f95"
+                "reference": "5746d443ab5ddff4c147e7f4f19d131a8871c9e7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/qcod/laravel-gamify/zipball/4319296eee6a97db4e75cdba028260fec7a97f95",
-                "reference": "4319296eee6a97db4e75cdba028260fec7a97f95",
+                "url": "https://api.github.com/repos/qcod/laravel-gamify/zipball/5746d443ab5ddff4c147e7f4f19d131a8871c9e7",
+                "reference": "5746d443ab5ddff4c147e7f4f19d131a8871c9e7",
                 "shasum": ""
             },
             "require": {
-                "laravel/framework": "~5.4.0|~5.5.0|~5.6.0|~5.7.0|~5.8.0|^6.0|^7.0",
-                "php": ">=7.2.5"
+                "laravel/framework": "~5.4.0|~5.5.0|~5.6.0|~5.7.0|~5.8.0|^6.0|^7.0|^8.0",
+                "php": ">=7.3.0"
             },
             "require-dev": {
                 "mockery/mockery": "^0.9.4 || ~1.0",
@@ -3538,7 +3538,7 @@
                 "reputation",
                 "reward"
             ],
-            "time": "2020-03-15T15:45:07+00:00"
+            "time": "2020-09-10T15:44:05+00:00"
         },
         {
             "name": "ralouphie/getallheaders",
