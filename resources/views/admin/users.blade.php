@@ -23,6 +23,7 @@
                             <th scope="col">Name</th>
                             <th scope="col">Username</th>
                             <th scope="col">Email</th>
+                            <th scope="col">Patron</th>
                             <th scope="col">Last IP</th>
                             <th scope="col">Via</th>
                             <th scope="col">Created</th>
@@ -37,17 +38,30 @@
                                 <img class="avatar-30 rounded-circle mr-2" src="{{ $user->avatar }}" />
                             </td>
                             <td class="font-weight-bold">
+                                {{ $user->firstname.' '.$user->lastname }}
+                            </td>
+                            <td>
                                 <a href="{{ route('user.done', ['username' => $user->username]) }}" target="_blank">
-                                    {{ $user->firstname.' '.$user->lastname }}
+                                    {{ '@'.$user->username }}
                                 </a>
                             </td>
-                            <td>{{ '@'.$user->username }}</td>
                             <td>
                                 {{ $user->email }}
                                 @if ($user->hasVerifiedEmail())
                                 <i class="fa fa-check text-success ml-1" title="Email Verified"></i>
                                 @else
                                 <i class="fa fa-times text-danger ml-1" title="Email not Verified"></i>
+                                @endif
+                            </td>
+                            <td>
+                                @if ($user->isPatron)
+                                <span>
+                                    💰
+                                </span>
+                                @else
+                                <span>
+                                    ❌
+                                </span>
                                 @endif
                             </td>
                             <td>
@@ -62,7 +76,12 @@
                                     <i class="fa fa-globe text-success"></i>
                                 @endif
                             </td>
-                            <td>{{ Carbon::parse($user->created_at)->format('M d, Y') }}</td>
+                            <td>
+                                {{ Carbon::parse($user->created_at)->format('M d, Y') }}
+                                @if ($user->created_at->diffInDays(Carbon::today()) < 7)
+                                    🆕
+                                @endif
+                            </td>
                             <td>{{ Carbon::parse($user->updated_at)->format('M d, Y') }}</td>
                         </tr>
                         @endforeach
