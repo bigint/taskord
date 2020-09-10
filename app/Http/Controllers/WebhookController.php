@@ -9,19 +9,28 @@ use Carbon\Carbon;
 use GrahamCampbell\Throttle\Facades\Throttle;
 use Illuminate\Http\Request as WebhookRequest;
 use Illuminate\Support\Facades\Request;
+use Illuminate\Support\Str;
 
 class WebhookController extends Controller
 {
     public function createTask($webhook, $task, $done, $done_at, $type)
     {
-        $task = Task::create([
-            'user_id' =>  $webhook->user_id,
-            'task' => $task,
-            'done' => $done,
-            'done_at' => $done_at,
-            'type' => 'user',
-            'source' => $type,
-        ]);
+        $ignoreList = [
+            'dependabot',
+            'bump',
+            'styleci',
+        ];
+        
+        if (!Str::contains(strtolower($task), $ignoreList)) {
+            $task = Task::create([
+                'user_id' =>  $webhook->user_id,
+                'task' => $task,
+                'done' => $done,
+                'done_at' => $done_at,
+                'type' => 'user',
+                'source' => $type,
+            ]);
+        }
     }
 
     public function web($token, WebhookRequest $request)
@@ -83,7 +92,7 @@ class WebhookController extends Controller
             $request_body = $request->json()->all();
 
             if (count($request_body['commits']) === 1) {
-                $task = $request_body['commits'][0]['message'].' on "'.$request_body['repository']['name'].'"';
+                $task = Str::limit($request_body['commits'][0]['message'], 50).' on "'.$request_body['repository']['name'].'"';
             } else {
                 $task = 'Pushed '.count($request_body['commits']).' changes to "'.$request_body['repository']['name'].'"';
             }
