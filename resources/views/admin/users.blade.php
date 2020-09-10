@@ -71,7 +71,7 @@
                                     @endif
                                 </td>
                                 <td>
-                                    <a class="font-monospace" href="https://ipinfo.io/{{ $user->lastIP }}" target="_blank">
+                                    <a class="font-monospace" href="https://ipinfo.io/{{ $user->lastIP }}" title="{{ $user->lastIP }}" target="_blank">
                                         {{ Str::limit($user->lastIP, 15, '..') }}
                                     </a>
                                 </td>
