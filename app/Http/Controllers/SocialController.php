@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Jobs\AuthGetIP;
 use App\Models\User;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Socialite;
-use App\Jobs\AuthGetIP;
-use Illuminate\Http\Request;
 
 class SocialController extends Controller
 {
