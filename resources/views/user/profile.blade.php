@@ -93,6 +93,7 @@
                     <div class="mt-2">
                         <span>{{ Emoji::blossom() }} {{ $user->username }} is a</span>
                         <span class="font-weight-bold">{{ count($user->badges) === 0 ? 'Beginner' : $user->badges->last()->name }}</span>
+                        @include('components.beta', ['background' => 'light'])
                     </div>
                     @endif
                     @if ($user->isBeta)
