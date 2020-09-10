@@ -94,7 +94,12 @@
                                         🆕
                                     @endif
                                 </td>
-                                <td>{{ Carbon::parse($user->updated_at)->format('M d, Y') }}</td>
+                                <td>
+                                    {{ Carbon::parse($user->updated_at)->format('M d, Y') }}
+                                    @if ($user->updated_at->diffInDays(Carbon::today()) < 3)
+                                        ⚽️
+                                    @endif
+                                </td>
                             </tr>
                             @endforeach
                         </tbody>
