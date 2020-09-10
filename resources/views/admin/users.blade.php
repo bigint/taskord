@@ -71,9 +71,13 @@
                                     @endif
                                 </td>
                                 <td>
+                                    @if ($user->lastIP)
                                     <a class="font-monospace" href="https://ipinfo.io/{{ $user->lastIP }}" title="{{ $user->lastIP }}" target="_blank">
                                         {{ Str::limit($user->lastIP, 15, '..') }}
                                     </a>
+                                    @else
+                                    <span class="small font-weight-bold text-black-50">Not logged</span>
+                                    @endif
                                 </td>
                                 <td>
                                     @if ($user->provider === 'google')
