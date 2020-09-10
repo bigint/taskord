@@ -37,11 +37,13 @@
                                 <img class="avatar-30 rounded-circle mr-2" src="{{ $user->avatar }}" />
                             </td>
                             <td class="font-weight-bold">
+                                {{ $user->firstname.' '.$user->lastname }}
+                            </td>
+                            <td>
                                 <a href="{{ route('user.done', ['username' => $user->username]) }}" target="_blank">
-                                    {{ $user->firstname.' '.$user->lastname }}
+                                    {{ '@'.$user->username }}
                                 </a>
                             </td>
-                            <td>{{ '@'.$user->username }}</td>
                             <td>
                                 {{ $user->email }}
                                 @if ($user->hasVerifiedEmail())
