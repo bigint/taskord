@@ -64,7 +64,12 @@
                                     <i class="fa fa-globe text-success"></i>
                                 @endif
                             </td>
-                            <td>{{ Carbon::parse($user->created_at)->format('M d, Y') }}</td>
+                            <td>
+                                {{ Carbon::parse($user->created_at)->format('M d, Y') }}
+                                @if ($user->created_at->diffInDays(Carbon::today()) < 7)
+                                    🆕
+                                @endif
+                            </td>
                             <td>{{ Carbon::parse($user->updated_at)->format('M d, Y') }}</td>
                         </tr>
                         @endforeach
