@@ -57,6 +57,9 @@
         'actionText' => $actionText,
     ]
 ) <span class="break-all">[{{ $displayableActionUrl }}]({{ $actionUrl }})</span>
+<div>
+    <a href="https://taskord.com/settings/notifications">Manage your notifications settings</a>
+</div>
 @endslot
 @endisset
 @endcomponent
