@@ -23,6 +23,7 @@
                             <th scope="col">Name</th>
                             <th scope="col">Username</th>
                             <th scope="col">Email</th>
+                            <th scope="col">Patron</th>
                             <th scope="col">Last IP</th>
                             <th scope="col">Via</th>
                             <th scope="col">Created</th>
@@ -50,6 +51,17 @@
                                 <i class="fa fa-check text-success ml-1" title="Email Verified"></i>
                                 @else
                                 <i class="fa fa-times text-danger ml-1" title="Email not Verified"></i>
+                                @endif
+                            </td>
+                            <td>
+                                @if ($user->isPatron)
+                                <span>
+                                    💰
+                                </span>
+                                @else
+                                <span>
+                                    ❌
+                                </span>
                                 @endif
                             </td>
                             <td>
