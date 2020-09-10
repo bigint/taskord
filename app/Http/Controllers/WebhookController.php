@@ -20,8 +20,8 @@ class WebhookController extends Controller
             'bump',
             'styleci',
         ];
-        
-        if (!Str::contains(strtolower($task), $ignoreList)) {
+
+        if (! Str::contains(strtolower($task), $ignoreList)) {
             $task = Task::create([
                 'user_id' =>  $webhook->user_id,
                 'task' => $task,
