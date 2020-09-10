@@ -55,13 +55,16 @@
                                     @endif
                                 </td>
                                 <td>
-                                    @if ($user->isPatron)
+                                    @if (!$user->isPatron)
                                     <span>
-                                        💰
+                                        ❌
                                     </span>
                                     @else
                                     <span>
-                                        ❌
+                                        💰
+                                        @if (!$user->patron)
+                                        🎁
+                                        @endif
                                     </span>
                                     @endif
                                 </td>
