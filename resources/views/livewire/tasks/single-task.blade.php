@@ -9,7 +9,21 @@
         />
         <span class="ml-1 task-font">
             {!! Purify::clean(Helper::renderTask($task->task)) !!}
+            @if ($task->type === 'product')
+            <span class="small text-black-50">
+                on
+                <img class="rounded mb-1 ml-1 avatar-15" src="{{ $task->product->avatar }}" />
+                <a class="text-black-50" href="{{ route('product.done', ['slug' => $task->product->slug]) }}">
+                    {{ $task->product->name }}
+                </a>
+            </span>
+            @endif
         </span>
+        @if ($task->image)
+        <div>
+            <img class="img-fluid border mt-3 rounded w-50" src="{{ asset('storage/' . $task->image) }}" />
+        </div>
+        @endif
         <span class="d-flex small float-right ml-auto">
             <span class="font-weight-bold mr-2">
                 @if ($task->due_at)
@@ -29,10 +43,5 @@
                 @endif
             @endif
         </span>
-        @if ($task->image)
-        <div>
-            <img class="img-fluid border mt-3 rounded" src="{{ $task->image }}" />
-        </div>
-        @endif
     </div>
 </li>

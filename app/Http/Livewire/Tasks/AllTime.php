@@ -16,7 +16,7 @@ class AllTime extends Component
 
     public function render()
     {
-        $tasks = Task::select('id', 'task', 'done', 'user_id', 'created_at', 'due_at')
+        $tasks = Task::select('id', 'task', 'done', 'image', 'user_id', 'created_at', 'due_at', 'type', 'product_id')
             ->where('user_id', Auth::id())
             ->where('done', false)
             ->latest()
