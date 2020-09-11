@@ -96,7 +96,7 @@
                                     @endif
                                 </td>
                                 <td>
-                                    {{ Carbon::parse($user->updated_at)->format('M d, Y') }}
+                                    {{ Carbon::parse($user->updated_at)->diffForHumans() }}
                                 </td>
                             </tr>
                             @endforeach
