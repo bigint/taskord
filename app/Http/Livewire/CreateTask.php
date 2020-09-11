@@ -6,13 +6,13 @@ use App\Gamify\Points\TaskCreated;
 use App\Models\Task;
 use App\Models\User;
 use App\Notifications\TaskMentioned;
+use App\Notifications\TelegramLogger;
 use Carbon\Carbon;
 use GrahamCampbell\Throttle\Facades\Throttle;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Request;
 use Livewire\Component;
 use Livewire\WithFileUploads;
-use App\Notifications\TelegramLogger;
 
 class CreateTask extends Component
 {
@@ -160,7 +160,7 @@ class CreateTask extends Component
             givePoint(new TaskCreated($task));
             Auth::user()->notify(
                 new TelegramLogger(
-                    "*✅ New Task* by @"
+                    '*✅ New Task* by @'
                     .Auth::user()->username."\n\n"
                     .$task->task."\n\nhttps://taskord.com/task/"
                     .$task->id

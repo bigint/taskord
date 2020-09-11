@@ -5,13 +5,13 @@ namespace App\Http\Livewire\Task;
 use App\Gamify\Points\PraiseCreated;
 use App\Gamify\Points\TaskCompleted;
 use App\Notifications\TaskPraised;
+use App\Notifications\TelegramLogger;
 use Carbon\Carbon;
 use GrahamCampbell\Throttle\Facades\Throttle;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\Storage;
 use Livewire\Component;
-use App\Notifications\TelegramLogger;
 
 class SingleTask extends Component
 {
@@ -38,7 +38,7 @@ class SingleTask extends Component
                     $this->task->updated_at = Carbon::now();
                     $this->task->user->notify(
                         new TelegramLogger(
-                            "*⏳ Task was mark as pending* by @"
+                            '*⏳ Task was mark as pending* by @'
                             .$this->task->user->username."\n\n"
                             .$this->task->task."\n\nhttps://taskord.com/task/"
                             .$this->task->id
@@ -50,7 +50,7 @@ class SingleTask extends Component
                     givePoint(new TaskCompleted($this->task));
                     $this->task->user->notify(
                         new TelegramLogger(
-                            "*✅ Task was mark as done* by @"
+                            '*✅ Task was mark as done* by @'
                             .$this->task->user->username."\n\n"
                             .$this->task->task."\n\nhttps://taskord.com/task/"
                             .$this->task->id
@@ -95,7 +95,7 @@ class SingleTask extends Component
                 undoPoint(new PraiseCreated($this->task));
                 $this->task->user->notify(
                     new TelegramLogger(
-                        "*👏 Task was un-praised* by @"
+                        '*👏 Task was un-praised* by @'
                         .Auth::user()->username."\n\n"
                         .$this->task->task."\n\nhttps://taskord.com/task/"
                         .$this->task->id
@@ -108,7 +108,7 @@ class SingleTask extends Component
                 givePoint(new PraiseCreated($this->task));
                 $this->task->user->notify(
                     new TelegramLogger(
-                        "*👏 Task was praised* by @"
+                        '*👏 Task was praised* by @'
                         .Auth::user()->username."\n\n"
                         .$this->task->task."\n\nhttps://taskord.com/task/"
                         .$this->task->id
