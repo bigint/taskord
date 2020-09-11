@@ -7,6 +7,7 @@ use App\Models\Answer;
 use App\Notifications\Answered;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
+use App\Notifications\TelegramLogger;
 
 class CreateAnswer extends Component
 {
@@ -57,6 +58,15 @@ class CreateAnswer extends Component
                 $this->question->user->notify(new Answered($answer));
                 givePoint(new CommentCreated($answer));
             }
+            
+            $this->question->user->notify(
+                new TelegramLogger(
+                    '*💬 New answer was added* by @'
+                    .Auth::user()->username."\n\n"
+                    .$answer->answer."\n\nhttps://taskord.com/question/"
+                    .$this->question->id
+                )
+            );
 
             return session()->flash('success', 'Answer has been added!');
         } else {
