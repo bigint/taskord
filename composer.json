@@ -22,7 +22,6 @@
         "laravel/tinker": "^2.0",
         "laravel/ui": "^2.1",
         "livewire/livewire": "^2.0",
-        "marvinlabs/laravel-discord-logger": "^1.1",
         "multicaret/laravel-acquaintances": "^3.3",
         "nesbot/carbon": "^2.36",
         "qcod/laravel-gamify": "^1.0",
