@@ -8,6 +8,7 @@ use GrahamCampbell\Throttle\Facades\Throttle;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Request;
 use Livewire\Component;
+use App\Notifications\TelegramLogger;
 
 class SingleQuestion extends Component
 {
@@ -44,11 +45,27 @@ class SingleQuestion extends Component
                 Auth::user()->unlike($this->question);
                 $this->question->refresh();
                 undoPoint(new PraiseCreated($this->question));
+                $this->question->user->notify(
+                    new TelegramLogger(
+                        '*👏 Question was un-praised* by @'
+                        .Auth::user()->username."\n\n"
+                        .$this->question->title."\n\nhttps://taskord.com/question/"
+                        .$this->question->id
+                    )
+                );
             } else {
                 Auth::user()->like($this->question);
                 $this->question->refresh();
                 $this->question->user->notify(new QuestionPraised($this->question, Auth::id()));
                 givePoint(new PraiseCreated($this->question));
+                $this->question->user->notify(
+                    new TelegramLogger(
+                        '*👏 Question was praised* by @'
+                        .Auth::user()->username."\n\n"
+                        .$this->question->title."\n\nhttps://taskord.com/question/"
+                        .$this->question->id
+                    )
+                );
             }
         } else {
             return session()->flash('error', 'Forbidden!');
