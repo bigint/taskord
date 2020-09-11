@@ -75,6 +75,7 @@ class SingleTask extends Component
             if (Auth::user()->hasLiked($this->task)) {
                 Auth::user()->unlike($this->task);
                 $this->task->refresh();
+                undoPoint(new PraiseCreated($this->task));
             } else {
                 Auth::user()->like($this->task);
                 $this->task->refresh();
