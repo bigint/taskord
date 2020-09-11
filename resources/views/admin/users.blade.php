@@ -89,13 +89,13 @@
                                         <i class="fa fa-globe text-success"></i>
                                     @endif
                                 </td>
-                                <td>
+                                <td title="{{ Carbon::parse($user->created_at)->format('M d, Y g:i A') }}">
                                     {{ Carbon::parse($user->created_at)->format('M d, Y') }}
                                     @if ($user->created_at->diffInDays(Carbon::today()) < 7)
                                         🆕
                                     @endif
                                 </td>
-                                <td>
+                                <td title="{{ Carbon::parse($user->updated_at)->format('M d, Y g:i A') }}">
                                     {{ Carbon::parse($user->updated_at)->diffForHumans() }}
                                 </td>
                             </tr>
