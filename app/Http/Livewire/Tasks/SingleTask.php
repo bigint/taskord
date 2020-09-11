@@ -3,12 +3,12 @@
 namespace App\Http\Livewire\Tasks;
 
 use App\Gamify\Points\TaskCompleted;
+use App\Notifications\TelegramLogger;
 use Carbon\Carbon;
 use GrahamCampbell\Throttle\Facades\Throttle;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Request;
 use Livewire\Component;
-use App\Notifications\TelegramLogger;
 
 class SingleTask extends Component
 {
@@ -37,7 +37,7 @@ class SingleTask extends Component
             $this->emit('taskChecked');
             $this->task->user->notify(
                 new TelegramLogger(
-                    "*✅ Task was mark as done* by @"
+                    '*✅ Task was mark as done* by @'
                     .Auth::user()->username."\n\n"
                     .$this->task->task."\n\nhttps://taskord.com/task/"
                     .$this->task->id
