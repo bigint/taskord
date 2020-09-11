@@ -5,9 +5,9 @@ namespace App\Http\Livewire\Answer;
 use App\Gamify\Points\CommentCreated;
 use App\Models\Answer;
 use App\Notifications\Answered;
+use App\Notifications\TelegramLogger;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
-use App\Notifications\TelegramLogger;
 
 class CreateAnswer extends Component
 {
@@ -58,7 +58,7 @@ class CreateAnswer extends Component
                 $this->question->user->notify(new Answered($answer));
                 givePoint(new CommentCreated($answer));
             }
-            
+
             $this->question->user->notify(
                 new TelegramLogger(
                     '*💬 New answer was added* by @'
