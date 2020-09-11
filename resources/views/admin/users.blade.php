@@ -13,7 +13,8 @@
             @include('admin.nav')
             <div class="card">
                 <div class="card-header">
-                    <span class="h6">Users</span>
+                    <span class="h5">Users</span>
+                    <div>{{ $count }} total users</div>
                 </div>
                 <div class="table-responsive">
                     <table class="table text-dark">
@@ -96,9 +97,6 @@
                                 </td>
                                 <td>
                                     {{ Carbon::parse($user->updated_at)->format('M d, Y') }}
-                                    @if ($user->updated_at->diffInDays(Carbon::today()) < 3)
-                                        ⚽️
-                                    @endif
                                 </td>
                             </tr>
                             @endforeach
