@@ -5,9 +5,9 @@ namespace App\Http\Livewire\Task;
 use App\Gamify\Points\CommentCreated;
 use App\Models\Comment;
 use App\Notifications\Commented;
+use App\Notifications\TelegramLogger;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
-use App\Notifications\TelegramLogger;
 
 class CreateComment extends Component
 {
@@ -58,7 +58,7 @@ class CreateComment extends Component
                 $this->task->user->notify(new Commented($comment));
                 givePoint(new CommentCreated($comment));
             }
-            
+
             $this->task->user->notify(
                 new TelegramLogger(
                     '*💬 New comment was added* by @'
