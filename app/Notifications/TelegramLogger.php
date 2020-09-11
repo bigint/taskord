@@ -4,7 +4,6 @@ namespace App\Notifications;
 
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
-use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
 use NotificationChannels\Telegram\TelegramChannel;
 use NotificationChannels\Telegram\TelegramMessage;
@@ -12,7 +11,7 @@ use NotificationChannels\Telegram\TelegramMessage;
 class TelegramLogger extends Notification implements ShouldQueue
 {
     use Queueable;
-    
+
     protected $message;
 
     /**

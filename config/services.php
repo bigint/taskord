@@ -41,9 +41,9 @@ return [
         'client_secret' => env('TWITTER_CLIENT_SECRET'),
         'redirect'      => env('TWITTER_URL'),
     ],
-    
+
     'telegram-bot-api' => [
-        'token' => env('TELEGRAM_BOT_TOKEN')
+        'token' => env('TELEGRAM_BOT_TOKEN'),
     ],
 
 ];
