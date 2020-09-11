@@ -24,8 +24,7 @@ class Moderator extends Component
             $this->user->timestamps = false;
             $this->user->save();
             if ($this->user->isBeta) {
-                $this->user->notify(new TelegramLogger('jfhhsdfhbf'));
-            //ModEvents::dispatch('INFO', '@'.$this->user->username.' is enrolled to beta by @'.Auth::user()->username);
+                $this->user->notify(new TelegramLogger("*🚨 Mod Event 🚨*\n\n@".$this->user->username.' is enrolled to beta by @'.Auth::user()->username));
             } else {
                 //ModEvents::dispatch('WARNING', '@'.$this->user->username.' is un-enrolled from beta by @'.Auth::user()->username);
             }
