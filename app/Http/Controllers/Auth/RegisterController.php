@@ -8,6 +8,7 @@ use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use App\Notifications\TelegramLogger;
 
 class RegisterController extends Controller
 {
@@ -67,12 +68,20 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
+        $user = User::create([
             'username' => $data['username'],
             'email' => $data['email'],
             'avatar' => 'https://secure.gravatar.com/avatar/'.md5($data['email']).'?s=500&d=retro',
             'password' => Hash::make($data['password']),
             'lastIP' => request()->ip(),
         ]);
+        
+        $user->notify(
+            new TelegramLogger(
+                "*🎉 New user signed up to Taskord*\n\nhttps://taskord.com/@".$user->username
+            )
+        );
+        
+        return $user;
     }
 }
