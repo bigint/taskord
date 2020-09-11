@@ -39,7 +39,7 @@ class SingleTask extends Component
                     $this->task->user->notify(
                         new TelegramLogger(
                             '*⏳ Task was mark as pending* by @'
-                            .$this->task->user->username."\n\n"
+                            .Auth::user()->username."\n\n"
                             .$this->task->task."\n\nhttps://taskord.com/task/"
                             .$this->task->id
                         )
@@ -51,7 +51,7 @@ class SingleTask extends Component
                     $this->task->user->notify(
                         new TelegramLogger(
                             '*✅ Task was mark as done* by @'
-                            .$this->task->user->username."\n\n"
+                            .Auth::user()->username."\n\n"
                             .$this->task->task."\n\nhttps://taskord.com/task/"
                             .$this->task->id
                         )
