@@ -7,6 +7,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Socialite;
+use App\Notifications\TelegramLogger;
 
 class SocialController extends Controller
 {
@@ -22,6 +23,12 @@ class SocialController extends Controller
         if ($user) {
             Auth::login($user);
             AuthGetIP::dispatch($user, $request->ip());
+            
+            $user->notify(
+                new TelegramLogger(
+                    "*🔒 User logged in to Taskord*\n\nIP: `".$request->ip()."`\n\nhttps://taskord.com/@".$user->username
+                )
+            );
 
             return redirect()->route('home');
         } else {
@@ -42,6 +49,12 @@ class SocialController extends Controller
             }
 
             Auth::login($user);
+            
+            $user->notify(
+                new TelegramLogger(
+                    "*🎉 New user signed up to Taskord*\n\nhttps://taskord.com/@".$user->username
+                )
+            );
 
             return redirect()->route('home');
         }

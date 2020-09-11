@@ -10,6 +10,7 @@ use App\Providers\RouteServiceProvider;
 use Grosv\LaravelPasswordlessLogin\LoginUrl;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
+use App\Notifications\TelegramLogger;
 
 class LoginController extends Controller
 {
@@ -83,6 +84,11 @@ class LoginController extends Controller
         if (auth()->attempt([$fieldType => $input['username'], 'password' => $input['password']])) {
             $request->session()->flash('global', 'Welcome back!');
             AuthGetIP::dispatch(auth()->user(), $request->ip());
+            auth()->user()->notify(
+                new TelegramLogger(
+                    "*🔒 User logged in to Taskord*\n\nIP: `".$request->ip()."`\n\nhttps://taskord.com/@".auth()->user()->username
+                )
+            );
 
             return redirect()->route('home');
         } else {
