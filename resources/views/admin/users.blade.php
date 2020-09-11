@@ -12,9 +12,10 @@
         <div class="container">
             @include('admin.nav')
             <div class="card">
-                <div class="card-header">
-                    <span class="h5">Users</span>
-                    <div>{{ $count }} total users</div>
+                <div class="card-header h6 pt-3 pb-3">
+                    <div class="h5">Users</div>
+                    <span class="font-weight-bold">{{ $count }}</span>
+                    total users
                 </div>
                 <div class="table-responsive">
                     <table class="table text-dark">
