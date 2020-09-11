@@ -6,6 +6,7 @@ use App\Gamify\Points\TaskCreated;
 use App\Models\Task;
 use App\Models\User;
 use App\Notifications\TaskMentioned;
+use App\Notifications\TelegramLogger;
 use Carbon\Carbon;
 use GrahamCampbell\Throttle\Facades\Throttle;
 use Illuminate\Support\Facades\Auth;
@@ -127,6 +128,14 @@ class CreateTask extends Component
             $this->emit('taskAdded');
             $this->reset();
             givePoint(new TaskCreated($task));
+            Auth::user()->notify(
+                new TelegramLogger(
+                    '*✅ New Task* by @'
+                    .Auth::user()->username."\n\n"
+                    .$task->task."\n\nhttps://taskord.com/task/"
+                    .$task->id
+                )
+            );
         } else {
             return session()->flash('error', 'Forbidden!');
         }

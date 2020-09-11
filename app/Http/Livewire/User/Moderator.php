@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\User;
 
 use App\Models\User;
+use App\Notifications\TelegramLogger;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Livewire\Component;
@@ -23,9 +24,9 @@ class Moderator extends Component
             $this->user->timestamps = false;
             $this->user->save();
             if ($this->user->isBeta) {
-                //ModEvents::dispatch('INFO', '@'.$this->user->username.' is enrolled to beta by @'.Auth::user()->username);
+                $this->user->notify(new TelegramLogger("*🚨 Mod Event 🚨*\n\n@".$this->user->username.' is enrolled to beta by @'.Auth::user()->username));
             } else {
-                //ModEvents::dispatch('WARNING', '@'.$this->user->username.' is un-enrolled from beta by @'.Auth::user()->username);
+                $this->user->notify(new TelegramLogger("*🚨 Mod Event 🚨*\n\n@".$this->user->username.' is un-enrolled from beta by @'.Auth::user()->username));
             }
         } else {
             return false;
@@ -42,9 +43,9 @@ class Moderator extends Component
             $this->user->timestamps = false;
             $this->user->save();
             if ($this->user->isStaff) {
-                //ModEvents::dispatch('INFO', '@'.$this->user->username.' is enrolled as staff by @'.Auth::user()->username);
+                $this->user->notify(new TelegramLogger("*🚨 Mod Event 🚨*\n\n@".$this->user->username.' is enrolled as staff by @'.Auth::user()->username));
             } else {
-                //ModEvents::dispatch('WARNING', '@'.$this->user->username.' is un-enrolled from staff by @'.Auth::user()->username);
+                $this->user->notify(new TelegramLogger("*🚨 Mod Event 🚨*\n\n@".$this->user->username.' is un-enrolled from staff by @'.Auth::user()->username));
             }
         } else {
             return false;
@@ -58,9 +59,9 @@ class Moderator extends Component
             $this->user->timestamps = false;
             $this->user->save();
             if ($this->user->isDeveloper) {
-                //ModEvents::dispatch('INFO', '@'.$this->user->username.' is enrolled as contributor by @'.Auth::user()->username);
+                $this->user->notify(new TelegramLogger("*🚨 Mod Event 🚨*\n\n@".$this->user->username.' is enrolled as contributor by @'.Auth::user()->username));
             } else {
-                //ModEvents::dispatch('WARNING', '@'.$this->user->username.' is un-enrolled from contributor by @'.Auth::user()->username);
+                $this->user->notify(new TelegramLogger("*🚨 Mod Event 🚨*\n\n@".$this->user->username.' is un-enrolled from contributor by @'.Auth::user()->username));
             }
         } else {
             return false;
@@ -77,9 +78,9 @@ class Moderator extends Component
             $this->user->timestamps = false;
             $this->user->save();
             if ($this->user->isPrivate) {
-                //ModEvents::dispatch('WARNING', '@'.$this->user->username.' is marked as private user by @'.Auth::user()->username);
+                $this->user->notify(new TelegramLogger("*🚨 Mod Event 🚨*\n\n@".$this->user->username.' is marked as private user by @'.Auth::user()->username));
             } else {
-                //ModEvents::dispatch('WARNING', '@'.$this->user->username.' is un-marked as private user by @'.Auth::user()->username);
+                $this->user->notify(new TelegramLogger("*🚨 Mod Event 🚨*\n\n@".$this->user->username.' is marked as public user by @'.Auth::user()->username));
             }
         } else {
             return false;
@@ -96,9 +97,9 @@ class Moderator extends Component
             $this->user->timestamps = false;
             $this->user->save();
             if ($this->user->isFlagged) {
-                //ModEvents::dispatch('WARNING', '@'.$this->user->username.' is flagged by @'.Auth::user()->username);
+                $this->user->notify(new TelegramLogger("*🚨 Mod Event 🚨*\n\n@".$this->user->username.' is flagged by @'.Auth::user()->username));
             } else {
-                //ModEvents::dispatch('WARNING', '@'.$this->user->username.' is un-flagged by @'.Auth::user()->username);
+                $this->user->notify(new TelegramLogger("*🚨 Mod Event 🚨*\n\n@".$this->user->username.' is un-flagged by @'.Auth::user()->username));
             }
         } else {
             return false;
@@ -120,9 +121,9 @@ class Moderator extends Component
             $this->user->timestamps = false;
             $this->user->save();
             if ($this->user->isSuspended) {
-                //ModEvents::dispatch('WARNING', '@'.$this->user->username.' is suspended and flagged by @'.Auth::user()->username);
+                $this->user->notify(new TelegramLogger("*🚨 Mod Event 🚨*\n\n@".$this->user->username.' is suspended and flagged by @'.Auth::user()->username));
             } else {
-                //ModEvents::dispatch('WARNING', '@'.$this->user->username.' is un-suspended and un-flagged by @'.Auth::user()->username);
+                $this->user->notify(new TelegramLogger("*🚨 Mod Event 🚨*\n\n@".$this->user->username.' is un-suspended and un-flagged by @'.Auth::user()->username));
             }
         } else {
             return false;
@@ -136,9 +137,9 @@ class Moderator extends Component
             $this->user->timestamps = false;
             $this->user->save();
             if ($this->user->isPatron) {
-                //ModEvents::dispatch('INFO', '@'.$this->user->username.' is enrolled as patron by @'.Auth::user()->username);
+                $this->user->notify(new TelegramLogger("*🚨 Mod Event 🚨*\n\n@".$this->user->username.' is enrolled as patron by @'.Auth::user()->username));
             } else {
-                //ModEvents::dispatch('WARNING', '@'.$this->user->username.' is un-enrolled as patron by @'.Auth::user()->username);
+                $this->user->notify(new TelegramLogger("*🚨 Mod Event 🚨*\n\n@".$this->user->username.' is un-enrolled from patron by @'.Auth::user()->username));
             }
         } else {
             return false;
@@ -152,9 +153,9 @@ class Moderator extends Component
             $this->user->timestamps = false;
             $this->user->save();
             if ($this->user->isPatron) {
-                //ModEvents::dispatch('INFO', '@'.$this->user->username.' is enabled dark mode by @'.Auth::user()->username);
+                $this->user->notify(new TelegramLogger("*🚨 Mod Event 🚨*\n\n@".$this->user->username.' is enabled dark mode by @'.Auth::user()->username));
             } else {
-                //ModEvents::dispatch('WARNING', '@'.$this->user->username.' is disabled dark mode by @'.Auth::user()->username);
+                $this->user->notify(new TelegramLogger("*🚨 Mod Event 🚨*\n\n@".$this->user->username.' is disabled dark mode by @'.Auth::user()->username));
             }
         } else {
             return false;
@@ -167,7 +168,7 @@ class Moderator extends Component
             if ($this->user->id === 1) {
                 return false;
             }
-            //ModEvents::dispatch('WARNING', '@'.Auth::user()->username.' is masqueraded into @'.$this->user->username);
+            $this->user->notify(new TelegramLogger("*🚨 Mod Event 🚨*\n\n@".Auth::user()->username.' is masqueraded into @'.$this->user->username));
             Auth::loginUsingId($this->user->id);
 
             return redirect()->route('home');
@@ -185,7 +186,7 @@ class Moderator extends Component
                 Storage::delete($task->image);
             }
             $user->tasks()->delete();
-            //ModEvents::dispatch('CRITICAL', '@'.Auth::user()->username.' deleted all tasks made by @'.$this->user->username);
+            $this->user->notify(new TelegramLogger("*🚨 Mod Event 🚨*\n\n@".Auth::user()->username.' deleted all tasks made by @'.$this->user->username));
 
             return redirect()->route('user.done', ['username' => $this->user->username]);
         } else {
@@ -199,7 +200,7 @@ class Moderator extends Component
             $user = User::find($this->user->id);
             $user->timestamps = false;
             $user->comment()->delete();
-            //ModEvents::dispatch('CRITICAL', '@'.Auth::user()->username.' deleted all comments made by @'.$this->user->username);
+            $this->user->notify(new TelegramLogger("*🚨 Mod Event 🚨*\n\n@".Auth::user()->username.' deleted all comments made by @'.$this->user->username));
 
             return redirect()->route('user.done', ['username' => $this->user->username]);
         } else {
@@ -213,7 +214,7 @@ class Moderator extends Component
             $user = User::find($this->user->id);
             $user->timestamps = false;
             $user->questions()->delete();
-            //ModEvents::dispatch('CRITICAL', '@'.Auth::user()->username.' deleted all questions made by @'.$this->user->username);
+            $this->user->notify(new TelegramLogger("*🚨 Mod Event 🚨*\n\n@".Auth::user()->username.' deleted all questions made by @'.$this->user->username));
 
             return redirect()->route('user.done', ['username' => $this->user->username]);
         } else {
@@ -227,7 +228,7 @@ class Moderator extends Component
             $user = User::find($this->user->id);
             $user->timestamps = false;
             $user->answers()->delete();
-            //ModEvents::dispatch('CRITICAL', '@'.Auth::user()->username.' deleted all answers made by @'.$this->user->username);
+            $this->user->notify(new TelegramLogger("*🚨 Mod Event 🚨*\n\n@".Auth::user()->username.' deleted all answers made by @'.$this->user->username));
 
             return redirect()->route('user.done', ['username' => $this->user->username]);
         } else {
@@ -247,7 +248,7 @@ class Moderator extends Component
                 }
             }
             $user->products()->delete();
-            //ModEvents::dispatch('CRITICAL', '@'.Auth::user()->username.' deleted all products made by @'.$this->user->username);
+            $this->user->notify(new TelegramLogger("*🚨 Mod Event 🚨*\n\n@".Auth::user()->username.' deleted all products made by @'.$this->user->username));
 
             return redirect()->route('user.done', ['username' => $this->user->username]);
         } else {
@@ -262,7 +263,6 @@ class Moderator extends Component
                 return false;
             }
             $user = User::find($this->user->id);
-            //ModEvents::dispatch('CRITICAL', '@'.Auth::user()->username.' deleted the user @'.$this->user->username);
             // Delete Task Images
             foreach ($user->tasks as $task) {
                 Storage::delete($task->image);
