@@ -6,11 +6,11 @@ use App\Http\Controllers\Controller;
 use App\Jobs\AuthGetIP;
 use App\Models\User;
 use App\Notifications\MagicLink;
+use App\Notifications\TelegramLogger;
 use App\Providers\RouteServiceProvider;
 use Grosv\LaravelPasswordlessLogin\LoginUrl;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
-use App\Notifications\TelegramLogger;
 
 class LoginController extends Controller
 {
