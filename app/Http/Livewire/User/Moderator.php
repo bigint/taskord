@@ -3,11 +3,10 @@
 namespace App\Http\Livewire\User;
 
 use App\Models\User;
+use App\Notifications\TelegramLogger;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Livewire\Component;
-use NotificationChannels\Telegram\TelegramMessage;
-use App\Notifications\TelegramLogger;
 
 class Moderator extends Component
 {
@@ -26,7 +25,7 @@ class Moderator extends Component
             $this->user->save();
             if ($this->user->isBeta) {
                 $this->user->notify(new TelegramLogger('jfhhsdfhbf'));
-                //ModEvents::dispatch('INFO', '@'.$this->user->username.' is enrolled to beta by @'.Auth::user()->username);
+            //ModEvents::dispatch('INFO', '@'.$this->user->username.' is enrolled to beta by @'.Auth::user()->username);
             } else {
                 //ModEvents::dispatch('WARNING', '@'.$this->user->username.' is un-enrolled from beta by @'.Auth::user()->username);
             }
