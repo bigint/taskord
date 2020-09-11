@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\Storage;
 use Livewire\Component;
+use App\Notifications\TelegramLogger;
 
 class SingleTask extends Component
 {
@@ -35,10 +36,26 @@ class SingleTask extends Component
                 if ($this->task->done) {
                     $this->task->done_at = Carbon::now();
                     $this->task->updated_at = Carbon::now();
+                    $this->task->user->notify(
+                        new TelegramLogger(
+                            "*⏳ Task was mark as pending* by @"
+                            .$this->task->user->username."\n\n"
+                            .$this->task->task."\n\nhttps://taskord.com/task/"
+                            .$this->task->id
+                        )
+                    );
                 } else {
                     $this->task->done_at = Carbon::now();
                     $this->task->updated_at = Carbon::now();
                     givePoint(new TaskCompleted($this->task));
+                    $this->task->user->notify(
+                        new TelegramLogger(
+                            "*✅ Task was mark as done* by @"
+                            .$this->task->user->username."\n\n"
+                            .$this->task->task."\n\nhttps://taskord.com/task/"
+                            .$this->task->id
+                        )
+                    );
                 }
                 $this->task->done = ! $this->task->done;
                 $this->task->save();
@@ -76,11 +93,27 @@ class SingleTask extends Component
                 Auth::user()->unlike($this->task);
                 $this->task->refresh();
                 undoPoint(new PraiseCreated($this->task));
+                $this->task->user->notify(
+                    new TelegramLogger(
+                        "*👏 Task was un-praised* by @"
+                        .Auth::user()->username."\n\n"
+                        .$this->task->task."\n\nhttps://taskord.com/task/"
+                        .$this->task->id
+                    )
+                );
             } else {
                 Auth::user()->like($this->task);
                 $this->task->refresh();
                 $this->task->user->notify(new TaskPraised($this->task, Auth::id()));
                 givePoint(new PraiseCreated($this->task));
+                $this->task->user->notify(
+                    new TelegramLogger(
+                        "*👏 Task was praised* by @"
+                        .Auth::user()->username."\n\n"
+                        .$this->task->task."\n\nhttps://taskord.com/task/"
+                        .$this->task->id
+                    )
+                );
             }
         } else {
             return session()->flash('error', 'Forbidden!');

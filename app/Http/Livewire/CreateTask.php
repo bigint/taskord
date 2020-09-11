@@ -162,7 +162,7 @@ class CreateTask extends Component
                 new TelegramLogger(
                     "*✅ New Task* by @"
                     .Auth::user()->username."\n\n"
-                    .$task->task."\n\n https://taskord.com/task/"
+                    .$task->task."\n\nhttps://taskord.com/task/"
                     .$task->id
                 )
             );

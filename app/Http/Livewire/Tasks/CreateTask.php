@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Request;
 use Livewire\Component;
 use Livewire\WithFileUploads;
+use App\Notifications\TelegramLogger;
 
 class CreateTask extends Component
 {
@@ -127,6 +128,14 @@ class CreateTask extends Component
             $this->emit('taskAdded');
             $this->reset();
             givePoint(new TaskCreated($task));
+            Auth::user()->notify(
+                new TelegramLogger(
+                    "*✅ New Task* by @"
+                    .Auth::user()->username."\n\n"
+                    .$task->task."\n\nhttps://taskord.com/task/"
+                    .$task->id
+                )
+            );
         } else {
             return session()->flash('error', 'Forbidden!');
         }
