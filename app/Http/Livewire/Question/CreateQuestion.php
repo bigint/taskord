@@ -4,9 +4,9 @@ namespace App\Http\Livewire\Question;
 
 use App\Gamify\Points\QuestionCreated;
 use App\Models\Question;
+use App\Notifications\TelegramLogger;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
-use App\Notifications\TelegramLogger;
 
 class CreateQuestion extends Component
 {
@@ -41,7 +41,7 @@ class CreateQuestion extends Component
 
             session()->flash('question_created', 'Question has been created!');
             givePoint(new QuestionCreated($question));
-            
+
             $question->user->notify(
                 new TelegramLogger(
                     '*❓ New question was asked* by @'

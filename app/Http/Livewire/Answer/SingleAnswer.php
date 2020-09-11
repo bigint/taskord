@@ -4,11 +4,11 @@ namespace App\Http\Livewire\Answer;
 
 use App\Gamify\Points\PraiseCreated;
 use App\Notifications\AnswerPraised;
+use App\Notifications\TelegramLogger;
 use GrahamCampbell\Throttle\Facades\Throttle;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Request;
 use Livewire\Component;
-use App\Notifications\TelegramLogger;
 
 class SingleAnswer extends Component
 {
