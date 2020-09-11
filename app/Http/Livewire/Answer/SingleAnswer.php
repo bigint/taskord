@@ -40,6 +40,7 @@ class SingleAnswer extends Component
             if (Auth::user()->hasLiked($this->answer)) {
                 Auth::user()->unlike($this->answer);
                 $this->answer->refresh();
+                undoPoint(new PraiseCreated($this->answer));
             } else {
                 Auth::user()->like($this->answer);
                 $this->answer->refresh();

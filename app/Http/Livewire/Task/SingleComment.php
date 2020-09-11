@@ -41,6 +41,7 @@ class SingleComment extends Component
             if (Auth::user()->hasLiked($this->comment)) {
                 Auth::user()->unlike($this->comment);
                 $this->comment->refresh();
+                undoPoint(new PraiseCreated($this->comment));
             } else {
                 Auth::user()->like($this->comment);
                 $this->comment->refresh();

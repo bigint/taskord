@@ -43,6 +43,7 @@ class SingleQuestion extends Component
             if (Auth::user()->hasLiked($this->question)) {
                 Auth::user()->unlike($this->question);
                 $this->question->refresh();
+                undoPoint(new PraiseCreated($this->question));
             } else {
                 Auth::user()->like($this->question);
                 $this->question->refresh();
