@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Request;
 use Livewire\Component;
 use Livewire\WithFileUploads;
+use App\Notifications\TelegramLogger;
 
 class CreateTask extends Component
 {
@@ -157,6 +158,14 @@ class CreateTask extends Component
                 }
             }
             givePoint(new TaskCreated($task));
+            Auth::user()->notify(
+                new TelegramLogger(
+                    "*✅ New Task* by @"
+                    .Auth::user()->username."\n\n"
+                    .$task->task."\n\n https://taskord.com/task/"
+                    .$task->id
+                )
+            );
 
             return session()->flash('success', 'Task has been created!');
         } else {
