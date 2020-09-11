@@ -2,7 +2,6 @@
 
 namespace App\Http\Livewire\User;
 
-//use App\Jobs\ModEvents;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
