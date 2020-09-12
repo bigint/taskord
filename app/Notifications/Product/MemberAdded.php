@@ -4,13 +4,12 @@ namespace App\Notifications\Product;
 
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
-use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
 
 class MemberAdded extends Notification implements ShouldQueue
 {
     use Queueable;
-    
+
     protected $product;
     protected $user_id;
 
@@ -29,7 +28,7 @@ class MemberAdded extends Notification implements ShouldQueue
     {
         return ['database'];
     }
-    
+
     public function toDatabase($notifiable)
     {
         return [

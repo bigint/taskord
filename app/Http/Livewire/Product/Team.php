@@ -2,9 +2,9 @@
 
 namespace App\Http\Livewire\Product;
 
+use App\Notifications\Product\MemberRemoved;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
-use App\Notifications\Product\MemberRemoved;
 
 class Team extends Component
 {
