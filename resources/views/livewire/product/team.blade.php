@@ -16,11 +16,5 @@
             Remove
         </button>
     @endif
-    @if ($product->members->contains(Auth::id()))
-        <button class="btn btn-sm btn-danger float-right" wire:click="removeMember">
-            <i class="fa fa-sign-out mr-1"></i>
-            Leave
-        </button>
-    @endif
     @endauth
 </li>
