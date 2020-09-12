@@ -23,7 +23,7 @@
                     <input type="text" class="form-control" placeholder="Add a Task" wire:model.defer="task">
                 </div>
                 <div class="d-flex justify-content-between">
-                <div class="form-file form-file-sm w-25">
+                <div class="form-file form-file-sm col-6 col-lg-3">
                     <input type="file" wire:model="image" class="form-file-input" accept="image/*">
                     <label class="form-file-label">
                         <span class="form-file-text">Choose file...</span>

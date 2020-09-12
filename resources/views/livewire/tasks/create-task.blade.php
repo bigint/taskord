@@ -14,7 +14,7 @@
                     <input type="text" class="form-control" placeholder="Add a Task to work on" wire:model.defer="task">
                 </div>
                 <div class="d-flex justify-content-between">
-                <div class="form-file form-file-sm w-25">
+                <div class="form-file form-file-sm col-6 col-lg-3">
                     <input type="file" wire:model="image" class="form-file-input">
                     <label class="form-file-label">
                         <span class="form-file-text">Choose file...</span>
@@ -22,7 +22,7 @@
                     </label>
                 </div>
                 @if (Auth::user()->ownedProducts->merge(Auth::user()->products)->count('id') > 0)
-                <div class="form-group w-25 ml-2">
+                <div class="form-group w-25 ml-2 d-none d-sm-block">
                     <select class="form-select form-select-sm" wire:model="product">
                         <option selected>Choose Product</option>
                         @foreach (Auth::user()->ownedProducts->merge(Auth::user()->products) as $product)
