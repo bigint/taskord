@@ -11,6 +11,10 @@
                 <i class="fa fa-edit mr-1"></i>
                 Edit Product
             </button>
+            <button type="button" class="btn btn-block btn-success text-white font-weight-bold" data-toggle="modal" data-target="#addMemberModal">
+                <i class="fa fa-plus mr-1"></i>
+                Add Member
+            </button>
         </div>
     </div>
     @livewire('product.update.new-update', [
@@ -20,6 +24,9 @@
         'product' => $product
     ])
     @endif
+    @livewire('product.add-member', [
+        'product' => $product
+    ])
     @endauth
     <div class="card mb-4">
         <div class="card-header">
@@ -94,13 +101,6 @@
             </li>
             @endforeach
         </ul>
-        <button type="button" class="btn btn-block btn-success text-white font-weight-bold" data-toggle="modal" data-target="#addMemberModal">
-            <i class="fa fa-plus mr-1"></i>
-            Add Member
-        </button>
-        @livewire('product.add-member', [
-            'product' => $product
-        ])
     </div>
     @include('components.footer')
     <script type="text/javascript">
