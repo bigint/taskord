@@ -29,7 +29,7 @@ class Tasks extends Component
         $tasks = Task::select('id', 'task', 'done', 'created_at', 'done_at', 'user_id', 'product_id', 'source', 'image')
             ->where([
                 ['product_id', $this->product->id],
-                ['user_id', $this->product->user->id],
+                ['user_id', $this->product->owner->id],
                 ['done', $this->type === 'product.done' ? true : false],
             ])
             ->orderBy('created_at', 'desc')

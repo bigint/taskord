@@ -44,13 +44,13 @@ class ProductController extends Controller
             'done_count' => Task::where([
                 ['product_id', $product->id],
                 ['done', true],
-                ['user_id', $product->user->id],
+                ['user_id', $product->owner->id],
             ])
                 ->count('id'),
             'pending_count' => Task::where([
                 ['product_id', $product->id],
                 ['done', false],
-                ['user_id', $product->user->id],
+                ['user_id', $product->owner->id],
             ])
                 ->count('id'),
             'updates_count' => ProductUpdate::where([
@@ -59,9 +59,9 @@ class ProductController extends Controller
                 ->count('id'),
         ];
 
-        if (Auth::check() && Auth::id() === $product->user->id or Auth::check() && Auth::user()->staffShip) {
+        if (Auth::check() && Auth::id() === $product->owner->id or Auth::check() && Auth::user()->staffShip) {
             return view($type, $response);
-        } elseif ($product->user->isFlagged) {
+        } elseif ($product->owner->isFlagged) {
             return view('errors.404');
         }
 
