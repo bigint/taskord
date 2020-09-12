@@ -2,8 +2,8 @@
 
 namespace App\Http\Livewire\Product;
 
-use Livewire\Component;
 use Illuminate\Support\Facades\Auth;
+use Livewire\Component;
 
 class Leave extends Component
 {
