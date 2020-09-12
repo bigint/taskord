@@ -28,7 +28,7 @@
         </div>
     </div>
     <div class="card-body pt-1">
-        <div>@markdown($answer->answer)</div>
+        <div class="body-font">@markdown($answer->answer)</div>
         <div class="mt-3">
             @auth
             @if (Auth::user()->hasLiked($answer))

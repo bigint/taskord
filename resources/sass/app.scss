@@ -170,6 +170,14 @@ input[type="color"]:focus,
     }
 }
 
+.body-font {
+    img {
+        width: 100%;
+        border-radius: 5px;
+        border: 1px solid #dee2e6;
+    }
+}
+
 .task-gitlab {
     color: #FC6D27;
 }

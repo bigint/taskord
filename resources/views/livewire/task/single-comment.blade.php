@@ -16,7 +16,7 @@
         </span>
     </div>
     <div class="d-flex">
-        <span class="task-font">
+        <span class="body-font">
             @markdown($comment->comment)
         </span>
         <span class="ml-2">

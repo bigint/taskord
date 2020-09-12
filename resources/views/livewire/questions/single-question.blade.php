@@ -35,7 +35,7 @@
                 {{ $question->title }}
             @endif
         </a>
-        <div class="mt-2">
+        <div class="mt-2 body-font">
             @if ($type !== "question.question")
                 @if (!$question->patronOnly)
                     @markdown(Str::words($question->body, '30'))
