@@ -48,7 +48,9 @@ class HomeController extends Controller
         $recently_joined = $recently_users->take(5)
             ->get();
         $recently_joined_count = $recently_users->count('id');
-        $products = Product::select('slug', 'name', 'avatar', 'launched', 'launched_at', 'user_id')
+        $products = Product::cacheFor(1800)
+            ->cacheTags(['products:products'])
+            ->select('slug', 'name', 'avatar', 'launched', 'launched_at', 'user_id')
             ->where('launched', true)
             ->orderBy('created_at', 'DESC')
             ->take(5)
