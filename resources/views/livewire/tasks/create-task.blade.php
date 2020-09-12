@@ -21,7 +21,7 @@
                         <span class="form-file-button">Browse</span>
                     </label>
                 </div>
-                @if (Auth::user()->products->count('id') > 0)
+                @if (Auth::user()->ownedProducts->merge(Auth::user()->products)->count('id') > 0)
                 <div class="form-group w-25 ml-2">
                     <select class="form-select form-select-sm" wire:model="product">
                         <option selected>Choose Product</option>
