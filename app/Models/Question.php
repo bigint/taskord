@@ -12,7 +12,7 @@ class Question extends Model implements Viewable
 {
     use InteractsWithViews, CanBeLiked;
     use QueryCacheable;
-    
+
     public $cacheFor = 1800;
 
     protected $fillable = [

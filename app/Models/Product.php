@@ -10,9 +10,9 @@ class Product extends Model
 {
     use CanBeSubscribed;
     use QueryCacheable;
-    
+
     public $cacheFor = 1800;
-    
+
     protected $fillable = [
         'user_id',
         'name',

@@ -20,7 +20,7 @@ class User extends Authenticatable implements MustVerifyEmail
     use CanFollow, CanBeFollowed;
     use CanSubscribe;
     use QueryCacheable;
-    
+
     public $cacheFor = 1800;
 
     /**
