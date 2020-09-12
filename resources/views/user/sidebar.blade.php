@@ -62,7 +62,7 @@
                 'text' => 'No products made!',
             ])
             @endif
-            @foreach ($user->products->take(5) as $product)
+            @foreach ($user->ownedProducts->merge($user->products)->take(5) as $product)
             <li class="list-group-item">
                 <a href="{{ route('product.done', ['slug' => $product->slug]) }}">
                     <img class="rounded avatar-30 mt-1 ml-2" src="{{ $product->avatar }}" height="50" width="50" />
@@ -73,10 +73,10 @@
             </li>
             @endforeach
         </ul>
-        @if (count($user->products) > 5)
+        @if (count($user->ownedProducts) + count($user->products) > 5)
         <div class="card-footer">
             <a class="font-weight-bold" href="{{ route('user.products', ['username' => $user->username]) }}">
-                {{ count($user->products) - 5 }} more Products
+                {{ count($user->ownedProducts) + count($user->products) - 5 }} more Products
             </a>
         </div>
         @endif
