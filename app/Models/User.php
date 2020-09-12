@@ -11,7 +11,6 @@ use Multicaret\Acquaintances\Traits\CanFollow;
 use Multicaret\Acquaintances\Traits\CanLike;
 use Multicaret\Acquaintances\Traits\CanSubscribe;
 use QCod\Gamify\Gamify;
-use Rennokki\QueryCache\Traits\QueryCacheable;
 
 class User extends Authenticatable implements MustVerifyEmail
 {
@@ -19,9 +18,6 @@ class User extends Authenticatable implements MustVerifyEmail
     use Notifiable, Gamify;
     use CanFollow, CanBeFollowed;
     use CanSubscribe;
-    use QueryCacheable;
-
-    public $cacheFor = 1800;
 
     /**
      * The attributes that are mass assignable.

@@ -48,7 +48,6 @@ class Delete extends Component
             }
             $user->likes()->delete();
             $user->delete();
-            User::flushQueryCache(['users:all']);
 
             return redirect()->route('home');
         } else {
