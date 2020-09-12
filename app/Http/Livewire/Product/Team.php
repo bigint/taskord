@@ -2,8 +2,8 @@
 
 namespace App\Http\Livewire\Product;
 
-use Livewire\Component;
 use Illuminate\Support\Facades\Auth;
+use Livewire\Component;
 
 class Team extends Component
 {
@@ -15,7 +15,7 @@ class Team extends Component
         $this->product = $product;
         $this->user = $user;
     }
-    
+
     public function removeMember()
     {
         if (Auth::check()) {
