@@ -3,13 +3,13 @@
 namespace App\Http\Livewire\Questions;
 
 use App\Gamify\Points\PraiseCreated;
+use App\Models\Question;
 use App\Notifications\QuestionPraised;
 use App\Notifications\TelegramLogger;
 use GrahamCampbell\Throttle\Facades\Throttle;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Request;
 use Livewire\Component;
-use App\Models\Question;
 
 class SingleQuestion extends Component
 {
