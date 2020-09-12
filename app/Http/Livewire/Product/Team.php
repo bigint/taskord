@@ -20,6 +20,9 @@ class Team extends Component
     {
         if (Auth::check()) {
             $this->user->products()->detach($this->product);
+            session()->flash('global', 'User has been removed from the team!');
+
+            return redirect()->route('product.done', ['slug' => $this->product->slug]);
         }
     }
 

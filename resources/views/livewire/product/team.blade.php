@@ -12,4 +12,7 @@
     @if ($product->owner->id === Auth::id())
         <button wire:click="removeMember">Remove</button>
     @endif
+    @if ($product->members->contains(Auth::id()))
+        <button wire:click="removeMember">Leave</button>
+    @endif
 </li>
