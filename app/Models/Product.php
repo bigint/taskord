@@ -27,6 +27,11 @@ class Product extends Model
     {
         return $this->belongsTo(\App\Models\User::class, 'user_id');
     }
+    
+    public function members()
+    {
+        return $this->belongsToMany(\App\Models\User::class);
+    }
 
     public function task()
     {
