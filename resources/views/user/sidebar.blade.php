@@ -56,7 +56,7 @@
             Products
         </div>
         <ul class="list-group list-group-flush">
-            @if (count($user->products) === 0)
+            @if (count($user->ownedProducts->merge($user->products)) === 0)
             @include('components.empty', [
                 'icon' => 'box-open',
                 'text' => 'No products made!',
@@ -73,7 +73,7 @@
             </li>
             @endforeach
         </ul>
-        @if (count($user->ownedProducts) + count($user->products) > 5)
+        @if (count($user->ownedProducts->merge($user->products)) > 5)
         <div class="card-footer">
             <a class="font-weight-bold" href="{{ route('user.products', ['username' => $user->username]) }}">
                 {{ count($user->ownedProducts) + count($user->products) - 5 }} more Products
