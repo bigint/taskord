@@ -76,7 +76,7 @@ Route::group(['prefix' => 'notifications', 'as' => 'notifications.', 'middleware
     Route::get('all', 'NotificationController@all')->name('all');
 });
 
-Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['staff', 'password.verify']], function () {
+Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['staff', 'password.confirm']], function () {
     Route::get('users', 'AdminController@users')->name('users');
     Route::get('adminbar', 'AdminController@toggle')->name('adminbar');
 });
