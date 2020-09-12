@@ -24,7 +24,7 @@ class AddMember extends Component
             if ($user === null) {
                 return session()->flash('team-error', 'User does not exists');
             }
-            if ($user->products->contains($this->product)) {
+            if ($user->products->contains($this->product) or $user->id === $this->product->owner->id) {
                 return session()->flash('team-error', 'User already in the team');
             }
             if (Auth::user()->username === $this->username) {
