@@ -30,7 +30,7 @@ class Product extends Model
     
     public function members()
     {
-        return $this->belongsToMany(\App\Models\User::class);
+        return $this->belongsToMany(\App\Models\User::class)->withTimestamps();
     }
 
     public function task()
