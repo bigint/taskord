@@ -9,6 +9,7 @@ use GrahamCampbell\Throttle\Facades\Throttle;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Request;
 use Livewire\Component;
+use App\Models\Question;
 
 class SingleQuestion extends Component
 {
@@ -86,6 +87,7 @@ class SingleQuestion extends Component
 
             if (Auth::user()->staffShip or Auth::id() === $this->question->user_id) {
                 $this->question->delete();
+                Question::flushQueryCache(['questions:all']);
                 session()->flash('question_deleted', 'Question has been deleted!');
 
                 return redirect()->route('questions.newest');

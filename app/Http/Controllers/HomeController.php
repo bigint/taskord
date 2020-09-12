@@ -27,7 +27,7 @@ class HomeController extends Controller
     public function index()
     {
         $launched_today = Product::cacheFor(1800)
-            ->cacheTags(['products:launched_today'])
+            ->cacheTags(['products:all'])
             ->select('slug', 'name', 'avatar', 'description', 'launched', 'launched_at', 'user_id')
             ->where('launched', true)
             ->whereDate('launched_at', Carbon::today())
@@ -35,6 +35,7 @@ class HomeController extends Controller
             ->take(6)
             ->get();
         $recent_questions = Question::cacheFor(900)
+            ->cacheTags(['questions:all'])
             ->select('id', 'title', 'body', 'patronOnly', 'created_at', 'user_id')
             ->orderBy('created_at', 'DESC')
             ->take(4)
@@ -49,7 +50,7 @@ class HomeController extends Controller
             ->get();
         $recently_joined_count = $recently_users->count('id');
         $products = Product::cacheFor(1800)
-            ->cacheTags(['products:products'])
+            ->cacheTags(['products:all'])
             ->select('slug', 'name', 'avatar', 'launched', 'launched_at', 'user_id')
             ->where('launched', true)
             ->orderBy('created_at', 'DESC')
