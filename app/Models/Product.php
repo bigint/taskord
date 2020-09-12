@@ -23,9 +23,14 @@ class Product extends Model
         'launched_at',
     ];
 
-    public function user()
+    public function owner()
     {
-        return $this->belongsTo(\App\Models\User::class);
+        return $this->belongsTo(\App\Models\User::class, 'user_id');
+    }
+
+    public function members()
+    {
+        return $this->belongsToMany(\App\Models\User::class)->withTimestamps();
     }
 
     public function task()

@@ -79,7 +79,7 @@ class EditProduct extends Component
                 $product->avatar = config('app.url').'/storage/'.$avatar;
             }
 
-            if (Auth::user()->staffShip or Auth::id() === $product->user->id) {
+            if (Auth::user()->staffShip or Auth::id() === $product->owner->id) {
                 $product->name = $this->name;
                 $product->slug = $this->slug;
                 $product->description = $this->description;
@@ -118,7 +118,7 @@ class EditProduct extends Component
                 return session()->flash('error', 'Your account is flagged!');
             }
 
-            if (Auth::user()->staffShip or Auth::id() === $this->product->user->id) {
+            if (Auth::user()->staffShip or Auth::id() === $this->product->owner->id) {
                 $avatar = explode('storage/', $this->product->avatar);
                 if (array_key_exists(1, $avatar)) {
                     Storage::delete($avatar[1]);

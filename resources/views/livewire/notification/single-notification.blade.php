@@ -19,7 +19,8 @@
                     {{ Emoji::raisedHand() }}
                 @elseif (
                     $type === "App\Notifications\Followed" or
-                    $type === "App\Notifications\Subscribed"
+                    $type === "App\Notifications\Subscribed" or
+                    $type === "App\Notifications\Product\MemberAdded"
                 )
                     {{ Emoji::plusSign() }}
                 @elseif (
@@ -27,6 +28,11 @@
                     $type === "App\Notifications\Answered"
                 )
                     {{ Emoji::speechBalloon() }}
+                @elseif (
+                    $type === "App\Notifications\Product\MemberRemoved" or
+                    $type === "App\Notifications\Product\MemberLeft"
+                )
+                    {{ Emoji::door() }}
                 @endif
                 <a href="{{ route('user.done', ['username' => $user->username]) }}">
                     <img class="rounded-circle avatar-20 ml-2 mr-1" src="{{ $user->avatar }}" />
@@ -99,7 +105,31 @@
                 <span class="align-middle">
                     subscribed to your product
                     <a class="font-weight-bold" href="{{ route('product.done', ['slug' => \App\Models\Product::find($data['product_id'])->slug]) }}">
-                        <img class="rounded avatar-20 ml-2 mr-1" src="{{ \App\Models\Product::find($data['product_id'])->avatar }}" />
+                        <img class="rounded avatar-20 ml-1 mr-1" src="{{ \App\Models\Product::find($data['product_id'])->avatar }}" />
+                        {{ \App\Models\Product::find($data['product_id'])->name }}
+                    </a>
+                </span>
+            @elseif ($type === "App\Notifications\Product\MemberAdded")
+                <span class="align-middle">
+                    added you to the product
+                    <a class="font-weight-bold" href="{{ route('product.done', ['slug' => \App\Models\Product::find($data['product_id'])->slug]) }}">
+                        <img class="rounded avatar-20 ml-1 mr-1" src="{{ \App\Models\Product::find($data['product_id'])->avatar }}" />
+                        {{ \App\Models\Product::find($data['product_id'])->name }}
+                    </a>
+                </span>
+            @elseif ($type === "App\Notifications\Product\MemberRemoved")
+                <span class="align-middle">
+                    removed you from the product
+                    <a class="font-weight-bold" href="{{ route('product.done', ['slug' => \App\Models\Product::find($data['product_id'])->slug]) }}">
+                        <img class="rounded avatar-20 ml-1 mr-1" src="{{ \App\Models\Product::find($data['product_id'])->avatar }}" />
+                        {{ \App\Models\Product::find($data['product_id'])->name }}
+                    </a>
+                </span>
+            @elseif ($type === "App\Notifications\Product\MemberLeft")
+                <span class="align-middle">
+                    left from the product
+                    <a class="font-weight-bold" href="{{ route('product.done', ['slug' => \App\Models\Product::find($data['product_id'])->slug]) }}">
+                        <img class="rounded avatar-20 ml-1 mr-1" src="{{ \App\Models\Product::find($data['product_id'])->avatar }}" />
                         {{ \App\Models\Product::find($data['product_id'])->name }}
                     </a>
                 </span>

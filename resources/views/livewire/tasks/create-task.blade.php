@@ -25,7 +25,7 @@
                 <div class="form-group w-25 ml-2">
                     <select class="form-select form-select-sm" wire:model="product">
                         <option selected>Choose Product</option>
-                        @foreach (Auth::user()->products as $product)
+                        @foreach (Auth::user()->ownedProducts->merge(Auth::user()->products) as $product)
                         <option value="{{ $product->id }}">{{ $product->name }}</option>
                         @endforeach
                     </select>

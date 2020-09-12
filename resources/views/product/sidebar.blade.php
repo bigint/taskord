@@ -1,6 +1,6 @@
 <div class="col-sm">
     @auth
-    @if (Auth::user()->staffShip or Auth::id() === $product->user->id)
+    @if (Auth::user()->staffShip or Auth::id() === $product->owner->id)
     <div class="card mb-4">
         <div class="card-body">
             <button type="button" class="btn btn-block btn-success text-white font-weight-bold" data-toggle="modal" data-target="#newUpdateModal">
@@ -11,6 +11,10 @@
                 <i class="fa fa-edit mr-1"></i>
                 Edit Product
             </button>
+            <button type="button" class="btn btn-block btn-success text-white font-weight-bold" data-toggle="modal" data-target="#addMemberModal">
+                <i class="fa fa-plus mr-1"></i>
+                Add Member
+            </button>
         </div>
     </div>
     @livewire('product.update.new-update', [
@@ -20,6 +24,9 @@
         'product' => $product
     ])
     @endif
+    @livewire('product.add-member', [
+        'product' => $product
+    ])
     @endauth
     <div class="card mb-4">
         <div class="card-header">
@@ -64,23 +71,34 @@
     @endif
     <div class="card mb-4">
         <div class="card-header">
-            Creator
+            Team
         </div>
         <ul class="list-group list-group-flush">
             <li class="list-group-item pt-2 pb-2">
-                <a href="{{ route('user.done', ['username' => $product->user->username]) }}">
-                    <img class="rounded-circle avatar-30" src="{{ $product->user->avatar }}" />
+                <a href="{{ route('user.done', ['username' => $product->owner->username]) }}">
+                    <img class="rounded-circle avatar-30" src="{{ $product->owner->avatar }}" />
                 </a>
-                <a href="{{ route('user.done', ['username' => $product->user->username]) }}" class="ml-2 align-middle font-weight-bold text-dark">
-                    @if ($product->user->firstname or $product->user->lastname)
-                        {{ $product->user->firstname }}{{ ' '.$product->user->lastname }}
+                <a href="{{ route('user.done', ['username' => $product->owner->username]) }}" class="ml-2 align-middle font-weight-bold text-dark">
+                    @if ($product->owner->firstname or $product->owner->lastname)
+                        {{ $product->owner->firstname }}{{ ' '.$product->owner->lastname }}
                     @else
-                        {{ $product->user->username }}
+                        {{ $product->owner->username }}
                     @endif
                 </a>
             </li>
+            @foreach ($product->members()->get() as $user)
+            @livewire('product.team', [
+                'product' => $product,
+                'user' => $user
+            ])
+            @endforeach
         </ul>
     </div>
+    @if ($product->members->contains(Auth::id()))
+    @livewire('product.leave', [
+        'product' => $product,
+    ])
+    @endif
     @include('components.footer')
     <script type="text/javascript">
         const ctx = document.getElementById('myChart').getContext('2d');

@@ -26,12 +26,14 @@ class Tasks extends Component
 
     public function render()
     {
-        $tasks = Task::select('id', 'task', 'done', 'created_at', 'done_at', 'user_id', 'product_id', 'source', 'image')
+        $members = $this->product->members->pluck('id');
+        $members->push($this->product->owner->id);
+        $tasks = Task::select('id', 'task', 'done', 'created_at', 'done_at', 'user_id', 'product_id', 'source', 'image', 'type')
             ->where([
                 ['product_id', $this->product->id],
-                ['user_id', $this->product->user->id],
                 ['done', $this->type === 'product.done' ? true : false],
             ])
+            ->whereIn('user_id', $members)
             ->orderBy('created_at', 'desc')
             ->orderBy('done_at', 'desc')
             ->paginate(20, null, null, $this->page);
