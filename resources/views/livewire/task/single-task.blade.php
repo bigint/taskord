@@ -72,35 +72,31 @@
             @auth
             @if (!$task->user->isPrivate)
             @if (Auth::user()->hasLiked($task))
-            <span>
-                <button type="button" class="btn btn-task btn-success text-white mr-1" wire:click="togglePraise" wire:loading.attr="disabled" wire:offline.attr="disabled" wire:key="{{ $task->id }}">
-                    {{ Emoji::clappingHands() }}
-                    <span class="small text-white font-weight-bold">
-                        {{ number_format($task->likerscount()) }}
-                    </span>
-                    <span class="avatar-stack ml-1">
-                    @foreach($task->likers->take(5) as $user)
-                    <img class="praise-avatar rounded-circle {{ $loop->last ? 'mr-0' : '' }}" src="{{ $user->avatar }}" />
-                    @endforeach
-                    </span>
-                </button>
-            </span>
+            <button type="button" class="btn btn-task btn-success text-white mr-1" wire:click="togglePraise" wire:loading.attr="disabled" wire:offline.attr="disabled" wire:key="{{ $task->id }}">
+                {{ Emoji::clappingHands() }}
+                <span class="small text-white font-weight-bold">
+                    {{ number_format($task->likerscount()) }}
+                </span>
+                <span class="avatar-stack ml-1">
+                @foreach($task->likers->take(5) as $user)
+                <img class="praise-avatar rounded-circle {{ $loop->last ? 'mr-0' : '' }}" src="{{ $user->avatar }}" />
+                @endforeach
+                </span>
+            </button>
             @else
-            <span>
-                <button type="button" class="btn btn-task btn-outline-success mr-1" wire:click="togglePraise" wire:loading.attr="disabled" wire:offline.attr="disabled" wire:key="{{ $task->id }}">
-                    {{ Emoji::clappingHands() }}
-                    @if ($task->likerscount() !== 0)
-                    <span class="small text-dark font-weight-bold">
-                        {{ number_format($task->likerscount()) }}
-                    </span>
-                    <span class="avatar-stack ml-1">
-                    @foreach($task->likers->take(5) as $user)
-                    <img class="praise-avatar rounded-circle {{ $loop->last ? 'mr-0' : '' }}" src="{{ $user->avatar }}" />
-                    @endforeach
-                    </span>
-                    @endif
-                </button>
-            </span>
+            <button type="button" class="btn btn-task btn-outline-success mr-1" wire:click="togglePraise" wire:loading.attr="disabled" wire:offline.attr="disabled" wire:key="{{ $task->id }}">
+                {{ Emoji::clappingHands() }}
+                @if ($task->likerscount() !== 0)
+                <span class="small text-dark font-weight-bold">
+                    {{ number_format($task->likerscount()) }}
+                </span>
+                <span class="avatar-stack ml-1">
+                @foreach($task->likers->take(5) as $user)
+                <img class="praise-avatar rounded-circle {{ $loop->last ? 'mr-0' : '' }}" src="{{ $user->avatar }}" />
+                @endforeach
+                </span>
+                @endif
+            </button>
             @endif
             @endif
             @endauth
