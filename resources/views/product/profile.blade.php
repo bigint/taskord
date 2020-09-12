@@ -14,6 +14,9 @@
                         <i class="fa fa-ghost text-danger"></i>
                     </span>
                 @endif
+                @if (Auth::user()->staffShip)
+                    <span class="ml-1 text-secondary small">#{{ $product->id }}</span>
+                @endif
             </div>
             <div class="text-black-50 mb-2">
                 {{ "#" . $product->slug }}
