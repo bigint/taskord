@@ -12,12 +12,12 @@
                     @include('components.alert')
                     <div class="mb-3">
                         <label class="form-label font-weight-bold">Username</label>
-                        <input type="text" class="form-control @error('title') is-invalid @enderror" placeholder="What's New?" wire:model.defer="title">
-                        @error('title')
+                        <input type="text" class="form-control @if (session()->has('team-error')) is-invalid @endif" placeholder="What's New?" wire:model.defer="username">
+                        @if (session()->has('team-error'))
                             <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
+                                <strong>{{ session('team-error') }}</strong>
                             </span>
-                        @enderror
+                        @endif
                     </div>
                 </div>
                 <div class="modal-footer">
