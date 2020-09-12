@@ -4,10 +4,14 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Multicaret\Acquaintances\Traits\CanBeLiked;
+use Rennokki\QueryCache\Traits\QueryCacheable;
 
 class Task extends Model
 {
     use CanBeLiked;
+    use QueryCacheable;
+    
+    public $cacheFor = 1800;
 
     protected $fillable = [
         'user_id',
