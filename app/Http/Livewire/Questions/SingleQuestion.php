@@ -3,7 +3,6 @@
 namespace App\Http\Livewire\Questions;
 
 use App\Gamify\Points\PraiseCreated;
-use App\Models\Question;
 use App\Notifications\QuestionPraised;
 use App\Notifications\TelegramLogger;
 use GrahamCampbell\Throttle\Facades\Throttle;
@@ -87,7 +86,6 @@ class SingleQuestion extends Component
 
             if (Auth::user()->staffShip or Auth::id() === $this->question->user_id) {
                 $this->question->delete();
-                Question::flushQueryCache(['questions:all']);
                 session()->flash('question_deleted', 'Question has been deleted!');
 
                 return redirect()->route('questions.newest');

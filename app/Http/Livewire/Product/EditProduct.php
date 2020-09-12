@@ -124,7 +124,6 @@ class EditProduct extends Component
                     Storage::delete($avatar[1]);
                 }
                 $this->product->delete();
-                Product::flushQueryCache(['products:all']);
                 session()->flash('product_deleted', 'Product has been deleted!');
 
                 return redirect()->route('products.newest');
