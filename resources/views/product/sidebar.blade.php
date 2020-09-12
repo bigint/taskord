@@ -94,6 +94,11 @@
             @endforeach
         </ul>
     </div>
+    @if ($product->members->contains(Auth::id()))
+    @livewire('product.leave', [
+        'product' => $product,
+    ])
+    @endif
     @include('components.footer')
     <script type="text/javascript">
         const ctx = document.getElementById('myChart').getContext('2d');
