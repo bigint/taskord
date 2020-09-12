@@ -74,8 +74,8 @@
                         <span class="font-weight-bold">{{ $product->name }}</span>
                     </a>
                 </span>
-                <a href="{{ route('user.done', ['username' => $product->user->username]) }}">
-                    <img class="rounded-circle float-right avatar-30" src="{{ $product->user->avatar }}" />
+                <a href="{{ route('user.done', ['username' => $product->owner->username]) }}">
+                    <img class="rounded-circle float-right avatar-30" src="{{ $product->owner->avatar }}" />
                 </a>
             </li>
             @endforeach
