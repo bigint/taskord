@@ -10,7 +10,7 @@ class Task extends Model
 {
     use CanBeLiked;
     use QueryCacheable;
-    
+
     public $cacheFor = 1800;
 
     protected $fillable = [
