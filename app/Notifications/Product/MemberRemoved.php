@@ -4,13 +4,12 @@ namespace App\Notifications\Product;
 
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
-use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
 
 class MemberRemoved extends Notification implements ShouldQueue
 {
     use Queueable;
-    
+
     protected $product;
     protected $user_id;
 
