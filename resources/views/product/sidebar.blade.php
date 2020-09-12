@@ -94,6 +94,13 @@
             </li>
             @endforeach
         </ul>
+        <button type="button" class="btn btn-block btn-success text-white font-weight-bold" data-toggle="modal" data-target="#addMemberModal">
+            <i class="fa fa-plus mr-1"></i>
+            Add Member
+        </button>
+        @livewire('product.add-member', [
+            'product' => $product
+        ])
     </div>
     @include('components.footer')
     <script type="text/javascript">
