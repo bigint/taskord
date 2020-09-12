@@ -19,7 +19,8 @@
                     {{ Emoji::raisedHand() }}
                 @elseif (
                     $type === "App\Notifications\Followed" or
-                    $type === "App\Notifications\Subscribed"
+                    $type === "App\Notifications\Subscribed" or
+                    $type === "App\Notifications\Product\MemberAdded"
                 )
                     {{ Emoji::plusSign() }}
                 @elseif (
@@ -99,7 +100,15 @@
                 <span class="align-middle">
                     subscribed to your product
                     <a class="font-weight-bold" href="{{ route('product.done', ['slug' => \App\Models\Product::find($data['product_id'])->slug]) }}">
-                        <img class="rounded avatar-20 ml-2 mr-1" src="{{ \App\Models\Product::find($data['product_id'])->avatar }}" />
+                        <img class="rounded avatar-20 ml-1 mr-1" src="{{ \App\Models\Product::find($data['product_id'])->avatar }}" />
+                        {{ \App\Models\Product::find($data['product_id'])->name }}
+                    </a>
+                </span>
+            @elseif ($type === "App\Notifications\Product\MemberAdded")
+                <span class="align-middle">
+                    added you as a product member to
+                    <a class="font-weight-bold" href="{{ route('product.done', ['slug' => \App\Models\Product::find($data['product_id'])->slug]) }}">
+                        <img class="rounded avatar-20 ml-1 mr-1" src="{{ \App\Models\Product::find($data['product_id'])->avatar }}" />
                         {{ \App\Models\Product::find($data['product_id'])->name }}
                     </a>
                 </span>

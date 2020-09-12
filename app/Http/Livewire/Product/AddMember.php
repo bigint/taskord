@@ -5,6 +5,7 @@ namespace App\Http\Livewire\Product;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
+use App\Notifications\Product\MemberAdded;
 
 class AddMember extends Component
 {
@@ -29,10 +30,9 @@ class AddMember extends Component
             if (Auth::user()->username === $this->username) {
                 return session()->flash('team-error', 'You can\'t add yourself to the team!');
             }
-
             $user->products()->sync($this->product);
-
             session()->flash('global', 'User has been added to the team!');
+            $user->notify(new MemberAdded($this->product, Auth::id()));
 
             return redirect()->route('product.done', ['slug' => $this->product->slug]);
         }
