@@ -65,7 +65,9 @@
         </span>
         @if ($task->image)
         <div>
-            <img class="img-fluid border mt-3 rounded w-50" src="{{ asset('storage/' . $task->image) }}" />
+            <a href="{{ asset('storage/' . $task->image) }}" data-lightbox="{{ $task->image }}" data-title="Image by {{ '@'.$task->user->username }}">
+                <img class="img-fluid border mt-3 rounded w-50" src="{{ asset('storage/' . $task->image) }}" />
+            </a>
         </div>
         @endif
         <div class="mt-2">

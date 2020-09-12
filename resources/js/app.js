@@ -1,6 +1,17 @@
 require('./bootstrap');
 require('./shortcuts');
 import {isInViewport} from "observe-element-in-viewport";
+import lightbox from 'lightbox2/dist/js/lightbox';
+
+window.lightbox = lightbox;
+window.lightbox.option({
+  disableScrolling: true,
+  fadeDuration: 100,
+  imageFadeDuration: 100,
+  resizeDuration: 300,
+  fitImagesInViewport: true,
+  maxWidth: 1000,
+});
 
 $(document).ready(() => {
   (async () => {
