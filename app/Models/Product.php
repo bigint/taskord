@@ -4,11 +4,15 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Multicaret\Acquaintances\Traits\CanBeSubscribed;
+use Rennokki\QueryCache\Traits\QueryCacheable;
 
 class Product extends Model
 {
     use CanBeSubscribed;
-
+    use QueryCacheable;
+    
+    public $cacheFor = 1800;
+    
     protected $fillable = [
         'user_id',
         'name',
