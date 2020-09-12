@@ -3,6 +3,8 @@
 namespace App\Http\Livewire\User;
 
 use App\Models\User;
+use App\Models\Product;
+use App\Models\Question;
 use App\Notifications\TelegramLogger;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
@@ -214,6 +216,7 @@ class Moderator extends Component
             $user = User::find($this->user->id);
             $user->timestamps = false;
             $user->questions()->delete();
+            Question::flushQueryCache(['questions:all']);
             $this->user->notify(new TelegramLogger("*🚨 Mod Event 🚨*\n\n@".Auth::user()->username.' deleted all questions made by @'.$this->user->username));
 
             return redirect()->route('user.done', ['username' => $this->user->username]);
@@ -248,6 +251,7 @@ class Moderator extends Component
                 }
             }
             $user->products()->delete();
+            Product::flushQueryCache(['products:all']);
             $this->user->notify(new TelegramLogger("*🚨 Mod Event 🚨*\n\n@".Auth::user()->username.' deleted all products made by @'.$this->user->username));
 
             return redirect()->route('user.done', ['username' => $this->user->username]);
@@ -280,6 +284,7 @@ class Moderator extends Component
                 Storage::delete($avatar[1]);
             }
             $user->delete();
+            User::flushQueryCache(['users:all']);
 
             return redirect()->route('home');
         } else {

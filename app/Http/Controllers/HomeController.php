@@ -41,6 +41,7 @@ class HomeController extends Controller
             ->take(4)
             ->get();
         $recently_users = User::cacheFor(1800)
+            ->cacheTags(['users:all'])
             ->where([
                 ['created_at', '>=', Carbon::now()->subdays(7)],
                 ['isFlagged', false],
@@ -56,7 +57,9 @@ class HomeController extends Controller
             ->orderBy('created_at', 'DESC')
             ->take(5)
             ->get();
-        $reputations = User::select('username', 'firstname', 'lastname', 'avatar', 'reputation')
+        $reputations = User::cacheFor(1800)
+            ->cacheTags(['users:all'])
+            ->select('username', 'firstname', 'lastname', 'avatar', 'reputation')
             ->where([
                 ['isFlagged', false],
                 ['id', '!=', 1],
