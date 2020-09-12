@@ -64,7 +64,7 @@
     @endif
     <div class="card mb-4">
         <div class="card-header">
-            Creator
+            Team
         </div>
         <ul class="list-group list-group-flush">
             <li class="list-group-item pt-2 pb-2">
