@@ -10,9 +10,15 @@
         @endif
     </a>
     @if ($product->owner->id === Auth::id())
-        <button wire:click="removeMember">Remove</button>
+        <button class="btn btn-sm btn-danger float-right" wire:click="removeMember">
+            <i class="fa fa-times mr-1"></i>
+            Remove
+        </button>
     @endif
     @if ($product->members->contains(Auth::id()))
-        <button wire:click="removeMember">Leave</button>
+        <button class="btn btn-sm btn-danger float-right" wire:click="removeMember">
+            <i class="fa fa-sign-out mr-1"></i>
+            Leave
+        </button>
     @endif
 </li>
