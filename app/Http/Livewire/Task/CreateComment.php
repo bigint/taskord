@@ -63,7 +63,7 @@ class CreateComment extends Component
                 new TelegramLogger(
                     '*💬 New comment was added* by @'
                     .Auth::user()->username."\n\n"
-                    .$this->task->task."\n\nhttps://taskord.com/task/"
+                    .$comment->comment."\n\nhttps://taskord.com/task/"
                     .$this->task->id
                 )
             );
