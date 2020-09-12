@@ -27,6 +27,11 @@ class AddMember extends Component
             if (Auth::user()->username === $this->username) {
                 return session()->flash('team-error', 'You can\'t add yourself to the team!');
             }
+            
+            $user->products()->sync($this->product);
+            
+            session()->flash('global', 'User has been added to the team!');
+            return redirect()->route('product.done', ['slug' => $this->product->slug]);
         }
     }
     
