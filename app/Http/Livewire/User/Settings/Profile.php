@@ -19,6 +19,8 @@ class Profile extends Component
     public $location;
     public $company;
     public $avatar;
+    // Sponsor
+    public $sponsor;
     // Social
     public $website;
     public $twitter;
@@ -36,6 +38,8 @@ class Profile extends Component
         $this->bio = $user->bio;
         $this->location = $user->location;
         $this->company = $user->company;
+        // Sponsor
+        $this->sponsor = $user->sponsor;
         // Social
         $this->website = $user->website;
         $this->twitter = $user->twitter;
@@ -43,27 +47,6 @@ class Profile extends Component
         $this->telegram = $user->telegram;
         $this->github = $user->github;
         $this->youtube = $user->youtube;
-    }
-
-    public function updated($field)
-    {
-        if (Auth::check()) {
-            $this->validateOnly($field, [
-                'firstname' => 'nullable|max:30',
-                'lastname' => 'nullable|max:30',
-                'bio' => 'nullable|max:1000',
-                'location' => 'nullable|max:30',
-                'company' => 'nullable|max:30',
-                'website' => 'nullable|active_url',
-                'twitter' => 'nullable|alpha_dash|max:30',
-                'twitch' => 'nullable|alpha_dash|max:200',
-                'telegram' => 'nullable|alpha_dash|max:30',
-                'github' => 'nullable|alpha_dash|max:30',
-                'youtube' => 'nullable|alpha_dash|max:30',
-            ]);
-        } else {
-            return session()->flash('error', 'Forbidden!');
-        }
     }
 
     public function updatedAvatar()
@@ -124,6 +107,24 @@ class Profile extends Component
             $this->user->save();
 
             return session()->flash('profile', 'Your profile has been updated!');
+        } else {
+            return session()->flash('error', 'Forbidden!');
+        }
+    }
+
+    public function updateSponsor()
+    {
+        if (Auth::check()) {
+            $this->validate([
+                'sponsor' => 'nullable|active_url',
+            ]);
+
+            if (Auth::check()) {
+                $this->user->sponsor = $this->sponsor;
+                $this->user->save();
+
+                return session()->flash('sponsor', 'Your sponsor link has been updated!');
+            }
         } else {
             return session()->flash('error', 'Forbidden!');
         }
