@@ -13,11 +13,13 @@ use Tests\TestCase;
 class AnswerTest extends TestCase
 {
     public $user;
+    public $unverified;
 
     public function setUp(): void
     {
         parent::setUp();
         $this->user = User::where(['email' => 'test@taskord.com'])->first();
+        $this->unverified = User::where(['email' => 'unverified@taskord.com'])->first();
     }
 
     public function test_create_answer()
@@ -47,6 +49,21 @@ class AnswerTest extends TestCase
             ->set('answer', md5(microtime()))
             ->call('submit')
             ->assertSeeHtml('Answer has been added!');
+    }
+
+    public function test_unverified_create_answer()
+    {
+        $this->actingAs($this->unverified);
+        $question = Question::create([
+            'user_id' => 1,
+            'title' => md5(microtime()),
+            'body' => md5(microtime()),
+        ]);
+
+        Livewire::test(CreateAnswer::class, ['question' => $question])
+            ->set('answer', md5(microtime()))
+            ->call('submit')
+            ->assertSeeHtml('Your email is not verified!');
     }
 
     public function test_auth_create_answer_required()
@@ -80,6 +97,20 @@ class AnswerTest extends TestCase
             ->assertSeeHtml('You can&#039;t praise your own answer!');
     }
 
+    public function test_unverified_praise_answer()
+    {
+        $this->actingAs($this->unverified);
+        $answer = Answer::create([
+            'user_id' =>  $this->user->id,
+            'question_id' =>  1,
+            'answer' => md5(microtime()),
+        ]);
+
+        Livewire::test(SingleAnswer::class, ['answer' => $answer])
+            ->call('togglePraise')
+            ->assertSeeHtml('Your email is not verified!');
+    }
+
     public function test_praise_others_answer()
     {
         $this->actingAs($this->user);
@@ -92,6 +123,20 @@ class AnswerTest extends TestCase
         Livewire::test(SingleAnswer::class, ['answer' => $answer])
             ->call('togglePraise')
             ->assertDontSeeHtml('You can&#039;t praise your own answer!');
+    }
+
+    public function test_unverified_praise_others_answer()
+    {
+        $this->actingAs($this->unverified);
+        $answer = Answer::create([
+            'user_id' =>  2,
+            'question_id' =>  1,
+            'answer' => md5(microtime()),
+        ]);
+
+        Livewire::test(SingleAnswer::class, ['answer' => $answer])
+            ->call('togglePraise')
+            ->assertSeeHtml('Your email is not verified!');
     }
 
     public function test_delete_answer()
