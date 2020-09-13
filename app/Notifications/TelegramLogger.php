@@ -26,7 +26,9 @@ class TelegramLogger extends Notification implements ShouldQueue
 
     public function via($notifiable)
     {
-        return [TelegramChannel::class];
+        if (\App::environment() === 'production') {
+            return [TelegramChannel::class];
+        }
     }
 
     public function toTelegram($notifiable)
