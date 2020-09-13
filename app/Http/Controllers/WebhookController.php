@@ -19,6 +19,7 @@ class WebhookController extends Controller
             'dependabot',
             'bump',
             'styleci',
+            '0 changes',
         ];
 
         if (! Str::contains(strtolower($task), $ignoreList)) {
