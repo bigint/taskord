@@ -59,7 +59,7 @@ class TaskTest extends TestCase
             ->call('submit')
             ->assertSeeHtml('Task has been created!');
     }
-
+    
     public function test_unverified_create_task()
     {
         $this->actingAs($this->unverified);
@@ -102,6 +102,21 @@ class TaskTest extends TestCase
             ->call('togglePraise')
             ->assertSeeHtml('You can&#039;t praise your own task!');
     }
+    
+    public function test_unverified_praise_task()
+    {
+        $this->actingAs($this->unverified);
+        $task = Task::create([
+            'user_id' => $this->user->id,
+            'task' => md5(microtime()),
+            'source' => 'PHPUnit',
+            'done' => true,
+        ]);
+
+        Livewire::test(SingleTask::class, ['task' => $task])
+            ->call('togglePraise')
+            ->assertSeeHtml('Your email is not verified!');
+    }
 
     public function test_praise_others_task()
     {
@@ -134,6 +149,20 @@ class TaskTest extends TestCase
     }
 
     public function test_delete_task()
+    {
+        $task = Task::create([
+            'user_id' => $this->user->id,
+            'task' => md5(microtime()),
+            'source' => 'PHPUnit',
+            'done' => true,
+        ]);
+
+        Livewire::test(SingleTask::class, ['task' => $task])
+            ->call('deleteTask')
+            ->assertSeeHtml('Forbidden!');
+    }
+    
+    public function test_auth_delete_task()
     {
         $this->actingAs($this->user);
         $task = Task::create([
