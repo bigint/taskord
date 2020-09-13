@@ -93,7 +93,7 @@ class WebhookController extends Controller
             $request_body = $request->json()->all();
 
             if (count($request_body['commits']) === 1) {
-                $task = Str::limit($request_body['commits'][0]['message'], 50).' on "'.$request_body['repository']['name'].'"';
+                $task = Str::limit($request_body['commits'][0]['message'], 100).' on "'.$request_body['repository']['name'].'"';
             } else {
                 $task = 'Pushed '.count($request_body['commits']).' changes to "'.$request_body['repository']['name'].'"';
             }
