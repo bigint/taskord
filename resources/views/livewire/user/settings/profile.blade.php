@@ -130,7 +130,7 @@
                     {{ session('sponsor') }}
                 </div>
             @endif
-            <form wire:target="updateSocial" wire:submit.prevent="updateSocial">
+            <form wire:target="updateSponsor" wire:submit.prevent="updateSponsor">
                 <div class="input-group mb-3">
                     <span class="input-group-text">
                         <i class="fa fa-hands-helping text-info"></i>
@@ -144,7 +144,7 @@
                 </div>
                 <button type="submit" class="btn btn-primary">
                     Save
-                    <span wire:target="updateSocial" wire:loading class="spinner-border spinner-border-sm ml-2" role="status"></span>
+                    <span wire:target="updateSponsor" wire:loading class="spinner-border spinner-border-sm ml-2" role="status"></span>
                 </button>
             </form>
         </div>
