@@ -13,7 +13,7 @@
         <div class="{{ $user->lastIP ? 'mb-1' : 'mb-3' }}">
             <i class="fa fa-envelope text-black-50 mr-1"></i>
             <span class="h6">User Email:</span>
-            <a class="font-weight-bold" href="mailto://{{ $user->email }}">
+            <a class="font-weight-bold" href="mailto:{{ $user->email }}">
                 {{ $user->email }}
             </a>
             @if ($user->hasVerifiedEmail())
