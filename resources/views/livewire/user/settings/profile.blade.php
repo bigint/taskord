@@ -120,6 +120,38 @@
     
     <div class="card mb-4">
         <div class="card-header pt-3 pb-3">
+            <span class="h5">Sponsor</span>
+            <div>Add Sponsor URL to show badge in your profile.</div>
+        </div>
+        <div class="card-body">
+            @if (session()->has('sponsor'))
+                <div class="alert alert-success alert-dismissible fade show mb-3">
+                    <button type="button" class="close" data-dismiss="alert">×</button>
+                    {{ session('sponsor') }}
+                </div>
+            @endif
+            <form wire:target="updateSocial" wire:submit.prevent="updateSocial">
+                <div class="input-group mb-3">
+                    <span class="input-group-text">
+                        <i class="fa fa-hands-helping text-info"></i>
+                    </span>
+                    <input type="text" class="form-control @error('sponsor') is-invalid @enderror" placeholder="Sponsor URL" value="{{ $user->sponsor }}" wire:model.defer="sponsor">
+                    @error('sponsor')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
+                </div>
+                <button type="submit" class="btn btn-primary">
+                    Save
+                    <span wire:target="updateSocial" wire:loading class="spinner-border spinner-border-sm ml-2" role="status"></span>
+                </button>
+            </form>
+        </div>
+    </div>
+    
+    <div class="card mb-4">
+        <div class="card-header pt-3 pb-3">
             <span class="h5">Social</span>
             <div>Update your social media links.</div>
         </div>
