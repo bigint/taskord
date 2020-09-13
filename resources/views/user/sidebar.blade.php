@@ -12,7 +12,7 @@
             Sponsor
         </div>
         <div class="card-body">
-            <a class="btn btn-block btn-outline-primary">
+            <a class="btn btn-block btn-outline-primary" href="{{ $user->sponsor }}" target="_blank">
                 <img class="rounded sponsor-icon mr-1" rel="preload" src="https://external-content.duckduckgo.com/ip3/{{ parse_url($user->sponsor)['host'] }}.ico" />
                 <span class="font-weight-bold">Sponsor {{ '@'.$user->username }}</span>
             </a>
