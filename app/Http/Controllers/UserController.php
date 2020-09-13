@@ -28,6 +28,7 @@ class UserController extends Controller
                 'bio',
                 'location',
                 'company',
+                'sponsor',
                 'website',
                 'twitter',
                 'twitch',

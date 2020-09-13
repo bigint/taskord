@@ -6,6 +6,19 @@
         ])
     @endif
     @endauth
+    @if ($user->sponsor)
+    <div class="card mb-4">
+        <div class="card-header">
+            Sponsor
+        </div>
+        <div class="card-body">
+            <a class="btn btn-block btn-outline-primary">
+                <img class="rounded sponsor-icon mr-1" rel="preload" src="https://external-content.duckduckgo.com/ip3/{{ parse_url($user->sponsor)['host'] }}.ico" />
+                <span class="font-weight-bold">Sponsor {{ '@'.$user->username }}</span>
+            </a>
+        </div>
+    </div>
+    @endif
     @if ($user->website or $user->twitter or $user->twitch or $user->telegram or $user->github or $user->youtube)
     <div class="card mb-4">
         <div class="card-header">
