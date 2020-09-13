@@ -52,7 +52,7 @@ class CommentTest extends TestCase
             ->call('submit')
             ->assertSeeHtml('Comment has been added!');
     }
-    
+
     public function test_unverified_create_comment()
     {
         $this->actingAs($this->unverified);
@@ -100,7 +100,7 @@ class CommentTest extends TestCase
             ->call('togglePraise')
             ->assertSeeHtml('You can&#039;t praise your own comment!');
     }
-    
+
     public function test_unverified_praise_comment()
     {
         $this->actingAs($this->unverified);
@@ -128,7 +128,7 @@ class CommentTest extends TestCase
             ->call('togglePraise')
             ->assertDontSeeHtml('You can&#039;t praise your own comment!');
     }
-    
+
     public function test_unverified_praise_others_task_comment()
     {
         $this->actingAs($this->unverified);
