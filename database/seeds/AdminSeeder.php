@@ -32,7 +32,7 @@ class AdminSeeder extends Seeder
             'updated_at' => '2020-04-20 13:14:01',
             'email_verified_at' => date('Y-m-d H:i:s'),
         ]);
-        
+
         DB::table('users')->insert([
             'firstname' => 'test',
             'username' => 'unverified',
