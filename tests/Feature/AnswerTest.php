@@ -50,7 +50,7 @@ class AnswerTest extends TestCase
             ->call('submit')
             ->assertSeeHtml('Answer has been added!');
     }
-    
+
     public function test_unverified_create_answer()
     {
         $this->actingAs($this->unverified);
@@ -96,7 +96,7 @@ class AnswerTest extends TestCase
             ->call('togglePraise')
             ->assertSeeHtml('You can&#039;t praise your own answer!');
     }
-    
+
     public function test_unverified_praise_answer()
     {
         $this->actingAs($this->unverified);
@@ -124,7 +124,7 @@ class AnswerTest extends TestCase
             ->call('togglePraise')
             ->assertDontSeeHtml('You can&#039;t praise your own answer!');
     }
-    
+
     public function test_unverified_praise_others_answer()
     {
         $this->actingAs($this->unverified);

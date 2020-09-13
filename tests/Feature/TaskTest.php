@@ -59,7 +59,7 @@ class TaskTest extends TestCase
             ->call('submit')
             ->assertSeeHtml('Task has been created!');
     }
-    
+
     public function test_unverified_create_task()
     {
         $this->actingAs($this->unverified);
@@ -102,7 +102,7 @@ class TaskTest extends TestCase
             ->call('togglePraise')
             ->assertSeeHtml('You can&#039;t praise your own task!');
     }
-    
+
     public function test_unverified_praise_task()
     {
         $this->actingAs($this->unverified);
@@ -161,7 +161,7 @@ class TaskTest extends TestCase
             ->call('deleteTask')
             ->assertSeeHtml('Forbidden!');
     }
-    
+
     public function test_auth_delete_task()
     {
         $this->actingAs($this->user);
