@@ -72,8 +72,8 @@ Route::group(['prefix' => 'question', 'as' => 'question.'], function () {
 });
 
 Route::group(['prefix' => 'notifications', 'as' => 'notifications.', 'middleware' => ['auth']], function () {
-    Route::get('', 'NotificationController@unread')->name('unread');
-    Route::get('all', 'NotificationController@all')->name('all');
+    Route::view('', 'notifications.unread')->name('unread');
+    Route::view('all', 'notifications.all')->name('all');
 });
 
 Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['staff']], function () {
