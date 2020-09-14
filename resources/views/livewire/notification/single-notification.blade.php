@@ -47,49 +47,49 @@
             </span>
             @if ($type === "App\Notifications\TaskPraised")
                 <span class="align-middle">praised your task</span>
-                <div class="font-weight-bold mt-2">
+                <div class="mt-2">
                     <a class="text-dark" href="{{ route('task', ['id' => $data['task_id']]) }}">
                         {{ $data['task'] }}
                     </a>
                 </div>
             @elseif ($type === "App\Notifications\TaskMentioned")
                 <span class="align-middle">mentioned you in a task</span>
-                <div class="font-weight-bold mt-2">
+                <div class="mt-2">
                     <a class="text-dark" href="{{ route('task', ['id' => $data['task_id']]) }}">
                         {{ $data['task'] }}
                     </a>
                 </div>
             @elseif ($type === "App\Notifications\CommentPraised")
                 <span class="align-middle">praised your task comment</span>
-                <div class="font-weight-bold mt-2">
+                <div class="mt-2">
                     <a class="text-dark" href="{{ route('task', ['id' => $data['task_id']]) }}">
-                        {{ $data['comment'] }}
+                        @markdown({{ $data['comment'] }})
                     </a>
                 </div>
             @elseif ($type === "App\Notifications\QuestionPraised")
                 <span class="align-middle">praised your question</span>
-                <div class="font-weight-bold mt-2">
+                <div class="mt-2">
                     <a class="text-dark" href="{{ route('question.question', ['id' => $data['question_id']]) }}">
-                        {{ $data['question'] }}
+                        @markdown({{ $data['question'] }})
                     </a>
                 </div>
             @elseif ($type === "App\Notifications\AnswerPraised")
                 <span class="align-middle">praised your answer</span>
-                <div class="font-weight-bold mt-2">
+                <div class="mt-2">
                     <a class="text-dark" href="{{ route('question.question', ['id' => $data['question_id']]) }}">
-                        {{ $data['answer'] }}
+                        @markdown({{ $data['answer'] }})
                     </a>
                 </div>
             @elseif ($type === "App\Notifications\Commented")
                 <span class="align-middle">commented on your task</span>
-                <div class="font-weight-bold mt-2">
+                <div class="mt-2">
                     <a class="text-dark" href="{{ route('task', ['id' => $data['task_id']]) }}">
                         @markdown($data['comment'])
                     </a>
                 </div>
             @elseif ($type === "App\Notifications\Answered")
                 <span class="align-middle">answered to your question</span>
-                <div class="font-weight-bold mt-2">
+                <div class="mt-2">
                     <a class="text-dark" href="{{ route('question.question', ['id' => $data['question_id']]) }}">
                         @markdown($data['answer'])
                     </a>
