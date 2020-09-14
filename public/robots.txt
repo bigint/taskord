@@ -9,3 +9,6 @@ Disallow: /darkmode
 Disallow: /password
 Disallow: /settings
 Disallow: /livewire
+Disallow: /paddle
+Disallow: /notifications
+Disallow: /webhook
