@@ -90,9 +90,8 @@ Route::get('darkmode', 'UserController@darkMode')->name('darkmode')->middleware(
 
 Route::get('task/{id}', 'TaskController@task')->name('task');
 
+// Zen mode tasks
 Route::get('tasks', 'TaskController@tasks')->name('tasks')->middleware('auth');
-
-Route::get('streaks/{username}', 'StatsController@streaks')->name('streak');
 
 Route::group(['prefix' => 'search', 'as' => 'search.'], function () {
     Route::get('', 'SearchController@search')->name('home');
