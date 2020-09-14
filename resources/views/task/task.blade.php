@@ -96,6 +96,24 @@
                         </div>
                     </div>
                     @endif
+                    @if ($task->likerscount() > 0)
+                    <div class="card mb-4">
+                        <div class="card-header">
+                            Liked by
+                        </div>
+                        <div class="card-body align-items-center pb-2">
+                            @foreach ($task->likers as $user)
+                                <a
+                                    title="{{ $user->firstname ? $user->firstname . ' ' . $user->lastname : $user->username }}"
+                                    href="{{ route('user.done', ['username' => $user->username]) }}"
+                                    class="mr-1"
+                                >
+                                    <img class="rounded-circle avatar-30 mb-2" src="{{ $user->avatar }}" />
+                                </a>
+                            @endforeach
+                        </div>
+                    </div>
+                    @endif
                     @include('components.footer')
                 </div>
             </div>
