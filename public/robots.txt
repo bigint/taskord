@@ -12,3 +12,4 @@ Disallow: /livewire
 Disallow: /paddle
 Disallow: /notifications
 Disallow: /webhook
+Disallow: /suspended
