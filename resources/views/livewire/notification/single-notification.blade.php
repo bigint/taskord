@@ -63,21 +63,21 @@
                 <span class="align-middle">praised your task comment</span>
                 <div class="mt-2">
                     <a class="text-dark" href="{{ route('task', ['id' => $data['task_id']]) }}">
-                        @markdown({{ $data['comment'] }})
+                        @markdown($data['comment'])
                     </a>
                 </div>
             @elseif ($type === "App\Notifications\QuestionPraised")
                 <span class="align-middle">praised your question</span>
                 <div class="mt-2">
                     <a class="text-dark" href="{{ route('question.question', ['id' => $data['question_id']]) }}">
-                        @markdown({{ $data['question'] }})
+                        @markdown($data['question'])
                     </a>
                 </div>
             @elseif ($type === "App\Notifications\AnswerPraised")
                 <span class="align-middle">praised your answer</span>
                 <div class="mt-2">
                     <a class="text-dark" href="{{ route('question.question', ['id' => $data['question_id']]) }}">
-                        @markdown({{ $data['answer'] }})
+                        @markdown($data['answer'])
                     </a>
                 </div>
             @elseif ($type === "App\Notifications\Commented")
