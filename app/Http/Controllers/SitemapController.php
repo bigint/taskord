@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\User;
 use App\Models\Product;
 use App\Models\Question;
+use App\Models\User;
 
 class SitemapController extends Controller
 {
@@ -16,7 +16,7 @@ class SitemapController extends Controller
             'users' => $users,
         ]);
     }
-    
+
     public function products()
     {
         $products = Product::all();
@@ -25,7 +25,7 @@ class SitemapController extends Controller
             'products' => $products,
         ]);
     }
-    
+
     public function questions()
     {
         $questions = Question::all();
