@@ -1,2 +1,9 @@
+User-agent: baidu
+crawl-delay: 1
+
 User-agent: *
-Disallow:
+Disallow: admin/*
+Disallow: password/confirm
+Disallow: /search/*
+Disallow: /tasks
+Disallow: /darkmode
