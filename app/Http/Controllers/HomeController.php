@@ -36,14 +36,15 @@ class HomeController extends Controller
             ->orderBy('created_at', 'DESC')
             ->take(5)
             ->get();
-        $recently_users = User::where([
-            ['created_at', '>=', Carbon::now()->subdays(7)],
-            ['isFlagged', false],
-        ])
+        $recent_users = User::select('username', 'firstname', 'lastname', 'avatar', 'bio', 'created_at')
+            ->where([
+                ['created_at', '>=', Carbon::now()->subdays(7)],
+                ['isFlagged', false],
+            ])
             ->orderBy('created_at', 'DESC');
-        $recently_joined = $recently_users->take(5)
+        $recently_joined = $recent_users->take(5)
             ->get();
-        $recently_joined_count = $recently_users->count('id');
+        $recently_joined_count = $recent_users->count('id');
         $products = Product::select('slug', 'name', 'avatar', 'launched', 'launched_at', 'user_id')
             ->where('launched', true)
             ->orderBy('created_at', 'DESC')
