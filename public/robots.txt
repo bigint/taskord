@@ -2,9 +2,9 @@ User-agent: baidu
 crawl-delay: 1
 
 User-agent: *
-Disallow: /admin/*
+Disallow: /admin/
 Disallow: /password/confirm
-Disallow: /search/*
+Disallow: /search/
 Disallow: /tasks
 Disallow: /darkmode
 Disallow: /settings
