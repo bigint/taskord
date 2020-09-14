@@ -169,10 +169,12 @@
                                         </span>
                                         <div>
                                             @if ($user->bio)
-                                            {{ $user->bio }}
-                                            @else
                                             <span class="small">
-                                                <i class="fa fa-calendar-alt mr-1 text-black-50"></i>
+                                                {{ $user->bio }}
+                                            </span>
+                                            @else
+                                            <span class="small text-black-50">
+                                                <i class="far fa-clock mr-1"></i>
                                                 Joined {{ Carbon::parse($user->created_at)->diffForHumans() }}
                                             </span>
                                             @endif
