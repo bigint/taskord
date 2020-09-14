@@ -42,6 +42,11 @@
                                     @if ($question->created_at->isToday())
                                     <span class="badge bg-success ml-2 align-middle">New</span>
                                     @endif
+                                    <span class="avatar-stack ml-1">
+                                        @foreach ($question->answer->groupBy('user_id')->take(5) as $answer)
+                                        <img class="replies-avatar rounded-circle {{ $loop->last ? 'mr-0' : '' }}" src="{{ $answer[0]->user->avatar }}" />
+                                        @endforeach
+                                    </span>
                                 </div>
                             @endforeach
                         </div>

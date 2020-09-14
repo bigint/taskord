@@ -220,6 +220,14 @@ input[type="color"]:focus,
         vertical-align: sub;
         transition: all 0.2s ease;
     }
+    .replies-avatar {
+        height: 17px;
+        width: 17px;
+        margin-right: -10px;
+        border: 1px solid white;
+        vertical-align: sub;
+        transition: all 0.2s ease;
+    }
     span {
         margin-left: 15px !important;
     }
