@@ -42,6 +42,9 @@
                                 </td>
                                 <td class="font-weight-bold">
                                     {{ $user->firstname.' '.$user->lastname }}
+                                    @if (!$user->firstname and !$user->lastname)
+                                    <span class="small font-weight-bold text-black-50">Not Set</span>
+                                    @endif
                                 </td>
                                 <td>
                                     <a href="{{ route('user.done', ['username' => $user->username]) }}" target="_blank">
