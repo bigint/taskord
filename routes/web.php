@@ -105,14 +105,15 @@ Route::group(['prefix' => 'search', 'as' => 'search.'], function () {
 });
 
 // Pages
-Route::get('about', 'PagesController@about')->name('about');
-Route::get('reputation', 'PagesController@reputation')->name('reputation');
-Route::get('terms', 'PagesController@terms')->name('terms');
-Route::get('privacy', 'PagesController@privacy')->name('privacy');
-Route::get('security', 'PagesController@security')->name('security');
+Route::view('about', 'pages.about')->name('about');
+Route::view('reputation', 'pages.reputation')->name('reputation');
+Route::view('terms', 'pages.terms')->name('terms');
+Route::view('privacy', 'pages.privacy')->name('privacy');
+Route::view('security', 'pages.security')->name('security');
 Route::get('open', 'PagesController@open')->name('open');
 Route::get('deals', 'PagesController@deals')->name('deals');
 
+// Paddle Integration
 Route::post('paddle/webhook', 'PatronController@handleWebhook')->name('paddle.webhook');
 
 // https://web.dev/change-password-url
