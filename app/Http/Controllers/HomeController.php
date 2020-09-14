@@ -34,7 +34,7 @@ class HomeController extends Controller
             ->get();
         $recent_questions = Question::select('id', 'title', 'body', 'patronOnly', 'created_at', 'user_id')
             ->orderBy('created_at', 'DESC')
-            ->take(4)
+            ->take(5)
             ->get();
         $recently_users = User::where([
             ['created_at', '>=', Carbon::now()->subdays(7)],
