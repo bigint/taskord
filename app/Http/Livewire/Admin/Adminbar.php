@@ -9,6 +9,7 @@ use App\Models\Question;
 use App\Models\Task;
 use App\Models\User;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Queue;
 use Livewire\Component;
 
@@ -46,6 +47,7 @@ class Adminbar extends Component
         $questions = Question::count('id');
         $answers = Answer::count('id');
         $comments = Comment::count('id');
+        $notifications = DB::table('notifications')->count();
         $jobs = Queue::size();
 
         return view('livewire.admin.adminbar', [
@@ -58,6 +60,7 @@ class Adminbar extends Component
             'questions' => number_format($questions),
             'answers' => number_format($answers),
             'comments' => number_format($comments),
+            'notifications' => number_format($notifications),
             'jobs' => number_format($jobs),
         ]);
     }
