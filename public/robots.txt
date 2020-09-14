@@ -7,3 +7,4 @@ Disallow: /password/confirm
 Disallow: /search/*
 Disallow: /tasks
 Disallow: /darkmode
+Disallow: /settings/
