@@ -7,7 +7,7 @@ use App\Models\User;
 
 class SitemapController extends Controller
 {
-    public function get()
+    public function users()
     {
         $users = User::all();
         

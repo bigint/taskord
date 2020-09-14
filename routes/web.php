@@ -120,4 +120,4 @@ Route::get('.well-known/change-password', function () {
     return redirect()->route('user.settings.password');
 });
 
-Route::get('sitemap_users.txt', 'SitemapController@get')->name('sitemap');
+Route::get('sitemap_users.txt', 'SitemapController@users')->name('sitemap');
