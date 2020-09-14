@@ -13,9 +13,11 @@
             <div class="row">
                 <div class="col-md-8">
                     <div class="card">
+                        <span class="p-3">
                         @livewire('task.single-task', [
                             'task' => $task
                         ], key($task->id))
+                        </span>
                     </div>
                     @livewire('task.comments', [
                         'task' => $task,
