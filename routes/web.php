@@ -122,3 +122,4 @@ Route::get('.well-known/change-password', function () {
 
 Route::get('sitemap_users.txt', 'SitemapController@users');
 Route::get('sitemap_products.txt', 'SitemapController@products');
+Route::get('sitemap_questions.txt', 'SitemapController@questions');

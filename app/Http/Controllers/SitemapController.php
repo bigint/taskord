@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use App\Models\Product;
+use App\Models\Question;
 
 class SitemapController extends Controller
 {
@@ -22,6 +23,15 @@ class SitemapController extends Controller
 
         return view('seo.sitemap_products', [
             'products' => $products,
+        ]);
+    }
+    
+    public function questions()
+    {
+        $questions = Question::all();
+
+        return view('seo.sitemap_questions', [
+            'questions' => $questions,
         ]);
     }
 }
