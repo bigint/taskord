@@ -8,3 +8,4 @@ Disallow: /tasks
 Disallow: /darkmode
 Disallow: /password
 Disallow: /settings
+Disallow: /livewire
