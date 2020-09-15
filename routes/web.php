@@ -8,6 +8,8 @@ use App\Http\Controllers\WebhookController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\QuestionController;
 use App\Http\Controllers\SearchController;
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\PatronController;
 
 /*
 |--------------------------------------------------------------------------
@@ -109,17 +111,17 @@ Route::group(['prefix' => 'search', 'as' => 'search.'], function () {
 
 // Admin
 Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['staff']], function () {
-    Route::get('users', 'AdminController@users')->name('users');
-    Route::get('adminbar', 'AdminController@toggle')->name('adminbar');
+    Route::get('users', [AdminController::class, 'users'])->name('users');
+    Route::get('adminbar', [AdminController::class, 'toggle'])->name('adminbar');
 });
 
 // Patron
 Route::group(['prefix' => 'patron', 'as' => 'patron.'], function () {
-    Route::get('', 'PatronController@patron')->name('home');
+    Route::get('', [PatronController::class, 'patron'])->name('home');
 });
 
 // Paddle Integration
-Route::post('paddle/webhook', 'PatronController@handleWebhook')->name('paddle.webhook');
+Route::post('paddle/webhook', [PatronController::class, 'handleWebhook'])->name('paddle.webhook');
 
 // Dark mode
 Route::get('darkmode', [UserController::class, 'darkMode'])->name('darkmode')->middleware('patron');
