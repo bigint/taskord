@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\SocialController;
+use App\Http\Controllers\HomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,7 +25,7 @@ Route::get('login/{provider}', [SocialController::class, 'redirect']);
 Route::get('login/{provider}/callback', [SocialController::class, 'Callback']);
 
 // Home
-Route::get('/', 'HomeController@index')->name('home');
+Route::get('/', [HomeController::class, 'index'])->name('home');
 
 // User
 Route::group(['prefix' => '@{username}', 'as' => 'user.'], function () {
