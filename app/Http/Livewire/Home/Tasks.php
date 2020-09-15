@@ -20,7 +20,7 @@ class Tasks extends Component
     {
         $this->page = $page ? $page : 1;
     }
-    
+
     public function onlyFollowingsTasks()
     {
         if (Auth::check()) {
