@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Jobs\AuthGetIP;
 use App\Models\User;
 use App\Notifications\TelegramLogger;
+use App\Notifications\Welcome;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Socialite;
@@ -55,6 +56,7 @@ class SocialController extends Controller
                     "*🎉 New user signed up to Taskord*\n\nhttps://taskord.com/@".$user->username
                 )
             );
+            $user->notify(new Welcome(true));
 
             return redirect()->route('home');
         }

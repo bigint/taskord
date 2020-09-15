@@ -33,7 +33,12 @@
                     $type === "App\Notifications\Product\MemberLeft"
                 )
                     {{ Emoji::door() }}
+                @elseif (
+                    $type === "App\Notifications\Welcome"
+                )
+                    {{ Emoji::partyPopper() }}
                 @endif
+                @if ($type !== "App\Notifications\Welcome")
                 <a href="{{ route('user.done', ['username' => $user->username]) }}">
                     <img class="rounded-circle avatar-20 ml-2 mr-1" src="{{ $user->avatar }}" />
                     <span class="align-middle">
@@ -44,6 +49,7 @@
                         @endif
                     </span>
                 </a>
+                @endif
             </span>
             @if ($type === "App\Notifications\TaskPraised")
                 <span class="align-middle">praised your task</span>
@@ -132,6 +138,10 @@
                         <img class="rounded avatar-20 ml-1 mr-1" src="{{ \App\Models\Product::find($data['product_id'])->avatar }}" />
                         {{ \App\Models\Product::find($data['product_id'])->name }}
                     </a>
+                </span>
+            @elseif ($type === "App\Notifications\Welcome")
+                <span class="ml-1 font-weight-bold">
+                    Welcome to Taskord
                 </span>
             @endif
             <div class="small mt-2 text-secondary">
