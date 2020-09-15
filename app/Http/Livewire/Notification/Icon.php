@@ -2,8 +2,8 @@
 
 namespace App\Http\Livewire\Notification;
 
-use Livewire\Component;
 use Illuminate\Support\Facades\Auth;
+use Livewire\Component;
 
 class Icon extends Component
 {
@@ -13,6 +13,7 @@ class Icon extends Component
             Auth::user()->lastIP = request()->ip();
             Auth::user()->save();
         }
+
         return view('livewire.notification.icon');
     }
 }
