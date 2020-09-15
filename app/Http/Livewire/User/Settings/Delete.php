@@ -47,6 +47,7 @@ class Delete extends Component
                 Storage::delete($avatar[1]);
             }
             $user->likes()->delete();
+            $user->notifications()->delete();
             $user->delete();
 
             return redirect()->route('home');

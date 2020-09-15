@@ -279,6 +279,7 @@ class Moderator extends Component
             if (array_key_exists(1, $avatar)) {
                 Storage::delete($avatar[1]);
             }
+            $user->notifications()->delete();
             $user->delete();
 
             return redirect()->route('home');
