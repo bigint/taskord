@@ -10,6 +10,8 @@ use App\Http\Controllers\QuestionController;
 use App\Http\Controllers\SearchController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\PatronController;
+use App\Http\Controllers\TaskController;
+use App\Http\Controllers\SitemapController;
 
 /*
 |--------------------------------------------------------------------------
@@ -127,10 +129,10 @@ Route::post('paddle/webhook', [PatronController::class, 'handleWebhook'])->name(
 Route::get('darkmode', [UserController::class, 'darkMode'])->name('darkmode')->middleware('patron');
 
 // Single Task
-Route::get('task/{id}', 'TaskController@task')->name('task');
+Route::get('task/{id}', [TaskController::class, 'task'])->name('task');
 
 // Zen mode tasks
-Route::get('tasks', 'TaskController@tasks')->name('tasks')->middleware('auth');
+Route::get('tasks', [TaskController::class, 'tasks'])->name('tasks')->middleware('auth');
 
 // Pages
 Route::view('about', 'pages.about')->name('about');
@@ -147,6 +149,6 @@ Route::get('.well-known/change-password', function () {
 });
 
 // Sitemaps
-Route::get('sitemap_users.txt', 'SitemapController@users');
-Route::get('sitemap_products.txt', 'SitemapController@products');
-Route::get('sitemap_questions.txt', 'SitemapController@questions');
+Route::get('sitemap_users.txt', [SitemapController::class, 'users']);
+Route::get('sitemap_products.txt', [SitemapController::class, 'products']);
+Route::get('sitemap_questions.txt', [SitemapController::class, 'questions']);
