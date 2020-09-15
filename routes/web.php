@@ -7,6 +7,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\WebhookController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\QuestionController;
+use App\Http\Controllers\SearchController;
 
 /*
 |--------------------------------------------------------------------------
@@ -97,13 +98,13 @@ Route::group(['prefix' => 'questions', 'as' => 'questions.'], function () {
 
 // Search
 Route::group(['prefix' => 'search', 'as' => 'search.'], function () {
-    Route::get('', 'SearchController@search')->name('home');
-    Route::get('tasks', 'SearchController@tasks')->name('tasks');
-    Route::get('comments', 'SearchController@comments')->name('comments');
-    Route::get('questions', 'SearchController@questions')->name('questions');
-    Route::get('answers', 'SearchController@answers')->name('answers');
-    Route::get('products', 'SearchController@products')->name('products');
-    Route::get('users', 'SearchController@users')->name('users');
+    Route::get('', [SearchController::class, 'search'])->name('home');
+    Route::get('tasks', [SearchController::class, 'tasks'])->name('tasks');
+    Route::get('comments', [SearchController::class, 'comments'])->name('comments');
+    Route::get('questions', [SearchController::class, 'questions'])->name('questions');
+    Route::get('answers', [SearchController::class, 'answers'])->name('answers');
+    Route::get('products', [SearchController::class, 'products'])->name('products');
+    Route::get('users', [SearchController::class, 'users'])->name('users');
 });
 
 // Admin
