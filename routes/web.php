@@ -5,6 +5,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\SocialController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\WebhookController;
+use App\Http\Controllers\ProductController;
 
 /*
 |--------------------------------------------------------------------------
@@ -70,15 +71,15 @@ Route::group(['prefix' => 'webhook'], function () {
 
 // Product
 Route::group(['prefix' => 'product/{slug}', 'as' => 'product.'], function () {
-    Route::get('', 'ProductController@profile')->name('done');
-    Route::get('pending', 'ProductController@profile')->name('pending');
-    Route::get('updates', 'ProductController@profile')->name('updates');
+    Route::get('', [ProductController::class, 'profile'])->name('done');
+    Route::get('pending', [ProductController::class, 'profile'])->name('pending');
+    Route::get('updates', [ProductController::class, 'profile'])->name('updates');
 });
 
 // Products
 Route::group(['prefix' => 'products', 'as' => 'products.'], function () {
-    Route::get('', 'ProductController@newest')->name('newest');
-    Route::get('launched', 'ProductController@launched')->name('launched');
+    Route::get('', [ProductController::class, 'newest'])->name('newest');
+    Route::get('launched', [ProductController::class, 'launched'])->name('launched');
 });
 
 // Question
