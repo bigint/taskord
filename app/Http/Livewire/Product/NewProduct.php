@@ -20,6 +20,7 @@ class NewProduct extends Component
     public $twitter;
     public $github;
     public $producthunt;
+    public $sponsor;
     public $launched;
 
     public function updatedAvatar()
@@ -44,6 +45,7 @@ class NewProduct extends Component
                 'twitter' => 'nullable|alpha_dash|max:30',
                 'github' => 'nullable|alpha_dash|max:30',
                 'producthunt' => 'nullable|alpha_dash|max:30',
+                'sponsor' => 'nullable|active_url',
             ]);
 
             if (! Auth::user()->hasVerifiedEmail()) {
@@ -81,6 +83,7 @@ class NewProduct extends Component
                 'twitter' => $this->twitter,
                 'github' => $this->github,
                 'producthunt' => $this->producthunt,
+                'sponsor' => $this->sponsor,
                 'launched' => $launched_status,
                 'launched_at' => $launched_at,
             ]);

@@ -105,6 +105,17 @@
                             </span>
                         @enderror
                     </div>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text">
+                            <i class="fa fa-hands-helping text-info"></i>
+                        </span>
+                        <input type="text" class="form-control @error('sponsor') is-invalid @enderror" placeholder="Sponsor URL" wire:model.defer="sponsor">
+                        @error('sponsor')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+                    </div>
                     <div class="mb-3">
                         <div class="font-weight-bold mb-2">Status</div>
                         <input id="launched" class="form-check-input" type="checkbox" wire:model.defer="launched">

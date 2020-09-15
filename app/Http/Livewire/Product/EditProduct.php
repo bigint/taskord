@@ -21,6 +21,7 @@ class EditProduct extends Component
     public $twitter;
     public $github;
     public $producthunt;
+    public $sponsor;
     public $launched;
     public $deprecated;
     public $confirming;
@@ -35,6 +36,7 @@ class EditProduct extends Component
         $this->twitter = $product->twitter;
         $this->github = $product->github;
         $this->producthunt = $product->producthunt;
+        $this->sponsor = $product->sponsor;
         $this->launched = $product->launched;
         $this->deprecated = $product->deprecated;
     }
@@ -61,6 +63,7 @@ class EditProduct extends Component
                 'twitter' => 'nullable|alpha_dash|max:30',
                 'github' => 'nullable|alpha_dash|max:30',
                 'producthunt' => 'nullable|alpha_dash|max:30',
+                'sponsor' => 'nullable|active_url',
                 'avatar' => 'nullable|mimes:jpeg,jpg,png,gif|max:2048',
             ]);
 
@@ -87,6 +90,7 @@ class EditProduct extends Component
                 $product->twitter = $this->twitter;
                 $product->github = $this->github;
                 $product->producthunt = $this->producthunt;
+                $product->sponsor = $this->sponsor;
                 $product->launched = $this->launched;
                 $product->deprecated = $this->deprecated;
                 $product->save();

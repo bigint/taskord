@@ -28,6 +28,19 @@
         'product' => $product
     ])
     @endauth
+    @if ($product->sponsor)
+    <div class="card mb-4">
+        <div class="card-header">
+            Sponsor
+        </div>
+        <div class="card-body">
+            <a class="btn btn-block btn-outline-primary" href="{{ $product->sponsor }}" target="_blank">
+                <img class="rounded sponsor-icon mr-1" rel="preload" src="https://external-content.duckduckgo.com/ip3/{{ parse_url($product->sponsor)['host'] }}.ico" />
+                <span class="font-weight-bold">Sponsor {{ $product->name }}</span>
+            </a>
+        </div>
+    </div>
+    @endif
     <div class="card mb-4">
         <div class="card-header">
             Activity by month
