@@ -9,8 +9,8 @@
             <label for="onlyFollowingsTasks" class="ml-1">
                 Only following
             </label>
-            @include('components.beta', ['background' => 'light'])
             <span wire:loading wire:target="onlyFollowingsTasks" class="small ml-2 spinner-border spinner-border-sm text-primary"></span>
+            @include('components.beta', ['background' => 'light'])
         </span>
         @endauth
     </div>
