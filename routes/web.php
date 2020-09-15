@@ -57,10 +57,10 @@ Route::group(['prefix' => 'notifications', 'as' => 'notifications.', 'middleware
 });
 
 // Suspended
-Route::get('suspended', 'UserController@suspended')->name('suspended');
+Route::get('suspended', [UserController::class, 'suspended'])->name('suspended');
 
 // Avatar
-Route::get('avatar/{username}.png', 'UserController@avatar')->name('avatar');
+Route::get('avatar/{username}.png', [UserController::class, 'avatar'])->name('avatar');
 
 // Webhooks
 Route::group(['prefix' => 'webhook'], function () {
@@ -118,7 +118,7 @@ Route::group(['prefix' => 'patron', 'as' => 'patron.'], function () {
 Route::post('paddle/webhook', 'PatronController@handleWebhook')->name('paddle.webhook');
 
 // Dark mode
-Route::get('darkmode', 'UserController@darkMode')->name('darkmode')->middleware('patron');
+Route::get('darkmode', [UserController::class, 'darkMode'])->name('darkmode')->middleware('patron');
 
 // Single Task
 Route::get('task/{id}', 'TaskController@task')->name('task');
