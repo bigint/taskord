@@ -72,7 +72,7 @@ class NewProduct extends Component
             } else {
                 $url = 'https://avatar.tobi.sh/'.md5($this->slug).'.svg?text=📦';
             }
-
+            
             $product = Product::create([
                 'user_id' =>  Auth::id(),
                 'name' => $this->name,

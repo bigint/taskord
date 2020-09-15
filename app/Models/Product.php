@@ -19,6 +19,7 @@ class Product extends Model
         'twitter',
         'github',
         'producthunt',
+        'sponsor',
         'launched',
         'launched_at',
     ];
