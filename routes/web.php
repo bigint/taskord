@@ -6,6 +6,7 @@ use App\Http\Controllers\SocialController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\WebhookController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\QuestionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -84,14 +85,14 @@ Route::group(['prefix' => 'products', 'as' => 'products.'], function () {
 
 // Question
 Route::group(['prefix' => 'question', 'as' => 'question.'], function () {
-    Route::get('{id}', 'QuestionController@question')->name('question');
+    Route::get('{id}', [QuestionController::class, 'question'])->name('question');
 });
 
 // Questions
 Route::group(['prefix' => 'questions', 'as' => 'questions.'], function () {
-    Route::get('', 'QuestionController@newest')->name('newest');
-    Route::get('unanswered', 'QuestionController@unanswered')->name('unanswered');
-    Route::get('popular', 'QuestionController@popular')->name('popular');
+    Route::get('', [QuestionController::class, 'newest'])->name('newest');
+    Route::get('unanswered', [QuestionController::class, 'unanswered'])->name('unanswered');
+    Route::get('popular', [QuestionController::class, 'popular'])->name('popular');
 });
 
 // Search
