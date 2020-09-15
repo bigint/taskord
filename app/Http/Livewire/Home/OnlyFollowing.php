@@ -2,8 +2,8 @@
 
 namespace App\Http\Livewire\Home;
 
-use Livewire\Component;
 use Illuminate\Support\Facades\Auth;
+use Livewire\Component;
 
 class OnlyFollowing extends Component
 {
@@ -17,7 +17,7 @@ class OnlyFollowing extends Component
             return session()->flash('error', 'Forbidden!');
         }
     }
-    
+
     public function render()
     {
         return view('livewire.home.only-following');
