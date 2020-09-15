@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,13 +27,13 @@ Route::get('/', 'HomeController@index')->name('home');
 
 // User
 Route::group(['prefix' => '@{username}', 'as' => 'user.'], function () {
-    Route::get('', 'UserController@profile')->name('done');
-    Route::get('pending', 'UserController@profile')->name('pending');
-    Route::get('products', 'UserController@profile')->name('products');
-    Route::get('questions', 'UserController@profile')->name('questions');
-    Route::get('answers', 'UserController@profile')->name('answers');
-    Route::get('following', 'UserController@profile')->name('following');
-    Route::get('followers', 'UserController@profile')->name('followers');
+    Route::get('', [UserController::class, 'profile'])->name('done');
+    Route::get('pending', [UserController::class, 'profile'])->name('pending');
+    Route::get('products', [UserController::class, 'profile'])->name('products');
+    Route::get('questions', [UserController::class, 'profile'])->name('questions');
+    Route::get('answers', [UserController::class, 'profile'])->name('answers');
+    Route::get('following', [UserController::class, 'profile'])->name('following');
+    Route::get('followers', [UserController::class, 'profile'])->name('followers');
 });
 
 // Settings
