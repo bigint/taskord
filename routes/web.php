@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\SocialController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,8 +20,8 @@ Auth::routes();
 Auth::routes(['verify' => true]);
 
 // Social Auth
-Route::get('login/{provider}', 'SocialController@redirect');
-Route::get('login/{provider}/callback', 'SocialController@Callback');
+Route::get('login/{provider}', [SocialController::class, 'redirect']);
+Route::get('login/{provider}/callback', [SocialController::class, 'Callback']);
 
 // Home
 Route::get('/', 'HomeController@index')->name('home');
