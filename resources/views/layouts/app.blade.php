@@ -223,4 +223,11 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js" defer></script>
 <script src="{{ asset('js/app.js') }}" defer></script>
 <script src="https://kit.fontawesome.com/4f46a7856f.js" crossorigin="anonymous"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-178044316-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-178044316-1');
+</script>
 </html>
