@@ -97,6 +97,14 @@
                         ])
                         @endif
                     @endauth
+                    <div class="mb-3">
+                        <span class="h5">
+                            Tasks
+                        </span>
+                        @auth
+                        @livewire('home.only-following')
+                        @endauth
+                    </div>
                     @livewire('home.tasks', [
                         'page' => 1,
                     ])

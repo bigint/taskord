@@ -12,6 +12,7 @@ class Tasks extends Component
         'taskAdded' => 'render',
         'taskDeleted' => 'render',
         'taskChecked' => 'render',
+        'onlyFollowings' => 'render',
     ];
 
     public $page;
@@ -19,16 +20,6 @@ class Tasks extends Component
     public function mount($page)
     {
         $this->page = $page ? $page : 1;
-    }
-
-    public function onlyFollowingsTasks()
-    {
-        if (Auth::check()) {
-            Auth::user()->onlyFollowingsTasks = ! Auth::user()->onlyFollowingsTasks;
-            Auth::user()->save();
-        } else {
-            return session()->flash('error', 'Forbidden!');
-        }
     }
 
     public function render()
