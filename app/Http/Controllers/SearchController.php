@@ -137,7 +137,7 @@ class SearchController extends Controller
     {
         $searchTerm = $request->input('q');
         if ($searchTerm) {
-            $products = Product::whereHas('user', function ($q) {
+            $products = Product::whereHas('owner', function ($q) {
                 $q->where([
                     ['isFlagged', false],
                 ]);
