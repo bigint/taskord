@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\SocialController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\WebhookController;
 
 /*
 |--------------------------------------------------------------------------
@@ -64,7 +65,7 @@ Route::get('avatar/{username}.png', [UserController::class, 'avatar'])->name('av
 
 // Webhooks
 Route::group(['prefix' => 'webhook'], function () {
-    Route::post('web/{token}', 'WebhookController@web');
+    Route::post('web/{token}', [WebhookController::class, 'web']);
 });
 
 // Product
