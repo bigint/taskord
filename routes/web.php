@@ -40,14 +40,14 @@ Route::group(['prefix' => '@{username}', 'as' => 'user.'], function () {
 
 // Settings
 Route::group(['prefix' => 'settings', 'as' => 'user.settings.', 'middleware' => ['auth']], function () {
-    Route::get('', 'UserController@profileSettings')->name('profile');
-    Route::get('account', 'UserController@accountSettings')->name('account');
-    Route::get('patron', 'UserController@patronSettings')->name('patron');
-    Route::get('password', 'UserController@passwordSettings')->name('password');
-    Route::get('notifications', 'UserController@notificationsSettings')->name('notifications');
-    Route::get('integrations', 'UserController@integrationsSettings')->name('integrations');
-    Route::get('export', 'UserController@exportAccount')->name('export');
-    Route::get('delete', 'UserController@deleteSettings')->name('delete');
+    Route::get('', [UserController::class, 'profileSettings'])->name('profile');
+    Route::get('account', [UserController::class, 'accountSettings'])->name('account');
+    Route::get('patron', [UserController::class, 'patronSettings'])->name('patron');
+    Route::get('password', [UserController::class, 'passwordSettings'])->name('password');
+    Route::get('notifications', [UserController::class, 'notificationsSettings'])->name('notifications');
+    Route::get('integrations', [UserController::class, 'integrationsSettings'])->name('integrations');
+    Route::get('export', [UserController::class, 'exportAccount'])->name('export');
+    Route::get('delete', [UserController::class, 'deleteSettings'])->name('delete');
 });
 
 // Notifications
