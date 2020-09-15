@@ -97,9 +97,6 @@
                         ])
                         @endif
                     @endauth
-                    <div class="h5">
-                        Tasks
-                    </div>
                     @livewire('home.tasks', [
                         'page' => 1,
                     ])

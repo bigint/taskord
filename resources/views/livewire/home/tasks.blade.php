@@ -1,4 +1,7 @@
 <div>
+    <div class="h5">
+        Tasks
+    </div>
     @if (count($tasks) === 0)
     @include('components.empty', [
         'icon' => 'check-square',
