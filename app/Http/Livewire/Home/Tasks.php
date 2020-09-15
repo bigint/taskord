@@ -20,6 +20,16 @@ class Tasks extends Component
     {
         $this->page = $page ? $page : 1;
     }
+    
+    public function onlyFollowingsTasks()
+    {
+        if (Auth::check()) {
+            Auth::user()->onlyFollowingsTasks = ! Auth::user()->onlyFollowingsTasks;
+            Auth::user()->save();
+        } else {
+            return session()->flash('error', 'Forbidden!');
+        }
+    }
 
     public function render()
     {
