@@ -9,7 +9,7 @@
             </div>
             <form wire:target="submit" wire:submit.prevent="submit">
                 <div class="modal-body">
-                    @include('components.alert')
+                    <x-alert />
                     <div class="mb-3">
                         <label class="form-label font-weight-bold">Username</label>
                         <input type="text" class="form-control @if (session()->has('team-error')) is-invalid @endif" placeholder="Enter the username" wire:model.defer="username">

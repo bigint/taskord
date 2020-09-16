@@ -1,6 +1,6 @@
 <div>
     <div class="card-body">
-        @include('components.alert')
+        <x-alert />
         <div class="d-flex align-items-center">
             <a href="{{ route('user.done', ['username' => $answer->user->username]) }}">
                 <img class="avatar-40 rounded-circle" src="{{ $answer->user->avatar }}" />

@@ -1,5 +1,5 @@
 <li class="list-group-item pt-3">
-    @include('components.alert')
+    <x-alert />
     <div class="align-items-center d-flex mb-2">
         <img class="avatar-30 rounded-circle" src="{{ $comment->user->avatar }}" />
         <span class="ml-2">

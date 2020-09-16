@@ -8,7 +8,7 @@
         </a>
     </div>
     <div class="card-body">
-        @include('components.alert')
+        <x-alert />
         <div>@markdown($update->body)</div>
         <div class="mt-2">
             @auth

@@ -1,6 +1,6 @@
 <div class="card">
     <div class="card-body">
-        @include('components.alert')
+        <x-alert />
         @error('comment')
             <div class="alert alert-danger alert-dismissible fade show mt-2">
                 <button type="button" class="close" data-dismiss="alert">×</button>

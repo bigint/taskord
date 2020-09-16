@@ -9,7 +9,7 @@
             </div>
             <form wire:target="submit" wire:submit.prevent="submit">
                 <div class="modal-body">
-                    @include('components.alert')
+                    <x-alert />
                     <div class="mb-3">
                         <label class="form-label font-weight-bold">Title</label>
                         <input type="text" class="form-control @error('title') is-invalid @enderror" placeholder="Ask and discuss!" wire:model.defer="title">

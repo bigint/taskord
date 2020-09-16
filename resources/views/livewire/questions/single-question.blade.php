@@ -1,6 +1,6 @@
 <div class="card mb-2 {{ $question->patronOnly ? 'bg-patron' : '' }}">
     <div class="card-body">
-        @include('components.alert')
+        <x-alert />
         <div class="d-flex align-items-center">
             <a href="{{ route('user.done', ['username' => $question->user->username]) }}">
                 <img class="avatar-40 rounded-circle" src="{{ $question->user->avatar }}" />
