@@ -75,7 +75,7 @@
                         <li class="nav-item">
                             <a class="nav-link text-white font-weight-bold" href="{{ route('tasks') }}">
                                 Tasks
-                                <x-beta background="dark"/>
+                                <x-beta background="dark" />
                             </a>
                         </li>
                         @endauth
@@ -204,7 +204,7 @@
         <div class="alert alert-warning rounded-0" role="alert">
             <div class="font-weight-bold">
                 <i class="fa fa-envelope mr-1"></i>
-                Verify Your Email Address <x-beta background="light"/>
+                Verify Your Email Address <x-beta background="light" />
             </div>
             <form class="mt-1" method="POST" action="{{ route('verification.resend') }}">
                 @csrf

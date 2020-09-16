@@ -9,7 +9,7 @@
         </div>
         <ul class="list-group list-group-flush">
             @if (count($tasks) === 0)
-            <x-empty icon="check-square" text="All done!"/>
+            <x-empty icon="check-square" text="All done!" />
             @endif
             @foreach($tasks as $task)
                 @livewire('tasks.single-task', [

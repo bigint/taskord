@@ -1,6 +1,6 @@
 <div>
     @if ($comments->count('id') === 0)
-    <x-empty icon="comments" text="No comments found!"/>
+    <x-empty icon="comments" text="No comments found!" />
     @endif
     <ul class="list-group mt-4">
     @foreach ($comments as $comment)

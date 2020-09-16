@@ -1,6 +1,6 @@
 <div>
     @if (count($tasks) === 0)
-    <x-empty icon="check-square" text="No tasks made!"/>
+    <x-empty icon="check-square" text="No tasks made!" />
     @endif
     @if ($page === 1)
     <ul class="list-group">

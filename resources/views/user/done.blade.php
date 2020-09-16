@@ -43,7 +43,7 @@ if ($user->lastname and $user->lastname) {
                         'perPage' => 3
                     ])
                     @else
-                    <x-empty icon="lock" text="All tasks are private"/>
+                    <x-empty icon="lock" text="All tasks are private" />
                     @endif
                 </div>
                 @include('user.sidebar')

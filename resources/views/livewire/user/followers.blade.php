@@ -1,6 +1,6 @@
 <div>
     @if (count($user->followers) === 0)
-    <x-empty icon="users" text="{{ $user->username }} doesn’t have any followers yet."/>
+    <x-empty icon="users" text="{{ $user->username }} doesn’t have any followers yet." />
     @endif
     @foreach ($user->followers as $user)
     <div class="card mb-3">

@@ -4,5 +4,5 @@
         Only following
     </label>
     <span wire:loading wire:target="onlyFollowingsTasks" class="small ml-2 spinner-border spinner-border-sm text-primary"></span>
-    <x-beta background="light"/>
+    <x-beta background="light" />
 </span>
