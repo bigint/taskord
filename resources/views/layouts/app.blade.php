@@ -230,12 +230,20 @@
     gtag('js', new Date());
     gtag('config', 'UA-178044316-1');
 </script>
+@auth
 <script type="text/javascript">
-    window.$crisp=[];window.CRISP_WEBSITE_ID="7770164a-8d1b-4b4f-9a7b-6c1f5a76d101";
+    window.$crisp=[];
+    window.$crisp.push(["set", "user:email", ["{{ Auth::user()->email }}"]]);
+    window.$crisp.push(["set", "user:avatar", ["{{ Auth::user()->avatar }}"]])
+    window.$crisp.push(["set", "user:nickname", ["{{ Auth::user()->username }}"]])
+    window.CRISP_WEBSITE_ID="7770164a-8d1b-4b4f-9a7b-6c1f5a76d101";
     (function(){
-        d=document;s=d.createElement("script");
+        d=document;
+        s=d.createElement("script");
         s.src="https://client.crisp.chat/l.js";
-        s.async=1;d.getElementsByTagName("head")[0].appendChild(s);
+        s.async=1;
+        d.getElementsByTagName("head")[0].appendChild(s);
     })();
 </script>
+@endauth
 </html>
