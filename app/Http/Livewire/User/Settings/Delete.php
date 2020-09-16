@@ -52,7 +52,7 @@ class Delete extends Component
                 $user->likes()->delete();
                 $user->notifications()->delete();
                 $user->delete();
-    
+
                 return redirect()->route('home');
             } else {
                 return session()->flash('error', 'Forbidden!');

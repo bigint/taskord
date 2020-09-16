@@ -44,16 +44,16 @@ class Password extends Component
                 [
                     'newPassword.pwned' => 'This password has been pwned before',
                 ]);
-        
+
                 $user = Auth::user();
-        
+
                 if (! Hash::check($this->currentPassword, $user->password)) {
                     return session()->flash('error', 'Current password does not match!');
                 }
-        
+
                 $user->password = Hash::make($this->newPassword);
                 $user->save();
-        
+
                 return session()->flash('success', 'Your password has been changed!');
             } else {
                 return session()->flash('error', 'Forbidden!');
