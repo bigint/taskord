@@ -40,11 +40,10 @@ class Account extends Component
     public function enrollPrivate()
     {
         if (Auth::check()) {
-            if (! $this->user->isPatron) {
-                return session()->flash('error', 'Forbidden!');
-            }
-
-            if (Auth::check() && Auth::id() === $this->user->id) {
+            if (Auth::id() === $this->user->id) {
+                if (! $this->user->isPatron) {
+                    return session()->flash('error', 'Forbidden!');
+                }
                 $this->user->isPrivate = ! $this->user->isPrivate;
                 $this->user->save();
                 if ($this->user->isPrivate) {
@@ -75,22 +74,26 @@ class Account extends Component
     public function updateAccount()
     {
         if (Auth::check()) {
-            $this->validate([
-                'username' => 'required|min:2|max:20|alpha_dash|unique:users,username,'.$this->user->id,
-                'email' => 'required|email:rfc,dns|max:255|unique:users,email,'.$this->user->id,
-            ]);
+            if (Auth::id() === $this->user->id) {
+                $this->validate([
+                    'username' => 'required|min:2|max:20|alpha_dash|unique:users,username,'.$this->user->id,
+                    'email' => 'required|email:rfc,dns|max:255|unique:users,email,'.$this->user->id,
+                ]);
 
-            if ($this->email !== $this->user->email) {
-                $this->user->email_verified_at = null;
-            }
-
-            if (Auth::check() && Auth::id() === $this->user->id) {
-                $this->user->username = $this->username;
-                $this->user->email = $this->email;
-                $this->user->save();
-                $this->user->sendEmailVerificationNotification();
-
-                return session()->flash('success', 'Your account has been updated!');
+                if ($this->email !== $this->user->email) {
+                    $this->user->email_verified_at = null;
+                }
+    
+                if (Auth::check() && Auth::id() === $this->user->id) {
+                    $this->user->username = $this->username;
+                    $this->user->email = $this->email;
+                    $this->user->save();
+                    $this->user->sendEmailVerificationNotification();
+    
+                    return session()->flash('success', 'Your account has been updated!');
+                }
+            } else {
+                return session()->flash('error', 'Forbidden!');
             }
         } else {
             return session()->flash('error', 'Forbidden!');
