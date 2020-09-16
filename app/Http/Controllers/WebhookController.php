@@ -20,6 +20,7 @@ class WebhookController extends Controller
         ];
 
         if (! Str::contains(strtolower($task), $ignoreList)) {
+            $webhook->user->touch();
             $task = Task::create([
                 'user_id' =>  $webhook->user_id,
                 'task' => $task,
