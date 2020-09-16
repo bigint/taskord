@@ -241,13 +241,15 @@ class Moderator extends Component
         if (Auth::check() && Auth::user()->isStaff) {
             $user = User::find($this->user->id);
             $user->timestamps = false;
-            foreach ($user->products as $product) {
+            foreach ($user->ownedProducts as $product) {
+                $product->task()->delete();
+                $product->webhooks()->delete();
                 $avatar = explode('storage/', $product->avatar);
                 if (array_key_exists(1, $avatar)) {
                     Storage::delete($avatar[1]);
                 }
             }
-            $user->products()->delete();
+            $user->ownedProducts()->delete();
             $this->user->notify(new TelegramLogger("*🚨 Mod Event 🚨*\n\n@".Auth::user()->username.' deleted all products made by @'.$this->user->username));
 
             return redirect()->route('user.done', ['username' => $this->user->username]);
@@ -268,7 +270,9 @@ class Moderator extends Component
                 Storage::delete($task->image);
             }
             // Delete Product Logos
-            foreach ($user->products as $product) {
+            foreach ($user->ownedProducts as $product) {
+                $product->task()->delete();
+                $product->webhooks()->delete();
                 $avatar = explode('storage/', $product->avatar);
                 if (array_key_exists(1, $avatar)) {
                     Storage::delete($avatar[1]);
@@ -279,6 +283,7 @@ class Moderator extends Component
             if (array_key_exists(1, $avatar)) {
                 Storage::delete($avatar[1]);
             }
+            $user->likes()->delete();
             $user->notifications()->delete();
             $user->delete();
 
