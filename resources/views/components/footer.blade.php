@@ -17,8 +17,8 @@
     <a class="pr-2" href="{{ route('terms') }}">
         Terms
     </a>
-    <a class="pr-2" href="https://taskord.freshdesk.com/support/tickets/new" target="_blank">
-        Contact
+    <a class="pr-2" href="{{ route('patron.home') }}">
+        Patron
     </a>
     @auth
     @if (Auth::user()->staffShip)
