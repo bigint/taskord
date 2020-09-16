@@ -1,9 +1,6 @@
 <div>
     @if (count($products) === 0)
-    @include('components.empty', [
-        'icon' => 'box-open',
-        'text' => 'No products made',
-    ])
+    <x-empty icon="box-open" text="No products made"/>
     @endif
     @foreach ($products as $product)
     <div class="card mb-2">
