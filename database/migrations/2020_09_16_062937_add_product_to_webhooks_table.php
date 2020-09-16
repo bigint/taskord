@@ -14,7 +14,7 @@ class AddProductToWebhooksTable extends Migration
     public function up()
     {
         Schema::table('webhooks', function (Blueprint $table) {
-            //
+            $table->foreignId('product_id')->onDelete('cascade')->nullable();
         });
     }
 
