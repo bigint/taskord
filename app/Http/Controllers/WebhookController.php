@@ -89,10 +89,12 @@ class WebhookController extends Controller
             }
             $request_body = $request->json()->all();
             
-            if (Str::contains($request_body['pusher']['name'], '[bot]')) {
-                return response()->json([
-                    'message' => 'Bot cannot log tasks!',
-                ], 200);
+            if ($request->header('X-GitHub-Event') === 'push') {
+                if (Str::contains($request_body['pusher']['name'], '[bot]')) {
+                    return response()->json([
+                        'message' => 'Bot cannot log tasks!',
+                    ], 200);
+                }
             }
             
             if (count($request_body['commits']) === 0) {
