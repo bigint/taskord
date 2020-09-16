@@ -230,4 +230,12 @@
     gtag('js', new Date());
     gtag('config', 'UA-178044316-1');
 </script>
+<script type="text/javascript">
+    window.$crisp=[];window.CRISP_WEBSITE_ID="7770164a-8d1b-4b4f-9a7b-6c1f5a76d101";
+    (function(){
+        d=document;s=d.createElement("script");
+        s.src="https://client.crisp.chat/l.js";
+        s.async=1;d.getElementsByTagName("head")[0].appendChild(s);
+    })();
+</script>
 </html>
