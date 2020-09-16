@@ -21,7 +21,7 @@
                 </div>
                 <div class="col-sm">
                     @include('products.sidebar')
-                    @include('components.footer')
+                    <x-footer />
                 </div>
             </div>
         </div>

@@ -112,7 +112,7 @@
         'product' => $product,
     ])
     @endif
-    @include('components.footer')
+    <x-footer />
     <script type="text/javascript">
         const ctx = document.getElementById('myChart').getContext('2d');
         const chart = new Chart(ctx, {

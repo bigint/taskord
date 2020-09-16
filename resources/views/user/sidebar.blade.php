@@ -94,5 +94,5 @@
         </div>
         @endif
     </div>
-    @include('components.footer')
+    <x-footer />
 </div>

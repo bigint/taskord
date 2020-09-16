@@ -21,7 +21,7 @@
                 </div>
                 <div class="col-sm">
                     @include('questions.sidebar')
-                    @include('components.footer')
+                    <x-footer />
                 </div>
             </div>
         </div>

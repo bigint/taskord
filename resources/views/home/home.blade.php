@@ -259,7 +259,7 @@
                             @endforeach
                         </ul>
                     </div>
-                    @include('components.footer')
+                    <x-footer />
                 </div>
             </div>
         </div>
