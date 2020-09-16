@@ -29,30 +29,34 @@ class Delete extends Component
     public function deleteAccount()
     {
         if (Auth::check()) {
-            $user = User::find($this->user->id);
-            // Delete Task Images
-            foreach ($user->tasks as $task) {
-                Storage::delete($task->image);
-            }
-            // Delete Product Logos
-            foreach ($user->ownedProducts as $product) {
-                $product->task()->delete();
-                $product->webhooks()->delete();
-                $avatar = explode('storage/', $product->avatar);
+            if (Auth::id() === $this->user->id) {
+                $user = User::find($this->user->id);
+                // Delete Task Images
+                foreach ($user->tasks as $task) {
+                    Storage::delete($task->image);
+                }
+                // Delete Product Logos
+                foreach ($user->ownedProducts as $product) {
+                    $product->task()->delete();
+                    $product->webhooks()->delete();
+                    $avatar = explode('storage/', $product->avatar);
+                    if (array_key_exists(1, $avatar)) {
+                        Storage::delete($avatar[1]);
+                    }
+                }
+                // Delete User Avatar
+                $avatar = explode('storage/', $user->avatar);
                 if (array_key_exists(1, $avatar)) {
                     Storage::delete($avatar[1]);
                 }
+                $user->likes()->delete();
+                $user->notifications()->delete();
+                $user->delete();
+    
+                return redirect()->route('home');
+            } else {
+                return session()->flash('error', 'Forbidden!');
             }
-            // Delete User Avatar
-            $avatar = explode('storage/', $user->avatar);
-            if (array_key_exists(1, $avatar)) {
-                Storage::delete($avatar[1]);
-            }
-            $user->likes()->delete();
-            $user->notifications()->delete();
-            $user->delete();
-
-            return redirect()->route('home');
         } else {
             return session()->flash('error', 'Forbidden!');
         }
