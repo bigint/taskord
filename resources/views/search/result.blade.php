@@ -22,10 +22,7 @@
                     </div>
                 </form>
                 @if (!$tasks)
-                @include('components.empty', [
-                    'icon' => 'search',
-                    'text' => 'We couldn’t find any tasks matching "'.$searchTerm.'"',
-                ])
+                <x-empty icon="search" text="We couldn’t find any tasks matching '{{ $searchTerm }}'" />
                 @else
                 @foreach ($tasks as $task)
                 <li class="list-group-item p-3">
@@ -49,10 +46,7 @@
                     </div>
                 </form>
                 @if (!$comments)
-                @include('components.empty', [
-                    'icon' => 'search',
-                    'text' => 'We couldn’t find any comments matching "'.$searchTerm.'"',
-                ])
+                <x-empty icon="search" text="We couldn’t find any comments matching '{{ $searchTerm }}'" />
                 @else
                 @foreach ($comments as $comment)
                 @livewire('task.single-comment', [
@@ -74,10 +68,7 @@
                     </div>
                 </form>
                 @if (!$questions)
-                @include('components.empty', [
-                    'icon' => 'search',
-                    'text' => 'We couldn’t find any questions matching "'.$searchTerm.'"',
-                ])
+                <x-empty icon="search" text="We couldn’t find any questions matching '{{ $searchTerm }}'" />
                 @else
                 @foreach ($questions as $question)
                 @livewire('questions.single-question', [
@@ -100,10 +91,7 @@
                     </div>
                 </form>
                 @if (!$answers)
-                @include('components.empty', [
-                    'icon' => 'search',
-                    'text' => 'We couldn’t find any answers matching "'.$searchTerm.'"',
-                ])
+                <x-empty icon="search" text="We couldn’t find any answers matching '{{ $searchTerm }}'" />
                 @else
                 @foreach ($answers as $answer)
                     <div class="card mb-2">
@@ -135,10 +123,7 @@
                     </div>
                 </form>
                 @if (!$products)
-                @include('components.empty', [
-                    'icon' => 'search',
-                    'text' => 'We couldn’t find any products matching "'.$searchTerm.'"',
-                ])
+                <x-empty icon="search" text="We couldn’t find any products matching '{{ $searchTerm }}'" />
                 @else
                 @foreach ($products as $product)
                     <li class="list-group-item pt-3 pb-3">
@@ -195,10 +180,7 @@
                     </div>
                 </form>
                 @if (!$users)
-                @include('components.empty', [
-                    'icon' => 'search',
-                    'text' => 'We couldn’t find any users matching "'.$searchTerm.'"',
-                ])
+                <x-empty icon="search" text="We couldn’t find any users matching '{{ $searchTerm }}'" />
                 @else
                 @foreach ($users as $user)
                     <li class="list-group-item pt-3 pb-3">
