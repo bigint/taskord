@@ -104,7 +104,7 @@
     "mainEntity": {
         "@type": "Question",
         "name": "{{ $question->title }}",
-        "text": "{{ $question->body }}"
+        "text": "{{ $question->body }}",
         "answerCount": {{ $question->answer->count('id') }},
         "upvoteCount": {{ $question->likerscount() }},
         "dateCreated": "{{ $question->created_at }}",

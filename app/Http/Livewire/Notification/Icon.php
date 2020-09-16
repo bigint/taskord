@@ -2,8 +2,8 @@
 
 namespace App\Http\Livewire\Notification;
 
-use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
+use Illuminate\Support\Facades\Auth;
 
 class Icon extends Component
 {
