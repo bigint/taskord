@@ -35,7 +35,9 @@ class Delete extends Component
                 Storage::delete($task->image);
             }
             // Delete Product Logos
-            foreach ($user->products as $product) {
+            foreach ($user->ownedProducts as $product) {
+                $product->task()->delete();
+                $product->webhooks()->delete();
                 $avatar = explode('storage/', $product->avatar);
                 if (array_key_exists(1, $avatar)) {
                     Storage::delete($avatar[1]);
