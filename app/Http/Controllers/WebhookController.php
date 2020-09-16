@@ -48,7 +48,7 @@ class WebhookController extends Controller
                 'message' => 'No webhook exists',
             ], 401);
         }
-        
+
         if (User::find($webhook->user_id)->isFlagged) {
             return response()->json([
                 'message' => 'Your account is flagged!',
