@@ -12,6 +12,7 @@ class Integrations extends Component
 {
     public $user;
     public $name;
+    public $product;
     public $type = 'web';
 
     public $listeners = [
@@ -34,6 +35,7 @@ class Integrations extends Component
         if (Auth::check()) {
             $this->validate([
                 'name' => 'required|min:2|max:20',
+                'product' => 'nullable',
             ]);
 
             if (Auth::user()->isFlagged) {
@@ -44,10 +46,12 @@ class Integrations extends Component
                 $webhook = Webhook::create([
                     'user_id' => Auth::id(),
                     'name' => $this->name,
+                    'product_id' => $this->product,
                     'token' => md5(uniqid(Auth::id(), true)),
                     'type' => $this->type,
                 ]);
                 $this->name = '';
+                $this->product = '';
                 session()->flash('created', $webhook);
             } else {
                 return session()->flash('error', 'Forbidden!');

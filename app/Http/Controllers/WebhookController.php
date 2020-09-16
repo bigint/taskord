@@ -13,7 +13,7 @@ use Illuminate\Support\Str;
 
 class WebhookController extends Controller
 {
-    public function createTask($webhook, $task, $done, $done_at, $type)
+    public function createTask($webhook, $task, $done, $done_at, $product_id, $type)
     {
         $ignoreList = [
             'styleci',
@@ -25,7 +25,8 @@ class WebhookController extends Controller
                 'task' => $task,
                 'done' => $done,
                 'done_at' => $done_at,
-                'type' => 'user',
+                'product_id' => $product_id,
+                'type' => $product_id ? 'product' : 'user',
                 'source' => $type,
             ]);
         }
@@ -33,7 +34,7 @@ class WebhookController extends Controller
 
     public function web($token, WebhookRequest $request)
     {
-        $throttler = Throttle::get(Request::instance(), 20, 5);
+        $throttler = Throttle::get(Request::instance(), 50, 5);
         $throttler->hit();
         if (! $throttler->check()) {
             return response()->json([
@@ -75,6 +76,7 @@ class WebhookController extends Controller
                 $request_body['task'],
                 $request_body['done'],
                 $done_at,
+                $webhook->product_id,
                 'Webhook'
             );
 
@@ -104,9 +106,9 @@ class WebhookController extends Controller
             }
 
             if (count($request_body['commits']) === 1) {
-                $task = Str::limit($request_body['commits'][0]['message'], 100).' on "'.$request_body['repository']['name'].'"';
+                $task = Str::limit($request_body['commits'][0]['message'], 100);
             } else {
-                $task = 'Pushed '.count($request_body['commits']).' changes to "'.$request_body['repository']['name'].'"';
+                $task = 'Pushed '.count($request_body['commits']).' changes';
             }
 
             $this->createTask(
@@ -114,6 +116,7 @@ class WebhookController extends Controller
                 $task,
                 true,
                 Carbon::now(),
+                $webhook->product_id,
                 $webhook->type === 'github' ? 'GitHub' : 'GitLab'
             );
 
