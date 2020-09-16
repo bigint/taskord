@@ -17,7 +17,6 @@ class WebhookController extends Controller
     {
         $ignoreList = [
             'styleci',
-            '0 changes',
         ];
 
         if (! Str::contains(strtolower($task), $ignoreList)) {
@@ -93,6 +92,12 @@ class WebhookController extends Controller
             if (Str::contains($request_body['pusher']['name'], '[bot]')) {
                 return response()->json([
                     'message' => 'Bot cannot log tasks!',
+                ], 200);
+            }
+            
+            if (count($request_body['commits']) === 0) {
+                return response()->json([
+                    'message' => 'Cannot log 0 commits to task!',
                 ], 200);
             }
 
