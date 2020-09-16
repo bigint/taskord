@@ -5,7 +5,7 @@
             <div>Change your username and email.</div>
         </div>
         <div class="card-body">
-            @include('components.alert')
+            <x-alert />
             <form wire:submit.prevent="updateAccount">
                 <div class="mb-3">
                     <label class="form-label">Username</label>

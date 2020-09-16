@@ -1,5 +1,5 @@
 <li class="list-group-item pt-2 pb-2">
-    @include('components.alert')
+    <x-alert />
     <div>
         <input
             class="form-check-input"

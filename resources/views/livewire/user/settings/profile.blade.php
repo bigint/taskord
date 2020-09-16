@@ -1,5 +1,5 @@
 <div class="col-md-8">
-    @include('components.alert')
+    <x-alert />
     <div class="card mb-4">
         <div class="card-header pt-3 pb-3">
             <span class="h5">Profile</span>

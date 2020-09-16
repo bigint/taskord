@@ -5,7 +5,7 @@
             <div>Update your account password.</div>
         </div>
         <div class="card-body">
-            @include('components.alert')
+            <x-alert />
             <form wire:submit.prevent="updatePassword">
                 <div class="mb-3">
                     <label class="form-label">Existing Password</label>
