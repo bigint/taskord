@@ -70,10 +70,7 @@
         </div>
         <ul class="list-group list-group-flush">
             @if (count($user->ownedProducts->merge($user->products)) === 0)
-            @include('components.empty', [
-                'icon' => 'box-open',
-                'text' => 'No products made!',
-            ])
+            <x-empty icon="box-open" text="No products made!"/>
             @endif
             @foreach ($user->ownedProducts->merge($user->products)->take(5) as $product)
             <li class="list-group-item">
