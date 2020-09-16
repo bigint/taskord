@@ -271,6 +271,8 @@ class Moderator extends Component
             }
             // Delete Product Logos
             foreach ($user->ownedProducts as $product) {
+                $product->task()->delete();
+                $product->webhooks()->delete();
                 $avatar = explode('storage/', $product->avatar);
                 if (array_key_exists(1, $avatar)) {
                     Storage::delete($avatar[1]);
