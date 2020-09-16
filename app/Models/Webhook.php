@@ -8,6 +8,7 @@ class Webhook extends Model
 {
     protected $fillable = [
         'user_id',
+        'product_id',
         'name',
         'token',
         'type',

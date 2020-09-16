@@ -34,7 +34,7 @@ class WebhookController extends Controller
 
     public function web($token, WebhookRequest $request)
     {
-        $throttler = Throttle::get(Request::instance(), 20, 5);
+        $throttler = Throttle::get(Request::instance(), 50, 5);
         $throttler->hit();
         if (! $throttler->check()) {
             return response()->json([
@@ -48,7 +48,7 @@ class WebhookController extends Controller
                 'message' => 'No webhook exists',
             ], 401);
         }
-
+        
         if (User::find($webhook->user_id)->isFlagged) {
             return response()->json([
                 'message' => 'Your account is flagged!',
@@ -76,7 +76,7 @@ class WebhookController extends Controller
                 $request_body['task'],
                 $request_body['done'],
                 $done_at,
-                1,
+                $webhook->product_id,
                 'Webhook'
             );
 
@@ -116,7 +116,7 @@ class WebhookController extends Controller
                 $task,
                 true,
                 Carbon::now(),
-                1,
+                $webhook->product_id,
                 $webhook->type === 'github' ? 'GitHub' : 'GitLab'
             );
 
