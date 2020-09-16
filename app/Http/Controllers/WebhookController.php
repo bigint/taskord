@@ -106,9 +106,9 @@ class WebhookController extends Controller
             }
 
             if (count($request_body['commits']) === 1) {
-                $task = Str::limit($request_body['commits'][0]['message'], 100).' on "'.$request_body['repository']['name'].'"';
+                $task = Str::limit($request_body['commits'][0]['message'], 100);
             } else {
-                $task = 'Pushed '.count($request_body['commits']).' changes to "'.$request_body['repository']['name'].'"';
+                $task = 'Pushed '.count($request_body['commits']).' changes';
             }
 
             $this->createTask(

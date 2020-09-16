@@ -51,6 +51,7 @@ class Integrations extends Component
                     'type' => $this->type,
                 ]);
                 $this->name = '';
+                $this->product = '';
                 session()->flash('created', $webhook);
             } else {
                 return session()->flash('error', 'Forbidden!');
