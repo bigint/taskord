@@ -72,7 +72,7 @@ class Profile extends Component
                     'company' => 'nullable|max:30',
                     'avatar' => 'nullable|mimes:jpeg,jpg,png,gif|max:2048',
                 ]);
-    
+
                 if ($this->avatar) {
                     $old_avatar = explode('storage/', $this->user->avatar);
                     if (array_key_exists(1, $old_avatar)) {
@@ -81,7 +81,7 @@ class Profile extends Component
                     $avatar = $this->avatar->store('avatars');
                     $this->user->avatar = config('app.url').'/storage/'.$avatar;
                 }
-    
+
                 if (Auth::check()) {
                     $this->user->firstname = $this->firstname;
                     $this->user->lastname = $this->lastname;
@@ -89,7 +89,7 @@ class Profile extends Component
                     $this->user->location = $this->location;
                     $this->user->company = $this->company;
                     $this->user->save();
-    
+
                     return session()->flash('profile', 'Your profile has been updated!');
                 }
             } else {
@@ -110,7 +110,7 @@ class Profile extends Component
                 }
                 $this->user->avatar = 'https://secure.gravatar.com/avatar/'.md5(Auth::user()->email).'?s=500&d=identicon';
                 $this->user->save();
-    
+
                 return session()->flash('profile', 'Your profile has been updated!');
             } else {
                 return session()->flash('error', 'Forbidden!');
@@ -127,11 +127,11 @@ class Profile extends Component
                 $this->validate([
                     'sponsor' => 'nullable|active_url',
                 ]);
-    
+
                 if (Auth::check()) {
                     $this->user->sponsor = $this->sponsor;
                     $this->user->save();
-    
+
                     return session()->flash('sponsor', 'Your sponsor link has been updated!');
                 }
             } else {
@@ -154,7 +154,7 @@ class Profile extends Component
                     'github' => 'nullable|alpha_dash|max:30',
                     'youtube' => 'nullable|alpha_dash|max:30',
                 ]);
-    
+
                 if (Auth::check()) {
                     $this->user->website = $this->website;
                     $this->user->twitter = $this->twitter;
@@ -163,7 +163,7 @@ class Profile extends Component
                     $this->user->github = $this->github;
                     $this->user->youtube = $this->youtube;
                     $this->user->save();
-    
+
                     return session()->flash('social', 'Your social links has been updated!');
                 }
             } else {

@@ -83,13 +83,13 @@ class Account extends Component
                 if ($this->email !== $this->user->email) {
                     $this->user->email_verified_at = null;
                 }
-    
+
                 if (Auth::check() && Auth::id() === $this->user->id) {
                     $this->user->username = $this->username;
                     $this->user->email = $this->email;
                     $this->user->save();
                     $this->user->sendEmailVerificationNotification();
-    
+
                     return session()->flash('success', 'Your account has been updated!');
                 }
             } else {
