@@ -7,10 +7,7 @@
         $message = 'All Done';
     }
     @endphp
-    @include('components.empty', [
-        'icon' => 'check-square',
-        'text' => $message,
-    ])
+    <x-empty icon="check-square" :text="$message"/>
     @endif
     @if ($page === 1)
     <ul class="list-group">

@@ -152,10 +152,7 @@
         </div>
         <div class="card-body">
             @if (count($user->webhooks) === 0)
-            @include('components.empty', [
-                'icon' => 'globe',
-                'text' => 'No webhooks found',
-            ])
+            <x-empty icon="globe" text="No webhooks found"/>
             @else
             <table class="table table-bordered align-middle text-dark">
                 <thead>
