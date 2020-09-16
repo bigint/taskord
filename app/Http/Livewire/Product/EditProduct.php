@@ -127,6 +127,7 @@ class EditProduct extends Component
                 if (array_key_exists(1, $avatar)) {
                     Storage::delete($avatar[1]);
                 }
+                $this->product->webhooks()->delete();
                 $this->product->delete();
                 session()->flash('product_deleted', 'Product has been deleted!');
 

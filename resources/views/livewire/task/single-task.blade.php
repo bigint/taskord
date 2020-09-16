@@ -54,6 +54,7 @@
         <span class="ml-1 task-font">
             {!! Purify::clean(Helper::renderTask($task->task)) !!}
             @if ($task->type === 'product')
+            @if ($task->product)
             <span class="small text-black-50">
                 on
                 <img class="rounded mb-1 ml-1 avatar-15" src="{{ $task->product->avatar }}" />
@@ -61,6 +62,7 @@
                     {{ $task->product->name }}
                 </a>
             </span>
+            @endif
             @endif
         </span>
         @if ($task->image)
