@@ -1,9 +1,6 @@
 <div>
     @if (count($answers) === 0)
-    @include('components.empty', [
-        'icon' => 'comments',
-        'text' => 'No answers made',
-    ])
+    <x-empty icon="comments" text="No answers made"/>
     @endif
     @foreach ($answers as $answer)
         <div class="card mb-4">
