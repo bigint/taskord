@@ -16,8 +16,6 @@ class WebhookController extends Controller
     public function createTask($webhook, $task, $done, $done_at, $type)
     {
         $ignoreList = [
-            'dependabot',
-            'bump',
             'styleci',
             '0 changes',
         ];
@@ -91,6 +89,12 @@ class WebhookController extends Controller
                 ], 200);
             }
             $request_body = $request->json()->all();
+            
+            if (Str::contains($request_body['pusher']['name'], '[bot]')) {
+                return response()->json([
+                    'message' => 'Bot cannot log tasks!',
+                ], 200);
+            }
 
             if (count($request_body['commits']) === 1) {
                 $task = Str::limit($request_body['commits'][0]['message'], 100).' on "'.$request_body['repository']['name'].'"';
