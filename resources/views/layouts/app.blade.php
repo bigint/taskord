@@ -233,9 +233,10 @@
 @auth
 <script type="text/javascript">
     window.$crisp=[];
+    window.$crisp.push(["set", "session:data", [[["user_id", "{{ Auth::id() }}"]]]]);
     window.$crisp.push(["set", "user:email", ["{{ Auth::user()->email }}"]]);
-    window.$crisp.push(["set", "user:avatar", ["{{ Auth::user()->avatar }}"]])
-    window.$crisp.push(["set", "user:nickname", ["{{ Auth::user()->username }}"]])
+    window.$crisp.push(["set", "user:avatar", ["{{ Auth::user()->avatar }}"]]);
+    window.$crisp.push(["set", "user:nickname", ["{{ Auth::user()->username }}"]]);
     window.CRISP_WEBSITE_ID="7770164a-8d1b-4b4f-9a7b-6c1f5a76d101";
     (function(){
         d=document;
