@@ -38,9 +38,11 @@ class SingleUpdate extends Component
             if (Auth::user()->hasLiked($this->update)) {
                 Auth::user()->unlike($this->update);
                 $this->update->refresh();
+                Auth::user()->touch();
             } else {
                 Auth::user()->like($this->update);
                 $this->update->refresh();
+                Auth::user()->touch();
                 // TODO
                 //$this->update->user->notify(new TaskPraised($this->update, Auth::id()));
             }

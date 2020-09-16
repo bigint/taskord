@@ -9,8 +9,13 @@ class MarkAsRead extends Component
 {
     public function markAsRead()
     {
-        Auth::user()->unreadNotifications->markAsRead();
-        $this->emit('markAsRead');
+        if (Auth::check()) {
+            Auth::user()->unreadNotifications->markAsRead();
+            $this->emit('markAsRead');
+            Auth::user()->touch();
+        } else {
+            return session()->flash('global', 'Forbidden!');
+        }
     }
 
     public function render()

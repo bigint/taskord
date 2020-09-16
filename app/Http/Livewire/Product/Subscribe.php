@@ -37,6 +37,7 @@ class Subscribe extends Component
             } else {
                 Auth::user()->toggleSubscribe($this->product);
                 $this->product->refresh();
+                Auth::user()->touch();
                 if (Auth::user()->hasSubscribed($this->product)) {
                     $this->product->owner->notify(new Subscribed($this->product, Auth::id()));
                 }

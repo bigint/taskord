@@ -50,6 +50,7 @@ class CreateAnswer extends Component
                 'question_id' =>  $this->question->id,
                 'answer' => $this->answer,
             ]);
+            Auth::user()->touch();
 
             $this->emit('answerAdded');
             $this->answer = '';

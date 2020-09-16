@@ -8,7 +8,7 @@
     </div>
     @endif
     @foreach ($notifications as $notification)
-        <div wire:poll>
+        <div>
             @livewire('notification.single-notification', [
                 'type' => $notification->type,
                 'data' => $notification->data,

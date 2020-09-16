@@ -42,6 +42,7 @@ class SingleAnswer extends Component
                 Auth::user()->unlike($this->answer);
                 $this->answer->refresh();
                 undoPoint(new PraiseCreated($this->answer));
+                Auth::user()->touch();
                 $this->answer->user->notify(
                     new TelegramLogger(
                         '*👏 Answer was un-praised* by @'
@@ -55,6 +56,7 @@ class SingleAnswer extends Component
                 $this->answer->refresh();
                 $this->answer->user->notify(new AnswerPraised($this->answer, Auth::id()));
                 givePoint(new PraiseCreated($this->answer));
+                Auth::user()->touch();
                 $this->answer->user->notify(
                     new TelegramLogger(
                         '*👏 Answer was praised* by @'
@@ -84,6 +86,7 @@ class SingleAnswer extends Component
             if (Auth::user()->staffShip or Auth::id() === $this->answer->user->id) {
                 $this->answer->delete();
                 $this->emit('answerDeleted');
+                Auth::user()->touch();
             } else {
                 session()->flash('error', 'Forbidden!');
             }

@@ -93,6 +93,7 @@ class SingleTask extends Component
                 Auth::user()->unlike($this->task);
                 $this->task->refresh();
                 undoPoint(new PraiseCreated($this->task));
+                Auth::user()->touch();
                 $this->task->user->notify(
                     new TelegramLogger(
                         '*👏 Task was un-praised* by @'
@@ -106,6 +107,7 @@ class SingleTask extends Component
                 $this->task->refresh();
                 $this->task->user->notify(new TaskPraised($this->task, Auth::id()));
                 givePoint(new PraiseCreated($this->task));
+                Auth::user()->touch();
                 $this->task->user->notify(
                     new TelegramLogger(
                         '*👏 Task was praised* by @'

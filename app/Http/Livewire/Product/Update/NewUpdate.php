@@ -42,6 +42,7 @@ class NewUpdate extends Component
                 'title' => $this->title,
                 'body' => $this->body,
             ]);
+            Auth::user()->touch();
 
             session()->flash('global', 'Update has been created!');
             Notification::send(

@@ -94,6 +94,7 @@ class EditProduct extends Component
                 $product->launched = $this->launched;
                 $product->deprecated = $this->deprecated;
                 $product->save();
+                Auth::user()->touch();
 
                 session()->flash('global', 'Product has been updated!');
 
@@ -130,6 +131,7 @@ class EditProduct extends Component
                 $this->product->task()->delete();
                 $this->product->webhooks()->delete();
                 $this->product->delete();
+                Auth::user()->touch();
                 session()->flash('product_deleted', 'Product has been deleted!');
 
                 return redirect()->route('products.newest');

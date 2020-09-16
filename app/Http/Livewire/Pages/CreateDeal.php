@@ -35,6 +35,7 @@ class CreateDeal extends Component
                     'website' => $this->website,
                     'logo' => $this->logo,
                 ]);
+                Auth::user()->touch();
                 session()->flash('success', 'Deal has been created!');
 
                 return redirect()->route('deals');

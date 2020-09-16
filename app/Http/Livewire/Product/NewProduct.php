@@ -87,6 +87,7 @@ class NewProduct extends Component
                 'launched' => $launched_status,
                 'launched_at' => $launched_at,
             ]);
+            Auth::user()->touch();
 
             session()->flash('global', 'Product has been created!');
 
