@@ -1,11 +1,11 @@
 <div class="col-md-8">
-    @include('components.alert')
     <div class="card mb-4">
         <div class="card-header pt-3 pb-3">
             <span class="h5">Change Password</span>
             <div>Update your account password.</div>
         </div>
         <div class="card-body">
+            @include('components.alert')
             <form wire:submit.prevent="updatePassword">
                 <div class="mb-3">
                     <label class="form-label">Existing Password</label>

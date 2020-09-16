@@ -20,37 +20,47 @@ class Password extends Component
 
     public function updated($field)
     {
-        $this->validateOnly($field, [
-            'currentPassword' => 'required',
-            'newPassword' => 'required|min:8|pwned',
-            'confirmPassword' => 'required|same:newPassword',
-        ],
-        [
-            'newPassword.pwned' => 'This password has been pwned before',
-        ]);
+        if (Auth::check()) {
+            $this->validateOnly($field, [
+                'currentPassword' => 'required',
+                'newPassword' => 'required|min:8|pwned',
+                'confirmPassword' => 'required|same:newPassword',
+            ],
+            [
+                'newPassword.pwned' => 'This password has been pwned before',
+            ]);
+        }
     }
 
     public function updatePassword()
     {
-        $this->validate([
-            'currentPassword' => 'required',
-            'newPassword' => 'required|min:8|pwned',
-            'confirmPassword' => 'required|same:newPassword',
-        ],
-        [
-            'newPassword.pwned' => 'This password has been pwned before',
-        ]);
-
-        $user = Auth::user();
-
-        if (! Hash::check($this->currentPassword, $user->password)) {
-            return session()->flash('error', 'Current password does not match!');
+        if (Auth::check()) {
+            if (Auth::id() === $this->user->id) {
+                $this->validate([
+                    'currentPassword' => 'required',
+                    'newPassword' => 'required|min:8|pwned',
+                    'confirmPassword' => 'required|same:newPassword',
+                ],
+                [
+                    'newPassword.pwned' => 'This password has been pwned before',
+                ]);
+        
+                $user = Auth::user();
+        
+                if (! Hash::check($this->currentPassword, $user->password)) {
+                    return session()->flash('error', 'Current password does not match!');
+                }
+        
+                $user->password = Hash::make($this->newPassword);
+                $user->save();
+        
+                return session()->flash('success', 'Your password has been changed!');
+            } else {
+                return session()->flash('error', 'Forbidden!');
+            }
+        } else {
+            return session()->flash('error', 'Forbidden!');
         }
-
-        $user->password = Hash::make($this->newPassword);
-        $user->save();
-
-        return session()->flash('success', 'Your password has been changed!');
     }
 
     public function render()
