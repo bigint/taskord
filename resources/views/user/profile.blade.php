@@ -81,19 +81,19 @@
                     <div>
                         <span class="font-weight-bold">{{ Emoji::fire() }} {{ number_format($user->getPoints(true)) }}</span>
                         {{ $user->getPoints(true) < 2 ? 'Reputation' : 'Reputations' }}
-                        @include('components.beta', ['background' => 'light'])
+                        <x-beta background="light"/>
                     </div>
                     @if (Auth::check() && Auth::id() === $user->id)
                     <div class="mt-2">
                         <span>{{ Emoji::blossom() }} You are a</span>
                         <span class="font-weight-bold">{{ count($user->badges) === 0 ? 'Beginner' : $user->badges->last()->name }}</span>
-                        @include('components.beta', ['background' => 'light'])
+                        <x-beta background="light"/>
                     </div>
                     @else
                     <div class="mt-2">
                         <span>{{ Emoji::blossom() }} {{ $user->username }} is a</span>
                         <span class="font-weight-bold">{{ count($user->badges) === 0 ? 'Beginner' : $user->badges->last()->name }}</span>
-                        @include('components.beta', ['background' => 'light'])
+                        <x-beta background="light"/>
                     </div>
                     @endif
                     @if ($user->isBeta)

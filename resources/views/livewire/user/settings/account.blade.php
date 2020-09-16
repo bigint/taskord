@@ -37,7 +37,7 @@
             <span class="h5">Beta</span>
             <div>
                 Get release earlier.
-                @include('components.beta', ['background' => 'light'])
+                <x-beta background="light"/>
             </div>
         </div>
         <div class="card-body">
@@ -57,7 +57,7 @@
             <span class="h5">Private Tasks</span>
             <div>
                 All your tasks will hidden from public.
-                @include('components.beta', ['background' => 'light'])
+                <x-beta background="light"/>
             </div>
         </div>
         <div class="card-body">

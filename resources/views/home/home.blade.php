@@ -55,7 +55,7 @@
                     <div class="card mb-4">
                         <div class="card-header">
                             🚀 Launched Today
-                            @include('components.beta', ['background' => 'light'])
+                            <x-beta background="light"/>
                         </div>
                         <ul class="list-group list-group-flush">
                             @foreach ($launched_today->take(5) as $product)
