@@ -38,6 +38,7 @@ class CreateQuestion extends Component
                 'body' => $this->body,
                 'patronOnly' => $patronOnly,
             ]);
+            Auth::user()->touch();
 
             session()->flash('question_created', 'Question has been created!');
             givePoint(new QuestionCreated($question));

@@ -9,8 +9,13 @@ class Delete extends Component
 {
     public function deleteAll()
     {
-        Auth::user()->notifications()->delete();
-        $this->emit('deleteAll');
+        if (Auth::check()) {
+            Auth::user()->notifications()->delete();
+            $this->emit('deleteAll');
+            Auth::user()->touch();
+        } else {
+            return session()->flash('global', 'Forbidden!');
+        }
     }
 
     public function render()

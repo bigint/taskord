@@ -34,6 +34,7 @@ class Follow extends Component
             } else {
                 Auth::user()->toggleFollow($this->user);
                 $this->user->refresh();
+                Auth::user()->touch();
                 if (Auth::user()->isFollowing($this->user)) {
                     $this->user->notify(new Followed(Auth::user()));
                 }

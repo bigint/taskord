@@ -58,6 +58,7 @@ class EditQuestion extends Component
                 $question->body = $this->body;
                 $question->patronOnly = $this->patronOnly;
                 $question->save();
+                Auth::user()->touch();
 
                 session()->flash('question_edited', 'Question has been edited!');
 

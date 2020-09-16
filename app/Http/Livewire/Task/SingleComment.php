@@ -43,6 +43,7 @@ class SingleComment extends Component
                 Auth::user()->unlike($this->comment);
                 $this->comment->refresh();
                 undoPoint(new PraiseCreated($this->comment));
+                Auth::user()->touch();
                 $this->comment->user->notify(
                     new TelegramLogger(
                         '*👏 Comment was un-praised* by @'
@@ -56,6 +57,7 @@ class SingleComment extends Component
                 $this->comment->refresh();
                 $this->comment->user->notify(new CommentPraised($this->comment, Auth::id()));
                 givePoint(new PraiseCreated($this->comment));
+                Auth::user()->touch();
                 $this->comment->user->notify(
                     new TelegramLogger(
                         '*👏 Comment was praised* by @'
@@ -84,6 +86,7 @@ class SingleComment extends Component
             if (Auth::user()->staffShip or Auth::id() === $this->comment->user->id) {
                 $this->comment->delete();
                 $this->emit('commentDeleted');
+                Auth::user()->touch();
             } else {
                 return session()->flash('error', 'Forbidden!');
             }

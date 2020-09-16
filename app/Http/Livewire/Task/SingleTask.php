@@ -35,7 +35,7 @@ class SingleTask extends Component
             if (Auth::id() === $this->task->user->id) {
                 if ($this->task->done) {
                     $this->task->done_at = Carbon::now();
-                    $this->task->updated_at = Carbon::now();
+                    Auth::user()->touch();
                     $this->task->user->notify(
                         new TelegramLogger(
                             '*⏳ Task was mark as pending* by @'
@@ -46,7 +46,7 @@ class SingleTask extends Component
                     );
                 } else {
                     $this->task->done_at = Carbon::now();
-                    $this->task->updated_at = Carbon::now();
+                    Auth::user()->touch();
                     givePoint(new TaskCompleted($this->task));
                     $this->task->user->notify(
                         new TelegramLogger(
@@ -138,6 +138,7 @@ class SingleTask extends Component
                 Storage::delete($this->task->image);
                 $this->task->delete();
                 $this->emitUp('taskDeleted');
+                Auth::user()->touch();
             } else {
                 return session()->flash('error', 'Forbidden!');
             }

@@ -50,6 +50,7 @@ class CreateComment extends Component
                 'task_id' =>  $this->task->id,
                 'comment' => $this->comment,
             ]);
+            Auth::user()->touch();
 
             $this->emit('commentAdded');
             $this->comment = '';

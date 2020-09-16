@@ -45,6 +45,7 @@ class SingleQuestion extends Component
                 Auth::user()->unlike($this->question);
                 $this->question->refresh();
                 undoPoint(new PraiseCreated($this->question));
+                Auth::user()->touch();
                 $this->question->user->notify(
                     new TelegramLogger(
                         '*👏 Question was un-praised* by @'
@@ -58,6 +59,7 @@ class SingleQuestion extends Component
                 $this->question->refresh();
                 $this->question->user->notify(new QuestionPraised($this->question, Auth::id()));
                 givePoint(new PraiseCreated($this->question));
+                Auth::user()->touch();
                 $this->question->user->notify(
                     new TelegramLogger(
                         '*👏 Question was praised* by @'
@@ -86,6 +88,7 @@ class SingleQuestion extends Component
 
             if (Auth::user()->staffShip or Auth::id() === $this->question->user_id) {
                 $this->question->delete();
+                Auth::user()->touch();
                 session()->flash('question_deleted', 'Question has been deleted!');
 
                 return redirect()->route('questions.newest');
