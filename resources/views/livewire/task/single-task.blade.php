@@ -33,7 +33,10 @@
         'launched',
         'launch',
     ];
-    $launched = Str::contains(strtolower($task->task), $launchList) and $task->done;
+    $launched = false;
+    if (Str::contains(strtolower($task->task), $launchList) and !!$task->done) {
+        $launched = true;
+    }
     @endphp
     <div class="mt-3 mb-1">
         @if ($task->source === 'GitLab')
