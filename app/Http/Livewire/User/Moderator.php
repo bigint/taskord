@@ -145,7 +145,7 @@ class Moderator extends Component
             return false;
         }
     }
-    
+
     public function verifyUser()
     {
         if (Auth::check() && Auth::user()->isStaff) {
