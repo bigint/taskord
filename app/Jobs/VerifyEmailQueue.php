@@ -13,7 +13,7 @@ use Illuminate\Queue\SerializesModels;
 class VerifyEmailQueue implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
-    
+
     protected $user;
 
     /**
