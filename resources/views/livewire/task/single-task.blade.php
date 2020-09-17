@@ -29,7 +29,11 @@
         </span>
     </div>
     @php
-    $launched = Str::contains(strtolower($task->task), 'launched') and $task->done;
+    $launchList = [
+        'launched',
+        'launch',
+    ];
+    $launched = Str::contains(strtolower($task->task), $launchList) and $task->done;
     @endphp
     <div class="mt-3 mb-1">
         @if ($task->source === 'GitLab')
