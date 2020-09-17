@@ -22,10 +22,10 @@
                             {{ $user->username }}
                         @endif
                         @auth
-                        @if (Auth::user()->staffShip)
-                            <span class="ml-2 text-secondary small">#{{ $user->id }}</span>
-                        @endif
                         @endauth
+                        @if ($user->isVerified)
+                            <i class="fa fa-check-circle ml-2 text-primary" title="Verified"></i>
+                        @endif
                         @if ($user->isPatron)
                             <a class="ml-2 small" href="{{ route('patron.home') }}" title="Patron">
                                 {{ Emoji::handshake() }}
@@ -34,6 +34,9 @@
                         @auth
                         @if ($user->isFollowing(Auth::user()))
                             <span class="ml-2 badge bg-light text-black-50">Follows you</span>
+                        @endif
+                        @if (Auth::user()->staffShip)
+                            <span class="ml-2 text-secondary small">#{{ $user->id }}</span>
                         @endif
                         @endauth
                     </div>
