@@ -36,7 +36,7 @@ class HomeController extends Controller
             ->orderBy('created_at', 'DESC')
             ->take(5)
             ->get();
-        $recent_users = User::select('username', 'firstname', 'lastname', 'avatar', 'bio', 'created_at')
+        $recent_users = User::select('username', 'firstname', 'lastname', 'avatar', 'bio', 'isVerified', 'created_at')
             ->where([
                 ['created_at', '>=', Carbon::now()->subdays(7)],
                 ['isFlagged', false],
@@ -50,7 +50,7 @@ class HomeController extends Controller
             ->orderBy('created_at', 'DESC')
             ->take(5)
             ->get();
-        $reputations = User::select('username', 'firstname', 'lastname', 'avatar', 'reputation')
+        $reputations = User::select('username', 'firstname', 'lastname', 'avatar', 'reputation', 'isVerified')
             ->where([
                 ['isFlagged', false],
                 ['id', '!=', 1],

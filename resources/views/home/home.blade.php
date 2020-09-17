@@ -171,6 +171,9 @@
                                             @else
                                                 {{ $user->username }}
                                             @endif
+                                            @if ($user->isVerified)
+                                                <i class="fa fa-check-circle ml-1 text-primary" title="Verified"></i>
+                                            @endif
                                         </span>
                                         <div>
                                             @if ($user->bio)
@@ -250,6 +253,9 @@
                                         {{ $user->firstname }}{{ ' '.$user->lastname }}
                                     @else
                                         {{ $user->username }}
+                                    @endif
+                                    @if ($user->isVerified)
+                                        <i class="fa fa-check-circle ml-1 text-primary" title="Verified"></i>
                                     @endif
                                 </a>
                                 <span class="badge rounded-pill bg-warning text-dark align-middle reputation">
