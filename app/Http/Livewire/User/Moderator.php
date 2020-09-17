@@ -7,6 +7,7 @@ use App\Notifications\TelegramLogger;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Livewire\Component;
+use App\Notifications\UserVerified;
 
 class Moderator extends Component
 {
@@ -153,6 +154,7 @@ class Moderator extends Component
             $this->user->timestamps = false;
             $this->user->save();
             if ($this->user->isVerified) {
+                $this->user->notify(new UserVerified(true));
                 $this->user->notify(new TelegramLogger("*🚨 Mod Event 🚨*\n\n@".$this->user->username.' is verified by @'.Auth::user()->username));
             } else {
                 $this->user->notify(new TelegramLogger("*🚨 Mod Event 🚨*\n\n@".$this->user->username.' is un-verified by @'.Auth::user()->username));
