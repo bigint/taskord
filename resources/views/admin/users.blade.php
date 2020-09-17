@@ -41,9 +41,13 @@
                                     <img class="avatar-30 rounded-circle mr-2" src="{{ $user->avatar }}" />
                                 </td>
                                 <td class="font-weight-bold">
-                                    {{ $user->firstname.' '.$user->lastname }}
                                     @if (!$user->firstname and !$user->lastname)
                                     <span class="small font-weight-bold text-black-50">Not Set</span>
+                                    @else
+                                    {{ $user->firstname.' '.$user->lastname }}
+                                    @endif
+                                    @if ($user->isVerified)
+                                        <i class="fa fa-check-circle ml-1 text-primary" title="Verified"></i>
                                     @endif
                                 </td>
                                 <td>
