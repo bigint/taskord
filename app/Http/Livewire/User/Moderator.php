@@ -3,12 +3,12 @@
 namespace App\Http\Livewire\User;
 
 use App\Models\User;
+use App\Notifications\PatronGifted;
 use App\Notifications\TelegramLogger;
+use App\Notifications\UserVerified;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Livewire\Component;
-use App\Notifications\UserVerified;
-use App\Notifications\PatronGifted;
 
 class Moderator extends Component
 {
