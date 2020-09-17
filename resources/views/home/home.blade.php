@@ -150,8 +150,8 @@
                                 </a>
                                 <span>
                                     <i class="fa fa-fire mr-1 text-black-50"></i>
-                                    {{ number_format(Auth::user()->getPoints(true)) }}
-                                    {{ Auth::user()->getPoints(true) < 2 ? 'Reputation' : 'Reputations' }}
+                                    {{ number_format(Auth::user()->getPoints()) }}
+                                    {{ Auth::user()->getPoints() < 2 ? 'Reputation' : 'Reputations' }}
                                 </span>
                             </div>
                         </div>
@@ -261,7 +261,7 @@
                                         <i class="fa fa-check-circle ml-1 text-primary" title="Verified"></i>
                                     @endif
                                 </a>
-                                <span class="badge rounded-pill bg-warning text-dark align-middle reputation">
+                                <span class="badge rounded-pill bg-warning text-dark align-middle reputation" title="{{ Emoji::fire() }} {{ number_format($user->getPoints()) }}">
                                     {{ Emoji::fire() }} {{ $user->getPoints(true) }}
                                 </span>
                             </li>

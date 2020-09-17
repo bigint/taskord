@@ -110,7 +110,7 @@
                             <li class="nav-item mr-2">
                                 <div class="nav-link">
                                     <a class="badge rounded-pill bg-warning text-dark reputation" href="{{ route('reputation') }}">
-                                        {{ Emoji::fire() }} {{ number_format(Auth::user()->getPoints(true)) }}
+                                        {{ Emoji::fire() }} {{ number_format(Auth::user()->getPoints()) }}
                                     </a>
                                 </div>
                             </li>
