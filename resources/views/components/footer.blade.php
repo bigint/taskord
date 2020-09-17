@@ -17,6 +17,9 @@
     <a class="pr-2" href="{{ route('terms') }}">
         Terms
     </a>
+    <a class="pr-2" href="{{ route('sponsors') }}">
+        Sponsors
+    </a>
     <a class="pr-2" href="{{ route('patron.home') }}">
         Patron
     </a>
