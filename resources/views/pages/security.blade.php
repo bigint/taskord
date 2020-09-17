@@ -31,7 +31,7 @@
             <div class="mt-3">
                 <ol>
                     <li>
-                        <div>Do not test vulnerabilities in public. We ask that you do not attempt any vulnerabilities, rate-limiting tests, exploits, or any other security/bug-related findings if it will impact another community member. This means you should not leave comments on someone else’s post, send them messages via Connect, or otherwise, impact their experience on the platform.</div>
+                        <div>Do not test vulnerabilities in public. We ask that you do not attempt any vulnerabilities, rate-limiting tests, exploits, or any other security/bug-related findings if it will impact another community member. This means you should not leave comments on someone else’s tasks and questions, or otherwise, impact their experience on the platform.</div>
                         <div class="mt-1">Note that we are open source and have <a href="https://gitlab.com/taskord/taskord/-/blob/main/docs/installation.md" target="_blank">documentation</a> available if you're interested in setting up a dev environment for the purposes of testing.</div>
                     </li>
                     <li class="mt-2">
@@ -57,6 +57,10 @@
                         Please be patient with us after sending in your report. We’d appreciate it if you avoid messaging us to ask about the status of your report. Our team will get back to you as quickly as we are able. It is okay to inquire about the status of your report if you haven’t heard from us 2 weeks after sending it in. Otherwise, we ask that you please wait patiently for us to contact you, unless you have more information relevant to the vulnerability that you’d like to share.
                     </li>
                 </ol>
+            </div>
+            <h5 class="mt-4">Vulnerability Assessment and Reward</h5>
+            <div>
+                Vulnerabilities are assessed via <a href="https://bugcrowd.com/vulnerability-rating-taxonomy" target="_blank">BugCrowd's taxonomy rating</a> and our judgment. For now we provide you lifetime Taskord Patron for free!
             </div>
         </div>
     </div>
