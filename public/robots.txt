@@ -17,3 +17,4 @@ Disallow: /suspended
 Sitemap: https://taskord.com/sitemap_users.txt
 Sitemap: https://taskord.com/sitemap_products.txt
 Sitemap: https://taskord.com/sitemap_question.txt
+Sitemap: https://taskord.com/sitemap_tasks.txt
