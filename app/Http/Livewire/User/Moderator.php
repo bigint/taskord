@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Livewire\Component;
 use App\Notifications\UserVerified;
+use App\Notifications\PatronGifted;
 
 class Moderator extends Component
 {
@@ -138,6 +139,7 @@ class Moderator extends Component
             $this->user->timestamps = false;
             $this->user->save();
             if ($this->user->isPatron) {
+                $this->user->notify(new PatronGifted(true));
                 $this->user->notify(new TelegramLogger("*🚨 Mod Event 🚨*\n\n@".$this->user->username.' is enrolled as patron by @'.Auth::user()->username));
             } else {
                 $this->user->notify(new TelegramLogger("*🚨 Mod Event 🚨*\n\n@".$this->user->username.' is un-enrolled from patron by @'.Auth::user()->username));
