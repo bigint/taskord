@@ -1,11 +1,25 @@
 <div class="card mb-4">
-    <div class="card-header h6 pt-3 pb-3">
-        <a href="">
-            <img class="rounded-circle avatar-30" src="{{ $update->user->avatar }}" />
+    <div class="card-header d-flex align-items-center h6 pt-3 pb-3">
+        <a href="{{ route('user.done', ['username' => $update->user->username]) }}">
+            <img class="avatar-30 rounded-circle" src="{{ $update->user->avatar }}" />
         </a>
-        <a class="align-middle text-dark ml-2" href="">
-            {{ $update->title }}
-        </a>
+        <span class="ml-2">
+            <a href="{{ route('user.done', ['username' => $update->user->username]) }}" class="font-weight-bold text-dark">
+                @if ($update->user->firstname or $update->user->lastname)
+                    {{ $update->user->firstname }}{{ ' '.$update->user->lastname }}
+                @else
+                    {{ $update->user->username }}
+                @endif
+                @if ($update->user->isVerified)
+                <i class="fa fa-check-circle ml-2 text-primary" title="Verified"></i>
+                @endif
+                @if ($update->user->isPatron)
+                    <a class="ml-1 small" href="{{ route('patron.home') }}" data-toggle="tooltip" data-placement="right" title="Patron">
+                        {{ Emoji::handshake() }}
+                    </a>
+                @endif
+            </a>
+        </span>
     </div>
     <div class="card-body">
         <x-alert />
