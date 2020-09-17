@@ -92,7 +92,9 @@ class SingleTask extends Component
             if (Auth::user()->hasLiked($this->task)) {
                 Auth::user()->unlike($this->task);
                 $this->task->refresh();
-                undoPoint(new PraiseCreated($this->task));
+                if ($this->task->source !== 'GitHub' and $this->task->source !== 'GitLab') {
+                    undoPoint(new PraiseCreated($this->task));
+                }
                 Auth::user()->touch();
                 $this->task->user->notify(
                     new TelegramLogger(
@@ -106,7 +108,9 @@ class SingleTask extends Component
                 Auth::user()->like($this->task);
                 $this->task->refresh();
                 $this->task->user->notify(new TaskPraised($this->task, Auth::id()));
-                givePoint(new PraiseCreated($this->task));
+                if ($this->task->source !== 'GitHub' and $this->task->source !== 'GitLab') {
+                    givePoint(new PraiseCreated($this->task));
+                }
                 Auth::user()->touch();
                 $this->task->user->notify(
                     new TelegramLogger(
