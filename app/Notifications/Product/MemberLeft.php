@@ -13,11 +13,6 @@ class MemberLeft extends Notification implements ShouldQueue
     protected $product;
     protected $user_id;
 
-    /**
-     * Create a new notification instance.
-     *
-     * @return void
-     */
     public function __construct($product, $user_id)
     {
         $this->product = $product;

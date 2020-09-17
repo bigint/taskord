@@ -14,11 +14,6 @@ class TelegramLogger extends Notification implements ShouldQueue
 
     protected $message;
 
-    /**
-     * Create a new notification instance.
-     *
-     * @return void
-     */
     public function __construct($message)
     {
         $this->message = $message;

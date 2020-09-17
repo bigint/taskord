@@ -15,23 +15,12 @@ class Commented extends Notification implements ShouldQueue
     protected $comment;
     protected $user_id;
 
-    /**
-     * Create a new notification instance.
-     *
-     * @return void
-     */
     public function __construct($comment)
     {
         $this->comment = $comment;
         $this->user_id = $comment->user->id;
     }
 
-    /**
-     * Get the notification's delivery channels.
-     *
-     * @param  mixed  $notifiable
-     * @return array
-     */
     public function via($notifiable)
     {
         $pref = [];
@@ -47,12 +36,6 @@ class Commented extends Notification implements ShouldQueue
         return $pref;
     }
 
-    /**
-     * Get the mail representation of the notification.
-     *
-     * @param  mixed  $notifiable
-     * @return \Illuminate\Notifications\Messages\MailMessage
-     */
     public function toMail($notifiable)
     {
         $user = User::find($this->user_id);
