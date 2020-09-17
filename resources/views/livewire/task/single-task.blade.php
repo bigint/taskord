@@ -28,6 +28,9 @@
             {{ !$task->done_at ? Carbon::parse($task->created_at)->diffForHumans() : Carbon::parse($task->done_at)->diffForHumans() }}
         </span>
     </div>
+    @php
+    $launched = Str::contains(strtolower($task->task), 'launched') and $task->done;
+    @endphp
     <div class="mt-3 mb-1">
         @if ($task->source === 'GitLab')
         <span>
@@ -42,10 +45,7 @@
             <i class="fa fa-globe text-info task-font"></i>
         </span>
         @else
-        @if (
-            Str::contains(strtolower($task->task), 'launched') and
-            $task->done
-        )
+        @if ($launched)
         <span>
             {{ Emoji::rocket() }}
         </span>
@@ -63,7 +63,7 @@
         />
         @endif
         @endif
-        <span class="ml-1 task-font">
+        <span class="ml-1 task-font {{ $launched ? 'font-weight-bold' : '' }}">
             {!! Purify::clean(Helper::renderTask($task->task)) !!}
             @if ($task->type === 'product')
             <span class="small text-black-50">
