@@ -122,6 +122,9 @@
                                         @if (Auth::user()->firstname or Auth::user()->lastname)
                                         <div class="h5">
                                             {{ Auth::user()->firstname }}{{ ' '.Auth::user()->lastname }}
+                                            @if (Auth::user()->isVerified)
+                                                <i class="fa fa-check-circle ml-1 text-primary" title="Verified"></i>
+                                            @endif
                                         </div>
                                         @endif
                                         <div class="small font-weight-bold">
