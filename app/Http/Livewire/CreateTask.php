@@ -49,23 +49,6 @@ class CreateTask extends Component
         return $usernames;
     }
 
-    public function search($array, $key, $value)
-    {
-        $results = [];
-
-        if (is_array($array)) {
-            if (isset($array[$key]) && strtolower($array[$key]) == $value) {
-                $results[] = $array;
-            }
-
-            foreach ($array as $subarray) {
-                $results = array_merge($results, $this->search($subarray, $key, $value));
-            }
-        }
-
-        return $results;
-    }
-
     public function checkState()
     {
         if (Auth::check()) {
@@ -107,14 +90,6 @@ class CreateTask extends Component
 
             if (Auth::user()->isFlagged) {
                 return session()->flash('error', 'Your account is flagged!');
-            }
-
-            $check_time = Auth::user()->tasks()
-                ->select('task', 'created_at')
-                ->where('created_at', '>', Carbon::now()->subMinutes(3)->toDateTimeString())
-                ->latest()->get()->toArray();
-            if (count($this->search($check_time, 'task', strtolower($this->task))) > 0) {
-                return session()->flash('error', 'Your already posted this task, wait for sometime!');
             }
 
             $users = $this->getUserIDFromMention($this->task);

@@ -42,6 +42,14 @@
             <i class="fa fa-globe text-info task-font"></i>
         </span>
         @else
+        @if (
+            Str::contains(strtolower($task->task), 'launched') and
+            $task->done
+        )
+        <span>
+            {{ Emoji::rocket() }}
+        </span>
+        @else
         <input
             class="form-check-input"
             type="checkbox"
@@ -53,6 +61,7 @@
                 "enabled" : "disabled"
             }}
         />
+        @endif
         @endif
         <span class="ml-1 task-font">
             {!! Purify::clean(Helper::renderTask($task->task)) !!}
