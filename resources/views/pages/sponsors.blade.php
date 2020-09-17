@@ -78,7 +78,7 @@
                     </div>
                 </div>
             </div>
-            <div class="d-flex align-items-center mb-4">
+            <div class="d-flex align-items-center mb-5">
                 <div>
                     <img class="rounded avatar-150" src="https://i.imgur.com/a4hBf5f.png" />
                 </div>
@@ -91,6 +91,37 @@
                     </div>
                     <div class="mt-2">
                         <a href="https://www.browserstack.com" target="_blank">➜ Go to BrowserStack</a>
+                    </div>
+                </div>
+            </div>
+            <div class="d-flex align-items-center mb-5">
+                <div>
+                    <img class="rounded avatar-150" src="https://i.imgur.com/XSNz1FI.png" />
+                </div>
+                <div class="ml-4">
+                    <span class="h5">
+                        Todoist
+                    </span>
+                    <div class="h6 mt-3">
+                        Join 25 million people and teams that organize, plan, and collaborate on tasks and projects with Todoist.
+                    </div>
+                    <div class="mt-2">
+                        <a href="https://doist.grsm.io/yogi" target="_blank">➜ Go to Todoist</a>
+                    </div>
+                </div>
+            </div>
+            <div class="d-flex align-items-center">
+                <div>
+                    <img class="rounded avatar-150" src="https://i.imgur.com/VNRFI9v.jpg" />
+                </div>
+                <div class="ml-4">
+                    <span class="h5">
+                        Notion
+                    </span>
+                    <div class="h6 mt-3">
+                        Notion is an application that provides components such as databases, kanban boards, wikis, calendars and reminders. Users can connect these components to create their own systems for knowledge management, note taking, data management, project management, among others.                    </div>
+                    <div class="mt-2">
+                        <a href="https://notion.so" target="_blank">➜ Go to Notion</a>
                     </div>
                 </div>
             </div>
