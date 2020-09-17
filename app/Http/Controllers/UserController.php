@@ -42,6 +42,7 @@ class UserController extends Controller
                 'darkMode',
                 'reputation',
                 'isPrivate',
+                'isVerified',
                 'isFlagged',
                 'isSuspended',
                 'lastIP',
