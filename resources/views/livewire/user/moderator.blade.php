@@ -83,7 +83,7 @@
         <div>
             <input wire:click="verifyUser" id="verifyUser" class="form-check-input" type="checkbox" {{ $user->isVerified ? 'checked' : '' }}>
             <label for="verifyUser" class="ml-1 text-success font-weight-bold">Verify this user</label>
-            <span wire:loading wire:target="verifyUser" class="small ml-2 text-danger font-weight-bold">Enrolling...</span>
+            <span wire:loading wire:target="verifyUser" class="small ml-2 text-success font-weight-bold">Verifying...</span>
         </div>
         @if (!$user->isStaff)
         <div class="mt-3">

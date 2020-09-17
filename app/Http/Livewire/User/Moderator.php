@@ -145,6 +145,22 @@ class Moderator extends Component
             return false;
         }
     }
+    
+    public function verifyUser()
+    {
+        if (Auth::check() && Auth::user()->isStaff) {
+            $this->user->isVerified = ! $this->user->isVerified;
+            $this->user->timestamps = false;
+            $this->user->save();
+            if ($this->user->isVerified) {
+                $this->user->notify(new TelegramLogger("*🚨 Mod Event 🚨*\n\n@".$this->user->username.' is verified by @'.Auth::user()->username));
+            } else {
+                $this->user->notify(new TelegramLogger("*🚨 Mod Event 🚨*\n\n@".$this->user->username.' is un-verified by @'.Auth::user()->username));
+            }
+        } else {
+            return false;
+        }
+    }
 
     public function enrollDarkMode()
     {
