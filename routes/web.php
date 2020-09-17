@@ -140,6 +140,7 @@ Route::view('reputation', 'pages.reputation')->name('reputation');
 Route::view('terms', 'pages.terms')->name('terms');
 Route::view('privacy', 'pages.privacy')->name('privacy');
 Route::view('security', 'pages.security')->name('security');
+Route::view('sponsors', 'pages.sponsors')->name('sponsors');
 Route::get('open', 'PagesController@open')->name('open');
 Route::get('deals', 'PagesController@deals')->name('deals');
 
