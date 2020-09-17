@@ -153,3 +153,4 @@ Route::get('.well-known/change-password', function () {
 Route::get('sitemap_users.txt', [SitemapController::class, 'users']);
 Route::get('sitemap_products.txt', [SitemapController::class, 'products']);
 Route::get('sitemap_questions.txt', [SitemapController::class, 'questions']);
+Route::get('sitemap_tasks.txt', [SitemapController::class, 'tasks']);

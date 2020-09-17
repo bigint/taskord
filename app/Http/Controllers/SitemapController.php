@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Product;
 use App\Models\Question;
 use App\Models\User;
+use App\Models\Task;
 
 class SitemapController extends Controller
 {
@@ -32,6 +33,15 @@ class SitemapController extends Controller
 
         return view('seo.sitemap_questions', [
             'questions' => $questions,
+        ]);
+    }
+    
+    public function tasks()
+    {
+        $tasks = Task::all('id');
+
+        return view('seo.sitemap_tasks', [
+            'tasks' => $tasks,
         ]);
     }
 }
