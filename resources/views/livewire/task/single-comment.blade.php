@@ -9,6 +9,14 @@
                 @else
                     {{ $comment->user->username }}
                 @endif
+                @if ($comment->user->isVerified)
+                    <i class="fa fa-check-circle ml-2 text-primary" title="Verified"></i>
+                @endif
+                @if ($comment->user->isPatron)
+                    <a class="ml-1 small" href="{{ route('patron.home') }}" data-toggle="tooltip" data-placement="right" title="Patron">
+                        {{ Emoji::handshake() }}
+                    </a>
+                @endif
             </a>
         </span>
         <span class="align-text-top small float-right ml-auto text-black-50">
