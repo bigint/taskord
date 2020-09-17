@@ -103,8 +103,7 @@
                         Todoist
                     </span>
                     <div class="h6 mt-3">
-                        Join 25 million people and teams that organize, plan, and collaborate on tasks and projects with Todoist.
-                    </div>
+                        Todoist is a cloud-based service, so all your tasks and notes sync automatically to any device on which you use the app. You can also use the app offline and have your changes sync later. It's available on every major platform, including Android, iOS, macOS, Windows, Android Wear, and Apple Watch.                    </div>
                     <div class="mt-2">
                         <a href="https://doist.grsm.io/yogi" target="_blank">➜ Go to Todoist</a>
                     </div>
