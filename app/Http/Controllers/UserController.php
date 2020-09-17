@@ -55,7 +55,9 @@ class UserController extends Controller
         $response = [
             'user' => $user,
             'type' => $type,
-            'level' => $user->badges->sortBy(function($post){return $post->pivot->created_at;}),
+            'level' => $user->badges->sortBy(function ($post) {
+                return $post->pivot->created_at;
+            }),
             'done_count' => Task::where([['user_id', $user->id], ['done', true]])
                 ->count('id'),
             'pending_count' => Task::where([['user_id', $user->id], ['done', false]])
