@@ -11,6 +11,9 @@
                 @else
                     {{ $task->user->username }}
                 @endif
+                @if ($task->user->isVerified)
+                    <i class="fa fa-check-circle ml-2 text-primary" title="Verified"></i>
+                @endif
                 @if ($task->user->isPatron)
                     <a class="ml-1 small" href="{{ route('patron.home') }}" data-toggle="tooltip" data-placement="right" title="Patron">
                         {{ Emoji::handshake() }}
