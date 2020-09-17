@@ -13,7 +13,9 @@
     <div class="row">
         <div class="col-md-7">
             <div class="card-body d-flex align-items-center">
-                <img class="rounded-circle avatar-120" src="{{ $user->avatar }}" />
+                <a href="{{ $user->avatar }}" data-lightbox="{{ $user->avatar }}" data-title="{{ '@'.$user->username }}'s Avatar">
+                    <img class="rounded-circle avatar-120" src="{{ $user->avatar }}" />
+                </a>
                 <div class="ml-4">
                     <div class="h5 mb-0">
                         @if ($user->firstname or $user->lastname)
