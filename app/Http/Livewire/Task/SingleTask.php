@@ -169,7 +169,7 @@ class SingleTask extends Component
         if (Str::contains(strtolower($this->task->task), $launchList) and (bool) $this->task->done) {
             $this->launched = true;
         }
-        
+
         $bugList = [
             'bug',
             'fix',
@@ -179,7 +179,7 @@ class SingleTask extends Component
         if (Str::contains(strtolower($this->task->task), $bugList) and (bool) $this->task->done) {
             $this->bug = true;
         }
-        
+
         $learnList = [
             'learned',
             'learning',
