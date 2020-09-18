@@ -114,6 +114,18 @@
                                             </li>
                                             <li>
                                                 <span class="dropdown-item">
+                                                    <i class="fa fa-box-open mr-1"></i>
+                                                    <span class="font-weight-bold">{{ $user->ownedProducts('id')->count() }}</span> Products
+                                                </span>
+                                            </li>
+                                            <li>
+                                                <span class="dropdown-item">
+                                                    <i class="fa fa-box-open mr-1"></i>
+                                                    <span class="font-weight-bold">{{ $user->products()->count() }}</span> Membership
+                                                </span>
+                                            </li>
+                                            <li>
+                                                <span class="dropdown-item">
                                                     <i class="fa fa-bell mr-1"></i>
                                                     <span class="font-weight-bold">{{ $user->notifications()->count('id') }}</span> Notifications
                                                 </span>
