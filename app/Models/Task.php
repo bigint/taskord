@@ -9,7 +9,7 @@ use Rennokki\QueryCache\Traits\QueryCacheable;
 class Task extends Model
 {
     use CanBeLiked, QueryCacheable;
-    
+
     public $cacheFor = 3600;
     protected static $flushCacheOnUpdate = true;
     protected $fillable = [

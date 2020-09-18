@@ -2,9 +2,9 @@
 
 namespace App\Http\Livewire\Notification;
 
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
-use Carbon\Carbon;
 
 class Icon extends Component
 {
