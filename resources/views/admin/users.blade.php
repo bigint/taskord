@@ -29,7 +29,7 @@
                                 <th scope="col">Patron</th>
                                 <th scope="col">Last IP</th>
                                 <th scope="col">Via</th>
-                                <th scope="col">Last updated</th>
+                                <th scope="col">Last active</th>
                                 <th scope="col">More</th>
                             </tr>
                         </thead>
@@ -97,8 +97,12 @@
                                         <i class="fa fa-globe text-success"></i>
                                     @endif
                                 </td>
-                                <td title="{{ Carbon::parse($user->updated_at)->format('M d, Y g:i A') }}">
-                                    {{ Carbon::parse($user->updated_at)->diffForHumans() }}
+                                <td title="{{ Carbon::parse($user->last_active)->format('M d, Y g:i A') }}">
+                                    @if ($user->last_active)
+                                    {{ Carbon::parse($user->last_active)->diffForHumans() }}
+                                    @else
+                                    <span class="small font-weight-bold text-black-50">Not Set</span>
+                                    @endif
                                 </td>
                                 <td>
                                     <div class="dropdown">
