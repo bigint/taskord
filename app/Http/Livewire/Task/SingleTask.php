@@ -11,8 +11,8 @@ use GrahamCampbell\Throttle\Facades\Throttle;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\Storage;
-use Livewire\Component;
 use Illuminate\Support\Str;
+use Livewire\Component;
 
 class SingleTask extends Component
 {
@@ -159,13 +159,13 @@ class SingleTask extends Component
             'launched',
             'launch',
             'shipped',
-            'ship'
+            'ship',
         ];
         $this->launched = false;
-        if (Str::contains(strtolower($this->task->task), $launchList) and !!$this->task->done) {
+        if (Str::contains(strtolower($this->task->task), $launchList) and (bool) $this->task->done) {
             $this->launched = true;
         }
-    
+
         return view('livewire.task.single-task');
     }
 }
