@@ -57,9 +57,13 @@
         <span>
             {{ Emoji::rocket() }}
         </span>
+        @elseif ($bug)
+        <span>
+            {{ Emoji::bug() }}
+        </span>
         @endif
         @endif
-        <span class="ml-1 task-font {{ $launched ? 'font-weight-bold' : '' }}">
+        <span class="ml-1 task-font @if ($launched || $bug) font-weight-bold @endif @if ($launched) text-success @endif">
             {!! Purify::clean(Helper::renderTask($task->task)) !!}
             @if ($task->type === 'product')
             <span class="small text-black-50">
