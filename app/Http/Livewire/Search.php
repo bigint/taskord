@@ -27,7 +27,8 @@ class Search extends Component
 
     public function updatedQuery()
     {
-        $this->tasks = Task::select('id', 'task', 'done', 'user_id')
+        $this->tasks = Task::cacheFor(60 * 60)
+            ->select('id', 'task', 'done', 'user_id')
             ->whereHas('user', function ($q) {
                 $q->where([
                     ['isFlagged', false],
