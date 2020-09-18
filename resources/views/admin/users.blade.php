@@ -29,8 +29,8 @@
                                 <th scope="col">Patron</th>
                                 <th scope="col">Last IP</th>
                                 <th scope="col">Via</th>
-                                <th scope="col">Created</th>
                                 <th scope="col">Last updated</th>
+                                <th scope="col">More</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -97,14 +97,44 @@
                                         <i class="fa fa-globe text-success"></i>
                                     @endif
                                 </td>
-                                <td title="{{ Carbon::parse($user->created_at)->format('M d, Y g:i A') }}">
-                                    {{ Carbon::parse($user->created_at)->format('M d, Y') }}
-                                    @if ($user->created_at->diffInDays(Carbon::today()) < 7)
-                                        🆕
-                                    @endif
-                                </td>
                                 <td title="{{ Carbon::parse($user->updated_at)->format('M d, Y g:i A') }}">
                                     {{ Carbon::parse($user->updated_at)->diffForHumans() }}
+                                </td>
+                                <td>
+                                    <div class="dropdown">
+                                        <button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown">
+                                            More
+                                        </button>
+                                        <ul class="dropdown-menu">
+                                            <li>
+                                                <span class="dropdown-item">
+                                                    <i class="fa fa-check mr-1"></i>
+                                                    <span class="font-weight-bold">{{ $user->tasks()->count('id') }}</span> Tasks
+                                                </span>
+                                            </li>
+                                            <li>
+                                                <span class="dropdown-item">
+                                                    <i class="fa fa-bell mr-1"></i>
+                                                    <span class="font-weight-bold">{{ $user->notifications()->count('id') }}</span> Notifications
+                                                </span>
+                                            </li>
+                                            <li>
+                                                <span class="dropdown-item">
+                                                    <i class="fa fa-anchor mr-1"></i>
+                                                    <span class="font-weight-bold">{{ $user->webhooks()->count('id') }}</span> Webhooks
+                                                </span>
+                                            </li>
+                                            <li>
+                                                <span class="dropdown-item" title="{{ Carbon::parse($user->created_at)->format('M d, Y g:i A') }}">
+                                                    <i class="fa fa-calendar mr-1"></i>
+                                                    <span class="font-weight-bold">{{ Carbon::parse($user->created_at)->format('M d, Y') }}</span>
+                                                    @if ($user->created_at->diffInDays(Carbon::today()) < 7)
+                                                        🆕
+                                                    @endif
+                                                </span>
+                                            </li>
+                                        </ul>
+                                    </div>
                                 </td>
                             </tr>
                             @endforeach
