@@ -103,13 +103,14 @@
                         Todoist
                     </span>
                     <div class="h6 mt-3">
-                        Todoist is a cloud-based service, so all your tasks and notes sync automatically to any device on which you use the app. You can also use the app offline and have your changes sync later. It's available on every major platform, including Android, iOS, macOS, Windows, Android Wear, and Apple Watch.                    </div>
+                        Todoist is a cloud-based service, so all your tasks and notes sync automatically to any device on which you use the app. You can also use the app offline and have your changes sync later. It's available on every major platform, including Android, iOS, macOS, Windows, Android Wear, and Apple Watch.
+                    </div>
                     <div class="mt-2">
                         <a href="https://doist.grsm.io/yogi" target="_blank">➜ Go to Todoist</a>
                     </div>
                 </div>
             </div>
-            <div class="d-flex align-items-center">
+            <div class="d-flex align-items-center mb-5">
                 <div>
                     <img class="rounded avatar-150" src="https://i.imgur.com/VNRFI9v.jpg" />
                 </div>
@@ -118,9 +119,26 @@
                         Notion
                     </span>
                     <div class="h6 mt-3">
-                        Notion is an application that provides components such as databases, kanban boards, wikis, calendars and reminders. Users can connect these components to create their own systems for knowledge management, note taking, data management, project management, among others.                    </div>
+                        Notion is an application that provides components such as databases, kanban boards, wikis, calendars and reminders. Users can connect these components to create their own systems for knowledge management, note taking, data management, project management, among others.
+                    </div>
                     <div class="mt-2">
                         <a href="https://notion.so" target="_blank">➜ Go to Notion</a>
+                    </div>
+                </div>
+            </div>
+            <div class="d-flex align-items-center">
+                <div>
+                    <img class="rounded avatar-150" src="https://i.imgur.com/AUd0N20.jpg" />
+                </div>
+                <div class="ml-4">
+                    <span class="h5">
+                        UptimeRobot
+                    </span>
+                    <div class="h6 mt-3">
+                        Uptime Robot is a free tool used to monitor websites . It monitors your websites every 5 minutes and alerts you if your sites are down. It has free uptime monitoring service that supports multiple monitoring types (HTTP, keyword, ping and port).
+                    </div>
+                    <div class="mt-2">
+                        <a href="https://uptimerobot.com" target="_blank">➜ Go to UptimeRobot</a>
                     </div>
                 </div>
             </div>
