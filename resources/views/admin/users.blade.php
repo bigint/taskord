@@ -99,7 +99,11 @@
                                 </td>
                                 <td title="{{ Carbon::parse($user->last_active)->format('M d, Y g:i A') }}">
                                     @if ($user->last_active)
+                                    @if (strtotime(Carbon::now()) - strtotime($user->last_active) <= 5)
+                                    <span class="font-weight-bold text-success">active</span>
+                                    @else
                                     {{ Carbon::parse($user->last_active)->diffForHumans() }}
+                                    @endif
                                     @else
                                     <span class="small font-weight-bold text-black-50">Not Set</span>
                                     @endif
