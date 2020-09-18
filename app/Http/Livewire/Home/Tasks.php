@@ -40,7 +40,8 @@ class Tasks extends Component
                 ->orderBy('done_at', 'desc')
                 ->paginate(20, null, null, $this->page);
         } else {
-            $tasks = Task::select('id', 'task', 'done', 'type', 'done_at', 'user_id', 'product_id', 'source', 'image')
+            $tasks = Task::cacheFor(60 * 60)
+                ->select('id', 'task', 'done', 'type', 'done_at', 'user_id', 'product_id', 'source', 'image')
                 ->whereHas('user', function ($q) {
                     $q->where([
                         ['isFlagged', false],
