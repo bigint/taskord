@@ -22,7 +22,7 @@
                     $type === "App\Notifications\Subscribed" or
                     $type === "App\Notifications\Product\MemberAdded"
                 )
-                    {{ Emoji::plusSign() }}
+                    {{ Emoji::plus() }}
                 @elseif (
                     $type === "App\Notifications\Commented" or
                     $type === "App\Notifications\Answered"
