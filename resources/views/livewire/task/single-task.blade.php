@@ -42,11 +42,6 @@
             <i class="fa fa-globe text-info task-font"></i>
         </span>
         @else
-        @if ($launched)
-        <span>
-            {{ Emoji::rocket() }}
-        </span>
-        @else
         <input
             class="form-check-input"
             type="checkbox"
@@ -58,6 +53,10 @@
                 "enabled" : "disabled"
             }}
         />
+        @if ($launched)
+        <span>
+            {{ Emoji::rocket() }}
+        </span>
         @endif
         @endif
         <span class="ml-1 task-font {{ $launched ? 'font-weight-bold' : '' }}">
