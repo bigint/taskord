@@ -114,13 +114,31 @@
                                             </li>
                                             <li>
                                                 <span class="dropdown-item">
+                                                    <i class="fa fa-comment mr-1"></i>
+                                                    <span class="font-weight-bold">{{ $user->comment()->count('id') }}</span> Comments
+                                                </span>
+                                            </li>
+                                            <li>
+                                                <span class="dropdown-item">
+                                                    <i class="fa fa-question-circle mr-1"></i>
+                                                    <span class="font-weight-bold">{{ $user->questions()->count('id') }}</span> Questions
+                                                </span>
+                                            </li>
+                                            <li>
+                                                <span class="dropdown-item">
+                                                    <i class="fa fa-comments mr-1"></i>
+                                                    <span class="font-weight-bold">{{ $user->answers()->count('id') }}</span> Answers
+                                                </span>
+                                            </li>
+                                            <li>
+                                                <span class="dropdown-item">
                                                     <i class="fa fa-box-open mr-1"></i>
                                                     <span class="font-weight-bold">{{ $user->ownedProducts('id')->count() }}</span> Products
                                                 </span>
                                             </li>
                                             <li>
                                                 <span class="dropdown-item">
-                                                    <i class="fa fa-box-open mr-1"></i>
+                                                    <i class="fa fa-handshake mr-1"></i>
                                                     <span class="font-weight-bold">{{ $user->products()->count() }}</span> Membership
                                                 </span>
                                             </li>
