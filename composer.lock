@@ -4089,16 +4089,16 @@
         },
         {
             "name": "spatie/emoji",
-            "version": "2.1.3",
+            "version": "2.1.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/emoji.git",
-                "reference": "fe21670d82972488f860cf1a54a430803a272085"
+                "reference": "2a75998711ba0bd58a2f93f6df908a9e32dceb5e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/emoji/zipball/fe21670d82972488f860cf1a54a430803a272085",
-                "reference": "fe21670d82972488f860cf1a54a430803a272085",
+                "url": "https://api.github.com/repos/spatie/emoji/zipball/2a75998711ba0bd58a2f93f6df908a9e32dceb5e",
+                "reference": "2a75998711ba0bd58a2f93f6df908a9e32dceb5e",
                 "shasum": ""
             },
             "require": {
@@ -4137,7 +4137,7 @@
                 "emoji",
                 "spatie"
             ],
-            "time": "2020-09-16T08:28:31+00:00"
+            "time": "2020-09-18T06:37:07+00:00"
         },
         {
             "name": "spatie/laravel-backup",
