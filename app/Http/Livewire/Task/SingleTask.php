@@ -11,12 +11,16 @@ use GrahamCampbell\Throttle\Facades\Throttle;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 use Livewire\Component;
 
 class SingleTask extends Component
 {
     public $task;
     public $confirming;
+    public $launched;
+    public $bug;
+    public $learn;
 
     public function mount($task)
     {
@@ -153,6 +157,38 @@ class SingleTask extends Component
 
     public function render()
     {
+        $this->launched = false;
+        $this->bug = false;
+        $this->learn = false;
+        $launchList = [
+            'launched',
+            'launch',
+            'shipped',
+            'ship',
+        ];
+        if (Str::contains(strtolower($this->task->task), $launchList) and (bool) $this->task->done) {
+            $this->launched = true;
+        }
+
+        $bugList = [
+            'bug',
+            'fix',
+            'fixed',
+            'fixes',
+        ];
+        if (Str::contains(strtolower($this->task->task), $bugList) and (bool) $this->task->done) {
+            $this->bug = true;
+        }
+
+        $learnList = [
+            'learned',
+            'learning',
+            'learn',
+        ];
+        if (Str::contains(strtolower($this->task->task), $learnList) and (bool) $this->task->done) {
+            $this->learn = true;
+        }
+
         return view('livewire.task.single-task');
     }
 }

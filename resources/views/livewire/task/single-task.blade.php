@@ -28,16 +28,6 @@
             {{ !$task->done_at ? Carbon::parse($task->created_at)->diffForHumans() : Carbon::parse($task->done_at)->diffForHumans() }}
         </span>
     </div>
-    @php
-    $launchList = [
-        'launched',
-        'launch',
-    ];
-    $launched = false;
-    if (Str::contains(strtolower($task->task), $launchList) and !!$task->done) {
-        $launched = true;
-    }
-    @endphp
     <div class="mt-3 mb-1">
         @if ($task->source === 'GitLab')
         <span>
@@ -52,11 +42,6 @@
             <i class="fa fa-globe text-info task-font"></i>
         </span>
         @else
-        @if ($launched)
-        <span>
-            {{ Emoji::rocket() }}
-        </span>
-        @else
         <input
             class="form-check-input"
             type="checkbox"
@@ -68,9 +53,21 @@
                 "enabled" : "disabled"
             }}
         />
+        @if ($launched)
+        <span class="ml-1">
+            {{ Emoji::rocket() }}
+        </span>
+        @elseif ($bug)
+        <span class="ml-1">
+            {{ Emoji::bug() }}
+        </span>
+        @elseif ($learn)
+        <span class="ml-1">
+            {{ Emoji::greenBook() }}
+        </span>
         @endif
         @endif
-        <span class="ml-1 task-font {{ $launched ? 'font-weight-bold' : '' }}">
+        <span class="ml-1 task-font @if ($launched or $bug or $learn) font-weight-bold @endif @if ($launched) text-success @endif">
             {!! Purify::clean(Helper::renderTask($task->task)) !!}
             @if ($task->type === 'product')
             <span class="small text-black-50">
