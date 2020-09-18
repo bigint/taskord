@@ -54,16 +54,20 @@
             }}
         />
         @if ($launched)
-        <span>
+        <span class="ml-1">
             {{ Emoji::rocket() }}
         </span>
         @elseif ($bug)
-        <span>
+        <span class="ml-1">
             {{ Emoji::bug() }}
+        </span>
+        @elseif ($learn)
+        <span class="ml-1">
+            {{ Emoji::greenBook() }}
         </span>
         @endif
         @endif
-        <span class="ml-1 task-font @if ($launched || $bug) font-weight-bold @endif @if ($launched) text-success @endif">
+        <span class="ml-1 task-font @if ($launched or $bug or $learn) font-weight-bold @endif @if ($launched) text-success @endif">
             {!! Purify::clean(Helper::renderTask($task->task)) !!}
             @if ($task->type === 'product')
             <span class="small text-black-50">

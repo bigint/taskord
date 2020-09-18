@@ -20,6 +20,7 @@ class SingleTask extends Component
     public $confirming;
     public $launched;
     public $bug;
+    public $learn;
 
     public function mount($task)
     {
@@ -158,6 +159,7 @@ class SingleTask extends Component
     {
         $this->launched = false;
         $this->bug = false;
+        $this->learn = false;
         $launchList = [
             'launched',
             'launch',
@@ -167,9 +169,24 @@ class SingleTask extends Component
         if (Str::contains(strtolower($this->task->task), $launchList) and (bool) $this->task->done) {
             $this->launched = true;
         }
-
-        if (Str::contains(strtolower($this->task->task), 'bug') and (bool) $this->task->done) {
+        
+        $bugList = [
+            'bug',
+            'fix',
+            'fixed',
+            'fixes',
+        ];
+        if (Str::contains(strtolower($this->task->task), $bugList) and (bool) $this->task->done) {
             $this->bug = true;
+        }
+        
+        $learnList = [
+            'learned',
+            'learning',
+            'learn',
+        ];
+        if (Str::contains(strtolower($this->task->task), $learnList) and (bool) $this->task->done) {
+            $this->learn = true;
         }
 
         return view('livewire.task.single-task');
