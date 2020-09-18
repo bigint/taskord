@@ -28,16 +28,6 @@
             {{ !$task->done_at ? Carbon::parse($task->created_at)->diffForHumans() : Carbon::parse($task->done_at)->diffForHumans() }}
         </span>
     </div>
-    @php
-    $launchList = [
-        'launched',
-        'launch',
-    ];
-    $launched = false;
-    if (Str::contains(strtolower($task->task), $launchList) and !!$task->done) {
-        $launched = true;
-    }
-    @endphp
     <div class="mt-3 mb-1">
         @if ($task->source === 'GitLab')
         <span>

@@ -12,11 +12,13 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\Storage;
 use Livewire\Component;
+use Illuminate\Support\Str;
 
 class SingleTask extends Component
 {
     public $task;
     public $confirming;
+    public $launched;
 
     public function mount($task)
     {
@@ -153,6 +155,17 @@ class SingleTask extends Component
 
     public function render()
     {
+        $launchList = [
+            'launched',
+            'launch',
+            'shipped',
+            'ship'
+        ];
+        $this->launched = false;
+        if (Str::contains(strtolower($this->task->task), $launchList) and !!$this->task->done) {
+            $this->launched = true;
+        }
+    
         return view('livewire.task.single-task');
     }
 }
