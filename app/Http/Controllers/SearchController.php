@@ -18,7 +18,7 @@ class SearchController extends Controller
             number_format(Task::cacheFor(60 * 60)->count('id')).' tasks',
             number_format(Comment::cacheFor(60 * 60)->count('id')).' task comments',
             number_format(Question::cacheFor(60 * 60)->count('id')).' questions',
-            number_format(User::count('id')).' users',
+            number_format(User::cacheFor(60 * 60)->count('id')).' users',
             number_format(Product::cacheFor(60 * 60)->count('id')).' products',
         ];
 
@@ -169,7 +169,8 @@ class SearchController extends Controller
     {
         $searchTerm = $request->input('q');
         if ($searchTerm) {
-            $users = User::where('username', 'LIKE', '%'.$searchTerm.'%')
+            $users = User::cacheFor(60 * 60)
+                ->where('username', 'LIKE', '%'.$searchTerm.'%')
                 ->orWhere('firstname', 'LIKE', '%'.$searchTerm.'%')
                 ->orWhere('lastname', 'LIKE', '%'.$searchTerm.'%')
                 ->paginate(10)

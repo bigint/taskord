@@ -38,7 +38,8 @@ class Search extends Component
             ->where('task', 'LIKE', '%'.$this->query.'%')
             ->take(3)
             ->get();
-        $this->users = User::select('username', 'firstname', 'lastname', 'avatar', 'isFlagged')
+        $this->users = User::cacheFor(60 * 60)
+            ->select('username', 'firstname', 'lastname', 'avatar', 'isFlagged')
             ->where('username', 'LIKE', '%'.$this->query.'%')
             ->orWhere('firstname', 'LIKE', '%'.$this->query.'%')
             ->orWhere('lastname', 'LIKE', '%'.$this->query.'%')

@@ -18,7 +18,8 @@ class UserController extends Controller
 {
     public function profile($username)
     {
-        $user = User::select(
+        $user = User::cacheFor(60 * 60)
+            ->select(
                 'id',
                 'email',
                 'username',
@@ -183,7 +184,7 @@ class UserController extends Controller
 
     public function avatar($username)
     {
-        $avatar = User::where('username', $username)->first();
+        $avatar = User::cacheFor(60 * 60)->where('username', $username)->first();
 
         return redirect($avatar->avatar);
     }
