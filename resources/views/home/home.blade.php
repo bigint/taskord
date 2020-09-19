@@ -12,9 +12,9 @@
                 <div class="col-md-8">
                     @guest
                     <div class="p-5 rounded mb-4 text-white welcome-card">
-                        <h1>Welcome to Taskord</h1>
+                        <h1>Welcome to Taskord {{ Emoji::wavingHand() }}</h1>
                         <p class="lead">
-                            Taskord helps you stay social with your todolist, so you can get things done together.
+                            <span class="font-weight-bold">Don't fake just make!</span> Get things done in public with awesome community of makers.
                         </p>
                         <a class="btn btn-lg btn-light" href="/register" role="button">
                             Signup now
