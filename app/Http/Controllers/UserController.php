@@ -70,7 +70,8 @@ class UserController extends Controller
             'question_count' => Question::cacheFor(60 * 60)
                 ->where('user_id', $user->id)
                 ->count('id'),
-            'answer_count' => Answer::where('user_id', $user->id)
+            'answer_count' => Answer::cacheFor(60 * 60)
+                ->where('user_id', $user->id)
                 ->count('id'),
         ];
 

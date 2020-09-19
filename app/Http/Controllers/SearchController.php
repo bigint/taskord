@@ -114,11 +114,12 @@ class SearchController extends Controller
     {
         $searchTerm = $request->input('q');
         if ($searchTerm) {
-            $answers = Answer::whereHas('user', function ($q) {
-                $q->where([
-                    ['isFlagged', false],
-                ]);
-            })
+            $answers = Answer::cacheFor(60 * 60)
+                ->whereHas('user', function ($q) {
+                    $q->where([
+                        ['isFlagged', false],
+                    ]);
+                })
                 ->where('answer', 'LIKE', '%'.$searchTerm.'%')
                 ->paginate(10)
                 ->onEachSide(1);
