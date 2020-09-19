@@ -20,7 +20,7 @@
         "laravel/framework": "^8.0",
         "laravel/socialite": "^5.0",
         "laravel/tinker": "^2.0",
-        "laravel/ui": "^2.1",
+        "laravel/ui": "^3.0",
         "livewire/livewire": "^2.0",
         "multicaret/laravel-acquaintances": "^3.3",
         "nesbot/carbon": "^2.36",
