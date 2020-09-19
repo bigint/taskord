@@ -53,7 +53,7 @@ class Profile extends Component
     {
         if (Auth::check()) {
             $this->validate([
-                'avatar' => 'nullable|mimes:jpeg,jpg,png,gif|max:2048',
+                'avatar' => 'nullable|mimes:jpeg,jpg,png,gif|max:1024|dimensions:ratio=1',
             ]);
         } else {
             return session()->flash('error', 'Forbidden!');
@@ -70,7 +70,7 @@ class Profile extends Component
                     'bio' => 'nullable|max:1000',
                     'location' => 'nullable|max:30',
                     'company' => 'nullable|max:30',
-                    'avatar' => 'nullable|mimes:jpeg,jpg,png,gif|max:2048',
+                    'avatar' => 'nullable|mimes:jpeg,jpg,png,gif|max:1024|dimensions:ratio=1',
                 ]);
 
                 if ($this->avatar) {

@@ -27,7 +27,7 @@ class NewProduct extends Component
     {
         if (Auth::check()) {
             $this->validate([
-                'avatar' => 'nullable|mimes:jpeg,jpg,png,gif|max:2048',
+                'avatar' => 'nullable|mimes:jpeg,jpg,png,gif|max:1024|dimensions:ratio=1',
             ]);
         } else {
             return session()->flash('error', 'Forbidden!');
@@ -46,6 +46,7 @@ class NewProduct extends Component
                 'github' => 'nullable|alpha_dash|max:30',
                 'producthunt' => 'nullable|alpha_dash|max:30',
                 'sponsor' => 'nullable|active_url',
+                'avatar' => 'nullable|mimes:jpeg,jpg,png,gif|max:1024|dimensions:ratio=1',
             ]);
 
             if (! Auth::user()->hasVerifiedEmail()) {
