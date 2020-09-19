@@ -9,7 +9,8 @@ class QuestionController extends Controller
 {
     public function newest()
     {
-        $trending = Question::orderByViews()
+        $trending = Question::cacheFor(60 * 60)
+            ->orderByViews()
             ->has('answer')
             ->take(5)
             ->get()
@@ -25,7 +26,8 @@ class QuestionController extends Controller
 
     public function unanswered()
     {
-        $trending = Question::orderByViews()
+        $trending = Question::cacheFor(60 * 60)
+            ->orderByViews()
             ->has('answer')
             ->take(5)
             ->get()
@@ -41,7 +43,8 @@ class QuestionController extends Controller
 
     public function popular()
     {
-        $trending = Question::orderByViews()
+        $trending = Question::cacheFor(60 * 60)
+            ->orderByViews()
             ->has('answer')
             ->take(5)
             ->get()
@@ -57,7 +60,7 @@ class QuestionController extends Controller
 
     public function question($id)
     {
-        $question = Question::where('id', $id)->firstOrFail();
+        $question = Question::cacheFor(60 * 60)->where('id', $id)->firstOrFail();
         $response = [
             'type' => 'question.question',
             'question' => $question,

@@ -50,7 +50,8 @@ class Search extends Component
             ->orWhere('name', 'LIKE', '%'.$this->query.'%')
             ->take(3)
             ->get();
-        $this->questions = Question::select('id', 'title', 'user_id')
+        $this->questions = Question::cacheFor(60 * 60)
+            ->select('id', 'title', 'user_id')
             ->whereHas('user', function ($q) {
                 $q->where([
                     ['isFlagged', false],

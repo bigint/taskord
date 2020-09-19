@@ -64,9 +64,11 @@ class UserController extends Controller
             'pending_count' => Task::cacheFor(60 * 60)
                 ->where([['user_id', $user->id], ['done', false]])
                 ->count('id'),
-            'product_count' => Product::where('user_id', $user->id)
+            'product_count' => Product::cacheFor(60 * 60)
+                ->where('user_id', $user->id)
                 ->count('id'),
-            'question_count' => Question::where('user_id', $user->id)
+            'question_count' => Question::cacheFor(60 * 60)
+                ->where('user_id', $user->id)
                 ->count('id'),
             'answer_count' => Answer::where('user_id', $user->id)
                 ->count('id'),

@@ -6,11 +6,14 @@ use CyrildeWit\EloquentViewable\Contracts\Viewable;
 use CyrildeWit\EloquentViewable\InteractsWithViews;
 use Illuminate\Database\Eloquent\Model;
 use Multicaret\Acquaintances\Traits\CanBeLiked;
+use Rennokki\QueryCache\Traits\QueryCacheable;
 
 class Question extends Model implements Viewable
 {
-    use InteractsWithViews, CanBeLiked;
+    use InteractsWithViews, CanBeLiked, QueryCacheable;
 
+    public $cacheFor = 3600;
+    protected static $flushCacheOnUpdate = true;
     protected $fillable = [
         'user_id',
         'title',

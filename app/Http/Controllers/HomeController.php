@@ -33,7 +33,8 @@ class HomeController extends Controller
             ->orderBy('launched_at', 'DESC')
             ->take(6)
             ->get();
-        $recent_questions = Question::select('id', 'title', 'body', 'patronOnly', 'created_at', 'user_id')
+        $recent_questions = Question::cacheFor(60 * 60)
+            ->select('id', 'title', 'body', 'patronOnly', 'created_at', 'user_id')
             ->orderBy('created_at', 'DESC')
             ->take(5)
             ->get();
