@@ -17,6 +17,7 @@ class WebhookController extends Controller
     {
         $ignoreList = [
             'styleci',
+            'merge pull request'
         ];
 
         if (! Str::contains(strtolower($task), $ignoreList)) {
@@ -98,18 +99,14 @@ class WebhookController extends Controller
                         'message' => 'Bot cannot log tasks!',
                     ], 200);
                 }
-            }
-
-            if (count($request_body['commits']) === 0) {
+            } else {
                 return response()->json([
-                    'message' => 'Cannot log 0 commits to task!',
+                    'message' => 'Only push event is allowed!',
                 ], 200);
             }
 
-            if (count($request_body['commits']) === 1) {
-                $task = Str::limit($request_body['commits'][0]['message'], 100);
-            } else {
-                $task = 'Pushed '.count($request_body['commits']).' changes';
+            if ($request_body['head_commit']) {
+                $task = Str::limit($request_body['head_commit']['message'], 100);
             }
 
             $this->createTask(
