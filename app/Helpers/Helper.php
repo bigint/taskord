@@ -15,7 +15,7 @@ class Helper
 
     public static function renderTask($task)
     {
-        $reg_exUrl = "/(http|https|ftp|ftps)\:\/\/[a-zA-Z0-9\-\.]+\.[a-zA-Z]{2,3}(\/\S*)?/";
+        $reg_exUrl = "/(http|https|ftp|ftps)\:\/\/[a-zA-Z0-9\-\.]+\.[a-zA-Z]{2,100}(\/\S*)?/";
         $users = preg_replace('/@(\w+)/', '<a class="font-weight-bold" href="@$1">@$1</a>', $task);
         if (preg_match($reg_exUrl, $users, $url)) {
             $truncate = strlen($url[0]) > 30 ? substr($url[0], 0, 30).'...' : $url[0];
