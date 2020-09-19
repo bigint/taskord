@@ -116,6 +116,7 @@
                                 <li>Click "Add webhook" button</li>
                                 <li>In "Payload URL" paste the URL generated below</li>
                                 <li>In "Content type" select "application/json"</li>
+                                <li>Select only the push event</li>
                                 <li>Click "Add webhook" button to save</li>
                                 <li>Voila! 🎉</li>
                             </ol>
