@@ -41,13 +41,15 @@ class LoadMore extends Component
     {
         if ($this->loadMore) {
             if ($this->type === 'products.newest') {
-                $products = Product::orderBy('created_at', 'desc')
+                $products = Product::cacheFor(60 * 60)
+                    ->orderBy('created_at', 'desc')
                     ->get()
                     ->groupBy(function ($date) {
                         return Carbon::parse($date->created_at)->format('Y,W');
                     });
             } elseif ($this->type === 'products.launched') {
-                $products = Product::where('launched', true)
+                $products = Product::cacheFor(60 * 60)
+                    ->where('launched', true)
                     ->orderBy('created_at', 'desc')
                     ->get()
                     ->groupBy(function ($date) {

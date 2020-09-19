@@ -19,7 +19,7 @@ class SearchController extends Controller
             number_format(Comment::count('id')).' task comments',
             number_format(Question::count('id')).' questions',
             number_format(User::count('id')).' users',
-            number_format(Product::count('id')).' products',
+            number_format(Product::cacheFor(60 * 60)->count('id')).' products',
         ];
 
         return view('search.search', [
@@ -138,11 +138,12 @@ class SearchController extends Controller
     {
         $searchTerm = $request->input('q');
         if ($searchTerm) {
-            $products = Product::whereHas('owner', function ($q) {
-                $q->where([
-                    ['isFlagged', false],
-                ]);
-            })
+            $products = Product::cacheFor(60 * 60)
+                ->whereHas('owner', function ($q) {
+                    $q->where([
+                        ['isFlagged', false],
+                    ]);
+                })
                 ->where('slug', 'LIKE', '%'.$searchTerm.'%')
                 ->orWhere('name', 'LIKE', '%'.$searchTerm.'%')
                 ->paginate(10)

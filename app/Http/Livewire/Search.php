@@ -44,7 +44,8 @@ class Search extends Component
             ->orWhere('lastname', 'LIKE', '%'.$this->query.'%')
             ->take(3)
             ->get();
-        $this->products = Product::select('slug', 'name', 'avatar', 'user_id')
+        $this->products = Product::cacheFor(60 * 60)
+            ->select('slug', 'name', 'avatar', 'user_id')
             ->where('slug', 'LIKE', '%'.$this->query.'%')
             ->orWhere('name', 'LIKE', '%'.$this->query.'%')
             ->take(3)

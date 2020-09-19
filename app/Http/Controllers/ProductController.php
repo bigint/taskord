@@ -13,7 +13,7 @@ class ProductController extends Controller
 {
     public function profile($slug)
     {
-        $product = Product::where('slug', $slug)->firstOrFail();
+        $product = Product::cacheFor(60 * 60)->where('slug', $slug)->firstOrFail();
         $type = Route::current()->getName();
         $tasks = Task::cacheFor(60 * 60)
             ->where('product_id', $product->id)
@@ -80,7 +80,8 @@ class ProductController extends Controller
 
     public function newest()
     {
-        $products = Product::where('launched', true)
+        $products = Product::cacheFor(60 * 60)
+            ->where('launched', true)
             ->orderBy('created_at', 'DESC')
             ->take(10)
             ->get()
@@ -96,7 +97,8 @@ class ProductController extends Controller
 
     public function launched()
     {
-        $products = Product::where('launched', true)
+        $products = Product::cacheFor(60 * 60)
+            ->where('launched', true)
             ->orderBy('created_at', 'DESC')
             ->take(10)
             ->get()
