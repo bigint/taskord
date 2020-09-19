@@ -58,9 +58,11 @@ class UserController extends Controller
             'level' => $user->badges->sortBy(function ($post) {
                 return $post->pivot->created_at;
             }),
-            'done_count' => Task::where([['user_id', $user->id], ['done', true]])
+            'done_count' => Task::cacheFor(60 * 60)
+                ->where([['user_id', $user->id], ['done', true]])
                 ->count('id'),
-            'pending_count' => Task::where([['user_id', $user->id], ['done', false]])
+            'pending_count' => Task::cacheFor(60 * 60)
+                ->where([['user_id', $user->id], ['done', false]])
                 ->count('id'),
             'product_count' => Product::where('user_id', $user->id)
                 ->count('id'),

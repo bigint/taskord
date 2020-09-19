@@ -15,7 +15,7 @@ class SearchController extends Controller
     public function search()
     {
         $phrases = [
-            number_format(Task::count('id')).' tasks',
+            number_format(Task::cacheFor(60 * 60)->count('id')).' tasks',
             number_format(Comment::count('id')).' task comments',
             number_format(Question::count('id')).' questions',
             number_format(User::count('id')).' users',
@@ -31,12 +31,13 @@ class SearchController extends Controller
     {
         $searchTerm = $request->input('q');
         if ($searchTerm) {
-            $tasks = Task::whereHas('user', function ($q) {
-                $q->where([
-                    ['isFlagged', false],
-                    ['isPrivate', false],
-                ]);
-            })
+            $tasks = Task::cacheFor(60 * 60)
+                ->whereHas('user', function ($q) {
+                    $q->where([
+                        ['isFlagged', false],
+                        ['isPrivate', false],
+                    ]);
+                })
                 ->where('task', 'LIKE', '%'.$searchTerm.'%')
                 ->paginate(10)
                 ->onEachSide(1);

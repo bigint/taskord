@@ -15,7 +15,8 @@ class ProductController extends Controller
     {
         $product = Product::where('slug', $slug)->firstOrFail();
         $type = Route::current()->getName();
-        $tasks = Task::where('product_id', $product->id)
+        $tasks = Task::cacheFor(60 * 60)
+            ->where('product_id', $product->id)
             ->select('created_at')
             ->get()
             ->groupBy(function ($date) {
@@ -40,17 +41,19 @@ class ProductController extends Controller
         $members = $product->members->pluck('id');
         $members->push($product->owner->id);
 
-        $done_count = Task::where([
-            ['product_id', $product->id],
-            ['done', true],
-        ])
+        $done_count = Task::cacheFor(60 * 60)
+            ->where([
+                ['product_id', $product->id],
+                ['done', true],
+            ])
             ->whereIn('user_id', $members)
             ->count('id');
 
-        $pending_count = Task::where([
-            ['product_id', $product->id],
-            ['done', false],
-        ])
+        $pending_count = Task::cacheFor(60 * 60)
+            ->where([
+                ['product_id', $product->id],
+                ['done', false],
+            ])
             ->whereIn('user_id', $members)
             ->count('id');
 
