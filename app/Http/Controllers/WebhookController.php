@@ -17,7 +17,7 @@ class WebhookController extends Controller
     {
         $ignoreList = [
             'styleci',
-            'merge pull request'
+            'merge pull request',
         ];
 
         if (! Str::contains(strtolower($task), $ignoreList)) {
