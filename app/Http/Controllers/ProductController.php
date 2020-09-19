@@ -63,9 +63,10 @@ class ProductController extends Controller
             'graph' => $countArr,
             'done_count' => $done_count,
             'pending_count' => $pending_count,
-            'updates_count' => ProductUpdate::where([
-                ['product_id', $product->id],
-            ])
+            'updates_count' => ProductUpdate::cacheFor(60 * 60)
+                ->where([
+                    ['product_id', $product->id],
+                ])
                 ->count('id'),
         ];
 

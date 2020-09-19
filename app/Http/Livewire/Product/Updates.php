@@ -20,7 +20,8 @@ class Updates extends Component
 
     public function render()
     {
-        $updates = ProductUpdate::where('product_id', $this->product->id)
+        $updates = ProductUpdate::cacheFor(60 * 60)
+            ->where('product_id', $this->product->id)
             ->latest()
             ->paginate(20);
 
