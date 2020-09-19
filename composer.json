@@ -8,9 +8,8 @@
     ],
     "license": "MIT",
     "require": {
-        "php": "^7.2.5",
-        "albertcht/invisible-recaptcha": "^1.9",
-        "cyrildewit/eloquent-viewable": "^5.2",
+        "php": "^7.3",
+        "cyrildewit/eloquent-viewable": "dev-laravel-8-support",
         "fideloper/proxy": "^4.2",
         "fruitcake/laravel-cors": "^2.0",
         "graham-campbell/markdown": "^13.0",
@@ -18,7 +17,7 @@
         "grosv/laravel-passwordless-login": "^1.2",
         "guzzlehttp/guzzle": "^6.3",
         "laravel-notification-channels/telegram": "^0.5.0",
-        "laravel/framework": "^7.0",
+        "laravel/framework": "^8.0",
         "laravel/socialite": "^5.0",
         "laravel/tinker": "^2.0",
         "laravel/ui": "^2.1",
@@ -41,6 +40,12 @@
         "nunomaduro/collision": "^5.0",
         "phpunit/phpunit": "^9.2"
     },
+    "repositories": [
+        {
+            "url": "https://github.com/reliq/eloquent-viewable",
+            "type": "vcs"
+        }
+    ],
     "config": {
         "optimize-autoloader": true,
         "preferred-install": "dist",
