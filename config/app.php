@@ -179,7 +179,6 @@ return [
         Stevebauman\Purify\PurifyServiceProvider::class,
         QCod\Gamify\GamifyServiceProvider::class,
         CyrildeWit\EloquentViewable\EloquentViewableServiceProvider::class,
-        AlbertCht\InvisibleReCaptcha\InvisibleReCaptchaServiceProvider::class,
 
     ],
 
