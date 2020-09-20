@@ -8,6 +8,7 @@ use App\Models\Task;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
@@ -109,5 +110,21 @@ class ProductController extends Controller
             'type' => 'products.launched',
             'products' => $products,
         ]);
+    }
+    
+    public function mention(Request $request)
+    {
+        if ($request['query']) {
+            $users = Product::cacheFor(60 * 60)
+                ->select('slug', 'name', 'avatar')
+                ->where('slug', 'LIKE', '%'.$request['query'].'%')
+                ->orWhere('name', 'LIKE', '%'.$request['query'].'%')
+                ->take(10)
+                ->get();
+        } else {
+            $users = '';
+        }
+
+        return $users;
     }
 }
