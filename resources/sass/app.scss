@@ -307,6 +307,7 @@ input[type="date"]:valid:before {
     border: 1px solid #ced4da;
     border-radius: 3px;
     margin-top: 10px;
+    max-width: auto;
 }
 
 .tribute-container ul {
