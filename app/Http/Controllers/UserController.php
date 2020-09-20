@@ -192,7 +192,7 @@ class UserController extends Controller
     public function mention($username)
     {
         $users = User::cacheFor(60 * 60)
-            ->select('username', 'firstname', 'lastname')
+            ->select('username', 'firstname', 'lastname', 'avatar')
             ->where('username', 'LIKE', '%'.$username.'%')
             ->orWhere('firstname', 'LIKE', '%'.$username.'%')
             ->orWhere('lastname', 'LIKE', '%'.$username.'%')

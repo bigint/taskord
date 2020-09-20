@@ -2,6 +2,7 @@ require('./bootstrap');
 require('./shortcuts');
 import {isInViewport} from "observe-element-in-viewport";
 import lightbox from 'lightbox2/dist/js/lightbox';
+import Tribute from "tributejs";
 
 // Tribute
 var tribute = new Tribute({
@@ -9,7 +10,15 @@ var tribute = new Tribute({
     remoteSearch(text, users => cb(users));
   },
   lookup: 'username',
-  fillAttr: 'username'
+  fillAttr: 'username',
+  menuItemTemplate: function (item) {
+    const { avatar, username } = item.original;
+    return `
+      <span class="menu-item">
+        <img class="rounded-circle avatar-20 mr-2" src="${avatar}" />
+        <span>${username}</span>
+      </span>`
+  },
 });
 
 function remoteSearch(text, cb) {

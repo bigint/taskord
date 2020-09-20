@@ -222,8 +222,6 @@
 @livewireScripts
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js" defer></script>
 <script src="{{ asset('js/app.js') }}" defer></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tributejs/5.1.3/tribute.min.css" integrity="sha512-x3tME/kvJ3wzZ664qyANYueTLeJmRsoEbcIONhCei3DZJgNou8YwHos3ONthiwfzDvLE/H91ByIhSHVM10vS8g==" crossorigin="anonymous" />
-<script src="https://cdnjs.cloudflare.com/ajax/libs/tributejs/5.1.3/tribute.min.js" integrity="sha512-KJYWC7RKz/Abtsu1QXd7VJ1IJua7P7GTpl3IKUqfa21Otg2opvRYmkui/CXBC6qeDYCNlQZ7c+7JfDXnKdILUA==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/4f46a7856f.js" crossorigin="anonymous"></script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-178044316-1"></script>
 <script>
     window.dataLayer = window.dataLayer || [];
