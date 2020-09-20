@@ -17,7 +17,7 @@ var tribute = new Tribute({
       <span class="menu-item">
         <img class="rounded-circle avatar-20 mr-2" src="${avatar}" />
         <span>${username}</span>
-      </span>`
+      </span>`;
   },
 });
 
