@@ -9,11 +9,11 @@ use App\Notifications\TaskMentioned;
 use App\Notifications\TelegramLogger;
 use Carbon\Carbon;
 use GrahamCampbell\Throttle\Facades\Throttle;
+use Helper;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Request;
 use Livewire\Component;
 use Livewire\WithFileUploads;
-use Helper;
 
 class CreateTask extends Component
 {
@@ -88,7 +88,7 @@ class CreateTask extends Component
             } else {
                 $image = null;
             }
-            
+
             $product_id = Helper::getProductIDFromMention($this->task);
 
             $task = Task::create([
