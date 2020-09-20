@@ -82,9 +82,11 @@ class ProductController extends Controller
     public function newest()
     {
         $products = Product::cacheFor(60 * 60)
-            ->where('launched', true)
             ->take(10)
-            ->get();
+            ->get()
+            ->sortByDesc(function ($product) {
+                return $product->task->count('id');
+            });
 
         return view('products.newest', [
             'type' => 'products.newest',
@@ -95,7 +97,6 @@ class ProductController extends Controller
     public function launched()
     {
         $products = Product::cacheFor(60 * 60)
-            ->where('launched', true)
             ->take(10)
             ->get()
             ->sortByDesc(function ($product) {
