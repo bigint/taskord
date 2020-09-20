@@ -20,35 +20,31 @@ if ($user->lastname and $user->lastname) {
 <div class="container">
     @include('user.profile')
     <div class="row justify-content-center mt-4">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-8">
-                    @auth
-                    @if (Auth::id() === $user->id && !$user->isFlagged)
-                        @livewire('create-task', [
-                            'type' => 'user',
-                            'product_id' => null,
-                        ])
-                    @endif
-                    @endauth
-                    @if (
-                        !$user->isPrivate or
-                        Auth::id() === $user->id or
-                        Auth::check() && Auth::user()->staffShip
-                    )
-                    @livewire('user.tasks', [
-                        'type' => 'user.done',
-                        'user' => $user,
-                        'page' => 1,
-                        'perPage' => 3
-                    ])
-                    @else
-                    <x-empty icon="lock" text="All tasks are private" />
-                    @endif
-                </div>
-                @include('user.sidebar')
-            </div>
+        <div class="col-md-8">
+            @auth
+            @if (Auth::id() === $user->id && !$user->isFlagged)
+                @livewire('create-task', [
+                    'type' => 'user',
+                    'product_id' => null,
+                ])
+            @endif
+            @endauth
+            @if (
+                !$user->isPrivate or
+                Auth::id() === $user->id or
+                Auth::check() && Auth::user()->staffShip
+            )
+            @livewire('user.tasks', [
+                'type' => 'user.done',
+                'user' => $user,
+                'page' => 1,
+                'perPage' => 3
+            ])
+            @else
+            <x-empty icon="lock" text="All tasks are private" />
+            @endif
         </div>
+        @include('user.sidebar')
     </div>
 </div>
 @endsection

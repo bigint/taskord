@@ -3,9 +3,7 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="container">
-            404
-        </div>
+        404
     </div>
 </div>
 @endsection
