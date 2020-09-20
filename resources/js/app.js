@@ -19,7 +19,7 @@ var tribute = new Tribute({
     return `
     <span class="d-flex align-items-center">
       <img class="rounded-circle avatar-30" src="${avatar}" />
-      <span class="ml-2">
+      <span class="ml-3">
         <span class="font-weight-bold">
           ${firstname ? firstname : ''} ${lastname ? lastname : ''}
           ${isVerified ? '<i class="fa fa-check-circle ml-1 mr-1 text-primary"></i>' : ''}
