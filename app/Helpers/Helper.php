@@ -4,8 +4,8 @@
 
 namespace App\Helpers;
 
-use Carbon\Carbon;
 use App\Models\Product;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 
 class Helper
@@ -22,7 +22,7 @@ class Helper
 
         return $usernames;
     }
-    
+
     public static function getProductIDFromMention($string)
     {
         $mention = false;
@@ -54,7 +54,7 @@ class Helper
 
         return $product_id;
     }
-    
+
     public static function removeProtocol($url)
     {
         return trim(preg_replace('#^[^:/.]*[:/]+#i', '', $url), '/');

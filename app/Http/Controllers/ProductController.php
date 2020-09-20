@@ -6,9 +6,9 @@ use App\Models\Product;
 use App\Models\ProductUpdate;
 use App\Models\Task;
 use Carbon\Carbon;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
-use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
@@ -111,7 +111,7 @@ class ProductController extends Controller
             'products' => $products,
         ]);
     }
-    
+
     public function mention(Request $request)
     {
         if ($request['query']) {
