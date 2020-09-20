@@ -13,6 +13,7 @@ use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
@@ -189,15 +190,19 @@ class UserController extends Controller
         return redirect($avatar->avatar);
     }
 
-    public function mention($username)
+    public function mention(Request $request)
     {
-        $users = User::cacheFor(60 * 60)
-            ->select('username', 'firstname', 'lastname', 'avatar')
-            ->where('username', 'LIKE', '%'.$username.'%')
-            ->orWhere('firstname', 'LIKE', '%'.$username.'%')
-            ->orWhere('lastname', 'LIKE', '%'.$username.'%')
-            ->take(10)
-            ->get();
+        if ($request['query']) {
+            $users = User::cacheFor(60 * 60)
+                ->select('username', 'firstname', 'lastname', 'avatar')
+                ->where('username', 'LIKE', '%'.$request['query'].'%')
+                ->orWhere('firstname', 'LIKE', '%'.$request['query'].'%')
+                ->orWhere('lastname', 'LIKE', '%'.$request['query'].'%')
+                ->take(10)
+                ->get();
+        } else {
+            $users = '';
+        }
 
         return $users;
     }

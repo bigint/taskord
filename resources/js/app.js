@@ -35,7 +35,7 @@ function remoteSearch(text, cb) {
       }
     }
   };
-  xhr.open("GET", URL + "" + text, true);
+  xhr.open("GET", URL + "?query=" + text, true);
   xhr.send();
 }
 
