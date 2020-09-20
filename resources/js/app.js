@@ -15,16 +15,14 @@ var tribute = new Tribute({
     const { avatar, username, firstname, lastname } = item.original;
     return `
     <span class="d-flex align-items-center">
-      <img class="rounded-circle avatar-20 mr-2" src="${avatar}" />
+      <img class="rounded-circle avatar-20" src="${avatar}" />
       <span class="ml-3">
         <span class="font-weight-bold">
           ${firstname ? firstname : ''} ${lastname ? lastname : ''}
         </span>
-        <div>
-          <span class="small font-weight-normal">
-            @${username}
-          </span>
-        </div>
+        <span class="small font-weight-normal">
+          @${username}
+        </span>
       </span>
     </span>`;
   },
