@@ -22,7 +22,7 @@ var tribute = new Tribute({
         <span class="font-weight-bold">
           ${firstname ? firstname : ''} ${lastname ? lastname : ''}
         </span>
-        <span class="small font-weight-normal">
+        <span class="small text-black-50 font-weight-normal">
           @${username}
         </span>
       </span>

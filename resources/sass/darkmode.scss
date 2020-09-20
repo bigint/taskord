@@ -126,3 +126,20 @@ body {
 .modal-footer {
     border-top: 1px solid $border-bg;
 }
+
+.tribute-container {
+    background-color: $card-bg;
+    border: 1px solid $border-bg;
+}
+
+.tribute-container ul {
+    background: $border-bg;
+}
+
+.tribute-container li {
+    background: $card-bg;
+
+    &.highlight {
+        background: $border-bg;
+    }
+}
