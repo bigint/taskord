@@ -38,19 +38,6 @@ class CreateTask extends Component
         $this->image = '';
     }
 
-    public function getUserIDFromMention($string)
-    {
-        $mention = false;
-        preg_match_all("/(@\w+)/u", $string, $matches);
-        if ($matches) {
-            $mentionsArray = array_count_values($matches[0]);
-            $mention = array_keys($mentionsArray);
-        }
-        $usernames = str_replace('@', '', $mention);
-
-        return $usernames;
-    }
-
     public function checkState()
     {
         if (Auth::check()) {
@@ -94,7 +81,7 @@ class CreateTask extends Component
                 return session()->flash('error', 'Your account is flagged!');
             }
 
-            $users = $this->getUserIDFromMention($this->task);
+            $users = Helper::getUserIDFromMention($this->task);
 
             if ($this->image) {
                 $image = $this->image->store('photos');
