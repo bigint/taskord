@@ -313,4 +313,8 @@ input[type="date"]:valid:before {
     cursor: pointer;
     margin-bottom: 1px;
     background: white;
+
+    &.highlight {
+        background: #e9ecef;
+    }
 }
