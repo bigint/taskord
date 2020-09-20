@@ -107,7 +107,7 @@ class CreateTask extends Component
             }
 
             $users = $this->getUserIDFromMention($this->task);
-            $product = $this->getProductIDFromMention($this->task);
+            $products = $this->getProductIDFromMention($this->task);
 
             if ($this->image) {
                 $image = $this->image->store('photos');
@@ -123,9 +123,20 @@ class CreateTask extends Component
                 $done_at = null;
             }
             
-            if ($product) {
-                $product_id = Product::where('slug', $product[0])->first()->id;
-                $type = 'product';
+            if ($products) {
+                $product = Product::where('slug', $products[0])->first();
+                if ($product) {
+                    if ($product->user_id === Auth::id()) {
+                        $product_id = $product->id;
+                        $type = 'product';
+                    } else {
+                        $product_id = null;
+                        $type = 'user';
+                    }
+                } else {
+                    $product_id = null;
+                    $type = 'user';
+                }
             } else {
                 $product_id = null;
                 $type = 'user';
