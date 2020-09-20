@@ -105,12 +105,6 @@ class WebhookController extends Controller
                 ], 200);
             }
 
-            if ($request_body['head_commit'] === 'None') {
-                return response()->json([
-                    'message' => 'No commits found!',
-                ], 200);
-            }
-
             if ($request_body['head_commit']) {
                 $task = Str::limit($request_body['head_commit']['message'], 100);
             }
