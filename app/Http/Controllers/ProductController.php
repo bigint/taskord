@@ -83,7 +83,6 @@ class ProductController extends Controller
     {
         $products = Product::cacheFor(60 * 60)
             ->where('launched', true)
-            ->orderBy('created_at', 'DESC')
             ->take(10)
             ->get()
             ->sortByDesc(function ($product) {
@@ -100,7 +99,6 @@ class ProductController extends Controller
     {
         $products = Product::cacheFor(60 * 60)
             ->where('launched', true)
-            ->orderBy('created_at', 'DESC')
             ->take(10)
             ->get()
             ->sortByDesc(function ($product) {
