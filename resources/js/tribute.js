@@ -49,7 +49,7 @@ function getUsers(text, cb) {
   xhr.send();
 }
 
-userMention.attach(document.getElementById('mentionInput'));
+userMention.attach(document.querySelectorAll('.mentionInput'));
 
 // Products
 var productsMention = new Tribute({
@@ -99,4 +99,4 @@ function getProducts(text, cb) {
   xhr.send();
 }
 
-productsMention.attach(document.getElementById('mentionInput'));
+productsMention.attach(document.querySelectorAll('.mentionInput'));

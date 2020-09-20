@@ -10,7 +10,7 @@
                 </div>
             @enderror
             <div class="mb-3">
-                <textarea id="mentionInput" placeholder="Add a answer" class="form-control" rows="3" wire:model.lazy="answer"></textarea>
+                <textarea placeholder="Add a answer" class="form-control mentionInput" rows="3" wire:model.lazy="answer"></textarea>
             </div>
             <div class="h6 font-weight-bold mb-3">
                 <i class="fab fa-markdown mr-1"></i>
