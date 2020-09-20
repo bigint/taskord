@@ -12,12 +12,21 @@ var tribute = new Tribute({
   lookup: 'username',
   fillAttr: 'username',
   menuItemTemplate: function (item) {
-    const { avatar, username } = item.original;
+    const { avatar, username, firstname, lastname } = item.original;
     return `
-      <span class="menu-item">
-        <img class="rounded-circle avatar-20 mr-2" src="${avatar}" />
-        <span>${username}</span>
-      </span>`;
+    <span class="d-flex align-items-center">
+      <img class="rounded-circle avatar-20 mr-2" src="${avatar}" />
+      <span class="ml-3">
+        <span class="font-weight-bold">
+          ${firstname ? firstname : ''} ${lastname ? lastname : ''}
+        </span>
+        <div>
+          <span class="small font-weight-normal">
+            @${username}
+          </span>
+        </div>
+      </span>
+    </span>`;
   },
 });
 
