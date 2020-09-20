@@ -188,7 +188,7 @@ class UserController extends Controller
 
         return redirect($avatar->avatar);
     }
-    
+
     public function mention($username)
     {
         $users = User::cacheFor(60 * 60)
