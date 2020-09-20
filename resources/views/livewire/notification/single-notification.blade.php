@@ -55,14 +55,14 @@
                 <span class="align-middle">praised your task</span>
                 <div class="mt-2 body-font">
                     <a class="text-dark" href="{{ route('task', ['id' => $data['task_id']]) }}">
-                        {{ $data['task'] }}
+                        {!! Purify::clean(Helper::renderTask($data['task'])) !!}
                     </a>
                 </div>
             @elseif ($type === "App\Notifications\TaskMentioned")
                 <span class="align-middle">mentioned you in a task</span>
                 <div class="mt-2 body-font">
                     <a class="text-dark" href="{{ route('task', ['id' => $data['task_id']]) }}">
-                        {{ $data['task'] }}
+                        {!! Purify::clean(Helper::renderTask($data['task'])) !!}
                     </a>
                 </div>
             @elseif ($type === "App\Notifications\CommentPraised")
