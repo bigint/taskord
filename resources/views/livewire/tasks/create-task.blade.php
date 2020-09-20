@@ -11,7 +11,7 @@
             @enderror
             <form wire:submit.prevent="submit">
                 <div class="mb-3">
-                    <input id="mentionInput" type="text" class="form-control" placeholder="Add a Task" wire:model.defer="task" autocomplete="off">
+                    <input id="mentionInput" type="text" class="form-control" placeholder="Add a Task" wire:model.lazy="task" autocomplete="off">
                 </div>
                 <div class="d-flex justify-content-between">
                 <div class="form-file form-file-sm col-6 col-lg-3">
@@ -21,16 +21,6 @@
                         <span class="form-file-button">Browse</span>
                     </label>
                 </div>
-                @if (Auth::user()->ownedProducts->merge(Auth::user()->products)->count('id') > 0)
-                <div class="form-group w-25 ml-2 d-none d-sm-block">
-                    <select class="form-select form-select-sm" wire:model="product">
-                        <option selected>Choose Product</option>
-                        @foreach (Auth::user()->ownedProducts->merge(Auth::user()->products) as $product)
-                        <option value="{{ $product->id }}">{{ $product->name }}</option>
-                        @endforeach
-                    </select>
-                </div>
-                @endif
                 <div class="form-group ml-auto mr-2 d-none d-sm-block">
                     <input class="form-control form-control-sm" wire:model.defer="due_at" type="date" placeholder="Due date" min="{{ Carbon::today()->format('Y-m-d') }}" />
                 </div>

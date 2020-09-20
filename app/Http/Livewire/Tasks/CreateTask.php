@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Request;
 use Livewire\Component;
 use Livewire\WithFileUploads;
+use Helper;
 
 class CreateTask extends Component
 {
@@ -21,20 +22,6 @@ class CreateTask extends Component
     public $task;
     public $image;
     public $due_at;
-    public $product;
-
-    public function getUserIDFromMention($string)
-    {
-        $mention = false;
-        preg_match_all("/(@\w+)/u", $string, $matches);
-        if ($matches) {
-            $mentionsArray = array_count_values($matches[0]);
-            $mention = array_keys($mentionsArray);
-        }
-        $usernames = str_replace('@', '', $mention);
-
-        return $usernames;
-    }
 
     public function search($array, $key, $value)
     {
@@ -94,22 +81,24 @@ class CreateTask extends Component
                 return session()->flash('error', 'Your already posted this task, wait for sometime!');
             }
 
-            $users = $this->getUserIDFromMention($this->task);
+            $users = Helper::getUserIDFromMention($this->task);
 
             if ($this->image) {
                 $image = $this->image->store('photos');
             } else {
                 $image = null;
             }
+            
+            $product_id = Helper::getProductIDFromMention($this->task);
 
             $task = Task::create([
                 'user_id' =>  Auth::id(),
-                'product_id' =>  $this->product,
+                'product_id' =>  $product_id,
                 'task' => $this->task,
                 'done' => false,
                 'image' => $image,
                 'due_at' => $this->due_at,
-                'type' => $this->product ? 'product' : 'user',
+                'type' => $product_id ? 'product' : 'user',
                 'source' => 'Taskord for Web',
             ]);
 
