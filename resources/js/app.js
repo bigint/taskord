@@ -9,8 +9,8 @@ var tribute = new Tribute({
   values: function (text, cb) {
     remoteSearch(text, users => cb(users));
   },
-  lookup: function (person) {
-    return person.username + person.firstname + person.lastname;
+  lookup: function (user) {
+    return user.username + user.firstname + user.lastname;
   },
   fillAttr: 'username',
   menuItemTemplate: function (item) {
