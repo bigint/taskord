@@ -23,7 +23,7 @@ var tribute = new Tribute({
 
 function remoteSearch(text, cb) {
   console.log(text);
-  var URL = "http://dev.taskord.com:8000/mention/";
+  var URL = "mention/";
   var xhr = new XMLHttpRequest();
   xhr.onreadystatechange = function() {
     if (xhr.readyState === 4) {
