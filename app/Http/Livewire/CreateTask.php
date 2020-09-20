@@ -58,7 +58,7 @@ class CreateTask extends Component
             $mentionsArray = array_count_values($matches[0]);
             $mention = array_keys($mentionsArray);
         }
-        $products = str_replace('#', '', $mention)[0];
+        $products = str_replace('#', '', $mention);
 
         return $products;
     }
@@ -124,7 +124,7 @@ class CreateTask extends Component
             }
             
             if ($product) {
-                $product_id = Product::where('slug', $product)->first()->id;
+                $product_id = Product::where('slug', $product[0])->first()->id;
                 $type = 'product';
             } else {
                 $product_id = null;
