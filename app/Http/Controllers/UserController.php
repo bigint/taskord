@@ -188,6 +188,19 @@ class UserController extends Controller
 
         return redirect($avatar->avatar);
     }
+    
+    public function mention($username)
+    {
+        $users = User::cacheFor(60 * 60)
+            ->select('username', 'firstname', 'lastname')
+            ->where('username', 'LIKE', '%'.$username.'%')
+            ->orWhere('firstname', 'LIKE', '%'.$username.'%')
+            ->orWhere('lastname', 'LIKE', '%'.$username.'%')
+            ->take(10)
+            ->get();
+
+        return $users;
+    }
 
     public function darkMode()
     {

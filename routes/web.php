@@ -67,6 +67,9 @@ Route::group(['prefix' => 'notifications', 'as' => 'notifications.', 'middleware
 // Suspended
 Route::get('suspended', [UserController::class, 'suspended'])->name('suspended');
 
+// Mention
+Route::get('mention/{username}', [UserController::class, 'mention']);
+
 // Avatar
 Route::get('avatar/{username}.png', [UserController::class, 'avatar'])->name('avatar');
 

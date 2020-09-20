@@ -3,6 +3,35 @@ require('./shortcuts');
 import {isInViewport} from "observe-element-in-viewport";
 import lightbox from 'lightbox2/dist/js/lightbox';
 
+// Tribute
+var tribute = new Tribute({
+  values: function (text, cb) {
+    remoteSearch(text, users => cb(users));
+  },
+  lookup: 'username',
+  fillAttr: 'username'
+});
+
+function remoteSearch(text, cb) {
+  console.log(text);
+  var URL = "http://dev.taskord.com:8000/mention/";
+  var xhr = new XMLHttpRequest();
+  xhr.onreadystatechange = function() {
+    if (xhr.readyState === 4) {
+      if (xhr.status === 200) {
+        var data = JSON.parse(xhr.responseText);
+        cb(data);
+      } else if (xhr.status === 403) {
+        cb([]);
+      }
+    }
+  };
+  xhr.open("GET", URL + "" + text, true);
+  xhr.send();
+}
+
+tribute.attach(document.getElementById('taskInput'));
+
 window.lightbox = lightbox;
 window.lightbox.option({
   disableScrolling: true,
