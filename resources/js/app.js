@@ -7,7 +7,7 @@ import Tribute from "tributejs";
 // Tribute
 var tribute = new Tribute({
   values: function (text, cb) {
-    remoteSearch(text, users => cb(users));
+    getUsers(text, users => cb(users));
   },
   lookup: function (user) {
     return user.username + user.firstname + user.lastname;
@@ -34,7 +34,7 @@ var tribute = new Tribute({
   },
 });
 
-function remoteSearch(text, cb) {
+function getUsers(text, cb) {
   var URL = "/mention";
   var xhr = new XMLHttpRequest();
   xhr.onreadystatechange = function() {
