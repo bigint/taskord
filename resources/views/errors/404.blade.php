@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        404
+        <img class="w-25" src="/images/404.svg" />
     </div>
 </div>
 @endsection
