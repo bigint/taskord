@@ -78,7 +78,7 @@ var productsMention = new Tribute({
     </span>`;
   },
   noMatchTemplate: function () {
-    return '<li>No users Found!</li>';
+    return '<li>No products Found!</li>';
   },
 });
 

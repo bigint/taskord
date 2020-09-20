@@ -5,6 +5,7 @@ namespace App\Http\Livewire;
 use App\Gamify\Points\TaskCreated;
 use App\Models\Task;
 use App\Models\User;
+use App\Models\Product;
 use App\Notifications\TaskMentioned;
 use App\Notifications\TelegramLogger;
 use Carbon\Carbon;
@@ -47,6 +48,19 @@ class CreateTask extends Component
         $usernames = str_replace('@', '', $mention);
 
         return $usernames;
+    }
+    
+    public function getProductIDFromMention($string)
+    {
+        $mention = false;
+        preg_match_all("/(#\w+)/u", $string, $matches);
+        if ($matches) {
+            $mentionsArray = array_count_values($matches[0]);
+            $mention = array_keys($mentionsArray);
+        }
+        $products = str_replace('#', '', $mention)[0];
+
+        return $products;
     }
 
     public function checkState()
@@ -93,6 +107,7 @@ class CreateTask extends Component
             }
 
             $users = $this->getUserIDFromMention($this->task);
+            $product = $this->getProductIDFromMention($this->task);
 
             if ($this->image) {
                 $image = $this->image->store('photos');
@@ -107,16 +122,24 @@ class CreateTask extends Component
             } else {
                 $done_at = null;
             }
-
+            
+            if ($product) {
+                $product_id = Product::where('slug', $product)->first()->id;
+                $type = 'product';
+            } else {
+                $product_id = null;
+                $type = 'user';
+            }
+            
             $task = Task::create([
                 'user_id' =>  Auth::id(),
-                'product_id' =>  $this->product_id,
+                'product_id' =>  $product_id,
                 'task' => $this->task,
                 'done' => $state,
                 'done_at' => $done_at,
                 'image' => $image,
                 'due_at' => $this->due_at,
-                'type' => $this->type,
+                'type' => $type,
                 'source' => 'Taskord for Web',
             ]);
 
