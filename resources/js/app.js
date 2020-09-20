@@ -28,6 +28,9 @@ var tribute = new Tribute({
       </span>
     </span>`;
   },
+  noMatchTemplate: function () {
+    return '<li>No users Found!</li>';
+  },
 });
 
 function remoteSearch(text, cb) {
