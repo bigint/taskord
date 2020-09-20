@@ -13,6 +13,7 @@ var tribute = new Tribute({
     return user.username + user.firstname + user.lastname;
   },
   fillAttr: 'username',
+  menuShowMinLength: 1,
   menuItemTemplate: function (item) {
     const { avatar, username, firstname, lastname } = item.original;
     return `
@@ -34,7 +35,6 @@ var tribute = new Tribute({
 });
 
 function remoteSearch(text, cb) {
-  console.log(text);
   var URL = "/mention";
   var xhr = new XMLHttpRequest();
   xhr.onreadystatechange = function() {
