@@ -15,13 +15,14 @@ var tribute = new Tribute({
   fillAttr: 'username',
   menuShowMinLength: 1,
   menuItemTemplate: function (item) {
-    const { avatar, username, firstname, lastname } = item.original;
+    const { avatar, username, firstname, lastname, isVerified } = item.original;
     return `
     <span class="d-flex align-items-center">
       <img class="rounded-circle avatar-20" src="${avatar}" />
       <span class="ml-3">
         <span class="font-weight-bold">
           ${firstname ? firstname : ''} ${lastname ? lastname : ''}
+          ${isVerified ? '<i class="fa fa-check-circle ml-1 mr-1 text-primary"></i>' : ''}
         </span>
         <span class="small text-black-50 font-weight-normal">
           @${username}

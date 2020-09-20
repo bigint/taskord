@@ -194,7 +194,7 @@ class UserController extends Controller
     {
         if ($request['query']) {
             $users = User::cacheFor(60 * 60)
-                ->select('username', 'firstname', 'lastname', 'avatar')
+                ->select('username', 'firstname', 'lastname', 'avatar', 'isVerified')
                 ->where('username', 'LIKE', '%'.$request['query'].'%')
                 ->orWhere('firstname', 'LIKE', '%'.$request['query'].'%')
                 ->orWhere('lastname', 'LIKE', '%'.$request['query'].'%')
