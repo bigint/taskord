@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Request;
 use Livewire\Component;
 use Livewire\WithFileUploads;
+use Helper;
 
 class CreateTask extends Component
 {
@@ -48,19 +49,6 @@ class CreateTask extends Component
         $usernames = str_replace('@', '', $mention);
 
         return $usernames;
-    }
-    
-    public function getProductIDFromMention($string)
-    {
-        $mention = false;
-        preg_match_all("/(#\w+)/u", $string, $matches);
-        if ($matches) {
-            $mentionsArray = array_count_values($matches[0]);
-            $mention = array_keys($mentionsArray);
-        }
-        $products = str_replace('#', '', $mention);
-
-        return $products;
     }
 
     public function checkState()
@@ -107,7 +95,6 @@ class CreateTask extends Component
             }
 
             $users = $this->getUserIDFromMention($this->task);
-            $products = $this->getProductIDFromMention($this->task);
 
             if ($this->image) {
                 $image = $this->image->store('photos');
@@ -123,25 +110,8 @@ class CreateTask extends Component
                 $done_at = null;
             }
             
-            if ($products) {
-                $product = Product::where('slug', $products[0])->first();
-                if ($product) {
-                    if ($product->user_id === Auth::id()) {
-                        $product_id = $product->id;
-                        $type = 'product';
-                    } else {
-                        $product_id = null;
-                        $type = 'user';
-                    }
-                } else {
-                    $product_id = null;
-                    $type = 'user';
-                }
-            } else {
-                $product_id = null;
-                $type = 'user';
-            }
-            
+            $product_id = Helper::getProductIDFromMention($this->task);
+
             $task = Task::create([
                 'user_id' =>  Auth::id(),
                 'product_id' =>  $product_id,
@@ -150,7 +120,7 @@ class CreateTask extends Component
                 'done_at' => $done_at,
                 'image' => $image,
                 'due_at' => $this->due_at,
-                'type' => $type,
+                'type' => $product_id ? 'product' : 'user',
                 'source' => 'Taskord for Web',
             ]);
 

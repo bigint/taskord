@@ -5,9 +5,43 @@
 namespace App\Helpers;
 
 use Carbon\Carbon;
+use App\Models\Product;
+use Illuminate\Support\Facades\Auth;
 
 class Helper
 {
+    public static function getProductIDFromMention($string)
+    {
+        $mention = false;
+        preg_match_all("/(#\w+)/u", $string, $matches);
+        if ($matches) {
+            $mentionsArray = array_count_values($matches[0]);
+            $mention = array_keys($mentionsArray);
+        }
+        $products = str_replace('#', '', $mention);
+
+        if ($products) {
+            $product = Product::where('slug', $products[0])->first();
+            if ($product) {
+                if ($product->user_id === Auth::id()) {
+                    $product_id = $product->id;
+                    $type = 'product';
+                } else {
+                    $product_id = null;
+                    $type = 'user';
+                }
+            } else {
+                $product_id = null;
+                $type = 'user';
+            }
+        } else {
+            $product_id = null;
+            $type = 'user';
+        }
+
+        return $product_id;
+    }
+    
     public static function removeProtocol($url)
     {
         return trim(preg_replace('#^[^:/.]*[:/]+#i', '', $url), '/');
