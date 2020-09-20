@@ -104,8 +104,8 @@ class WebhookController extends Controller
                     'message' => 'Only push event is allowed!',
                 ], 200);
             }
-            
-            if ($request_body['head_commit'] === "None") {
+
+            if ($request_body['head_commit'] === 'None') {
                 return response()->json([
                     'message' => 'No commits found!',
                 ], 200);
