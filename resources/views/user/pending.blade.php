@@ -24,10 +24,7 @@ if ($user->lastname and $user->lastname) {
         <div class="col-md-8">
             @auth
             @if (Auth::id() === $user->id && !$user->isFlagged)
-                @livewire('create-task', [
-                    'type' => 'user',
-                    'product_id' => null,
-                ])
+                @livewire('create-task')
             @endif
             @endauth
             @if (

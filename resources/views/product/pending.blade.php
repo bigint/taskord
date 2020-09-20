@@ -17,10 +17,7 @@
                 $product->members->contains(Auth::id()) &&
                 !$product->owner->isFlagged
             )
-                @livewire('create-task', [
-                    'type' => 'product',
-                    'product_id' => $product->id,
-                ])
+                @livewire('create-task')
             @endif
             @endauth
             @livewire('product.tasks', [

@@ -22,15 +22,7 @@ class CreateTask extends Component
 
     public $task;
     public $image;
-    public $type;
-    public $product_id;
     public $due_at;
-
-    public function mount($type, $product_id)
-    {
-        $this->type = $type;
-        $this->product_id = $product_id;
-    }
 
     private function resetInputFields()
     {
