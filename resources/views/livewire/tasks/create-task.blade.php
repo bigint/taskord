@@ -11,7 +11,7 @@
             @enderror
             <form wire:submit.prevent="submit">
                 <div class="mb-3">
-                    <input id="taskInput" type="text" class="form-control" placeholder="Add a Task" wire:model.defer="task">
+                    <input id="mentionInput" type="text" class="form-control" placeholder="Add a Task" wire:model.defer="task">
                 </div>
                 <div class="d-flex justify-content-between">
                 <div class="form-file form-file-sm col-6 col-lg-3">

@@ -23,7 +23,7 @@ var tribute = new Tribute({
 
 function remoteSearch(text, cb) {
   console.log(text);
-  var URL = "mention/";
+  var URL = "/mention";
   var xhr = new XMLHttpRequest();
   xhr.onreadystatechange = function() {
     if (xhr.readyState === 4) {
@@ -39,7 +39,7 @@ function remoteSearch(text, cb) {
   xhr.send();
 }
 
-tribute.attach(document.getElementById('taskInput'));
+tribute.attach(document.getElementById('mentionInput'));
 
 window.lightbox = lightbox;
 window.lightbox.option({
