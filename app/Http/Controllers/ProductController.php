@@ -83,6 +83,7 @@ class ProductController extends Controller
     {
         $products = Product::cacheFor(60 * 60)
             ->where('launched', true)
+            ->take(10)
             ->get();
 
         return view('products.newest', [
