@@ -130,7 +130,7 @@
             @elseif ($type === "App\Notifications\Answered")
                 <span class="align-middle">
                     answered to your
-                    <a class="font-weight-bold" href="{{ route('uestion.question', ['id' => $data['question_id']]) }}">
+                    <a class="font-weight-bold" href="{{ route('question.question', ['id' => $data['question_id']]) }}">
                         question
                     </a>
                 </span>
