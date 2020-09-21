@@ -165,8 +165,7 @@
                                             <li>
                                                 <span class="dropdown-item" title="{{ Carbon::parse($user->updated_at)->format('M d, Y g:i A') }}">
                                                     <i class="fa fa-calendar mr-1"></i>
-                                                    <span class="font-weight-bold">{{ Carbon::parse($user->created_at)->format('M d, Y') }}</span>
-                                                    {{ Carbon::parse($user->updated_at)->diffForHumans() }}
+                                                    <span class="font-weight-bold">{{ Carbon::parse($user->updated_at)->format('M d, Y') }}</span>
                                                 </span>
                                             </li>
                                             <li>
