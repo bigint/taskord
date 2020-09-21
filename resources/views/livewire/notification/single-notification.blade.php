@@ -52,11 +52,14 @@
                 @endif
             </span>
             @if ($type === "App\Notifications\TaskPraised")
-                <span class="align-middle">praised your task</span>
-                <div class="mt-2 body-font">
-                    <a class="text-dark" href="{{ route('task', ['id' => $data['task_id']]) }}">
-                        {!! Purify::clean(Helper::renderTask($data['task'])) !!}
+                <span class="align-middle">
+                    praised your
+                    <a class="font-weight-bold" href="{{ route('task', ['id' => $data['task_id']]) }}">
+                        task
                     </a>
+                </span>
+                <div class="mt-2 body-font">
+                    {!! Purify::clean(Helper::renderTask($data['task'])) !!}
                 </div>
             @elseif ($type === "App\Notifications\Mentioned")
                 @if ($data['body_type'] === 'task')
@@ -85,39 +88,54 @@
                     {!! Purify::clean(Helper::renderTask($data['body'])) !!}
                 </div>
             @elseif ($type === "App\Notifications\CommentPraised")
-                <span class="align-middle">praised your task comment</span>
-                <div class="mt-2 body-font">
-                    <a class="text-dark" href="{{ route('task', ['id' => $data['task_id']]) }}">
-                        {!! nl2br(Purify::clean(Helper::renderTask($data['comment']))) !!}
+                <span class="align-middle">
+                    praised your
+                    <a class="font-weight-bold" href="{{ route('task', ['id' => $data['task_id']]) }}">
+                        comment
                     </a>
+                </span>
+                <div class="mt-2 body-font">
+                    {!! nl2br(Purify::clean(Helper::renderTask($data['comment']))) !!}
                 </div>
             @elseif ($type === "App\Notifications\QuestionPraised")
-                <span class="align-middle">praised your question</span>
-                <div class="mt-2 body-font">
-                    <a class="text-dark" href="{{ route('question.question', ['id' => $data['question_id']]) }}">
-                        @markdown($data['question'])
+                <span class="align-middle">
+                    praised your
+                    <a class="font-weight-bold" href="{{ route('question.question', ['id' => $data['question_id']]) }}">
+                        question
                     </a>
+                </span>
+                <div class="mt-2 body-font">
+                    @markdown($data['question'])
                 </div>
             @elseif ($type === "App\Notifications\AnswerPraised")
-                <span class="align-middle">praised your answer</span>
-                <div class="mt-2 body-font">
-                    <a class="text-dark" href="{{ route('question.question', ['id' => $data['question_id']]) }}">
-                        {!! nl2br(Purify::clean(Helper::renderTask($data['answer']))) !!}
+                <span class="align-middle">
+                    praised your
+                    <a class="font-weight-bold" href="{{ route('question.question', ['id' => $data['question_id']]) }}">
+                        answer
                     </a>
+                </span>
+                <div class="mt-2 body-font">
+                    {!! nl2br(Purify::clean(Helper::renderTask($data['answer']))) !!}
                 </div>
             @elseif ($type === "App\Notifications\Commented")
-                <span class="align-middle">commented on your task</span>
-                <div class="mt-2 body-font">
-                    <a class="text-dark" href="{{ route('task', ['id' => $data['task_id']]) }}">
-                        {!! nl2br(Purify::clean(Helper::renderTask($data['comment']))) !!}
+                <span class="align-middle">
+                    commented on your
+                    <a class="font-weight-bold" href="{{ route('task', ['id' => $data['task_id']]) }}">
+                        task
                     </a>
+                </span>
+                <div class="mt-2 body-font">
+                    {!! nl2br(Purify::clean(Helper::renderTask($data['comment']))) !!}
                 </div>
             @elseif ($type === "App\Notifications\Answered")
-                <span class="align-middle">answered to your question</span>
-                <div class="mt-2 body-font">
-                    <a class="text-dark" href="{{ route('question.question', ['id' => $data['question_id']]) }}">
-                        {!! nl2br(Purify::clean(Helper::renderTask($data['answer']))) !!}
+                <span class="align-middle">
+                    answered to your
+                    <a class="font-weight-bold" href="{{ route('uestion.question', ['id' => $data['question_id']]) }}">
+                        question
                     </a>
+                </span>
+                <div class="mt-2 body-font">
+                    {!! nl2br(Purify::clean(Helper::renderTask($data['answer']))) !!}
                 </div>
             @elseif ($type === "App\Notifications\Followed")
                 <span class="align-middle">followed you</span>
