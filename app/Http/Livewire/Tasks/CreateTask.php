@@ -23,23 +23,6 @@ class CreateTask extends Component
     public $image;
     public $due_at;
 
-    public function search($array, $key, $value)
-    {
-        $results = [];
-
-        if (is_array($array)) {
-            if (isset($array[$key]) && strtolower($array[$key]) == $value) {
-                $results[] = $array;
-            }
-
-            foreach ($array as $subarray) {
-                $results = array_merge($results, $this->search($subarray, $key, $value));
-            }
-        }
-
-        return $results;
-    }
-
     public function updatedImage()
     {
         if (Auth::check()) {
@@ -77,9 +60,6 @@ class CreateTask extends Component
                 ->select('task', 'created_at')
                 ->where('created_at', '>', Carbon::now()->subMinutes(3)->toDateTimeString())
                 ->latest()->get()->toArray();
-            if (count($this->search($check_time, 'task', strtolower($this->task))) > 0) {
-                return session()->flash('error', 'Your already posted this task, wait for sometime!');
-            }
 
             $users = Helper::getUserIDFromMention($this->task);
 
@@ -101,19 +81,7 @@ class CreateTask extends Component
                 'type' => $product_id ? 'product' : 'user',
                 'source' => 'Taskord for Web',
             ]);
-
-            if ($users) {
-                $ids = [];
-                for ($i = 0; $i < count($users); $i++) {
-                    $user = User::where('username', $users[$i])->first();
-                    if ($user !== null) {
-                        if ($user->id !== Auth::id()) {
-                            $user->notify(new TaskMentioned($task));
-                        }
-                    }
-                }
-            }
-
+            Helper::mentionUsers($users, $task, 'task');
             $this->emit('taskAdded');
             $this->reset();
             givePoint(new TaskCreated($task));
