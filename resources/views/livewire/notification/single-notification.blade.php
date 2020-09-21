@@ -60,16 +60,29 @@
                 </div>
             @elseif ($type === "App\Notifications\Mentioned")
                 @if ($data['body_type'] === 'task')
-                <span class="align-middle">mentioned you in a task</span>
+                <span class="align-middle">
+                    mentioned you in a
+                    <a class="font-weight-bold" href="{{ route('task', ['id' => $data['body_id']]) }}">
+                        task
+                    </a>
+                </span>
                 @elseif ($data['body_type'] === 'comment')
-                <span class="align-middle">mentioned you in a comment</span>
+                <span class="align-middle">
+                    mentioned you in a
+                    <a class="font-weight-bold" href="{{ route('task', ['id' => $data['body_id']]) }}">
+                        comment
+                    </a>
+                </span>
                 @elseif ($data['body_type'] === 'answer')
-                <span class="align-middle">mentioned you in an answer</span>
+                <span class="align-middle">
+                    mentioned you in an
+                    <a class="font-weight-bold" href="{{ route('question.question', ['id' => $data['body_id']]) }}">
+                        answer
+                    </a>
+                </span>
                 @endif
                 <div class="mt-2 body-font">
-                    <a class="text-dark" href="{{ route('task', ['id' => $data['body_id']]) }}">
-                        {!! Purify::clean(Helper::renderTask($data['body'])) !!}
-                    </a>
+                    {!! Purify::clean(Helper::renderTask($data['body'])) !!}
                 </div>
             @elseif ($type === "App\Notifications\CommentPraised")
                 <span class="align-middle">praised your task comment</span>
