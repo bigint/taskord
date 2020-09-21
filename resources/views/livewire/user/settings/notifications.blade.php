@@ -6,17 +6,17 @@
         </div>
         <ul class="list-group list-group-flush">
             <li class="list-group-item pt-3 pb-3">
-                <div class="h5">Task Mentions</div>
-                <span class="small">Notifications for the tasks if someone cites you with an @mention.</span>
+                <div class="h5">Mentions</div>
+                <span class="small">Notifications for the tasks, questions and comment if someone cites you with an @mention.</span>
                 <div class="mt-3">
                     <span>
-                        <input wire:click="taskMentionedEmail" id="taskMentionedEmail" class="form-check-input" type="checkbox" {{ $user->taskMentionedEmail ? 'checked' : '' }}>
-                        <label for="taskMentionedEmail" class="ml-1">Email</label>
+                        <input wire:click="mentionsEmail" id="mentionsEmail" class="form-check-input" type="checkbox" {{ $user->taskMentionedEmail ? 'checked' : '' }}>
+                        <label for="mentionsEmail" class="ml-1">Email</label>
                     </span>
                     <span class="ml-4">
-                        <input wire:click="taskMentionedWeb" id="taskMentionedWeb" class="form-check-input" type="checkbox" {{ $user->taskMentionedWeb ? 'checked' : '' }}>
-                        <label for="taskMentionedWeb" class="ml-1">Web</label>
-                        <span wire:loading wire:target="taskMentionedEmail, taskMentionedWeb" class="small ml-2 text-success font-weight-bold">Updating...</span>
+                        <input wire:click="mentionsWeb" id="mentionsWeb" class="form-check-input" type="checkbox" {{ $user->taskMentionedWeb ? 'checked' : '' }}>
+                        <label for="mentionsWeb" class="ml-1">Web</label>
+                        <span wire:loading wire:target="mentionsEmail, mentionsWeb" class="small ml-2 text-success font-weight-bold">Updating...</span>
                     </span>
                 </div>
             </li>

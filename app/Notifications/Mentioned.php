@@ -59,7 +59,7 @@ class Mentioned extends Notification implements ShouldQueue
                     ->greeting('Hello @'.$notifiable->username.' 👋')
                     ->line('@'.$this->body->user->username.' mentioned your in an answer.')
                     ->line($this->body->answer)
-                    ->action('Go to Task', url('/question/'.$this->body->question->id))
+                    ->action('Go to Question', url('/question/'.$this->body->question->id))
                     ->line('Thank you for using Taskord!');
         }
     }

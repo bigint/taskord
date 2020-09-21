@@ -14,7 +14,7 @@ class Notifications extends Component
         $this->user = $user;
     }
 
-    public function taskMentionedEmail()
+    public function mentionsEmail()
     {
         if (Auth::check()) {
             if (Auth::id() === $this->user->id) {
@@ -28,7 +28,7 @@ class Notifications extends Component
         }
     }
 
-    public function taskMentionedWeb()
+    public function mentionsWeb()
     {
         if (Auth::check()) {
             if (Auth::id() === $this->user->id) {
