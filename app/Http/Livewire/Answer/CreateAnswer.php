@@ -8,6 +8,7 @@ use App\Notifications\Answered;
 use App\Notifications\TelegramLogger;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
+use Helper;
 
 class CreateAnswer extends Component
 {
@@ -44,6 +45,8 @@ class CreateAnswer extends Component
             if (Auth::user()->isFlagged) {
                 return session()->flash('error', 'Your account is flagged!');
             }
+            
+            $users = Helper::getUserIDFromMention($this->answer);
 
             $answer = Answer::create([
                 'user_id' =>  Auth::id(),
@@ -54,7 +57,7 @@ class CreateAnswer extends Component
 
             $this->emit('answerAdded');
             $this->answer = '';
-
+            Helper::mentionUsers($users, $answer, 'answer');
             if (Auth::id() !== $this->question->user->id) {
                 $this->question->user->notify(new Answered($answer));
                 givePoint(new CommentCreated($answer));

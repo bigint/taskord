@@ -53,6 +53,14 @@ class TaskMentioned extends Notification implements ShouldQueue
                     ->line($this->body->comment)
                     ->action('Go to Task', url('/task/'.$this->body->task->id))
                     ->line('Thank you for using Taskord!');
+        } elseif ($this->type === 'answer') {
+            return (new MailMessage)
+                    ->subject('@'.$this->body->user->username.' mentioned your in an answer')
+                    ->greeting('Hello @'.$notifiable->username.' 👋')
+                    ->line('@'.$this->body->user->username.' mentioned your in an answer.')
+                    ->line($this->body->answer)
+                    ->action('Go to Task', url('/question/'.$this->body->question->id))
+                    ->line('Thank you for using Taskord!');
         }
     }
 
@@ -62,6 +70,8 @@ class TaskMentioned extends Notification implements ShouldQueue
             $body = $this->body->task;
         } elseif ($this->type === 'comment') {
             $body = $this->body->comment;
+        } elseif ($this->type === 'answer') {
+            $body = $this->body->answer;
         }
         return [
             'body' => $body,

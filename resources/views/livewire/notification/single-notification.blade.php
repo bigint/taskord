@@ -63,6 +63,8 @@
                 <span class="align-middle">mentioned you in a task</span>
                 @elseif ($data['body_type'] === 'comment')
                 <span class="align-middle">mentioned you in a comment</span>
+                @elseif ($data['body_type'] === 'answer')
+                <span class="align-middle">mentioned you in an answer</span>
                 @endif
                 <div class="mt-2 body-font">
                     <a class="text-dark" href="{{ route('task', ['id' => $data['body_id']]) }}">
