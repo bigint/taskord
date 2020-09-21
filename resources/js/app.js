@@ -68,3 +68,7 @@ $(document).on("livewire:load", (_event) => {
 $("body").on("click", (_event) => {
   $("ul").remove(".search-dropdown");
 });
+
+$(() => {
+  $("[data-toggle='tooltip']").tooltip();
+});

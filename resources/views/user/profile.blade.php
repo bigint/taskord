@@ -26,10 +26,10 @@
                         @auth
                         @endauth
                         @if ($user->isVerified)
-                            <i class="ml-2 fa fa-check-circle text-primary" title="Verified"></i>
+                            <i class="ml-2 fa fa-check-circle text-primary" data-toggle="tooltip" data-placement="right" title="Verified"></i>
                         @endif
                         @if ($user->isPatron)
-                            <a class="ml-2 small" href="{{ route('patron.home') }}" title="Patron">
+                            <a class="ml-2 small" href="{{ route('patron.home') }}" data-toggle="tooltip" data-placement="right" title="Patron">
                                 {{ Emoji::handshake() }}
                             </a>
                         @endif

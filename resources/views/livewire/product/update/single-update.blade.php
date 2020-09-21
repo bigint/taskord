@@ -11,10 +11,10 @@
                     {{ $update->user->username }}
                 @endif
                 @if ($update->user->isVerified)
-                <i class="fa fa-check-circle ml-1 text-primary" title="Verified"></i>
+                <i class="fa fa-check-circle ml-1 text-primary" data-toggle="tooltip" data-placement="right" title="Verified"></i>
                 @endif
                 @if ($update->user->isPatron)
-                    <a class="ml-1 small" href="{{ route('patron.home') }}" title="Patron">
+                    <a class="ml-1 small" href="{{ route('patron.home') }}" data-toggle="tooltip" data-placement="right" title="Patron">
                         {{ Emoji::handshake() }}
                     </a>
                 @endif

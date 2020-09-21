@@ -118,7 +118,7 @@
                                 <div class="h5">
                                     {{ Auth::user()->firstname }}{{ ' '.Auth::user()->lastname }}
                                     @if (Auth::user()->isVerified)
-                                        <i class="fa fa-check-circle ml-1 text-primary" title="Verified"></i>
+                                        <i class="fa fa-check-circle ml-1 text-primary" data-toggle="tooltip" data-placement="right" title="Verified"></i>
                                     @endif
                                 </div>
                                 @endif
@@ -170,7 +170,7 @@
                                         {{ $user->username }}
                                     @endif
                                     @if ($user->isVerified)
-                                        <i class="fa fa-check-circle ml-1 text-primary" title="Verified"></i>
+                                        <i class="fa fa-check-circle ml-1 text-primary" data-toggle="tooltip" data-placement="right" title="Verified"></i>
                                     @endif
                                 </span>
                                 <div>
@@ -253,7 +253,7 @@
                                 {{ $user->username }}
                             @endif
                             @if ($user->isVerified)
-                                <i class="fa fa-check-circle ml-1 text-primary" title="Verified"></i>
+                                <i class="fa fa-check-circle ml-1 text-primary" data-toggle="tooltip" data-placement="right" title="Verified"></i>
                             @endif
                         </a>
                         <span class="badge rounded-pill bg-warning text-dark align-middle reputation" title="{{ Emoji::fire() }} {{ number_format($user->getPoints()) }}">
