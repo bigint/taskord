@@ -6,9 +6,9 @@ use App\Gamify\Points\CommentCreated;
 use App\Models\Comment;
 use App\Notifications\Commented;
 use App\Notifications\TelegramLogger;
+use Helper;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
-use Helper;
 
 class CreateComment extends Component
 {
@@ -45,7 +45,7 @@ class CreateComment extends Component
             if (Auth::user()->isFlagged) {
                 return session()->flash('error', 'Your account is flagged!');
             }
-            
+
             $users = Helper::getUserIDFromMention($this->comment);
 
             $comment = Comment::create([
