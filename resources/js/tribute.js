@@ -3,22 +3,26 @@ import Tribute from "tributejs";
 // Users
 var userMention = new Tribute({
   values: (text, cb) => {
-    getUsers(text, users => cb(users));
+    getData(text, (users) => cb(users), "user");
   },
-  lookup: user => {
+  lookup: (user) => {
     return user.username + user.firstname + user.lastname;
   },
-  fillAttr: 'username',
+  fillAttr: "username",
   menuShowMinLength: 1,
-  menuItemTemplate: item => {
+  menuItemTemplate: (item) => {
     const { avatar, username, firstname, lastname, isVerified } = item.original;
     return `
     <span class="d-flex align-items-center">
       <img class="rounded-circle avatar-30" src="${avatar}" />
       <span class="ml-3">
         <span class="font-weight-bold">
-          ${firstname ? firstname : ''} ${lastname ? lastname : ''}
-          ${isVerified ? '<i class="fa fa-check-circle ml-1 mr-1 text-primary"></i>' : ''}
+          ${firstname ? firstname : ""} ${lastname ? lastname : ""}
+          ${
+            isVerified
+              ? '<i class="fa fa-check-circle ml-1 mr-1 text-primary"></i>'
+              : ""
+          }
         </span>
         <span class="d-block text-black-50 font-weight-normal">
           @${username}
@@ -27,39 +31,22 @@ var userMention = new Tribute({
     </span>`;
   },
   noMatchTemplate: () => {
-    return '<li>No users Found!</li>';
+    return "<li>No users Found!</li>";
   },
 });
-
-const getUsers = (text, cb) => {
-  var URL = "/mention/users";
-  var xhr = new XMLHttpRequest();
-  xhr.onreadystatechange = () => {
-    if (xhr.readyState === 4) {
-      if (xhr.status === 200) {
-        var data = JSON.parse(xhr.responseText);
-        cb(data);
-      } else if (xhr.status === 403) {
-        cb([]);
-      }
-    }
-  };
-  xhr.open("GET", URL + "?query=" + text, true);
-  xhr.send();
-};
 
 // Products
 var productsMention = new Tribute({
   values: (text, cb) => {
-    getProducts(text, users => cb(users));
+    getData(text, (products) => cb(products), "product");
   },
-  trigger: '#',
-  lookup: product => {
+  trigger: "#",
+  lookup: (product) => {
     return product.slug + product.name;
   },
-  fillAttr: 'slug',
+  fillAttr: "slug",
   menuShowMinLength: 1,
-  menuItemTemplate: item => {
+  menuItemTemplate: (item) => {
     const { avatar, slug, name } = item.original;
     return `
     <span class="d-flex align-items-center">
@@ -75,12 +62,12 @@ var productsMention = new Tribute({
     </span>`;
   },
   noMatchTemplate: () => {
-    return '<li>No products Found!</li>';
+    return "<li>No products Found!</li>";
   },
 });
 
-const getProducts = (text, cb) => {
-  var URL = "/mention/products";
+const getData = (text, cb, type) => {
+  var URL = type === "user" ? "/mention/users" : "/mention/products";
   var xhr = new XMLHttpRequest();
   xhr.onreadystatechange = () => {
     if (xhr.readyState === 4) {
@@ -96,5 +83,5 @@ const getProducts = (text, cb) => {
   xhr.send();
 };
 
-userMention.attach(document.querySelectorAll('.mentionInput'));
-productsMention.attach(document.querySelectorAll('.mentionInput'));
+userMention.attach(document.querySelectorAll(".mentionInput"));
+productsMention.attach(document.querySelectorAll(".mentionInput"));

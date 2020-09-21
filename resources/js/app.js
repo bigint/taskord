@@ -1,8 +1,8 @@
-require('./bootstrap');
-require('./shortcuts');
-require('./tribute');
-import {isInViewport} from "observe-element-in-viewport";
-import lightbox from 'lightbox2/dist/js/lightbox';
+require("./bootstrap");
+require("./shortcuts");
+require("./tribute");
+import { isInViewport } from "observe-element-in-viewport";
+import lightbox from "lightbox2/dist/js/lightbox";
 
 window.lightbox = lightbox;
 window.lightbox.option({
@@ -16,27 +16,27 @@ window.lightbox.option({
 
 $(document).ready(() => {
   (async () => {
-    const target = document.querySelector('#load-more');
+    const target = document.querySelector("#load-more");
     if (await isInViewport(target)) {
       $("#load-more").click();
       $("#load-more").html("Loading");
-      $("#load-more").prop('disabled', true);
+      $("#load-more").prop("disabled", true);
     }
   })();
 });
 
 $(window).scroll(() => {
-  if($(window).scrollTop() + $(window).height() > $(document).height() - 100) {
+  if ($(window).scrollTop() + $(window).height() > $(document).height() - 100) {
     $("#load-more").click();
     $("#load-more").html("Loading");
-    $("#load-more").prop('disabled', true);
+    $("#load-more").prop("disabled", true);
   }
 });
 
 // Admin Bar toggle in dropdown
 $("#admin-bar-click").click(() => {
   $.get("/admin/adminbar", (data, status) => {
-    if(data === "enabled" || data === "disabled") {
+    if (data === "enabled" || data === "disabled") {
       if (status === "success") {
         location.reload();
       }
@@ -47,7 +47,7 @@ $("#admin-bar-click").click(() => {
 // Dark mode toggle in dropdown
 $("#dark-mode").click(() => {
   $.get("/darkmode", (data, status) => {
-    if(data === "enabled" || data === "disabled") {
+    if (data === "enabled" || data === "disabled") {
       if (status === "success") {
         location.reload();
       }
@@ -57,9 +57,9 @@ $("#dark-mode").click(() => {
 
 // Hide Alert
 $(document).on("livewire:load", (_event) => {
-  window.Livewire.hook('element.updated', () => {
+  window.Livewire.hook("element.updated", () => {
     setTimeout(() => {
-      $('.fade').fadeOut('fast');
+      $(".fade").fadeOut("fast");
     }, 2000);
   });
 });

@@ -1,9 +1,9 @@
-import hotkeys from 'hotkeys-js';
+import hotkeys from "hotkeys-js";
 
 // Admin Bar
-hotkeys('`, p+b', () => {
+hotkeys("`, p+b", () => {
   $.get("/admin/adminbar", (data, status) => {
-    if(data === "enabled" || data === "disabled") {
+    if (data === "enabled" || data === "disabled") {
       if (status === "success") {
         location.reload();
       }
@@ -12,9 +12,9 @@ hotkeys('`, p+b', () => {
 });
 
 // Dark Mode
-hotkeys('d+m', () => {
+hotkeys("d+m", () => {
   $.get("/darkmode", (data, status) => {
-    if(data === "enabled" || data === "disabled") {
+    if (data === "enabled" || data === "disabled") {
       if (status === "success") {
         location.reload();
       }
@@ -23,16 +23,16 @@ hotkeys('d+m', () => {
 });
 
 // Go to home
-hotkeys('g+h', () => {
+hotkeys("g+h", () => {
   window.location.href = "/";
 });
 
 // Go to products
-hotkeys('g+p', () => {
+hotkeys("g+p", () => {
   window.location.href = "/products";
 });
 
 // Go to settings
-hotkeys('g+s', () => {
+hotkeys("g+s", () => {
   window.location.href = "/settings";
 });
