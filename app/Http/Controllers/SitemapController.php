@@ -38,7 +38,12 @@ class SitemapController extends Controller
 
     public function tasks()
     {
-        $tasks = Task::all('id');
+        $tasks = Task::select('id', 'source')
+            ->where([
+                ['source', '!=' ,'GitHub'],
+                ['source', '!=' ,'GitLab']
+            ])
+            ->get();
 
         return view('seo.sitemap_tasks', [
             'tasks' => $tasks,
