@@ -12,7 +12,6 @@
         <div class="col-md-8">
             <form class="form-signin" method="POST" action="{{ route('register') }}">
                 @csrf
-                @captcha
                 <div class="text-center mb-4">
                     <img
                         class="mb-4"
