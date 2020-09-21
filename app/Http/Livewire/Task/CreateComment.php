@@ -8,6 +8,7 @@ use App\Notifications\Commented;
 use App\Notifications\TelegramLogger;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
+use Helper;
 
 class CreateComment extends Component
 {
@@ -44,6 +45,8 @@ class CreateComment extends Component
             if (Auth::user()->isFlagged) {
                 return session()->flash('error', 'Your account is flagged!');
             }
+            
+            $users = Helper::getUserIDFromMention($this->comment);
 
             $comment = Comment::create([
                 'user_id' =>  Auth::id(),
@@ -54,7 +57,7 @@ class CreateComment extends Component
 
             $this->emit('commentAdded');
             $this->comment = '';
-
+            Helper::mentionUsers($users, $comment, 'comment');
             if (Auth::id() !== $this->task->user->id) {
                 $this->task->user->notify(new Commented($comment));
                 givePoint(new CommentCreated($comment));

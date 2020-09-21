@@ -61,6 +61,8 @@
             @elseif ($type === "App\Notifications\TaskMentioned")
                 @if ($data['body_type'] === 'task')
                 <span class="align-middle">mentioned you in a task</span>
+                @elseif ($data['body_type'] === 'comment')
+                <span class="align-middle">mentioned you in a comment</span>
                 @endif
                 <div class="mt-2 body-font">
                     <a class="text-dark" href="{{ route('task', ['id' => $data['body_id']]) }}">

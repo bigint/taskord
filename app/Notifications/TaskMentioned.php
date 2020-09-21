@@ -37,19 +37,34 @@ class TaskMentioned extends Notification implements ShouldQueue
 
     public function toMail($notifiable)
     {
-        return (new MailMessage)
-                    ->subject('@'.$this->body->user->username.' mentioned your in the Task')
+        if ($this->type === 'task') {
+            return (new MailMessage)
+                    ->subject('@'.$this->body->user->username.' mentioned your in a task')
                     ->greeting('Hello @'.$notifiable->username.' 👋')
-                    ->line('@'.$this->body->user->username.' mentioned your in the Task.')
+                    ->line('@'.$this->body->user->username.' mentioned your in a task.')
                     ->line($this->body->task)
                     ->action('Go to Task', url('/task/'.$this->body->id))
                     ->line('Thank you for using Taskord!');
+        } elseif ($this->type === 'comment') {
+            return (new MailMessage)
+                    ->subject('@'.$this->body->user->username.' mentioned your in a comment')
+                    ->greeting('Hello @'.$notifiable->username.' 👋')
+                    ->line('@'.$this->body->user->username.' mentioned your in a comment.')
+                    ->line($this->body->comment)
+                    ->action('Go to Task', url('/task/'.$this->body->task->id))
+                    ->line('Thank you for using Taskord!');
+        }
     }
 
     public function toDatabase($notifiable)
     {
+        if ($this->type === 'task') {
+            $body = $this->body->task;
+        } elseif ($this->type === 'comment') {
+            $body = $this->body->comment;
+        }
         return [
-            'body' => $this->body->task,
+            'body' => $body,
             'body_id' => $this->body->id,
             'body_type' => $this->type,
             'user_id' => $this->body->user->id,
