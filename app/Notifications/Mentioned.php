@@ -73,6 +73,7 @@ class Mentioned extends Notification implements ShouldQueue
         } elseif ($this->type === 'answer') {
             $body = $this->body->answer;
         }
+
         return [
             'body' => $body,
             'body_id' => $this->body->id,

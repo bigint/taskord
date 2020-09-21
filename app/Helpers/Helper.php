@@ -6,9 +6,9 @@ namespace App\Helpers;
 
 use App\Models\Product;
 use App\Models\User;
+use App\Notifications\Mentioned;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
-use App\Notifications\Mentioned;
 
 class Helper
 {
@@ -25,7 +25,7 @@ class Helper
             }
         }
     }
-    
+
     public static function getUserIDFromMention($string)
     {
         $mention = false;
