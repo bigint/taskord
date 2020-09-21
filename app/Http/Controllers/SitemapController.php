@@ -11,7 +11,9 @@ class SitemapController extends Controller
 {
     public function users()
     {
-        $users = User::all('username');
+        $users = User::cacheFor(60 * 60)
+            ->select('username')
+            ->get();
 
         return view('seo.sitemap_users', [
             'users' => $users,
@@ -20,7 +22,9 @@ class SitemapController extends Controller
 
     public function products()
     {
-        $products = Product::all('slug');
+        $products = Product::cacheFor(60 * 60)
+            ->select('slug')
+            ->get();
 
         return view('seo.sitemap_products', [
             'products' => $products,
@@ -29,7 +33,9 @@ class SitemapController extends Controller
 
     public function questions()
     {
-        $questions = Question::all('id');
+        $questions = Question::cacheFor(60 * 60)
+            ->select('id')
+            ->get();
 
         return view('seo.sitemap_questions', [
             'questions' => $questions,
@@ -38,7 +44,8 @@ class SitemapController extends Controller
 
     public function tasks()
     {
-        $tasks = Task::select('id', 'source')
+        $tasks = Task::cacheFor(60 * 60)
+            ->select('id', 'source')
             ->where([
                 ['source', '!=', 'GitHub'],
                 ['source', '!=', 'GitLab'],
