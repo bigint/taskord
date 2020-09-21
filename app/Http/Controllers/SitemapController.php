@@ -40,8 +40,8 @@ class SitemapController extends Controller
     {
         $tasks = Task::select('id', 'source')
             ->where([
-                ['source', '!=' ,'GitHub'],
-                ['source', '!=' ,'GitLab']
+                ['source', '!=', 'GitHub'],
+                ['source', '!=', 'GitLab'],
             ])
             ->get();
 
