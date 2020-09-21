@@ -56,11 +56,6 @@ class CreateTask extends Component
                 return session()->flash('error', 'Your account is flagged!');
             }
 
-            $check_time = Auth::user()->tasks()
-                ->select('task', 'created_at')
-                ->where('created_at', '>', Carbon::now()->subMinutes(3)->toDateTimeString())
-                ->latest()->get()->toArray();
-
             $users = Helper::getUserIDFromMention($this->task);
 
             if ($this->image) {
