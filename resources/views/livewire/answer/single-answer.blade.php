@@ -34,7 +34,7 @@
         <div class="body-font">
             {!! nl2br(Purify::clean(Helper::renderTask($answer->answer))) !!}
         </div>
-        <div class="mt-3">
+        <div class="mt-2">
             @auth
             @if (Auth::user()->hasLiked($answer))
                 <button type="button" class="btn btn-task btn-success text-white mr-1" wire:click="togglePraise" wire:loading.attr="disabled" wire:offline.attr="disabled">
