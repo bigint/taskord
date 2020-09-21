@@ -69,35 +69,35 @@
                 <span class="align-middle">praised your task comment</span>
                 <div class="mt-2 body-font">
                     <a class="text-dark" href="{{ route('task', ['id' => $data['task_id']]) }}">
-                        @markdown($data['comment'])
+                        {!! nl2br(Purify::clean(Helper::renderTask($data['comment']))) !!}
                     </a>
                 </div>
             @elseif ($type === "App\Notifications\QuestionPraised")
                 <span class="align-middle">praised your question</span>
                 <div class="mt-2 body-font">
                     <a class="text-dark" href="{{ route('question.question', ['id' => $data['question_id']]) }}">
-                        @markdown($data['question'])
+                        {!! nl2br(Purify::clean(Helper::renderTask($data['question']))) !!}
                     </a>
                 </div>
             @elseif ($type === "App\Notifications\AnswerPraised")
                 <span class="align-middle">praised your answer</span>
                 <div class="mt-2 body-font">
                     <a class="text-dark" href="{{ route('question.question', ['id' => $data['question_id']]) }}">
-                        @markdown($data['answer'])
+                        {!! nl2br(Purify::clean(Helper::renderTask($data['question']))) !!}
                     </a>
                 </div>
             @elseif ($type === "App\Notifications\Commented")
                 <span class="align-middle">commented on your task</span>
                 <div class="mt-2 body-font">
                     <a class="text-dark" href="{{ route('task', ['id' => $data['task_id']]) }}">
-                        @markdown($data['comment'])
+                        {!! nl2br(Purify::clean(Helper::renderTask($data['comment']))) !!}
                     </a>
                 </div>
             @elseif ($type === "App\Notifications\Answered")
                 <span class="align-middle">answered to your question</span>
                 <div class="mt-2 body-font">
                     <a class="text-dark" href="{{ route('question.question', ['id' => $data['question_id']]) }}">
-                        @markdown($data['answer'])
+                        {!! nl2br(Purify::clean(Helper::renderTask($data['question']))) !!}
                     </a>
                 </div>
             @elseif ($type === "App\Notifications\Followed")
