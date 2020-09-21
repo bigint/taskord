@@ -2,15 +2,15 @@ import Tribute from "tributejs";
 
 // Users
 var userMention = new Tribute({
-  values: function (text, cb) {
+  values: (text, cb) => {
     getUsers(text, users => cb(users));
   },
-  lookup: function (user) {
+  lookup: user => {
     return user.username + user.firstname + user.lastname;
   },
   fillAttr: 'username',
   menuShowMinLength: 1,
-  menuItemTemplate: function (item) {
+  menuItemTemplate: item => {
     const { avatar, username, firstname, lastname, isVerified } = item.original;
     return `
     <span class="d-flex align-items-center">
@@ -26,15 +26,15 @@ var userMention = new Tribute({
       </span>
     </span>`;
   },
-  noMatchTemplate: function () {
+  noMatchTemplate: () => {
     return '<li>No users Found!</li>';
   },
 });
 
-function getUsers(text, cb) {
+const getUsers = (text, cb) => {
   var URL = "/mention/users";
   var xhr = new XMLHttpRequest();
-  xhr.onreadystatechange = function() {
+  xhr.onreadystatechange = () => {
     if (xhr.readyState === 4) {
       if (xhr.status === 200) {
         var data = JSON.parse(xhr.responseText);
@@ -46,20 +46,20 @@ function getUsers(text, cb) {
   };
   xhr.open("GET", URL + "?query=" + text, true);
   xhr.send();
-}
+};
 
 // Products
 var productsMention = new Tribute({
-  values: function (text, cb) {
+  values: (text, cb) => {
     getProducts(text, users => cb(users));
   },
   trigger: '#',
-  lookup: function (product) {
+  lookup: product => {
     return product.slug + product.name;
   },
   fillAttr: 'slug',
   menuShowMinLength: 1,
-  menuItemTemplate: function (item) {
+  menuItemTemplate: item => {
     const { avatar, slug, name } = item.original;
     return `
     <span class="d-flex align-items-center">
@@ -74,15 +74,15 @@ var productsMention = new Tribute({
       </span>
     </span>`;
   },
-  noMatchTemplate: function () {
+  noMatchTemplate: () => {
     return '<li>No products Found!</li>';
   },
 });
 
-function getProducts(text, cb) {
+const getProducts = (text, cb) => {
   var URL = "/mention/products";
   var xhr = new XMLHttpRequest();
-  xhr.onreadystatechange = function() {
+  xhr.onreadystatechange = () => {
     if (xhr.readyState === 4) {
       if (xhr.status === 200) {
         var data = JSON.parse(xhr.responseText);
@@ -94,7 +94,7 @@ function getProducts(text, cb) {
   };
   xhr.open("GET", URL + "?query=" + text, true);
   xhr.send();
-}
+};
 
 userMention.attach(document.querySelectorAll('.mentionInput'));
 productsMention.attach(document.querySelectorAll('.mentionInput'));
