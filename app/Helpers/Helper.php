@@ -8,7 +8,7 @@ use App\Models\Product;
 use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
-use App\Notifications\TaskMentioned;
+use App\Notifications\Mentioned;
 
 class Helper
 {
@@ -19,7 +19,7 @@ class Helper
                 $user = User::where('username', $users[$i])->first();
                 if ($user !== null) {
                     if ($user->id !== Auth::id()) {
-                        $user->notify(new TaskMentioned($task, $type));
+                        $user->notify(new Mentioned($task, $type));
                     }
                 }
             }

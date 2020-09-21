@@ -15,7 +15,7 @@
                     $type === "App\Notifications\CommentPraised"
                 )
                     {{ Emoji::clappingHands() }}
-                @elseif ($type === "App\Notifications\TaskMentioned")
+                @elseif ($type === "App\Notifications\Mentioned")
                     {{ Emoji::raisedHand() }}
                 @elseif (
                     $type === "App\Notifications\Followed" or
@@ -58,7 +58,7 @@
                         {!! Purify::clean(Helper::renderTask($data['task'])) !!}
                     </a>
                 </div>
-            @elseif ($type === "App\Notifications\TaskMentioned")
+            @elseif ($type === "App\Notifications\Mentioned")
                 @if ($data['body_type'] === 'task')
                 <span class="align-middle">mentioned you in a task</span>
                 @elseif ($data['body_type'] === 'comment')
