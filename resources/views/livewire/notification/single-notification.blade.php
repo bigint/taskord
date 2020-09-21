@@ -76,14 +76,14 @@
                 <span class="align-middle">praised your question</span>
                 <div class="mt-2 body-font">
                     <a class="text-dark" href="{{ route('question.question', ['id' => $data['question_id']]) }}">
-                        {!! nl2br(Purify::clean(Helper::renderTask($data['question']))) !!}
+                        @markdown($data['question'])
                     </a>
                 </div>
             @elseif ($type === "App\Notifications\AnswerPraised")
                 <span class="align-middle">praised your answer</span>
                 <div class="mt-2 body-font">
                     <a class="text-dark" href="{{ route('question.question', ['id' => $data['question_id']]) }}">
-                        {!! nl2br(Purify::clean(Helper::renderTask($data['question']))) !!}
+                        {!! nl2br(Purify::clean(Helper::renderTask($data['answer']))) !!}
                     </a>
                 </div>
             @elseif ($type === "App\Notifications\Commented")
@@ -97,7 +97,7 @@
                 <span class="align-middle">answered to your question</span>
                 <div class="mt-2 body-font">
                     <a class="text-dark" href="{{ route('question.question', ['id' => $data['question_id']]) }}">
-                        {!! nl2br(Purify::clean(Helper::renderTask($data['question']))) !!}
+                        {!! nl2br(Purify::clean(Helper::renderTask($data['answer']))) !!}
                     </a>
                 </div>
             @elseif ($type === "App\Notifications\Followed")
