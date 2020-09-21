@@ -36,7 +36,7 @@ class Helper
         if ($products) {
             $product = Product::where('slug', $products[0])->first();
             if ($product) {
-                if ($product->user_id === Auth::id()) {
+                if ($product->user_id === Auth::id() or Auth::user()->products->contains($product)) {
                     $product_id = $product->id;
                     $type = 'product';
                 } else {
