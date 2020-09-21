@@ -32,7 +32,7 @@
     </div>
     <div class="card-body pt-1">
         <div class="body-font">
-            {!! nl2br(e($answer->answer)) !!}
+            {!! nl2br(e(Purify::clean(Helper::renderTask($answer->answer)))) !!}
         </div>
         <div class="mt-3">
             @auth
