@@ -20,7 +20,7 @@ class AllTime extends Component
             ->select('id', 'task', 'done', 'image', 'user_id', 'created_at', 'due_at', 'type', 'product_id')
             ->where('user_id', Auth::id())
             ->where('done', false)
-            ->latest()
+            ->latest('due_at')
             ->get();
 
         return view('livewire.tasks.all-time', [

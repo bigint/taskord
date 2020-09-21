@@ -20,11 +20,9 @@ class Today extends Component
         $tasks = Task::cacheFor(60 * 60)
             ->select('id', 'task', 'done', 'image', 'user_id', 'created_at', 'due_at', 'type', 'product_id')
             ->where('user_id', Auth::id())
-            ->whereDate('due_at', Carbon::today())
-            ->orWhereDate('created_at', Carbon::today())
+            ->whereDate('created_at', Carbon::today())
             ->where('done', false)
-            ->orderBy('due_at', 'asc')
-            ->latest()
+            ->latest('due_at')
             ->get();
 
         return view('livewire.tasks.today', [
