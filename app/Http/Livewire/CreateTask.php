@@ -104,16 +104,7 @@ class CreateTask extends Component
 
             $this->emit('taskAdded');
             $this->resetInputFields();
-            if ($users) {
-                for ($i = 0; $i < count($users); $i++) {
-                    $user = User::where('username', $users[$i])->first();
-                    if ($user !== null) {
-                        if ($user->id !== Auth::id()) {
-                            $user->notify(new TaskMentioned($task));
-                        }
-                    }
-                }
-            }
+            Helper::mentionUsers($users, $task, 'task');
             givePoint(new TaskCreated($task));
             Auth::user()->notify(
                 new TelegramLogger(

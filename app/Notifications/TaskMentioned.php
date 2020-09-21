@@ -11,11 +11,13 @@ class TaskMentioned extends Notification implements ShouldQueue
 {
     use Queueable;
 
-    protected $task;
+    protected $body;
+    protected $type;
 
-    public function __construct($task)
+    public function __construct($body, $type)
     {
-        $this->task = $task;
+        $this->body = $body;
+        $this->type = $type;
     }
 
     public function via($notifiable)
@@ -36,20 +38,21 @@ class TaskMentioned extends Notification implements ShouldQueue
     public function toMail($notifiable)
     {
         return (new MailMessage)
-                    ->subject('@'.$this->task->user->username.' mentioned your in the Task')
+                    ->subject('@'.$this->body->user->username.' mentioned your in the Task')
                     ->greeting('Hello @'.$notifiable->username.' 👋')
-                    ->line('@'.$this->task->user->username.' mentioned your in the Task.')
-                    ->line($this->task->task)
-                    ->action('Go to Task', url('/task/'.$this->task->id))
+                    ->line('@'.$this->body->user->username.' mentioned your in the Task.')
+                    ->line($this->body->task)
+                    ->action('Go to Task', url('/task/'.$this->body->id))
                     ->line('Thank you for using Taskord!');
     }
 
     public function toDatabase($notifiable)
     {
         return [
-            'task' => $this->task->task,
-            'task_id' => $this->task->id,
-            'user_id' => $this->task->user->id,
+            'body' => $this->body->task,
+            'body_id' => $this->body->id,
+            'body_type' => $this->type,
+            'user_id' => $this->body->user->id,
         ];
     }
 }

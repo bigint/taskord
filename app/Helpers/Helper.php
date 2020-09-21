@@ -5,11 +5,27 @@
 namespace App\Helpers;
 
 use App\Models\Product;
+use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
+use App\Notifications\TaskMentioned;
 
 class Helper
 {
+    public static function mentionUsers($users, $task, $type)
+    {
+        if ($users) {
+            for ($i = 0; $i < count($users); $i++) {
+                $user = User::where('username', $users[$i])->first();
+                if ($user !== null) {
+                    if ($user->id !== Auth::id()) {
+                        $user->notify(new TaskMentioned($task, $type));
+                    }
+                }
+            }
+        }
+    }
+    
     public static function getUserIDFromMention($string)
     {
         $mention = false;

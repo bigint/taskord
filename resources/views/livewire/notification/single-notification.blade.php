@@ -59,10 +59,12 @@
                     </a>
                 </div>
             @elseif ($type === "App\Notifications\TaskMentioned")
+                @if ($data['body_type'] === 'task')
                 <span class="align-middle">mentioned you in a task</span>
+                @endif
                 <div class="mt-2 body-font">
-                    <a class="text-dark" href="{{ route('task', ['id' => $data['task_id']]) }}">
-                        {!! Purify::clean(Helper::renderTask($data['task'])) !!}
+                    <a class="text-dark" href="{{ route('task', ['id' => $data['body_id']]) }}">
+                        {!! Purify::clean(Helper::renderTask($data['body'])) !!}
                     </a>
                 </div>
             @elseif ($type === "App\Notifications\CommentPraised")
