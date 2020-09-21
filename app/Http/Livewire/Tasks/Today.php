@@ -23,6 +23,7 @@ class Today extends Component
             ->whereDate('due_at', Carbon::today())
             ->orWhereDate('created_at', Carbon::today())
             ->where('done', false)
+            ->orderBy('due_at', 'asc')
             ->latest()
             ->get();
 
