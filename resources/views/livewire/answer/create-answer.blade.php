@@ -12,7 +12,7 @@
             <div class="mb-2">
                 <textarea placeholder="Add a answer" class="form-control mentionInput" rows="3" wire:model.lazy="answer"></textarea>
             </div>
-            <button class="btn btn-sm btn-primary" type="submit" wire:click="submit">
+            <button class="btn btn-sm btn-primary float-right" type="submit" wire:click="submit">
                 <i class="fa fa-plus mr-1"></i>
                 Add answer
                 <span wire:target="submit" wire:loading class="spinner-border spinner-border-mini ml-2" role="status"></span>
