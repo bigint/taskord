@@ -1,6 +1,5 @@
 import Tribute from "tributejs";
 
-
 // Users
 var userMention = new Tribute({
   values: function (text, cb) {
@@ -48,8 +47,6 @@ function getUsers(text, cb) {
   xhr.open("GET", URL + "?query=" + text, true);
   xhr.send();
 }
-
-userMention.attach(document.querySelectorAll('.mentionInput'));
 
 // Products
 var productsMention = new Tribute({
@@ -99,4 +96,5 @@ function getProducts(text, cb) {
   xhr.send();
 }
 
+userMention.attach(document.querySelectorAll('.mentionInput'));
 productsMention.attach(document.querySelectorAll('.mentionInput'));
