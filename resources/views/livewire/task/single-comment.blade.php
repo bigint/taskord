@@ -25,7 +25,7 @@
     </div>
     <div class="d-flex">
         <span class="body-font">
-            {!! nl2br(e(Purify::clean(Helper::renderTask($comment->comment)))) !!}
+            {!! nl2br(Purify::clean(Helper::renderTask($comment->comment))) !!}
         </span>
         <span class="ml-2">
             @auth
