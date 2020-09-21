@@ -1,4 +1,4 @@
-<div class="container-fluid" wire:poll.2s>
+<div class="container-fluid" wire:poll.5s>
     <div class="row justify-content-center">
         <div class="container">
             @include('admin.nav')
