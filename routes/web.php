@@ -166,4 +166,5 @@ Route::view('sitemap_urls.txt', 'seo.sitemap_urls');
 // Status
 Route::group(['prefix' => 'status'], function () {
     Route::get('ping', [StatusController::class, 'ping']);
+    Route::get('redis', [StatusController::class, 'redis']);
 });
