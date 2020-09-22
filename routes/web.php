@@ -11,6 +11,7 @@ use App\Http\Controllers\SocialController;
 use App\Http\Controllers\TaskController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\WebhookController;
+use App\Http\Controllers\StatusController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -161,3 +162,8 @@ Route::get('sitemap_products.txt', [SitemapController::class, 'products']);
 Route::get('sitemap_questions.txt', [SitemapController::class, 'questions']);
 Route::get('sitemap_tasks.txt', [SitemapController::class, 'tasks']);
 Route::view('sitemap_urls.txt', 'seo.sitemap_urls');
+
+// Status
+Route::group(['prefix' => 'status'], function () {
+    Route::get('ping', [StatusController::class, 'ping']);
+});
