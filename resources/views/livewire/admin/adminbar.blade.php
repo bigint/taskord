@@ -82,13 +82,13 @@
                     </li>
                 </ul>
             </span>
-            <span class="font-weight-bold mr-3">
+            <a class="font-weight-bold mr-3 text-white" href="/horizon">
                 <i class="fa fa-wrench mr-1"></i>
                 {{ $jobs }}
                 <span class="font-weight-normal">
                     jobs
                 </span>
-            </span>
+            </a>
             <span class="font-weight-bold mr-3">
                 <i class="fa fa-clock mr-1"></i>
                 {{ round(microtime(true) - LARAVEL_START, 2) * 1000 }}ms
