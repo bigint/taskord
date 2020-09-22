@@ -167,4 +167,5 @@ Route::view('sitemap_urls.txt', 'seo.sitemap_urls');
 Route::group(['prefix' => 'status'], function () {
     Route::get('ping', [StatusController::class, 'ping']);
     Route::get('redis', [StatusController::class, 'redis']);
+    Route::get('memcached', [StatusController::class, 'memcached']);
 });
