@@ -82,7 +82,7 @@
                     </li>
                 </ul>
             </span>
-            <a class="font-weight-bold mr-3 text-white" href="/horizon" target="_blank">
+            <a class="font-weight-bold mr-3 text-white" href="/admin/horizon" target="_blank">
                 <i class="fa fa-wrench mr-1"></i>
                 {{ $jobs }}
                 <span class="font-weight-normal">
