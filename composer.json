@@ -9,7 +9,7 @@
     "license": "MIT",
     "require": {
         "php": "^7.3",
-        "cyrildewit/eloquent-viewable": "dev-laravel-8-support",
+        "cyrildewit/eloquent-viewable": "^5.2",
         "fideloper/proxy": "^4.2",
         "fruitcake/laravel-cors": "^2.0",
         "graham-campbell/markdown": "^13.0",
@@ -42,12 +42,6 @@
         "phpunit/phpunit": "^9.2",
         "wnx/laravel-stats": "^2.4"
     },
-    "repositories": [
-        {
-            "url": "https://github.com/reliq/eloquent-viewable",
-            "type": "vcs"
-        }
-    ],
     "config": {
         "optimize-autoloader": true,
         "preferred-install": "dist",
