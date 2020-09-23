@@ -1,5 +1,5 @@
 <div class="text-black-50 d-block lh-lg sticky-footer">
-    <span class="pr-3 font-weight-bold">
+    <span class="pr-2 font-weight-bold">
         © Taskord
     </span>
     @auth
