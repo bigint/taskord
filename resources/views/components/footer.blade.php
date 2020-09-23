@@ -2,9 +2,13 @@
     <span class="pr-3 font-weight-bold">
         © Taskord
     </span>
+    @auth
+    @if (Auth::user()->staffShip)
     <a class="pr-2" href="{{ route('about') }}">
         About
     </a>
+    @endif
+    @endauth
     <a class="pr-2" href="https://status.taskord.com" target="_blank">
         Status
     </a>
