@@ -7,6 +7,7 @@ scalar DateTime @scalar(class: "Nuwave\\Lighthouse\\Schema\\Types\\Scalars\\Date
 type Query {
     users: [User!]! @paginate(defaultCount: 10)
     user(id: ID @eq): User @find
+    products: [Product!]! @paginate(defaultCount: 10)
     product(id: ID @eq): Product @find
     tasks: [Task!]! @paginate(defaultCount: 10)
     task(id: ID @eq): Task @find
@@ -39,7 +40,7 @@ type User {
 
 type Product {
     id: ID!
-    owner: User
+    owner: User @belongsTo
     slug: String!
     name: String
     avatar: String
@@ -56,8 +57,8 @@ type Product {
 
 type Task {
     id: ID!
-    user: User
-    product: Product
+    user: User @belongsTo
+    product: Product @belongsTo
     task: String!
     image: String
     done: Boolean!
