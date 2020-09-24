@@ -7,6 +7,7 @@ scalar DateTime @scalar(class: "Nuwave\\Lighthouse\\Schema\\Types\\Scalars\\Date
 type Query {
     users: [User!]! @paginate(defaultCount: 10)
     user(id: ID @eq): User @find
+    product(id: ID @eq): Product @find
     tasks: [Task!]! @paginate(defaultCount: 10)
     task(id: ID @eq): Task @find
 }
@@ -34,6 +35,23 @@ type User {
     isPrivate: Boolean!
     created_at: DateTime!
     updated_at: DateTime!
+}
+
+type Product {
+    id: ID!
+    owner: User
+    slug: String!
+    name: String
+    avatar: String
+    description: String
+    website: String
+    twitter: String
+    github: String
+    producthunt: String
+    launched: Boolean!
+    launched_at: DateTime
+    created_at: DateTime!
+    updated_at: DateTime
 }
 
 type Task {
