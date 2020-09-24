@@ -57,6 +57,7 @@ type Product {
 type Task {
     id: ID!
     user: User
+    product: Product
     task: String!
     image: String
     done: Boolean!
