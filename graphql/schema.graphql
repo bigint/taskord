@@ -35,7 +35,9 @@ type User {
     isBeta: Boolean!
     isPatron: Boolean!
     isPrivate: Boolean!
-    ownedProducts: [Product!]! @belongsToMany
+    tasks: [Task!]! @hasMany
+    ownedProducts: [Product!]! @hasMany
+    products: [Product!]! @belongsToMany
     created_at: DateTime!
     updated_at: DateTime!
 }
