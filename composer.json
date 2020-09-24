@@ -25,6 +25,7 @@
         "livewire/livewire": "^2.0",
         "multicaret/laravel-acquaintances": "^3.3",
         "nesbot/carbon": "^2.36",
+        "nuwave/lighthouse": "v5.0-alpha.4",
         "qcod/laravel-gamify": "^1.0",
         "rennokki/laravel-eloquent-query-cache": "^2.4",
         "sentry/sentry-laravel": "1.9.0",
