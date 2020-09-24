@@ -37,8 +37,12 @@ type User {
 
 type Task {
     id: ID!
+    user: User
     task: String!
+    image: String
     done: Boolean!
+    type: String
+    source: String
     done_at: DateTime!
     created_at: DateTime!
     updated_at: DateTime!
