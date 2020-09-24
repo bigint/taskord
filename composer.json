@@ -23,6 +23,7 @@
         "laravel/tinker": "^2.0",
         "laravel/ui": "^3.0",
         "livewire/livewire": "^2.0",
+        "mll-lab/laravel-graphql-playground": "^2.4",
         "multicaret/laravel-acquaintances": "^3.3",
         "nesbot/carbon": "^2.36",
         "nuwave/lighthouse": "v5.0-alpha.4",
