@@ -11,8 +11,24 @@ type Query {
 
 type User {
     id: ID!
-    name: String!
-    email: String!
+    username: String!
+    firstname: String
+    lastname: String
+    avatar: String
+    bio: String
+    location: String
+    company: String
+    website: String
+    twitter: String
+    twitch: String
+    telegram: String
+    github: String
+    youtube: String
+    isStaff: String!
+    isDeveloper: String!
+    isBeta: String!
+    isPatron: String!
+    isPrivate: String!
     created_at: DateTime!
     updated_at: DateTime!
 }
