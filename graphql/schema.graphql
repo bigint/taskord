@@ -50,7 +50,7 @@ type User {
     questions: [Question!]! @hasMany
     answers: [Answer!]! @hasMany
     followingCount: Int! @count(relation: "followings")
-    followersCount: Int! @count(relation: "followers")
+    followersCount: Int!
     productCount: Int! @count(relation: "products")
     taskCount: Int! @count(relation: "tasks")
     commentCount: Int! @count(relation: "comments")
@@ -74,6 +74,7 @@ type Product {
     launched_at: DateTime
     owner: User @belongsTo
     tasks: [Task!]! @hasMany
+    subscribersCount: Int!
     created_at: DateTime!
     updated_at: DateTime
 }
