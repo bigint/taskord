@@ -135,9 +135,9 @@
             @endguest
             <a href="{{ route('task', ['id' => $task->id]) }}" class="btn btn-task btn-outline-primary mr-1">
                 {{ Emoji::speechBalloon() }}
-                @if ($task->comment->count('id') !== 0)
+                @if ($task->comments->count('id') !== 0)
                 <span class="small text-dark font-weight-bold">
-                    {{ number_format($task->comment->count('id')) }}
+                    {{ number_format($task->comments->count('id')) }}
                 </span>
                 @endif
             </a>

@@ -29,7 +29,7 @@ class Task extends Model
         return $this->belongsTo(\App\Models\User::class);
     }
 
-    public function comment()
+    public function comments()
     {
         return $this->hasMany(\App\Models\Comment::class);
     }

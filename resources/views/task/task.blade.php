@@ -78,13 +78,13 @@
                 </div>
             </div>
             @endif
-            @if ($task->comment->count('id') > 0)
+            @if ($task->comments->count('id') > 0)
             <div class="card mb-4">
                 <div class="card-header">
                     Users Involved
                 </div>
                 <div class="card-body align-items-center pb-2">
-                    @foreach ($task->comment->groupBy('user_id') as $comment)
+                    @foreach ($task->comments->groupBy('user_id') as $comment)
                         <a
                             title="{{ $comment[0]->user->firstname ? $comment[0]->user->firstname . ' ' . $comment[0]->user->lastname : $comment[0]->user->username }}"
                             href="{{ route('user.done', ['username' => $comment[0]->user->username]) }}"

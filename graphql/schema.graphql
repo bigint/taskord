@@ -42,8 +42,11 @@ type User {
     isPatron: Boolean!
     isPrivate: Boolean!
     tasks: [Task!]! @hasMany
+    comments: [Product!]! @hasMany
     ownedProducts: [Product!]! @hasMany
     products: [Product!]! @belongsToMany
+    questions: [Product!]! @hasMany
+    answers: [Product!]! @hasMany
     created_at: DateTime!
     updated_at: DateTime!
 }
@@ -75,7 +78,7 @@ type Task {
     type: String
     source: String
     done_at: DateTime!
-    comment: [Comment!]! @hasMany
+    comments: [Comment!]! @hasMany
     created_at: DateTime!
     updated_at: DateTime!
 }
