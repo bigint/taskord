@@ -6,7 +6,7 @@
         </div>
         <div class="card-body">
             <x-alert />
-            <form wire:submit.prevent="updateAccount">
+            <form wire:submit.prevent="regenerateToken">
                 <div class="mb-3">
                     <label class="form-label">Personal Access Token</label>
                     <input type="text" class="form-control @error('token') is-invalid @enderror" value="{{ $user->api_token }}" disabled>
@@ -18,7 +18,7 @@
                 </div>
                 <button type="submit" class="btn btn-primary">
                     Regenerate
-                    <span wire:target="updateAccount" wire:loading class="spinner-border spinner-border-sm ml-2" role="status"></span>
+                    <span wire:target="regenerateToken" wire:loading class="spinner-border spinner-border-sm ml-2" role="status"></span>
                 </button>
             </form>
         </div>
