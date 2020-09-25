@@ -49,12 +49,12 @@ type User {
     products: [Product!]! @belongsToMany
     questions: [Question!]! @hasMany
     answers: [Answer!]! @hasMany
-    followingCount: Int! @count(relation: "followings")
+    followingsCount: Int! @count(relation: "followings")
     followersCount: Int!
-    productCount: Int! @count(relation: "products")
-    taskCount: Int! @count(relation: "tasks")
-    commentCount: Int! @count(relation: "comments")
-    questionCount: Int! @count(relation: "questions")
+    productsCount: Int! @count(relation: "products")
+    tasksCount: Int! @count(relation: "tasks")
+    commentsCount: Int! @count(relation: "comments")
+    questionsCount: Int! @count(relation: "questions")
     answerCount: Int! @count(relation: "answers")
     created_at: DateTime!
     updated_at: DateTime!
@@ -75,7 +75,7 @@ type Product {
     owner: User @belongsTo
     tasks: [Task!]! @hasMany
     subscribersCount: Int!
-    taskCount: Int! @count(relation: "tasks")
+    tasksCount: Int! @count(relation: "tasks")
     created_at: DateTime!
     updated_at: DateTime
 }
