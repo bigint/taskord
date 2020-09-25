@@ -22,12 +22,7 @@ class AuthMutator
         $credentials = Arr::only($args, ['email', 'password']);
         
         if (Auth::once($credentials)) {
-            $token = Str::random(60);
-            $user = auth()->user();
-            $user->api_token = $token;
-            $user->save();
-            
-            return $token;
+            return Auth::user()->api_token;
         }
         
         return null;
