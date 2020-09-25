@@ -71,14 +71,14 @@ type Product {
 
 type Task {
     id: ID!
-    user: User @belongsTo
-    product: Product @belongsTo
     task: String!
     image: String
     done: Boolean!
     type: String
     source: String
     done_at: DateTime!
+    user: User @belongsTo
+    product: Product @belongsTo
     comments: [Comment!]! @hasMany
     created_at: DateTime!
     updated_at: DateTime!
@@ -86,19 +86,19 @@ type Task {
 
 type Comment {
     id: ID!
+    comment: String!
     user: User @belongsTo
     task: Task @belongsTo
-    comment: String!
     created_at: DateTime!
     updated_at: DateTime!
 }
 
 type Question {
     id: ID!
-    user: User @belongsTo
     title: String!
     body: String
     patronOnly: Boolean!
+    user: User @belongsTo
     answer: [Answer!]! @hasMany
     created_at: DateTime!
     updated_at: DateTime!
@@ -106,9 +106,9 @@ type Question {
 
 type Answer {
     id: ID!
+    answer: String!
     user: User @belongsTo
     question: Question @belongsTo
-    answer: String!
     created_at: DateTime!
     updated_at: DateTime!
 }
