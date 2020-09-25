@@ -173,7 +173,7 @@ class UserController extends Controller
             'user' => $user,
         ]);
     }
-    
+
     public function apiSettings()
     {
         $user = Auth::user();
