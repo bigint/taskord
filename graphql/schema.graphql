@@ -101,6 +101,7 @@ type Task {
     user: User @belongsTo
     product: Product @belongsTo
     comments: [Comment!]! @hasMany
+    commentsCount: Int! @count(relation: "comments")
     created_at: DateTime!
     updated_at: DateTime!
 }
