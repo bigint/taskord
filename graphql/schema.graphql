@@ -42,18 +42,17 @@ type User {
     isPatron: Boolean!
     isPrivate: Boolean!
     tasks: [Task!]! @hasMany
-    comments: [Product!]! @hasMany
+    comments: [Comment!]! @hasMany
     ownedProducts: [Product!]! @hasMany
     products: [Product!]! @belongsToMany
-    questions: [Product!]! @hasMany
-    answers: [Product!]! @hasMany
+    questions: [Question!]! @hasMany
+    answers: [Answer!]! @hasMany
     created_at: DateTime!
     updated_at: DateTime!
 }
 
 type Product {
     id: ID!
-    owner: User @belongsTo
     slug: String!
     name: String
     avatar: String
@@ -64,6 +63,8 @@ type Product {
     producthunt: String
     launched: Boolean!
     launched_at: DateTime
+    owner: User @belongsTo
+    tasks: [Task!]! @hasMany
     created_at: DateTime!
     updated_at: DateTime
 }

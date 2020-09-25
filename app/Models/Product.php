@@ -37,7 +37,7 @@ class Product extends Model
         return $this->belongsToMany(\App\Models\User::class)->withTimestamps();
     }
 
-    public function task()
+    public function tasks()
     {
         return $this->hasMany(\App\Models\Task::class);
     }
