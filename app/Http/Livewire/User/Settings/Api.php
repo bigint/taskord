@@ -2,17 +2,16 @@
 
 namespace App\Http\Livewire\User\Settings;
 
-use Livewire\Component;
-use Illuminate\Support\Arr;
-use Illuminate\Support\Str;
 use GrahamCampbell\Throttle\Facades\Throttle;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Request;
+use Illuminate\Support\Str;
+use Livewire\Component;
 
 class Api extends Component
 {
     public $user;
-    
+
     public $listeners = [
         'tokenRegenerated' => 'render',
     ];
@@ -21,7 +20,7 @@ class Api extends Component
     {
         $this->user = $user;
     }
-    
+
     public function regenerateToken()
     {
         $throttler = Throttle::get(Request::instance(), 5, 5);
@@ -43,7 +42,7 @@ class Api extends Component
             return session()->flash('error', 'Forbidden!');
         }
     }
-    
+
     public function render()
     {
         return view('livewire.user.settings.api');
