@@ -55,6 +55,7 @@ Route::group(['prefix' => 'settings', 'as' => 'user.settings.', 'middleware' => 
     Route::get('password', [UserController::class, 'passwordSettings'])->name('password');
     Route::get('notifications', [UserController::class, 'notificationsSettings'])->name('notifications');
     Route::get('integrations', [UserController::class, 'integrationsSettings'])->name('integrations');
+    Route::get('api', [UserController::class, 'apiSettings'])->name('api');
     Route::get('export', [UserController::class, 'exportAccount'])->name('export');
     Route::get('delete', [UserController::class, 'deleteSettings'])->name('delete');
 });

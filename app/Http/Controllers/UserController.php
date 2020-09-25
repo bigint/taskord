@@ -173,6 +173,15 @@ class UserController extends Controller
             'user' => $user,
         ]);
     }
+    
+    public function apiSettings()
+    {
+        $user = Auth::user();
+
+        return view('user.settings.api', [
+            'user' => $user,
+        ]);
+    }
 
     public function deleteSettings()
     {

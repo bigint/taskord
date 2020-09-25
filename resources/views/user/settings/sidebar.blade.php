@@ -47,6 +47,13 @@
                 Integrations
             </a>
             <a
+                class="list-group-item text-dark pt-2 pb-2 @if (Route::currentRouteName() === 'user.settings.api') active text-white @endif"
+                href="{{ route('user.settings.api') }}"
+            >
+                <i class="fa fa-code mr-1"></i>
+                API
+            </a>
+            <a
                 class="list-group-item text-danger pt-2 pb-2 @if (Route::currentRouteName() === 'user.settings.delete') bg-danger text-white @endif"
                 href="{{ route('user.settings.delete') }}"
             >
