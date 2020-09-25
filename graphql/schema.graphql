@@ -75,6 +75,7 @@ type Product {
     owner: User @belongsTo
     tasks: [Task!]! @hasMany
     subscribersCount: Int!
+    taskCount: Int! @count(relation: "tasks")
     created_at: DateTime!
     updated_at: DateTime
 }
