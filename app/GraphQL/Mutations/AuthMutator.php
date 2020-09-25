@@ -13,15 +13,14 @@ class AuthMutator
      */
     public function __invoke($_, array $args)
     {
-        // TODO implement the resolver
-    }
+        if (Auth::check()) {
+            return "Already logged in";
+        } else {
+            $credentials = Arr::only($args, ['email', 'password']);
 
-    public function login($root, array $args)
-    {
-        $credentials = Arr::only($args, ['email', 'password']);
-
-        if (Auth::once($credentials)) {
-            return Auth::user()->api_token;
+            if (Auth::once($credentials)) {
+                return Auth::user()->api_token;
+            }
         }
 
         return null;

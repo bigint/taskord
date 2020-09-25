@@ -24,7 +24,9 @@ type Query {
 
 type Mutation {
     login(email: String!, password: String!): String
-        @field(resolver: "AuthMutator@login")
+        @field(resolver: "AuthMutator")
+    createTask(task: String!, done: Boolean!): String
+        @field(resolver: "TaskMutator")
 }
 
 type User {
