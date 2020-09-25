@@ -94,6 +94,11 @@
                 {{ round(microtime(true) - LARAVEL_START, 2) * 1000 }}ms
                 <span class="font-weight-normal">response total</span>
             </span>
+            <span class="font-weight-bold mr-3">
+                <a href="/graphql-playground" target="_blank">
+                    <i class="fa fa-code text-white"></i>
+                </a>
+            </span>
             <span class="font-weight-bold">
                 <a href="{{ route('admin.users') }}">
                     <i class="fa fa-rocket text-white"></i>
