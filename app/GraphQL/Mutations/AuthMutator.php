@@ -17,8 +17,8 @@ class AuthMutator
             if (Auth::user()->isSuspended) {
                 return 'Your account is suspended!';
             }
-            
-            return "Already logged in";
+
+            return 'Already logged in';
         } else {
             $credentials = Arr::only($args, ['email', 'password']);
 
@@ -26,6 +26,7 @@ class AuthMutator
                 if (Auth::user()->isSuspended) {
                     return 'Your account is suspended!';
                 }
+
                 return Auth::user()->api_token;
             } else {
                 return 'Invalid Credentials';
