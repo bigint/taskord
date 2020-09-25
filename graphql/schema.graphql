@@ -95,6 +95,7 @@ type Question {
     title: String!
     body: String
     patronOnly: Boolean!
+    answer: [Answer!]! @hasMany
     created_at: DateTime!
     updated_at: DateTime!
 }
