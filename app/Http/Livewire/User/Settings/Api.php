@@ -4,8 +4,10 @@ namespace App\Http\Livewire\User\Settings;
 
 use Livewire\Component;
 use Illuminate\Support\Arr;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
+use GrahamCampbell\Throttle\Facades\Throttle;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Request;
 
 class Api extends Component
 {
@@ -22,10 +24,24 @@ class Api extends Component
     
     public function regenerateToken()
     {
-        $token = Str::random(60);
-        Auth::user()->api_token = $token;
-        Auth::user()->save();
-        $this->emit('tokenRegenerated');
+        $throttler = Throttle::get(Request::instance(), 5, 5);
+        $throttler->hit();
+        if (! $throttler->check()) {
+            return session()->flash('error', 'Your are rate limited, try again later!');
+        }
+
+        if (Auth::check()) {
+            if (Auth::id() === $this->user->id) {
+                $token = Str::random(60);
+                Auth::user()->api_token = $token;
+                Auth::user()->save();
+                $this->emit('tokenRegenerated');
+            } else {
+                return session()->flash('error', 'Forbidden!');
+            }
+        } else {
+            return session()->flash('error', 'Forbidden!');
+        }
     }
     
     public function render()
