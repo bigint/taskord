@@ -13,6 +13,10 @@ type Query {
     task(id: ID @eq): Task @find
     comments: [Comment!]! @paginate(defaultCount: 10)
     comment(id: ID @eq): Comment @find
+    questions: [Question!]! @paginate(defaultCount: 10)
+    question(id: ID @eq): Question @find
+    answers: [Answer!]! @paginate(defaultCount: 10)
+    answer(id: ID @eq): Answer @find
 }
 
 type User {
@@ -81,6 +85,25 @@ type Comment {
     user: User @belongsTo
     task: Task @belongsTo
     comment: String!
+    created_at: DateTime!
+    updated_at: DateTime!
+}
+
+type Question {
+    id: ID!
+    user: User @belongsTo
+    title: String!
+    body: String
+    patronOnly: Boolean!
+    created_at: DateTime!
+    updated_at: DateTime!
+}
+
+type Answer {
+    id: ID!
+    user: User @belongsTo
+    question: Question @belongsTo
+    answer: String!
     created_at: DateTime!
     updated_at: DateTime!
 }
