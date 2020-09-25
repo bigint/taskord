@@ -4,7 +4,6 @@ namespace App\GraphQL\Mutations;
 
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Str;
 
 class AuthMutator
 {
