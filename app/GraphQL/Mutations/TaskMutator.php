@@ -21,16 +21,22 @@ class TaskMutator
         $throttler = Throttle::get(Request::instance(), 20, 5);
         $throttler->hit();
         if (! $throttler->check()) {
-            return 'Your are rate limited, try again later!';
+            return [
+                'response' => 'Your are rate limited, try again later!'
+            ];
         }
 
         if (Auth::check()) {
             if (! Auth::user()->hasVerifiedEmail()) {
-                return 'Your email is not verified!';
+                return [
+                    'response' => 'Your email is not verified!'
+                ];
             }
 
             if (Auth::user()->isFlagged) {
-                return 'Your account is flagged!';
+                return [
+                    'response' => 'Your account is flagged!'
+                ];
             }
 
             $task = Task::create([
@@ -59,7 +65,9 @@ class TaskMutator
                 'response' => 'Task has been created!'
             ];
         } else {
-            return 'Login to create task!';
+            return [
+                'response' => 'Login to create task!'
+            ];
         }
     }
 }
