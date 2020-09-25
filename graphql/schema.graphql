@@ -49,6 +49,11 @@ type User {
     products: [Product!]! @belongsToMany
     questions: [Question!]! @hasMany
     answers: [Answer!]! @hasMany
+    productCount: Int! @count(relation: "products")
+    taskCount: Int! @count(relation: "tasks")
+    commentCount: Int! @count(relation: "comments")
+    questionCount: Int! @count(relation: "questions")
+    answerCount: Int! @count(relation: "answers")
     created_at: DateTime!
     updated_at: DateTime!
 }
