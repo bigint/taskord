@@ -56,7 +56,7 @@ class TaskMutator
 
             return [
                 'task' => $task,
-                'response' => 'Task has been created!',
+                'response' => 'Task has been created!'
             ];
         } else {
             return 'Login to create task!';
