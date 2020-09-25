@@ -180,6 +180,7 @@ return [
         Stevebauman\Purify\PurifyServiceProvider::class,
         QCod\Gamify\GamifyServiceProvider::class,
         CyrildeWit\EloquentViewable\EloquentViewableServiceProvider::class,
+        Nuwave\Lighthouse\Tracing\TracingServiceProvider::class,
 
     ],
 
