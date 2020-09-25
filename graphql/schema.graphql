@@ -112,6 +112,7 @@ type Comment {
     comment: String!
     user: User @belongsTo
     task: Task @belongsTo
+    praiseCount: Int! @count(relation: "likers")
     created_at: DateTime!
     updated_at: DateTime!
 }
@@ -122,6 +123,7 @@ type Question {
     body: String
     patronOnly: Boolean!
     user: User @belongsTo
+    praiseCount: Int! @count(relation: "likers")
     answer: [Answer!]! @hasMany
     created_at: DateTime!
     updated_at: DateTime!
