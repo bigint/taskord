@@ -23,10 +23,20 @@ type Query {
 }
 
 type Mutation {
-    login(email: String!, password: String!): String
-        @field(resolver: "AuthMutator")
-    createTask(task: String!, done: Boolean!): String
-        @field(resolver: "TaskMutator")
+    login(
+        email: String!,
+        password: String!
+    ): String @field(resolver: "AuthMutator")
+    createTask(
+        task: String!,
+        done: Boolean!
+        source: String!
+    ): CreateTaskPayload @field(resolver: "TaskMutator")
+}
+
+type CreateTaskPayload {
+    task: Task
+    response: String
 }
 
 type User {

@@ -42,7 +42,7 @@ class TaskMutator
                 'image' => null,
                 'due_at' => null,
                 'type' => 'user',
-                'source' => 'Taskord API',
+                'source' => $args['source'],
             ]);
             givePoint(new TaskCreated($task));
             Auth::user()->notify(
@@ -54,7 +54,10 @@ class TaskMutator
                 )
             );
 
-            return 'Task Created';
+            return [
+                'task' => $task,
+                'response' => 'Task has been created!',
+            ];
         } else {
             return 'Login to create task!';
         }
