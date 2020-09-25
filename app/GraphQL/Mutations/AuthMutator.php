@@ -16,12 +16,12 @@ class AuthMutator
         if (Auth::check()) {
             if (Auth::user()->isSuspended) {
                 return [
-                    'response' => 'Your account is suspended!'
+                    'response' => 'Your account is suspended!',
                 ];
             }
 
             return [
-                'response' => 'Already logged in'
+                'response' => 'Already logged in',
             ];
         } else {
             $credentials = Arr::only($args, ['email', 'password']);
@@ -29,18 +29,18 @@ class AuthMutator
             if (Auth::once($credentials)) {
                 if (Auth::user()->isSuspended) {
                     return [
-                        'response' => 'Your account is suspended!'
+                        'response' => 'Your account is suspended!',
                     ];
                 }
-                
+
                 return [
                     'user' => Auth::user(),
                     'token' => Auth::user()->api_token,
-                    'response' => 'Success'
+                    'response' => 'Success',
                 ];
             } else {
                 return [
-                    'response' => 'Invalid Credentials'
+                    'response' => 'Invalid Credentials',
                 ];
             }
         }
