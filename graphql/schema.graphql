@@ -5,7 +5,7 @@ scalar Date @scalar(class: "Nuwave\\Lighthouse\\Schema\\Types\\Scalars\\Date")
 scalar DateTime @scalar(class: "Nuwave\\Lighthouse\\Schema\\Types\\Scalars\\DateTime")
 
 type Query {
-    me: User @auth(guard: "web")
+    me: User @auth(guard: "api")
     users: [User!]! @paginate(defaultCount: 10)
     user(id: ID @eq): User @find
     products: [Product!]! @paginate(defaultCount: 10)
@@ -20,6 +20,11 @@ type Query {
     question(id: ID @eq): Question @find
     answers: [Answer!]! @paginate(defaultCount: 10)
     answer(id: ID @eq): Answer @find
+}
+
+type Mutation {
+    login(email: String!, password: String!): String
+        @field(resolver: "AuthMutator@login")
 }
 
 type User {
