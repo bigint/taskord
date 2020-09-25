@@ -22,20 +22,20 @@ class TaskMutator
         $throttler->hit();
         if (! $throttler->check()) {
             return [
-                'response' => 'Your are rate limited, try again later!'
+                'response' => 'Your are rate limited, try again later!',
             ];
         }
 
         if (Auth::check()) {
             if (! Auth::user()->hasVerifiedEmail()) {
                 return [
-                    'response' => 'Your email is not verified!'
+                    'response' => 'Your email is not verified!',
                 ];
             }
 
             if (Auth::user()->isFlagged) {
                 return [
-                    'response' => 'Your account is flagged!'
+                    'response' => 'Your account is flagged!',
                 ];
             }
 
@@ -66,7 +66,7 @@ class TaskMutator
             ];
         } else {
             return [
-                'response' => 'Login to create task!'
+                'response' => 'Login to create task!',
             ];
         }
     }
