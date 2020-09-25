@@ -56,7 +56,7 @@ class TaskMutator
 
             return 'Task Created';
         } else {
-            return 'Fail';
+            return 'Login to create task!';
         }
     }
 }
