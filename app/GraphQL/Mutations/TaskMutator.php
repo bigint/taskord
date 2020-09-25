@@ -23,7 +23,7 @@ class TaskMutator
         if (! $throttler->check()) {
             return 'Your are rate limited, try again later!';
         }
-        
+
         if (Auth::check()) {
             if (! Auth::user()->hasVerifiedEmail()) {
                 return 'Your email is not verified!';
@@ -32,7 +32,7 @@ class TaskMutator
             if (Auth::user()->isFlagged) {
                 return 'Your account is flagged!';
             }
-            
+
             $task = Task::create([
                 'user_id' =>  Auth::id(),
                 'product_id' =>  null,
@@ -53,7 +53,7 @@ class TaskMutator
                     .$task->id
                 )
             );
-            
+
             return 'Task Created';
         } else {
             return 'Fail';
