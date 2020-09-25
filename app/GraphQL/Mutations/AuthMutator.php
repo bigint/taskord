@@ -16,15 +16,15 @@ class AuthMutator
     {
         // TODO implement the resolver
     }
-    
+
     public function login($root, array $args)
     {
         $credentials = Arr::only($args, ['email', 'password']);
-        
+
         if (Auth::once($credentials)) {
             return Auth::user()->api_token;
         }
-        
+
         return null;
     }
 }
