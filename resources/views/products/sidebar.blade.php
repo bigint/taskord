@@ -18,8 +18,8 @@
             </a>
             <span class="small text-black-50 ml-3">
                 <i class="fa fa-check text-success mr-1"></i>
-                {{ $product->task->count('id') }}
-                {{ $product->task->count('id') >= 1 ? 'Tasks' : 'Task' }}
+                {{ $product->tasks->count('id') }}
+                {{ $product->tasks->count('id') >= 1 ? 'Tasks' : 'Task' }}
             </span>
             <a href="{{ route('user.done', ['username' => $product->owner->username]) }}">
                 <img class="rounded-circle float-right avatar-30 mt-1 ml-2" src="{{ $product->owner->avatar }}" height="50" width="50" />
