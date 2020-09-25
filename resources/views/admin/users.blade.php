@@ -123,7 +123,7 @@
                                             <li>
                                                 <span class="dropdown-item">
                                                     <i class="fa fa-comment mr-1"></i>
-                                                    <span class="font-weight-bold">{{ $user->comment()->count('id') }}</span> Comments
+                                                    <span class="font-weight-bold">{{ $user->comments()->count('id') }}</span> Comments
                                                 </span>
                                             </li>
                                             <li>
