@@ -95,7 +95,7 @@
                 <span class="font-weight-normal">response total</span>
             </span>
             <span class="font-weight-bold mr-3">
-                <a href="/graphql-playground" target="_blank">
+                <a href="/graphiql" target="_blank">
                     <i class="fa fa-code text-white"></i>
                 </a>
             </span>
