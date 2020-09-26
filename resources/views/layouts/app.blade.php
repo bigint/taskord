@@ -117,7 +117,14 @@
                             @endphp
                             <li class="nav-item mr-2">
                                 <div class="nav-link">
-                                    <span class="badge rounded-pill bg-warning text-dark reputation">
+                                    <span
+                                        class="badge rounded-pill score
+                                            @if($completed_today > Auth::user()->daily_goal)
+                                                bg-success text-white
+                                            @else
+                                                bg-warning text-dark
+                                            @endif"
+                                    >
                                         {{ $completed_today }}/{{ Auth::user()->daily_goal }}
                                     </span>
                                 </div>
@@ -125,7 +132,7 @@
                             @endif
                             <li class="nav-item mr-2">
                                 <div class="nav-link">
-                                    <span class="badge rounded-pill bg-warning text-dark reputation">
+                                    <span class="badge rounded-pill text-dark score bg-warning">
                                         {{ Emoji::fire() }} {{ number_format(Auth::user()->getPoints()) }}
                                     </span>
                                 </div>
