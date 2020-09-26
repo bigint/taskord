@@ -114,13 +114,13 @@
                                     <a
                                         href="{{ route('user.settings.profile') }}"
                                         class="badge rounded-pill score text-white
-                                            @if($completed_today >= $daily_goal_reached)
+                                            @if(Auth::user()->daily_goal >= Auth::user()->daily_goal_reached)
                                                 bg-success
                                             @else
                                                 bg-info
                                             @endif"
                                     >
-                                        {{ Emoji::bullseye() }} {{ $completed_today }}/{{ $daily_goal_reached }}
+                                        {{ Emoji::bullseye() }} {{ Auth::user()->daily_goal_reached }}/{{ Auth::user()->daily_goal }}
                                     </a>
                                 </div>
                             </li>

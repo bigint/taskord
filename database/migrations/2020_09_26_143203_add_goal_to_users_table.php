@@ -16,6 +16,7 @@ class AddGoalToUsersTable extends Migration
         Schema::table('users', function (Blueprint $table) {
             $table->boolean('hasGoal')->default(true);
             $table->integer('daily_goal')->default(0);
+            $table->integer('daily_goal_reached')->default(0);
         });
     }
 
@@ -29,6 +30,7 @@ class AddGoalToUsersTable extends Migration
         Schema::table('users', function (Blueprint $table) {
             $table->dropColumn('hasGoal');
             $table->dropColumn('daily_goal');
+            $table->dropColumn('daily_goal_reached');
         });
     }
 }
