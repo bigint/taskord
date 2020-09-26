@@ -72,7 +72,7 @@
                 @elseif ($data['body_type'] === 'comment')
                 <span class="align-middle">
                     mentioned you in a
-                    <a class="font-weight-bold" href="{{ route('task', ['id' => $data['body_id']]) }}">
+                    <a class="font-weight-bold" href="{{ route('comment', ['id' => $data['body_id'], 'comment_id' => $data['entity_id']]) }}">
                         comment
                     </a>
                 </span>
