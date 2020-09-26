@@ -9,6 +9,7 @@ use GrahamCampbell\Throttle\Facades\Throttle;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Request;
 use Livewire\Component;
+use App\Jobs\CheckGoal;
 
 class SingleTask extends Component
 {
@@ -35,6 +36,11 @@ class SingleTask extends Component
             givePoint(new TaskCompleted($this->task));
             $this->task->save();
             $this->emit('taskChecked');
+            if (Auth::user()->hasGoal) {
+                Auth::user()->daily_goal_reached++;
+                Auth::user()->save();
+                CheckGoal::dispatch(Auth::user());
+            }
             $this->task->user->notify(
                 new TelegramLogger(
                     '*✅ Task was mark as done* by @'
