@@ -136,8 +136,11 @@ Route::post('paddle/webhook', [PatronController::class, 'handleWebhook'])->name(
 // Dark mode
 Route::get('darkmode', [UserController::class, 'darkMode'])->name('darkmode')->middleware('patron');
 
-// Single Task
-Route::get('task/{id}', [TaskController::class, 'task'])->name('task');
+// Single Task and comment
+Route::group(['prefix' => 'task'], function () {
+    Route::get('{id}', [TaskController::class, 'task'])->name('task');
+    Route::get('{id}/{comment_id}', [TaskController::class, 'comment'])->name('comment');
+});
 
 // Zen mode tasks
 Route::get('tasks', [TaskController::class, 'tasks'])->name('tasks')->middleware('auth');

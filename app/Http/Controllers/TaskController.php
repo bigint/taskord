@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Task;
+use App\Models\Comment;
 use Illuminate\Support\Facades\Auth;
 
 class TaskController extends Controller
@@ -25,6 +26,30 @@ class TaskController extends Controller
         }
 
         return view('task/task', $response);
+    }
+    
+    public function comment($id, $comment_id)
+    {
+        $task = Task::cacheFor(60 * 60)
+            ->where('id', $id)
+            ->firstOrFail();
+        $comment = Comment::cacheFor(60 * 60)
+            ->where('id', $comment_id)
+            ->firstOrFail();
+        $response = [
+            'task' => $task,
+            'comment' => $comment,
+        ];
+        if (
+            Auth::check() && Auth::id() === $task->user->id or
+            Auth::check() && Auth::user()->staffShip
+        ) {
+            return view('comment/comment', $response);
+        } elseif ($task->user->isFlagged or $task->user->isPrivate) {
+            return view('errors.404');
+        }
+
+        return view('comment/comment', $response);
     }
 
     public function tasks()
