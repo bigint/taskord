@@ -31,135 +31,14 @@ type Mutation {
         task: String!,
         done: Boolean!
         source: String!
-    ): CreateTaskPayload @field(resolver: "TaskMutator")
+    ): CreateTaskPayload @field(resolver: "TaskMutator@create")
 }
 
-type LoginPayload {
-    user: User
-    token: String
-    response: String
-}
-
-type CreateTaskPayload {
-    task: Task
-    response: String
-}
-
-type User {
-    id: ID!
-    username: String!
-    firstname: String
-    lastname: String
-    avatar: String
-    bio: String
-    location: String
-    company: String
-    website: String
-    twitter: String
-    twitch: String
-    telegram: String
-    github: String
-    youtube: String
-    reputation: Int!
-    isStaff: Boolean!
-    isVerified: Boolean!
-    isDeveloper: Boolean!
-    isBeta: Boolean!
-    isPatron: Boolean!
-    isPrivate: Boolean!
-    tasks: [Task!]! @hasMany
-    comments: [Comment!]! @hasMany
-    ownedProducts: [Product!]! @hasMany
-    products: [Product!]! @belongsToMany
-    questions: [Question!]! @hasMany
-    answers: [Answer!]! @hasMany
-    followingsCount: Int! @count(relation: "followings")
-    followersCount: Int!
-    productsCount: Int! @count(relation: "products")
-    tasksCount: Int! @count(relation: "tasks")
-    commentsCount: Int! @count(relation: "comments")
-    questionsCount: Int! @count(relation: "questions")
-    answerCount: Int! @count(relation: "answers")
-    created_at: DateTime!
-    updated_at: DateTime!
-}
-
-type Product {
-    id: ID!
-    slug: String!
-    name: String
-    avatar: String
-    description: String
-    website: String
-    twitter: String
-    github: String
-    producthunt: String
-    launched: Boolean!
-    launched_at: DateTime
-    owner: User @belongsTo
-    tasks: [Task!]! @hasMany
-    subscribersCount: Int!
-    tasksCount: Int! @count(relation: "tasks")
-    created_at: DateTime!
-    updated_at: DateTime
-}
-
-type ProductUpdate {
-    id: ID!
-    title: String!
-    body: String
-    user: User @belongsTo
-    product: Product @belongsTo
-    created_at: DateTime!
-    updated_at: DateTime
-}
-
-type Task {
-    id: ID!
-    task: String!
-    image: String
-    done: Boolean!
-    type: String
-    source: String
-    done_at: DateTime!
-    user: User @belongsTo
-    product: Product @belongsTo
-    comments: [Comment!]! @hasMany
-    praiseCount: Int! @count(relation: "likers")
-    commentsCount: Int! @count(relation: "comments")
-    created_at: DateTime!
-    updated_at: DateTime!
-}
-
-type Comment {
-    id: ID!
-    comment: String!
-    user: User @belongsTo
-    task: Task @belongsTo
-    praiseCount: Int! @count(relation: "likers")
-    created_at: DateTime!
-    updated_at: DateTime!
-}
-
-type Question {
-    id: ID!
-    title: String!
-    body: String
-    patronOnly: Boolean!
-    user: User @belongsTo
-    praiseCount: Int! @count(relation: "likers")
-    answersCount: Int! @count(relation: "answer")
-    answer: [Answer!]! @hasMany
-    created_at: DateTime!
-    updated_at: DateTime!
-}
-
-type Answer {
-    id: ID!
-    answer: String!
-    user: User @belongsTo
-    praiseCount: Int! @count(relation: "likers")
-    question: Question @belongsTo
-    created_at: DateTime!
-    updated_at: DateTime!
-}
+#import auth.graphql
+#import user.graphql
+#import product.graphql
+#import productupdate.graphql
+#import task.graphql
+#import comment.graphql
+#import question.graphql
+#import answer.graphql

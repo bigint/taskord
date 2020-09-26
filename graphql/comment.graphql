@@ -1,0 +1,10 @@
+# Query
+type Comment {
+    id: ID!
+    comment: String!
+    user: User @belongsTo
+    task: Task @belongsTo
+    praiseCount: Int! @count(relation: "likers")
+    created_at: DateTime!
+    updated_at: DateTime!
+}

@@ -12,11 +12,7 @@ use Illuminate\Support\Facades\Request;
 
 class TaskMutator
 {
-    /**
-     * @param  null  $_
-     * @param  array<string, mixed>  $args
-     */
-    public function __invoke($_, array $args)
+    public function create($_, array $args)
     {
         $throttler = Throttle::get(Request::instance(), 20, 5);
         $throttler->hit();

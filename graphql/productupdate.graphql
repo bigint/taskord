@@ -1,0 +1,10 @@
+# Query
+type ProductUpdate {
+    id: ID!
+    title: String!
+    body: String
+    user: User @belongsTo
+    product: Product @belongsTo
+    created_at: DateTime!
+    updated_at: DateTime
+}

@@ -1,0 +1,6 @@
+# Mutation
+type LoginPayload {
+    user: User
+    token: String
+    response: String
+}
