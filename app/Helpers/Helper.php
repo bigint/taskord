@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Notifications\TaskPraised;
 use App\Notifications\CommentPraised;
 use App\Notifications\QuestionPraised;
+use App\Notifications\AnswerPraised;
 use App\Gamify\Points\PraiseCreated;
 
 class Helper
@@ -38,6 +39,8 @@ class Helper
                 $entity->user->notify(new CommentPraised($entity, Auth::id()));
             } elseif ($type === 'QUESTION') {
                 $entity->user->notify(new QuestionPraised($entity, Auth::id()));
+            } elseif ($type === 'QUESTION') {
+                $entity->user->notify(new AnswerPraised($entity, Auth::id()));
             }
             if (
                 $type === 'TASK' or

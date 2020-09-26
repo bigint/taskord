@@ -9,6 +9,7 @@ use GrahamCampbell\Throttle\Facades\Throttle;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Request;
 use Livewire\Component;
+use Helper;
 
 class SingleAnswer extends Component
 {
@@ -38,34 +39,7 @@ class SingleAnswer extends Component
             if (Auth::id() === $this->answer->user->id) {
                 return session()->flash('error', 'You can\'t praise your own answer!');
             }
-            if (Auth::user()->hasLiked($this->answer)) {
-                Auth::user()->unlike($this->answer);
-                $this->answer->refresh();
-                undoPoint(new PraiseCreated($this->answer));
-                Auth::user()->touch();
-                $this->answer->user->notify(
-                    new TelegramLogger(
-                        '*👏 Answer was un-praised* by @'
-                        .Auth::user()->username."\n\n"
-                        .$this->answer->answer."\n\nhttps://taskord.com/question/"
-                        .$this->answer->question->id
-                    )
-                );
-            } else {
-                Auth::user()->like($this->answer);
-                $this->answer->refresh();
-                $this->answer->user->notify(new AnswerPraised($this->answer, Auth::id()));
-                givePoint(new PraiseCreated($this->answer));
-                Auth::user()->touch();
-                $this->answer->user->notify(
-                    new TelegramLogger(
-                        '*👏 Answer was praised* by @'
-                        .Auth::user()->username."\n\n"
-                        .$this->answer->answer."\n\nhttps://taskord.com/question/"
-                        .$this->answer->question->id
-                    )
-                );
-            }
+            Helper::togglePraise($this->answer ,'ANSWER');
         } else {
             return session()->flash('error', 'Forbidden!');
         }
