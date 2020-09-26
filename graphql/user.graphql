@@ -1,3 +1,4 @@
+# Query
 type User {
     id: ID!
     username: String!

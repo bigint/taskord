@@ -1,3 +1,4 @@
+# Query
 type Answer {
     id: ID!
     answer: String!
