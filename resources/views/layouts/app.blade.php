@@ -114,7 +114,7 @@
                                     <a
                                         href="{{ route('user.settings.profile') }}"
                                         class="badge rounded-pill score text-white
-                                            @if(Auth::user()->daily_goal >= Auth::user()->daily_goal_reached)
+                                            @if(Auth::user()->daily_goal_reached >= Auth::user()->daily_goal)
                                                 bg-success
                                             @else
                                                 bg-info
