@@ -111,6 +111,13 @@
                             <li class="nav-item mr-2">
                                 <div class="nav-link">
                                     <span class="badge rounded-pill bg-warning text-dark reputation">
+                                        {{ $completed_today }}/{{ Auth::user()->daily_goal }}
+                                    </span>
+                                </div>
+                            </li>
+                            <li class="nav-item mr-2">
+                                <div class="nav-link">
+                                    <span class="badge rounded-pill bg-warning text-dark reputation">
                                         {{ Emoji::fire() }} {{ number_format(Auth::user()->getPoints()) }}
                                     </span>
                                 </div>

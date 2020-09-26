@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\Product;
 use App\Models\Question;
 use App\Models\User;
+use App\Models\Task;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -26,6 +28,14 @@ class HomeController extends Controller
      */
     public function index()
     {
+        if (Auth::check()) {
+            $completed_today = Task::cacheFor(60 * 60)
+                ->select('done_at', 'user_id')
+                ->whereDate('done_at', Carbon::today())
+                ->count();
+        } else {
+            $completed_today = null;
+        }
         $launched_today = Product::cacheFor(60 * 60)
             ->select('slug', 'name', 'avatar', 'description', 'launched', 'launched_at', 'user_id')
             ->where('launched', true)
@@ -65,6 +75,7 @@ class HomeController extends Controller
             ->get();
 
         return view('home/home', [
+            'completed_today' => $completed_today,
             'recent_questions' => $recent_questions,
             'launched_today' => $launched_today,
             'recently_joined' => $recently_joined,
