@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use Livewire\Component;
+use Helper;
 
 class SingleTask extends Component
 {
@@ -93,38 +94,7 @@ class SingleTask extends Component
             if (Auth::id() === $this->task->user->id) {
                 return session()->flash('error', 'You can\'t praise your own task!');
             }
-            if (Auth::user()->hasLiked($this->task)) {
-                Auth::user()->unlike($this->task);
-                $this->task->refresh();
-                if ($this->task->source !== 'GitHub' and $this->task->source !== 'GitLab') {
-                    undoPoint(new PraiseCreated($this->task));
-                }
-                Auth::user()->touch();
-                $this->task->user->notify(
-                    new TelegramLogger(
-                        '*👏 Task was un-praised* by @'
-                        .Auth::user()->username."\n\n"
-                        .$this->task->task."\n\nhttps://taskord.com/task/"
-                        .$this->task->id
-                    )
-                );
-            } else {
-                Auth::user()->like($this->task);
-                $this->task->refresh();
-                $this->task->user->notify(new TaskPraised($this->task, Auth::id()));
-                if ($this->task->source !== 'GitHub' and $this->task->source !== 'GitLab') {
-                    givePoint(new PraiseCreated($this->task));
-                }
-                Auth::user()->touch();
-                $this->task->user->notify(
-                    new TelegramLogger(
-                        '*👏 Task was praised* by @'
-                        .Auth::user()->username."\n\n"
-                        .$this->task->task."\n\nhttps://taskord.com/task/"
-                        .$this->task->id
-                    )
-                );
-            }
+            Helper::togglePraise($this->task ,'TASK');
         } else {
             return session()->flash('error', 'Forbidden!');
         }

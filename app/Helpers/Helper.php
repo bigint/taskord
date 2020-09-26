@@ -9,9 +9,39 @@ use App\Models\User;
 use App\Notifications\Mentioned;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
+use App\Notifications\TaskPraised;
+use App\Gamify\Points\PraiseCreated;
 
 class Helper
 {
+    public static function togglePraise($entity, $type)
+    {
+        if (Auth::user()->hasLiked($entity)) {
+            Auth::user()->unlike($entity);
+            $entity->refresh();
+            if (
+                $type === 'Task' or
+                $entity->source !== 'GitHub' and
+                $entity->source !== 'GitLab'
+            ) {
+                undoPoint(new PraiseCreated($entity));
+            }
+            Auth::user()->touch();
+        } else {
+            Auth::user()->like($entity);
+            $entity->refresh();
+            $entity->user->notify(new TaskPraised($entity, Auth::id()));
+            if (
+                $type === 'Task' or
+                $entity->source !== 'GitHub' and
+                $entity->source !== 'GitLab'
+            ) {
+                givePoint(new PraiseCreated($entity));
+            }
+            Auth::user()->touch();
+        }
+    }
+
     public static function mentionUsers($users, $task, $type)
     {
         if ($users) {
