@@ -12,11 +12,7 @@ use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use Livewire\Component;
-<<<<<<<<< saved version
-use Livewire\Component;
-=========
 use App\Jobs\CheckGoal;
->>>>>>>>> local version
 
 class SingleTask extends Component
 {

@@ -12,11 +12,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Request;
 use Livewire\Component;
 use Livewire\WithFileUploads;
-<<<<<<<<< saved version
-use Livewire\WithFileUploads;
-=========
 use App\Jobs\CheckGoal;
->>>>>>>>> local version
 
 class CreateTask extends Component
 {
