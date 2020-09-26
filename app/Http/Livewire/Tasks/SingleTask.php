@@ -3,13 +3,13 @@
 namespace App\Http\Livewire\Tasks;
 
 use App\Gamify\Points\TaskCompleted;
+use App\Jobs\CheckGoal;
 use App\Notifications\TelegramLogger;
 use Carbon\Carbon;
 use GrahamCampbell\Throttle\Facades\Throttle;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Request;
 use Livewire\Component;
-use App\Jobs\CheckGoal;
 
 class SingleTask extends Component
 {
