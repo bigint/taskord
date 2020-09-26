@@ -54,6 +54,9 @@
                                 {{ $user->username }}
                             @endif
                         </span>
+                        @if ($user->isVerified)
+                            <i class="fa fa-check-circle ml-1 mr-1 text-primary" data-toggle="tooltip" data-placement="right" title="Verified"></i>
+                        @endif
                         <span class="small">{{ "@" . $user->username }}</span>
                     </a>
                 </span>
