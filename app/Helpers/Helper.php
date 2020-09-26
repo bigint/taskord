@@ -10,6 +10,7 @@ use App\Notifications\Mentioned;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 use App\Notifications\TaskPraised;
+use App\Notifications\CommentPraised;
 use App\Gamify\Points\PraiseCreated;
 
 class Helper
@@ -32,6 +33,8 @@ class Helper
             $entity->refresh();
             if ($type === 'TASK') {
                 $entity->user->notify(new TaskPraised($entity, Auth::id()));
+            } elseif ($type === 'COMMENT') {
+                $entity->user->notify(new CommentPraised($entity, Auth::id()));
             }
             if (
                 $type === 'TASK' or
