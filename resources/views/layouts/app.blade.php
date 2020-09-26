@@ -109,24 +109,18 @@
                         @else
                             @livewire('notification.icon')
                             @if (Auth::user()->hasGoal)
-                            @php
-                            $completed_today = \App\Models\Task::cacheFor(60 * 60)
-                                ->select('done_at', 'user_id')
-                                ->whereDate('done_at', Carbon::today())
-                                ->count();
-                            @endphp
                             <li class="nav-item mr-2">
                                 <div class="nav-link">
                                     <a
                                         href="{{ route('user.settings.profile') }}"
                                         class="badge rounded-pill score text-white
-                                            @if($completed_today >= Auth::user()->daily_goal)
+                                            @if($completed_today >= $daily_goal_reached)
                                                 bg-success
                                             @else
                                                 bg-info
                                             @endif"
                                     >
-                                        {{ Emoji::bullseye() }} {{ $completed_today }}/{{ Auth::user()->daily_goal }}
+                                        {{ Emoji::bullseye() }} {{ $completed_today }}/{{ $daily_goal_reached }}
                                     </a>
                                 </div>
                             </li>

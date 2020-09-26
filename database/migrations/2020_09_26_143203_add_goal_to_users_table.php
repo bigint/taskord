@@ -15,7 +15,7 @@ class AddGoalToUsersTable extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             $table->boolean('hasGoal')->default(true);
-            $table->integer('daily_goal')->nullable()->default(0);
+            $table->integer('daily_goal')->default(0);
         });
     }
 

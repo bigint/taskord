@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Request;
 use Livewire\Component;
 use Livewire\WithFileUploads;
+use App\Jobs\CheckGoal;
 
 class CreateTask extends Component
 {
@@ -104,6 +105,7 @@ class CreateTask extends Component
             $this->resetInputFields();
             Helper::mentionUsers($users, $task, 'task');
             givePoint(new TaskCreated($task));
+            CheckGoal::dispatch(Auth::user());
             Auth::user()->notify(
                 new TelegramLogger(
                     '*✅ New Task* by @'
