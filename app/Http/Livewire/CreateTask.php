@@ -3,6 +3,7 @@
 namespace App\Http\Livewire;
 
 use App\Gamify\Points\TaskCreated;
+use App\Jobs\CheckGoal;
 use App\Models\Task;
 use App\Notifications\TelegramLogger;
 use Carbon\Carbon;
@@ -104,6 +105,11 @@ class CreateTask extends Component
             $this->resetInputFields();
             Helper::mentionUsers($users, $task, 'task');
             givePoint(new TaskCreated($task));
+            if (Auth::user()->hasGoal and $task->done) {
+                Auth::user()->daily_goal_reached++;
+                Auth::user()->save();
+                CheckGoal::dispatch(Auth::user());
+            }
             Auth::user()->notify(
                 new TelegramLogger(
                     '*✅ New Task* by @'

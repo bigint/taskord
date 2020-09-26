@@ -19,6 +19,9 @@ class Profile extends Component
     public $location;
     public $company;
     public $avatar;
+    // Goal
+    public $daily_goal;
+    public $hasGoal;
     // Sponsor
     public $sponsor;
     // Social
@@ -38,6 +41,9 @@ class Profile extends Component
         $this->bio = $user->bio;
         $this->location = $user->location;
         $this->company = $user->company;
+        // Goal
+        $this->hasGoal = $user->hasGoal;
+        $this->daily_goal = $user->daily_goal;
         // Sponsor
         $this->sponsor = $user->sponsor;
         // Social
@@ -112,6 +118,42 @@ class Profile extends Component
                 $this->user->save();
 
                 return session()->flash('profile', 'Your profile has been updated!');
+            } else {
+                return session()->flash('error', 'Forbidden!');
+            }
+        } else {
+            return session()->flash('error', 'Forbidden!');
+        }
+    }
+
+    public function enableGoal()
+    {
+        if (Auth::check()) {
+            if (Auth::id() === $this->user->id) {
+                $this->user->hasGoal = ! $this->user->hasGoal;
+                $this->user->save();
+            } else {
+                return session()->flash('error', 'Forbidden!');
+            }
+        } else {
+            return session()->flash('error', 'Forbidden!');
+        }
+    }
+
+    public function setGoal()
+    {
+        if (Auth::check()) {
+            if (Auth::id() === $this->user->id) {
+                $this->validate([
+                    'daily_goal' => 'integer|max:1000|min:1',
+                ]);
+
+                if (Auth::check()) {
+                    $this->user->daily_goal = $this->daily_goal;
+                    $this->user->save();
+
+                    return session()->flash('setGoal', 'Your goal has been updated!');
+                }
             } else {
                 return session()->flash('error', 'Forbidden!');
             }

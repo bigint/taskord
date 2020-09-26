@@ -108,9 +108,26 @@
                             @endif
                         @else
                             @livewire('notification.icon')
+                            @if (Auth::user()->hasGoal)
                             <li class="nav-item mr-2">
                                 <div class="nav-link">
-                                    <span class="badge rounded-pill bg-warning text-dark reputation">
+                                    <a
+                                        href="{{ route('user.settings.profile') }}"
+                                        class="badge rounded-pill score text-white
+                                            @if(Auth::user()->daily_goal_reached >= Auth::user()->daily_goal)
+                                                bg-success
+                                            @else
+                                                bg-info
+                                            @endif"
+                                    >
+                                        {{ Emoji::bullseye() }} {{ Auth::user()->daily_goal_reached }}/{{ Auth::user()->daily_goal }}
+                                    </a>
+                                </div>
+                            </li>
+                            @endif
+                            <li class="nav-item mr-2">
+                                <div class="nav-link">
+                                    <span class="badge rounded-pill text-dark score bg-warning">
                                         {{ Emoji::fire() }} {{ number_format(Auth::user()->getPoints()) }}
                                     </span>
                                 </div>

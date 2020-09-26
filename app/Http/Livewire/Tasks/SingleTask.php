@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Tasks;
 
 use App\Gamify\Points\TaskCompleted;
+use App\Jobs\CheckGoal;
 use App\Notifications\TelegramLogger;
 use Carbon\Carbon;
 use GrahamCampbell\Throttle\Facades\Throttle;
@@ -35,6 +36,11 @@ class SingleTask extends Component
             givePoint(new TaskCompleted($this->task));
             $this->task->save();
             $this->emit('taskChecked');
+            if (Auth::user()->hasGoal and $this->task->done) {
+                Auth::user()->daily_goal_reached++;
+                Auth::user()->save();
+                CheckGoal::dispatch(Auth::user());
+            }
             $this->task->user->notify(
                 new TelegramLogger(
                     '*✅ Task was mark as done* by @'
