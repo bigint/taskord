@@ -5,9 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Product;
 use App\Models\Question;
 use App\Models\User;
-use App\Models\Task;
 use Carbon\Carbon;
-use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
