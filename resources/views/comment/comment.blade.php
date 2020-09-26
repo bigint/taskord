@@ -17,19 +17,14 @@
                 ], key($task->id))
                 </span>
             </div>
-
-            @auth
-            @if (!Auth::user()->isFlagged)
-                @livewire('comment.create-comment', [
-                    'task' => $task
-                ])
-            @endif
-            @endauth
-            @guest
-                <a href="/login" class="btn btn-block btn-success mt-4 text-white font-weight-bold">
-                    {{ Emoji::wavingHand() }} Login or Signup to comment
-                </a>
-            @endguest
+            <div class="mt-4 mb-4">
+            @livewire('comment.single-comment', [
+                'comment' => $comment,
+            ], key($comment->id))
+            </div>
+            <a href="{{ route('task', ['id' => $task->id]) }}" class="btn btn-block btn-success mt-4 text-white font-weight-bold">
+                Go back to task
+            </a>
         </div>
         <div class="col-sm">
             <div class="card mb-4">
