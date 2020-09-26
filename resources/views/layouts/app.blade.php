@@ -117,8 +117,9 @@
                             @endphp
                             <li class="nav-item mr-2">
                                 <div class="nav-link">
-                                    <span
-                                        class="badge rounded-pill score
+                                    <a
+                                        href="{{ route('user.settings.profile') }}"
+                                        class="badge rounded-pill score text-white
                                             @if($completed_today > Auth::user()->daily_goal)
                                                 bg-success
                                             @else
@@ -126,7 +127,7 @@
                                             @endif"
                                     >
                                         {{ Emoji::bullseye() }} {{ $completed_today }}/{{ Auth::user()->daily_goal }}
-                                    </span>
+                                    </a>
                                 </div>
                             </li>
                             @endif
