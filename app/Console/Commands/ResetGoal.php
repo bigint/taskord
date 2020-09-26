@@ -2,8 +2,8 @@
 
 namespace App\Console\Commands;
 
-use Illuminate\Console\Command;
 use App\Models\User;
+use Illuminate\Console\Command;
 
 class ResetGoal extends Command
 {
@@ -39,12 +39,13 @@ class ResetGoal extends Command
     public function handle()
     {
         $users = User::all();
-        foreach($users as $user) {
+        foreach ($users as $user) {
             $user->daily_goal_reached = 0;
-            $this->info("Reset Successful for @".$user->username."!");
+            $this->info('Reset Successful for @'.$user->username.'!');
             $user->save();
         }
-        $this->info("Reset Completed!");
+        $this->info('Reset Completed!');
+
         return 0;
     }
 }
