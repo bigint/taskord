@@ -7,16 +7,16 @@ use QCod\Gamify\PointType;
 class GoalReached extends PointType
 {
     public $allowDuplicates = false;
-    
+
     /**
-     * Number of points
+     * Number of points.
      *
      * @var int
      */
     public $points = 10;
 
     /**
-     * Point constructor
+     * Point constructor.
      *
      * @param $subject
      */
@@ -26,7 +26,7 @@ class GoalReached extends PointType
     }
 
     /**
-     * User who will be receive points
+     * User who will be receive points.
      *
      * @return mixed
      */
