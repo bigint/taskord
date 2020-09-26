@@ -4,14 +4,55 @@
 
 namespace App\Helpers;
 
+use App\Gamify\Points\PraiseCreated;
 use App\Models\Product;
 use App\Models\User;
+use App\Notifications\AnswerPraised;
+use App\Notifications\CommentPraised;
 use App\Notifications\Mentioned;
+use App\Notifications\QuestionPraised;
+use App\Notifications\TaskPraised;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 
 class Helper
 {
+    public static function togglePraise($entity, $type)
+    {
+        if (Auth::user()->hasLiked($entity)) {
+            Auth::user()->unlike($entity);
+            $entity->refresh();
+            if (
+                $type === 'TASK' or
+                $entity->source !== 'GitHub' and
+                $entity->source !== 'GitLab'
+            ) {
+                undoPoint(new PraiseCreated($entity));
+            }
+            Auth::user()->touch();
+        } else {
+            Auth::user()->like($entity);
+            $entity->refresh();
+            if ($type === 'TASK') {
+                $entity->user->notify(new TaskPraised($entity, Auth::id()));
+            } elseif ($type === 'COMMENT') {
+                $entity->user->notify(new CommentPraised($entity, Auth::id()));
+            } elseif ($type === 'QUESTION') {
+                $entity->user->notify(new QuestionPraised($entity, Auth::id()));
+            } elseif ($type === 'ANSWER') {
+                $entity->user->notify(new AnswerPraised($entity, Auth::id()));
+            }
+            if (
+                $type === 'TASK' or
+                $entity->source !== 'GitHub' and
+                $entity->source !== 'GitLab'
+            ) {
+                givePoint(new PraiseCreated($entity));
+            }
+            Auth::user()->touch();
+        }
+    }
+
     public static function mentionUsers($users, $task, $type)
     {
         if ($users) {
