@@ -17,13 +17,7 @@
                 ], key($task->id))
                 </span>
             </div>
-            <style>
-.vl {
-  border-left: 4px solid green;
-  height: 40px;
-}
-</style>
-            <div class="ml-4 vl"></div>
+            <div class="ml-4 vertical-line"></div>
             <div class="mb-4">
             @livewire('comment.single-comment', [
                 'comment' => $comment,
