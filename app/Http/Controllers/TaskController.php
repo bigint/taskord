@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Task;
 use App\Models\Comment;
+use App\Models\Task;
 use Illuminate\Support\Facades\Auth;
 
 class TaskController extends Controller
@@ -27,7 +27,7 @@ class TaskController extends Controller
 
         return view('task/task', $response);
     }
-    
+
     public function comment($id, $comment_id)
     {
         $task = Task::cacheFor(60 * 60)
