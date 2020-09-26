@@ -120,12 +120,12 @@
                                     <span
                                         class="badge rounded-pill score
                                             @if($completed_today > Auth::user()->daily_goal)
-                                                bg-success text-white
+                                                bg-success
                                             @else
-                                                bg-warning text-dark
+                                                bg-info
                                             @endif"
                                     >
-                                        {{ $completed_today }}/{{ Auth::user()->daily_goal }}
+                                        {{ Emoji::bullseye() }} {{ $completed_today }}/{{ Auth::user()->daily_goal }}
                                     </span>
                                 </div>
                             </li>
