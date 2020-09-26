@@ -102,6 +102,36 @@
     
     <div class="card mb-4">
         <div class="card-header pt-3 pb-3">
+            <span class="h5">Goal</span>
+            <div>Complete your goal and earn additional reputations</div>
+        </div>
+        <div class="card-body">
+            @if (session()->has('setGoal'))
+                <div class="alert alert-success alert-dismissible fade show mb-3">
+                    <button type="button" class="close" data-dismiss="alert">×</button>
+                    {{ session('setGoal') }}
+                </div>
+            @endif
+            <form wire:submit.prevent="updateProfile">
+                <div class="mb-3">
+                    <label class="form-label">Number of tasks</label>
+                    <input type="text" class="form-control @error('daily_goal') is-invalid @enderror" value="{{ $user->daily_goal }}" wire:model.defer="daily_goal">
+                    @error('daily_goal')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
+                </div>
+                <button type="submit" class="btn btn-primary">
+                    Set Goal
+                    <span wire:target="setGoal" wire:loading class="spinner-border spinner-border-sm ml-2" role="status"></span>
+                </button>
+            </form>
+        </div>
+    </div>
+    
+    <div class="card mb-4">
+        <div class="card-header pt-3 pb-3">
             <span class="h5">Homepage</span>
             <div>Update your homepage preference.</div>
         </div>
