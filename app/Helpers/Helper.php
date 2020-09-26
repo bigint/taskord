@@ -20,7 +20,7 @@ class Helper
             Auth::user()->unlike($entity);
             $entity->refresh();
             if (
-                $type === 'Task' or
+                $type === 'TASK' or
                 $entity->source !== 'GitHub' and
                 $entity->source !== 'GitLab'
             ) {
@@ -30,9 +30,11 @@ class Helper
         } else {
             Auth::user()->like($entity);
             $entity->refresh();
-            $entity->user->notify(new TaskPraised($entity, Auth::id()));
+            if ($type === 'TASK') {
+                $entity->user->notify(new TaskPraised($entity, Auth::id()));
+            }
             if (
-                $type === 'Task' or
+                $type === 'TASK' or
                 $entity->source !== 'GitHub' and
                 $entity->source !== 'GitLab'
             ) {
