@@ -2,8 +2,8 @@
 
 namespace Tests\Feature;
 
-use App\Http\Livewire\Task\CreateComment;
-use App\Http\Livewire\Task\SingleComment;
+use App\Http\Livewire\Comment\CreateComment;
+use App\Http\Livewire\Comment\SingleComment;
 use App\Models\Comment;
 use App\Models\Task;
 use App\Models\User;
