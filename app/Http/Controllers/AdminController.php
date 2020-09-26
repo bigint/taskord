@@ -9,7 +9,7 @@ class AdminController extends Controller
 {
     public function users()
     {
-        $users = User::latest('updated_at')->paginate(50);
+        $users = User::latest('last_active')->paginate(50);
         $count = User::all()->count('id');
 
         return view('admin.users', [
