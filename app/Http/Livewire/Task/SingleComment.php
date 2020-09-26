@@ -2,14 +2,11 @@
 
 namespace App\Http\Livewire\Task;
 
-use App\Gamify\Points\PraiseCreated;
-use App\Notifications\CommentPraised;
-use App\Notifications\TelegramLogger;
 use GrahamCampbell\Throttle\Facades\Throttle;
+use Helper;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Request;
 use Livewire\Component;
-use Helper;
 
 class SingleComment extends Component
 {
@@ -40,7 +37,7 @@ class SingleComment extends Component
             if (Auth::id() === $this->comment->user->id) {
                 return session()->flash('error', 'You can\'t praise your own comment!');
             }
-            Helper::togglePraise($this->comment ,'COMMENT');
+            Helper::togglePraise($this->comment, 'COMMENT');
         } else {
             return session()->flash('error', 'Forbidden!');
         }

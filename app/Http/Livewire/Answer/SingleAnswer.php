@@ -2,14 +2,11 @@
 
 namespace App\Http\Livewire\Answer;
 
-use App\Gamify\Points\PraiseCreated;
-use App\Notifications\AnswerPraised;
-use App\Notifications\TelegramLogger;
 use GrahamCampbell\Throttle\Facades\Throttle;
+use Helper;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Request;
 use Livewire\Component;
-use Helper;
 
 class SingleAnswer extends Component
 {
@@ -39,7 +36,7 @@ class SingleAnswer extends Component
             if (Auth::id() === $this->answer->user->id) {
                 return session()->flash('error', 'You can\'t praise your own answer!');
             }
-            Helper::togglePraise($this->answer ,'ANSWER');
+            Helper::togglePraise($this->answer, 'ANSWER');
         } else {
             return session()->flash('error', 'Forbidden!');
         }

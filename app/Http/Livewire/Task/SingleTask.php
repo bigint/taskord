@@ -2,18 +2,16 @@
 
 namespace App\Http\Livewire\Task;
 
-use App\Gamify\Points\PraiseCreated;
 use App\Gamify\Points\TaskCompleted;
-use App\Notifications\TaskPraised;
 use App\Notifications\TelegramLogger;
 use Carbon\Carbon;
 use GrahamCampbell\Throttle\Facades\Throttle;
+use Helper;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use Livewire\Component;
-use Helper;
 
 class SingleTask extends Component
 {
@@ -94,7 +92,7 @@ class SingleTask extends Component
             if (Auth::id() === $this->task->user->id) {
                 return session()->flash('error', 'You can\'t praise your own task!');
             }
-            Helper::togglePraise($this->task ,'TASK');
+            Helper::togglePraise($this->task, 'TASK');
         } else {
             return session()->flash('error', 'Forbidden!');
         }
