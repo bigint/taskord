@@ -120,7 +120,7 @@
             @elseif ($type === "App\Notifications\Commented")
                 <span class="align-middle">
                     commented on your
-                    <a class="font-weight-bold" href="{{ route('task', ['id' => $data['task_id']]) }}">
+                    <a class="font-weight-bold" href="{{ route('comment', ['id' => $data['task_id'], 'comment_id' => $data['comment_id']]) }}">
                         task
                     </a>
                 </span>
