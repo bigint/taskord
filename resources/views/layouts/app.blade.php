@@ -8,6 +8,7 @@
     <meta name="description" content="@yield('description')">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@taskord">
+    <meta property="og:logo" content="/images/logo.svg">
     <meta property="og:site_name" content="Taskord">
     <meta property="og:title" content="@yield('title') Taskord">
     <meta property="og:description" content="@yield('description')">
