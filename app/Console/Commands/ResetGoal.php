@@ -40,8 +40,6 @@ class ResetGoal extends Command
     {
         $users = User::all();
         foreach($users as $user) {
-            $user->hasGoal = true;
-            $user->daily_goal = 5;
             $user->daily_goal_reached = 0;
             $user->save();
         }
