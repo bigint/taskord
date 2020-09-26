@@ -21,6 +21,7 @@ class Profile extends Component
     public $avatar;
     // Goal
     public $daily_goal;
+    public $hasGoal;
     // Sponsor
     public $sponsor;
     // Social
@@ -41,6 +42,7 @@ class Profile extends Component
         $this->location = $user->location;
         $this->company = $user->company;
         // Goal
+        $this->hasGoal = $user->hasGoal;
         $this->daily_goal = $user->daily_goal;
         // Sponsor
         $this->sponsor = $user->sponsor;
@@ -116,6 +118,20 @@ class Profile extends Component
                 $this->user->save();
 
                 return session()->flash('profile', 'Your profile has been updated!');
+            } else {
+                return session()->flash('error', 'Forbidden!');
+            }
+        } else {
+            return session()->flash('error', 'Forbidden!');
+        }
+    }
+    
+    public function enableGoal()
+    {
+        if (Auth::check()) {
+            if (Auth::id() === $this->user->id) {
+                $this->user->hasGoal = ! $this->user->hasGoal;
+                $this->user->save();
             } else {
                 return session()->flash('error', 'Forbidden!');
             }

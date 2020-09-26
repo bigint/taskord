@@ -108,6 +108,7 @@
                             @endif
                         @else
                             @livewire('notification.icon')
+                            @if (Auth::user()->hasGoal)
                             @php
                             $completed_today = \App\Models\Task::cacheFor(60 * 60)
                                 ->select('done_at', 'user_id')
@@ -121,6 +122,7 @@
                                     </span>
                                 </div>
                             </li>
+                            @endif
                             <li class="nav-item mr-2">
                                 <div class="nav-link">
                                     <span class="badge rounded-pill bg-warning text-dark reputation">

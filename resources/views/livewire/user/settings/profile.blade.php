@@ -113,8 +113,14 @@
                 </div>
             @endif
             <form wire:submit.prevent="setGoal">
-                <div class="mb-3">
-                    <label class="form-label">Number of tasks</label>
+                <div>
+                    <input wire:click="enableGoal" id="enableGoal" class="form-check-input" type="checkbox" {{ $user->hasGoal ? 'checked' : '' }}>
+                    <label for="enableGoal" class="ml-1">Enable Goal</label>
+                    <span wire:loading wire:target="enableGoal" class="small ml-2 text-success font-weight-bold">Updating...</span>
+                </div>
+                @if ($user->hasGoal)
+                <div class="mt-2 mb-3">
+                    <label class="form-label mt-2">Number of tasks</label>
                     <input type="text" class="form-control @error('daily_goal') is-invalid @enderror" value="{{ $user->daily_goal }}" wire:model.defer="daily_goal">
                     @error('daily_goal')
                         <span class="invalid-feedback" role="alert">
@@ -126,6 +132,7 @@
                     Set Goal
                     <span wire:target="setGoal" wire:loading class="spinner-border spinner-border-sm ml-2" role="status"></span>
                 </button>
+                @endif
             </form>
         </div>
     </div>
