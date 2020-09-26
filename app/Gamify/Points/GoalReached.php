@@ -6,12 +6,14 @@ use QCod\Gamify\PointType;
 
 class GoalReached extends PointType
 {
+    public $allowDuplicates = false;
+    
     /**
      * Number of points
      *
      * @var int
      */
-    public $points = 20;
+    public $points = 10;
 
     /**
      * Point constructor
