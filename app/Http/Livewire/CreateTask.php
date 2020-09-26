@@ -3,6 +3,7 @@
 namespace App\Http\Livewire;
 
 use App\Gamify\Points\TaskCreated;
+use App\Jobs\CheckGoal;
 use App\Models\Task;
 use App\Notifications\TelegramLogger;
 use Carbon\Carbon;
@@ -12,7 +13,6 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Request;
 use Livewire\Component;
 use Livewire\WithFileUploads;
-use App\Jobs\CheckGoal;
 
 class CreateTask extends Component
 {
