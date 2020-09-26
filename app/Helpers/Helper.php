@@ -39,7 +39,7 @@ class Helper
                 $entity->user->notify(new CommentPraised($entity, Auth::id()));
             } elseif ($type === 'QUESTION') {
                 $entity->user->notify(new QuestionPraised($entity, Auth::id()));
-            } elseif ($type === 'QUESTION') {
+            } elseif ($type === 'ANSWER') {
                 $entity->user->notify(new AnswerPraised($entity, Auth::id()));
             }
             if (
