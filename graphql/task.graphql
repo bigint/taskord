@@ -1,0 +1,23 @@
+# Mutation
+type CreateTaskPayload {
+    task: Task
+    response: String
+}
+
+# Query
+type Task {
+    id: ID!
+    task: String!
+    image: String
+    done: Boolean!
+    type: String
+    source: String
+    done_at: DateTime!
+    user: User @belongsTo
+    product: Product @belongsTo
+    comments: [Comment!]! @hasMany
+    praiseCount: Int! @count(relation: "likers")
+    commentsCount: Int! @count(relation: "comments")
+    created_at: DateTime!
+    updated_at: DateTime!
+}

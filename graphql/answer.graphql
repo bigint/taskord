@@ -1,0 +1,9 @@
+type Answer {
+    id: ID!
+    answer: String!
+    user: User @belongsTo
+    praiseCount: Int! @count(relation: "likers")
+    question: Question @belongsTo
+    created_at: DateTime!
+    updated_at: DateTime!
+}

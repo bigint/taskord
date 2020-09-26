@@ -34,17 +34,7 @@ type Mutation {
     ): CreateTaskPayload @field(resolver: "TaskMutator")
 }
 
-type LoginPayload {
-    user: User
-    token: String
-    response: String
-}
-
-type CreateTaskPayload {
-    task: Task
-    response: String
-}
-
+#import auth.graphql
 #import user.graphql
 #import product.graphql
 #import productupdate.graphql

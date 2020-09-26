@@ -1,0 +1,38 @@
+type User {
+    id: ID!
+    username: String!
+    firstname: String
+    lastname: String
+    avatar: String
+    bio: String
+    location: String
+    company: String
+    website: String
+    twitter: String
+    twitch: String
+    telegram: String
+    github: String
+    youtube: String
+    reputation: Int!
+    isStaff: Boolean!
+    isVerified: Boolean!
+    isDeveloper: Boolean!
+    isBeta: Boolean!
+    isPatron: Boolean!
+    isPrivate: Boolean!
+    tasks: [Task!]! @hasMany
+    comments: [Comment!]! @hasMany
+    ownedProducts: [Product!]! @hasMany
+    products: [Product!]! @belongsToMany
+    questions: [Question!]! @hasMany
+    answers: [Answer!]! @hasMany
+    followingsCount: Int! @count(relation: "followings")
+    followersCount: Int!
+    productsCount: Int! @count(relation: "products")
+    tasksCount: Int! @count(relation: "tasks")
+    commentsCount: Int! @count(relation: "comments")
+    questionsCount: Int! @count(relation: "questions")
+    answerCount: Int! @count(relation: "answers")
+    created_at: DateTime!
+    updated_at: DateTime!
+}

@@ -1,0 +1,12 @@
+type Question {
+    id: ID!
+    title: String!
+    body: String
+    patronOnly: Boolean!
+    user: User @belongsTo
+    praiseCount: Int! @count(relation: "likers")
+    answersCount: Int! @count(relation: "answer")
+    answer: [Answer!]! @hasMany
+    created_at: DateTime!
+    updated_at: DateTime!
+}

@@ -1,0 +1,19 @@
+type Product {
+    id: ID!
+    slug: String!
+    name: String
+    avatar: String
+    description: String
+    website: String
+    twitter: String
+    github: String
+    producthunt: String
+    launched: Boolean!
+    launched_at: DateTime
+    owner: User @belongsTo
+    tasks: [Task!]! @hasMany
+    subscribersCount: Int!
+    tasksCount: Int! @count(relation: "tasks")
+    created_at: DateTime!
+    updated_at: DateTime
+}
