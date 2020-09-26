@@ -18,7 +18,7 @@ class QuestionsTest extends TestCase
         $response = $this->get(route('questions.newest'));
 
         $response->assertStatus(200);
-        $response->assertViewIs('questions.newest');
+        $response->assertViewIs('question.newest');
     }
 
     public function test_unanswered_newest_url()
@@ -33,7 +33,7 @@ class QuestionsTest extends TestCase
         $response = $this->get(route('questions.unanswered'));
 
         $response->assertStatus(200);
-        $response->assertViewIs('questions.unanswered');
+        $response->assertViewIs('question.unanswered');
     }
 
     public function test_popular_newest_url()
@@ -48,6 +48,6 @@ class QuestionsTest extends TestCase
         $response = $this->get(route('questions.popular'));
 
         $response->assertStatus(200);
-        $response->assertViewIs('questions.popular');
+        $response->assertViewIs('question.popular');
     }
 }

@@ -3,7 +3,7 @@
 namespace Tests\Feature;
 
 use App\Http\Livewire\Question\CreateQuestion;
-use App\Http\Livewire\Questions\SingleQuestion;
+use App\Http\Livewire\Question\SingleQuestion;
 use App\Models\Question;
 use App\Models\User;
 use Livewire;
