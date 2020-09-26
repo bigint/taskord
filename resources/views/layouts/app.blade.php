@@ -108,6 +108,12 @@
                             @endif
                         @else
                             @livewire('notification.icon')
+                            @php
+                            $completed_today = \App\Models\Task::cacheFor(60 * 60)
+                                ->select('done_at', 'user_id')
+                                ->whereDate('done_at', Carbon::today())
+                                ->count();
+                            @endphp
                             <li class="nav-item mr-2">
                                 <div class="nav-link">
                                     <span class="badge rounded-pill bg-warning text-dark reputation">
