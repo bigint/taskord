@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire\Task;
+namespace App\Http\Livewire\Comment;
 
 use App\Models\Comment;
 use Illuminate\Pagination\LengthAwarePaginator;
@@ -46,7 +46,7 @@ class Comments extends Component
             ->oldest()
             ->get();
 
-        return view('livewire.task.comments', [
+        return view('livewire.comment.comments', [
             'comments' => $this->paginate($comments),
             'page' => $this->page,
         ]);
