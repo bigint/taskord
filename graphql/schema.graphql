@@ -31,7 +31,7 @@ type Mutation {
         task: String!,
         done: Boolean!
         source: String!
-    ): CreateTaskPayload @field(resolver: "TaskMutator")
+    ): CreateTaskPayload @field(resolver: "TaskMutator@create")
 }
 
 #import auth.graphql
