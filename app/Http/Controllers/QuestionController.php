@@ -18,7 +18,7 @@ class QuestionController extends Controller
                 return $question->answer->count('id');
             });
 
-        return view('questions.newest', [
+        return view('question.newest', [
             'type' => 'questions.newest',
             'trending' => $trending,
         ]);
@@ -35,7 +35,7 @@ class QuestionController extends Controller
                 return $question->answer->count('id');
             });
 
-        return view('questions.unanswered', [
+        return view('question.unanswered', [
             'type' => 'questions.unanswered',
             'trending' => $trending,
         ]);
@@ -52,7 +52,7 @@ class QuestionController extends Controller
                 return $question->answer->count('id');
             });
 
-        return view('questions.popular', [
+        return view('question.popular', [
             'type' => 'questions.popular',
             'trending' => $trending,
         ]);

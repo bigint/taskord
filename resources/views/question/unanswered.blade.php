@@ -10,15 +10,15 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            @include('questions.nav')
-            @livewire('questions.questions', [
+            @include('question.nav')
+            @livewire('question.questions', [
                 'type' => $type,
                 'page' => 1,
                 'perPage' => 10
             ])
         </div>
         <div class="col-sm">
-            @include('questions.sidebar')
+            @include('question.sidebar')
             <x-footer />
         </div>
     </div>

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire\Task;
+namespace App\Http\Livewire\Comment;
 
 use App\Gamify\Points\CommentCreated;
 use App\Models\Comment;
@@ -80,6 +80,6 @@ class CreateComment extends Component
 
     public function render()
     {
-        return view('livewire.task.create-comment');
+        return view('livewire.comment.create-comment');
     }
 }

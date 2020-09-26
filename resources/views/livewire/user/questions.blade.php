@@ -3,7 +3,7 @@
     <x-empty icon="question" text="No questions asked" />
     @endif
     @foreach ($questions as $question)
-        @livewire('questions.single-question', [
+        @livewire('question.single-question', [
             'type' => 'question.newest',
             'question' => $question,
         ], key($question->id))

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire\Questions;
+namespace App\Http\Livewire\Question;
 
 use App\Models\Question;
 use Illuminate\Pagination\LengthAwarePaginator;
@@ -64,7 +64,7 @@ class Questions extends Component
                 });
         }
 
-        return view('livewire.questions.questions', [
+        return view('livewire.question.questions', [
             'questions' => $this->paginate($questions),
             'page' => $this->page,
         ]);

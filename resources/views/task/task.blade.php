@@ -17,14 +17,14 @@
                 ], key($task->id))
                 </span>
             </div>
-            @livewire('task.comments', [
+            @livewire('comment.comments', [
                 'task' => $task,
                 'page' => 1,
                 'perPage' => 10
             ])
             @auth
             @if (!Auth::user()->isFlagged)
-                @livewire('task.create-comment', [
+                @livewire('comment.create-comment', [
                     'task' => $task
                 ])
             @endif

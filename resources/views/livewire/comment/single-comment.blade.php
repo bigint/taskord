@@ -19,9 +19,12 @@
                 @endif
             </a>
         </span>
-        <span class="align-text-top small float-right ml-auto text-black-50">
+        <a
+            class="align-text-top small float-right ml-auto text-black-50"
+            href="{{ route('comment', ['id' => $comment->task->id, 'comment_id' => $comment->id]) }}"
+        >
             {{ Carbon::parse($comment->created_at)->diffForHumans() }}
-        </span>
+        </a>
     </div>
     <span class="body-font">
         {!! nl2br(Purify::clean(Helper::renderTask($comment->comment))) !!}

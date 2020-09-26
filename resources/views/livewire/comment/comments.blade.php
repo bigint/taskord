@@ -4,14 +4,14 @@
     @endif
     <ul class="list-group mt-4">
     @foreach ($comments as $comment)
-        @livewire('task.single-comment', [
+        @livewire('comment.single-comment', [
             'comment' => $comment,
         ], key($comment->id))
     @endforeach
     </ul>
     <div class="mt-4">
         @if ($comments->hasMorePages())
-            @livewire('task.load-more', [
+            @livewire('comment.load-more', [
                 'task' => $task,
                 'page' => $page,
                 'perPage' => $perPage

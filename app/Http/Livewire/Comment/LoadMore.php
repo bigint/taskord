@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire\Task;
+namespace App\Http\Livewire\Comment;
 
 use App\Models\Comment;
 use Illuminate\Pagination\LengthAwarePaginator;
@@ -49,7 +49,7 @@ class LoadMore extends Component
                 ->orderBy('created_at', 'DESC')
                 ->get();
 
-            return view('livewire.task.comments', [
+            return view('livewire.comment.comments', [
                 'comments' => $this->paginate($comments),
             ]);
         } else {

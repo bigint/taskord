@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire\Task;
+namespace App\Http\Livewire\Comment;
 
 use GrahamCampbell\Throttle\Facades\Throttle;
 use Helper;
@@ -68,6 +68,6 @@ class SingleComment extends Component
 
     public function render()
     {
-        return view('livewire.task.single-comment');
+        return view('livewire.comment.single-comment');
     }
 }
