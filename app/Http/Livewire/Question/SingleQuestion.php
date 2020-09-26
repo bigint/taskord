@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire\Questions;
+namespace App\Http\Livewire\Question;
 
 use GrahamCampbell\Throttle\Facades\Throttle;
 use Helper;
@@ -73,6 +73,6 @@ class SingleQuestion extends Component
 
     public function render()
     {
-        return view('livewire.questions.single-question');
+        return view('livewire.question.single-question');
     }
 }

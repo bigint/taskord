@@ -25,7 +25,7 @@
                 </div>
             @endif
             <div class="mb-4">
-                @livewire('questions.single-question', [
+                @livewire('question.single-question', [
                     'type' => $type,
                     'question' => $question,
                 ])
