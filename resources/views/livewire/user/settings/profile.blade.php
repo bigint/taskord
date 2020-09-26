@@ -112,7 +112,7 @@
                     {{ session('setGoal') }}
                 </div>
             @endif
-            <form wire:submit.prevent="updateProfile">
+            <form wire:submit.prevent="setGoal">
                 <div class="mb-3">
                     <label class="form-label">Number of tasks</label>
                     <input type="text" class="form-control @error('daily_goal') is-invalid @enderror" value="{{ $user->daily_goal }}" wire:model.defer="daily_goal">
