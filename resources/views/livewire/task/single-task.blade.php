@@ -2,7 +2,7 @@
     <x-alert />
     <div class="align-items-center d-flex">
         <a href="{{ route('user.done', ['username' => $task->user->username]) }}">
-            <img class="avatar-40 rounded-circle" src="{{ $task->user->avatar }}" />
+            <img class="avatar-40 rounded-circle" src="{{ $task->user->avatar }}" alt="{{ $task->user->username }}" />
         </a>
         <span class="ml-2">
             <a href="{{ route('user.done', ['username' => $task->user->username]) }}" class="font-weight-bold text-dark">
@@ -72,7 +72,7 @@
             @if ($task->type === 'product')
             <span class="small text-black-50">
                 on
-                <img class="rounded mb-1 ml-1 avatar-15" src="{{ $task->product->avatar }}" />
+                <img class="rounded mb-1 ml-1 avatar-15" src="{{ $task->product->avatar }}" alt="{{ $task->product->slug }}" />
                 <a class="text-black-50" href="{{ route('product.done', ['slug' => $task->product->slug]) }}">
                     {{ $task->product->name }}
                 </a>
@@ -82,7 +82,7 @@
         @if ($task->image)
         <div>
             <a href="{{ asset('storage/' . $task->image) }}" data-lightbox="{{ $task->image }}" data-title="Image by {{ '@'.$task->user->username }}">
-                <img class="img-fluid border mt-3 rounded w-50" src="{{ asset('storage/' . $task->image) }}" />
+                <img class="img-fluid border mt-3 rounded w-50" src="{{ asset('storage/' . $task->image) }}" alt="{{ asset('storage/' . $task->image) }}" />
             </a>
         </div>
         @endif
@@ -97,7 +97,7 @@
                 </span>
                 <span class="avatar-stack ml-1">
                 @foreach($task->likers->take(5) as $user)
-                <img class="praise-avatar rounded-circle {{ $loop->last ? 'mr-0' : '' }}" src="{{ $user->avatar }}" />
+                <img class="praise-avatar rounded-circle {{ $loop->last ? 'mr-0' : '' }}" src="{{ $user->avatar }}" alt="{{ $user->username }}" />
                 @endforeach
                 </span>
             </button>
@@ -110,7 +110,7 @@
                 </span>
                 <span class="avatar-stack ml-1">
                 @foreach($task->likers->take(5) as $user)
-                <img class="praise-avatar rounded-circle {{ $loop->last ? 'mr-0' : '' }}" src="{{ $user->avatar }}" />
+                <img class="praise-avatar rounded-circle {{ $loop->last ? 'mr-0' : '' }}" src="{{ $user->avatar }}" alt="{{ $user->username }}" />
                 @endforeach
                 </span>
                 @endif
@@ -127,7 +127,7 @@
                     </span>
                     <span class="avatar-stack ml-1">
                     @foreach($task->likers->take(5) as $user)
-                    <img class="praise-avatar rounded-circle {{ $loop->last ? 'mr-0' : '' }}" src="{{ $user->avatar }}" />
+                    <img class="praise-avatar rounded-circle {{ $loop->last ? 'mr-0' : '' }}" src="{{ $user->avatar }}" alt="{{ $user->username }}" />
                     @endforeach
                     </span>
                     @endif
