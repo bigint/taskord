@@ -2,9 +2,9 @@
 
 namespace App\Http\Middleware;
 
+use App\Jobs\AuthGetIP;
 use Closure;
 use Illuminate\Support\Facades\Auth;
-use App\Jobs\AuthGetIP;
 
 class CheckUser
 {
