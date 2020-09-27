@@ -5,9 +5,9 @@ namespace App\Http\Livewire\User\Settings;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
+use Intervention\Image\Facades\Image;
 use Livewire\Component;
 use Livewire\WithFileUploads;
-use Intervention\Image\Facades\Image;
 
 class Profile extends Component
 {
@@ -90,7 +90,7 @@ class Profile extends Component
                         ->fit(400)
                         ->encode('webp', 80);
                     $imageName = Str::random(32).'.png';
-                    Storage::disk('public')->put("avatars/".$imageName, (string) $img);
+                    Storage::disk('public')->put('avatars/'.$imageName, (string) $img);
                     $avatar = config('app.url').'/storage/avatars/'.$imageName;
                     $this->user->avatar = $avatar;
                 }

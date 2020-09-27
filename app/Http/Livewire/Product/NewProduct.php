@@ -5,11 +5,11 @@ namespace App\Http\Livewire\Product;
 use App\Models\Product;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
+use Intervention\Image\Facades\Image;
 use Livewire\Component;
 use Livewire\WithFileUploads;
-use Intervention\Image\Facades\Image;
-use Illuminate\Support\Str;
-use Illuminate\Support\Facades\Storage;
 
 class NewProduct extends Component
 {
@@ -75,7 +75,7 @@ class NewProduct extends Component
                         ->fit(400)
                         ->encode('webp', 80);
                 $imageName = Str::random(32).'.png';
-                Storage::disk('public')->put("logos/".$imageName, (string) $img);
+                Storage::disk('public')->put('logos/'.$imageName, (string) $img);
                 $url = config('app.url').'/storage/logos/'.$imageName;
             } else {
                 $url = 'https://avatar.tobi.sh/'.md5($this->slug).'.svg?text=📦';

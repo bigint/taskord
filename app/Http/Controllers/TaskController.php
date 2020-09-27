@@ -34,7 +34,7 @@ class TaskController extends Controller
             ->where('id', $id)
             ->firstOrFail();
         $comment = $task->comments->where('id', $comment_id)->first();
-        if (!$comment) {
+        if (! $comment) {
             return view('errors.404');
         }
         $response = [
