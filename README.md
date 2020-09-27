@@ -18,7 +18,7 @@
         <img src="https://gitlab.com/taskord/taskord/badges/master/pipeline.svg" alt="CI">
     </a>
     <a href="LICENSE">
-        <img src="https://img.shields.io/badge/license-MIT-green?longCache=true" alt="MIT License">
+        <img src="https://img.shields.io/badge/license-GNU%20AGPLv3-green?longCache=true" alt="MIT License">
     </a>
     <a href="https://twitter.com/taskord">
         <img src="https://img.shields.io/twitter/follow/taskord?label=Follow&style=social" alt="Taskord Twitter">
