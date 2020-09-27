@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Comment;
 use App\Models\Product;
 use App\Models\Question;
 use App\Models\Task;
-use App\Models\Comment;
 use App\Models\User;
 
 class SitemapController extends Controller
@@ -57,7 +57,7 @@ class SitemapController extends Controller
             'tasks' => $tasks,
         ]);
     }
-    
+
     public function comments()
     {
         $comments = Comment::cacheFor(60 * 60)
