@@ -30,10 +30,8 @@ class CheckGoal implements ShouldQueue
     
     public function giveReputation()
     {
-        if ($this->user->daily_goal_reached === $this->user->daily_goal) {
-            $awarded = (int) round(3 * sqrt($this->user->daily_goal));
-            $this->user->givePoint(new GoalReached($this->task, $awarded));
-        }
+        $awarded = (int) round(3 * sqrt($this->user->daily_goal));
+        $this->user->givePoint(new GoalReached($this->task, $awarded));
     }
 
     /**
@@ -43,17 +41,20 @@ class CheckGoal implements ShouldQueue
      */
     public function handle()
     {
-        dd($this->user->daily_goal_reached === $this->user->daily_goal);
         $last_reached = \DB::table('reputations')
             ->where('payee_id', $this->user->id)
             ->where('name', 'GoalReached')
             ->latest()
             ->get();
         if ($last_reached->isEmpty()) {
-            $this->giveReputation();
+            if ($this->user->daily_goal_reached === $this->user->daily_goal) {
+                $this->giveReputation();
+            }
         } else {
             if (! Carbon::parse($last_reached->last()->created_at)->isToday()) {
-                $this->giveReputation();
+                if ($this->user->daily_goal_reached === $this->user->daily_goal) {
+                    $this->giveReputation();
+                }
             }
         }
     }
