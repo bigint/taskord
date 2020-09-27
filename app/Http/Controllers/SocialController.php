@@ -20,7 +20,6 @@ class SocialController extends Controller
     public function Callback(Request $request, $provider)
     {
         $userSocial = Socialite::driver($provider)->user();
-        //dd($userSocial);
         $user = User::where(['email' => $userSocial->getEmail()])->first();
         if ($user) {
             Auth::login($user);
@@ -34,8 +33,19 @@ class SocialController extends Controller
 
             return redirect()->route('home');
         } else {
+            if ($provider === 'twitter') {
+                $user = User::where(['username' => $userSocial->getNickname()])->first();
+                if (!$user) {
+                    $username = $userSocial->getNickname();
+                } else {
+                    $username = $userSocial->getId();
+                }
+            } else {
+                $username = $userSocial->getId();
+            }
+            
             $user = User::create([
-                'username' => md5(microtime()),
+                'username' => $username,
                 'firstname' => $userSocial->getName(),
                 'email' => $userSocial->getEmail(),
                 'avatar' => $userSocial->avatar_original,
