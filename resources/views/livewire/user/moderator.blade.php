@@ -57,6 +57,9 @@
             </span>
             @if ($user->timezone)
             <span class="font-weight-bold">
+                @php
+                $hour = Carbon::now()->setTimezone($user->timezone)->format('H');
+                @endphp
                 {{ $user->timezone }}
                 •
                 <span class="text-black-50">
@@ -65,6 +68,17 @@
                         ->setTimezone($user->timezone)
                         ->format('g:i A')
                     }}
+                    <span style="cursor:default" class="text-body">
+                        @if ($hour < 12)
+                        <span title="Morning">🌅</span>
+                        @elseif ($hour < 17)
+                        <span title="Afternoon">☀️</span>
+                        @elseif ($hour < 20)
+                        <span title="Evening">🌇</span>
+                        @else
+                        <span title="Night">🌚</span>
+                        @endif
+                    </span>
                 </span>
             </span>
             @else
