@@ -9,11 +9,11 @@ use GrahamCampbell\Throttle\Facades\Throttle;
 use Helper;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Request;
-use Livewire\Component;
-use Livewire\WithFileUploads;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use Intervention\Image\Facades\Image;
+use Livewire\Component;
+use Livewire\WithFileUploads;
 
 class CreateTask extends Component
 {
