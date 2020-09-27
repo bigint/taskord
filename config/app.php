@@ -180,6 +180,7 @@ return [
         Stevebauman\Purify\PurifyServiceProvider::class,
         QCod\Gamify\GamifyServiceProvider::class,
         CyrildeWit\EloquentViewable\EloquentViewableServiceProvider::class,
+        Intervention\Image\ImageServiceProvider::class,
 
     ],
 
@@ -240,6 +241,7 @@ return [
         'Purify' => Stevebauman\Purify\Facades\Purify::class,
         'Markdown' => GrahamCampbell\Markdown\Facades\Markdown::class,
         'Throttle' => GrahamCampbell\Throttle\Facades\Throttle::class,
+        'Image' => Intervention\Image\Facades\Image::class,
 
         // Helper
         'Helper' => App\Helpers\Helper::class,

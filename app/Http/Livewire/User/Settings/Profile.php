@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Livewire\Component;
 use Livewire\WithFileUploads;
+use Intervention\Image\Facades\Image;
 
 class Profile extends Component
 {
@@ -59,7 +60,7 @@ class Profile extends Component
     {
         if (Auth::check()) {
             $this->validate([
-                'avatar' => 'nullable|mimes:jpeg,jpg,png,gif|max:1024|dimensions:ratio=1',
+                'avatar' => 'nullable|mimes:jpeg,jpg,png,gif|max:1024',
             ]);
         } else {
             return session()->flash('error', 'Forbidden!');
@@ -76,7 +77,7 @@ class Profile extends Component
                     'bio' => 'nullable|max:1000',
                     'location' => 'nullable|max:30',
                     'company' => 'nullable|max:30',
-                    'avatar' => 'nullable|mimes:jpeg,jpg,png,gif|max:1024|dimensions:ratio=1',
+                    'avatar' => 'nullable|mimes:jpeg,jpg,png,gif|max:1024',
                 ]);
 
                 if ($this->avatar) {
@@ -84,8 +85,13 @@ class Profile extends Component
                     if (array_key_exists(1, $old_avatar)) {
                         Storage::delete($old_avatar[1]);
                     }
-                    $avatar = $this->avatar->store('avatars');
-                    $this->user->avatar = config('app.url').'/storage/'.$avatar;
+                    $img = Image::make($this->avatar)
+                        ->fit(400)
+                        ->encode('jpg', 80);
+                    $imageName = $this->user->id.'.png';
+                    Storage::disk('public')->put("avatars/".$imageName, (string) $img);
+                    $avatar = config('app.url').'/storage/avatars/'.$imageName;
+                    $this->user->avatar = $avatar;
                 }
 
                 if (Auth::check()) {
