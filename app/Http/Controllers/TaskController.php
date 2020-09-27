@@ -33,9 +33,10 @@ class TaskController extends Controller
         $task = Task::cacheFor(60 * 60)
             ->where('id', $id)
             ->firstOrFail();
-        $comment = Comment::cacheFor(60 * 60)
-            ->where('id', $comment_id)
-            ->firstOrFail();
+        $comment = $task->comments->where('id', $comment_id)->first();
+        if (!$comment) {
+            return view('errors.404');
+        }
         $response = [
             'task' => $task,
             'comment' => $comment,
