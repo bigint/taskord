@@ -54,7 +54,7 @@ class SingleTask extends Component
                     if (Auth::user()->hasGoal) {
                         Auth::user()->daily_goal_reached++;
                         Auth::user()->save();
-                        CheckGoal::dispatch(Auth::user());
+                        CheckGoal::dispatch(Auth::user(), $this->task);
                     }
                     givePoint(new TaskCompleted($this->task));
                     $this->task->user->notify(
