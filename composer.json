@@ -10,6 +10,7 @@
     "require": {
         "php": "^7.3",
         "cyrildewit/eloquent-viewable": "^5.2",
+        "doctrine/dbal": "^2.11",
         "fideloper/proxy": "^4.2",
         "fruitcake/laravel-cors": "^2.0",
         "graham-campbell/markdown": "^13.0",
