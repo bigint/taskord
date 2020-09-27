@@ -7,6 +7,9 @@ use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 use Livewire\WithFileUploads;
+use Intervention\Image\Facades\Image;
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Storage;
 
 class NewProduct extends Component
 {
@@ -27,7 +30,7 @@ class NewProduct extends Component
     {
         if (Auth::check()) {
             $this->validate([
-                'avatar' => 'nullable|mimes:jpeg,jpg,png,gif|max:1024|dimensions:ratio=1',
+                'avatar' => 'nullable|mimes:jpeg,jpg,png,gif|max:1024',
             ]);
         } else {
             return session()->flash('error', 'Forbidden!');
@@ -46,7 +49,7 @@ class NewProduct extends Component
                 'github' => 'nullable|alpha_dash|max:30',
                 'producthunt' => 'nullable|alpha_dash|max:30',
                 'sponsor' => 'nullable|active_url',
-                'avatar' => 'nullable|mimes:jpeg,jpg,png,gif|max:1024|dimensions:ratio=1',
+                'avatar' => 'nullable|mimes:jpeg,jpg,png,gif|max:1024',
             ]);
 
             if (! Auth::user()->hasVerifiedEmail()) {
@@ -68,8 +71,12 @@ class NewProduct extends Component
             }
 
             if ($this->avatar) {
-                $avatar = $this->avatar->store('logos');
-                $url = config('app.url').'/storage/'.$avatar;
+                $img = Image::make($this->avatar)
+                        ->fit(400)
+                        ->encode('webp', 80);
+                $imageName = Str::random(32).'.png';
+                Storage::disk('public')->put("logos/".$imageName, (string) $img);
+                $url = config('app.url').'/storage/logos/'.$imageName;
             } else {
                 $url = 'https://avatar.tobi.sh/'.md5($this->slug).'.svg?text=📦';
             }

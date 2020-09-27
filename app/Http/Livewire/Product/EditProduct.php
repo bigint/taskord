@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Storage;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 use Intervention\Image\Facades\Image;
+use Illuminate\Support\Str;
 
 class EditProduct extends Component
 {
@@ -82,7 +83,7 @@ class EditProduct extends Component
                 $img = Image::make($this->avatar)
                         ->fit(400)
                         ->encode('webp', 80);
-                $imageName = $this->product->id.'.png';
+                $imageName = Str::random(32).'.png';
                 Storage::disk('public')->put("logos/".$imageName, (string) $img);
                 $avatar = config('app.url').'/storage/logos/'.$imageName;
                 $product->avatar = $avatar;
