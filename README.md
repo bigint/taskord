@@ -14,8 +14,8 @@
     <a href="https://nodejs.org">
         <img src="https://img.shields.io/badge/Node-v14.x-brightgreen.svg?logo=node.js&longCache=true" alt="Node Version">
     </a>
-    <a href="https://gitlab.com/taskord/taskord/-/commits/master">
-        <img src="https://gitlab.com/taskord/taskord/badges/master/pipeline.svg" alt="CI">
+    <a href="https://gitlab.com/taskord/taskord/-/commits/main">
+        <img src="https://gitlab.com/taskord/taskord/badges/main/pipeline.svg" alt="CI">
     </a>
     <a href="LICENSE">
         <img src="https://img.shields.io/badge/license-GNU%20AGPLv3-green?longCache=true" alt="MIT License">
