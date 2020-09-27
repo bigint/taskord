@@ -58,6 +58,14 @@
             @if ($user->timezone)
             <span class="font-weight-bold">
                 {{ $user->timezone }}
+                •
+                <span class="text-black-50">
+                    {{
+                        Carbon::now()
+                        ->setTimezone($user->timezone)
+                        ->format('g:i A')
+                    }}
+                </span>
             </span>
             @else
             <span class="font-weight-bold text-black-50">
