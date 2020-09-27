@@ -48,6 +48,7 @@ class UserController extends Controller
                 'isFlagged',
                 'isSuspended',
                 'lastIP',
+                'timezone',
                 'updated_at',
                 'email_verified_at',
             )

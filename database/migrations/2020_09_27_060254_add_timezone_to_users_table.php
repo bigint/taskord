@@ -14,7 +14,7 @@ class AddTimezoneToUsersTable extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->integer('timezone')->nullable();
+            $table->string('timezone')->nullable();
         });
     }
 
