@@ -160,11 +160,23 @@
     <div class="collapse mt-3 text-black-50" id="taskExpand-{{$task->id}}">
         <a class="text-black-50" href="{{ route('task', ['id' => $task->id]) }}">
             <i class="fa fa-calendar-check small mr-1"></i>
+            @auth
+            {{
+                !$task->done_at ?
+                    Carbon::parse($task->created_at)
+                        ->setTimezone(Auth::user()->timezone)
+                        ->format('g:i A · M d, Y') :
+                    Carbon::parse($task->done_at)
+                        ->setTimezone(Auth::user()->timezone)
+                        ->format('g:i A · M d, Y')
+            }}
+            @else
             {{
                 !$task->done_at ?
                     Carbon::parse($task->created_at)->format('g:i A · M d, Y') :
                     Carbon::parse($task->done_at)->format('g:i A · M d, Y')
             }}
+            @endauth
             · via
             <span class="font-weight-bold">{{ $task->source }}</span>
         </a>
