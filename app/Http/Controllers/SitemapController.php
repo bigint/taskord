@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Product;
 use App\Models\Question;
 use App\Models\Task;
+use App\Models\Comment;
 use App\Models\User;
 
 class SitemapController extends Controller
@@ -54,6 +55,17 @@ class SitemapController extends Controller
 
         return view('seo.sitemap_tasks', [
             'tasks' => $tasks,
+        ]);
+    }
+    
+    public function comments()
+    {
+        $comments = Comment::cacheFor(60 * 60)
+            ->select('id', 'task_id')
+            ->get();
+
+        return view('seo.sitemap_comments', [
+            'comments' => $comments,
         ]);
     }
 }

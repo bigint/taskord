@@ -165,6 +165,7 @@ Route::get('sitemap_users.txt', [SitemapController::class, 'users']);
 Route::get('sitemap_products.txt', [SitemapController::class, 'products']);
 Route::get('sitemap_questions.txt', [SitemapController::class, 'questions']);
 Route::get('sitemap_tasks.txt', [SitemapController::class, 'tasks']);
+Route::get('sitemap_comments.txt', [SitemapController::class, 'comments']);
 Route::view('sitemap_urls.txt', 'seo.sitemap_urls');
 
 // Status
