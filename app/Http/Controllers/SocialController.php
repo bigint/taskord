@@ -37,7 +37,7 @@ class SocialController extends Controller
                 'username' => md5(microtime()),
                 'firstname' => $userSocial->getName(),
                 'email' => $userSocial->getEmail(),
-                'avatar' => $userSocial->getAvatar(),
+                'avatar' => $userSocial->avatar_original,
                 'provider_id' => $userSocial->getId(),
                 'provider' => $provider,
                 'email_verified_at' => date('Y-m-d H:i:s'),
