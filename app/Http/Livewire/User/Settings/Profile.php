@@ -145,7 +145,7 @@ class Profile extends Component
         if (Auth::check()) {
             if (Auth::id() === $this->user->id) {
                 $this->validate([
-                    'daily_goal' => 'integer|max:1000|min:1',
+                    'daily_goal' => 'integer|max:1000|min:5',
                 ]);
 
                 if (Auth::check()) {
