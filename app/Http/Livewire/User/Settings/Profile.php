@@ -87,7 +87,7 @@ class Profile extends Component
                     }
                     $img = Image::make($this->avatar)
                         ->fit(400)
-                        ->encode('jpg', 80);
+                        ->encode('webp', 80);
                     $imageName = $this->user->id.'.png';
                     Storage::disk('public')->put("avatars/".$imageName, (string) $img);
                     $avatar = config('app.url').'/storage/avatars/'.$imageName;
