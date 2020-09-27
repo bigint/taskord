@@ -163,6 +163,12 @@
                                                 </span>
                                             </li>
                                             <li>
+                                                <span class="dropdown-item">
+                                                    <i class="fa fa-user-clock mr-1"></i>
+                                                    <span class="font-weight-bold">{{ $user->timezone }}</span>
+                                                </span>
+                                            </li>
+                                            <li>
                                                 <span class="dropdown-item" title="{{ Carbon::parse($user->updated_at)->format('M d, Y g:i A') }}">
                                                     <i class="fa fa-calendar mr-1"></i>
                                                     <span class="font-weight-bold">{{ Carbon::parse($user->updated_at)->format('M d, Y') }}</span>
