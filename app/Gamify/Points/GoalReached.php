@@ -18,7 +18,7 @@ class GoalReached extends PointType
         $this->subject = $subject;
         $this->award = $award;
     }
-    
+
     public function getPoints()
     {
         return $this->award;
