@@ -108,7 +108,7 @@ class CreateTask extends Component
             if (Auth::user()->hasGoal and $task->done) {
                 Auth::user()->daily_goal_reached++;
                 Auth::user()->save();
-                CheckGoal::dispatch(Auth::user());
+                CheckGoal::dispatch(Auth::user(), $task);
             }
             Auth::user()->notify(
                 new TelegramLogger(
