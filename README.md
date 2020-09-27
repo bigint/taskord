@@ -9,7 +9,7 @@
         <img src="https://img.shields.io/badge/PHP-v7.4-blue.svg?logo=php" alt="PHP Version">
     </a>
     <a href="http://laravel.com">
-        <img src="https://img.shields.io/badge/Laravel-v7.x-important.svg?logo=laravel&longCache=true" alt="Laravel Version">
+        <img src="https://img.shields.io/badge/Laravel-v8.x-important.svg?logo=laravel&longCache=true" alt="Laravel Version">
     </a>
     <a href="https://nodejs.org">
         <img src="https://img.shields.io/badge/Node-v14.x-brightgreen.svg?logo=node.js&longCache=true" alt="Node Version">
