@@ -35,7 +35,7 @@ class SocialController extends Controller
         } else {
             if ($provider === 'twitter') {
                 $user = User::where(['username' => $userSocial->getNickname()])->first();
-                if (!$user) {
+                if (! $user) {
                     $username = $userSocial->getNickname();
                 } else {
                     $username = $userSocial->getId();
@@ -43,7 +43,7 @@ class SocialController extends Controller
             } else {
                 $username = $userSocial->getId();
             }
-            
+
             $user = User::create([
                 'username' => $username,
                 'firstname' => $userSocial->getName(),
