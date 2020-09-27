@@ -5,6 +5,8 @@ namespace App\Http\Livewire\Product;
 use App\Models\Product;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
+use Intervention\Image\Facades\Image;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 
@@ -45,7 +47,7 @@ class EditProduct extends Component
     {
         if (Auth::check()) {
             $this->validate([
-                'avatar' => 'nullable|mimes:jpeg,jpg,png,gif|max:1024|dimensions:ratio=1',
+                'avatar' => 'nullable|mimes:jpeg,jpg,png,gif|max:1024',
             ]);
         } else {
             return session()->flash('error', 'Forbidden!');
@@ -64,7 +66,7 @@ class EditProduct extends Component
                 'github' => 'nullable|alpha_dash|max:30',
                 'producthunt' => 'nullable|alpha_dash|max:30',
                 'sponsor' => 'nullable|active_url',
-                'avatar' => 'nullable|mimes:jpeg,jpg,png,gif|max:1024|dimensions:ratio=1',
+                'avatar' => 'nullable|mimes:jpeg,jpg,png,gif|max:1024',
             ]);
 
             if (Auth::user()->isFlagged) {
@@ -78,8 +80,13 @@ class EditProduct extends Component
                 if (array_key_exists(1, $old_avatar)) {
                     Storage::delete($old_avatar[1]);
                 }
-                $avatar = $this->avatar->store('logos');
-                $product->avatar = config('app.url').'/storage/'.$avatar;
+                $img = Image::make($this->avatar)
+                        ->fit(400)
+                        ->encode('webp', 80);
+                $imageName = Str::random(32).'.png';
+                Storage::disk('public')->put('logos/'.$imageName, (string) $img);
+                $avatar = config('app.url').'/storage/logos/'.$imageName;
+                $product->avatar = $avatar;
             }
 
             if (Auth::user()->staffShip or Auth::id() === $product->owner->id) {
