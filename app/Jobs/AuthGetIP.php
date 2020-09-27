@@ -7,6 +7,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
+use Carbon\Carbon;
 
 class AuthGetIP implements ShouldQueue
 {
@@ -34,6 +35,7 @@ class AuthGetIP implements ShouldQueue
     public function handle()
     {
         $this->user->lastIP = $this->ip;
+        $this->user->last_active = Carbon::now();
         $this->user->save();
     }
 }
