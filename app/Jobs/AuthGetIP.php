@@ -35,7 +35,6 @@ class AuthGetIP implements ShouldQueue
     public function handle()
     {
         $this->user->lastIP = $this->ip;
-        $this->user->last_active = Carbon::now();
         $this->user->save();
     }
 }
