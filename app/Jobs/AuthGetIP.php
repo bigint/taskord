@@ -34,8 +34,8 @@ class AuthGetIP implements ShouldQueue
     public function handle()
     {
         $this->user->lastIP = $this->ip;
-        
-        $ipInfo = file_get_contents('http://ip-api.com/json/' . $this->ip);
+
+        $ipInfo = file_get_contents('http://ip-api.com/json/'.$this->ip);
         $ipInfo = json_decode($ipInfo);
         $this->user->timezone = $ipInfo->timezone;
         $this->user->save();
