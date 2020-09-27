@@ -10,7 +10,7 @@
                 {{ Carbon::parse($user->updated_at)->format('M d, Y g:i A') }}
             </span>
         </div>
-        <div class="{{ $user->lastIP ? 'mb-1' : 'mb-3' }}">
+        <div class="mb-1">
             <i class="fa fa-envelope text-black-50 mr-1"></i>
             <span class="h6">User Email:</span>
             <a class="font-weight-bold" href="mailto:{{ $user->email }}">
@@ -22,15 +22,20 @@
             <i class="fa fa-times text-danger ml-1" title="Email not Verified"></i>
             @endif
         </div>
-        @if ($user->lastIP)
-        <div class="mb-3">
-            <h5>
-                <span class="h6">
-                    <i class="fa fa-address-card text-black-50 mr-1"></i>
-                    Last login IP:
-                </span>
-                <a class="badge pill bg-success font-monospace" href="https://ipinfo.io/{{ $user->lastIP }}" target="_blank">{{ $user->lastIP }}</a>
-            </h5>
+        <div class="mb-1">
+            <span class="h6">
+                <i class="fa fa-address-card text-black-50 mr-1"></i>
+                Last login IP:
+            </span>
+            @if ($user->lastIP)
+            <a class="font-weight-bold" href="https://ipinfo.io/{{ $user->lastIP }}" target="_blank">
+                {{ $user->lastIP }}
+            </a>
+            @else
+            <span class="font-weight-bold text-black-50">
+                Not set
+            </span>
+            @endif
             @php
                 if ($user->lastIP) {
                     $usersCount = \App\Models\User::where('lastIP', $user->lastIP)->count();
@@ -45,7 +50,21 @@
             </div>
             @endif
         </div>
-        @endif
+        <div class="mb-3">
+            <span class="h6">
+                <i class="fa fa-user-clock text-black-50 mr-1"></i>
+                Timezone:
+            </span>
+            @if ($user->timezone)
+            <span class="font-weight-bold">
+                {{ $user->timezone }}
+            </span>
+            @else
+            <span class="font-weight-bold text-black-50">
+                Not set
+            </span>
+            @endif
+        </div>
         <div class="text-info h5 mb-3">
             <i class="fa fa-flag-checkered mr-1"></i>
             Flags
