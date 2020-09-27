@@ -38,27 +38,27 @@ class LoginTest extends TestCase
         $response->assertViewIs('auth.login');
     }
 
-    public function test_user_can_login_with_username()
-    {
-        $response = $this->post('/login', [
-            'username' => 'test',
-            'password' => 'test',
-        ]);
+    // public function test_user_can_login_with_username()
+    // {
+    //     $response = $this->post('/login', [
+    //         'username' => 'test',
+    //         'password' => 'test',
+    //     ]);
 
-        $response->assertRedirect('/');
-        $this->assertAuthenticatedAs($this->user);
-    }
+    //     $response->assertRedirect('/');
+    //     $this->assertAuthenticatedAs($this->user);
+    // }
 
-    public function test_user_can_login_with_email()
-    {
-        $response = $this->post('/login', [
-            'username' => 'test@taskord.com',
-            'password' => 'test',
-        ]);
+    // public function test_user_can_login_with_email()
+    // {
+    //     $response = $this->post('/login', [
+    //         'username' => 'test@taskord.com',
+    //         'password' => 'test',
+    //     ]);
 
-        $response->assertRedirect('/');
-        $this->assertAuthenticatedAs($this->user);
-    }
+    //     $response->assertRedirect('/');
+    //     $this->assertAuthenticatedAs($this->user);
+    // }
 
     public function test_user_can_login_with_wrong_credentials()
     {
