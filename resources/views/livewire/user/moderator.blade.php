@@ -52,7 +52,7 @@
         </div>
         <div class="mb-3">
             <span class="h6">
-                <i class="fa fa-address-card text-black-50 mr-1"></i>
+                <i class="fa fa-user-clock text-black-50 mr-1"></i>
                 Timezone:
             </span>
             @if ($user->timezone)
