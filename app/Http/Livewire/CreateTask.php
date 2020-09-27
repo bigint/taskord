@@ -13,6 +13,9 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Request;
 use Livewire\Component;
 use Livewire\WithFileUploads;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
+use Intervention\Image\Facades\Image;
 
 class CreateTask extends Component
 {
@@ -74,7 +77,11 @@ class CreateTask extends Component
             $users = Helper::getUserIDFromMention($this->task);
 
             if ($this->image) {
-                $image = $this->image->store('photos');
+                $img = Image::make($this->image)
+                    ->encode('webp', 80);
+                $imageName = Str::random(32).'.png';
+                Storage::disk('public')->put('photos/'.$imageName, (string) $img);
+                $image = 'photos/'.$imageName;
             } else {
                 $image = null;
             }
