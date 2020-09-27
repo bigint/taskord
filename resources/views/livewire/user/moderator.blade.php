@@ -70,7 +70,7 @@
                     }}
                     <span style="cursor:default" class="text-body">
                         @if ($hour < 12)
-                        <span title="Morning">🌅</span>
+                        <span title="Morning">🌄</span>
                         @elseif ($hour < 17)
                         <span title="Afternoon">☀️</span>
                         @elseif ($hour < 20)
