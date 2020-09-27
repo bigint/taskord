@@ -9,20 +9,19 @@ class GoalReached extends PointType
     public $allowDuplicates = false;
 
     /**
-     * Number of points.
-     *
-     * @var int
-     */
-    public $points = 10;
-
-    /**
      * Point constructor.
      *
      * @param $subject
      */
-    public function __construct($subject)
+    public function __construct($subject, $award)
     {
         $this->subject = $subject;
+        $this->award = $award;
+    }
+    
+    public function getPoints()
+    {
+        return $this->award;
     }
 
     /**

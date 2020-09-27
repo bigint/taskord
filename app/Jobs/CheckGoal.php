@@ -27,6 +27,12 @@ class CheckGoal implements ShouldQueue
         $this->user = $user;
         $this->task = $task;
     }
+    
+    public function giveReputation()
+    {
+        $awarded = (int) round(3 * sqrt($this->user->daily_goal));
+        $this->user->givePoint(new GoalReached($this->task, $awarded));
+    }
 
     /**
      * Execute the job.
@@ -42,20 +48,11 @@ class CheckGoal implements ShouldQueue
             ->latest()
             ->get();
         if ($last_reached->isEmpty()) {
-            $this->user->givePoint(new GoalReached($this->task));
-            dd('given first time');
-            
-            return true;
-        }
-        
-        if (! Carbon::parse($last_reached->last()->created_at)->isToday()) {
-            $this->user->givePoint(new GoalReached($this->task));
-            dd('given');
-            
-            return true;
+            $this->giveReputation();
         } else {
-            dd('not given');
-            return false;
+            if (! Carbon::parse($last_reached->last()->created_at)->isToday()) {
+                $this->giveReputation();
+            }
         }
     }
 }
