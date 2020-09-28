@@ -13,7 +13,7 @@ type Query {
     productUpdates: [ProductUpdate!]! @paginate(defaultCount: 10)
     productUpdate(id: ID @eq): ProductUpdate @find
     tasks: [Task!]! @paginate(defaultCount: 10)
-    task(id: ID @eq): Task @find
+    task(id: ID @eq): Task @field(resolver: "TaskQuery@find")
     comments: [Comment!]! @paginate(defaultCount: 10)
     comment(id: ID @eq): Comment @find
     questions: [Question!]! @paginate(defaultCount: 10)

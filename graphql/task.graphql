@@ -1,7 +1,6 @@
 # Mutation
 type CreateTaskPayload {
     task: Task
-    response: String
 }
 
 # Query
@@ -12,6 +11,7 @@ type Task {
     done: Boolean!
     type: String
     source: String
+    hidden: Boolean!
     done_at: DateTime!
     user: User @belongsTo
     product: Product @belongsTo
