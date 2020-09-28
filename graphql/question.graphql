@@ -7,7 +7,7 @@ type Question {
     user: User @belongsTo
     praiseCount: Int! @count(relation: "likers")
     answersCount: Int! @count(relation: "answer")
-    answer: [Answer!]! @hasMany
+    answer: [Answer!]! @hasMany(type: "paginator")
     created_at: DateTime!
     updated_at: DateTime!
 }
