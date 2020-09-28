@@ -46,8 +46,9 @@ class SitemapController extends Controller
     public function tasks()
     {
         $tasks = Task::cacheFor(60 * 60)
-            ->select('id', 'source')
+            ->select('id', 'source', 'hidden')
             ->where([
+                ['hidden', false],
                 ['source', '!=', 'GitHub'],
                 ['source', '!=', 'GitLab'],
             ])
