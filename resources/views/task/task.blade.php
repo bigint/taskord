@@ -1,10 +1,18 @@
 @extends('layouts.app')
 
+@if ($task->hidden)
+@section('pageTitle', 'Hidden Task ·')
+@section('title', 'Task by @'.$task->user->username.' ·')
+@section('description', 'Hidden Task')
+@section('image', $task->user->avatar)
+@section('url', url()->current())
+@else
 @section('pageTitle', $task->task.' ·')
 @section('title', 'Task by @'.$task->user->username.' ·')
 @section('description', $task->task)
 @section('image', $task->user->avatar)
 @section('url', url()->current())
+@endif
 
 @section('content')
 <div class="container">
