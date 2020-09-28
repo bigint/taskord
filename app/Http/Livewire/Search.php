@@ -28,13 +28,14 @@ class Search extends Component
     public function updatedQuery()
     {
         $this->tasks = Task::cacheFor(60 * 60)
-            ->select('id', 'task', 'done', 'user_id')
+            ->select('id', 'task', 'done', 'hidden', 'user_id')
             ->whereHas('user', function ($q) {
                 $q->where([
                     ['isFlagged', false],
                     ['isPrivate', false],
                 ]);
             })
+            ->where('hidden', false)
             ->where('task', 'LIKE', '%'.$this->query.'%')
             ->take(3)
             ->get();
