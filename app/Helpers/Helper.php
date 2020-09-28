@@ -52,7 +52,7 @@ class Helper
             Auth::user()->touch();
         }
     }
-    
+
     public static function hide($entity, $type)
     {
         $entity->hidden = ! $entity->hidden;
