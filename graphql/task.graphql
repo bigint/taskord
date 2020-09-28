@@ -15,7 +15,7 @@ type Task {
     done_at: DateTime!
     user: User @belongsTo
     product: Product @belongsTo
-    comments: [Comment!]! @hasMany(type: "paginator")
+    comments: [Comment!]! @hasMany(type: "connection")
     praiseCount: Int! @count(relation: "likers")
     commentsCount: Int! @count(relation: "comments")
     created_at: DateTime! @cache(maxAge: 3600)

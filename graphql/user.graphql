@@ -21,12 +21,12 @@ type User {
     isBeta: Boolean!
     isPatron: Boolean!
     isPrivate: Boolean!
-    tasks: [Task!]! @hasMany(type: "paginator")
-    comments: [Comment!]! @hasMany(type: "paginator")
-    ownedProducts: [Product!]! @hasMany(type: "paginator")
-    products: [Product!]! @belongsToMany(type: "paginator")
-    questions: [Question!]! @hasMany(type: "paginator")
-    answers: [Answer!]! @hasMany(type: "paginator")
+    tasks: [Task!]! @hasMany(type: "connection")
+    comments: [Comment!]! @hasMany(type: "connection")
+    ownedProducts: [Product!]! @hasMany(type: "connection")
+    products: [Product!]! @belongsToMany(type: "connection")
+    questions: [Question!]! @hasMany(type: "connection")
+    answers: [Answer!]! @hasMany(type: "connection")
     followingsCount: Int! @count(relation: "followings")
     followersCount: Int!
     productsCount: Int! @count(relation: "products")

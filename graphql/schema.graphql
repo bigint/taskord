@@ -6,19 +6,19 @@ scalar DateTime @scalar(class: "Nuwave\\Lighthouse\\Schema\\Types\\Scalars\\Date
 
 type Query {
     me: User @auth(guard: "api")
-    users: [User!]! @paginate(defaultCount: 10)
+    users: [User!]! @paginate(type: "connection")
     user(id: ID @eq): User @find
-    products: [Product!]! @paginate(defaultCount: 10)
+    products: [Product!]! @paginate(type: "connection")
     product(id: ID @eq): Product @find
-    productUpdates: [ProductUpdate!]! @paginate(defaultCount: 10)
+    productUpdates: [ProductUpdate!]! @paginate(type: "connection")
     productUpdate(id: ID @eq): ProductUpdate @find
-    tasks: [Task!]! @paginate(defaultCount: 10)
+    tasks: [Task!]! @paginate(type: "connection")
     task(id: ID @eq): Task @find
-    comments: [Comment!]! @paginate(defaultCount: 10)
+    comments: [Comment!]! @paginate(type: "connection")
     comment(id: ID @eq): Comment @find
-    questions: [Question!]! @paginate(defaultCount: 10)
+    questions: [Question!]! @paginate(type: "connection")
     question(id: ID @eq): Question @find
-    answers: [Answer!]! @paginate(defaultCount: 10)
+    answers: [Answer!]! @paginate(type: "connection")
     answer(id: ID @eq): Answer @find
 }
 
