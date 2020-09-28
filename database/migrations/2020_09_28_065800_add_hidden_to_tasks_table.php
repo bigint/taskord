@@ -14,7 +14,7 @@ class AddHiddenToTasksTable extends Migration
     public function up()
     {
         Schema::table('tasks', function (Blueprint $table) {
-            $table->boolean('hidden')->default(false)->nullable();
+            $table->boolean('hidden')->default(false);
         });
     }
 
