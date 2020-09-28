@@ -38,6 +38,7 @@ class SearchController extends Controller
                         ['isPrivate', false],
                     ]);
                 })
+                ->where('hidden', false)
                 ->where('task', 'LIKE', '%'.$searchTerm.'%')
                 ->paginate(10)
                 ->onEachSide(1);
