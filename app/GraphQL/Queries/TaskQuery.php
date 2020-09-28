@@ -9,11 +9,7 @@ class TaskQuery
     public function find($root, array $args)
     {
         $task = Task::find($args['id']);
-        
-        if ($task->hidden) {
-            return null;
-        }
-        
+
         if ($task->user->isPrivate) {
             return null;
         }
