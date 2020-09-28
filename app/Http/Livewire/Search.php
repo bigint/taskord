@@ -59,6 +59,7 @@ class Search extends Component
                     ['isFlagged', false],
                 ]);
             })
+            ->where('hidden', false)
             ->where('title', 'LIKE', '%'.$this->query.'%')
             ->take(3)
             ->get();
