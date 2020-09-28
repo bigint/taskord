@@ -31,6 +31,9 @@
         </div>
     </div>
     <div class="card-body pt-1">
+        @if ($question->hidden)
+        <span class="task-font font-italic text-secondary">Question was hidden by moderator</span>
+        @else
         <a href="{{ route('question.question', ['id' => $question->id]) }}" class="h5 align-text-top font-weight-bold text-dark">
             @if ($type !== "question.question")
                 {{ Str::words($question->title, '10') }}
@@ -47,6 +50,7 @@
                 @markdown($question->body)
             @endif
         </div>
+        @endif
         <div class="mt-3">
             @auth
             @if (Auth::user()->hasLiked($question))
