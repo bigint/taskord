@@ -214,7 +214,7 @@
                 Your account has been flagged.
             </div>
             <div class="mt-1">
-                Because of that, your profile will be hidden from the public. If you believe this is a mistake, <a href="#">contact support</a> to have your account status reviewed.
+                Because of that, your profile will be hidden from the public. If you believe this is a mistake, <a onclick="$crisp.push(['do', 'chat:open'])" href="#">contact support</a> to have your account status reviewed.
             </div>
         </div>
         @endif
