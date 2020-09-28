@@ -1,7 +1,7 @@
 # Query
 type Answer {
     id: ID!
-    answer: String!
+    answer: String  @field(resolver: "App\\GraphQL\\Queries\\AnswerQuery@getAnswer")
     user: User @belongsTo
     praiseCount: Int! @count(relation: "likers")
     question: Question @belongsTo
