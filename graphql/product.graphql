@@ -15,6 +15,6 @@ type Product {
     tasks: [Task!]! @hasMany(type: "paginator")
     subscribersCount: Int!
     tasksCount: Int! @count(relation: "tasks")
-    created_at: DateTime!
+    created_at: DateTime! @cache(maxAge: 3600)
     updated_at: DateTime
 }

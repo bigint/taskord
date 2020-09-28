@@ -5,6 +5,6 @@ type ProductUpdate {
     body: String
     user: User @belongsTo
     product: Product @belongsTo
-    created_at: DateTime!
+    created_at: DateTime! @cache(maxAge: 3600)
     updated_at: DateTime
 }

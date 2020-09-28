@@ -5,6 +5,6 @@ type Answer {
     user: User @belongsTo
     praiseCount: Int! @count(relation: "likers")
     question: Question @belongsTo
-    created_at: DateTime!
+    created_at: DateTime! @cache(maxAge: 3600)
     updated_at: DateTime!
 }

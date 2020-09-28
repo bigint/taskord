@@ -18,6 +18,6 @@ type Task {
     comments: [Comment!]! @hasMany(type: "paginator")
     praiseCount: Int! @count(relation: "likers")
     commentsCount: Int! @count(relation: "comments")
-    created_at: DateTime!
+    created_at: DateTime! @cache(maxAge: 3600)
     updated_at: DateTime!
 }

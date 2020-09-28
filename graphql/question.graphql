@@ -8,6 +8,6 @@ type Question {
     praiseCount: Int! @count(relation: "likers")
     answersCount: Int! @count(relation: "answer")
     answer: [Answer!]! @hasMany(type: "paginator")
-    created_at: DateTime!
+    created_at: DateTime! @cache(maxAge: 3600)
     updated_at: DateTime!
 }
