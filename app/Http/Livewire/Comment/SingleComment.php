@@ -42,6 +42,19 @@ class SingleComment extends Component
             return session()->flash('error', 'Forbidden!');
         }
     }
+    
+    public function hide()
+    {
+        if (Auth::check()) {
+            if (Auth::user()->isStaff and Auth::user()->staffShip) {
+                Helper::hide($this->comment);
+            } else {
+                return session()->flash('error', 'Forbidden!');
+            }
+        } else {
+            return session()->flash('error', 'Forbidden!');
+        }
+    }
 
     public function confirmDelete()
     {
