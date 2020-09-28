@@ -12,7 +12,7 @@ type Product {
     launched: Boolean!
     launched_at: DateTime
     owner: User @belongsTo
-    tasks: [Task!]! @hasMany
+    tasks: [Task!]! @hasMany(type: "paginator")
     subscribersCount: Int!
     tasksCount: Int! @count(relation: "tasks")
     created_at: DateTime!
