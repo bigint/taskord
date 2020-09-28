@@ -2,8 +2,6 @@
 
 namespace App\GraphQL\Queries;
 
-use App\Models\Comment;
-
 class CommentQuery
 {
     public function getComment($comment, array $args)
@@ -14,6 +12,7 @@ class CommentQuery
         ) {
             return null;
         }
+
         return $comment->comment;
     }
 }

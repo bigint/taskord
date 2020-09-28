@@ -2,8 +2,6 @@
 
 namespace App\GraphQL\Queries;
 
-use App\Models\Comment;
-
 class AnswerQuery
 {
     public function getAnswer($answer, array $args)
@@ -15,6 +13,7 @@ class AnswerQuery
         ) {
             return null;
         }
+
         return $answer->answer;
     }
 }
