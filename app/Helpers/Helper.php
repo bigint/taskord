@@ -52,6 +52,11 @@ class Helper
             Auth::user()->touch();
         }
     }
+    
+    public static function hide($entity, $type)
+    {
+        dd($entity);
+    }
 
     public static function mentionUsers($users, $task, $type)
     {
