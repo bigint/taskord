@@ -99,6 +99,11 @@
             </button>
             @endif
             @endif
+            @if (Auth::user()->staffShip)
+            <button type="button" class="btn btn-task {{ $question->hidden ? 'btn-danger' : 'btn-outline-danger' }} text-white" wire:click="hide" wire:loading.attr="disabled" wire:offline.attr="disabled" wire:key="{{ $question->id }}">
+                {{ Emoji::triangularFlag() }}
+            </button>
+            @endif
             @endauth
             @guest
                 <a href="/login" class="btn btn-task btn-outline-success mr-1">
