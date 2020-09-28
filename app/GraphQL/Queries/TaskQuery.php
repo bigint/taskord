@@ -6,18 +6,15 @@ use App\Models\Task;
 
 class TaskQuery
 {
-    public function find($root, array $args)
+    public function getTask($task, array $args)
     {
-        $task = Task::find($args['id']);
-
-        if ($task->user->isPrivate) {
+        if (
+            $task->hidden or
+            $task->user->isFlagged or
+            $task->user->isPrivate
+        ) {
             return null;
         }
-
-        if ($task->user->isFlagged) {
-            return null;
-        }
-
-        return $task;
+        return $task->task;
     }
 }
