@@ -155,11 +155,7 @@
                 @endif
             @endif
             @if (Auth::user()->staffShip)
-            <button type="button" class="btn btn-task btn-danger text-white ml-1" wire:click="togglePraise" wire:loading.attr="disabled" wire:offline.attr="disabled" wire:key="{{ $task->id }}">
-                {{ Emoji::triangularFlag() }}
-            </button>
-            @else
-            <button type="button" class="btn btn-task btn-outline-danger ml-1" wire:click="togglePraise" wire:loading.attr="disabled" wire:offline.attr="disabled" wire:key="{{ $task->id }}">
+            <button type="button" class="btn btn-task {{ $task->hidden ? 'btn-danger' : 'btn-outline-danger' }} text-white ml-1" wire:click="hide" wire:loading.attr="disabled" wire:offline.attr="disabled" wire:key="{{ $task->id }}">
                 {{ Emoji::triangularFlag() }}
             </button>
             @endif
