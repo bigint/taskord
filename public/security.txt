@@ -1,0 +1,4 @@
+Contact: yo@taskord.com
+Contact: taskord@icloud.com
+Preferred-Languages: en
+Policy: https://taskord.com/privacy
