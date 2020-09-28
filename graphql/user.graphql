@@ -24,7 +24,7 @@ type User {
     tasks: [Task!]! @hasMany(type: "paginator")
     comments: [Comment!]! @hasMany(type: "paginator")
     ownedProducts: [Product!]! @hasMany(type: "paginator")
-    products: [Product!]! @belongsToMany
+    products: [Product!]! @belongsToMany(type: "paginator")
     questions: [Question!]! @hasMany(type: "paginator")
     answers: [Answer!]! @hasMany(type: "paginator")
     followingsCount: Int! @count(relation: "followings")
