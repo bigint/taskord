@@ -31,9 +31,13 @@
         </div>
     </div>
     <div class="card-body pt-1">
+        @if ($answer->hidden)
+        <span class="body-font font-italic text-secondary">Answer was hidden by moderator</span>
+        @else
         <div class="body-font">
             {!! nl2br(Purify::clean(Helper::renderTask($answer->answer))) !!}
         </div>
+        @endif
         <div class="mt-2">
             @auth
             @if (Auth::user()->hasLiked($answer))
@@ -74,6 +78,11 @@
                     {{ Emoji::wastebasket() }}
                 </button>
                 @endif
+            @endif
+            @if (Auth::user()->staffShip)
+            <button type="button" class="btn btn-task {{ $answer->hidden ? 'btn-danger' : 'btn-outline-danger' }} text-white ml-1" wire:click="hide" wire:loading.attr="disabled" wire:offline.attr="disabled" wire:key="{{ $answer->id }}">
+                {{ Emoji::triangularFlag() }}
+            </button>
             @endif
             @endauth
             @guest
