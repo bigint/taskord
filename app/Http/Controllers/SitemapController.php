@@ -35,7 +35,8 @@ class SitemapController extends Controller
     public function questions()
     {
         $questions = Question::cacheFor(60 * 60)
-            ->select('id')
+            ->select('id', 'hidden')
+            ->where('hidden', false)
             ->get();
 
         return view('seo.sitemap_questions', [
@@ -62,7 +63,8 @@ class SitemapController extends Controller
     public function comments()
     {
         $comments = Comment::cacheFor(60 * 60)
-            ->select('id', 'task_id')
+            ->select('id', 'hidden', 'task_id')
+            ->where('hidden', false)
             ->get();
 
         return view('seo.sitemap_comments', [

@@ -26,9 +26,13 @@
             {{ Carbon::parse($comment->created_at)->diffForHumans() }}
         </a>
     </div>
+    @if ($comment->hidden)
+    <span class="body-font font-italic text-secondary">Comment was hidden by moderator</span>
+    @else
     <span class="body-font">
         {!! nl2br(Purify::clean(Helper::renderTask($comment->comment))) !!}
     </span>
+    @endif
     <div class="mt-2">
         @auth
         @if (Auth::user()->hasLiked($comment))
@@ -69,6 +73,11 @@
                 {{ Emoji::wastebasket() }}
             </button>
             @endif
+        @endif
+        @if (Auth::user()->staffShip)
+        <button type="button" class="btn btn-task {{ $comment->hidden ? 'btn-danger' : 'btn-outline-danger' }} text-white ml-1" wire:click="hide" wire:loading.attr="disabled" wire:offline.attr="disabled" wire:key="{{ $comment->id }}">
+            {{ Emoji::triangularFlag() }}
+        </button>
         @endif
         @endauth
         @guest

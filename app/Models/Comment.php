@@ -16,6 +16,7 @@ class Comment extends Model
         'user_id',
         'task_id',
         'comment',
+        'hidden',
     ];
 
     public function user()

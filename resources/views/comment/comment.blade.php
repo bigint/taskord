@@ -1,10 +1,14 @@
 @extends('layouts.app')
 
+@if ($comment->hidden)
+@section('pageTitle', 'Hidden Comment ·')
+@else
 @section('pageTitle', $comment->comment.' ·')
 @section('title', 'Task by @'.$comment->user->username.' ·')
 @section('description', $comment->comment)
 @section('image', $comment->user->avatar)
 @section('url', url()->current())
+@endif
 
 @section('content')
 <div class="container">

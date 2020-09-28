@@ -49,7 +49,7 @@
                 <x-empty icon="search" text="We couldn’t find any comments matching '{{ $searchTerm }}'" />
                 @else
                 @foreach ($comments as $comment)
-                @livewire('task.single-comment', [
+                @livewire('comment.single-comment', [
                     'comment' => $comment,
                 ], key($comment->id))
                 @endforeach
@@ -71,7 +71,7 @@
                 <x-empty icon="search" text="We couldn’t find any questions matching '{{ $searchTerm }}'" />
                 @else
                 @foreach ($questions as $question)
-                @livewire('questions.single-question', [
+                @livewire('question.single-question', [
                     'type' => 'questions.newest',
                     'question' => $question,
                 ], key($question->id))

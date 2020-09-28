@@ -16,6 +16,7 @@ class Answer extends Model
         'user_id',
         'question_id',
         'answer',
+        'hidden',
     ];
 
     public function user()

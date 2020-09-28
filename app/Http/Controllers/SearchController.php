@@ -67,6 +67,7 @@ class SearchController extends Controller
                         ['isPrivate', false],
                     ]);
                 })
+                ->where('hidden', false)
                 ->where('comment', 'LIKE', '%'.$searchTerm.'%')
                 ->paginate(10)
                 ->onEachSide(1);
@@ -94,6 +95,7 @@ class SearchController extends Controller
                         ['isFlagged', false],
                     ]);
                 })
+                ->where('hidden', false)
                 ->where('title', 'LIKE', '%'.$searchTerm.'%')
                 ->paginate(10)
                 ->onEachSide(1);
@@ -121,6 +123,7 @@ class SearchController extends Controller
                         ['isFlagged', false],
                     ]);
                 })
+                ->where('hidden', false)
                 ->where('answer', 'LIKE', '%'.$searchTerm.'%')
                 ->paginate(10)
                 ->onEachSide(1);

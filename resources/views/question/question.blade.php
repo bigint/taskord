@@ -1,10 +1,14 @@
 @extends('layouts.app')
 
+@if ($question->hidden)
+@section('pageTitle', 'Hidden Question ·')
+@else
 @section('pageTitle', $question->title.' ·')
 @section('title', 'Question by @'.$question->user->username.' ·')
 @section('description', $question->title)
 @section('image', $question->user->avatar)
 @section('url', url()->current())
+@endif
 
 @section('content')
 <div class="container">
