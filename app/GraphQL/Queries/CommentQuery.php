@@ -2,14 +2,18 @@
 
 namespace App\GraphQL\Queries;
 
+use App\Models\Comment;
+
 class CommentQuery
 {
-    /**
-     * @param  null  $_
-     * @param  array<string, mixed>  $args
-     */
-    public function __invoke($_, array $args)
+    public function getComment($comment, array $args)
     {
-        // TODO implement the resolver
+        if (
+            $comment->hidden or
+            $comment->user->isFlagged
+        ) {
+            return null;
+        }
+        return $comment->comment;
     }
 }
