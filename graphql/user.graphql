@@ -35,5 +35,5 @@ type User {
     questionsCount: Int! @count(relation: "questions")
     answerCount: Int! @count(relation: "answers")
     created_at: DateTime! @cache(maxAge: 3600)
-    updated_at: DateTime!
+    updated_at: DateTime! @cache(maxAge: 3600)
 }

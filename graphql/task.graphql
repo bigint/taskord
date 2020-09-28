@@ -19,5 +19,5 @@ type Task {
     praiseCount: Int! @count(relation: "likers")
     commentsCount: Int! @count(relation: "comments")
     created_at: DateTime! @cache(maxAge: 3600)
-    updated_at: DateTime!
+    updated_at: DateTime! @cache(maxAge: 3600)
 }

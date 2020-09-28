@@ -8,13 +8,13 @@ type Product {
     website: String
     twitter: String
     github: String
-    producthunt: String
-    launched: Boolean!
-    launched_at: DateTime
-    owner: User @belongsTo
+    producthunt: String @cache(maxAge: 3600)
+    launched: Boolean! @cache(maxAge: 3600)
+    launched_at: DateTime @cache(maxAge: 3600)
+    owner: User @belongsTo @cache(maxAge: 3600)
     tasks: [Task!]! @hasMany(type: "paginator")
-    subscribersCount: Int!
-    tasksCount: Int! @count(relation: "tasks")
+    subscribersCount: Int! @cache(maxAge: 3600)
+    tasksCount: Int! @count(relation: "tasks") @cache(maxAge: 3600)
     created_at: DateTime! @cache(maxAge: 3600)
-    updated_at: DateTime
+    updated_at: DateTime @cache(maxAge: 3600)
 }
