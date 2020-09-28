@@ -108,7 +108,7 @@ class SingleTask extends Component
     {
         if (Auth::check()) {
             if (Auth::user()->isStaff and Auth::user()->staffShip) {
-                Helper::hide($this->task, 'TASK');
+                Helper::hide($this->task);
             } else {
                 return session()->flash('error', 'Forbidden!');
             }

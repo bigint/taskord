@@ -53,7 +53,7 @@ class Helper
         }
     }
 
-    public static function hide($entity, $type)
+    public static function hide($entity)
     {
         $entity->hidden = ! $entity->hidden;
         $entity->save();
