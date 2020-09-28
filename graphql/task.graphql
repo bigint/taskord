@@ -8,11 +8,11 @@ type Task {
     id: ID!
     task: String @field(resolver: "App\\GraphQL\\Queries\\TaskQuery@getTask")
     image: String
-    done: Boolean
+    done: Boolean!
     type: String
     source: String
     hidden: Boolean!
-    done_at: DateTime!
+    done_at: DateTime
     user: User @belongsTo
     product: Product @belongsTo
     comments: [Comment!]! @hasMany(type: "connection")
