@@ -8,7 +8,7 @@ type Task {
     id: ID!
     task: String @field(resolver: "App\\GraphQL\\Queries\\TaskQuery@getTask")
     image: String
-    done: Boolean!
+    done: Boolean
     type: String
     source: String
     hidden: Boolean!
