@@ -53,6 +53,13 @@ class Helper
         }
     }
 
+    public static function hide($entity, $type)
+    {
+        $entity->hidden = ! $entity->hidden;
+        $entity->save();
+        $entity->refresh();
+    }
+
     public static function mentionUsers($users, $task, $type)
     {
         if ($users) {

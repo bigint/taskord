@@ -22,6 +22,7 @@ class Task extends Model
         'due_at',
         'image',
         'type',
+        'hidden',
     ];
 
     public function user()

@@ -29,6 +29,9 @@
         </span>
     </div>
     <div class="mt-3 mb-1">
+        @if ($task->hidden)
+        <span class="task-font font-italic">Task was hidden by moderator</span>
+        @else
         @if ($task->source === 'GitLab')
         <span>
             <i class="fa fa-gitlab task-gitlab task-font"></i>
@@ -86,9 +89,10 @@
             </a>
         </div>
         @endif
+        @endif
         <div class="mt-2">
             @auth
-            @if (!$task->user->isPrivate)
+            @if (!$task->user->isPrivate and !$task->hidden)
             @if (Auth::user()->hasLiked($task))
             <button type="button" class="btn btn-task btn-success text-white mr-1" wire:click="togglePraise" wire:loading.attr="disabled" wire:offline.attr="disabled" wire:key="{{ $task->id }}">
                 {{ Emoji::clappingHands() }}
@@ -153,6 +157,11 @@
                     {{ Emoji::wastebasket() }}
                 </button>
                 @endif
+            @endif
+            @if (Auth::user()->staffShip)
+            <button type="button" class="btn btn-task {{ $task->hidden ? 'btn-danger' : 'btn-outline-danger' }} text-white ml-1" wire:click="hide" wire:loading.attr="disabled" wire:offline.attr="disabled" wire:key="{{ $task->id }}">
+                {{ Emoji::triangularFlag() }}
+            </button>
             @endif
             @endauth
         </div>
