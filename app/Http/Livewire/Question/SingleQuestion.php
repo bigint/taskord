@@ -44,7 +44,7 @@ class SingleQuestion extends Component
             return session()->flash('error', 'Forbidden!');
         }
     }
-    
+
     public function hide()
     {
         if (Auth::check()) {
