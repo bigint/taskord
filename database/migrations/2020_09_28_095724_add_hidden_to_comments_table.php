@@ -26,7 +26,7 @@ class AddHiddenToCommentsTable extends Migration
     public function down()
     {
         Schema::table('comments', function (Blueprint $table) {
-            //
+            $table->dropColumn('hidden');
         });
     }
 }

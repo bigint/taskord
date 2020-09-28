@@ -26,7 +26,7 @@ class AddHiddenToQuestionsTable extends Migration
     public function down()
     {
         Schema::table('questions', function (Blueprint $table) {
-            //
+            $table->dropColumn('hidden');
         });
     }
 }
