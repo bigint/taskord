@@ -2,8 +2,6 @@
 
 namespace App\GraphQL\Queries;
 
-use App\Models\Task;
-
 class TaskQuery
 {
     public function getTask($task, array $args)
@@ -15,6 +13,7 @@ class TaskQuery
         ) {
             return null;
         }
+
         return $task->task;
     }
 }
