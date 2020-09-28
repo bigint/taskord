@@ -14,7 +14,7 @@ class AddHiddenToAnswersTable extends Migration
     public function up()
     {
         Schema::table('answers', function (Blueprint $table) {
-            //
+            $table->boolean('hidden')->default(false);
         });
     }
 
