@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', function() {
     if (await isInViewport(target)) {
       $("#load-more").click();
       document.getElementById("load-more").innerHTML = "Loading";
-      $("#load-more").prop("disabled", true);
+      document.getElementById("load-more").disabled = true;
     }
   })();
 }, false);
@@ -29,7 +29,7 @@ $(window).scroll(() => {
   if ($(window).scrollTop() + $(window).height() > $(document).height() - 100) {
     $("#load-more").click();
     document.getElementById("load-more").innerHTML = "Loading";
-    $("#load-more").prop("disabled", true);
+    document.getElementById("load-more").disabled = true;
   }
 });
 
