@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', function() {
   (async () => {
     const target = document.querySelector("#load-more");
     if (await isInViewport(target)) {
-      $("#load-more").click();
+      document.getElementById("load-more").click();
       document.getElementById("load-more").innerHTML = "Loading";
       document.getElementById("load-more").disabled = true;
     }
@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 $(window).scroll(() => {
   if ($(window).scrollTop() + $(window).height() > $(document).height() - 100) {
-    $("#load-more").click();
+    document.getElementById("load-more").click();
     document.getElementById("load-more").innerHTML = "Loading";
     document.getElementById("load-more").disabled = true;
   }
