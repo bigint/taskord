@@ -21,6 +21,7 @@ type User {
     isBeta: Boolean!
     isPatron: Boolean!
     isPrivate: Boolean!
+    isSuspended: Boolean!
     tasks: [Task!]! @hasMany(type: "connection")
     comments: [Comment!]! @hasMany(type: "connection")
     ownedProducts: [Product!]! @hasMany(type: "connection")
