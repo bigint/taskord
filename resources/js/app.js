@@ -38,7 +38,7 @@ document.getElementById("admin-bar-click").addEventListener("click", () => {
   $.get("/admin/adminbar", (data, status) => {
     if (data === "enabled" || data === "disabled") {
       if (status === "success") {
-        location.reload();
+        window.location.reload();
       }
     }
   });
@@ -49,7 +49,7 @@ document.getElementById("dark-mode").addEventListener("click", () => {
   $.get("/darkmode", (data, status) => {
     if (data === "enabled" || data === "disabled") {
       if (status === "success") {
-        location.reload();
+        window.location.reload();
       }
     }
   });
