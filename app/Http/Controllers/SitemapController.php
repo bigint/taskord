@@ -13,7 +13,8 @@ class SitemapController extends Controller
     public function users()
     {
         $users = User::cacheFor(60 * 60)
-            ->select('username')
+            ->select('username', 'isFlagged')
+            ->where('isFlagged', false)
             ->get();
 
         return view('seo.sitemap_users', [
