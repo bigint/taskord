@@ -14,7 +14,7 @@ window.lightbox.option({
   maxWidth: 1000,
 });
 
-$(document).ready(() => {
+document.addEventListener('DOMContentLoaded', function() {
   (async () => {
     const target = document.querySelector("#load-more");
     if (await isInViewport(target)) {
@@ -23,7 +23,7 @@ $(document).ready(() => {
       $("#load-more").prop("disabled", true);
     }
   })();
-});
+}, false);
 
 $(window).scroll(() => {
   if ($(window).scrollTop() + $(window).height() > $(document).height() - 100) {
