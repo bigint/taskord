@@ -56,7 +56,7 @@ $("#dark-mode").click(() => {
 });
 
 // Hide Alert
-$(document).on("livewire:load", (_event) => {
+document.addEventListener("livewire:load", () => {
   window.Livewire.hook("element.updated", () => {
     setTimeout(() => {
       $(".fade").fadeOut("fast");
