@@ -34,7 +34,7 @@ $(window).scroll(() => {
 });
 
 // Admin Bar toggle in dropdown
-$("#admin-bar-click").click(() => {
+document.getElementById("admin-bar-click").addEventListener("click", function() {
   $.get("/admin/adminbar", (data, status) => {
     if (data === "enabled" || data === "disabled") {
       if (status === "success") {
@@ -45,7 +45,7 @@ $("#admin-bar-click").click(() => {
 });
 
 // Dark mode toggle in dropdown
-$("#dark-mode").click(() => {
+document.getElementById("dark-mode").addEventListener("click", function() {
   $.get("/darkmode", (data, status) => {
     if (data === "enabled" || data === "disabled") {
       if (status === "success") {
