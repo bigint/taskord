@@ -34,7 +34,7 @@ $(window).scroll(() => {
 });
 
 // Admin Bar toggle in dropdown
-document.getElementById("admin-bar-click").addEventListener("click", function() {
+document.getElementById("admin-bar-click").addEventListener("click", () => {
   $.get("/admin/adminbar", (data, status) => {
     if (data === "enabled" || data === "disabled") {
       if (status === "success") {
@@ -45,7 +45,7 @@ document.getElementById("admin-bar-click").addEventListener("click", function() 
 });
 
 // Dark mode toggle in dropdown
-document.getElementById("dark-mode").addEventListener("click", function() {
+document.getElementById("dark-mode").addEventListener("click", () => {
   $.get("/darkmode", (data, status) => {
     if (data === "enabled" || data === "disabled") {
       if (status === "success") {
@@ -65,7 +65,7 @@ document.addEventListener("livewire:load", () => {
 });
 
 // Hide search dropdown on clicking the body
-$("body").on("click", (_event) => {
+document.body.addEventListener("click", () => {
   $("ul").remove(".search-dropdown");
 });
 
