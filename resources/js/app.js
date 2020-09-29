@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const target = document.querySelector("#load-more");
     if (await isInViewport(target)) {
       $("#load-more").click();
-      $("#load-more").html("Loading");
+      document.getElementById("load-more").innerHTML = "Loading";
       $("#load-more").prop("disabled", true);
     }
   })();
@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', function() {
 $(window).scroll(() => {
   if ($(window).scrollTop() + $(window).height() > $(document).height() - 100) {
     $("#load-more").click();
-    $("#load-more").html("Loading");
+    document.getElementById("load-more").innerHTML = "Loading";
     $("#load-more").prop("disabled", true);
   }
 });
