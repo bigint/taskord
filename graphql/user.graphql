@@ -30,7 +30,6 @@ type User {
     answers: [Answer!]! @hasMany(type: "connection")
     followings: [User!]! @hasMany(type: "connection")
     followers:  [User!]! @hasMany(type: "connection")
-    tasksCount: Int! @count(relation: "tasks")
     created_at: DateTime! @cache(maxAge: 3600)
     updated_at: DateTime! @cache(maxAge: 3600)
 }
