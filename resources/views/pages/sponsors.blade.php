@@ -48,6 +48,22 @@
             </div>
             <div class="d-flex align-items-center mb-5">
                 <div>
+                    <img class="rounded avatar-150" src="https://i.imgur.com/vkatjP6.png" />
+                </div>
+                <div class="ml-4">
+                    <span class="h5">
+                        ClickUp
+                    </span>
+                    <div class="h6 mt-3">
+                        ClickUp is a cloud-based collaboration and project management tool suitable for businesses of all sizes and industries. Features include communication and collaboration tools, task assignments and statuses, alerts and a task toolbar.
+                    </div>
+                    <div class="mt-2">
+                        <a href="https://aws.amazon.com" target="_blank">➜ Go to ClickUp</a>
+                    </div>
+                </div>
+            </div>
+            <div class="d-flex align-items-center mb-5">
+                <div>
                     <img class="rounded avatar-150" src="https://i.imgur.com/uRbpWBH.jpg" />
                 </div>
                 <div class="ml-4">
