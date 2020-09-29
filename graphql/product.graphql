@@ -13,8 +13,7 @@ type Product {
     launched_at: DateTime @cache(maxAge: 3600)
     owner: User @belongsTo @cache(maxAge: 3600)
     tasks: [Task!]! @hasMany(type: "connection")
-    subscribersCount: Int! @cache(maxAge: 3600)
-    tasksCount: Int! @count(relation: "tasks") @cache(maxAge: 3600)
+    subscribers: [User!]! @hasMany(type: "connection")
     created_at: DateTime! @cache(maxAge: 3600)
     updated_at: DateTime @cache(maxAge: 3600)
 }
