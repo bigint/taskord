@@ -96,7 +96,7 @@
             </span>
             <span class="font-weight-bold mr-3">
                 <a href="/graphiql" target="_blank">
-                    <i class="fa fa-code text-white"></i>
+                    <i class="fa fa-sitemap text-white"></i>
                 </a>
             </span>
             <span class="font-weight-bold">
