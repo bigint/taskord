@@ -16,8 +16,7 @@ type Task {
     user: User @belongsTo
     product: Product @belongsTo
     comments: [Comment!]! @hasMany(type: "connection")
-    praiseCount: Int! @count(relation: "likers")
-    commentsCount: Int! @count(relation: "comments")
+    praises: [User!]! @hasMany(relation: "likers", type: "connection")
     created_at: DateTime! @cache(maxAge: 3600)
     updated_at: DateTime! @cache(maxAge: 3600)
 }
