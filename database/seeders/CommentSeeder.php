@@ -18,7 +18,7 @@ class CommentSeeder extends Seeder
         foreach (range(1, 500) as $index) {
             DB::table('comments')->insert([
                 'user_id' => $faker->numberBetween($min = 1, $max = 50),
-                'task_id' => $faker->numberBetween($min = 1, $max = 5),
+                'task_id' => $faker->numberBetween($min = 1, $max = 50),
                 'comment' => $faker->sentence($nbWords = 10, $variableNbWords = true),
                 'created_at' => $faker->dateTimeBetween($startDate = '-5 days', $endDate = 'now'),
             ]);

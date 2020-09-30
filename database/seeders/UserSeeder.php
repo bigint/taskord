@@ -16,7 +16,7 @@ class UserSeeder extends Seeder
      */
     public function run(Faker $faker)
     {
-        foreach (range(1, 100) as $index) {
+        foreach (range(1, 50) as $index) {
             DB::table('users')->insert([
                 'firstname' => $faker->firstName,
                 'lastname' => $faker->lastName,
