@@ -18,7 +18,7 @@ class ProductSeeder extends Seeder
         DB::table('products')->insert([
             'slug' => 'taskord',
             'name' => 'Taskord',
-            'avatar' => 'https://assets.gitlab-static.net/uploads/-/system/project/avatar/20359920/68648244.png',
+            'avatar' => 'https://i.imgur.com/QpfHEy6.png',
             'description' => 'Get things done socially with Taskord',
             'user_id' => 1,
             'website' => 'https://taskord.com',
