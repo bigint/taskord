@@ -109,6 +109,10 @@ a {
 
 .btn-danger {
     color: white;
+
+    &:hover {
+        color: white;
+    }
 }
 
 // Remove Bootstrap Glow on Input and Button
