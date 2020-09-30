@@ -2668,16 +2668,16 @@
         },
         {
             "name": "livewire/livewire",
-            "version": "v2.2.8",
+            "version": "v2.2.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/livewire/livewire.git",
-                "reference": "cddda1536c3c1d3b3a7e57eb471cf9ba57117f37"
+                "reference": "c01b331e7fcbccdffd63e49ce86c05a50fcb68ea"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/livewire/livewire/zipball/cddda1536c3c1d3b3a7e57eb471cf9ba57117f37",
-                "reference": "cddda1536c3c1d3b3a7e57eb471cf9ba57117f37",
+                "url": "https://api.github.com/repos/livewire/livewire/zipball/c01b331e7fcbccdffd63e49ce86c05a50fcb68ea",
+                "reference": "c01b331e7fcbccdffd63e49ce86c05a50fcb68ea",
                 "shasum": ""
             },
             "require": {
@@ -2729,7 +2729,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2020-09-29T13:53:53+00:00"
+            "time": "2020-09-30T16:19:54+00:00"
         },
         {
             "name": "mll-lab/laravel-graphql-playground",
