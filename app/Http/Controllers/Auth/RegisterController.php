@@ -11,6 +11,7 @@ use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Str;
 
 class RegisterController extends Controller
 {
@@ -76,6 +77,7 @@ class RegisterController extends Controller
             'avatar' => 'https://secure.gravatar.com/avatar/'.md5($data['email']).'?s=500&d=retro',
             'password' => Hash::make($data['password']),
             'lastIP' => request()->ip(),
+            'api_token' => Str::random(60),
         ]);
         AuthGetIP::dispatch($user, request()->ip());
         $user->notify(

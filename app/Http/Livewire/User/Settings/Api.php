@@ -31,8 +31,7 @@ class Api extends Component
 
         if (Auth::check()) {
             if (Auth::id() === $this->user->id) {
-                $token = Str::random(60);
-                Auth::user()->api_token = $token;
+                Auth::user()->api_token = Str::random(60);
                 Auth::user()->save();
                 $this->emit('tokenRegenerated');
             } else {
