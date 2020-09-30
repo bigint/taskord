@@ -26,8 +26,12 @@ class NewProductUpdate extends Notification implements ShouldQueue
     public function toMail($notifiable)
     {
         return (new MailMessage)
-                    ->line('The introduction to the notification.')
-                    ->action('Notification Action', url('/'))
-                    ->line('Thank you for using our application!');
+                    ->subject('New product update from "'.$this->update->product->name.'"')
+                    ->greeting('Hello @'.$notifiable->username.' 👋')
+                    ->line('New product update from "'.$this->update->product->name.'"')
+                    ->line('Title: '.$this->update->title)
+                    ->line('Body: '.$this->update->body)
+                    ->action('Go to '.$this->update->product->name, url('/product/'.$this->update->product->slug))
+                    ->line('Thank you for using Taskord!');
     }
 }
