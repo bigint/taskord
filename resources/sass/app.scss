@@ -339,9 +339,14 @@ input[type="date"]:valid:before {
 .card,
 .form-control,
 .input-group-text,
+.form-file-label,
 .btn,
 .dropdown-menu {
     border-radius: 6px;
+}
+
+.card-header:first-child {
+    border-radius: 6px 6px 0 0;
 }
 
 .badge {
