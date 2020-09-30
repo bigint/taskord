@@ -17,6 +17,9 @@
     <a href="https://gitlab.com/taskord/taskord/-/commits/main">
         <img src="https://gitlab.com/taskord/taskord/badges/main/pipeline.svg" alt="CI">
     </a>
+    <a href="https://gitpod.io/#https://gitlab.com/taskord/taskord">
+        <img src="https://img.shields.io/badge/setup-automated-blue?logo=gitpod" alt="GitPod badge">
+    </a>
     <a href="LICENSE">
         <img src="https://img.shields.io/badge/license-GNU%20AGPLv3-green?longCache=true" alt="MIT License">
     </a>
@@ -58,6 +61,12 @@ Contributions are what makes the open-source community such an amazing place to 
 4. Commit your changes (`git commit -m 'Add some AmazingFeature`)
 5. Push to the Branch (`git push origin AmazingFeature`)
 6. Open a Merge Request
+
+Start coding in a [ready-to-code development environment](https://www.gitpod.io):
+
+<a href="https://gitpod.io/#https://gitlab.com/taskord/taskord" style="padding: 10px;">
+    <img src="https://gitpod.io/button/open-in-gitpod.svg" width="150" alt="Push" align="center">
+</a>
 
 ## Standard Installation
 
