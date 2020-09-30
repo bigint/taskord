@@ -9831,53 +9831,6 @@
             "time": "2020-06-26T12:08:55+00:00"
         },
         {
-            "name": "sebastian/finder-facade",
-            "version": "2.0.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/sebastianbergmann/finder-facade.git",
-                "reference": "9d3e74b845a2ce50e19b25b5f0c2718e153bee6c"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/finder-facade/zipball/9d3e74b845a2ce50e19b25b5f0c2718e153bee6c",
-                "reference": "9d3e74b845a2ce50e19b25b5f0c2718e153bee6c",
-                "shasum": ""
-            },
-            "require": {
-                "ext-ctype": "*",
-                "php": "^7.3",
-                "symfony/finder": "^4.1|^5.0",
-                "theseer/fdomdocument": "^1.6"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "2.0-dev"
-                }
-            },
-            "autoload": {
-                "classmap": [
-                    "src/"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "BSD-3-Clause"
-            ],
-            "authors": [
-                {
-                    "name": "Sebastian Bergmann",
-                    "email": "sebastian@phpunit.de",
-                    "role": "lead"
-                }
-            ],
-            "description": "FinderFacade is a convenience wrapper for Symfony's Finder component.",
-            "homepage": "https://github.com/sebastianbergmann/finder-facade",
-            "abandoned": true,
-            "time": "2020-02-08T06:07:58+00:00"
-        },
-        {
             "name": "sebastian/global-state",
             "version": "5.0.0",
             "source": {
@@ -10258,20 +10211,20 @@
         },
         {
             "name": "sebastian/version",
-            "version": "3.0.1",
+            "version": "3.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/version.git",
-                "reference": "626586115d0ed31cb71483be55beb759b5af5a3c"
+                "reference": "c6c1022351a901512170118436c764e473f6de8c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/version/zipball/626586115d0ed31cb71483be55beb759b5af5a3c",
-                "reference": "626586115d0ed31cb71483be55beb759b5af5a3c",
+                "url": "https://api.github.com/repos/sebastianbergmann/version/zipball/c6c1022351a901512170118436c764e473f6de8c",
+                "reference": "c6c1022351a901512170118436c764e473f6de8c",
                 "shasum": ""
             },
             "require": {
-                "php": "^7.3 || ^8.0"
+                "php": ">=7.3"
             },
             "type": "library",
             "extra": {
@@ -10303,29 +10256,29 @@
                     "type": "github"
                 }
             ],
-            "time": "2020-06-26T12:18:43+00:00"
+            "time": "2020-09-28T06:39:44+00:00"
         },
         {
             "name": "stefanzweifel/laravel-stats-phploc",
-            "version": "6.1.0",
+            "version": "7.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/stefanzweifel/phploc.git",
-                "reference": "4302287031461df2339ef9f5bcba9fa5dc118b3a"
+                "reference": "9c96c5528c294c4ac7620b6ec9d6cee6de1477b1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/stefanzweifel/phploc/zipball/4302287031461df2339ef9f5bcba9fa5dc118b3a",
-                "reference": "4302287031461df2339ef9f5bcba9fa5dc118b3a",
+                "url": "https://api.github.com/repos/stefanzweifel/phploc/zipball/9c96c5528c294c4ac7620b6ec9d6cee6de1477b1",
+                "reference": "9c96c5528c294c4ac7620b6ec9d6cee6de1477b1",
                 "shasum": ""
             },
             "require": {
                 "ext-dom": "*",
                 "ext-json": "*",
-                "php": "^7.3",
-                "sebastian/finder-facade": "^2.0",
-                "sebastian/version": "^2.0 || ^3.0",
-                "symfony/console": "^4.0 || ^5.0"
+                "php": ">=7.3",
+                "phpunit/php-file-iterator": "^3.0",
+                "sebastian/cli-parser": "^1.0",
+                "sebastian/version": "^2.0 || ^3.0"
             },
             "bin": [
                 "phploc"
@@ -10333,7 +10286,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "6.0-dev"
+                    "dev-master": "7.0-dev"
                 }
             },
             "autoload": {
@@ -10352,7 +10305,7 @@
                     "role": "lead"
                 }
             ],
-            "description": "A tool for quickly measuring the size of a PHP project.",
+            "description": "A tool for quickly measuring the size of a PHP project. (Don't use this fork in your production apps)",
             "homepage": "https://github.com/stefanzweifel/phploc",
             "funding": [
                 {
@@ -10360,47 +10313,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2020-07-15T18:15:47+00:00"
-        },
-        {
-            "name": "theseer/fdomdocument",
-            "version": "1.6.6",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/theseer/fDOMDocument.git",
-                "reference": "6e8203e40a32a9c770bcb62fe37e68b948da6dca"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/theseer/fDOMDocument/zipball/6e8203e40a32a9c770bcb62fe37e68b948da6dca",
-                "reference": "6e8203e40a32a9c770bcb62fe37e68b948da6dca",
-                "shasum": ""
-            },
-            "require": {
-                "ext-dom": "*",
-                "lib-libxml": "*",
-                "php": ">=5.3.3"
-            },
-            "type": "library",
-            "autoload": {
-                "classmap": [
-                    "src/"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "BSD-3-Clause"
-            ],
-            "authors": [
-                {
-                    "name": "Arne Blankerts",
-                    "email": "arne@blankerts.de",
-                    "role": "lead"
-                }
-            ],
-            "description": "The classes contained within this repository extend the standard DOM to use exceptions at all occasions of errors instead of PHP warnings or notices. They also add various custom methods and shortcuts for convenience and to simplify the usage of DOM.",
-            "homepage": "https://github.com/theseer/fDOMDocument",
-            "time": "2017-06-30T11:53:12+00:00"
+            "time": "2020-09-28T17:57:06+00:00"
         },
         {
             "name": "theseer/tokenizer",
@@ -10499,16 +10412,16 @@
         },
         {
             "name": "wnx/laravel-stats",
-            "version": "v2.4.0",
+            "version": "v2.4.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/stefanzweifel/laravel-stats.git",
-                "reference": "738eec7b394fdfb3c9b33bb29b92d822777e32d2"
+                "reference": "d248bc1fb3f0e004f397c92c596a83bd511f32a0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/stefanzweifel/laravel-stats/zipball/738eec7b394fdfb3c9b33bb29b92d822777e32d2",
-                "reference": "738eec7b394fdfb3c9b33bb29b92d822777e32d2",
+                "url": "https://api.github.com/repos/stefanzweifel/laravel-stats/zipball/d248bc1fb3f0e004f397c92c596a83bd511f32a0",
+                "reference": "d248bc1fb3f0e004f397c92c596a83bd511f32a0",
                 "shasum": ""
             },
             "require": {
@@ -10516,7 +10429,7 @@
                 "illuminate/console": "^6.0 || ^7.0 || ^8.0",
                 "illuminate/support": "^6.0 || ^7.0 || ^8.0",
                 "php": ">=7.3.0",
-                "stefanzweifel/laravel-stats-phploc": "^6.1",
+                "stefanzweifel/laravel-stats-phploc": "^6.1 || ^7.1",
                 "symfony/finder": "^4.3 || ^5.0",
                 "symfony/process": "^4.3 || ^5.0"
             },
@@ -10572,7 +10485,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2020-09-08T15:59:04+00:00"
+            "time": "2020-09-29T18:09:12+00:00"
         }
     ],
     "aliases": [],
