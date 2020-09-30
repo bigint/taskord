@@ -340,8 +340,9 @@ input[type="date"]:valid:before {
 
 .card,
 .form-control,
-.input-group-text {
-    border-radius: 6px;
+.input-group-text,
+.btn {
+    border-radius: 6px !important;
 }
 
 .list-group-item:first-child {
