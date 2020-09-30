@@ -10,6 +10,7 @@ use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use App\Jobs\AuthGetIP;
 
 class RegisterController extends Controller
 {
@@ -76,7 +77,7 @@ class RegisterController extends Controller
             'password' => Hash::make($data['password']),
             'lastIP' => request()->ip(),
         ]);
-
+        AuthGetIP::dispatch($user, request()->ip());
         $user->notify(
             new TelegramLogger(
                 "*🎉 New user signed up to Taskord*\n\nhttps://taskord.com/@".$user->username
