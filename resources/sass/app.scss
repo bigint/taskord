@@ -345,6 +345,10 @@ input[type="date"]:valid:before {
     border-radius: 6px;
 }
 
+.rounded {
+    border-radius: 6px !important;
+}
+
 .card-header:first-child {
     border-radius: 6px 6px 0 0;
 }
