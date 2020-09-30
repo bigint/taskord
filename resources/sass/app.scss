@@ -22,8 +22,7 @@ a {
 .btn-primary {
     color: #fff;
     background-color: $primary;
-    border-color: $primary;
-  
+
     &:hover, &:active, &:focus {
         background-color: #6f68ee;
     }
@@ -32,8 +31,7 @@ a {
 .btn-blurple {
     color: #fff;
     background-color: #7289DA;
-    border-color: #7289DA;
-  
+
     &:hover, &:active, &:focus {
         background-color: #657ac3;
         color: #fff;
@@ -341,8 +339,18 @@ input[type="date"]:valid:before {
 .card,
 .form-control,
 .input-group-text,
-.btn {
+.btn,
+.dropdown-menu {
     border-radius: 6px;
+}
+
+.badge {
+    border-radius: 15px;
+}
+
+.btn {
+    box-shadow: 0 1px 0 0 1px 0 rgb(0 0 0 / 0.10), inset 0 1px 0 rgb(0 0 0 / 0.3);
+    border-color: rgb(0 0 0 / 0.2);
 }
 
 .list-group-item:first-child {
