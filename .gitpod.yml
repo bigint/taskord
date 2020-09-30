@@ -4,4 +4,4 @@ image:
 tasks:
   - name: Taskord Server
   - init: bash ./scripts/gitpod-init.sh
-    command: php artisan migrate --seed && php artisan serve
+    command: php artisan serve --host=0.0.0.0
