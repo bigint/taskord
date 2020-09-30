@@ -3,11 +3,5 @@ image:
 
 tasks:
   - name: Taskord Server
-    init: >
-      cp .env.gitpod .env &&
-      composer install &&
-      npm install &&
-      php artisan key:generate &&
-      php artisan migrate:fresh --seed
-    command: >
-      npm run dev
+  - init: bash ./scripts/gitpod-init.sh
+    command: php artisan migrate --seed && php artisan serve
