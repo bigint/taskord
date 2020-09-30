@@ -10,6 +10,13 @@ use Illuminate\Notifications\Notification;
 class NewProductUpdate extends Notification implements ShouldQueue
 {
     use Queueable;
+    
+    protected $update;
+
+    public function __construct($update)
+    {
+        $this->update = $update;
+    }
 
     public function via($notifiable)
     {

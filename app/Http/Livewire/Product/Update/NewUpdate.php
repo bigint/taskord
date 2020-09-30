@@ -45,10 +45,10 @@ class NewUpdate extends Component
             Auth::user()->touch();
 
             session()->flash('global', 'Update has been created!');
-            Notification::send(
-                Product::find($this->product->id)->subscribers()->get(),
-                new NewProductUpdate($update)
-            );
+            $users = Product::find($this->product->id)->subscribers()->get();
+            foreach ($users as $user) {
+                $user->notify(new NewProductUpdate($update));
+            }
 
             return redirect()->route('product.updates', ['slug' => $update->product->slug]);
         } else {
