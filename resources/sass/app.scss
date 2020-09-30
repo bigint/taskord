@@ -335,3 +335,21 @@ input[type="date"]:valid:before {
     border-left: 3px solid lightgray;
     height: 40px;
 }
+
+// Curvy Style
+
+.card,
+.form-control,
+.input-group-text {
+    border-radius: 6px;
+}
+
+.list-group-item:first-child {
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+}
+
+.list-group-item:last-child {
+    border-bottom-right-radius: 6px;
+    border-bottom-left-radius: 6px;
+}
