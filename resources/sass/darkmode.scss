@@ -143,3 +143,12 @@ body {
         background: $border-bg;
     }
 }
+
+.btn {
+    box-shadow: 0 1px 0 0 1px 0 rgb(0 0 0 / 0.10), inset 0 1px 0 rgb(0 0 0 / 0.3);
+    border-color: rgb(255 255 255 / 0.20);
+    
+    &:hover, &:active, &:focus {
+        border-color: rgb(255 255 255 / 0.20);
+    }
+}

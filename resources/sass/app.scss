@@ -22,8 +22,7 @@ a {
 .btn-primary {
     color: #fff;
     background-color: $primary;
-    border-color: $primary;
-  
+
     &:hover, &:active, &:focus {
         background-color: #6f68ee;
     }
@@ -32,8 +31,7 @@ a {
 .btn-blurple {
     color: #fff;
     background-color: #7289DA;
-    border-color: #7289DA;
-  
+
     &:hover, &:active, &:focus {
         background-color: #657ac3;
         color: #fff;
@@ -334,4 +332,47 @@ input[type="date"]:valid:before {
 .vertical-line {
     border-left: 3px solid lightgray;
     height: 40px;
+}
+
+// Curvy Style
+
+.card,
+.form-control,
+.input-group-text,
+.form-file-label,
+.btn,
+.dropdown-menu,
+.navbar-toggler {
+    border-radius: 6px;
+}
+
+.rounded {
+    border-radius: 6px !important;
+}
+
+.card-header:first-child {
+    border-radius: 6px 6px 0 0;
+}
+
+.badge {
+    border-radius: 15px;
+}
+
+.btn {
+    box-shadow: 0 1px 0 0 1px 0 rgb(0 0 0 / 0.10), inset 0 1px 0 rgb(0 0 0 / 0.3);
+    border-color: rgb(0 0 0 / 0.2);
+
+    &:hover, &:active, &:focus {
+        border-color: rgb(0 0 0 / 0.2);
+    }
+}
+
+.list-group-item:first-child {
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+}
+
+.list-group-item:last-child {
+    border-bottom-right-radius: 6px;
+    border-bottom-left-radius: 6px;
 }
