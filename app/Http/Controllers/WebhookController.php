@@ -10,6 +10,7 @@ use GrahamCampbell\Throttle\Facades\Throttle;
 use Illuminate\Http\Request as WebhookRequest;
 use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Str;
+use GuzzleHttp\Client;
 
 class WebhookController extends Controller
 {
@@ -132,6 +133,28 @@ class WebhookController extends Controller
     
     public function newVersion($appkey)
     {
-        dd(env('APP_VERSION_KEY') === $appkey);
+        if (env('APP_VERSION_KEY') === $appkey) {
+            $client = new Client();
+            $res = $client->request('POST', 'https://gitlab.com/api/graphql', [
+                'form_params' => [
+                    'query' => '
+                    query {
+                      project(fullPath: "yo/playground") {
+                        releases(first: 1) {
+                          nodes {
+                            tagName
+                            name
+                            description
+                          }
+                        }
+                      }
+                    }',
+                ]
+            ]);
+            
+            return $res;
+        } else {
+            return false;
+        }
     }
 }
