@@ -89,7 +89,7 @@
                     <div class="col-6">
                         <a href="/login/google" class="btn btn-lg btn-outline-danger btn-block" type="submit">
                             <span class="small">
-                                <i class="fa fa-google mr-1"></i>
+                                <i class="fab fa-google mr-1"></i>
                                 Google
                             </span>
                         </a>
@@ -97,7 +97,7 @@
                     <div class="col-6">
                         <a href="/login/twitter" class="btn btn-lg btn-outline-primary btn-block" type="submit">
                             <span class="small">
-                                <i class="fa fa-twitter mr-1"></i>
+                                <i class="fab fa-twitter mr-1"></i>
                                 Twitter
                             </span>
                         </a>

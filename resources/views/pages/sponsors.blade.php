@@ -14,7 +14,7 @@
             <div>for supporting our community</div>
         </div>
         <div class="card-body">
-            <div class="">
+            <div class="col-7">
                 <div class="text-center mb-5">
                     <div>
                         <img class="rounded avatar-150 mb-3" src="https://i.imgur.com/QSAzjno.jpg" />
