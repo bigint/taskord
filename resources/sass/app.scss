@@ -308,14 +308,14 @@ input[type="date"]:valid:before {
 
 .tribute-container {
     background-color: white;
-    border: 1px solid #ced4da;
-    border-radius: 3px;
+    border: 1px solid $gray-400;
+    border-radius: 6px;
     margin-top: 10px;
     max-width: auto;
 }
 
 .tribute-container ul {
-    background: #e9ecef;
+    background: $gray-200;
 }
 
 .tribute-container li {
@@ -325,7 +325,7 @@ input[type="date"]:valid:before {
     padding: 5px 15px;
 
     &.highlight {
-        background: #e9ecef;
+        background: $gray-200;
     }
 }
 
@@ -360,15 +360,6 @@ input[type="date"]:valid:before {
     border-radius: 15px;
 }
 
-.btn {
-    box-shadow: 0 1px 0 rgb(0 0 0 / 10%), inset 0 1px 0 rgb(0 0 0 / 3%);
-    border-color: rgb(0 0 0 / 0.2);
-
-    &:hover, &:active, &:focus {
-        border-color: rgb(0 0 0 / 0.2);
-    }
-}
-
 .list-group-item:first-child {
     border-top-left-radius: 6px;
     border-top-right-radius: 6px;
@@ -377,4 +368,18 @@ input[type="date"]:valid:before {
 .list-group-item:last-child {
     border-bottom-right-radius: 6px;
     border-bottom-left-radius: 6px;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 6px 6px 6px 6px #f8fafc;
+    border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 6px;
+    -webkit-box-shadow: inset 6px 6px 6px 6px $gray-500;
 }
