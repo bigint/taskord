@@ -201,7 +201,7 @@
         </nav>
         @if (session()->has('global'))
             <div class="alert alert-success alert-dismissible fade show rounded-0 mb-0">
-                <button type="button" class="close" data-dismiss="alert">×</button>
+                <button type="button" class="btn-close small" data-dismiss="alert"></button>
                 <i class="fa fa-check mr-1"></i>
                 {{ session('global') }}
             </div>
