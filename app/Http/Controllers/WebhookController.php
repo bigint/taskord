@@ -5,8 +5,10 @@ namespace App\Http\Controllers;
 use App\Models\Task;
 use App\Models\User;
 use App\Models\Webhook;
+use App\Notifications\VersionReleased;
 use Carbon\Carbon;
 use GrahamCampbell\Throttle\Facades\Throttle;
+use GuzzleHttp\Client;
 use Illuminate\Http\Request as WebhookRequest;
 use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Str;
@@ -127,6 +129,41 @@ class WebhookController extends Controller
             return response()->json([
                 'status' => 'success',
             ], 200);
+        }
+    }
+
+    public function newVersion($appkey)
+    {
+        if (env('APP_VERSION_KEY') === $appkey) {
+            $client = new Client();
+            $res = $client->request('POST', 'https://gitlab.com/api/graphql', [
+                'form_params' => [
+                    'query' => '
+                    query {
+                      project(fullPath: "taskord/taskord") {
+                        releases(first: 1) {
+                          nodes {
+                            tagName
+                            description
+                          }
+                        }
+                      }
+                    }',
+                ],
+            ]);
+            $message = json_decode($res->getBody(), true)['data']['project']['releases']['nodes'][0];
+            $users = User::all();
+            foreach ($users as $user) {
+                $user->notify(new VersionReleased($message));
+            }
+
+            return response()->json([
+                'status' => 'success',
+            ], 200);
+        } else {
+            return response()->json([
+                'status' => 'failed',
+            ], 500);
         }
     }
 }

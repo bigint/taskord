@@ -34,11 +34,12 @@
                 )
                     {{ Emoji::door() }}
                 @elseif (
-                    $type === "App\Notifications\Welcome"
+                    $type === "App\Notifications\Welcome" or
+                    $type === "App\Notifications\VersionReleased"
                 )
                     {{ Emoji::partyPopper() }}
                 @endif
-                @if ($type !== "App\Notifications\Welcome")
+                @if ($type !== "App\Notifications\Welcome" and $type !== "App\Notifications\VersionReleased")
                 <a href="{{ route('user.done', ['username' => $user->username]) }}">
                     <img class="rounded-circle avatar-20 ml-2 mr-1" src="{{ $user->avatar }}" />
                     <span class="align-middle">
@@ -180,6 +181,16 @@
                 <span class="ml-1 font-weight-bold">
                     Welcome to Taskord
                 </span>
+            @elseif ($type === "App\Notifications\VersionReleased")
+                <span class="ml-1 font-weight-bold">
+                    Version {{ $data['tagName'] }} has been released!
+                </span>
+                <div class="mt-2">
+                    <span class="font-weight-bold">Changelog</span>
+                    <div class="mt-1">
+                        @markdown($data['description'])
+                    </div>
+                </div>
             @endif
             <div class="small mt-2 text-secondary">
                 {{ Carbon::createFromTimeStamp(strtotime($created_at))->diffForHumans() }}
