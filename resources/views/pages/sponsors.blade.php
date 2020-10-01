@@ -17,7 +17,7 @@
             <div class="col-lg-7">
                 <div class="text-center mb-5 mt-3">
                     <div>
-                        <img class="rounded" height="80" src="https://i.imgur.com/pJwqa2k.png" />
+                        <img height="80" src="https://i.imgur.com/pJwqa2k.png" />
                     </div>
                     <div class="task-font h6 mt-5 lh-base">
                         AWS (Amazon Web Services) is a comprehensive, evolving cloud computing platform provided by Amazon that includes a mixture of infrastructure as a service (IaaS), platform as a service (PaaS) and packaged software as a service (SaaS) offerings.
@@ -28,7 +28,7 @@
                 </div>
                 <div class="text-center mb-5">
                     <div>
-                        <img class="rounded" height="50" src="https://i.imgur.com/OIscco1.png" />
+                        <img height="50" src="https://i.imgur.com/OIscco1.png" />
                     </div>
                     <div class="task-font h6 mt-5 lh-base">
                         DigitalOcean is a cloud hosting provider that offers cloud computing services to business entities so that they can scale themselves by deploying DigitalOcean applications that run parallel across multiple cloud servers without compromising on performance!
@@ -39,23 +39,18 @@
                 </div>
                 <div class="text-center mb-5">
                     <div>
-                        <img class="rounded avatar-150 mb-3" src="https://i.imgur.com/vkatjP6.png" />
+                        <img height="50" src="https://i.imgur.com/dg2XwnG.png" />
                     </div>
-                    <div>
-                        <span class="h5">
-                            ClickUp
-                        </span>
-                        <div class="task-font h6 mt-3 lh-base">
-                            ClickUp is a cloud-based collaboration and project management tool suitable for businesses of all sizes and industries. Features include communication and collaboration tools, task assignments and statuses, alerts and a task toolbar.
-                        </div>
-                        <div class="mt-2">
-                            <a href="https://aws.amazon.com" target="_blank">➜ Go to ClickUp</a>
-                        </div>
+                    <div class="task-font h6 mt-5 lh-base">
+                        ClickUp is a cloud-based collaboration and project management tool suitable for businesses of all sizes and industries. Features include communication and collaboration tools, task assignments and statuses, alerts and a task toolbar.
+                    </div>
+                    <div class="mt-2">
+                        <a href="https://aws.amazon.com" target="_blank">➜ Go to ClickUp</a>
                     </div>
                 </div>
                 <div class="text-center mb-5">
                     <div>
-                        <img class="rounded avatar-150 mb-3" src="https://i.imgur.com/uRbpWBH.jpg" />
+                        <img src="https://i.imgur.com/uRbpWBH.jpg" />
                     </div>
                     <div>
                         <span class="h5">
@@ -71,7 +66,7 @@
                 </div>
                 <div class="text-center mb-5">
                     <div>
-                        <img class="rounded avatar-150 mb-3" src="https://i.imgur.com/bHamHlT.png" />
+                        <img src="https://i.imgur.com/bHamHlT.png" />
                     </div>
                     <div>
                         <span class="h5">
@@ -87,7 +82,7 @@
                 </div>
                 <div class="text-center mb-5">
                     <div>
-                        <img class="rounded avatar-150 mb-3" src="https://i.imgur.com/K1oZwr6.jpg" />
+                        <img src="https://i.imgur.com/K1oZwr6.jpg" />
                     </div>
                     <div>
                         <span class="h5">
@@ -103,7 +98,7 @@
                 </div>
                 <div class="text-center mb-5">
                     <div>
-                        <img class="rounded avatar-150 mb-3" src="https://i.imgur.com/a4hBf5f.png" />
+                        <img src="https://i.imgur.com/a4hBf5f.png" />
                     </div>
                     <div>
                         <span class="h5">
@@ -119,7 +114,7 @@
                 </div>
                 <div class="text-center mb-5">
                     <div>
-                        <img class="rounded avatar-150 mb-3" src="https://i.imgur.com/XSNz1FI.png" />
+                        <img src="https://i.imgur.com/XSNz1FI.png" />
                     </div>
                     <div>
                         <span class="h5">
@@ -135,7 +130,7 @@
                 </div>
                 <div class="text-center mb-5">
                     <div>
-                        <img class="rounded avatar-150 mb-3" src="https://i.imgur.com/VNRFI9v.jpg" />
+                        <img src="https://i.imgur.com/VNRFI9v.jpg" />
                     </div>
                     <div>
                         <span class="h5">
@@ -151,7 +146,7 @@
                 </div>
                 <div class="text-center mb-5">
                     <div>
-                        <img class="rounded avatar-150 mb-3" src="https://i.imgur.com/AUd0N20.jpg" />
+                        <img src="https://i.imgur.com/AUd0N20.jpg" />
                     </div>
                     <div>
                         <span class="h5">
