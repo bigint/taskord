@@ -80,6 +80,22 @@
             </div>
             <div class="d-flex align-items-center mb-5">
                 <div>
+                    <img class="rounded avatar-150" src="https://i.imgur.com/bHamHlT.png" />
+                </div>
+                <div class="ml-4">
+                    <span class="h5">
+                        Gitpod
+                    </span>
+                    <div class="h6 mt-3">
+                        Gitpod is an online IDE which can be launched from any GitHub/GitLab page within seconds, Gitpod provides you with a fully working development environment, including a VS Code-powered IDE and a cloud-based Linux container configured specifically for the project at hand.
+                    </div>
+                    <div class="mt-2">
+                        <a href="https://gitpod.io" target="_blank">➜ Go to GitPod</a>
+                    </div>
+                </div>
+            </div>
+            <div class="d-flex align-items-center mb-5">
+                <div>
                     <img class="rounded avatar-150" src="https://i.imgur.com/K1oZwr6.jpg" />
                 </div>
                 <div class="ml-4">
