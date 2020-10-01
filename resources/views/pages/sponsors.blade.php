@@ -85,64 +85,44 @@
                     <div>
                         <img src="https://i.imgur.com/a4hBf5f.png" />
                     </div>
-                    <div>
-                        <span class="h5">
-                            BrowserStack
-                        </span>
-                        <div class="task-font h6 mt-3 lh-base">
-                            Speed up your release cycles and deploy bug-free websites and mobile apps with BrowserStack, the industry’s most reliable cloud web and mobile testing platform.
-                        </div>
-                        <div class="mt-2">
-                            <a href="https://www.browserstack.com" target="_blank">➜ Go to BrowserStack</a>
-                        </div>
+                    <div class="task-font h6 mt-4 lh-base">
+                        Speed up your release cycles and deploy bug-free websites and mobile apps with BrowserStack, the industry’s most reliable cloud web and mobile testing platform.
+                    </div>
+                    <div class="mt-2">
+                        <a href="https://www.browserstack.com" target="_blank">➜ Go to BrowserStack</a>
                     </div>
                 </div>
                 <div class="text-center mb-5">
                     <div>
                         <img src="https://i.imgur.com/XSNz1FI.png" />
                     </div>
-                    <div>
-                        <span class="h5">
-                            Todoist
-                        </span>
-                        <div class="task-font h6 mt-3 lh-base">
-                            Todoist is a cloud-based service, so all your tasks and notes sync automatically to any device on which you use the app. You can also use the app offline and have your changes sync later. It's available on every major platform, including Android, iOS, macOS, Windows, Android Wear, and Apple Watch.
-                        </div>
-                        <div class="mt-2">
-                            <a href="https://doist.grsm.io/yogi" target="_blank">➜ Go to Todoist</a>
-                        </div>
+                    <div class="task-font h6 mt-4 lh-base">
+                        Todoist is a cloud-based service, so all your tasks and notes sync automatically to any device on which you use the app. You can also use the app offline and have your changes sync later. It's available on every major platform, including Android, iOS, macOS, Windows, Android Wear, and Apple Watch.
+                    </div>
+                    <div class="mt-2">
+                        <a href="https://doist.grsm.io/yogi" target="_blank">➜ Go to Todoist</a>
                     </div>
                 </div>
                 <div class="text-center mb-5">
                     <div>
                         <img src="https://i.imgur.com/VNRFI9v.jpg" />
                     </div>
-                    <div>
-                        <span class="h5">
-                            Notion
-                        </span>
-                        <div class="task-font h6 mt-3 lh-base">
-                            Notion is an application that provides components such as databases, kanban boards, wikis, calendars and reminders. Users can connect these components to create their own systems for knowledge management, note taking, data management, project management, among others.
-                        </div>
-                        <div class="mt-2">
-                            <a href="https://notion.so" target="_blank">➜ Go to Notion</a>
-                        </div>
+                    <div class="task-font h6 mt-4 lh-base">
+                        Notion is an application that provides components such as databases, kanban boards, wikis, calendars and reminders. Users can connect these components to create their own systems for knowledge management, note taking, data management, project management, among others.
+                    </div>
+                    <div class="mt-2">
+                        <a href="https://notion.so" target="_blank">➜ Go to Notion</a>
                     </div>
                 </div>
                 <div class="text-center mb-5">
                     <div>
                         <img src="https://i.imgur.com/AUd0N20.jpg" />
                     </div>
-                    <div>
-                        <span class="h5">
-                            UptimeRobot
-                        </span>
-                        <div class="task-font h6 mt-3 lh-base">
-                            Uptime Robot is a free tool used to monitor websites . It monitors your websites every 5 minutes and alerts you if your sites are down. It has free uptime monitoring service that supports multiple monitoring types (HTTP, keyword, ping and port).
-                        </div>
-                        <div class="mt-2">
-                            <a href="https://uptimerobot.com" target="_blank">➜ Go to UptimeRobot</a>
-                        </div>
+                    <div class="task-font h6 mt-4 lh-base">
+                        Uptime Robot is a free tool used to monitor websites . It monitors your websites every 5 minutes and alerts you if your sites are down. It has free uptime monitoring service that supports multiple monitoring types (HTTP, keyword, ping and port).
+                    </div>
+                    <div class="mt-2">
+                        <a href="https://uptimerobot.com" target="_blank">➜ Go to UptimeRobot</a>
                     </div>
                 </div>
             </div>
