@@ -146,10 +146,8 @@ body {
 
 ::-webkit-scrollbar-track {
     -webkit-box-shadow: inset 6px 6px 6px 6px $body-bg;
-    border-radius: 6px;
 }
 
 ::-webkit-scrollbar-thumb {
-    border-radius: 6px;
     -webkit-box-shadow: inset 6px 6px 6px 6px #adb5bd;
 }
