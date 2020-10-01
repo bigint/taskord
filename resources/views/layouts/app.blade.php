@@ -22,6 +22,15 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
     <link href="{{ mix('css/app.css') }}" rel="stylesheet">
+    <script type="text/javascript">
+        (function() {
+            var css = document.createElement('link');
+            css.href = 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css';
+            css.rel = 'stylesheet';
+            css.type = 'text/css';
+            document.getElementsByTagName('head')[0].appendChild(css);
+        })();
+    </script>
     @auth
     @if (Auth::user()->isPatron or Auth::user()->isStaff)
     @if (Auth::user()->darkMode)
@@ -240,7 +249,6 @@
 @livewireScripts
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js" defer></script>
 <script src="{{ asset('js/app.js', config('app.env') === 'production' ? true : false) }}" defer></script>
-<script src="https://kit.fontawesome.com/4f46a7856f.js" crossorigin="anonymous"></script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-178044316-1"></script>
 <script>
     window.dataLayer = window.dataLayer || [];
