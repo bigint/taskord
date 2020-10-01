@@ -81,6 +81,7 @@ Route::get('avatar/{username}.png', [UserController::class, 'avatar'])->name('av
 // Webhooks
 Route::group(['prefix' => 'webhook'], function () {
     Route::post('web/{token}', [WebhookController::class, 'web']);
+    Route::post('version/{appkey}', [WebhookController::class, 'newVersion']);
 });
 
 // Product

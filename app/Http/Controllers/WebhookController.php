@@ -129,4 +129,9 @@ class WebhookController extends Controller
             ], 200);
         }
     }
+    
+    public function newVersion($appkey)
+    {
+        dd(env('APP_VERSION_KEY') === $appkey);
+    }
 }
