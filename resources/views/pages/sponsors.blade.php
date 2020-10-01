@@ -83,7 +83,7 @@
                 </div>
                 <div class="text-center mb-5">
                     <div>
-                        <img src="https://i.imgur.com/a4hBf5f.png" />
+                        <img height="60" src="https://i.imgur.com/QI2MTQc.png" />
                     </div>
                     <div class="task-font h6 mt-4 lh-base">
                         Speed up your release cycles and deploy bug-free websites and mobile apps with BrowserStack, the industry’s most reliable cloud web and mobile testing platform.
