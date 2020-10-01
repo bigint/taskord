@@ -14,11 +14,11 @@
             <div>for supporting our community</div>
         </div>
         <div class="card-body">
-            <div class="d-flex align-items-center mb-5">
+            <div class="text-center mb-5">
                 <div>
-                    <img class="rounded avatar-150" src="https://i.imgur.com/QSAzjno.jpg" />
+                    <img class="rounded avatar-150 mb-3" src="https://i.imgur.com/QSAzjno.jpg" />
                 </div>
-                <div class="ml-4">
+                <div>
                     <span class="h5">
                         Amazon Web Service
                     </span>
@@ -30,11 +30,11 @@
                     </div>
                 </div>
             </div>
-            <div class="d-flex align-items-center mb-5">
+            <div class="text-center mb-5">
                 <div>
-                    <img class="rounded avatar-150" src="https://i.imgur.com/LnDFjfr.jpg" />
+                    <img class="rounded avatar-150 mb-3" src="https://i.imgur.com/LnDFjfr.jpg" />
                 </div>
-                <div class="ml-4">
+                <div>
                     <span class="h5">
                         DigitalOcean
                     </span>
@@ -46,11 +46,11 @@
                     </div>
                 </div>
             </div>
-            <div class="d-flex align-items-center mb-5">
+            <div class="text-center mb-5">
                 <div>
-                    <img class="rounded avatar-150" src="https://i.imgur.com/vkatjP6.png" />
+                    <img class="rounded avatar-150 mb-3" src="https://i.imgur.com/vkatjP6.png" />
                 </div>
-                <div class="ml-4">
+                <div>
                     <span class="h5">
                         ClickUp
                     </span>
@@ -62,11 +62,11 @@
                     </div>
                 </div>
             </div>
-            <div class="d-flex align-items-center mb-5">
+            <div class="text-center mb-5">
                 <div>
-                    <img class="rounded avatar-150" src="https://i.imgur.com/uRbpWBH.jpg" />
+                    <img class="rounded avatar-150 mb-3" src="https://i.imgur.com/uRbpWBH.jpg" />
                 </div>
-                <div class="ml-4">
+                <div>
                     <span class="h5">
                         GitLab
                     </span>
@@ -78,11 +78,11 @@
                     </div>
                 </div>
             </div>
-            <div class="d-flex align-items-center mb-5">
+            <div class="text-center mb-5">
                 <div>
-                    <img class="rounded avatar-150" src="https://i.imgur.com/bHamHlT.png" />
+                    <img class="rounded avatar-150 mb-3" src="https://i.imgur.com/bHamHlT.png" />
                 </div>
-                <div class="ml-4">
+                <div>
                     <span class="h5">
                         Gitpod
                     </span>
@@ -94,11 +94,11 @@
                     </div>
                 </div>
             </div>
-            <div class="d-flex align-items-center mb-5">
+            <div class="text-center mb-5">
                 <div>
-                    <img class="rounded avatar-150" src="https://i.imgur.com/K1oZwr6.jpg" />
+                    <img class="rounded avatar-150 mb-3" src="https://i.imgur.com/K1oZwr6.jpg" />
                 </div>
-                <div class="ml-4">
+                <div>
                     <span class="h5">
                         Sentry
                     </span>
@@ -110,11 +110,11 @@
                     </div>
                 </div>
             </div>
-            <div class="d-flex align-items-center mb-5">
+            <div class="text-center mb-5">
                 <div>
-                    <img class="rounded avatar-150" src="https://i.imgur.com/a4hBf5f.png" />
+                    <img class="rounded avatar-150 mb-3" src="https://i.imgur.com/a4hBf5f.png" />
                 </div>
-                <div class="ml-4">
+                <div>
                     <span class="h5">
                         BrowserStack
                     </span>
@@ -126,11 +126,11 @@
                     </div>
                 </div>
             </div>
-            <div class="d-flex align-items-center mb-5">
+            <div class="text-center mb-5">
                 <div>
-                    <img class="rounded avatar-150" src="https://i.imgur.com/XSNz1FI.png" />
+                    <img class="rounded avatar-150 mb-3" src="https://i.imgur.com/XSNz1FI.png" />
                 </div>
-                <div class="ml-4">
+                <div>
                     <span class="h5">
                         Todoist
                     </span>
@@ -142,11 +142,11 @@
                     </div>
                 </div>
             </div>
-            <div class="d-flex align-items-center mb-5">
+            <div class="text-center mb-5">
                 <div>
-                    <img class="rounded avatar-150" src="https://i.imgur.com/VNRFI9v.jpg" />
+                    <img class="rounded avatar-150 mb-3" src="https://i.imgur.com/VNRFI9v.jpg" />
                 </div>
-                <div class="ml-4">
+                <div>
                     <span class="h5">
                         Notion
                     </span>
@@ -158,11 +158,11 @@
                     </div>
                 </div>
             </div>
-            <div class="d-flex align-items-center">
+            <div class="text-center">
                 <div>
-                    <img class="rounded avatar-150" src="https://i.imgur.com/AUd0N20.jpg" />
+                    <img class="rounded avatar-150 mb-3" src="https://i.imgur.com/AUd0N20.jpg" />
                 </div>
-                <div class="ml-4">
+                <div>
                     <span class="h5">
                         UptimeRobot
                     </span>
