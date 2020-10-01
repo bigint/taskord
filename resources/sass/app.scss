@@ -375,7 +375,7 @@ input[type="date"]:valid:before {
 }
 
 ::-webkit-scrollbar-track {
-    -webkit-box-shadow: inset 6px 6px 6px 6px #f8fafc;
+    -webkit-box-shadow: inset 6px 6px 6px 6px transparent;
     border-radius: 6px;
 }
 

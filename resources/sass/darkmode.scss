@@ -144,10 +144,6 @@ body {
     }
 }
 
-::-webkit-scrollbar-track {
-    -webkit-box-shadow: inset 6px 6px 6px 6px $body-bg;
-}
-
 ::-webkit-scrollbar-thumb {
     -webkit-box-shadow: inset 6px 6px 6px 6px #adb5bd;
 }
