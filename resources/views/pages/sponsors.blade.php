@@ -94,7 +94,7 @@
                 </div>
                 <div class="text-center mb-5">
                     <div>
-                        <img src="https://i.imgur.com/XSNz1FI.png" />
+                        <img height="50" src="https://i.imgur.com/eSHWnkN.png" />
                     </div>
                     <div class="task-font h6 mt-4 lh-base">
                         Todoist is a cloud-based service, so all your tasks and notes sync automatically to any device on which you use the app. You can also use the app offline and have your changes sync later. It's available on every major platform, including Android, iOS, macOS, Windows, Android Wear, and Apple Watch.
