@@ -23,9 +23,10 @@ class VersionReleased extends Notification
 
     public function toArray($notifiable)
     {
-        dd($this->message);
         return [
-            //
+            'tagName' => $this->message['tagName'],
+            'description' => $this->message['description'],
+            'user_id' => $notifiable->id,
         ];
     }
 }

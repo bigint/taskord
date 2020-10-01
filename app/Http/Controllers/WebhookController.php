@@ -144,7 +144,6 @@ class WebhookController extends Controller
                         releases(first: 1) {
                           nodes {
                             tagName
-                            name
                             description
                           }
                         }
