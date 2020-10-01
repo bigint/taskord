@@ -140,7 +140,7 @@ class WebhookController extends Controller
                 'form_params' => [
                     'query' => '
                     query {
-                      project(fullPath: "yo/playground") {
+                      project(fullPath: "taskord/taskord") {
                         releases(first: 1) {
                           nodes {
                             tagName
@@ -157,9 +157,13 @@ class WebhookController extends Controller
                 $user->notify(new VersionReleased($message));
             }
 
-            return true;
+            return response()->json([
+                'status' => 'success',
+            ], 200);
         } else {
-            return false;
+            return response()->json([
+                'status' => 'failed',
+            ], 500);
         }
     }
 }
