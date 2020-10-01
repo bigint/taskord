@@ -72,7 +72,7 @@
                     </div>
                     <div class="input-group mb-3">
                         <span class="input-group-text">
-                            <i class="fa fa-twitter"></i>
+                            <i class="fab fa-twitter"></i>
                         </span>
                         <input type="text" class="form-control @error('twitter') is-invalid @enderror" placeholder="Twitter" wire:model.defer="twitter">
                         @error('twitter')
@@ -83,7 +83,7 @@
                     </div>
                     <div class="input-group mb-3">
                         <span class="input-group-text">
-                            <i class="fa fa-github"></i>
+                            <i class="fab fa-github"></i>
                         </span>
                         <input type="text" class="form-control @error('github') is-invalid @enderror" placeholder="GitHub" wire:model.defer="github">
                         @error('github')
@@ -94,7 +94,7 @@
                     </div>
                     <div class="input-group mb-3">
                         <span class="input-group-text">
-                            <i class="fa fa-product-hunt"></i>
+                            <i class="fab fa-product-hunt"></i>
                         </span>
                         <input type="text" class="form-control @error('producthunt') is-invalid @enderror" placeholder="Product Hunt" wire:model.defer="producthunt">
                         @error('producthunt')
