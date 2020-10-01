@@ -1,7 +1,7 @@
 $body-bg: #17181a !important;
 $card-bg: #343a40;
-$border-bg: #4c555d;
-$input-bg: #242629;
+$border-bg: #495057;
+$input-bg: #212529;
 
 a:hover {
     color: #7d79cc;
@@ -9,12 +9,12 @@ a:hover {
 
 body {
     background-color: $body-bg;
-    color: #ffffff;
+    color: white;
 }
 
 .card {
     background-color: $card-bg;
-    color: #ffffff;
+    color: white;
     border: 1px solid $border-bg;
     
     .card-header {
@@ -37,18 +37,18 @@ body {
 }
 
 .text-dark, .link-dark {
-    color: #ffffff !important;
+    color: white !important;
 }
 
 .reputation {
-    color: #000000 !important;
+    color: black !important;
 }
 
 .dropdown-menu {
     background-color: $card-bg;
 
     .dropdown-item {
-        color: #ffffff;
+        color: white;
 
         &:hover {
             background-color: $body-bg;
@@ -62,7 +62,7 @@ body {
 
 .form-control, .form-select {
     background-color: $input-bg;
-    color: #ffffff !important;
+    color: white !important;
     border: 1px solid $border-bg;
 }
 
