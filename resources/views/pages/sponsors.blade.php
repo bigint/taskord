@@ -72,9 +72,9 @@
                 </div>
                 <div class="text-center mb-5">
                     <div>
-                        <img src="https://i.imgur.com/K1oZwr6.jpg" />
+                        <img height="50" src="https://i.imgur.com/UOlVvAz.png" />
                     </div>
-                    <div class="task-font h6 mt-3 lh-base">
+                    <div class="task-font h6 mt-4 lh-base">
                         Track errors & monitor performance in all major languages & frameworks with Sentry. Open-source error tracking with full stacktraces & asynchronous context.
                     </div>
                     <div class="mt-2">
