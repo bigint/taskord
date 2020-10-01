@@ -56,13 +56,13 @@ document.getElementById("dark-mode").addEventListener("click", () => {
 });
 
 // Hide Alert
-document.addEventListener("livewire:load", () => {
-  window.Livewire.hook("element.updated", () => {
-    setTimeout(() => {
-      $(".fade").fadeOut("fast");
-    }, 2000);
-  });
-});
+// document.addEventListener("livewire:load", () => {
+//   window.Livewire.hook("element.updated", () => {
+//     setTimeout(() => {
+//       $(".fade").fadeOut("fast");
+//     }, 2000);
+//   });
+// });
 
 // Hide search dropdown on clicking the body
 document.body.addEventListener("click", () => {

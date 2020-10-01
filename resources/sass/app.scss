@@ -342,7 +342,9 @@ input[type="date"]:valid:before {
 .form-file-label,
 .btn,
 .dropdown-menu,
-.navbar-toggler {
+.navbar-toggler,
+.alert,
+.tooltip-inner {
     border-radius: 6px;
 }
 
