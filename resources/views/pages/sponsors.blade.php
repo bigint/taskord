@@ -19,7 +19,7 @@
                     <div>
                         <img height="80" src="https://i.imgur.com/pJwqa2k.png" />
                     </div>
-                    <div class="task-font h6 mt-5 lh-base">
+                    <div class="task-font h6 mt-4 lh-base">
                         AWS (Amazon Web Services) is a comprehensive, evolving cloud computing platform provided by Amazon that includes a mixture of infrastructure as a service (IaaS), platform as a service (PaaS) and packaged software as a service (SaaS) offerings.
                     </div>
                     <div class="mt-2">
@@ -30,7 +30,7 @@
                     <div>
                         <img height="50" src="https://i.imgur.com/OIscco1.png" />
                     </div>
-                    <div class="task-font h6 mt-5 lh-base">
+                    <div class="task-font h6 mt-4 lh-base">
                         DigitalOcean is a cloud hosting provider that offers cloud computing services to business entities so that they can scale themselves by deploying DigitalOcean applications that run parallel across multiple cloud servers without compromising on performance!
                     </div>
                     <div class="mt-2">
@@ -50,50 +50,35 @@
                 </div>
                 <div class="text-center mb-5">
                     <div>
-                        <img src="https://i.imgur.com/uRbpWBH.jpg" />
+                        <img height="60" src="https://i.imgur.com/bIfKE5i.png" />
                     </div>
-                    <div>
-                        <span class="h5">
-                            GitLab
-                        </span>
-                        <div class="task-font h6 mt-3 lh-base">
-                            GitLab is a web-based DevOps lifecycle tool that provides a Git-repository manager providing wiki, issue-tracking and continuous integration and deployment pipeline features.
-                        </div>
-                        <div class="mt-2">
-                            <a href="https://gitlab.com" target="_blank">➜ Go to GitLab</a>
-                        </div>
+                    <div class="task-font h6 mt-4 lh-base">
+                        GitLab is a web-based DevOps lifecycle tool that provides a Git-repository manager providing wiki, issue-tracking and continuous integration and deployment pipeline features.
+                    </div>
+                    <div class="mt-2">
+                        <a href="https://gitlab.com" target="_blank">➜ Go to GitLab</a>
                     </div>
                 </div>
                 <div class="text-center mb-5">
                     <div>
-                        <img src="https://i.imgur.com/bHamHlT.png" />
+                        <img height="60" src="https://i.imgur.com/agEjg18.png" />
                     </div>
-                    <div>
-                        <span class="h5">
-                            Gitpod
-                        </span>
-                        <div class="task-font h6 mt-3 lh-base">
-                            Gitpod is an online IDE which can be launched from any GitHub/GitLab page within seconds, Gitpod provides you with a fully working development environment, including a VS Code-powered IDE and a cloud-based Linux container configured specifically for the project at hand.
-                        </div>
-                        <div class="mt-2">
-                            <a href="https://gitpod.io" target="_blank">➜ Go to GitPod</a>
-                        </div>
+                    <div class="task-font h6 mt-4 lh-base">
+                        Gitpod is an online IDE which can be launched from any GitHub/GitLab page within seconds, Gitpod provides you with a fully working development environment, including a VS Code-powered IDE and a cloud-based Linux container configured specifically for the project at hand.
+                    </div>
+                    <div class="mt-2">
+                        <a href="https://gitpod.io" target="_blank">➜ Go to GitPod</a>
                     </div>
                 </div>
                 <div class="text-center mb-5">
                     <div>
                         <img src="https://i.imgur.com/K1oZwr6.jpg" />
                     </div>
-                    <div>
-                        <span class="h5">
-                            Sentry
-                        </span>
-                        <div class="task-font h6 mt-3 lh-base">
-                            Track errors & monitor performance in all major languages & frameworks with Sentry. Open-source error tracking with full stacktraces & asynchronous context.
-                        </div>
-                        <div class="mt-2">
-                            <a href="https://sentry.io" target="_blank">➜ Go to Sentry</a>
-                        </div>
+                    <div class="task-font h6 mt-3 lh-base">
+                        Track errors & monitor performance in all major languages & frameworks with Sentry. Open-source error tracking with full stacktraces & asynchronous context.
+                    </div>
+                    <div class="mt-2">
+                        <a href="https://sentry.io" target="_blank">➜ Go to Sentry</a>
                     </div>
                 </div>
                 <div class="text-center mb-5">
