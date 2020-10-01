@@ -5,13 +5,13 @@ namespace App\Http\Controllers;
 use App\Models\Task;
 use App\Models\User;
 use App\Models\Webhook;
+use App\Notifications\VersionReleased;
 use Carbon\Carbon;
 use GrahamCampbell\Throttle\Facades\Throttle;
+use GuzzleHttp\Client;
 use Illuminate\Http\Request as WebhookRequest;
 use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Str;
-use GuzzleHttp\Client;
-use App\Notifications\VersionReleased;
 
 class WebhookController extends Controller
 {
@@ -131,7 +131,7 @@ class WebhookController extends Controller
             ], 200);
         }
     }
-    
+
     public function newVersion($appkey)
     {
         if (env('APP_VERSION_KEY') === $appkey) {
@@ -149,7 +149,7 @@ class WebhookController extends Controller
                         }
                       }
                     }',
-                ]
+                ],
             ]);
             $message = json_decode($res->getBody(), true)['data']['project']['releases']['nodes'][0];
             $users = User::all();
