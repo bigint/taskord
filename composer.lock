@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "fcb16e0ae32afdfdf7155958212f8c81",
+    "content-hash": "e31df77c3029acd1b24f609924fecc90",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -57,75 +57,6 @@
                 "stack"
             ],
             "time": "2020-05-31T07:17:05+00:00"
-        },
-        {
-            "name": "blade-ui-kit/blade-icons",
-            "version": "0.4.5",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/blade-ui-kit/blade-icons.git",
-                "reference": "b93505c65a1fc095df517d5640bae295779411e6"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/blade-ui-kit/blade-icons/zipball/b93505c65a1fc095df517d5640bae295779411e6",
-                "reference": "b93505c65a1fc095df517d5640bae295779411e6",
-                "shasum": ""
-            },
-            "require": {
-                "illuminate/contracts": "^7.14|^8.0",
-                "illuminate/filesystem": "^7.14|^8.0",
-                "illuminate/support": "^7.14|^8.0",
-                "illuminate/view": "^7.14|^8.0",
-                "php": "^7.2"
-            },
-            "require-dev": {
-                "friendsofphp/php-cs-fixer": "^2.16",
-                "mockery/mockery": "^1.3",
-                "orchestra/testbench": "^5.0|^6.0",
-                "phpunit/phpunit": "^8.0|^9.0"
-            },
-            "type": "library",
-            "extra": {
-                "laravel": {
-                    "providers": [
-                        "BladeUI\\Icons\\BladeIconsServiceProvider"
-                    ]
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "BladeUI\\Icons\\": "src"
-                },
-                "files": [
-                    "src/helpers.php"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Adam Wathan",
-                    "email": "adam.wathan@gmail.com"
-                },
-                {
-                    "name": "Dries Vints",
-                    "email": "dries@vints.io",
-                    "homepage": "https://driesvints.com",
-                    "role": "Developer"
-                }
-            ],
-            "description": "A package to easily make use of icons in your Laravel Blade views.",
-            "homepage": "https://github.com/blade-ui-kit/blade-icons",
-            "keywords": [
-                "blade",
-                "icons",
-                "laravel",
-                "svg"
-            ],
-            "time": "2020-09-04T11:36:46+00:00"
         },
         {
             "name": "brick/math",
@@ -4483,63 +4414,6 @@
                 "sentry"
             ],
             "time": "2020-09-28T08:31:49+00:00"
-        },
-        {
-            "name": "skydiver/blade-icons-remix",
-            "version": "1.3.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/skydiver/blade-icons-remix.git",
-                "reference": "29b8799c88d47bf2af299ecd44e8814937ee02ea"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/skydiver/blade-icons-remix/zipball/29b8799c88d47bf2af299ecd44e8814937ee02ea",
-                "reference": "29b8799c88d47bf2af299ecd44e8814937ee02ea",
-                "shasum": ""
-            },
-            "require": {
-                "blade-ui-kit/blade-icons": "^0.4.5",
-                "illuminate/support": "^7.14|^8.0",
-                "php": "^7.2"
-            },
-            "require-dev": {
-                "orchestra/testbench": "^5.0|^6.0",
-                "phpunit/phpunit": "^8.0|^9.0",
-                "squizlabs/php_codesniffer": "^3.5"
-            },
-            "type": "library",
-            "extra": {
-                "laravel": {
-                    "providers": [
-                        "Skydiver\\BladeIconsRemix\\BladeIconsRemixServiceProvider"
-                    ]
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Skydiver\\BladeIconsRemix\\": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Martín M.",
-                    "email": "skydiver@users.noreply.github.com"
-                }
-            ],
-            "description": "Use Remix Icon with Blade Icons.",
-            "homepage": "https://github.com/skydiver/blade-icons-remix",
-            "keywords": [
-                "blade",
-                "icons",
-                "laravel",
-                "remix"
-            ],
-            "time": "2020-09-18T20:10:16+00:00"
         },
         {
             "name": "spatie/db-dumper",
