@@ -361,7 +361,7 @@ input[type="date"]:valid:before {
 }
 
 .btn {
-    box-shadow: 0 1px 0 0 1px 0 rgb(0 0 0 / 0.10), inset 0 1px 0 rgb(0 0 0 / 0.3);
+    box-shadow: 0 1px 0 rgb(0 0 0 / 10%), inset 0 1px 0 rgb(0 0 0 / 3%);
     border-color: rgb(0 0 0 / 0.2);
 
     &:hover, &:active, &:focus {
