@@ -5,13 +5,13 @@ namespace App\Http\Controllers;
 use App\Models\Task;
 use App\Models\User;
 use App\Models\Webhook;
-use App\Notifications\VersionReleased;
 use Carbon\Carbon;
 use GrahamCampbell\Throttle\Facades\Throttle;
-use GuzzleHttp\Client;
 use Illuminate\Http\Request as WebhookRequest;
 use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Str;
+use GuzzleHttp\Client;
+use App\Notifications\VersionReleased;
 
 class WebhookController extends Controller
 {
