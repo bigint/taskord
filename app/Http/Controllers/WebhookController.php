@@ -11,6 +11,7 @@ use Illuminate\Http\Request as WebhookRequest;
 use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Str;
 use GuzzleHttp\Client;
+use App\Notifications\VersionReleased;
 
 class WebhookController extends Controller
 {
@@ -151,8 +152,13 @@ class WebhookController extends Controller
                     }',
                 ]
             ]);
-            
-            return $res;
+            $message = json_decode($res->getBody(), true)['data']['project']['releases']['nodes'][0];
+            $users = User::all();
+            foreach ($users as $user) {
+                $user->notify(new VersionReleased($message));
+            }
+
+            return true;
         } else {
             return false;
         }

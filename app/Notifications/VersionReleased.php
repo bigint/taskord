@@ -9,9 +9,11 @@ class VersionReleased extends Notification
 {
     use Queueable;
 
-    public function __construct()
+    protected $message;
+
+    public function __construct($message)
     {
-        //
+        $this->message = $message;
     }
 
     public function via($notifiable)
@@ -21,6 +23,7 @@ class VersionReleased extends Notification
 
     public function toArray($notifiable)
     {
+        dd($this->message);
         return [
             //
         ];
