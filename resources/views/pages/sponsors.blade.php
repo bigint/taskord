@@ -15,36 +15,26 @@
         </div>
         <div class="card-body d-flex justify-content-center">
             <div class="col-lg-7">
-                <div class="text-center mb-5">
+                <div class="text-center mb-5 mt-3">
                     <div>
-                        <img class="rounded avatar-150 mb-3" src="https://i.imgur.com/QSAzjno.jpg" />
+                        <img class="rounded" height="80" src="https://i.imgur.com/pJwqa2k.png" />
                     </div>
-                    <div>
-                        <span class="h5">
-                            Amazon Web Service
-                        </span>
-                        <div class="task-font h6 mt-3 lh-base">
-                            AWS (Amazon Web Services) is a comprehensive, evolving cloud computing platform provided by Amazon that includes a mixture of infrastructure as a service (IaaS), platform as a service (PaaS) and packaged software as a service (SaaS) offerings.
-                        </div>
-                        <div class="mt-2">
-                            <a href="https://aws.amazon.com" target="_blank">➜ Go to AWS</a>
-                        </div>
+                    <div class="task-font h6 mt-5 lh-base">
+                        AWS (Amazon Web Services) is a comprehensive, evolving cloud computing platform provided by Amazon that includes a mixture of infrastructure as a service (IaaS), platform as a service (PaaS) and packaged software as a service (SaaS) offerings.
+                    </div>
+                    <div class="mt-2">
+                        <a href="https://aws.amazon.com" target="_blank">➜ Go to AWS</a>
                     </div>
                 </div>
                 <div class="text-center mb-5">
                     <div>
-                        <img class="rounded avatar-150 mb-3" src="https://i.imgur.com/LnDFjfr.jpg" />
+                        <img class="rounded" height="50" src="https://i.imgur.com/OIscco1.png" />
                     </div>
-                    <div>
-                        <span class="h5">
-                            DigitalOcean
-                        </span>
-                        <div class="task-font h6 mt-3 lh-base">
-                            DigitalOcean is a cloud hosting provider that offers cloud computing services to business entities so that they can scale themselves by deploying DigitalOcean applications that run parallel across multiple cloud servers without compromising on performance!
-                        </div>
-                        <div class="mt-2">
-                            <a href="https://www.digitalocean.com" target="_blank">➜ Go to DigitalOcean</a>
-                        </div>
+                    <div class="task-font h6 mt-5 lh-base">
+                        DigitalOcean is a cloud hosting provider that offers cloud computing services to business entities so that they can scale themselves by deploying DigitalOcean applications that run parallel across multiple cloud servers without compromising on performance!
+                    </div>
+                    <div class="mt-2">
+                        <a href="https://www.digitalocean.com" target="_blank">➜ Go to DigitalOcean</a>
                     </div>
                 </div>
                 <div class="text-center mb-5">
@@ -159,7 +149,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="text-center">
+                <div class="text-center mb-5">
                     <div>
                         <img class="rounded avatar-150 mb-3" src="https://i.imgur.com/AUd0N20.jpg" />
                     </div>
