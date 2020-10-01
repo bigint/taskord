@@ -15,7 +15,7 @@
         </div>
         <div class="card-body d-flex justify-content-center">
             <div class="col-lg-7">
-                <div class="text-center mb-5 mt-3">
+                <div class="text-center mb-5 pt-4">
                     <div>
                         <img height="80" src="https://i.imgur.com/pJwqa2k.png" />
                     </div>
@@ -26,7 +26,7 @@
                         <a href="https://aws.amazon.com" target="_blank">➜ Go to AWS</a>
                     </div>
                 </div>
-                <div class="text-center mb-5">
+                <div class="text-center mb-5 pt-2">
                     <div>
                         <img height="50" src="https://i.imgur.com/OIscco1.png" />
                     </div>
@@ -37,7 +37,7 @@
                         <a href="https://www.digitalocean.com" target="_blank">➜ Go to DigitalOcean</a>
                     </div>
                 </div>
-                <div class="text-center mb-5">
+                <div class="text-center mb-5 pt-2">
                     <div>
                         <img height="50" src="https://i.imgur.com/dg2XwnG.png" />
                     </div>
@@ -48,7 +48,7 @@
                         <a href="https://aws.amazon.com" target="_blank">➜ Go to ClickUp</a>
                     </div>
                 </div>
-                <div class="text-center mb-5">
+                <div class="text-center mb-5 pt-2">
                     <div>
                         <img height="60" src="https://i.imgur.com/bIfKE5i.png" />
                     </div>
@@ -59,7 +59,7 @@
                         <a href="https://gitlab.com" target="_blank">➜ Go to GitLab</a>
                     </div>
                 </div>
-                <div class="text-center mb-5">
+                <div class="text-center mb-5 pt-2">
                     <div>
                         <img height="60" src="https://i.imgur.com/agEjg18.png" />
                     </div>
@@ -70,7 +70,7 @@
                         <a href="https://gitpod.io" target="_blank">➜ Go to GitPod</a>
                     </div>
                 </div>
-                <div class="text-center mb-5">
+                <div class="text-center mb-5 pt-2">
                     <div>
                         <img height="50" src="https://i.imgur.com/UOlVvAz.png" />
                     </div>
@@ -81,7 +81,7 @@
                         <a href="https://sentry.io" target="_blank">➜ Go to Sentry</a>
                     </div>
                 </div>
-                <div class="text-center mb-5">
+                <div class="text-center mb-5 pt-2">
                     <div>
                         <img height="60" src="https://i.imgur.com/QI2MTQc.png" />
                     </div>
@@ -92,7 +92,7 @@
                         <a href="https://www.browserstack.com" target="_blank">➜ Go to BrowserStack</a>
                     </div>
                 </div>
-                <div class="text-center mb-5">
+                <div class="text-center mb-5 pt-2">
                     <div>
                         <img height="50" src="https://i.imgur.com/eSHWnkN.png" />
                     </div>
@@ -103,9 +103,9 @@
                         <a href="https://doist.grsm.io/yogi" target="_blank">➜ Go to Todoist</a>
                     </div>
                 </div>
-                <div class="text-center mb-5">
+                <div class="text-center mb-5 pt-2">
                     <div>
-                        <img src="https://i.imgur.com/VNRFI9v.jpg" />
+                        <img height="100" src="https://i.imgur.com/VNRFI9v.jpg" />
                     </div>
                     <div class="task-font h6 mt-4 lh-base">
                         Notion is an application that provides components such as databases, kanban boards, wikis, calendars and reminders. Users can connect these components to create their own systems for knowledge management, note taking, data management, project management, among others.
@@ -114,9 +114,9 @@
                         <a href="https://notion.so" target="_blank">➜ Go to Notion</a>
                     </div>
                 </div>
-                <div class="text-center mb-5">
+                <div class="text-center mb-5 pt-2">
                     <div>
-                        <img src="https://i.imgur.com/AUd0N20.jpg" />
+                        <img height="40" src="https://i.imgur.com/Jhg3NXd.png" />
                     </div>
                     <div class="task-font h6 mt-4 lh-base">
                         Uptime Robot is a free tool used to monitor websites . It monitors your websites every 5 minutes and alerts you if your sites are down. It has free uptime monitoring service that supports multiple monitoring types (HTTP, keyword, ping and port).
