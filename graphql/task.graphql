@@ -1,6 +1,16 @@
 # Mutation
 type CreateTaskPayload {
     task: Task
+    response: String
+}
+
+type PraiseTaskPayload {
+    task: Task
+    response: String
+}
+
+type DeleteTaskPayload {
+    response: String
 }
 
 # Query
