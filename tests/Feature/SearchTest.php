@@ -29,7 +29,7 @@ class SearchTest extends TestCase
             ->set('query', '')
             ->assertDontSee('Test Search');
     }
-    
+
     public function test_search_url()
     {
         $response = $this->get(route('search.home'));
@@ -44,7 +44,7 @@ class SearchTest extends TestCase
         $response->assertStatus(200);
         $response->assertViewIs('search.search');
     }
-    
+
     public function test_empty_search_tasks_url()
     {
         $response = $this->get(route('search.tasks'));
@@ -66,7 +66,7 @@ class SearchTest extends TestCase
         $response->assertStatus(200);
         $response->assertViewIs('search.result');
     }
-    
+
     public function test_empty_search_comments_url()
     {
         $response = $this->get(route('search.comments'));
@@ -88,7 +88,7 @@ class SearchTest extends TestCase
         $response->assertStatus(200);
         $response->assertViewIs('search.result');
     }
-    
+
     public function test_empty_search_questions_url()
     {
         $response = $this->get(route('search.questions'));
@@ -110,7 +110,7 @@ class SearchTest extends TestCase
         $response->assertStatus(200);
         $response->assertViewIs('search.result');
     }
-    
+
     public function test_empty_search_answers_url()
     {
         $response = $this->get(route('search.answers'));
@@ -132,7 +132,7 @@ class SearchTest extends TestCase
         $response->assertStatus(200);
         $response->assertViewIs('search.result');
     }
-    
+
     public function test_empty_search_products_url()
     {
         $response = $this->get(route('search.products'));
@@ -154,7 +154,7 @@ class SearchTest extends TestCase
         $response->assertStatus(200);
         $response->assertViewIs('search.result');
     }
-    
+
     public function test_empty_search_users_url()
     {
         $response = $this->get(route('search.users'));
