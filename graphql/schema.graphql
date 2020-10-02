@@ -35,6 +35,9 @@ type Mutation {
     toggleTaskPraise(
         id: Int!,
     ): ToggleTaskPraisePayload @field(resolver: "TaskMutator@praise")
+    deleteTask(
+        id: Int!,
+    ): DeleteTaskPayload @field(resolver: "TaskMutator@delete")
 }
 
 #import auth.graphql

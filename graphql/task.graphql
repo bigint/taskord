@@ -9,6 +9,10 @@ type ToggleTaskPraisePayload {
     response: String
 }
 
+type DeleteTaskPayload {
+    response: String
+}
+
 # Query
 type Task {
     id: ID!
