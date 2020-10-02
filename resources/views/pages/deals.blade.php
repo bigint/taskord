@@ -47,12 +47,20 @@
                         </div>
                         @auth
                         @if (Auth::user()->isPatron)
+                        @if ($deal->coupon)
                         <div class="mt-2">
                             Coupon Code
                             <code class="ml-2 font-weight-bold">
                                 {{ $deal->coupon }}
                             </code>
                         </div>
+                        @else
+                        <div class="mt-2 font-weight-bold">
+                            <a href="{{ $deal->referral }}" target="_blank">
+                                Click here
+                            </a>
+                        </div>
+                        @endif
                         @else
                         <div class="mt-2">
                             <a class="text-black-50" href="{{ route('patron.home') }}">You must be a patron to see coupon code.</a>
@@ -65,13 +73,6 @@
                         </div>
                         @endguest
                         @auth
-                        @if (Auth::user()->staffShip)
-                            <div class="mt-3">
-                                <code>
-                                    Deal::find({{ $deal->id }})->delete()
-                                </code>
-                            </div>
-                        @endif
                         @endauth
                     </div>
                 </div>

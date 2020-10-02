@@ -15,6 +15,7 @@ class Deal extends Model
         'name',
         'offer',
         'coupon',
+        'referral',
         'description',
         'website',
         'logo',
