@@ -46,7 +46,7 @@
         </span>
         @else
         <input
-            class="form-check-input"
+            class="form-check-input task-checkbox"
             type="checkbox"
             wire:click="checkTask"
             {{ $task->done ? "checked" : "unchecked" }}

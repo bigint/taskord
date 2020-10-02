@@ -178,6 +178,18 @@ input[type="color"]:focus,
     }
 }
 
+.input-group-text {
+    .task-checkbox {
+        margin-top: 0;
+    }
+}
+
+.task-checkbox {
+    width: 1.1rem;
+    height: 1.1rem;
+    background-position: inherit;
+}
+
 .task-font {
     font-size: 16px;
 

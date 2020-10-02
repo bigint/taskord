@@ -13,7 +13,7 @@
                 <div class="input-group mb-3">
                     <div class="input-group-text">
                         <input
-                            class="form-check-input"
+                            class="form-check-input task-checkbox"
                             type="checkbox"
                             wire:click="checkState"
                             wire:offline.attr="disabled"
