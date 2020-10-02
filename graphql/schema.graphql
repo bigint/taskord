@@ -32,9 +32,9 @@ type Mutation {
         done: Boolean!
         source: String! @rules(apply: ["required", "max:150"])
     ): CreateTaskPayload @field(resolver: "TaskMutator@create")
-    toggleTaskPraise(
+    praiseTask(
         id: Int!,
-    ): ToggleTaskPraisePayload @field(resolver: "TaskMutator@praise")
+    ): PraiseTaskPayload @field(resolver: "TaskMutator@praise")
     deleteTask(
         id: Int!,
     ): DeleteTaskPayload @field(resolver: "TaskMutator@delete")
