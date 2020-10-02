@@ -24,13 +24,13 @@ type Query {
 
 type Mutation {
     login(
-        email: String!
-        password: String!
+        email: String! @rules(apply: ["required", "email"])
+        password: String! @rules(apply: ["required"])
     ): LoginPayload @field(resolver: "AuthMutator")
     createTask(
-        task: String!
+        task: String! @rules(apply: ["required", "min:5", "max:10000"])
         done: Boolean!
-        source: String!
+        source: String! @rules(apply: ["required", "max:150"])
     ): CreateTaskPayload @field(resolver: "TaskMutator@create")
     toggleTaskPraise(
         id: Int!,
