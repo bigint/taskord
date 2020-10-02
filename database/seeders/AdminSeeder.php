@@ -72,7 +72,7 @@ class AdminSeeder extends Seeder
             'created_at' => date('Y-m-d H:i:s'),
             'email_verified_at' => date('Y-m-d H:i:s'),
         ]);
-        
+
         DB::table('users')->insert([
             'firstname' => 'Suspended',
             'username' => 'suspended',
