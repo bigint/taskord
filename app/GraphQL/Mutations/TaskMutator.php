@@ -66,7 +66,7 @@ class TaskMutator
             ];
         }
     }
-    
+
     public function praise($_, array $args)
     {
         $throttler = Throttle::get(Request::instance(), 20, 5);
