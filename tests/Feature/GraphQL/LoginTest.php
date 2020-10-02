@@ -2,8 +2,6 @@
 
 namespace Tests\Feature\GraphQL;
 
-use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 
 class LoginTest extends TestCase
@@ -21,13 +19,13 @@ class LoginTest extends TestCase
         ->assertJson([
             'data' => [
                 'login' => [
-                    'token' => "Ajfow3xVyqqHD3lRFirc6bRD8xzPov65XdXDbevR6ytxKS3pXoINUgIVRNpc",
-                    'response' => "Success",
-                ]
-            ]
+                    'token' => 'Ajfow3xVyqqHD3lRFirc6bRD8xzPov65XdXDbevR6ytxKS3pXoINUgIVRNpc',
+                    'response' => 'Success',
+                ],
+            ],
         ]);
     }
-    
+
     public function test_invalid_login()
     {
         $response = $this->graphQL('
@@ -42,12 +40,12 @@ class LoginTest extends TestCase
             'data' => [
                 'login' => [
                     'token' => null,
-                    'response' => "Invalid Credentials",
-                ]
-            ]
+                    'response' => 'Invalid Credentials',
+                ],
+            ],
         ]);
     }
-    
+
     public function test_suspended_login()
     {
         $response = $this->graphQL('
@@ -62,9 +60,9 @@ class LoginTest extends TestCase
             'data' => [
                 'login' => [
                     'token' => null,
-                    'response' => "Your account is suspended!",
-                ]
-            ]
+                    'response' => 'Your account is suspended!',
+                ],
+            ],
         ]);
     }
 }
