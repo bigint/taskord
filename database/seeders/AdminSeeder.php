@@ -72,5 +72,25 @@ class AdminSeeder extends Seeder
             'created_at' => date('Y-m-d H:i:s'),
             'email_verified_at' => date('Y-m-d H:i:s'),
         ]);
+        
+        DB::table('users')->insert([
+            'firstname' => 'Suspended',
+            'username' => 'suspended',
+            'company' => 'Taskord',
+            'bio' => 'Test the taskord',
+            'email' => 'suspended@taskord.com',
+            'avatar' => 'https://contractize.com/wp-content/uploads/2017/02/Robot.jpg',
+            'password' => Hash::make('test'),
+            'reputation' => 0,
+            'website' => 'https://taskord.test',
+            'onlyFollowingsTasks' => false,
+            'isDeveloper' => true,
+            'isBeta' => true,
+            'isPatron' => true,
+            'isFlagged' => true,
+            'isSuspended' => true,
+            'created_at' => date('Y-m-d H:i:s'),
+            'updated_at' => '2020-04-20 13:14:01',
+        ]);
     }
 }
