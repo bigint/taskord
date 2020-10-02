@@ -1,6 +1,7 @@
 # Mutation
 type CreateTaskPayload {
     task: Task
+    response: String
 }
 
 type ToggleTaskPraisePayload {
