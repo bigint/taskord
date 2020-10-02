@@ -9,6 +9,7 @@ use Carbon\Carbon;
 use GrahamCampbell\Throttle\Facades\Throttle;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Request;
+use Helper;
 
 class TaskMutator
 {
