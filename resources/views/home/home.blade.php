@@ -127,7 +127,7 @@
                                 </div>
                             </a>
                             <a class="btn btn-sm btn-success text-white float-right ml-auto" href="{{ route('user.settings.profile') }}">
-                                <i class="fa fa-gear mr-1"></i>
+                                <i class="fa fa-cog mr-1"></i>
                                 Update
                             </a>
                         </div>
