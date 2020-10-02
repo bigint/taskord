@@ -48,7 +48,7 @@
                     </div>
                     <div class="mb-3">
                         <label class="form-label font-weight-bold">Referral URL</label>
-                        <input type="text" class="form-control @error('referral') is-invalid @enderror" placeholder="Coupon code" wire:model.defer="referral">
+                        <input type="text" class="form-control @error('referral') is-invalid @enderror" placeholder="Referral URL" wire:model.defer="referral">
                         @error('referral')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
