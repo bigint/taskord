@@ -57,7 +57,7 @@
                         @else
                         <div class="mt-2 font-weight-bold">
                             <a href="{{ $deal->referral }}" target="_blank">
-                                Click here
+                                Click here to get your deal
                             </a>
                         </div>
                         @endif
