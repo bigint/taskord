@@ -76,7 +76,7 @@
                     <div class="dropdown-divider"></div>
                     <li class="dropdown-item" wire:click="refreshStats">
                         <span class="mr-3">
-                            <i class="fa fa-refresh mr-1"></i>
+                            <i class="fa fa-sync-alt mr-1"></i>
                             Refresh
                         </span>
                     </li>
