@@ -49,11 +49,7 @@ class SitemapController extends Controller
     {
         $tasks = Task::cacheFor(60 * 60)
             ->select('id', 'source', 'hidden')
-            ->where([
-                ['hidden', false],
-                ['source', '!=', 'GitHub'],
-                ['source', '!=', 'GitLab'],
-            ])
+            ->where('hidden', false)
             ->get();
 
         return view('seo.sitemap_tasks', [
