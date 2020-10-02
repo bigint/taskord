@@ -8,12 +8,14 @@
 
 @section('content')
 <div class="container">
-    @include('user.profile')
+    @include('product.profile')
     <div class="row justify-content-center mt-4">
         <div class="col-md-8">
-            @livewire('user.followers', ['user' => $user])
+            @livewire('product.subscribers', [
+                'product' => $product,
+            ])
         </div>
-        @include('user.sidebar')
+        @include('product.sidebar')
     </div>
 </div>
 @endsection
