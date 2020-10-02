@@ -89,6 +89,7 @@ Route::group(['prefix' => 'product/{slug}', 'as' => 'product.'], function () {
     Route::get('', [ProductController::class, 'profile'])->name('done');
     Route::get('pending', [ProductController::class, 'profile'])->name('pending');
     Route::get('updates', [ProductController::class, 'profile'])->name('updates');
+    Route::get('subscribers', [ProductController::class, 'profile'])->name('subscribers');
 });
 
 // Products
