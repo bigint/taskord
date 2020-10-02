@@ -14,6 +14,7 @@ class CreateDeal extends Component
     public $coupon;
     public $website;
     public $logo;
+    public $referral;
 
     public function submit()
     {
@@ -22,7 +23,8 @@ class CreateDeal extends Component
                 'name' => 'required|min:2',
                 'description' => 'required|min:5',
                 'offer' => 'required|integer|max:100',
-                'coupon' => 'required',
+                'coupon' => 'nullable',
+                'referral' => 'nullable|active_url',
                 'website' => 'required|active_url',
                 'logo' => 'required|active_url',
             ]);
@@ -32,6 +34,7 @@ class CreateDeal extends Component
                     'description' => $this->description,
                     'offer' => $this->offer,
                     'coupon' => $this->coupon,
+                    'referral' => $this->referral,
                     'website' => $this->website,
                     'logo' => $this->logo,
                 ]);

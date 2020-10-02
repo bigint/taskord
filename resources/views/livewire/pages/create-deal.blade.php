@@ -47,6 +47,15 @@
                         @enderror
                     </div>
                     <div class="mb-3">
+                        <label class="form-label font-weight-bold">Referral URL</label>
+                        <input type="text" class="form-control @error('referral') is-invalid @enderror" placeholder="Coupon code" wire:model.defer="referral">
+                        @error('referral')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+                    </div>
+                    <div class="mb-3">
                         <label class="form-label font-weight-bold">Website URL</label>
                         <input type="text" class="form-control @error('website') is-invalid @enderror" placeholder="Website URL" wire:model.defer="website">
                         @error('website')
