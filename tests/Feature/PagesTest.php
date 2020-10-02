@@ -2,10 +2,6 @@
 
 namespace Tests\Feature;
 
-use App\Http\Livewire\Pages\CreateDeal;
-use App\Models\Task;
-use App\Models\User;
-use Livewire;
 use Tests\TestCase;
 
 class PagesTest extends TestCase
@@ -24,7 +20,7 @@ class PagesTest extends TestCase
         $response->assertStatus(200);
         $response->assertViewIs('pages.deals');
     }
-    
+
     public function test_about_url()
     {
         $response = $this->get(route('about'));
@@ -39,7 +35,7 @@ class PagesTest extends TestCase
         $response->assertStatus(200);
         $response->assertViewIs('pages.about');
     }
-    
+
     public function test_reputation_url()
     {
         $response = $this->get(route('reputation'));
@@ -54,7 +50,7 @@ class PagesTest extends TestCase
         $response->assertStatus(200);
         $response->assertViewIs('pages.reputation');
     }
-    
+
     public function test_terms_url()
     {
         $response = $this->get(route('terms'));
@@ -69,7 +65,7 @@ class PagesTest extends TestCase
         $response->assertStatus(200);
         $response->assertViewIs('pages.terms');
     }
-    
+
     public function test_privacy_url()
     {
         $response = $this->get(route('privacy'));
@@ -84,7 +80,7 @@ class PagesTest extends TestCase
         $response->assertStatus(200);
         $response->assertViewIs('pages.privacy');
     }
-    
+
     public function test_security_url()
     {
         $response = $this->get(route('security'));
@@ -99,7 +95,7 @@ class PagesTest extends TestCase
         $response->assertStatus(200);
         $response->assertViewIs('pages.security');
     }
-    
+
     public function test_sponsors_url()
     {
         $response = $this->get(route('sponsors'));
@@ -114,7 +110,7 @@ class PagesTest extends TestCase
         $response->assertStatus(200);
         $response->assertViewIs('pages.sponsors');
     }
-    
+
     public function test_open_url()
     {
         $response = $this->get(route('open'));

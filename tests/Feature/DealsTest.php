@@ -3,7 +3,6 @@
 namespace Tests\Feature;
 
 use App\Http\Livewire\Pages\CreateDeal;
-use App\Models\Task;
 use App\Models\User;
 use Livewire;
 use Tests\TestCase;
@@ -21,12 +20,12 @@ class DealsTest extends TestCase
     public function test_create_deal()
     {
         Livewire::test(CreateDeal::class)
-            ->set('name', "Test Deal")
-            ->set('description', "Test Deal Description")
-            ->set('offer', "20")
-            ->set('coupon', "TASKORDTEST")
-            ->set('website', "https://taskord.com")
-            ->set('logo', "https://taskord.com/images/logo.svg")
+            ->set('name', 'Test Deal')
+            ->set('description', 'Test Deal Description')
+            ->set('offer', '20')
+            ->set('coupon', 'TASKORDTEST')
+            ->set('website', 'https://taskord.com')
+            ->set('logo', 'https://taskord.com/images/logo.svg')
             ->call('submit')
             ->assertSeeHtml('Forbidden!');
     }
