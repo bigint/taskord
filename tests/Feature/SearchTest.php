@@ -66,4 +66,114 @@ class SearchTest extends TestCase
         $response->assertStatus(200);
         $response->assertViewIs('search.result');
     }
+    
+    public function test_empty_search_comments_url()
+    {
+        $response = $this->get(route('search.comments'));
+
+        $response->assertStatus(302);
+    }
+
+    public function test_search_comments_url()
+    {
+        $response = $this->get(route('search.comments', ['q' => 'a']));
+
+        $response->assertStatus(200);
+    }
+
+    public function test_search_comments_displays_the_search_comments_page()
+    {
+        $response = $this->get(route('search.comments', ['q' => 'a']));
+
+        $response->assertStatus(200);
+        $response->assertViewIs('search.result');
+    }
+    
+    public function test_empty_search_questions_url()
+    {
+        $response = $this->get(route('search.questions'));
+
+        $response->assertStatus(302);
+    }
+
+    public function test_search_questions_url()
+    {
+        $response = $this->get(route('search.questions', ['q' => 'a']));
+
+        $response->assertStatus(200);
+    }
+
+    public function test_search_questions_displays_the_search_questions_page()
+    {
+        $response = $this->get(route('search.questions', ['q' => 'a']));
+
+        $response->assertStatus(200);
+        $response->assertViewIs('search.result');
+    }
+    
+    public function test_empty_search_answers_url()
+    {
+        $response = $this->get(route('search.answers'));
+
+        $response->assertStatus(302);
+    }
+
+    public function test_search_answers_url()
+    {
+        $response = $this->get(route('search.answers', ['q' => 'a']));
+
+        $response->assertStatus(200);
+    }
+
+    public function test_search_answers_displays_the_search_answers_page()
+    {
+        $response = $this->get(route('search.answers', ['q' => 'a']));
+
+        $response->assertStatus(200);
+        $response->assertViewIs('search.result');
+    }
+    
+    public function test_empty_search_products_url()
+    {
+        $response = $this->get(route('search.products'));
+
+        $response->assertStatus(302);
+    }
+
+    public function test_search_products_url()
+    {
+        $response = $this->get(route('search.products', ['q' => 'a']));
+
+        $response->assertStatus(200);
+    }
+
+    public function test_search_products_displays_the_search_products_page()
+    {
+        $response = $this->get(route('search.products', ['q' => 'a']));
+
+        $response->assertStatus(200);
+        $response->assertViewIs('search.result');
+    }
+    
+    public function test_empty_search_users_url()
+    {
+        $response = $this->get(route('search.users'));
+
+        $response->assertStatus(302);
+    }
+
+    public function test_search_users_url()
+    {
+        $response = $this->get(route('search.users', ['q' => 'a']));
+
+        $response->assertStatus(200);
+    }
+
+    public function test_search_users_displays_the_search_users_page()
+    {
+        $response = $this->get(route('search.users', ['q' => 'a']));
+
+        $response->assertStatus(200);
+        $response->assertViewIs('search.result');
+    }
 }
