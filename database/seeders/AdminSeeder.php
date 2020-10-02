@@ -68,6 +68,7 @@ class AdminSeeder extends Seeder
             'isDeveloper' => true,
             'isBeta' => true,
             'isPatron' => true,
+            'api_token' => 'Ajfow3xVyqqHD3lRFirc6bRD8xzPov65XdXDbevR6ytxKS3pXoINUgIVRNpc',
             'created_at' => date('Y-m-d H:i:s'),
             'email_verified_at' => date('Y-m-d H:i:s'),
         ]);
