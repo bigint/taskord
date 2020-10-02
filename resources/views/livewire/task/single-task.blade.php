@@ -34,11 +34,11 @@
         @else
         @if ($task->source === 'GitLab')
         <span>
-            <i class="fa fa-gitlab task-gitlab task-font"></i>
+            <i class="fab fa-gitlab task-gitlab task-font"></i>
         </span>
         @elseif ($task->source === 'GitHub')
         <span>
-            <i class="fa fa-github task-github task-font"></i>
+            <i class="fab fa-github task-github task-font"></i>
         </span>
         @elseif ($task->source === 'Webhook')
         <span>
