@@ -3,6 +3,11 @@ type CreateTaskPayload {
     task: Task
 }
 
+type ToggleTaskPraisePayload {
+    task: Task
+    response: String
+}
+
 # Query
 type Task {
     id: ID!
