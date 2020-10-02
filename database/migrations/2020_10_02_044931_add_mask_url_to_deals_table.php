@@ -14,7 +14,8 @@ class AddMaskUrlToDealsTable extends Migration
     public function up()
     {
         Schema::table('deals', function (Blueprint $table) {
-            //
+            $table->string('coupon')->nullable()->change();
+            $table->string('referral')->nullable();
         });
     }
 
@@ -26,7 +27,8 @@ class AddMaskUrlToDealsTable extends Migration
     public function down()
     {
         Schema::table('deals', function (Blueprint $table) {
-            //
+            $table->string('coupon')->change();
+            $table->dropColumn('referral');
         });
     }
 }
