@@ -24,7 +24,7 @@ type Query {
 
 type Mutation {
     login(
-        email: String!,
+        email: String! @rules(apply: ["email"]),
         password: String!
     ): LoginPayload @field(resolver: "AuthMutator")
     createTask(
