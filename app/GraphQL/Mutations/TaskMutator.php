@@ -7,9 +7,9 @@ use App\Models\Task;
 use App\Notifications\TelegramLogger;
 use Carbon\Carbon;
 use GrahamCampbell\Throttle\Facades\Throttle;
+use Helper;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Request;
-use Helper;
 use Illuminate\Support\Facades\Storage;
 
 class TaskMutator
@@ -91,7 +91,7 @@ class TaskMutator
                     'response' => 'Your account is flagged!',
                 ];
             }
-            
+
             $task = Task::find($args['id']);
 
             if ($task) {
@@ -103,7 +103,7 @@ class TaskMutator
                 } else {
                     Helper::togglePraise($task, 'TASK');
                 }
-                
+
                 return [
                     'task' => $task,
                     'response' => 'Toggle Praise Successful!',
@@ -124,7 +124,7 @@ class TaskMutator
             ];
         }
     }
-    
+
     public function delete($_, array $args)
     {
         $throttler = Throttle::get(Request::instance(), 20, 5);
@@ -141,7 +141,7 @@ class TaskMutator
                     'response' => 'Your account is flagged!',
                 ];
             }
-            
+
             $task = Task::find($args['id']);
 
             if ($task) {
@@ -149,6 +149,7 @@ class TaskMutator
                     Storage::delete($task->image);
                     $task->delete();
                     Auth::user()->touch();
+
                     return [
                         'response' => 'Task deleted successfully!',
                     ];
