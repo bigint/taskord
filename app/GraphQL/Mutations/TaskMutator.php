@@ -90,27 +90,28 @@ class TaskMutator
                     'response' => 'Your account is flagged!',
                 ];
             }
+            
+            $task = Task::find($args['id']);
 
-            $task = Task::create([
-                'user_id' =>  Auth::id(),
-                'product_id' =>  null,
-                'task' => $args['task'],
-                'done' => $args['done'],
-                'done_at' => $args['done'] ? Carbon::now() : null,
-                'image' => null,
-                'due_at' => null,
-                'type' => 'user',
-                'source' => $args['source'],
-            ]);
-            givePoint(new TaskCreated($task));
-            Auth::user()->notify(
-                new TelegramLogger(
-                    '*✅ New Task* by @'
-                    .Auth::user()->username."\n\n"
-                    .$task->task."\n\nhttps://taskord.com/task/"
-                    .$task->id
-                )
-            );
+            if ($task) {
+                if ($task->user->id === Auth::id()) {
+                    return [
+                        'task' => $task,
+                        'response' => 'You can\'t praise your own task!',
+                    ];
+                } else {
+                    Helper::togglePraise($task, 'TASK');
+                }
+                
+                return [
+                    'task' => $task,
+                    'response' => 'Toggle Praise Successful!',
+                ];
+            } else {
+                return [
+                    'response' => 'No task found!',
+                ];
+            }
 
             return [
                 'task' => $task,
