@@ -32,7 +32,7 @@ Test:
     - sudo npm install
     - npm run production
     - php artisan migrate:fresh --seed
-    - vendor/bin/phpunit --coverage-text --colors=never
+    - php artisan test
   artifacts:
     expire_in: 1 day
 
