@@ -15,7 +15,7 @@ return [
 
     // Allow the Unleash API response to be cached.
     'cache' => [
-        'isEnabled' => env('APP_ENV') === 'production' ? true : false,
+        'isEnabled' => true ,
         'ttl' => 3600,
     ],
 
