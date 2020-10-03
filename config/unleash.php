@@ -6,6 +6,7 @@ return [
   'url' => env('UNLEASH_URL', 'https://gitlab.com'),
   'instance_id' => env('UNLEASH_INSTANCE_ID'),
   'project_id' => env('UNLEASH_PROJECT_ID', '20359920'),
+  'app_name'  => env('APP_NAME'),
 
   // Globally control whether Unleash is enabled or disabled.
   // If not enabled, no API requests will be made and all "enabled" checks will return `false` and
