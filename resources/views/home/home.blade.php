@@ -6,7 +6,6 @@
 
 @section('content')
 <div class="container">
-    @featureEnabled('taskordTest')
     Congratulations, you can see this awesome feature!
     @endfeatureEnabled
 
