@@ -15,7 +15,7 @@ return [
 
     // Allow the Unleash API response to be cached.
     'cache' => [
-        'isEnabled' => true,
+        'isEnabled' => false,
         'ttl' => 3600,
     ],
 
@@ -27,6 +27,6 @@ return [
         'applicationHostname' => \Taskord\LaravelUnleash\Strategies\ApplicationHostnameStrategy::class,
         'default' => \Taskord\LaravelUnleash\Strategies\DefaultStrategy::class,
         'remoteAddress' => \Taskord\LaravelUnleash\Strategies\RemoteAddressStrategy::class,
-        'userWithIds' => \Taskord\LaravelUnleash\Strategies\UserWithIdStrategy::class,
+        'userWithId' => \Taskord\LaravelUnleash\Strategies\UserWithIdStrategy::class,
     ],
 ];
