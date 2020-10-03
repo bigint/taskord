@@ -7,5 +7,5 @@ npm install
 php artisan key:generate
 php artisan horizon:install
 php artisan horizon:publish
-php artisan migrate --seed
+php artisan migrate --seed --force
 npm run dev
