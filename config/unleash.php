@@ -5,7 +5,7 @@ return [
     // This should be the base URL, do not include /api or anything else.
     'url' => env('UNLEASH_URL', 'https://gitlab.com'),
     'instance_id' => env('UNLEASH_INSTANCE_ID'),
-    'project_id' => env('UNLEASH_PROJECT_ID', '20359920'),
+    'project_id' => env('UNLEASH_PROJECT_ID'),
     'app_name'  => env('APP_NAME'),
 
     // Globally control whether Unleash is enabled or disabled.
