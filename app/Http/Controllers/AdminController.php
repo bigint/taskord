@@ -26,12 +26,12 @@ class AdminController extends Controller
             if ($user->staffShip) {
                 $user->staffShip = false;
                 $user->save();
-    
+
                 return 'disabled';
             } else {
                 $user->staffShip = true;
                 $user->save();
-    
+
                 return 'enabled';
             }
         }
