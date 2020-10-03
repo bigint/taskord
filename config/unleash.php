@@ -15,7 +15,7 @@ return [
 
     // Allow the Unleash API response to be cached.
     'cache' => [
-        'isEnabled' => true,
+        'isEnabled' => false,
         'ttl' => 3600,
     ],
 

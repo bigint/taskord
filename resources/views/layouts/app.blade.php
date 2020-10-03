@@ -54,16 +54,20 @@
         <nav class="navbar navbar-expand-md navbar-dark bg-dark">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
+                    @featureEnabled('pride_logo')
+                    <img src="/images/pride.svg" height="35" alt="Taskord Pride">
+                    @else
                     @auth
                     @if (Auth::user()->isBeta)
-                    <img src="/images/beta.svg" height="35" alt="">
+                    <img src="/images/beta.svg" height="35" alt="Taskord Beta">
                     @else
-                    <img src="/images/logo.svg" height="35" alt="">
+                    <img src="/images/logo.svg" height="35" alt="Taskord">
                     @endif
                     @endauth
                     @guest
-                    <img src="/images/logo.svg" height="35" alt="">
+                    <img src="/images/logo.svg" height="35" alt="Taskord">
                     @endguest
+                    @endfeatureEnabled
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
