@@ -145,12 +145,10 @@
             <span class="@if (Route::currentRouteName() === 'user.answers') text-primary @endif">Answers</span>
             <span class="small font-weight-normal text-black-50">{{ number_format($answer_count) }}</span>
         </a>
-        @auth
-        @if (Auth::user()->staffShip)
+        @featureEnabled('user_stats')
         <a class="text-dark font-weight-bold mr-4" href="">
             Stats
         </a>
-        @endif
-        @endauth
+        @endfeatureEnabled
     </div>
 </div>

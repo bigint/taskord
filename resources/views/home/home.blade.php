@@ -6,9 +6,6 @@
 
 @section('content')
 <div class="container">
-    Congratulations, you can see this awesome feature!
-    @endfeatureEnabled
-
     <div class="row justify-content-center">
         <div class="col-md-8">
             @guest

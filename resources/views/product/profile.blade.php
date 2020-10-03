@@ -52,12 +52,10 @@
             <span class="@if (Route::currentRouteName() === 'product.updates') text-primary @endif">Updates</span>
             <span class="small font-weight-normal text-black-50">{{ number_format($updates_count) }}</span>
         </a>
-        @auth
-        @if (Auth::user()->staffShip)
+        @featureEnabled('product_stats')
         <a class="text-dark font-weight-bold mr-4" href="">
             Stats
         </a>
-        @endif
-        @endauth
+        @endfeatureEnabled
     </div>
 </div>
