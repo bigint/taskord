@@ -63,7 +63,7 @@ class UserTest extends TestCase
             ],
         ]);
     }
-    
+
     public function test_all_users_query()
     {
         $response = $this->graphQL('
