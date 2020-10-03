@@ -16,13 +16,20 @@ class AdminSeeder extends Seeder
     public function run()
     {
         DB::table('users')->insert([
-            'firstname' => 'test',
             'username' => 'test',
+            'firstname' => 'Firstname',
+            'lastname' => 'Lastname',
             'company' => 'Taskord',
+            'location' => 'Internet',
             'bio' => 'Test the taskord',
             'email' => 'test@taskord.com',
             'avatar' => 'https://contractize.com/wp-content/uploads/2017/02/Robot.jpg',
             'password' => Hash::make('test'),
+            'twitter' => 'test',
+            'twitch' => 'test',
+            'telegram' => 'test',
+            'github' => 'test',
+            'youtube' => 'test',
             'reputation' => 0,
             'website' => 'https://taskord.test',
             'onlyFollowingsTasks' => false,

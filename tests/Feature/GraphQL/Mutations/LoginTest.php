@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Feature\GraphQL\Queries;
+namespace Tests\Feature\GraphQL\Mutations;
 
 use Tests\TestCase;
 
