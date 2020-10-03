@@ -41,9 +41,9 @@ class NewProduct extends Component
     {
         if (Auth::check()) {
             $this->validate([
-                'name' => 'required',
+                'name' => 'required|max:30',
                 'slug' => 'required|min:3|max:20|unique:products|alpha_dash',
-                'description' => 'nullable',
+                'description' => 'nullable|max:280',
                 'website' => 'nullable|active_url',
                 'twitter' => 'nullable|alpha_dash|max:30',
                 'github' => 'nullable|alpha_dash|max:30',
