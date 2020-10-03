@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "09bd69cdd13f8b72fe4f42cf57754c6c",
+    "content-hash": "8525a05cabd7937194eceaa253e1c7c7",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -6843,12 +6843,17 @@
         },
         {
             "name": "taskord/unleash",
-            "version": "9999999-dev",
+            "version": "0.0.6",
+            "source": {
+                "type": "git",
+                "url": "https://gitlab.com/taskord/unleash.git",
+                "reference": "e8a4f390a7e801f6cc25f09d65255e4072cbf95d"
+            },
             "dist": {
-                "type": "path",
-                "url": "/root/dabbit/unleash",
-                "reference": "ed79164e0607f1d72221c894abf4962fbce3822a",
-                "shasum": null
+                "type": "zip",
+                "url": "https://gitlab.com/api/v4/projects/taskord%2Funleash/repository/archive.zip?sha=e8a4f390a7e801f6cc25f09d65255e4072cbf95d",
+                "reference": "e8a4f390a7e801f6cc25f09d65255e4072cbf95d",
+                "shasum": ""
             },
             "require": {
                 "guzzlehttp/guzzle": "^7.0",
@@ -6872,11 +6877,7 @@
                     "Taskord\\LaravelUnleash\\": "src/"
                 }
             },
-            "autoload-dev": {
-                "psr-4": {
-                    "Taskord\\LaravelUnleash\\Tests\\": "tests/"
-                }
-            },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -6891,9 +6892,7 @@
                 }
             ],
             "description": "An Unleash client for Laravel",
-            "transport-options": {
-                "symlink": true
-            }
+            "time": "2020-10-03T15:14:52+00:00"
         },
         {
             "name": "thecodingmachine/safe",
@@ -9622,9 +9621,7 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": {
-        "taskord/unleash": 20
-    },
+    "stability-flags": [],
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
