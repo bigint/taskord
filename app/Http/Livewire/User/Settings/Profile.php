@@ -75,7 +75,7 @@ class Profile extends Component
                 $this->validate([
                     'firstname' => 'nullable|max:30',
                     'lastname' => 'nullable|max:30',
-                    'bio' => 'nullable|max:1000',
+                    'bio' => 'nullable|max:160',
                     'location' => 'nullable|max:30',
                     'company' => 'nullable|max:30',
                     'avatar' => 'nullable|mimes:jpeg,jpg,png,gif|max:1024',
