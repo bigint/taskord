@@ -5,3 +5,6 @@ tasks:
   - name: Taskord Server
   - init: bash ./scripts/gitpod-init.sh
     command: php artisan serve --host=0.0.0.0
+
+ports:
+  - port: 8000
