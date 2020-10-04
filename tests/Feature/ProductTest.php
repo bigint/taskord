@@ -116,6 +116,23 @@ class ProductTest extends TestCase
                 'name' => 'required',
             ]);
     }
+    
+    public function test_auth_create_product_repo_validation()
+    {
+        $this->actingAs($this->user);
+        
+        Livewire::test(NewProduct::class)
+            ->set('name', 'Test Product')
+            ->set('slug',  Str::random(5))
+            ->set('description', 'Test Product Description')
+            ->set('website', 'https://taskord.com')
+            ->set('twitter', 'phpunit')
+            ->set('repo', 'https://gitlab.com')
+            ->set('producthunt', 'phpunit')
+            ->set('sponsor', 'https://taskord.com/patron')
+            ->call('submit')
+            ->assertSeeHtml('Repo should be GitHub / GitLab / Bitbucket URL')
+    }
 
     public function test_create_product_update()
     {
