@@ -18,7 +18,7 @@ class CommentTest extends TestCase
         ')
         ->assertJson([
             'data' => [
-                'task' => [
+                'comment' => [
                     'id' => '1',
                     'comment' => 'Hello, World!',
                 ],
@@ -30,7 +30,7 @@ class CommentTest extends TestCase
     {
         $response = $this->graphQL('
         query {
-          comment(first: 1) {
+          comments(first: 1) {
             edges {
               node {
                 id
@@ -42,7 +42,7 @@ class CommentTest extends TestCase
         ')
         ->assertJson([
             'data' => [
-                'tasks' => [
+                'comments' => [
                     'edges' => [
                         [
                             'node' => [
