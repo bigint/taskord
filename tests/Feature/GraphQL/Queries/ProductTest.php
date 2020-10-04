@@ -43,34 +43,23 @@ class ProductTest extends TestCase
         ]);
     }
 
-    public function test_all_users_query()
+    public function test_all_products_query()
     {
         $response = $this->graphQL('
         query {
-          users(first: 1) {
+          products(first: 1) {
             edges {
               node {
                 id
-                username
-                firstname
-                lastname
+                slug
+                name
                 avatar
-                bio
-                location
-                company
+                description
                 website
                 twitter
-                twitch
-                telegram
-                github
-                youtube
-                isStaff
-                isVerified
-                isDeveloper
-                isBeta
-                isPatron
-                isPrivate
-                isSuspended
+                repo
+                producthunt
+                launched
               }
             }
           }
@@ -83,26 +72,16 @@ class ProductTest extends TestCase
                         [
                             'node' => [
                                 'id' => '1',
-                                'username' => 'test',
-                                'firstname' => 'Firstname',
-                                'lastname' => 'Lastname',
-                                'avatar' => 'https://contractize.com/wp-content/uploads/2017/02/Robot.jpg',
-                                'bio' => 'Test the taskord',
-                                'location' => 'Internet',
-                                'company' => 'Taskord',
-                                'website' => 'https://taskord.test',
-                                'twitter' => 'test',
-                                'twitch' => 'test',
-                                'telegram' => 'test',
-                                'github' => 'test',
-                                'youtube' => 'test',
-                                'isStaff' => true,
-                                'isVerified' => false,
-                                'isDeveloper' => true,
-                                'isBeta' => true,
-                                'isPatron' => true,
-                                'isPrivate' => false,
-                                'isSuspended' => false,
+                                'slug' => 'taskord',
+                                'name' => 'Taskord',
+                                'avatar' => 'https://i.imgur.com/QpfHEy6.png',
+                                'description' => 'Get things done socially with Taskord',
+                                'user_id' => 1,
+                                'website' => 'https://taskord.com',
+                                'twitter' => 'taskord',
+                                'repo' => 'https://gitlab.com/taskord/taskord',
+                                'producthunt' => 'taskord',
+                                'launched' => true,
                             ],
                         ],
                     ],
