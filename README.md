@@ -26,6 +26,9 @@
     <a href="LICENSE">
         <img src="https://img.shields.io/badge/license-GNU%20AGPLv3-green?longCache=true" alt="MIT License">
     </a>
+    <a href="https://discord.gg/9M4Q65b">
+        <img src="https://img.shields.io/discord/742712073670230026.svg?label=&logo=discord&logoColor=ffffff&color=7389D8&labelColor=6A7EC2" alt="Discord">
+    </a>
     <a href="https://twitter.com/taskord">
         <img src="https://img.shields.io/twitter/follow/taskord?label=Follow&style=social" alt="Taskord Twitter">
     </a>
