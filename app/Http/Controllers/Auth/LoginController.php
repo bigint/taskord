@@ -5,8 +5,8 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Jobs\AuthGetIP;
 use App\Models\User;
-use App\Notifications\MagicLink;
 use App\Notifications\Logger;
+use App\Notifications\MagicLink;
 use App\Providers\RouteServiceProvider;
 use Grosv\LaravelPasswordlessLogin\LoginUrl;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
@@ -89,7 +89,7 @@ class LoginController extends Controller
                     'AUTH',
                     null,
                     auth()->user(),
-                    "🔒 User logged in to Taskord\n\n`".$request->ip()."`"
+                    "🔒 User logged in to Taskord\n\n`".$request->ip().'`'
                 )
             );
 

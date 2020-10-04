@@ -85,7 +85,7 @@ class RegisterController extends Controller
                 'AUTH',
                 null,
                 $user,
-                "🎉 New user signed up to Taskord"
+                '🎉 New user signed up to Taskord'
             )
         );
         $user->notify(new Welcome(true));

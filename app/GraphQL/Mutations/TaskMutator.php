@@ -4,7 +4,6 @@ namespace App\GraphQL\Mutations;
 
 use App\Gamify\Points\TaskCreated;
 use App\Models\Task;
-use App\Notifications\TelegramLogger;
 use Carbon\Carbon;
 use GrahamCampbell\Throttle\Facades\Throttle;
 use Helper;
@@ -49,7 +48,7 @@ class TaskMutator
                 'source' => $args['source'],
             ]);
             givePoint(new TaskCreated($task));
- 
+
             return [
                 'task' => $task,
                 'response' => 'Task has been created!',
