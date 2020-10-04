@@ -33,11 +33,19 @@ class Logger extends Notification implements ShouldQueue
     {
         return (new DiscordMessage)
             ->embed(function ($embed) {
-                $embed->title($this->message)
-                    ->description($this->type)
-                    ->color(69723)
-                    ->field('Staff', '@'.$this->staff->username, true)
-                    ->field('User', '@'.$this->user->username, true);
+                if ($this->type === 'MOD') {
+                    $embed->title($this->message)
+                        ->description($this->type)
+                        ->color(69723)
+                        ->field('Staff', '@'.$this->staff->username, true)
+                        ->field('User', '@'.$this->user->username, true);
+                } elseif ($this->type === 'AUTH') {
+                    $embed->title($this->message)
+                        ->description($this->type)
+                        ->color(69723)
+                        ->field('Username', '@'.$this->user->username, true)
+                        ->field('Email', '@'.$this->user->email);
+                }
             });
     }
 }

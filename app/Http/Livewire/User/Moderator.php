@@ -28,7 +28,7 @@ class Moderator extends Component
             if ($this->user->isBeta) {
                 $this->user->notify(
                     new Logger(
-                        'Mod Event',
+                        'MOD',
                         Auth::user(),
                         $this->user,
                         'Enrolled Beta'
@@ -37,7 +37,7 @@ class Moderator extends Component
             } else {
                 $this->user->notify(
                     new Logger(
-                        'Mod Event',
+                        'MOD',
                         Auth::user(),
                         $this->user,
                         'Un-enrolled Beta'
@@ -61,7 +61,7 @@ class Moderator extends Component
             if ($this->user->isStaff) {
                 $this->user->notify(
                     new Logger(
-                        'Mod Event',
+                        'MOD',
                         Auth::user(),
                         $this->user,
                         'Enrolled Staff'
@@ -70,7 +70,7 @@ class Moderator extends Component
             } else {
                 $this->user->notify(
                     new Logger(
-                        'Mod Event',
+                        'MOD',
                         Auth::user(),
                         $this->user,
                         'Un-enrolled Staff'
@@ -91,7 +91,7 @@ class Moderator extends Component
             if ($this->user->isDeveloper) {
                 $this->user->notify(
                     new Logger(
-                        'Mod Event',
+                        'MOD',
                         Auth::user(),
                         $this->user,
                         'Enrolled Contributor'
@@ -100,7 +100,7 @@ class Moderator extends Component
             } else {
                 $this->user->notify(
                     new Logger(
-                        'Mod Event',
+                        'MOD',
                         Auth::user(),
                         $this->user,
                         'Un-enrolled Contributor'
@@ -124,7 +124,7 @@ class Moderator extends Component
             if ($this->user->isPrivate) {
                 $this->user->notify(
                     new Logger(
-                        'Mod Event',
+                        'MOD',
                         Auth::user(),
                         $this->user,
                         'Enrolled Private account'
@@ -133,7 +133,7 @@ class Moderator extends Component
             } else {
                 $this->user->notify(
                     new Logger(
-                        'Mod Event',
+                        'MOD',
                         Auth::user(),
                         $this->user,
                         'Un-enrolled Private account'
@@ -157,7 +157,7 @@ class Moderator extends Component
             if ($this->user->isFlagged) {
                 $this->user->notify(
                     new Logger(
-                        'Mod Event',
+                        'MOD',
                         Auth::user(),
                         $this->user,
                         'Flagged'
@@ -166,7 +166,7 @@ class Moderator extends Component
             } else {
                 $this->user->notify(
                     new Logger(
-                        'Mod Event',
+                        'MOD',
                         Auth::user(),
                         $this->user,
                         'Un-flagged'
@@ -195,7 +195,7 @@ class Moderator extends Component
             if ($this->user->isSuspended) {
                 $this->user->notify(
                     new Logger(
-                        'Mod Event',
+                        'MOD',
                         Auth::user(),
                         $this->user,
                         'Suspended'
@@ -204,7 +204,7 @@ class Moderator extends Component
             } else {
                 $this->user->notify(
                     new Logger(
-                        'Mod Event',
+                        'MOD',
                         Auth::user(),
                         $this->user,
                         'Un-suspended'
@@ -226,7 +226,7 @@ class Moderator extends Component
                 $this->user->notify(new PatronGifted(true));
                 $this->user->notify(
                     new Logger(
-                        'Mod Event',
+                        'MOD',
                         Auth::user(),
                         $this->user,
                         'Enrolled Patron'
@@ -235,7 +235,7 @@ class Moderator extends Component
             } else {
                 $this->user->notify(
                     new Logger(
-                        'Mod Event',
+                        'MOD',
                         Auth::user(),
                         $this->user,
                         'Un-enrolled Patron'
@@ -257,7 +257,7 @@ class Moderator extends Component
                 $this->user->notify(new UserVerified(true));
                 $this->user->notify(
                     new Logger(
-                        'Mod Event',
+                        'MOD',
                         Auth::user(),
                         $this->user,
                         'Verified'
@@ -266,7 +266,7 @@ class Moderator extends Component
             } else {
                 $this->user->notify(
                     new Logger(
-                        'Mod Event',
+                        'MOD',
                         Auth::user(),
                         $this->user,
                         'Un-verified'
@@ -287,7 +287,7 @@ class Moderator extends Component
             if ($this->user->darkMode) {
                 $this->user->notify(
                     new Logger(
-                        'Mod Event',
+                        'MOD',
                         Auth::user(),
                         $this->user,
                         'Enabled Darkmode'
@@ -296,7 +296,7 @@ class Moderator extends Component
             } else {
                 $this->user->notify(
                     new Logger(
-                        'Mod Event',
+                        'MOD',
                         Auth::user(),
                         $this->user,
                         'Disabled Darkmode'
@@ -316,7 +316,7 @@ class Moderator extends Component
             }
             $this->user->notify(
                 new Logger(
-                    'Mod Event',
+                    'MOD',
                     Auth::user(),
                     $this->user,
                     'Masqueraded'
@@ -341,7 +341,7 @@ class Moderator extends Component
             $user->tasks()->delete();
             $this->user->notify(
                 new Logger(
-                    'Mod Event',
+                    'MOD',
                     Auth::user(),
                     $this->user,
                     'Deleted all tasks'
@@ -362,7 +362,7 @@ class Moderator extends Component
             $user->comments()->delete();
             $this->user->notify(
                 new Logger(
-                    'Mod Event',
+                    'MOD',
                     Auth::user(),
                     $this->user,
                     'Deleted all comments'
@@ -383,7 +383,7 @@ class Moderator extends Component
             $user->questions()->delete();
             $this->user->notify(
                 new Logger(
-                    'Mod Event',
+                    'MOD',
                     Auth::user(),
                     $this->user,
                     'Deleted all questions'
@@ -404,7 +404,7 @@ class Moderator extends Component
             $user->answers()->delete();
             $this->user->notify(
                 new Logger(
-                    'Mod Event',
+                    'MOD',
                     Auth::user(),
                     $this->user,
                     'Deleted all answers'
@@ -433,7 +433,7 @@ class Moderator extends Component
             $user->ownedProducts()->delete();
             $this->user->notify(
                 new Logger(
-                    'Mod Event',
+                    'MOD',
                     Auth::user(),
                     $this->user,
                     'Deleted all products'

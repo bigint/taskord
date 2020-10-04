@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Jobs\AuthGetIP;
 use App\Models\User;
-use App\Notifications\TelegramLogger;
+use App\Notifications\Logger;
 use App\Notifications\Welcome;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\RegistersUsers;
@@ -81,8 +81,11 @@ class RegisterController extends Controller
         ]);
         AuthGetIP::dispatch($user, request()->ip());
         $user->notify(
-            new TelegramLogger(
-                "*🎉 New user signed up to Taskord*\n\nhttps://taskord.com/@".$user->username
+            new Logger(
+                'AUTH',
+                null,
+                $user,
+                "🎉 New user signed up to Taskord"
             )
         );
         $user->notify(new Welcome(true));
