@@ -32,7 +32,7 @@
                 <div class="mb-1 text-danger font-weight-bold">{{ session('error') }}</div>
             @endif
             <a class="btn btn-blurple font-weight-bold mb-3" href="https://discord.gg/9M4Q65b" target="_blank">
-                <i class="fab fa-discord"></i>
+                <i class="fab fa-discord mr-1"></i>
                 Join Taskord's Discord
             </a>
             @if (preg_match('/^[a-f0-9]{32}$/', Auth::user()->username))
