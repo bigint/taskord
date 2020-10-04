@@ -26,7 +26,7 @@ class Repo implements Rule
      */
     public function passes($attribute, $value)
     {
-        return Str::contains($value, ['github.com', 'gitlab.com']);
+        return Str::contains($value, ['github.com/', 'gitlab.com/', 'bitbucket.org/']);
     }
 
     /**
