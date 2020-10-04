@@ -20,7 +20,7 @@ class Product extends Model
         'avatar',
         'website',
         'twitter',
-        'github',
+        'repo',
         'producthunt',
         'sponsor',
         'launched',
