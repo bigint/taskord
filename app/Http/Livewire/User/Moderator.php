@@ -3,8 +3,8 @@
 namespace App\Http\Livewire\User;
 
 use App\Models\User;
-use App\Notifications\PatronGifted;
 use App\Notifications\Logger;
+use App\Notifications\PatronGifted;
 use App\Notifications\UserVerified;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
