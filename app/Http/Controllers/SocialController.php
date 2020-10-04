@@ -30,7 +30,7 @@ class SocialController extends Controller
                     'AUTH',
                     null,
                     $user,
-                    "🔒 User logged in to Taskord\n\n`".$request->ip()."`"
+                    "🔒 User logged in to Taskord\n\n`".$request->ip().'`'
                 )
             );
 
@@ -64,13 +64,13 @@ class SocialController extends Controller
             }
 
             Auth::login($user);
-            
+
             $user->notify(
                 new Logger(
                     'AUTH',
                     null,
                     $user,
-                    "🎉 New user signed up to Taskord"
+                    '🎉 New user signed up to Taskord'
                 )
             );
             $user->notify(new Welcome(true));

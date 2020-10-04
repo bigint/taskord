@@ -4,7 +4,6 @@ namespace App\Http\Livewire\Tasks;
 
 use App\Gamify\Points\TaskCreated;
 use App\Models\Task;
-use App\Notifications\TelegramLogger;
 use GrahamCampbell\Throttle\Facades\Throttle;
 use Helper;
 use Illuminate\Support\Facades\Auth;
