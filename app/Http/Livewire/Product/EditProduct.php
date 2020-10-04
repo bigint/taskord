@@ -21,7 +21,7 @@ class EditProduct extends Component
     public $avatar;
     public $website;
     public $twitter;
-    public $github;
+    public $repo;
     public $producthunt;
     public $sponsor;
     public $launched;
@@ -36,7 +36,7 @@ class EditProduct extends Component
         $this->description = $product->description;
         $this->website = $product->website;
         $this->twitter = $product->twitter;
-        $this->github = $product->github;
+        $this->repo = $product->repo;
         $this->producthunt = $product->producthunt;
         $this->sponsor = $product->sponsor;
         $this->launched = $product->launched;
@@ -63,7 +63,7 @@ class EditProduct extends Component
                 'description' => 'nullable|max:280',
                 'website' => 'nullable|active_url',
                 'twitter' => 'nullable|alpha_dash|max:30',
-                'github' => 'nullable|alpha_dash|max:30',
+                'repo' => 'nullable|alpha_dash|max:30',
                 'producthunt' => 'nullable|alpha_dash|max:30',
                 'sponsor' => 'nullable|active_url',
                 'avatar' => 'nullable|mimes:jpeg,jpg,png,gif|max:1024',
@@ -95,7 +95,7 @@ class EditProduct extends Component
                 $product->description = $this->description;
                 $product->website = $this->website;
                 $product->twitter = $this->twitter;
-                $product->github = $this->github;
+                $product->repo = $this->repo;
                 $product->producthunt = $this->producthunt;
                 $product->sponsor = $this->sponsor;
                 $product->launched = $this->launched;

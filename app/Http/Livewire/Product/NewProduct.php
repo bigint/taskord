@@ -21,7 +21,7 @@ class NewProduct extends Component
     public $avatar;
     public $website;
     public $twitter;
-    public $github;
+    public $repo;
     public $producthunt;
     public $sponsor;
     public $launched;
@@ -46,7 +46,7 @@ class NewProduct extends Component
                 'description' => 'nullable|max:280',
                 'website' => 'nullable|active_url',
                 'twitter' => 'nullable|alpha_dash|max:30',
-                'github' => 'nullable|alpha_dash|max:30',
+                'repo' => 'nullable|alpha_dash|max:30',
                 'producthunt' => 'nullable|alpha_dash|max:30',
                 'sponsor' => 'nullable|active_url',
                 'avatar' => 'nullable|mimes:jpeg,jpg,png,gif|max:1024',
@@ -89,7 +89,7 @@ class NewProduct extends Component
                 'description' => $this->description,
                 'website' => $this->website,
                 'twitter' => $this->twitter,
-                'github' => $this->github,
+                'repo' => $this->repo,
                 'producthunt' => $this->producthunt,
                 'sponsor' => $this->sponsor,
                 'launched' => $launched_status,

@@ -49,7 +49,7 @@
             <canvas id="myChart" height="40"></canvas>
         </div>
     </div>
-    @if ($product->website or $product->twitter or $product->producthunt or $product->github)
+    @if ($product->website or $product->twitter or $product->producthunt or $product->repo)
     <div class="card mb-4">
         <div class="card-header">
             Social
@@ -73,10 +73,10 @@
                 {{ $product->twitter }}
             </a>
             @endif
-            @if ($product->github)
-            <a class="list-group-item link-dark" href="https://github.com/{{ $product->github }}" target="_blank">
+            @if ($product->repo)
+            <a class="list-group-item link-dark" href="{{ $product->repo }}" target="_blank">
                 <i class="fab fa-github mr-1"></i>
-                {{ $product->github }}
+                {{ $product->repo }}
             </a>
             @endif
         </ul>

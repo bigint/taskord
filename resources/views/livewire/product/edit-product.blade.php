@@ -91,8 +91,8 @@
                         <span class="input-group-text">
                             <i class="fab fa-github"></i>
                         </span>
-                        <input type="text" value="{{ $github }}" class="form-control @error('github') is-invalid @enderror" placeholder="GitHub" wire:model.defer="github">
-                        @error('github')
+                        <input type="text" value="{{ $repo }}" class="form-control @error('repo') is-invalid @enderror" placeholder="Repository" wire:model.defer="repo">
+                        @error('repo')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>
