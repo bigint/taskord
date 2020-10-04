@@ -9,7 +9,7 @@ use NotificationChannels\Telegram\TelegramChannel;
 use NotificationChannels\Telegram\TelegramMessage;
 use Awssat\Notifications\Messages\DiscordMessage;
 
-class TelegramLogger extends Notification implements ShouldQueue
+class Logger extends Notification implements ShouldQueue
 {
     use Queueable;
 

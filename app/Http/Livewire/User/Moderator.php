@@ -4,7 +4,7 @@ namespace App\Http\Livewire\User;
 
 use App\Models\User;
 use App\Notifications\PatronGifted;
-use App\Notifications\TelegramLogger;
+use App\Notifications\Logger;
 use App\Notifications\UserVerified;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
@@ -27,7 +27,7 @@ class Moderator extends Component
             $this->user->save();
             if ($this->user->isBeta) {
                 $this->user->notify(
-                    new TelegramLogger(
+                    new Logger(
                         'Mod Event',
                         Auth::user(),
                         $this->user,
@@ -36,7 +36,7 @@ class Moderator extends Component
                 );
             } else {
                 $this->user->notify(
-                    new TelegramLogger(
+                    new Logger(
                         'Mod Event',
                         Auth::user(),
                         $this->user,
@@ -60,7 +60,7 @@ class Moderator extends Component
             $this->user->save();
             if ($this->user->isStaff) {
                 $this->user->notify(
-                    new TelegramLogger(
+                    new Logger(
                         'Mod Event',
                         Auth::user(),
                         $this->user,
@@ -69,7 +69,7 @@ class Moderator extends Component
                 );
             } else {
                 $this->user->notify(
-                    new TelegramLogger(
+                    new Logger(
                         'Mod Event',
                         Auth::user(),
                         $this->user,
@@ -90,7 +90,7 @@ class Moderator extends Component
             $this->user->save();
             if ($this->user->isDeveloper) {
                 $this->user->notify(
-                    new TelegramLogger(
+                    new Logger(
                         'Mod Event',
                         Auth::user(),
                         $this->user,
@@ -99,7 +99,7 @@ class Moderator extends Component
                 );
             } else {
                 $this->user->notify(
-                    new TelegramLogger(
+                    new Logger(
                         'Mod Event',
                         Auth::user(),
                         $this->user,
@@ -123,7 +123,7 @@ class Moderator extends Component
             $this->user->save();
             if ($this->user->isPrivate) {
                 $this->user->notify(
-                    new TelegramLogger(
+                    new Logger(
                         'Mod Event',
                         Auth::user(),
                         $this->user,
@@ -132,7 +132,7 @@ class Moderator extends Component
                 );
             } else {
                 $this->user->notify(
-                    new TelegramLogger(
+                    new Logger(
                         'Mod Event',
                         Auth::user(),
                         $this->user,
@@ -156,7 +156,7 @@ class Moderator extends Component
             $this->user->save();
             if ($this->user->isFlagged) {
                 $this->user->notify(
-                    new TelegramLogger(
+                    new Logger(
                         'Mod Event',
                         Auth::user(),
                         $this->user,
@@ -165,7 +165,7 @@ class Moderator extends Component
                 );
             } else {
                 $this->user->notify(
-                    new TelegramLogger(
+                    new Logger(
                         'Mod Event',
                         Auth::user(),
                         $this->user,
@@ -194,7 +194,7 @@ class Moderator extends Component
             $this->user->save();
             if ($this->user->isSuspended) {
                 $this->user->notify(
-                    new TelegramLogger(
+                    new Logger(
                         'Mod Event',
                         Auth::user(),
                         $this->user,
@@ -203,7 +203,7 @@ class Moderator extends Component
                 );
             } else {
                 $this->user->notify(
-                    new TelegramLogger(
+                    new Logger(
                         'Mod Event',
                         Auth::user(),
                         $this->user,
@@ -225,7 +225,7 @@ class Moderator extends Component
             if ($this->user->isPatron) {
                 $this->user->notify(new PatronGifted(true));
                 $this->user->notify(
-                    new TelegramLogger(
+                    new Logger(
                         'Mod Event',
                         Auth::user(),
                         $this->user,
@@ -234,7 +234,7 @@ class Moderator extends Component
                 );
             } else {
                 $this->user->notify(
-                    new TelegramLogger(
+                    new Logger(
                         'Mod Event',
                         Auth::user(),
                         $this->user,
@@ -256,7 +256,7 @@ class Moderator extends Component
             if ($this->user->isVerified) {
                 $this->user->notify(new UserVerified(true));
                 $this->user->notify(
-                    new TelegramLogger(
+                    new Logger(
                         'Mod Event',
                         Auth::user(),
                         $this->user,
@@ -265,7 +265,7 @@ class Moderator extends Component
                 );
             } else {
                 $this->user->notify(
-                    new TelegramLogger(
+                    new Logger(
                         'Mod Event',
                         Auth::user(),
                         $this->user,
@@ -286,7 +286,7 @@ class Moderator extends Component
             $this->user->save();
             if ($this->user->darkMode) {
                 $this->user->notify(
-                    new TelegramLogger(
+                    new Logger(
                         'Mod Event',
                         Auth::user(),
                         $this->user,
@@ -295,7 +295,7 @@ class Moderator extends Component
                 );
             } else {
                 $this->user->notify(
-                    new TelegramLogger(
+                    new Logger(
                         'Mod Event',
                         Auth::user(),
                         $this->user,
@@ -315,7 +315,7 @@ class Moderator extends Component
                 return false;
             }
             $this->user->notify(
-                new TelegramLogger(
+                new Logger(
                     'Mod Event',
                     Auth::user(),
                     $this->user,
@@ -340,7 +340,7 @@ class Moderator extends Component
             }
             $user->tasks()->delete();
             $this->user->notify(
-                new TelegramLogger(
+                new Logger(
                     'Mod Event',
                     Auth::user(),
                     $this->user,
@@ -361,7 +361,7 @@ class Moderator extends Component
             $user->timestamps = false;
             $user->comments()->delete();
             $this->user->notify(
-                new TelegramLogger(
+                new Logger(
                     'Mod Event',
                     Auth::user(),
                     $this->user,
@@ -382,7 +382,7 @@ class Moderator extends Component
             $user->timestamps = false;
             $user->questions()->delete();
             $this->user->notify(
-                new TelegramLogger(
+                new Logger(
                     'Mod Event',
                     Auth::user(),
                     $this->user,
@@ -403,7 +403,7 @@ class Moderator extends Component
             $user->timestamps = false;
             $user->answers()->delete();
             $this->user->notify(
-                new TelegramLogger(
+                new Logger(
                     'Mod Event',
                     Auth::user(),
                     $this->user,
@@ -432,7 +432,7 @@ class Moderator extends Component
             }
             $user->ownedProducts()->delete();
             $this->user->notify(
-                new TelegramLogger(
+                new Logger(
                     'Mod Event',
                     Auth::user(),
                     $this->user,
