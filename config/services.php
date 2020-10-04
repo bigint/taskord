@@ -42,8 +42,4 @@ return [
         'redirect'      => env('TWITTER_URL'),
     ],
 
-    'telegram-bot-api' => [
-        'token' => env('TELEGRAM_BOT_TOKEN'),
-    ],
-
 ];
