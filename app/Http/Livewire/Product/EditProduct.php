@@ -3,13 +3,13 @@
 namespace App\Http\Livewire\Product;
 
 use App\Models\Product;
+use App\Rules\Repo;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use Intervention\Image\Facades\Image;
 use Livewire\Component;
 use Livewire\WithFileUploads;
-use App\Rules\Repo;
 
 class EditProduct extends Component
 {
