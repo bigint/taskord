@@ -10,6 +10,7 @@ use Illuminate\Support\Str;
 use Intervention\Image\Facades\Image;
 use Livewire\Component;
 use Livewire\WithFileUploads;
+use App\Rules\Repo;
 
 class NewProduct extends Component
 {
@@ -46,7 +47,7 @@ class NewProduct extends Component
                 'description' => 'nullable|max:280',
                 'website' => 'nullable|active_url',
                 'twitter' => 'nullable|alpha_dash|max:30',
-                'repo' => 'nullable|alpha_dash|max:30',
+                'repo' => ['nullable', 'active_url', new Repo],
                 'producthunt' => 'nullable|alpha_dash|max:30',
                 'sponsor' => 'nullable|active_url',
                 'avatar' => 'nullable|mimes:jpeg,jpg,png,gif|max:1024',
