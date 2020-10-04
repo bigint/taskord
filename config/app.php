@@ -182,7 +182,6 @@ return [
         CyrildeWit\EloquentViewable\EloquentViewableServiceProvider::class,
         Intervention\Image\ImageServiceProvider::class,
         Propaganistas\LaravelDisposableEmail\DisposableEmailServiceProvider::class,
-        NotificationChannels\Discord\DiscordServiceProvider::class,
 
     ],
 
