@@ -134,7 +134,6 @@ return [
             'rule-name' => 'custom-message',
         ],
     ],
-    'indisposable' => 'If you don\'t want spam, don\'t worry, you can disable all e-mail notifications all together!',
 
     /*
     |--------------------------------------------------------------------------
