@@ -54,4 +54,20 @@ class SignupTest extends TestCase
         $this->assertFalse(session()->hasOldInput('password'));
         $this->assertGuest();
     }
+    
+    public function test_user_can_register_with_pwned_password()
+    {
+        $response = $this->from('/register')->post('/register', [
+            'username' => Str::random(10),
+            'email' => Str::random(5).'@taskord.com',
+            'password' => 'qwerty',
+            'password-confirm' => 'qwerty',
+        ]);
+        
+        $response->assertRedirect('/register');
+        $response->assertSessionHasErrors('password');
+        $this->assertTrue(session()->hasOldInput('email'));
+        $this->assertFalse(session()->hasOldInput('password'));
+        $this->assertGuest();
+    }
 }
