@@ -3,8 +3,8 @@
 namespace Tests\Feature;
 
 use App\Models\User;
-use Tests\TestCase;
 use Illuminate\Support\Str;
+use Tests\TestCase;
 
 class SignupTest extends TestCase
 {
@@ -38,7 +38,7 @@ class SignupTest extends TestCase
         $response->assertStatus(200);
         $response->assertViewIs('auth.register');
     }
-    
+
     public function test_user_can_register()
     {
         $response = $this->from('/register')->post('/register', [
@@ -47,10 +47,10 @@ class SignupTest extends TestCase
             'password' => 'Taskord!test@Taskord',
             'password_confirmation' => 'Taskord!test@Taskord',
         ]);
-        
+
         $response->assertRedirect('/');
     }
-    
+
     public function test_user_can_register_with_disposable_email()
     {
         $response = $this->from('/register')->post('/register', [
@@ -59,14 +59,14 @@ class SignupTest extends TestCase
             'password' => 'Taskord!test@Taskord',
             'password_confirmation' => 'Taskord!test@Taskord',
         ]);
-        
+
         $response->assertRedirect('/register');
         $response->assertSessionHasErrors('email');
         $this->assertTrue(session()->hasOldInput('email'));
         $this->assertFalse(session()->hasOldInput('password'));
         $this->assertGuest();
     }
-    
+
     public function test_user_can_register_with_pwned_password()
     {
         $response = $this->from('/register')->post('/register', [
@@ -75,7 +75,7 @@ class SignupTest extends TestCase
             'password' => 'qwerty',
             'password_confirmation' => 'qwerty',
         ]);
-        
+
         $response->assertRedirect('/register');
         $response->assertSessionHasErrors('password');
         $this->assertTrue(session()->hasOldInput('email'));
