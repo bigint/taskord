@@ -49,6 +49,7 @@ class SignupTest extends TestCase
         ]);
 
         $response->assertRedirect('/');
+        $response->assertSessionHasNoErrors();
     }
 
     public function test_user_can_register_with_disposable_email()
