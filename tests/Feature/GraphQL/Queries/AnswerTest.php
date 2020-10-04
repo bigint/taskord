@@ -26,15 +26,15 @@ class AnswerTest extends TestCase
         ]);
     }
 
-    public function test_all_comments_query()
+    public function test_all_answers_query()
     {
         $response = $this->graphQL('
         query {
-          comments(first: 1) {
+          answers(first: 1) {
             edges {
               node {
                 id
-                comment
+                answer
               }
             }
           }
@@ -42,12 +42,12 @@ class AnswerTest extends TestCase
         ')
         ->assertJson([
             'data' => [
-                'comments' => [
+                'answers' => [
                     'edges' => [
                         [
                             'node' => [
                                 'id' => '1',
-                                'comment' => 'Hello, World!',
+                                'answer' => 'Hello, World!',
                             ],
                         ],
                     ],
