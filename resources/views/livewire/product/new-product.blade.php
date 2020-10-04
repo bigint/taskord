@@ -83,7 +83,7 @@
                     </div>
                     <div class="input-group mb-3">
                         <span class="input-group-text">
-                            <i class="fab fa-github"></i>
+                            <i class="fas fa-code-branch"></i>
                         </span>
                         <input type="text" class="form-control @error('repo') is-invalid @enderror" placeholder="Repository" wire:model.defer="repo">
                         @error('repo')
