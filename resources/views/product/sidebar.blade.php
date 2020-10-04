@@ -57,7 +57,7 @@
         <ul class="list-group list-group-flush">
             @if ($product->website)
             <a class="list-group-item link-dark" href="{{ $product->website }}" target="_blank">
-                <i class="fa fa-link mr-1"></i>
+                <img class="rounded favicon mr-1" rel="preload" src="https://external-content.duckduckgo.com/ip3/{{ parse_url($product->website)['host'] }}.ico" />
                 {{ Helper::removeProtocol($product->website) }}
             </a>
             @endif
