@@ -131,7 +131,7 @@ class ProductTest extends TestCase
             ->set('producthunt', 'phpunit')
             ->set('sponsor', 'https://taskord.com/patron')
             ->call('submit')
-            ->assertSeeHtml('Repo should be GitHub / GitLab / Bitbucket URL')
+            ->assertSeeHtml('Repo should be GitHub / GitLab / Bitbucket URL');
     }
 
     public function test_create_product_update()
