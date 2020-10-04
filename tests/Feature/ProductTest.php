@@ -3,6 +3,7 @@
 namespace Tests\Feature;
 
 use App\Http\Livewire\Product\Update\NewUpdate;
+use App\Http\Livewire\Product\NewProduct;
 use App\Models\Product;
 use App\Models\User;
 use Livewire;
@@ -61,6 +62,22 @@ class ProductTest extends TestCase
 
         $response->assertStatus(200);
         $response->assertViewIs('product.updates');
+    }
+    
+    public function test_create_product()
+    {
+        Livewire::test(NewProduct::class)
+            ->set('name', 'Test Product')
+            ->set('slug', 'phpunit')
+            ->set('description', 'Test Product Description')
+            ->set('website', 'phpunit')
+            ->set('twitter', 'phpunit')
+            ->set('repo', 'https://gitlab.com/taskord/taskord')
+            ->set('producthunt', 'phpunit')
+            ->set('sponsor', 'https://taskord.com/patron')
+            ->set('launched', true)
+            ->call('submit')
+            ->assertSeeHtml('Forbidden!');
     }
 
     public function test_create_product_update()
