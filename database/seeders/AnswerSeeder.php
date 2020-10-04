@@ -15,6 +15,13 @@ class AnswerSeeder extends Seeder
      */
     public function run(Faker $faker)
     {
+        DB::table('answers')->insert([
+            'user_id' => 1,
+            'question_id' => 1,
+            'answer' => 'Hello, World!',
+            'created_at' => $faker->dateTimeBetween($startDate = '-5 days', $endDate = 'now'),
+            'updated_at' => $faker->dateTimeBetween($startDate = '-5 days', $endDate = 'now'),
+        ]);
         foreach (range(1, 500) as $index) {
             DB::table('answers')->insert([
                 'user_id' => $faker->numberBetween($min = 1, $max = 50),
