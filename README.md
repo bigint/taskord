@@ -17,6 +17,9 @@
     <a href="https://gitlab.com/taskord/taskord/-/commits/main">
         <img src="https://gitlab.com/taskord/taskord/badges/main/pipeline.svg" alt="CI">
     </a>
+    <a href="https://gitlab.com/taskord/taskord/-/commits/main">
+        <img src="https://gitlab.com/taskord/taskord/badges/main/coverage.svg" alt="Coverage">
+    </a>
     <a href="https://gitpod.io/#https://gitlab.com/taskord/taskord">
         <img src="https://img.shields.io/badge/setup-automated-blue?logo=gitpod" alt="GitPod badge">
     </a>
