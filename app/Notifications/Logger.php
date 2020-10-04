@@ -44,7 +44,7 @@ class Logger extends Notification implements ShouldQueue
                         ->description($this->type)
                         ->color(69723)
                         ->field('Username', '@'.$this->user->username, true)
-                        ->field('Email', '@'.$this->user->email);
+                        ->field('Email', $this->user->email, true);
                 }
             });
     }
