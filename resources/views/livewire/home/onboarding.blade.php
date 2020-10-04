@@ -33,7 +33,7 @@
             @endif
             <a class="btn btn-blurple font-weight-bold mb-3" href="https://discord.gg/9M4Q65b" target="_blank">
                 <i class="fab fa-discord"></i>
-                Join Discord
+                Join Taskord's Discord
             </a>
             @if (preg_match('/^[a-f0-9]{32}$/', Auth::user()->username))
             <div class="mb-2">
