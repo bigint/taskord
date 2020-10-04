@@ -2,12 +2,10 @@
 
 namespace App\Notifications;
 
+use Awssat\Notifications\Messages\DiscordMessage;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Notification;
-use NotificationChannels\Telegram\TelegramChannel;
-use NotificationChannels\Telegram\TelegramMessage;
-use Awssat\Notifications\Messages\DiscordMessage;
 
 class Logger extends Notification implements ShouldQueue
 {
@@ -30,7 +28,7 @@ class Logger extends Notification implements ShouldQueue
     {
         return ['discord'];
     }
-    
+
     public function toDiscord($notifiable)
     {
         return (new DiscordMessage)
