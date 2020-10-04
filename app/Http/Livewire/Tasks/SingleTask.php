@@ -4,7 +4,6 @@ namespace App\Http\Livewire\Tasks;
 
 use App\Gamify\Points\TaskCompleted;
 use App\Jobs\CheckGoal;
-use App\Notifications\TelegramLogger;
 use Carbon\Carbon;
 use GrahamCampbell\Throttle\Facades\Throttle;
 use Illuminate\Support\Facades\Auth;
@@ -41,14 +40,6 @@ class SingleTask extends Component
                 Auth::user()->save();
                 CheckGoal::dispatch(Auth::user(), $this->task);
             }
-            $this->task->user->notify(
-                new TelegramLogger(
-                    '*✅ Task was mark as done* by @'
-                    .Auth::user()->username."\n\n"
-                    .$this->task->task."\n\nhttps://taskord.com/task/"
-                    .$this->task->id
-                )
-            );
 
             return true;
         } else {

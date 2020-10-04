@@ -5,8 +5,8 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Jobs\AuthGetIP;
 use App\Models\User;
+use App\Notifications\Logger;
 use App\Notifications\MagicLink;
-use App\Notifications\TelegramLogger;
 use App\Providers\RouteServiceProvider;
 use Grosv\LaravelPasswordlessLogin\LoginUrl;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
@@ -85,8 +85,11 @@ class LoginController extends Controller
             $request->session()->flash('global', 'Welcome back!');
             AuthGetIP::dispatch(auth()->user(), $request->ip());
             auth()->user()->notify(
-                new TelegramLogger(
-                    "*🔒 User logged in to Taskord*\n\nIP: `".$request->ip()."`\n\nhttps://taskord.com/@".auth()->user()->username
+                new Logger(
+                    'AUTH',
+                    null,
+                    auth()->user(),
+                    "🔒 User logged in to Taskord\n\n`".$request->ip().'`'
                 )
             );
 

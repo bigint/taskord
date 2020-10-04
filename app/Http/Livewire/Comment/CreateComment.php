@@ -5,7 +5,6 @@ namespace App\Http\Livewire\Comment;
 use App\Gamify\Points\CommentCreated;
 use App\Models\Comment;
 use App\Notifications\Commented;
-use App\Notifications\TelegramLogger;
 use Helper;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
@@ -62,15 +61,6 @@ class CreateComment extends Component
                 $this->task->user->notify(new Commented($comment));
                 givePoint(new CommentCreated($comment));
             }
-
-            $this->task->user->notify(
-                new TelegramLogger(
-                    '*💬 New comment was added* by @'
-                    .Auth::user()->username."\n\n"
-                    .$comment->comment."\n\nhttps://taskord.com/task/"
-                    .$this->task->id
-                )
-            );
 
             return session()->flash('success', 'Comment has been added!');
         } else {

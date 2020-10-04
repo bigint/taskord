@@ -4,7 +4,6 @@ namespace App\Http\Livewire\Task;
 
 use App\Gamify\Points\TaskCompleted;
 use App\Jobs\CheckGoal;
-use App\Notifications\TelegramLogger;
 use Carbon\Carbon;
 use GrahamCampbell\Throttle\Facades\Throttle;
 use Helper;
@@ -40,14 +39,6 @@ class SingleTask extends Component
                 if ($this->task->done) {
                     $this->task->done_at = Carbon::now();
                     Auth::user()->touch();
-                    $this->task->user->notify(
-                        new TelegramLogger(
-                            '*⏳ Task was mark as pending* by @'
-                            .Auth::user()->username."\n\n"
-                            .$this->task->task."\n\nhttps://taskord.com/task/"
-                            .$this->task->id
-                        )
-                    );
                 } else {
                     $this->task->done_at = Carbon::now();
                     Auth::user()->touch();
@@ -57,14 +48,6 @@ class SingleTask extends Component
                         CheckGoal::dispatch(Auth::user(), $this->task);
                     }
                     givePoint(new TaskCompleted($this->task));
-                    $this->task->user->notify(
-                        new TelegramLogger(
-                            '*✅ Task was mark as done* by @'
-                            .Auth::user()->username."\n\n"
-                            .$this->task->task."\n\nhttps://taskord.com/task/"
-                            .$this->task->id
-                        )
-                    );
                 }
                 $this->task->done = ! $this->task->done;
                 $this->task->save();

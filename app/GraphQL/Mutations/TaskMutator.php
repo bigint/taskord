@@ -4,7 +4,6 @@ namespace App\GraphQL\Mutations;
 
 use App\Gamify\Points\TaskCreated;
 use App\Models\Task;
-use App\Notifications\TelegramLogger;
 use Carbon\Carbon;
 use GrahamCampbell\Throttle\Facades\Throttle;
 use Helper;
@@ -49,14 +48,6 @@ class TaskMutator
                 'source' => $args['source'],
             ]);
             givePoint(new TaskCreated($task));
-            Auth::user()->notify(
-                new TelegramLogger(
-                    '*✅ New Task* by @'
-                    .Auth::user()->username."\n\n"
-                    .$task->task."\n\nhttps://taskord.com/task/"
-                    .$task->id
-                )
-            );
 
             return [
                 'task' => $task,

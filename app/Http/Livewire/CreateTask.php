@@ -5,7 +5,6 @@ namespace App\Http\Livewire;
 use App\Gamify\Points\TaskCreated;
 use App\Jobs\CheckGoal;
 use App\Models\Task;
-use App\Notifications\TelegramLogger;
 use Carbon\Carbon;
 use GrahamCampbell\Throttle\Facades\Throttle;
 use Helper;
@@ -117,14 +116,6 @@ class CreateTask extends Component
                 Auth::user()->save();
                 CheckGoal::dispatch(Auth::user(), $task);
             }
-            Auth::user()->notify(
-                new TelegramLogger(
-                    '*✅ New Task* by @'
-                    .Auth::user()->username."\n\n"
-                    .$task->task."\n\nhttps://taskord.com/task/"
-                    .$task->id
-                )
-            );
 
             return session()->flash('success', 'Task has been created!');
         } else {
