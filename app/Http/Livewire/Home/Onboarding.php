@@ -4,9 +4,7 @@ namespace App\Http\Livewire\Home;
 
 use App\Models\Product;
 use App\Models\Task;
-use GrahamCampbell\Throttle\Facades\Throttle;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Request;
 use Livewire\Component;
 
 class Onboarding extends Component
