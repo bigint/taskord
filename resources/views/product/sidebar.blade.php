@@ -73,7 +73,7 @@
                 {{ $product->twitter }}
             </a>
             @endif
-            @if ($product->repo)
+            @if ($product->repo and strlen(trim(parse_url($product->repo)['path'], '/')) !== 0)
             <a class="list-group-item link-dark" href="{{ $product->repo }}" target="_blank">
                 <i class="fab fa-github mr-1"></i>
                 {{ trim(parse_url($product->repo)['path'], '/') }}
