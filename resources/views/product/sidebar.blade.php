@@ -75,7 +75,13 @@
             @endif
             @if ($product->repo and strlen(trim(parse_url($product->repo)['path'], '/')) !== 0)
             <a class="list-group-item link-dark" href="{{ $product->repo }}" target="_blank">
+                @if (parse_url($product->repo)['host'] === 'github.com')
                 <i class="fab fa-github mr-1"></i>
+                @elseif (parse_url($product->repo)['host'] === 'gitlab.com')
+                <i class="fab fa-gitlab mr-1"></i>
+                @elseif (parse_url($product->repo)['host'] === 'bitbucket.org')
+                <i class="fab fa-bitbucket mr-1"></i>
+                @endif
                 {{ trim(parse_url($product->repo)['path'], '/') }}
             </a>
             @endif
