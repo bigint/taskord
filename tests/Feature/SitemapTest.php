@@ -2,7 +2,6 @@
 
 namespace Tests\Feature;
 
-use App\Models\User;
 use Tests\TestCase;
 
 class SitemapTest extends TestCase
@@ -21,7 +20,7 @@ class SitemapTest extends TestCase
         $response->assertStatus(200);
         $response->assertViewIs('seo.sitemap_users');
     }
-    
+
     public function test_sitemap_products_url()
     {
         $response = $this->get('sitemap_products.txt');
@@ -36,7 +35,7 @@ class SitemapTest extends TestCase
         $response->assertStatus(200);
         $response->assertViewIs('seo.sitemap_products');
     }
-    
+
     public function test_sitemap_tasks_url()
     {
         $response = $this->get('sitemap_tasks.txt');
@@ -51,7 +50,7 @@ class SitemapTest extends TestCase
         $response->assertStatus(200);
         $response->assertViewIs('seo.sitemap_tasks');
     }
-    
+
     public function test_sitemap_comments_url()
     {
         $response = $this->get('sitemap_comments.txt');
@@ -66,7 +65,7 @@ class SitemapTest extends TestCase
         $response->assertStatus(200);
         $response->assertViewIs('seo.sitemap_comments');
     }
-    
+
     public function test_sitemap_questions_url()
     {
         $response = $this->get('sitemap_questions.txt');
