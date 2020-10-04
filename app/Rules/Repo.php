@@ -36,6 +36,6 @@ class Repo implements Rule
      */
     public function message()
     {
-        return 'The validation error message.';
+        return 'Repo should be GitHub / GitLab / Bitbucket URL';
     }
 }
