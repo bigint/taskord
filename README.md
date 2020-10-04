@@ -20,7 +20,10 @@
     <a href="https://gitlab.com/taskord/taskord/-/commits/main">
         <img src="https://gitlab.com/taskord/taskord/badges/main/coverage.svg" alt="Coverage">
     </a>
-    <a href="https://gitpod.io/#https://gitlab.com/taskord/taskord">
+    <a href="https://www.codacy.com/gl/taskord/taskord/dashboard">
+        <img src="https://app.codacy.com/project/badge/Grade/346b75b6fa564e16958cc7b6c1b5ce2a"/>
+    </a>
+    <a href="https://gitpod.io/#https://gitlab.com/taskord/taskord" alt="Codacy">
         <img src="https://img.shields.io/badge/setup-automated-blue?logo=gitpod" alt="GitPod badge">
     </a>
     <a href="https://depfu.com">
