@@ -37,7 +37,9 @@ class AuthGetIP implements ShouldQueue
 
         $ipInfo = file_get_contents('http://ip-api.com/json/'.$this->ip);
         $ipInfo = json_decode($ipInfo);
-        $this->user->timezone = $ipInfo->timezone;
-        $this->user->save();
+        if ($ipInfo->status !== 'fail') {
+            $this->user->timezone = $ipInfo->timezone;
+            $this->user->save();
+        }
     }
 }
