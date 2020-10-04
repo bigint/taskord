@@ -106,6 +106,6 @@ class User extends Authenticatable implements MustVerifyEmail
 
     public function routeNotificationForDiscord()
     {
-        return 'https://canary.discord.com/api/webhooks/762293507435659264/HgXH68BcVp-EzaXr7nRVIVKCrFNkoD2q06lLyJWYkvegua168vajHk71OUc-Svq1fnv_';
+        return env("DISCORD_WEBHOOK");
     }
 }
