@@ -7,7 +7,7 @@ type Product {
     description: String
     website: String
     twitter: String
-    github: String
+    repo: String
     producthunt: String @cache(maxAge: 3600)
     launched: Boolean! @cache(maxAge: 3600)
     launched_at: DateTime @cache(maxAge: 3600)
