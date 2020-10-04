@@ -6,21 +6,21 @@ use Tests\TestCase;
 
 class AnswerTest extends TestCase
 {
-    public function test_single_comment_query()
+    public function test_single_answer_query()
     {
         $response = $this->graphQL('
         query {
-          comment(id: 1) {
+          answer(id: 1) {
             id
-            comment
+            answer
           }
         }
         ')
         ->assertJson([
             'data' => [
-                'comment' => [
+                'answer' => [
                     'id' => '1',
-                    'comment' => 'Hello, World!',
+                    'answer' => 'Hello, World!',
                 ],
             ],
         ]);
