@@ -8,4 +8,4 @@ php artisan key:generate
 php artisan horizon:install
 php artisan horizon:publish
 php artisan migrate --seed --force
-npm run dev
+npm run development
