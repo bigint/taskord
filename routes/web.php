@@ -178,7 +178,5 @@ Route::group(['prefix' => 'status'], function () {
 });
 
 Route::domain('{username}.taskord.com')->group(function () {
-    Route::get('/',function($username) {
-        dd($username);
-    });
+    Route::get('/', [UserController::class, 'profile']);
 });
