@@ -51,4 +51,19 @@ class SitemapTest extends TestCase
         $response->assertStatus(200);
         $response->assertViewIs('seo.sitemap_tasks');
     }
+    
+    public function test_sitemap_comments_url()
+    {
+        $response = $this->get('sitemap_comments.txt');
+
+        $response->assertStatus(200);
+    }
+
+    public function test_sitemap_comments_displays_sitemap_comments_page()
+    {
+        $response = $this->get('sitemap_comments.txt');
+
+        $response->assertStatus(200);
+        $response->assertViewIs('seo.sitemap_comments');
+    }
 }
