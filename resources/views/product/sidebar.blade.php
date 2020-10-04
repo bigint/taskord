@@ -76,7 +76,7 @@
             @if ($product->repo)
             <a class="list-group-item link-dark" href="{{ $product->repo }}" target="_blank">
                 <i class="fab fa-github mr-1"></i>
-                {{ $product->repo }}
+                {{ parse_url($product->repo)['path'] }}
             </a>
             @endif
         </ul>
