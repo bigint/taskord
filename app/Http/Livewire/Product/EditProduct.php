@@ -135,7 +135,7 @@ class EditProduct extends Component
                 if (array_key_exists(1, $avatar)) {
                     Storage::delete($avatar[1]);
                 }
-                $this->product->task()->delete();
+                $this->product->tasks()->delete();
                 $this->product->webhooks()->delete();
                 $this->product->delete();
                 Auth::user()->touch();
