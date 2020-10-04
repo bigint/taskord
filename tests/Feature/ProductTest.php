@@ -8,6 +8,7 @@ use App\Models\Product;
 use App\Models\User;
 use Livewire;
 use Tests\TestCase;
+use Illuminate\Support\Str;
 
 class ProductTest extends TestCase
 {
@@ -68,7 +69,40 @@ class ProductTest extends TestCase
     {
         Livewire::test(NewProduct::class)
             ->set('name', 'Test Product')
-            ->set('slug', 'phpunit')
+            ->set('slug',  Str::random(5))
+            ->set('description', 'Test Product Description')
+            ->set('website', 'https://taskord.com')
+            ->set('twitter', 'phpunit')
+            ->set('repo', 'https://gitlab.com/taskord/taskord')
+            ->set('producthunt', 'phpunit')
+            ->set('sponsor', 'https://taskord.com/patron')
+            ->set('launched', true)
+            ->call('submit')
+            ->assertSeeHtml('Forbidden!');
+    }
+    
+    public function test_auth_create_product()
+    {
+        $this->actingAs($this->user);
+        
+        Livewire::test(NewProduct::class)
+            ->set('name', 'Test Product')
+            ->set('slug',  Str::random(5))
+            ->set('description', 'Test Product Description')
+            ->set('website', 'https://taskord.com')
+            ->set('twitter', 'phpunit')
+            ->set('repo', 'https://gitlab.com/taskord/taskord')
+            ->set('producthunt', 'phpunit')
+            ->set('sponsor', 'https://taskord.com/patron')
+            ->call('submit')
+            ->assertStatus(200);
+    }
+    
+    public function test_auth_create_product_required()
+    {
+        $this->actingAs($this->user);
+        
+        Livewire::test(NewProduct::class)
             ->set('description', 'Test Product Description')
             ->set('website', 'phpunit')
             ->set('twitter', 'phpunit')
@@ -77,7 +111,10 @@ class ProductTest extends TestCase
             ->set('sponsor', 'https://taskord.com/patron')
             ->set('launched', true)
             ->call('submit')
-            ->assertSeeHtml('Forbidden!');
+            ->assertHasErrors([
+                'slug' => 'required',
+                'name' => 'required',
+            ]);
     }
 
     public function test_create_product_update()
