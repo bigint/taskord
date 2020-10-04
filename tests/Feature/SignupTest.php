@@ -39,18 +39,6 @@ class SignupTest extends TestCase
         $response->assertViewIs('auth.register');
     }
     
-    public function test_user_can_register()
-    {
-        $response = $this->from('/register')->post('/register', [
-            'username' => Str::random(10),
-            'email' => Str::random(5).'@taskord.com',
-            'password' => 'Taskord!test@Taskord',
-            'password_confirmation' => 'Taskord!test@Taskord',
-        ]);
-        
-        $response->assertStatus(500);
-    }
-
     public function test_user_can_register_with_disposable_email()
     {
         $response = $this->from('/register')->post('/register', [
