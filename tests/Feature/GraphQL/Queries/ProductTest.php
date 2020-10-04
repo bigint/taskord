@@ -32,7 +32,6 @@ class ProductTest extends TestCase
                     'name' => 'Taskord',
                     'avatar' => 'https://i.imgur.com/QpfHEy6.png',
                     'description' => 'Get things done socially with Taskord',
-                    'user_id' => 1,
                     'website' => 'https://taskord.com',
                     'twitter' => 'taskord',
                     'repo' => 'https://gitlab.com/taskord/taskord',
@@ -67,7 +66,7 @@ class ProductTest extends TestCase
         ')
         ->assertJson([
             'data' => [
-                'users' => [
+                'products' => [
                     'edges' => [
                         [
                             'node' => [
@@ -76,7 +75,6 @@ class ProductTest extends TestCase
                                 'name' => 'Taskord',
                                 'avatar' => 'https://i.imgur.com/QpfHEy6.png',
                                 'description' => 'Get things done socially with Taskord',
-                                'user_id' => 1,
                                 'website' => 'https://taskord.com',
                                 'twitter' => 'taskord',
                                 'repo' => 'https://gitlab.com/taskord/taskord',
