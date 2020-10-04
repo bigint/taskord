@@ -63,15 +63,6 @@ class CreateComment extends Component
                 givePoint(new CommentCreated($comment));
             }
 
-            $this->task->user->notify(
-                new TelegramLogger(
-                    '*💬 New comment was added* by @'
-                    .Auth::user()->username."\n\n"
-                    .$comment->comment."\n\nhttps://taskord.com/task/"
-                    .$this->task->id
-                )
-            );
-
             return session()->flash('success', 'Comment has been added!');
         } else {
             session()->flash('error', 'Forbidden!');

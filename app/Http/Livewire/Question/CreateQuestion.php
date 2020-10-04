@@ -43,15 +43,6 @@ class CreateQuestion extends Component
             session()->flash('question_created', 'Question has been created!');
             givePoint(new QuestionCreated($question));
 
-            $question->user->notify(
-                new TelegramLogger(
-                    '*❓ New question was asked* by @'
-                    .Auth::user()->username."\n\n"
-                    .$question->title."\n\nhttps://taskord.com/task/"
-                    .$question->id
-                )
-            );
-
             return redirect()->route('question.question', ['id' => $question->id]);
         } else {
             session()->flash('error', 'Forbidden!');

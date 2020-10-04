@@ -117,14 +117,6 @@ class CreateTask extends Component
                 Auth::user()->save();
                 CheckGoal::dispatch(Auth::user(), $task);
             }
-            Auth::user()->notify(
-                new TelegramLogger(
-                    '*✅ New Task* by @'
-                    .Auth::user()->username."\n\n"
-                    .$task->task."\n\nhttps://taskord.com/task/"
-                    .$task->id
-                )
-            );
 
             return session()->flash('success', 'Task has been created!');
         } else {
