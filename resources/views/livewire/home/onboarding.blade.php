@@ -31,11 +31,10 @@
             @if (session()->has('error'))
                 <div class="mb-1 text-danger font-weight-bold">{{ session('error') }}</div>
             @endif
-            <button class="btn btn-blurple font-weight-bold mb-3" wire:click="discordInvite" wire:loading.attr="disabled" wire:offline.attr="disabled">
+            <a class="btn btn-blurple font-weight-bold mb-3" href="https://discord.gg/9M4Q65b" target="_blank">
                 <i class="fab fa-discord"></i>
-                Inivte me to Discord
-                <span wire:target="discordInvite" wire:loading class="spinner-border spinner-border-mini ml-2" role="status"></span>
-            </button>
+                Join Discord
+            </a>
             @if (preg_match('/^[a-f0-9]{32}$/', Auth::user()->username))
             <div class="mb-2">
                 <input class="form-check-input" type="checkbox" disabled {{ $changed_username ? '' : 'checked' }}>
