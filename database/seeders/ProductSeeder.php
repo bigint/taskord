@@ -22,10 +22,10 @@ class ProductSeeder extends Seeder
             'description' => 'Get things done socially with Taskord',
             'user_id' => 1,
             'website' => 'https://taskord.com',
-            'twitter' => $faker->userName,
+            'twitter' => 'taskord',
             'repo' => 'https://gitlab.com/taskord/taskord',
-            'producthunt' => $faker->userName,
-            'launched' => $faker->boolean($chanceOfGettingTrue = 50),
+            'producthunt' => 'taskord',
+            'launched' => true,
             'launched_at' => $faker->dateTimeBetween($startDate = '-2 days', $endDate = 'now'),
             'created_at' => $faker->dateTimeBetween($startDate = '-2 days', $endDate = 'now'),
         ]);
