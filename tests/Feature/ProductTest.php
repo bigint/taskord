@@ -4,6 +4,7 @@ namespace Tests\Feature;
 
 use App\Http\Livewire\Product\Update\NewUpdate;
 use App\Http\Livewire\Product\NewProduct;
+use App\Http\Livewire\Product\EditProduct;
 use App\Models\Product;
 use App\Models\User;
 use Livewire;
@@ -122,6 +123,60 @@ class ProductTest extends TestCase
         $this->actingAs($this->user);
         
         Livewire::test(NewProduct::class)
+            ->set('name', 'Test Product')
+            ->set('slug',  Str::random(5))
+            ->set('description', 'Test Product Description')
+            ->set('website', 'https://taskord.com')
+            ->set('twitter', 'phpunit')
+            ->set('repo', 'https://gitlab.com')
+            ->set('producthunt', 'phpunit')
+            ->set('sponsor', 'https://taskord.com/patron')
+            ->call('submit')
+            ->assertSeeHtml('Repo should be GitHub / GitLab / Bitbucket URL');
+    }
+    
+    public function test_edit_product()
+    {
+        $product = Product::find(10);
+        
+        Livewire::test(EditProduct::class, ['product' => $product])
+            ->set('name', 'Test Product')
+            ->set('slug',  Str::random(5))
+            ->set('description', 'Test Product Description')
+            ->set('website', 'https://taskord.com')
+            ->set('twitter', 'phpunit')
+            ->set('repo', 'https://gitlab.com/taskord/taskord')
+            ->set('producthunt', 'phpunit')
+            ->set('sponsor', 'https://taskord.com/patron')
+            ->set('launched', true)
+            ->call('submit')
+            ->assertSeeHtml('Forbidden!');
+    }
+    
+    public function test_auth_edit_product()
+    {
+        $this->actingAs($this->user);
+        $product = Product::find(10);
+        
+        Livewire::test(EditProduct::class, ['product' => $product])
+            ->set('name', 'Test Product')
+            ->set('slug',  Str::random(5))
+            ->set('description', 'Test Product Description')
+            ->set('website', 'https://taskord.com')
+            ->set('twitter', 'phpunit')
+            ->set('repo', 'https://gitlab.com/taskord/taskord')
+            ->set('producthunt', 'phpunit')
+            ->set('sponsor', 'https://taskord.com/patron')
+            ->call('submit')
+            ->assertStatus(200);
+    }
+
+    public function test_auth_edit_product_repo_validation()
+    {
+        $this->actingAs($this->user);
+        $product = Product::find(10);
+        
+        Livewire::test(EditProduct::class, ['product' => $product])
             ->set('name', 'Test Product')
             ->set('slug',  Str::random(5))
             ->set('description', 'Test Product Description')
