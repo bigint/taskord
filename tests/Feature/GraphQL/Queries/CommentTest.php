@@ -26,20 +26,15 @@ class CommentTest extends TestCase
         ]);
     }
 
-    public function test_all_tasks_query()
+    public function test_all_comments_query()
     {
         $response = $this->graphQL('
         query {
-          tasks(first: 1) {
+          comment(first: 1) {
             edges {
               node {
                 id
-                task
-                image
-                done
-                type
-                source
-                hidden
+                comment
               }
             }
           }
@@ -52,12 +47,7 @@ class CommentTest extends TestCase
                         [
                             'node' => [
                                 'id' => '1',
-                                'task' => 'Hello, World!',
-                                'image' => null,
-                                'done' => true,
-                                'type' => 'user',
-                                'source' => 'Taskord for Web',
-                                'hidden' => false,
+                                'comment' => 'Hello, World!',
                             ],
                         ],
                     ],
