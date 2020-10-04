@@ -129,7 +129,7 @@
         @if (!$user->isStaff)
         <div class="mt-3">
             <button wire:click="masquerade" class="btn btn-sm btn-warning font-weight-bold">
-                <i class="fa fa-user-secret mr-1"></i>
+                <i class="fas fa-theater-masks mr-1"></i>
                 Masquerade
             </button>
             <span wire:loading wire:target="Masquerade" class="small ml-2 text-danger font-weight-bold">masquerading...</span>

@@ -49,7 +49,7 @@
             <canvas id="myChart" height="40"></canvas>
         </div>
     </div>
-    @if ($product->website or $product->twitter or $product->producthunt or $product->github)
+    @if ($product->website or $product->twitter or $product->producthunt or $product->repo)
     <div class="card mb-4">
         <div class="card-header">
             Social
@@ -73,10 +73,16 @@
                 {{ $product->twitter }}
             </a>
             @endif
-            @if ($product->github)
-            <a class="list-group-item link-dark" href="https://github.com/{{ $product->github }}" target="_blank">
+            @if ($product->repo and strlen(trim(parse_url($product->repo)['path'], '/')) !== 0)
+            <a class="list-group-item link-dark" href="{{ $product->repo }}" target="_blank">
+                @if (parse_url($product->repo)['host'] === 'github.com')
                 <i class="fab fa-github mr-1"></i>
-                {{ $product->github }}
+                @elseif (parse_url($product->repo)['host'] === 'gitlab.com')
+                <i class="fab fa-gitlab mr-1"></i>
+                @elseif (parse_url($product->repo)['host'] === 'bitbucket.org')
+                <i class="fab fa-bitbucket mr-1"></i>
+                @endif
+                {{ trim(parse_url($product->repo)['path'], '/') }}
             </a>
             @endif
         </ul>

@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Product;
 
 use App\Models\Product;
+use App\Rules\Repo;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
@@ -21,7 +22,7 @@ class EditProduct extends Component
     public $avatar;
     public $website;
     public $twitter;
-    public $github;
+    public $repo;
     public $producthunt;
     public $sponsor;
     public $launched;
@@ -36,7 +37,7 @@ class EditProduct extends Component
         $this->description = $product->description;
         $this->website = $product->website;
         $this->twitter = $product->twitter;
-        $this->github = $product->github;
+        $this->repo = $product->repo;
         $this->producthunt = $product->producthunt;
         $this->sponsor = $product->sponsor;
         $this->launched = $product->launched;
@@ -63,7 +64,7 @@ class EditProduct extends Component
                 'description' => 'nullable|max:280',
                 'website' => 'nullable|active_url',
                 'twitter' => 'nullable|alpha_dash|max:30',
-                'github' => 'nullable|alpha_dash|max:30',
+                'repo' => ['nullable', 'active_url', new Repo],
                 'producthunt' => 'nullable|alpha_dash|max:30',
                 'sponsor' => 'nullable|active_url',
                 'avatar' => 'nullable|mimes:jpeg,jpg,png,gif|max:1024',
@@ -95,7 +96,7 @@ class EditProduct extends Component
                 $product->description = $this->description;
                 $product->website = $this->website;
                 $product->twitter = $this->twitter;
-                $product->github = $this->github;
+                $product->repo = $this->repo;
                 $product->producthunt = $this->producthunt;
                 $product->sponsor = $this->sponsor;
                 $product->launched = $this->launched;
@@ -135,7 +136,7 @@ class EditProduct extends Component
                 if (array_key_exists(1, $avatar)) {
                     Storage::delete($avatar[1]);
                 }
-                $this->product->task()->delete();
+                $this->product->tasks()->delete();
                 $this->product->webhooks()->delete();
                 $this->product->delete();
                 Auth::user()->touch();

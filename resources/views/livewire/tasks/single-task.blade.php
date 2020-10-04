@@ -2,7 +2,7 @@
     <x-alert />
     <div>
         <input
-            class="form-check-input"
+            class="form-check-input task-checkbox"
             type="checkbox"
             wire:click="checkTask"
             unchecked
