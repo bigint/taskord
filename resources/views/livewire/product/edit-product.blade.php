@@ -89,10 +89,10 @@
                     </div>
                     <div class="input-group mb-3">
                         <span class="input-group-text">
-                            <i class="fas fa-code-branch"></i>
+                            <i class="fab fa-product-hunt"></i>
                         </span>
-                        <input type="text" value="{{ $repo }}" class="form-control @error('repo') is-invalid @enderror" placeholder="Repository" wire:model.defer="repo">
-                        @error('repo')
+                        <input type="text" value="{{ $producthunt }}" class="form-control @error('producthunt') is-invalid @enderror" placeholder="Product Hunt" wire:model.defer="producthunt">
+                        @error('producthunt')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>
@@ -100,10 +100,10 @@
                     </div>
                     <div class="input-group mb-3">
                         <span class="input-group-text">
-                            <i class="fab fa-product-hunt"></i>
+                            <i class="fas fa-code-branch"></i>
                         </span>
-                        <input type="text" value="{{ $producthunt }}" class="form-control @error('producthunt') is-invalid @enderror" placeholder="Product Hunt" wire:model.defer="producthunt">
-                        @error('producthunt')
+                        <input type="text" value="{{ $repo }}" class="form-control @error('repo') is-invalid @enderror" placeholder="Repository" wire:model.defer="repo">
+                        @error('repo')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>
