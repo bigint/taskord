@@ -20,7 +20,7 @@ class QuestionTest extends TestCase
         ')
         ->assertJson([
             'data' => [
-                'comment' => [
+                'question' => [
                     'id' => '1',
                     'title' => 'Hello, World!',
                     'body' => 'Hello, World!',
