@@ -18,12 +18,12 @@ use Illuminate\Support\Facades\Route;
 class UserController extends Controller
 {
     private $username;
-    
+
     public function __construct(Request $request)
     {
         $this->username = $request->username;
     }
-    
+
     public function profile()
     {
         $user = User::cacheFor(60 * 60)
