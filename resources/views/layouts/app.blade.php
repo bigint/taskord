@@ -25,7 +25,7 @@
     <script type="text/javascript">
         (function() {
             var css = document.createElement('link');
-            css.href = 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css';
+            css.href = 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css';
             css.rel = 'stylesheet';
             css.type = 'text/css';
             document.getElementsByTagName('head')[0].appendChild(css);
