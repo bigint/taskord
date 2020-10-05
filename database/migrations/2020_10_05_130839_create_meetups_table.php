@@ -22,6 +22,7 @@ class CreateMeetupsTable extends Migration
             $table->string('cover')->nullable();
             $table->date('starts_at');
             $table->date('ends_at');
+            $table->boolean('hidden')->default(false);
             $table->timestamps();
         });
     }
