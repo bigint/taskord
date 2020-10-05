@@ -38,7 +38,7 @@
                         @endif
                         @auth
                         @if ($user->isFollowing(Auth::user()))
-                            <span class="ml-2 badge bg-light text-black-50">Follows you</span>
+                            <span class="ml-2 badge bg-light text-secondary">Follows you</span>
                         @endif
                         @if (Auth::user()->staffShip)
                             <span class="ml-2 text-secondary small">#{{ $user->id }}</span>
