@@ -15,7 +15,7 @@ class MeetupSeeder extends Seeder
      */
     public function run(Faker $faker)
     {
-        foreach (range(1, 100) as $index) {
+        foreach (range(1, 30) as $index) {
             DB::table('meetups')->insert([
                 'user_id' => $faker->numberBetween($min = 1, $max = 50),
                 'name' => $faker->sentence($nbWords = 2, $variableNbWords = true),
