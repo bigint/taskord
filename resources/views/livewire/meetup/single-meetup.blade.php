@@ -2,10 +2,10 @@
     <div class="card mx-auto">
         <a href="#url"><img class="card-img-top" src="{{ $meetup->cover }}" alt="Sample Title"></a>
         <div class="card-body">
-            <div>
+            <div class="font-weight-bold text-uppercase small">
                 {{ Carbon::parse($meetup->starts_at)->format('D, M d, H:i') }}
             </div>
-            <h5 class="card-title">
+            <h5 class="card-title mt-1">
                 <a href="#url">{{ $meetup->name }}</a>
             </h5>
             <div>
