@@ -99,7 +99,7 @@
                             </a>
                             <ul class="dropdown-menu shadow-sm border" aria-labelledby="navbarDropdown">
                                 <li><a class="dropdown-item text-dark" href="{{ route('deals') }}">{{ Emoji::wrappedGift() }} Deals</a></li>
-                                <li><a class="dropdown-item text-dark" href="{{ route('deals') }}">{{ Emoji::wrappedGift() }} Meetups</a></li>
+                                <li><a class="dropdown-item text-dark" href="{{ route('meetups') }}">{{ Emoji::bustsInSilhouette() }} Meetups</a></li>
                                 @auth
                                 <li><a class="dropdown-item text-dark" href="{{ route('user.settings.integrations') }}">{{ Emoji::anchor() }} Integration</a></li>
                                 @if (Auth::user()->staffShip)
