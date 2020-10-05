@@ -17,11 +17,11 @@ class CreateMeetupsTable extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->string('name');
-            $table->string('tagline');
+            $table->text('tagline');
             $table->text('description');
             $table->string('cover')->nullable();
-            $table->date('starts_at');
-            $table->date('ends_at');
+            $table->dateTime('starts_at');
+            $table->dateTime('ends_at');
             $table->boolean('hidden')->default(false);
             $table->timestamps();
         });

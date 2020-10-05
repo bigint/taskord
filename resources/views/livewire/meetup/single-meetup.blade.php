@@ -3,13 +3,13 @@
         <a href="#url"><img class="card-img-top" src="{{ $meetup->cover }}" alt="Sample Title"></a>
         <div class="card-body">
             <div>
-                Time
+                {{ Carbon::parse($meetup->starts_at)->format('D, M d, H:i') }}
             </div>
-            <h4 class="card-title">
+            <h5 class="card-title">
                 <a href="#url">{{ $meetup->name }}</a>
-            </h4>
+            </h5>
             <div>
-                {{ $meetup->description }}
+                {{ $meetup->tagline }}
             </div>
         </div>
     </div>
