@@ -4,8 +4,11 @@
         <div class="card-body">
             <div class="font-weight-bold text-uppercase small">
                 {{ Carbon::parse($meetup->starts_at)->format('D, M d, H:i') }}
+                @if (Carbon::parse($meetup->starts_at)->isToday())
+                <span class="text-black-50">(Happening)</span>
+                @endif
             </div>
-            <h5 class="card-title mt-1">
+            <h5 class="card-title mt-2">
                 <a href="#url">{{ $meetup->name }}</a>
             </h5>
             <div>
