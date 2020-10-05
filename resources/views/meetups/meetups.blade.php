@@ -17,6 +17,9 @@
             @if (count($meetups) === 0)
             <x-empty icon="handshake" text="No meetups found" />
             @endif
+            @foreach ($meetups as $meetup)
+            @livewire('meetups.single-meetup', ['meetup' => $meetup])
+            @endforeach
         </div>
     </div>
 </div>
