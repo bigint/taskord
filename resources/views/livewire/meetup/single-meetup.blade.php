@@ -15,6 +15,8 @@
                 {{ $meetup->tagline }}
             </div>
         </div>
-        @livewire('meetup.rsvp')
+        @auth
+        @livewire('meetup.rsvp', ['meetup' => $meetup])
+        @endauth
     </div>
 </div>
