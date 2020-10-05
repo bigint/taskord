@@ -65,6 +65,22 @@
                             </a>
                         </span>
                     </li>
+                    <li class="dropdown-item">
+                        <span class="mr-3">
+                            <i class="fab fa-google mr-1"></i>
+                            <a class="font-weight-bold text-dark" href="https://search.google.com/search-console?resource_id=sc-domain%3Ataskord.com" target="_blank">
+                                Google Webmaster
+                            </a>
+                        </span>
+                    </li>
+                    <li class="dropdown-item">
+                        <span class="mr-3">
+                            <i class="fab fa-gitlab text-dark mr-1"></i>
+                            <a class="font-weight-bold text-dark" href="https://gitlab.com/taskord/taskord" target="_blank">
+                                GitLab
+                            </a>
+                        </span>
+                    </li>
                 </ul>
             </span>
             <span role="button" class="dropdown dropleft">
