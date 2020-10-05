@@ -12,7 +12,7 @@ class SingleMeetup extends Component
     {
         $this->meetup = $meetup;
     }
-    
+
     public function render()
     {
         return view('livewire.meetup.single-meetup');
