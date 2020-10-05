@@ -16,7 +16,7 @@ class Rsvp extends Component
         $this->meetup = $meetup;
     }
     
-    public function rsvp()
+    public function toggleRSVP()
     {
         $throttler = Throttle::get(Request::instance(), 20, 5);
         $throttler->hit();
