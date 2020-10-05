@@ -18,6 +18,7 @@ class MeetupSeeder extends Seeder
         foreach (range(1, 30) as $index) {
             DB::table('meetups')->insert([
                 'user_id' => $faker->numberBetween($min = 1, $max = 50),
+                'slug' => $faker->unique()->userName,
                 'name' => $faker->sentence($nbWords = 2, $variableNbWords = true),
                 'tagline' => $faker->sentence($nbWords = 6, $variableNbWords = true),
                 'description' => $faker->sentence($nbWords = 15, $variableNbWords = true),
