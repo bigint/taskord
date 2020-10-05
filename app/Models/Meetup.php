@@ -15,6 +15,7 @@ class Meetup extends Model
     protected $fillable = [
         'user_id',
         'name',
+        'slug',
         'tagline',
         'description',
         'cover',
