@@ -21,14 +21,22 @@
         <span class="float-right">
             <span role="button" class="dropdown dropleft">
                 <span class="font-weight-bold mr-3" data-toggle="dropdown">
-                    <i class="fa fa-chart-pie mr-1"></i>
-                    Stats
+                    <i class="fa fa-tools mr-1"></i>
+                    Ops
                 </span>
                 <ul class="dropdown-menu shadow-sm border">
                     <li class="dropdown-item">
                         <span class="mr-3">
-                            <i class="fa fa-box-open mr-1"></i>
-                            <span class="font-weight-bold">{{ $products }}</span> Products
+                            <i class="fa fa-toggle-on mr-1"></i>
+                            <a class="font-weight-bold text-dark" href="https://gitlab.com/taskord/taskord/-/feature_flags" target="_blank">
+                                Feature Flags
+                            </a>
+                        </span>
+                    </li>
+                    <li class="dropdown-item">
+                        <span class="mr-3">
+                            <i class="fa fa-crow mr-1"></i>
+                            <span class="font-weight-bold">Sentry</span>
                         </span>
                     </li>
                 </ul>
