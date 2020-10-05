@@ -57,6 +57,14 @@
                             </a>
                         </span>
                     </li>
+                    <li class="dropdown-item">
+                        <span class="mr-3">
+                            <i class="fab fa-google mr-1"></i>
+                            <a class="font-weight-bold text-dark" href="https://analytics.google.com/analytics/web/#/report-home/a178044316w246352068p228891304" target="_blank">
+                                Google Analytics
+                            </a>
+                        </span>
+                    </li>
                 </ul>
             </span>
             <span role="button" class="dropdown dropleft">
