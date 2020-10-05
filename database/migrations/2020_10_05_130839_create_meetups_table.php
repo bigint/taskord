@@ -15,6 +15,13 @@ class CreateMeetupsTable extends Migration
     {
         Schema::create('meetups', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
+            $table->string('name');
+            $table->string('tagline');
+            $table->string('description');
+            $table->string('cover')->nullable();
+            $table->date('starts_at');
+            $table->date('ends_at');
             $table->timestamps();
         });
     }
