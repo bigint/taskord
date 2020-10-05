@@ -17,14 +17,7 @@ use Illuminate\Support\Facades\Route;
 
 class UserController extends Controller
 {
-    private $username;
-
-    public function __construct(Request $request)
-    {
-        $this->username = $request->username;
-    }
-
-    public function profile()
+    public function profile($username)
     {
         $user = User::cacheFor(60 * 60)
             ->select(
@@ -59,7 +52,7 @@ class UserController extends Controller
                 'updated_at',
                 'email_verified_at',
             )
-            ->where('username', $this->username)->firstOrFail();
+            ->where('username', $username)->firstOrFail();
         $type = Route::current()->getName();
 
         $response = [

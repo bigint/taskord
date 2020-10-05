@@ -176,7 +176,3 @@ Route::group(['prefix' => 'status'], function () {
     Route::get('redis', [StatusController::class, 'redis']);
     Route::get('memcached', [StatusController::class, 'memcached']);
 });
-
-Route::domain('{username}.taskord.com')->group(function () {
-    Route::get('/', [UserController::class, 'profile'])->name('subdomain');
-});
