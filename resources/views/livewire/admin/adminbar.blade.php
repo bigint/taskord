@@ -27,6 +27,50 @@
                 <ul class="dropdown-menu shadow-sm border">
                     <li class="dropdown-item">
                         <span class="mr-3">
+                            <i class="fa fa-box-open mr-1"></i>
+                            <span class="font-weight-bold">{{ $products }}</span> Products
+                        </span>
+                    </li>
+                    <li class="dropdown-item">
+                        <span class="mr-3">
+                            <i class="fa fa-question-circle mr-1"></i>
+                            <span class="font-weight-bold">{{ $questions }}</span> Questions
+                        </span>
+                    </li>
+                    <li class="dropdown-item">
+                        <span class="mr-3">
+                            <i class="fa fa-comments mr-1"></i>
+                            <span class="font-weight-bold">{{ $answers }}</span> Answers
+                        </span>
+                    </li>
+                    <li class="dropdown-item">
+                        <span class="mr-3">
+                            <i class="fa fa-comment mr-1"></i>
+                            <span class="font-weight-bold">{{ $comments }}</span> Comments
+                        </span>
+                    </li>
+                    <li class="dropdown-item">
+                        <span class="mr-3">
+                            <i class="fa fa-fire mr-1"></i>
+                            <span class="font-weight-bold">{{ $reputations }}</span> Reputations
+                        </span>
+                    </li>
+                    <li class="dropdown-item">
+                        <span class="mr-3">
+                            <i class="fa fa-bell mr-1"></i>
+                            <span class="font-weight-bold">{{ $notifications }}</span> Notifications
+                        </span>
+                    </li>
+                </ul>
+            </span>
+            <span role="button" class="dropdown dropleft">
+                <span class="font-weight-bold mr-3" data-toggle="dropdown">
+                    <i class="fa fa-chart-pie mr-1"></i>
+                    Stats
+                </span>
+                <ul class="dropdown-menu shadow-sm border">
+                    <li class="dropdown-item">
+                        <span class="mr-3">
                             <i class="fa fa-check mr-1"></i>
                             <span class="font-weight-bold">{{ $tasks }}</span> Tasks
                         </span>
