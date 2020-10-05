@@ -2,10 +2,10 @@
 
 namespace App\Http\Livewire\Meetup;
 
-use Livewire\Component;
 use GrahamCampbell\Throttle\Facades\Throttle;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Request;
+use Livewire\Component;
 
 class Rsvp extends Component
 {
@@ -15,7 +15,7 @@ class Rsvp extends Component
     {
         $this->meetup = $meetup;
     }
-    
+
     public function toggleRSVP()
     {
         $throttler = Throttle::get(Request::instance(), 20, 5);
@@ -42,7 +42,7 @@ class Rsvp extends Component
             return session()->flash('error', 'Forbidden!');
         }
     }
-    
+
     public function render()
     {
         return view('livewire.meetup.rsvp');
