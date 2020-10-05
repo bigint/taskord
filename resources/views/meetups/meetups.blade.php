@@ -15,7 +15,7 @@
         </div>
         <div class="card-body">
             @if (count($meetups) === 0)
-            <x-empty icon="gifts" text="No meetups found" />
+            <x-empty icon="handshake" text="No meetups found" />
             @endif
         </div>
     </div>
