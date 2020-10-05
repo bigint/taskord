@@ -16,6 +16,7 @@ class CreateMeetupsTable extends Migration
         Schema::create('meetups', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
+            $table->string('slug')->unique();
             $table->string('name');
             $table->text('tagline');
             $table->text('description');
