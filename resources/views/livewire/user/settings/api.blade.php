@@ -2,7 +2,7 @@
     <div class="card mb-4">
         <div class="card-header pt-3 pb-3">
             <span class="h5">Personal Access Token</span>
-            <div>WIP.</div>
+            <div>API Token generated that can be used to access the Taskord API.</div>
         </div>
         <div class="card-body">
             <x-alert />
