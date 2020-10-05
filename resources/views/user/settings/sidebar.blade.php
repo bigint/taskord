@@ -1,8 +1,5 @@
 <div class="col-sm">
     <div class="card mb-4">
-        <div class="card-header">
-            Settings
-        </div>
         <ul class="list-group list-group-flush">
             <a
                 class="list-group-item text-dark pt-2 pb-2 @if (Route::currentRouteName() === 'user.settings.profile') active text-white @endif"
