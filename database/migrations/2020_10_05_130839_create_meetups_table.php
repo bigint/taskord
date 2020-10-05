@@ -18,7 +18,7 @@ class CreateMeetupsTable extends Migration
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->string('name');
             $table->string('tagline');
-            $table->string('description');
+            $table->text('description');
             $table->string('cover')->nullable();
             $table->date('starts_at');
             $table->date('ends_at');
