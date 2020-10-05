@@ -24,8 +24,8 @@
     <a class="pr-2" href="{{ route('sponsors') }}">
         Sponsors
     </a>
-    <a class="pr-2" href="{{ route('patron.home') }}">
-        Patron
+    <a class="pr-2" href="https://forms.clickup.com/f/357rd-725/OL919ALCZ5V0ALREMH" target="_blank">
+        Bug Report
     </a>
     @auth
     @if (Auth::user()->staffShip)
