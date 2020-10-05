@@ -1,9 +1,8 @@
 <div class="card-footer text-muted">
-    <span class="avatar-stack ml-1">
-        @foreach($meetup->subscribers->take(5) as $user)
-        <img class="avatar-20 rounded-circle mr-1" src="{{ $user->avatar }}" />
-        @endforeach
-    </span>
+    @foreach($meetup->subscribers->take(5) as $user)
+    <img class="avatar-20 rounded-circle" src="{{ $user->avatar }}" />
+    @endforeach
+    @auth
     @if (Auth::user()->hasSubscribed($meetup))
     <button class="btn btn-sm btn-success text-white float-right font-weight-bold" wire:click="toggleRSVP">
         ✅ RSVPd
@@ -13,4 +12,9 @@
         ✅ RSVP
     </button>
     @endif
+    @else
+    <a class="btn btn-sm btn-outline-secondary text-dark float-right" href="{{ route('login') }}">
+        ✅ RSVP
+    </a>
+    @endauth
 </div>
