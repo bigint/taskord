@@ -20,7 +20,7 @@ class Meetup extends Model
         'description',
         'address',
         'cover',
-        'starts_at',
+        'date',
         'hidden',
     ];
 

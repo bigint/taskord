@@ -57,6 +57,30 @@
                         <label class="form-label font-weight-bold">Date in UTC</label>
                         <input class="form-control" wire:model.defer="date" type="datetime-local" value="{{ Carbon::now()->toDateTimeString() }}" min="{{ Carbon::now()->toDateTimeString() }}" />
                     </div>
+                    <div class="mb-3">
+                        <label class="form-label font-weight-bold">Cover</label>
+                        <div class="form-file w-50">
+                            <input type="file" wire:model="cover" class="form-file-input">
+                            <label class="form-file-label">
+                                <span class="form-file-text">Choose file...</span>
+                                <span class="form-file-button">Browse</span>
+                            </label>
+                        </div>
+                    </div>
+                    <div wire:loading wire:target="cover">
+                        <div class="spinner-border spinner-border-sm mb-3" role="status">
+                          <span class="sr-only">Loading...</span>
+                        </div>
+                    </div>
+                    @error('cover')
+                    <div class="text-danger font-weight-bold mt-3">{{ $message }}</div>
+                    @else
+                    @if ($cover)
+                    <div>
+                        <img class="avatar-100 rounded mb-3" src="{{ $cover->temporaryUrl() }}">
+                    </div>
+                    @endif
+                    @enderror
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

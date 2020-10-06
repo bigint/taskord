@@ -20,9 +20,9 @@ class CreateMeetupsTable extends Migration
             $table->string('name');
             $table->text('tagline');
             $table->text('address');
-            $table->text('description');
+            $table->text('description')->nullable();
             $table->string('cover')->nullable();
-            $table->dateTime('starts_at');
+            $table->dateTime('date');
             $table->boolean('hidden')->default(false);
             $table->timestamps();
         });
