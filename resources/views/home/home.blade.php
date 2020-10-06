@@ -21,7 +21,7 @@
             @endguest
             <div class="card mb-4">
                 <div class="card-header">
-                    Recent questions
+                    {{ Emoji::speechBalloon() }} Recent questions
                 </div>
                 <div class="card-body">
                     @foreach ($recent_questions as $question)
