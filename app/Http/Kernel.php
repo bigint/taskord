@@ -67,5 +67,6 @@ class Kernel extends HttpKernel
         'staff' => \App\Http\Middleware\IsStaff::class,
         'beta' => \App\Http\Middleware\IsBeta::class,
         'patron' => \App\Http\Middleware\IsPatron::class,
+        'feature' => \App\Http\Middleware\Feature::class,
     ];
 }

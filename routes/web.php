@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\MeetupController;
+use App\Http\Controllers\PagesController;
 use App\Http\Controllers\PatronController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\QuestionController;
@@ -154,8 +156,10 @@ Route::view('terms', 'pages.terms')->name('terms');
 Route::view('privacy', 'pages.privacy')->name('privacy');
 Route::view('security', 'pages.security')->name('security');
 Route::view('sponsors', 'pages.sponsors')->name('sponsors');
-Route::get('open', 'PagesController@open')->name('open');
-Route::get('deals', 'PagesController@deals')->name('deals');
+Route::get('open', [PagesController::class, 'open'])->name('open');
+Route::get('deals', [PagesController::class, 'deals'])->name('deals');
+
+Route::get('meetups', [MeetupController::class, 'meetups'])->name('meetups')->middleware('feature:meetups');
 
 // https://web.dev/change-password-url
 Route::get('.well-known/change-password', function () {

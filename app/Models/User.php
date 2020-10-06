@@ -99,6 +99,11 @@ class User extends Authenticatable implements MustVerifyEmail
         return $this->hasMany(\App\Models\Webhook::class);
     }
 
+    public function meetups()
+    {
+        return $this->hasMany(\App\Models\Meetup::class);
+    }
+
     public function sendEmailVerificationNotification()
     {
         VerifyEmailQueue::dispatch($this);
