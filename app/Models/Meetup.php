@@ -18,9 +18,9 @@ class Meetup extends Model
         'slug',
         'tagline',
         'description',
+        'address',
         'cover',
         'starts_at',
-        'ends_at',
         'hidden',
     ];
 
