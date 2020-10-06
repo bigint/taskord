@@ -58,7 +58,7 @@
                         <input class="form-control" wire:model.defer="date" type="datetime-local" value="{{ Carbon::now()->toDateTimeString() }}" min="{{ Carbon::now()->toDateTimeString() }}" />
                     </div>
                     <div class="mb-3">
-                        <label class="form-label font-weight-bold">Cover</label>
+                        <label class="form-label font-weight-bold">Cover (1500x500)</label>
                         <div class="form-file w-50">
                             <input type="file" wire:model="cover" class="form-file-input">
                             <label class="form-file-label">
