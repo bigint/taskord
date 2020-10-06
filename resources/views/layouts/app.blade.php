@@ -21,7 +21,7 @@
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
-    <link href="{{ mix('css/app.css') }}" rel="stylesheet">
+    <link href="{{ mix('css/app.css') }}" rel="stylesheet" data-turbolinks-track="true">
     <script type="text/javascript">
         (function() {
             var css = document.createElement('link');
@@ -34,7 +34,7 @@
     @auth
     @if (Auth::user()->isPatron or Auth::user()->isStaff)
     @if (Auth::user()->darkMode)
-    <link href="{{ mix('css/darkmode.css') }}" rel="stylesheet">
+    <link href="{{ mix('css/darkmode.css') }}" rel="stylesheet" data-turbolinks-track="true">
     @endif
     @endif
     @endauth
@@ -166,7 +166,7 @@
                                     <a class="dropdown-item text-dark" href="{{ route('user.settings.profile') }}">
                                         {{ Emoji::gear() }} Settings
                                     </a>
-                                    <a class="dropdown-item text-dark" href="{{ route('patron.home') }}">
+                                    <a class="dropdown-item text-dark" href="{{ route('patron.home') }}" data-turbolinks="false">
                                         {{ Emoji::handshake() }} Patron
                                     </a>
                                     <div class="dropdown-divider"></div>
@@ -248,9 +248,9 @@
     </div>
 </body>
 @livewireScripts
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js" defer></script>
-<script src="{{ asset('js/app.js', config('app.env') === 'production' ? true : false) }}" defer></script>
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-178044316-1"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js" defer data-turbolinks-track="true" data-turbolinks-eval=false></script>
+<script src="{{ asset('js/app.js', config('app.env') === 'production' ? true : false) }}" defer data-turbolinks-track="true" data-turbolinks-eval=false></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-178044316-1" data-turbolinks-track="true" data-turbolinks-eval=false></script>
 <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}

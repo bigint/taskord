@@ -3,6 +3,9 @@ require("./shortcuts");
 require("./tribute");
 import { isInViewport } from "observe-element-in-viewport";
 import lightbox from "lightbox2/dist/js/lightbox";
+import "livewire-turbolinks";
+var Turbolinks = require("turbolinks");
+Turbolinks.start();
 
 window.lightbox = lightbox;
 window.lightbox.option({
@@ -34,24 +37,28 @@ $(window).scroll(() => {
 });
 
 // Admin Bar toggle in dropdown
-document.getElementById("admin-bar-click").addEventListener("click", () => {
-  $.get("/admin/adminbar", (data, status) => {
-    if (data === "enabled" || data === "disabled") {
-      if (status === "success") {
-        window.location.reload();
+document.addEventListener("turbolinks:load", () => {
+  document.getElementById("admin-bar-click").addEventListener("click", () => {
+    $.get("/admin/adminbar", (data, status) => {
+      if (data === "enabled" || data === "disabled") {
+        if (status === "success") {
+          window.location.reload();
+        }
       }
-    }
+    });
   });
 });
 
 // Dark mode toggle in dropdown
-document.getElementById("dark-mode").addEventListener("click", () => {
-  $.get("/darkmode", (data, status) => {
-    if (data === "enabled" || data === "disabled") {
-      if (status === "success") {
-        window.location.reload();
+document.addEventListener("turbolinks:load", () => {
+  document.getElementById("dark-mode").addEventListener("click", () => {
+    $.get("/darkmode", (data, status) => {
+      if (data === "enabled" || data === "disabled") {
+        if (status === "success") {
+          window.location.reload();
+        }
       }
-    }
+    });
   });
 });
 
@@ -69,6 +76,6 @@ document.body.addEventListener("click", () => {
   $("ul").remove(".search-dropdown");
 });
 
-$(() => {
+document.addEventListener("turbolinks:load", () => {
   $("[data-toggle='tooltip']").tooltip();
 });
