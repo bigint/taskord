@@ -3,8 +3,6 @@
 namespace App\Http\Livewire\Meetup;
 
 use App\Models\Meetup;
-use App\Rules\Repo;
-use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
@@ -85,7 +83,7 @@ class NewMeetup extends Component
             session()->flash('error', 'Forbidden!');
         }
     }
-    
+
     public function render()
     {
         return view('livewire.meetup.new-meetup');
