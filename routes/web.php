@@ -159,7 +159,7 @@ Route::view('sponsors', 'pages.sponsors')->name('sponsors');
 Route::get('open', [PagesController::class, 'open'])->name('open');
 Route::get('deals', [PagesController::class, 'deals'])->name('deals');
 
-Route::get('meetups', [MeetupController::class, 'meetups'])->name('meetups');
+Route::get('meetups', [MeetupController::class, 'meetups'])->name('meetups')->middleware('feature:meetups');
 
 // https://web.dev/change-password-url
 Route::get('.well-known/change-password', function () {
