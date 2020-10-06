@@ -23,7 +23,7 @@ class Meetup extends Model
         'ends_at',
         'hidden',
     ];
-    
+
     public function user()
     {
         return $this->belongsTo(\App\Models\User::class, 'user_id');
