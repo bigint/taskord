@@ -61,7 +61,7 @@
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                     <button type="submit" class="btn btn-primary">
-                        Create Product
+                        Create Meetup
                         <span wire:target="submit" wire:loading class="spinner-border spinner-border-sm ml-2" role="status"></span>
                     </button>
                 </div>
