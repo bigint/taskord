@@ -21,7 +21,7 @@ class MeetupSeeder extends Seeder
                 'slug' => $faker->unique()->userName,
                 'name' => $faker->sentence($nbWords = 2, $variableNbWords = true),
                 'tagline' => $faker->sentence($nbWords = 6, $variableNbWords = true),
-                'address' => $faker->sentence($nbWords = 6, $variableNbWords = true),
+                'location' => $faker->sentence($nbWords = 6, $variableNbWords = true),
                 'description' => $faker->sentence($nbWords = 15, $variableNbWords = true),
                 'cover' => 'https://pbs.twimg.com/profile_banners/864525927438536707/1598315700/1500x500',
                 'date' => $faker->dateTimeBetween($startDate = '-5 days', $endDate = '+5 days'),

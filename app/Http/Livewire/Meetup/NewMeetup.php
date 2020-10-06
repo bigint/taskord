@@ -73,6 +73,7 @@ class NewMeetup extends Component
                 'cover' => $url,
                 'tagline' => $this->tagline,
                 'description' => $this->description,
+                'location' => $this->location,
                 'date' => $this->date,
             ]);
             Auth::user()->touch();
