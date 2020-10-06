@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
-use Taskord\LaravelUnleash\Unleash;
 
 class AdminController extends Controller
 {
@@ -22,18 +21,16 @@ class AdminController extends Controller
     public static function toggle()
     {
         $user = Auth::user();
-        if (app(Unleash::class)->isFeatureEnabled('admin_bar')) {
-            if ($user->staffShip) {
-                $user->staffShip = false;
-                $user->save();
+        if ($user->staffShip) {
+            $user->staffShip = false;
+            $user->save();
 
-                return 'disabled';
-            } else {
-                $user->staffShip = true;
-                $user->save();
+            return 'disabled';
+        } else {
+            $user->staffShip = true;
+            $user->save();
 
-                return 'enabled';
-            }
+            return 'enabled';
         }
     }
 }
