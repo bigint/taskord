@@ -26,7 +26,7 @@ class NewMeetup extends Component
     {
         if (Auth::check()) {
             $this->validate([
-                'avatar' => 'nullable|mimes:jpeg,jpg,png,gif|max:1024',
+                'cover' => 'nullable|mimes:jpeg,jpg,png,gif|max:1024',
             ]);
         } else {
             return session()->flash('error', 'Forbidden!');
@@ -56,6 +56,7 @@ class NewMeetup extends Component
 
             if ($this->cover) {
                 $img = Image::make($this->cover)
+                        ->crop(1500, 500)
                         ->encode('webp', 80);
                 $imageName = Str::random(32).'.png';
                 Storage::disk('public')->put('meetup-cover/'.$imageName, (string) $img);
