@@ -3,6 +3,9 @@ require("./shortcuts");
 require("./tribute");
 import { isInViewport } from "observe-element-in-viewport";
 import lightbox from "lightbox2/dist/js/lightbox";
+import "livewire-turbolinks";
+var Turbolinks = require("turbolinks");
+Turbolinks.start();
 
 window.lightbox = lightbox;
 window.lightbox.option({
