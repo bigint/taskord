@@ -54,9 +54,6 @@
         <nav class="navbar navbar-expand-md navbar-dark bg-dark">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    @featureEnabled('pride_logo')
-                    <img src="/images/pride.svg" height="35" alt="Taskord Pride">
-                    @else
                     @auth
                     @if (Auth::user()->isBeta)
                     <img src="/images/beta.svg" height="35" alt="Taskord Beta">
@@ -67,7 +64,6 @@
                     @guest
                     <img src="/images/logo.svg" height="35" alt="Taskord">
                     @endguest
-                    @endfeatureEnabled
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -99,15 +95,13 @@
                             </a>
                             <ul class="dropdown-menu shadow-sm border" aria-labelledby="navbarDropdown">
                                 <li><a class="dropdown-item text-dark" href="{{ route('deals') }}">{{ Emoji::wrappedGift() }} Deals</a></li>
-                                @featureEnabled('meetups')
-                                <li><a class="dropdown-item text-dark" href="{{ route('meetups') }}">{{ Emoji::bustsInSilhouette() }} Meetups</a></li>
-                                @endfeatureEnabled
                                 @auth
-                                <li><a class="dropdown-item text-dark" href="{{ route('user.settings.integrations') }}">{{ Emoji::anchor() }} Integration</a></li>
                                 @if (Auth::user()->staffShip)
+                                <li><a class="dropdown-item text-dark" href="{{ route('meetups') }}">{{ Emoji::bustsInSilhouette() }} Meetups</a></li>
                                 <li><a class="dropdown-item text-dark" href="#">{{ Emoji::thinkingFace() }} Help</a></li>
                                 <li><a class="dropdown-item text-dark" href="#">{{ Emoji::barChart() }} Open</a></li>
                                 @endif
+                                <li><a class="dropdown-item text-dark" href="{{ route('user.settings.integrations') }}">{{ Emoji::anchor() }} Integration</a></li>
                                 @endauth
                             </ul>
                         </li>
