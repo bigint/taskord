@@ -35,7 +35,7 @@ class Rsvp extends Component
                 return session()->flash('error', 'You can\'t RSVP your own meetup!');
             } else {
                 Auth::user()->toggleSubscribe($this->meetup);
-                //$this->meetup->refresh();
+                $this->meetup->refresh();
                 Auth::user()->touch();
             }
         } else {
