@@ -11,7 +11,7 @@ class MeetupController extends Controller
         $meetups = Meetup::cacheFor(60 * 60)
             ->where('starts_at', '>=', date('Y-m-d'))
             ->orderBy('starts_at')
-            ->get();
+            ->paginate(12);
 
         return view('meetups.meetups', [
             'meetups' => $meetups,
