@@ -23,10 +23,11 @@
                         Finished
                     </button>
                     @auth
-                    <button class="btn btn-success text-white">
+                    <button class="btn btn-success text-white" data-toggle="modal" data-target="#newMeetupModal">
                         <i class="fa fa-plus mr-1"></i>
                         New Meetup
                     </button>
+                    @livewire('meetup.new-meetup')
                     @endauth
                 </div>
             </div>
