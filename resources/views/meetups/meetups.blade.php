@@ -22,9 +22,12 @@
                     <button class="btn btn-outline-primary">
                         Finished
                     </button>
+                    @auth
                     <button class="btn btn-success text-white">
+                        <i class="fa fa-plus mr-1"></i>
                         New Meetup
                     </button>
+                    @endauth
                 </div>
             </div>
         </div>
