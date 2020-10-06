@@ -56,7 +56,7 @@ class NewMeetup extends Component
 
             if ($this->cover) {
                 $img = Image::make($this->cover)
-                        ->crop(1500, 500)
+                        ->resize(1500, 500)
                         ->encode('webp', 80);
                 $imageName = Str::random(32).'.png';
                 Storage::disk('public')->put('meetup-cover/'.$imageName, (string) $img);
