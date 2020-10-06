@@ -1,6 +1,5 @@
 <div class="card-footer text-muted">
-    {{ $meetup->user->id }}
-    <img class="avatar-20 rounded-circle" src="{{ $meetup->user }}" />
+    <img class="avatar-20 rounded-circle" src="{{ $meetup->user->avatar }}" />
     @foreach($meetup->subscribers->take(5) as $user)
     <img class="avatar-20 rounded-circle" src="{{ $user->avatar }}" />
     @endforeach
