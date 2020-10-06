@@ -4,8 +4,8 @@
     @endforeach
     @auth
     @if (Auth::user()->hasSubscribed($meetup))
-    <button class="btn btn-task btn-success text-white float-right font-weight-bold" wire:click="toggleRSVP">
-        {{ Emoji::checkMarkButton() }} RSVPd
+    <button class="btn btn-task btn-danger text-white float-right font-weight-bold" wire:click="toggleRSVP">
+        {{ Emoji::crossMarkButton() }} Can't attend
     </button>
     @else
     <button class="btn btn-task btn-outline-success text-dark float-right" wire:click="toggleRSVP">
