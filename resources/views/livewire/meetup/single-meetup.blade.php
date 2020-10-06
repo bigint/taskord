@@ -1,6 +1,8 @@
 <div class="col-md-6 col-lg-3 mb-4">
     <div class="card mx-auto">
-        <a href="#url"><img class="card-img-top" src="{{ $meetup->cover }}" alt="Sample Title"></a>
+        <a href="#url">
+            <img class="card-img-top" src="{{ $meetup->cover }}" alt="{{ $meetup->name }}">
+        </a>
         <div class="card-body">
             <div class="font-weight-bold text-uppercase small">
                 @auth

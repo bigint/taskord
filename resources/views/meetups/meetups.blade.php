@@ -10,8 +10,23 @@
 <div class="container">
     <div class="card">
         <div class="card-header pt-3 pb-3">
-            <span class="h5">Meetups</span>
-            <div>Meet and greet.</div>
+            <div class="d-flex justify-content-between align-items-center">
+                <div>
+                    <div class="h5">Meetups</div>
+                    <div>Meet and greet.</div>
+                </div>
+                <div>
+                    <button class="btn btn-outline-primary">
+                        Upcoming
+                    </button>
+                    <button class="btn btn-outline-primary">
+                        Finished
+                    </button>
+                    <button class="btn btn-success text-white">
+                        New Meetup
+                    </button>
+                </div>
+            </div>
         </div>
         <div class="card-body">
             @if (count($meetups) === 0)
