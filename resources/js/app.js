@@ -17,7 +17,7 @@ window.lightbox.option({
   maxWidth: 1000,
 });
 
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener("DOMContentLoaded", () => {
   (async () => {
     const target = document.querySelector("#load-more");
     if (await isInViewport(target)) {
