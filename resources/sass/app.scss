@@ -1,122 +1,119 @@
 // Fonts
-@import url('https://fonts.googleapis.com/css?family=Nunito');
+@import url("https://fonts.googleapis.com/css?family=Nunito");
 
 // Variables
-@import 'variables';
-
-// Bootstrap
-@import '~bootstrap/scss/bootstrap';
-
-// Tribute
-@import '~tributejs/dist/tribute.css';
-
-// lightbox2
-@import '~lightbox2/dist/css/lightbox.min.css';
-
-@import 'floating-labels';
+@import "variables";
+@import "~bootstrap/scss/bootstrap"; // Bootstrap
+@import "~tributejs/dist/tribute.css"; // Tribute
+@import "~lightbox2/dist/css/lightbox.min.css"; // lightbox2
+@import "floating-labels";
 
 a {
-    text-decoration: none;
+  text-decoration: none;
 }
 
 .btn-primary {
-    color: #fff;
-    background-color: $primary;
+  color: #fff;
+  background-color: $primary;
 
-    &:hover, &:active, &:focus {
-        background-color: #6f68ee;
-    }
+  &:hover,
+  &:active,
+  &:focus {
+    background-color: #6f68ee;
+  }
 }
 
 .btn-blurple {
-    color: #fff;
-    background-color: #7289DA;
+  color: #fff;
+  background-color: #7289da;
 
-    &:hover, &:active, &:focus {
-        background-color: #657ac3;
-        color: #fff;
-    }
+  &:hover,
+  &:active,
+  &:focus {
+    background-color: #657ac3;
+    color: #fff;
+  }
 }
 
 .navbar {
-    .score {
-        padding: 5px 7px;
-    }
-  
-    .bg-secondary {
-        background-color: #515a63 !important;
-    }
-  
-    ::placeholder {
-        color: #fff;
-        opacity: 1;
-    }
+  .score {
+    padding: 5px 7px;
+  }
+
+  .bg-secondary {
+    background-color: #515a63 !important;
+  }
+
+  ::placeholder {
+    color: #fff;
+    opacity: 1;
+  }
 }
 
 .sponsor-icon {
-    height: 17px;
-    width: 17px;
-    vertical-align: sub;
+  height: 17px;
+  width: 17px;
+  vertical-align: sub;
 }
 
-.favicon  {
-    height: 16px;
-    width: 16px;
-    vertical-align: sub;
+.favicon {
+  height: 16px;
+  width: 16px;
+  vertical-align: sub;
 }
 
 .avatar-15 {
-    height: 15px;
-    width: auto !important;
+  height: 15px;
+  width: auto !important;
 }
 
 .avatar-20 {
-    height: 20px;
-    width: 20px;
+  height: 20px;
+  width: 20px;
 }
 
 .avatar-30 {
-    height: 30px;
-    width: 30px;
+  height: 30px;
+  width: 30px;
 }
 
 .avatar-40 {
-    height: 40px;
-    width: 40px;
+  height: 40px;
+  width: 40px;
 }
 
 .avatar-50 {
-    height: 50px;
-    width: 50px;
+  height: 50px;
+  width: 50px;
 }
 
 .avatar-100 {
-    height: 100px;
-    width: 100px;
+  height: 100px;
+  width: 100px;
 }
 
 .avatar-120 {
-    height: 120px;
-    width: 120px;
-    border: 2px solid #dedede;
+  height: 120px;
+  width: 120px;
+  border: 2px solid #dedede;
 }
 
 .avatar-150 {
-    height: 150px;
-    width: 150px;
+  height: 150px;
+  width: 150px;
 }
 
 .btn-task {
-    font-size: 12px;
-    padding: 1px 8px;
+  font-size: 12px;
+  padding: 1px 8px;
 }
 
 .btn-danger {
-    color: white;
+  color: white;
 
-    &:hover {
-        color: white;
-    }
+  &:hover {
+    color: white;
+  }
 }
 
 // Remove Bootstrap Glow on Input and Button
@@ -136,228 +133,228 @@ input[type="url"]:focus,
 input[type="search"]:focus,
 input[type="tel"]:focus,
 input[type="color"]:focus,
-.uneditable-input:focus
-.btn.active.focus,
+.uneditable-input:focus .btn.active.focus,
 .btn.active:focus,
 .btn.focus,
 .btn.focus:active,
 .btn:active:focus,
 .btn:focus {
-    box-shadow: none !important;
+  box-shadow: none !important;
 }
 
 .fa-link {
-    color: $primary;
+  color: $primary;
 }
 
 .fa-twitter {
-    color: #38A1F3;
+  color: #38a1f3;
 }
 
 .fa-twitch {
-    color: #9147ff;
+  color: #9147ff;
 }
 
 .fa-telegram {
-    color: #0088cc;
+  color: #0088cc;
 }
 
 .fa-github {
-    color: #333;
+  color: #333;
 }
 
 .fa-gitlab {
-    color: #FC6D27;
+  color: #fc6d27;
 }
 
 .fa-bitbucket {
-    color: #2684FF;
+  color: #2684ff;
 }
 
 .fa-youtube {
-    color: #ff0000;
+  color: #ff0000;
 }
 
 .fa-product-hunt {
-    color: #da552f;
+  color: #da552f;
 }
 
 .list-group-item {
-    padding: 0.4rem 1rem;
+  padding: 0.4rem 1rem;
 }
 
 .form-check-input {
-    &:disabled {
-        opacity: initial;
-    }
+  &:disabled {
+    opacity: initial;
+  }
 }
 
 .input-group-text {
-    .task-checkbox {
-        margin-top: 0;
-    }
+  .task-checkbox {
+    margin-top: 0;
+  }
 }
 
 .task-checkbox {
-    width: 1.1rem;
-    height: 1.1rem;
-    background-position: inherit;
+  width: 1.1rem;
+  height: 1.1rem;
+  background-position: inherit;
 }
 
 .task-font {
-    font-size: 16px;
+  font-size: 16px;
 
-    img {
-        width: 100%;
-        border-radius: 5px;
-        border: 1px solid #dee2e6;
-    }
+  img {
+    width: 100%;
+    border-radius: 5px;
+    border: 1px solid #dee2e6;
+  }
 }
 
 .body-font {
-    img {
-        width: 100%;
-        border-radius: 5px;
-        border: 1px solid #dee2e6;
-    }
+  img {
+    width: 100%;
+    border-radius: 5px;
+    border: 1px solid #dee2e6;
+  }
 }
 
 .task-gitlab {
-    color: #FC6D27;
+  color: #fc6d27;
 }
 
 .task-github {
-    color: #333333;
+  color: #333333;
 }
 
 .admin-bar {
-    font-size: 13px;
-  
-    .fa, .fab {
-        font-size: 12px;
-    }
+  font-size: 13px;
+
+  .fa,
+  .fab {
+    font-size: 12px;
+  }
 }
 
 .welcome-card {
-    background: linear-gradient(90deg,#6a63ec 0%, #6a63ecba 90%);
-    background-size: contain;
+  background: linear-gradient(90deg, #6a63ec 0%, #6a63ecba 90%);
+  background-size: contain;
 }
 
 .avatar-stack {
-    .avatar {
-        height: 30px;
-        margin-right: -18px;
-        border: 2px solid white;
-        transition: all 0.2s ease;
-    }
-    .praise-avatar {
-        height: 15px;
-        width: 15px;
-        margin-right: -10px;
-        border: 1px solid white;
-        vertical-align: sub;
-    }
-    .replies-avatar {
-        height: 18px;
-        width: 18px;
-        margin-right: -10px;
-        border: 1px solid white;
-    }
-    span {
-        margin-left: 15px !important;
-    }
-    &:hover .avatar {
-        margin-right: -3px !important;
-    }
-    &:hover span {
-        margin-left: 5px !important;
-    }
+  .avatar {
+    height: 30px;
+    margin-right: -18px;
+    border: 2px solid white;
+    transition: all 0.2s ease;
+  }
+  .praise-avatar {
+    height: 15px;
+    width: 15px;
+    margin-right: -10px;
+    border: 1px solid white;
+    vertical-align: sub;
+  }
+  .replies-avatar {
+    height: 18px;
+    width: 18px;
+    margin-right: -10px;
+    border: 1px solid white;
+  }
+  span {
+    margin-left: 15px !important;
+  }
+  &:hover .avatar {
+    margin-right: -3px !important;
+  }
+  &:hover span {
+    margin-left: 5px !important;
+  }
 }
 
 .spinner-border-mini {
-    height: 13px;
-    width: 13px;
-    margin-bottom: 1px;
-    border-width: .2em;
+  height: 13px;
+  width: 13px;
+  margin-bottom: 1px;
+  border-width: 0.2em;
 }
 
 .beta-badge {
-    background-color: transparent !important;
-    border: 1px solid $green;
+  background-color: transparent !important;
+  border: 1px solid $green;
 }
 
 .notification-count {
-    font-size: 10px;
-    padding: 2px 4px;
-    vertical-align: super;
-    margin-left: -1px;
+  font-size: 10px;
+  padding: 2px 4px;
+  vertical-align: super;
+  margin-left: -1px;
 }
 
 .dropdown-item:active {
-    color: white !important;
+  color: white !important;
 }
 
 .bg-patron {
-    background-color: #fffde8 !important;
+  background-color: #fffde8 !important;
 }
 
 .recent-questions {
-    border-radius: 15px !important;
+  border-radius: 15px !important;
 }
 
 input[type="date"]:before {
-    content: attr(placeholder) !important;
-    color: #aaa;
-    margin-right: 0.5em;
+  content: attr(placeholder) !important;
+  color: #aaa;
+  margin-right: 0.5em;
 }
 
 input[type="date"]:focus:before,
 input[type="date"]:valid:before {
-    content: "";
+  content: "";
 }
 
 .sticky-footer {
-    position: sticky;
-    top: 25px;
+  position: sticky;
+  top: 25px;
 }
 
 .pagination {
-   justify-content: center;
+  justify-content: center;
 }
 
 .page-link {
-    background-color: transparent;
-    border: none;
-    border-radius: 5px;
-    margin: 10px;
+  background-color: transparent;
+  border: none;
+  border-radius: 5px;
+  margin: 10px;
 }
 
 .tribute-container {
-    background-color: white;
-    border: 1px solid $gray-400;
-    border-radius: 6px;
-    margin-top: 10px;
-    max-width: auto;
+  background-color: white;
+  border: 1px solid $gray-400;
+  border-radius: 6px;
+  margin-top: 10px;
+  max-width: auto;
 }
 
 .tribute-container ul {
-    background: $gray-200;
+  background: $gray-200;
 }
 
 .tribute-container li {
-    cursor: pointer;
-    margin-bottom: 1px;
-    background: white;
-    padding: 5px 15px;
+  cursor: pointer;
+  margin-bottom: 1px;
+  background: white;
+  padding: 5px 15px;
 
-    &.highlight {
-        background: $gray-200;
-    }
+  &.highlight {
+    background: $gray-200;
+  }
 }
 
 .vertical-line {
-    border-left: 3px solid lightgray;
-    height: 40px;
+  border-left: 3px solid lightgray;
+  height: 40px;
 }
 
 // Curvy Style
@@ -371,41 +368,41 @@ input[type="date"]:valid:before {
 .navbar-toggler,
 .alert,
 .tooltip-inner {
-    border-radius: 6px;
+  border-radius: 6px;
 }
 
 .rounded {
-    border-radius: 6px !important;
+  border-radius: 6px !important;
 }
 
 .card-header:first-child {
-    border-radius: 6px 6px 0 0;
+  border-radius: 6px 6px 0 0;
 }
 
 .badge {
-    border-radius: 15px;
+  border-radius: 15px;
 }
 
 .list-group-item:first-child {
-    border-top-left-radius: 6px;
-    border-top-right-radius: 6px;
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
 }
 
 .list-group-item:last-child {
-    border-bottom-right-radius: 6px;
-    border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
+  border-bottom-left-radius: 6px;
 }
 
 ::-webkit-scrollbar {
-    width: 10px;
+  width: 10px;
 }
 
 ::-webkit-scrollbar-track {
-    -webkit-box-shadow: inset 6px 6px 6px 6px transparent;
-    border-radius: 6px;
+  -webkit-box-shadow: inset 6px 6px 6px 6px transparent;
+  border-radius: 6px;
 }
 
 ::-webkit-scrollbar-thumb {
-    border-radius: 6px;
-    -webkit-box-shadow: inset 6px 6px 6px 6px $gray-500;
+  border-radius: 6px;
+  -webkit-box-shadow: inset 6px 6px 6px 6px $gray-500;
 }
