@@ -104,7 +104,7 @@
                     <div class="card-header" id="headingTwo">
                         <h2 class="mb-0">
                             <a class="text-dark h5" type="button" data-toggle="collapse" data-target="#githubDocs" aria-expanded="false" aria-controls="githubDocs">
-                                <i class="fa fa-github mr-1"></i>
+                                <i class="fab fa-github mr-1"></i>
                                 GitHub
                             </a>
                         </h2>
@@ -127,7 +127,7 @@
                     <div class="card-header" id="headingThree">
                         <h2 class="mb-0">
                             <a class="text-dark h5" type="button" data-toggle="collapse" data-target="#gitlabDocs" aria-expanded="false" aria-controls="gitlabDocs">
-                                <i class="fa fa-gitlab mr-1"></i>
+                                <i class="fab fa-gitlab mr-1"></i>
                                 GitLab
                             </a>
                         </h2>
@@ -172,9 +172,9 @@
                             @if ($webhook->type === 'web')
                             <i title="Simple Webhook | ID: {{ $webhook->id }}" class="fa fa-globe mr-1"></i>
                             @elseif ($webhook->type === 'github')
-                            <i title="GitHub | ID: {{ $webhook->id }}" class="fa fa-github mr-1"></i>
+                            <i title="GitHub | ID: {{ $webhook->id }}" class="fab fa-github mr-1"></i>
                             @elseif ($webhook->type === 'gitlab')
-                            <i title="GitLab | ID: {{ $webhook->id }}" class="fa fa-gitlab mr-1"></i>
+                            <i title="GitLab | ID: {{ $webhook->id }}" class="fab fa-gitlab mr-1"></i>
                             @endif
                         </td>
                         <td class="font-weight-bold">
