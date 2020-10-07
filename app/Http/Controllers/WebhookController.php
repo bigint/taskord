@@ -9,10 +9,10 @@ use App\Notifications\VersionReleased;
 use Carbon\Carbon;
 use GrahamCampbell\Throttle\Facades\Throttle;
 use GuzzleHttp\Client;
+use Helper;
 use Illuminate\Http\Request as WebhookRequest;
 use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Str;
-use Helper;
 
 class WebhookController extends Controller
 {
