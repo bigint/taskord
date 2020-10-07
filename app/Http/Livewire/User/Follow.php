@@ -21,7 +21,7 @@ class Follow extends Component
     {
         $throttler = Throttle::get(Request::instance(), 10, 5);
         $throttler->hit();
-        if (count($throttler) > 30) {
+        if (count($throttler) > 20) {
             Helper::flagAccount(Auth::user());
         }
         if (! $throttler->check()) {

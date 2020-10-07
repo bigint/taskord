@@ -25,6 +25,9 @@ class Api extends Component
     {
         $throttler = Throttle::get(Request::instance(), 5, 5);
         $throttler->hit();
+        if (count($throttler) > 10) {
+            Helper::flagAccount(Auth::user());
+        }
         if (! $throttler->check()) {
             return session()->flash('error', 'Your are rate limited, try again later!');
         }
