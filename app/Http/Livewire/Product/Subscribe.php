@@ -7,6 +7,7 @@ use GrahamCampbell\Throttle\Facades\Throttle;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Request;
 use Livewire\Component;
+use Helper;
 
 class Subscribe extends Component
 {

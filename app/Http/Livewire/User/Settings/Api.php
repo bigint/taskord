@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Str;
 use Livewire\Component;
+use Helper;
 
 class Api extends Component
 {
