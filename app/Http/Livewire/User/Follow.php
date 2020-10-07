@@ -21,6 +21,9 @@ class Follow extends Component
     {
         $throttler = Throttle::get(Request::instance(), 10, 5);
         $throttler->hit();
+        if (count($throttler) > 30) {
+            Helper::flagAccount(Auth::user());
+        }
         if (! $throttler->check()) {
             return session()->flash('error', 'Please slow down!');
         }

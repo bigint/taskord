@@ -59,6 +59,12 @@ class Helper
         $entity->save();
         $entity->refresh();
     }
+    
+    public static function flagAccount($user)
+    {
+        $user->isFlagged = true;
+        $user->save();
+    }
 
     public static function mentionUsers($users, $task, $type)
     {
