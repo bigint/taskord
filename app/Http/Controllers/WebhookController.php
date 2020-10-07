@@ -40,6 +40,9 @@ class WebhookController extends Controller
     {
         $throttler = Throttle::get(Request::instance(), 50, 5);
         $throttler->hit();
+        if (count($throttler) > 60) {
+            Helper::flagAccount(Auth::user());
+        }
         if (! $throttler->check()) {
             return response()->json([
                 'message' => 'Your are rate limited, try again later!',
