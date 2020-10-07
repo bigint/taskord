@@ -42,7 +42,7 @@ class TasksTest extends TestCase
         $response->assertStatus(200);
         $response->assertViewIs('tasks.tasks');
     }
-    
+
     public function test_create_task()
     {
         Livewire::test(CreateTask::class, [
