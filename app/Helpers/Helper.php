@@ -59,7 +59,7 @@ class Helper
         $entity->save();
         $entity->refresh();
     }
-    
+
     public static function flagAccount($user)
     {
         $user->isFlagged = true;

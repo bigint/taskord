@@ -6,10 +6,10 @@ use App\Gamify\Points\TaskCompleted;
 use App\Jobs\CheckGoal;
 use Carbon\Carbon;
 use GrahamCampbell\Throttle\Facades\Throttle;
+use Helper;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Request;
 use Livewire\Component;
-use Helper;
 
 class SingleTask extends Component
 {
