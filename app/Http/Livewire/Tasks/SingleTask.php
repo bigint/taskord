@@ -6,6 +6,7 @@ use App\Gamify\Points\TaskCompleted;
 use App\Jobs\CheckGoal;
 use Carbon\Carbon;
 use GrahamCampbell\Throttle\Facades\Throttle;
+use Helper;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Request;
 use Livewire\Component;
@@ -24,6 +25,9 @@ class SingleTask extends Component
     {
         $throttler = Throttle::get(Request::instance(), 20, 5);
         $throttler->hit();
+        if (count($throttler) > 30) {
+            Helper::flagAccount(Auth::user());
+        }
         if (! $throttler->check()) {
             return session()->flash('error', 'Your are rate limited, try again later!');
         }

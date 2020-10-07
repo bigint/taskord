@@ -4,6 +4,7 @@ namespace App\Http\Livewire\User;
 
 use App\Notifications\Followed;
 use GrahamCampbell\Throttle\Facades\Throttle;
+use Helper;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Request;
 use Livewire\Component;
@@ -21,6 +22,9 @@ class Follow extends Component
     {
         $throttler = Throttle::get(Request::instance(), 10, 5);
         $throttler->hit();
+        if (count($throttler) > 20) {
+            Helper::flagAccount(Auth::user());
+        }
         if (! $throttler->check()) {
             return session()->flash('error', 'Please slow down!');
         }
