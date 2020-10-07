@@ -12,6 +12,7 @@ use GuzzleHttp\Client;
 use Illuminate\Http\Request as WebhookRequest;
 use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Str;
+use Helper;
 
 class WebhookController extends Controller
 {
