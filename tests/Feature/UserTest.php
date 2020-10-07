@@ -2,10 +2,10 @@
 
 namespace Tests\Feature;
 
-use Tests\TestCase;
 use App\Http\Livewire\User\Follow;
 use App\Models\User;
 use Livewire;
+use Tests\TestCase;
 
 class UserTest extends TestCase
 {
@@ -18,7 +18,7 @@ class UserTest extends TestCase
         $this->user1 = User::find(1);
         $this->user2 = User::find(2);
     }
-    
+
     public function test_user_done_url()
     {
         $response = $this->get(route('user.done', ['username' => 'test']));
@@ -93,11 +93,11 @@ class UserTest extends TestCase
         $response->assertStatus(200);
         $response->assertViewIs('user.answers');
     }
-    
+
     public function test_follow_other_user()
     {
         $this->actingAs($this->user1);
-        
+
         Livewire::test(Follow::class, ['user' => $this->user2])
             ->call('followUser');
     }

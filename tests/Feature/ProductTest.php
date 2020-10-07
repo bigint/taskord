@@ -4,13 +4,13 @@ namespace Tests\Feature;
 
 use App\Http\Livewire\Product\EditProduct;
 use App\Http\Livewire\Product\NewProduct;
+use App\Http\Livewire\Product\Subscribe;
 use App\Http\Livewire\Product\Update\NewUpdate;
 use App\Models\Product;
 use App\Models\User;
 use Illuminate\Support\Str;
 use Livewire;
 use Tests\TestCase;
-use App\Http\Livewire\Product\Subscribe;
 
 class ProductTest extends TestCase
 {
@@ -229,12 +229,12 @@ class ProductTest extends TestCase
             ->assertSeeHtml('The title field is required.')
             ->assertSeeHtml('The body field is required.');
     }
-    
+
     public function test_subscribe_product()
     {
         $this->actingAs($this->user);
         $product = Product::find(10);
-        
+
         Livewire::test(Subscribe::class, ['product' => $product])
             ->call('subscribeProduct');
     }
