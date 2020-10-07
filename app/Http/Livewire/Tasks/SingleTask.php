@@ -24,6 +24,9 @@ class SingleTask extends Component
     {
         $throttler = Throttle::get(Request::instance(), 20, 5);
         $throttler->hit();
+        if (count($throttler) > 30) {
+            Helper::flagAccount(Auth::user());
+        }
         if (! $throttler->check()) {
             return session()->flash('error', 'Your are rate limited, try again later!');
         }
