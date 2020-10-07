@@ -235,7 +235,7 @@ class ProductTest extends TestCase
         $this->actingAs($this->user);
         $product = Product::find(10);
         
-        Livewire::test(Follow::class, ['user' => $product])
-            ->call('followUser');
+        Livewire::test(Subscribe::class, ['product' => $product])
+            ->call('subscribeProduct');
     }
 }
