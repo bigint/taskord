@@ -19,8 +19,11 @@ class Subscribe extends Component
 
     public function subscribeProduct()
     {
-        $throttler = Throttle::get(Request::instance(), 20, 5);
+        $throttler = Throttle::get(Request::instance(), 10, 5);
         $throttler->hit();
+        if (count($throttler) > 20) {
+            Helper::flagAccount(Auth::user());
+        }
         if (! $throttler->check()) {
             return session()->flash('error', 'Please slow down!');
         }
