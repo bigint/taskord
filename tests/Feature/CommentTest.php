@@ -2,10 +2,10 @@
 
 namespace Tests\Feature;
 
-use App\Http\Livewire\Comment\CreateComment;
-use App\Http\Livewire\Comment\SingleComment;
-use App\Http\Livewire\Comment\LoadMore;
 use App\Http\Livewire\Comment\Comments;
+use App\Http\Livewire\Comment\CreateComment;
+use App\Http\Livewire\Comment\LoadMore;
+use App\Http\Livewire\Comment\SingleComment;
 use App\Models\Comment;
 use App\Models\Task;
 use App\Models\User;
@@ -171,7 +171,7 @@ class CommentTest extends TestCase
             ->call('deleteComment')
             ->assertEmitted('commentDeleted');
     }
-    
+
     public function test_view_comments()
     {
         $this->actingAs($this->user);
