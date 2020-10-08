@@ -27,7 +27,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::group(['middleware' => ['throttle:100,1']], function () {
+Route::group(['middleware' => ['throttle:1,1']], function () {
     // Auth
     Auth::routes();
     Auth::routes(['verify' => true]);
