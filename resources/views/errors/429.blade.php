@@ -39,7 +39,7 @@
                 margin-top: 10px;
             }
             .container p.info {
-                margin-top: 4em;
+                margin-top: 40px;
                 font-size: 12px;
             }
             .container p.info a {
