@@ -4,7 +4,7 @@ namespace Tests\Feature;
 
 use App\Http\Livewire\Notification\MarkAsRead;
 use App\Http\Livewire\Notification\Delete;
-use App\Http\Livewire\Home\OnlyFollowing;
+use App\Http\Livewire\Notification\Follow;
 use App\Http\Livewire\Home\Tasks;
 use App\Models\Task;
 use App\Models\User;
@@ -14,11 +14,13 @@ use Tests\TestCase;
 class NotificationTest extends TestCase
 {
     public $user;
-
+    public $user1;
+    
     public function setUp(): void
     {
         parent::setUp();
         $this->user = User::find(1);
+        $this->user1 = User::find(2);
     }
     
     public function test_see_unread()
@@ -85,5 +87,13 @@ class NotificationTest extends TestCase
         Livewire::test(Delete::class)
             ->call('deleteAll')
             ->assertEmitted('deleteAll');
+    }
+    
+    public function test_follow_user()
+    {
+        $this->actingAs($this->user);
+
+        Livewire::test(Follow::class, ['user' => $this->user1])
+            ->call('followUser');
     }
 }
