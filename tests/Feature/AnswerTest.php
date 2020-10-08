@@ -2,7 +2,9 @@
 
 namespace Tests\Feature;
 
+use App\Http\Livewire\Answer\Answers;
 use App\Http\Livewire\Answer\CreateAnswer;
+use App\Http\Livewire\Answer\LoadMore;
 use App\Http\Livewire\Answer\SingleAnswer;
 use App\Models\Answer;
 use App\Models\Question;
@@ -164,5 +166,52 @@ class AnswerTest extends TestCase
         Livewire::test(SingleAnswer::class, ['answer' => $answer])
             ->call('deleteAnswer')
             ->assertEmitted('answerDeleted');
+    }
+
+    public function test_view_answers()
+    {
+        $this->actingAs($this->user);
+        $question = Question::create([
+            'user_id' => 1,
+            'title' => 'Test Question',
+            'body' => 'Test Question Body',
+        ]);
+        $answer = Answer::create([
+            'user_id' =>  1,
+            'question_id' => $question->id,
+            'answer' => 'Test Answer',
+        ]);
+
+        Livewire::test(Answers::class, ['question' => $question, 'page' => 1, 'perPage' => 10])
+            ->assertSeeHtml('Test Answer');
+    }
+
+    public function test_view_load_more_answers()
+    {
+        $this->actingAs($this->user);
+        $question = Question::find(1);
+
+        Livewire::test(LoadMore::class, ['question' => $question, 'page' => 1, 'perPage' => 10])
+            ->assertSeeHtml('Load More')
+            ->call('loadMore')
+            ->assertStatus(200);
+    }
+
+    public function test_view_single_answer()
+    {
+        $this->actingAs($this->user);
+        $question = Question::create([
+            'user_id' => 1,
+            'title' => 'Test Question',
+            'body' => 'Test Question Body',
+        ]);
+        $answer = Answer::create([
+            'user_id' =>  1,
+            'question_id' => $question->id,
+            'answer' => 'Test Answer',
+        ]);
+
+        Livewire::test(SingleAnswer::class, ['answer' => $answer])
+            ->assertSeeHtml('Test Answer');
     }
 }
