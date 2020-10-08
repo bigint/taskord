@@ -46,14 +46,6 @@ class HomeTest extends TestCase
             ->assertSeeHtml('Getting Started');
     }
 
-    public function test_done_see_onboarding()
-    {
-        $this->actingAs($this->onboarded_user);
-
-        Livewire::test(Onboarding::class)
-            ->assertDontSeeHtml('Getting Started');
-    }
-
     public function test_toggle_only_following()
     {
         $this->actingAs($this->user);
