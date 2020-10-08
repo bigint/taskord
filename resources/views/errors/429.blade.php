@@ -55,10 +55,9 @@
             <p>You have triggered an abuse detection mechanism.</p>
             <p>Please wait a few minutes before you try again.</p>
             <p class="info">
-                Illustration taken from
-                <a href="https://www.kapwing.com/404-illustrations" target="_blank"
-                    >kapwing.com</a
-                    >
+                <a href="https://taskord.com/contact">Taskord Support</a> —
+                <a href="https://status.taskord.com">Taskord Status</a> —
+                <a href="https://twitter.com/taskord">@taskord</a>
             </p>
         </div>
     </body>
