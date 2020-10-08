@@ -24,7 +24,7 @@ class CreateTask extends Component
     public $image;
     public $due_at;
     public $product;
-    
+
     public function mount($product = null)
     {
         $this->product = $product;
@@ -101,13 +101,13 @@ class CreateTask extends Component
             } else {
                 $done_at = null;
             }
-            
-            if (!$this->product) {
+
+            if (! $this->product) {
                 $product_id = Helper::getProductIDFromMention($this->task);
             } else {
                 $product_id = $this->product->id;
             }
-            
+
             $task = Task::create([
                 'user_id' =>  Auth::id(),
                 'product_id' =>  $product_id,
