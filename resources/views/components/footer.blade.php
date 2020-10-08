@@ -27,6 +27,9 @@
     <a class="pr-2" href="https://forms.clickup.com/f/357rd-725/OL919ALCZ5V0ALREMH" target="_blank">
         Bug Report
     </a>
+    <a class="pr-2" href="https://forms.clickup.com/f/357rd-767/8PPJM0SN435CWUX4X2" target="_blank">
+        Contact
+    </a>
     @auth
     @if (Auth::user()->staffShip)
     <span class="pr-2 text-danger">
