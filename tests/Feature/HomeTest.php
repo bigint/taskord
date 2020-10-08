@@ -7,7 +7,7 @@ use App\Http\Livewire\Home\OnlyFollowing;
 use App\Http\Livewire\Home\LoadMore;
 use App\Http\Livewire\Home\Tasks;
 use App\Models\Answer;
-use App\Models\Question;
+use App\Models\Task;
 use App\Models\User;
 use Livewire;
 use Tests\TestCase;
@@ -62,5 +62,20 @@ class HomeTest extends TestCase
         Livewire::test(OnlyFollowing::class)
             ->call('onlyFollowingsTasks')
             ->assertEmitted('onlyFollowings');
+    }
+    
+    public function test_view_tasks()
+    {
+        $this->actingAs($this->user);
+        $task = Task::create([
+            'user_id' => $this->user->id,
+            'task' => 'Test Task',
+            'source' => 'PHPUnit',
+            'done' => true,
+            'done_at' => date('Y-m-d H:i:s'),
+        ]);
+
+        Livewire::test(Tasks::class, ['page' => 1])
+            ->assertSeeHtml('Test Task');
     }
 }
