@@ -2,8 +2,8 @@
 
 namespace Tests\Feature;
 
-use App\Http\Livewire\Home\LoadMore;
-use App\Http\Livewire\Home\Onboarding;
+use App\Http\Livewire\Notification\MarkAsRead;
+use App\Http\Livewire\Notification\Delete;
 use App\Http\Livewire\Home\OnlyFollowing;
 use App\Http\Livewire\Home\Tasks;
 use App\Models\Task;
@@ -67,5 +67,23 @@ class NotificationTest extends TestCase
 
         $response->assertStatus(200);
         $response->assertViewIs('notifications.all');
+    }
+    
+    public function test_click_mark_as_read()
+    {
+        $this->actingAs($this->user);
+
+        Livewire::test(MarkAsRead::class)
+            ->call('markAsRead')
+            ->assertEmitted('markAsRead');
+    }
+    
+    public function test_click_delete()
+    {
+        $this->actingAs($this->user);
+
+        Livewire::test(Delete::class)
+            ->call('deleteAll')
+            ->assertEmitted('deleteAll');
     }
 }
