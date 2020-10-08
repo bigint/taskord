@@ -44,7 +44,7 @@
             }
             .container p.info a {
                 text-decoration: none;
-                color: #5454ce;
+                color: #666666;
             }
         </style>
     </head>
