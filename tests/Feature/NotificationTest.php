@@ -5,7 +5,7 @@ namespace Tests\Feature;
 use App\Http\Livewire\Notification\MarkAsRead;
 use App\Http\Livewire\Notification\Delete;
 use App\Http\Livewire\Notification\Follow;
-use App\Http\Livewire\Home\Tasks;
+use App\Http\Livewire\Notification\Icon;
 use App\Models\Task;
 use App\Models\User;
 use Livewire;
@@ -89,11 +89,11 @@ class NotificationTest extends TestCase
             ->assertEmitted('deleteAll');
     }
     
-    public function test_follow_user()
+    public function test_see_bell_icon()
     {
         $this->actingAs($this->user);
 
-        Livewire::test(Follow::class, ['user' => $this->user1])
-            ->call('followUser');
+        Livewire::test(Icon::class)
+            ->assertSeeHtml('🔔');
     }
 }
