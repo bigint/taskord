@@ -37,10 +37,12 @@
             }
             .container p {
                 margin-top: 10px;
+                color: #666666;
             }
             .container p.info {
                 margin-top: 40px;
                 font-size: 12px;
+                color: #666666;
             }
             .container p.info a {
                 text-decoration: none;
@@ -53,7 +55,7 @@
             <img src="/images/pride.svg" />
             <h1>Whoa there!</h1>
             <p>You have triggered an abuse detection mechanism.</p>
-            <p>Please wait a few minutes before you try again.</p>
+            <p>Please wait a few minutes before you try again!</p>
             <p class="info">
                 <a href="https://taskord.com/contact">Taskord Support</a> —
                 <a href="https://status.taskord.com">Taskord Status</a> —
