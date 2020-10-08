@@ -195,11 +195,6 @@ class CommentTest extends TestCase
     {
         $this->actingAs($this->user);
         $task = Task::find(1);
-        $comment = Comment::create([
-            'user_id' =>  $this->user->id,
-            'task_id' =>  $task->id,
-            'comment' => 'Test Comment',
-        ]);
 
         Livewire::test(LoadMore::class, ['task' => $task, 'page' => 1, 'perPage' => 10])
             ->assertSeeHtml('Load More')

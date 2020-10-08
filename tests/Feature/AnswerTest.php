@@ -190,11 +190,6 @@ class AnswerTest extends TestCase
     {
         $this->actingAs($this->user);
         $question = Question::find(1);
-        $answer = Answer::create([
-            'user_id' =>  1,
-            'question_id' => $question->id,
-            'answer' => 'Test Answer',
-        ]);
 
         Livewire::test(LoadMore::class, ['question' => $question, 'page' => 1, 'perPage' => 10])
             ->assertSeeHtml('Load More')

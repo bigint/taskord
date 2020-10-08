@@ -78,4 +78,15 @@ class HomeTest extends TestCase
         Livewire::test(Tasks::class, ['page' => 1])
             ->assertSeeHtml('Test Task');
     }
+    
+    public function test_view_load_more_tasks()
+    {
+        $this->actingAs($this->user);
+        $task = Task::find(1);
+
+        Livewire::test(LoadMore::class, ['task' => $task, 'page' => 1, 'perPage' => 10])
+            ->assertSeeHtml('Load More')
+            ->call('loadMore')
+            ->assertStatus(200);
+    }
 }
