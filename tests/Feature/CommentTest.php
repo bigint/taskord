@@ -4,6 +4,8 @@ namespace Tests\Feature;
 
 use App\Http\Livewire\Comment\CreateComment;
 use App\Http\Livewire\Comment\SingleComment;
+use App\Http\Livewire\Comment\LoadMore;
+use App\Http\Livewire\Comment\Comments;
 use App\Models\Comment;
 use App\Models\Task;
 use App\Models\User;
@@ -90,13 +92,13 @@ class CommentTest extends TestCase
     public function test_praise_comment()
     {
         $this->actingAs($this->user);
-        $task_comment = Comment::create([
+        $comment = Comment::create([
             'user_id' =>  $this->user->id,
             'task_id' =>  1,
             'comment' => md5(microtime()),
         ]);
 
-        Livewire::test(SingleComment::class, ['comment' => $task_comment])
+        Livewire::test(SingleComment::class, ['comment' => $comment])
             ->call('togglePraise')
             ->assertSeeHtml('You can&#039;t praise your own comment!');
     }
@@ -104,13 +106,13 @@ class CommentTest extends TestCase
     public function test_unverified_praise_comment()
     {
         $this->actingAs($this->unverified);
-        $task_comment = Comment::create([
+        $comment = Comment::create([
             'user_id' =>  $this->user->id,
             'task_id' =>  1,
             'comment' => md5(microtime()),
         ]);
 
-        Livewire::test(SingleComment::class, ['comment' => $task_comment])
+        Livewire::test(SingleComment::class, ['comment' => $comment])
             ->call('togglePraise')
             ->assertSeeHtml('Your email is not verified!');
     }
@@ -118,13 +120,13 @@ class CommentTest extends TestCase
     public function test_praise_others_task_comment()
     {
         $this->actingAs($this->user);
-        $task_comment = Comment::create([
+        $comment = Comment::create([
             'user_id' =>  2,
             'task_id' =>  1,
             'comment' => md5(microtime()),
         ]);
 
-        Livewire::test(SingleComment::class, ['comment' => $task_comment])
+        Livewire::test(SingleComment::class, ['comment' => $comment])
             ->call('togglePraise')
             ->assertDontSeeHtml('You can&#039;t praise your own comment!');
     }
@@ -132,26 +134,26 @@ class CommentTest extends TestCase
     public function test_unverified_praise_others_task_comment()
     {
         $this->actingAs($this->unverified);
-        $task_comment = Comment::create([
+        $comment = Comment::create([
             'user_id' =>  2,
             'task_id' =>  1,
             'comment' => md5(microtime()),
         ]);
 
-        Livewire::test(SingleComment::class, ['comment' => $task_comment])
+        Livewire::test(SingleComment::class, ['comment' => $comment])
             ->call('togglePraise')
             ->assertSeeHtml('Your email is not verified!');
     }
 
     public function test_delete_task_comment()
     {
-        $task_comment = Comment::create([
+        $comment = Comment::create([
             'user_id' =>  1,
             'task_id' =>  1,
             'comment' => md5(microtime()),
         ]);
 
-        Livewire::test(SingleComment::class, ['comment' => $task_comment])
+        Livewire::test(SingleComment::class, ['comment' => $comment])
             ->call('deleteComment')
             ->assertSeeHtml('Forbidden!');
     }
@@ -159,14 +161,66 @@ class CommentTest extends TestCase
     public function test_auth_delete_task_comment()
     {
         $this->actingAs($this->user);
-        $task_comment = Comment::create([
+        $comment = Comment::create([
             'user_id' =>  $this->user->id,
             'task_id' =>  1,
             'comment' => md5(microtime()),
         ]);
 
-        Livewire::test(SingleComment::class, ['comment' => $task_comment])
+        Livewire::test(SingleComment::class, ['comment' => $comment])
             ->call('deleteComment')
             ->assertEmitted('commentDeleted');
+    }
+    
+    public function test_view_comments()
+    {
+        $this->actingAs($this->user);
+        $question = Question::create([
+            'user_id' => 1,
+            'title' => 'Test Question',
+            'body' => 'Test Question Body',
+        ]);
+        $answer = Answer::create([
+            'user_id' =>  1,
+            'question_id' => $question->id,
+            'answer' => 'Test Answer',
+        ]);
+
+        Livewire::test(Answers::class, ['question' => $question, 'page' => 1, 'perPage' => 10])
+            ->assertSeeHtml('Test Answer');
+    }
+
+    public function test_view_load_more_answers()
+    {
+        $this->actingAs($this->user);
+        $question = Question::find(1);
+        $answer = Answer::create([
+            'user_id' =>  1,
+            'question_id' => $question->id,
+            'answer' => 'Test Answer',
+        ]);
+
+        Livewire::test(LoadMore::class, ['question' => $question, 'page' => 1, 'perPage' => 10])
+            ->assertSeeHtml('Load More')
+            ->call('loadMore')
+            ->assertStatus(200);
+    }
+
+    public function test_view_single_answer()
+    {
+        $this->actingAs($this->user);
+        $question = Question::create([
+            'user_id' => 1,
+            'title' => 'Test Question',
+            'body' => 'Test Question Body',
+        ]);
+        $answer = Answer::create([
+            'user_id' =>  1,
+            'question_id' => $question->id,
+            'answer' => 'Test Answer',
+        ]);
+
+        Livewire::test(SingleAnswer::class, ['answer' => $answer])
+            ->assertSeeHtml('Test Answer');
     }
 }
