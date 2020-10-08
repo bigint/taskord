@@ -31,14 +31,14 @@ Route::group(['middleware' => ['throttle:50,1']], function () {
     // Auth
     Auth::routes();
     Auth::routes(['verify' => true]);
-    
+
     // Social Auth
     Route::get('login/{provider}', [SocialController::class, 'redirect']);
     Route::get('login/{provider}/callback', [SocialController::class, 'Callback']);
-    
+
     // Home
     Route::get('/', [HomeController::class, 'index'])->name('home');
-    
+
     // User
     Route::group(['prefix' => '@{username}', 'as' => 'user.'], function () {
         Route::get('', [UserController::class, 'profile'])->name('done');
@@ -49,7 +49,7 @@ Route::group(['middleware' => ['throttle:50,1']], function () {
         Route::get('following', [UserController::class, 'profile'])->name('following');
         Route::get('followers', [UserController::class, 'profile'])->name('followers');
     });
-    
+
     // Settings
     Route::group(['prefix' => 'settings', 'as' => 'user.settings.', 'middleware' => ['auth']], function () {
         Route::get('', [UserController::class, 'profileSettings'])->name('profile');
@@ -62,31 +62,31 @@ Route::group(['middleware' => ['throttle:50,1']], function () {
         Route::get('export', [UserController::class, 'exportAccount'])->name('export');
         Route::get('delete', [UserController::class, 'deleteSettings'])->name('delete');
     });
-    
+
     // Notifications
     Route::group(['prefix' => 'notifications', 'as' => 'notifications.', 'middleware' => ['auth']], function () {
         Route::view('', 'notifications.unread')->name('unread');
         Route::view('all', 'notifications.all')->name('all');
     });
-    
+
     // Suspended
     Route::get('suspended', [UserController::class, 'suspended'])->name('suspended');
-    
+
     // Mention
     Route::group(['prefix' => 'mention', 'middleware' => ['auth']], function () {
         Route::get('users', [UserController::class, 'mention']);
         Route::get('products', [ProductController::class, 'mention']);
     });
-    
+
     // Avatar
     Route::get('avatar/{username}.png', [UserController::class, 'avatar'])->name('avatar');
-    
+
     // Webhooks
     Route::group(['prefix' => 'webhook'], function () {
         Route::post('web/{token}', [WebhookController::class, 'web']);
         Route::post('version/{appkey}', [WebhookController::class, 'newVersion']);
     });
-    
+
     // Product
     Route::group(['prefix' => 'product/{slug}', 'as' => 'product.'], function () {
         Route::get('', [ProductController::class, 'profile'])->name('done');
@@ -94,7 +94,7 @@ Route::group(['middleware' => ['throttle:50,1']], function () {
         Route::get('updates', [ProductController::class, 'profile'])->name('updates');
         Route::get('subscribers', [ProductController::class, 'profile'])->name('subscribers');
     });
-    
+
     // Products
     Route::group(['prefix' => 'products', 'as' => 'products.'], function () {
         Route::get('', [ProductController::class, 'newest'])->name('newest');
