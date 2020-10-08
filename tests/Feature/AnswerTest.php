@@ -186,7 +186,7 @@ class AnswerTest extends TestCase
             ->assertSeeHtml('Test Answer');
     }
     
-    public function test_view_Load_more_answers()
+    public function test_view_load_more_answers()
     {
         $this->actingAs($this->user);
         $question = Question::find(1);
@@ -197,7 +197,9 @@ class AnswerTest extends TestCase
         ]);
 
         Livewire::test(LoadMore::class, ['question' => $question, 'page' => 1, 'perPage' => 10])
-            ->assertSeeHtml('Test Answer');
+            ->assertSeeHtml('Load More')
+            ->call('loadMore')
+            ->assertStatus(200);
     }
     
     public function test_view_single_answer()
