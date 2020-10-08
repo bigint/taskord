@@ -23,6 +23,12 @@ class CreateTask extends Component
     public $task;
     public $image;
     public $due_at;
+    public $product;
+
+    public function mount($product = null)
+    {
+        $this->product = $product;
+    }
 
     private function resetInputFields()
     {
@@ -96,7 +102,11 @@ class CreateTask extends Component
                 $done_at = null;
             }
 
-            $product_id = Helper::getProductIDFromMention($this->task);
+            if (! $this->product) {
+                $product_id = Helper::getProductIDFromMention($this->task);
+            } else {
+                $product_id = $this->product->id;
+            }
 
             $task = Task::create([
                 'user_id' =>  Auth::id(),
