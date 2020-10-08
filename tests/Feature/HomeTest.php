@@ -3,9 +3,9 @@
 namespace Tests\Feature;
 
 use App\Http\Livewire\Home\Onboarding;
-use App\Http\Livewire\Answer\CreateAnswer;
-use App\Http\Livewire\Answer\LoadMore;
-use App\Http\Livewire\Answer\SingleAnswer;
+use App\Http\Livewire\Home\OnlyFollowing;
+use App\Http\Livewire\Home\LoadMore;
+use App\Http\Livewire\Home\Tasks;
 use App\Models\Answer;
 use App\Models\Question;
 use App\Models\User;
@@ -15,14 +15,13 @@ use Tests\TestCase;
 class HomeTest extends TestCase
 {
     public $user;
-    public $unverified;
+    public $onboarded_user;
 
     public function setUp(): void
     {
         parent::setUp();
         $this->user = User::find(10);
         $this->onboarded_user = User::find(1);
-        $this->unverified = User::find(2);
     }
     
     public function test_home_url()
@@ -54,5 +53,14 @@ class HomeTest extends TestCase
         
         Livewire::test(Onboarding::class)
             ->assertDontSeeHtml('Getting Started');
+    }
+    
+    public function test_toggle_only_following()
+    {
+        $this->actingAs($this->user);
+        
+        Livewire::test(OnlyFollowing::class)
+            ->call('onlyFollowingsTasks')
+            ->assertEmitted('onlyFollowings');
     }
 }
