@@ -5,6 +5,7 @@ namespace Tests\Feature;
 use App\Http\Livewire\Answer\CreateAnswer;
 use App\Http\Livewire\Answer\SingleAnswer;
 use App\Http\Livewire\Answer\Answers;
+use App\Http\Livewire\Answer\LoadMore;
 use App\Models\Answer;
 use App\Models\Question;
 use App\Models\User;
@@ -182,6 +183,20 @@ class AnswerTest extends TestCase
         ]);
 
         Livewire::test(Answers::class, ['question' => $question, 'page' => 1, 'perPage' => 10])
+            ->assertSeeHtml('Test Answer');
+    }
+    
+    public function test_view_Load_more_answers()
+    {
+        $this->actingAs($this->user);
+        $question = Question::find(1);
+        $answer = Answer::create([
+            'user_id' =>  1,
+            'question_id' => $question->id,
+            'answer' => "Test Answer",
+        ]);
+
+        Livewire::test(LoadMore::class, ['question' => $question, 'page' => 1, 'perPage' => 10])
             ->assertSeeHtml('Test Answer');
     }
     
