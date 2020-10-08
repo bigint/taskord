@@ -17,11 +17,8 @@
             }
             .container { margin: 50px auto; max-width: 600px; text-align: center; padding: 0 24px; }
             a { color: #0366d6; text-decoration: none; }
-            a:hover { text-decoration: underline; }
             h1 { line-height: 60px; font-size: 48px; font-weight: 300; margin: 0px; text-shadow: 0 1px 0 #fff; }
             p { color: rgba(0, 0, 0, 0.5); margin: 20px 0 40px; }
-            ul { list-style: none; margin: 25px 0; padding: 0; }
-            li { display: table-cell; font-weight: bold; width: 1%; }
             .logo { display: inline-block; margin-top: 35px; }
             #suggestions {
                 margin-top: 35px;
