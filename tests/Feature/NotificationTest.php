@@ -2,11 +2,9 @@
 
 namespace Tests\Feature;
 
-use App\Http\Livewire\Notification\MarkAsRead;
 use App\Http\Livewire\Notification\Delete;
-use App\Http\Livewire\Notification\Follow;
 use App\Http\Livewire\Notification\Icon;
-use App\Models\Task;
+use App\Http\Livewire\Notification\MarkAsRead;
 use App\Models\User;
 use Livewire;
 use Tests\TestCase;
@@ -15,14 +13,14 @@ class NotificationTest extends TestCase
 {
     public $user;
     public $user1;
-    
+
     public function setUp(): void
     {
         parent::setUp();
         $this->user = User::find(1);
         $this->user1 = User::find(2);
     }
-    
+
     public function test_see_unread()
     {
         $response = $this->get(route('notifications.unread'));
@@ -37,7 +35,7 @@ class NotificationTest extends TestCase
 
         $response->assertStatus(200);
     }
-    
+
     public function test_see_all()
     {
         $response = $this->get(route('notifications.all'));
@@ -61,7 +59,7 @@ class NotificationTest extends TestCase
         $response->assertStatus(200);
         $response->assertViewIs('notifications.unread');
     }
-    
+
     public function test_all_displays_the_all_page()
     {
         $this->actingAs($this->user);
@@ -70,7 +68,7 @@ class NotificationTest extends TestCase
         $response->assertStatus(200);
         $response->assertViewIs('notifications.all');
     }
-    
+
     public function test_click_mark_as_read()
     {
         $this->actingAs($this->user);
@@ -79,7 +77,7 @@ class NotificationTest extends TestCase
             ->call('markAsRead')
             ->assertEmitted('markAsRead');
     }
-    
+
     public function test_click_delete()
     {
         $this->actingAs($this->user);
@@ -88,7 +86,7 @@ class NotificationTest extends TestCase
             ->call('deleteAll')
             ->assertEmitted('deleteAll');
     }
-    
+
     public function test_see_bell_icon()
     {
         $this->actingAs($this->user);
