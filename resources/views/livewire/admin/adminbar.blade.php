@@ -27,14 +27,6 @@
                 <ul class="dropdown-menu shadow-sm border">
                     <li class="dropdown-item">
                         <span class="mr-3">
-                            <i class="fa fa-toggle-on mr-1"></i>
-                            <a class="font-weight-bold text-dark" href="https://gitlab.com/taskord/taskord/-/feature_flags" target="_blank">
-                                Feature Flags
-                            </a>
-                        </span>
-                    </li>
-                    <li class="dropdown-item">
-                        <span class="mr-3">
                             <i class="fa fa-bug mr-1"></i>
                             <a class="font-weight-bold text-dark" href="https://gitlab.com/taskord/taskord/-/error_tracking" target="_blank">
                                 Error Tracking
