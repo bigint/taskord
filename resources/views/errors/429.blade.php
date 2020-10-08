@@ -23,7 +23,6 @@
             ul { list-style: none; margin: 25px 0; padding: 0; }
             li { display: table-cell; font-weight: bold; width: 1%; }
             .logo { display: inline-block; margin-top: 35px; }
-            .logo-img-2x { display: none; }
             #suggestions {
                 margin-top: 35px;
                 color: #ccc;
@@ -39,16 +38,21 @@
     <body>
         <div class="container">
             <h1>Whoa there!</h1>
-            <p>You have triggered an abuse detection mechanism.<br><br>
-                Please wait a few minutes before you try again;<br>
-                in some cases this may take up to an hour.
+            <p>
+                You have triggered an abuse detection mechanism.
+                <br>
+                <br>
+                Please wait a few minutes before you try again.
+                <br>
+                Make sure that you are not abusing our system!
+                <br>
             </p>
             <div id="suggestions">
-                <a href="https://github.com/contact">Contact Support</a> &mdash;
-                <a href="https://githubstatus.com">GitHub Status</a> &mdash;
-                <a href="https://twitter.com/githubstatus">@githubstatus</a>
+                <a href="https://taskord.com/contact">Taskord Support</a> —
+                <a href="https://status.taskord.com">Taskord Status</a> —
+                <a href="https://twitter.com/taskord">@taskord</a>
             </div>
-            <a href="/" class="logo logo-img-1x">
+            <a href="/" class="logo">
             <img width="32" height="32" title="" alt="" src="/images/error.svg">
             </a>
         </div>
