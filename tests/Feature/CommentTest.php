@@ -175,52 +175,54 @@ class CommentTest extends TestCase
     public function test_view_comments()
     {
         $this->actingAs($this->user);
-        $question = Question::create([
+        $task = Task::create([
             'user_id' => 1,
-            'title' => 'Test Question',
-            'body' => 'Test Question Body',
+            'task' => 'Test Task',
+            'source' => 'PHPUnit',
+            'done' => true,
         ]);
-        $answer = Answer::create([
-            'user_id' =>  1,
-            'question_id' => $question->id,
-            'answer' => 'Test Answer',
+        $comment = Comment::create([
+            'user_id' =>  $this->user->id,
+            'task_id' =>  $task->id,
+            'comment' => 'Test Comment',
         ]);
 
-        Livewire::test(Answers::class, ['question' => $question, 'page' => 1, 'perPage' => 10])
-            ->assertSeeHtml('Test Answer');
+        Livewire::test(Comments::class, ['task' => $task, 'page' => 1, 'perPage' => 10])
+            ->assertSeeHtml('Test Comment');
     }
 
-    public function test_view_load_more_answers()
+    public function test_view_load_more_comments()
     {
         $this->actingAs($this->user);
-        $question = Question::find(1);
-        $answer = Answer::create([
-            'user_id' =>  1,
-            'question_id' => $question->id,
-            'answer' => 'Test Answer',
+        $task = Task::find(1);
+        $comment = Comment::create([
+            'user_id' =>  $this->user->id,
+            'task_id' =>  $task->id,
+            'comment' => 'Test Comment',
         ]);
 
-        Livewire::test(LoadMore::class, ['question' => $question, 'page' => 1, 'perPage' => 10])
+        Livewire::test(LoadMore::class, ['task' => $task, 'page' => 1, 'perPage' => 10])
             ->assertSeeHtml('Load More')
             ->call('loadMore')
             ->assertStatus(200);
     }
 
-    public function test_view_single_answer()
+    public function test_view_single_comment()
     {
         $this->actingAs($this->user);
-        $question = Question::create([
+        $task = Task::create([
             'user_id' => 1,
-            'title' => 'Test Question',
-            'body' => 'Test Question Body',
+            'task' => 'Test Task',
+            'source' => 'PHPUnit',
+            'done' => true,
         ]);
-        $answer = Answer::create([
-            'user_id' =>  1,
-            'question_id' => $question->id,
-            'answer' => 'Test Answer',
+        $comment = Comment::create([
+            'user_id' =>  $this->user->id,
+            'task_id' =>  $task->id,
+            'comment' => 'Test Comment',
         ]);
 
-        Livewire::test(SingleAnswer::class, ['answer' => $answer])
-            ->assertSeeHtml('Test Answer');
+        Livewire::test(SingleComment::class, ['comment' => $comment])
+            ->assertSeeHtml('Test Comment');
     }
 }
