@@ -183,4 +183,58 @@ class UserTest extends TestCase
             ->call('verifyUser')
             ->assertStatus(200);
     }
+    
+    public function test_mod_masquerade()
+    {
+        $this->actingAs($this->admin);
+
+        Livewire::test(Moderator::class, ['user' => $this->target])
+            ->call('masquerade')
+            ->assertStatus(200);
+    }
+    
+    public function test_mod_delete_tasks()
+    {
+        $this->actingAs($this->admin);
+
+        Livewire::test(Moderator::class, ['user' => $this->target])
+            ->call('deleteTasks')
+            ->assertStatus(200);
+    }
+    
+    public function test_mod_delete_comments()
+    {
+        $this->actingAs($this->admin);
+
+        Livewire::test(Moderator::class, ['user' => $this->target])
+            ->call('deleteComments')
+            ->assertStatus(200);
+    }
+    
+    public function test_mod_delete_questions()
+    {
+        $this->actingAs($this->admin);
+
+        Livewire::test(Moderator::class, ['user' => $this->target])
+            ->call('deleteQuestions')
+            ->assertStatus(200);
+    }
+    
+    public function test_mod_delete_answers()
+    {
+        $this->actingAs($this->admin);
+
+        Livewire::test(Moderator::class, ['user' => $this->target])
+            ->call('deleteAnswers')
+            ->assertStatus(200);
+    }
+    
+    public function test_mod_delete_products()
+    {
+        $this->actingAs($this->admin);
+
+        Livewire::test(Moderator::class, ['user' => $this->target])
+            ->call('deleteProducts')
+            ->assertStatus(200);
+    }
 }

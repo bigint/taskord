@@ -423,7 +423,7 @@ class Moderator extends Component
             $user = User::find($this->user->id);
             $user->timestamps = false;
             foreach ($user->ownedProducts as $product) {
-                $product->task()->delete();
+                $product->tasks()->delete();
                 $product->webhooks()->delete();
                 $avatar = explode('storage/', $product->avatar);
                 if (array_key_exists(1, $avatar)) {
