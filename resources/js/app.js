@@ -55,13 +55,15 @@ document.addEventListener("turbolinks:load", () => {
 // Dark mode toggle in dropdown
 document.addEventListener("turbolinks:load", () => {
   document.getElementById("dark-mode").addEventListener("click", () => {
-    $.get("/darkmode", (data, status) => {
-      if (data === "enabled" || data === "disabled") {
-        if (status === "success") {
-          window.location.reload();
+    window.fetch("/darkmode")
+      .then(async r => {
+        const data = await r.text();
+        if (data === "enabled" || data === "disabled") {
+          if (r.status === 200) {
+            window.location.reload();
+          }
         }
-      }
-    });
+      });
   });
 });
 
