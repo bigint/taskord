@@ -28,8 +28,9 @@ document.addEventListener("DOMContentLoaded", () => {
   })();
 }, false);
 
-$(window).scroll(() => {
-  if ($(window).scrollTop() + $(window).height() > $(document).height() - 100) {
+window.addEventListener('scroll', () => {
+  var scrollTop =  window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+  if (scrollTop + window.innerHeight > document.documentElement.scrollHeight - 100) {
     document.getElementById("load-more").click();
     document.getElementById("load-more").innerHTML = "Loading";
     document.getElementById("load-more").disabled = true;
