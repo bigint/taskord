@@ -7,17 +7,17 @@ use Livewire\Component;
 
 class Products extends Component
 {
-    public $user_id;
+    public $user;
 
     public function mount($user)
     {
-        $this->user_id = $user->id;
+        $this->user = $user;
     }
 
     public function render()
     {
         $products = Product::cacheFor(60 * 60)
-            ->where('user_id', $this->user_id)
+            ->where('user_id', $this->user->id)
             ->paginate(20);
 
         return view('livewire.user.products', [

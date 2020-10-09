@@ -5,6 +5,7 @@ namespace Tests\Feature;
 use App\Http\Livewire\User\Follow;
 use App\Http\Livewire\User\Followers;
 use App\Http\Livewire\User\Following;
+use App\Http\Livewire\User\Products;
 use App\Http\Livewire\User\Moderator;
 use App\Models\User;
 use Livewire;
@@ -114,6 +115,12 @@ class UserTest extends TestCase
     public function test_see_followings()
     {
         Livewire::test(Following::class, ['user' => $this->admin])
+            ->assertStatus(200);
+    }
+    
+    public function test_see_products()
+    {
+        Livewire::test(Products::class, ['user' => $this->admin])
             ->assertStatus(200);
     }
     
