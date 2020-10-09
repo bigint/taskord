@@ -150,6 +150,20 @@ class UserTest extends TestCase
             ->assertSeeHtml($task->task);
     }
     
+    public function test_load_more_done_tasks()
+    {
+        Livewire::test(LoadMore::class, ['user' => $this->admin, 'type' => 'user.done', 'page' => 1])
+            ->call('loadMore')
+            ->assertStatus(200);
+    }
+    
+    public function test_load_more_pending_tasks()
+    {
+        Livewire::test(LoadMore::class, ['user' => $this->admin, 'type' => 'user.pending', 'page' => 1])
+            ->call('loadMore')
+            ->assertStatus(200);
+    }
+    
     public function test_see_products()
     {
         $product = Product::where('user_id', $this->admin->id)
