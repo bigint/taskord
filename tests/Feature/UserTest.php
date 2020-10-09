@@ -3,20 +3,21 @@
 namespace Tests\Feature;
 
 use App\Http\Livewire\User\Follow;
+use App\Http\Livewire\User\Moderator;
 use App\Models\User;
 use Livewire;
 use Tests\TestCase;
 
 class UserTest extends TestCase
 {
-    public $user1;
-    public $user2;
+    public $admin;
+    public $target;
 
     public function setUp(): void
     {
         parent::setUp();
-        $this->user1 = User::find(1);
-        $this->user2 = User::find(2);
+        $this->admin = User::find(1);
+        $this->target = User::find(10);
     }
 
     public function test_user_done_url()
@@ -96,9 +97,90 @@ class UserTest extends TestCase
 
     public function test_follow_other_user()
     {
-        $this->actingAs($this->user1);
+        $this->actingAs($this->admin);
 
-        Livewire::test(Follow::class, ['user' => $this->user2])
+        Livewire::test(Follow::class, ['user' => $this->target])
             ->call('followUser');
+    }
+    
+    public function test_mod_enroll_beta()
+    {
+        $this->actingAs($this->admin);
+
+        Livewire::test(Moderator::class, ['user' => $this->target])
+            ->call('enrollBeta')
+            ->assertStatus(200);
+    }
+    
+    public function test_mod_enroll_staff()
+    {
+        $this->actingAs($this->admin);
+
+        Livewire::test(Moderator::class, ['user' => $this->target])
+            ->call('enrollStaff')
+            ->assertStatus(200);
+    }
+    
+    public function test_mod_enroll_developer()
+    {
+        $this->actingAs($this->admin);
+
+        Livewire::test(Moderator::class, ['user' => $this->target])
+            ->call('enrollDeveloper')
+            ->assertStatus(200);
+    }
+    
+    public function test_mod_enroll_private()
+    {
+        $this->actingAs($this->admin);
+
+        Livewire::test(Moderator::class, ['user' => $this->target])
+            ->call('privateUser')
+            ->assertStatus(200);
+    }
+    
+    public function test_mod_flag_user()
+    {
+        $this->actingAs($this->admin);
+
+        Livewire::test(Moderator::class, ['user' => $this->target])
+            ->call('flagUser')
+            ->assertStatus(200);
+    }
+    
+    public function test_mod_suspend_user()
+    {
+        $this->actingAs($this->admin);
+
+        Livewire::test(Moderator::class, ['user' => $this->target])
+            ->call('suspendUser')
+            ->assertStatus(200);
+    }
+    
+    public function test_mod_enroll_patron()
+    {
+        $this->actingAs($this->admin);
+
+        Livewire::test(Moderator::class, ['user' => $this->target])
+            ->call('enrollPatron')
+            ->assertStatus(200);
+    }
+    
+    public function test_mod_enroll_dark_mode()
+    {
+        $this->actingAs($this->admin);
+
+        Livewire::test(Moderator::class, ['user' => $this->target])
+            ->call('enrollDarkMode')
+            ->assertStatus(200);
+    }
+    
+    public function test_mod_verify_user()
+    {
+        $this->actingAs($this->admin);
+
+        Livewire::test(Moderator::class, ['user' => $this->target])
+            ->call('verifyUser')
+            ->assertStatus(200);
     }
 }
