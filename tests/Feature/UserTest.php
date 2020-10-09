@@ -6,8 +6,11 @@ use App\Http\Livewire\User\Follow;
 use App\Http\Livewire\User\Followers;
 use App\Http\Livewire\User\Following;
 use App\Http\Livewire\User\Products;
+use App\Http\Livewire\User\Questions;
 use App\Http\Livewire\User\Moderator;
 use App\Models\User;
+use App\Models\Product;
+use App\Models\Question;
 use Livewire;
 use Tests\TestCase;
 
@@ -120,8 +123,21 @@ class UserTest extends TestCase
     
     public function test_see_products()
     {
+        $product = Product::where('user_id', $this->admin->id)
+            ->first();
+
         Livewire::test(Products::class, ['user' => $this->admin])
-            ->assertStatus(200);
+            ->assertSeeHtml($product->name);
+    }
+    
+    public function test_see_questions()
+    {
+        $question = Question::where('user_id', $this->admin->id)
+            ->latest()
+            ->first();
+
+        Livewire::test(Questions::class, ['user' => $this->admin])
+            ->assertSeeHtml($question->title);
     }
     
     public function test_mod_enroll_beta()
