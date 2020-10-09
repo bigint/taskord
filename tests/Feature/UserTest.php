@@ -3,6 +3,8 @@
 namespace Tests\Feature;
 
 use App\Http\Livewire\User\Follow;
+use App\Http\Livewire\User\Followers;
+use App\Http\Livewire\User\Following;
 use App\Http\Livewire\User\Moderator;
 use App\Models\User;
 use Livewire;
@@ -101,6 +103,18 @@ class UserTest extends TestCase
 
         Livewire::test(Follow::class, ['user' => $this->target])
             ->call('followUser');
+    }
+    
+    public function test_see_followers()
+    {
+        Livewire::test(Followers::class, ['user' => $this->admin])
+            ->assertStatus(200);
+    }
+    
+    public function test_see_followings()
+    {
+        Livewire::test(Following::class, ['user' => $this->admin])
+            ->assertStatus(200);
     }
     
     public function test_mod_enroll_beta()
