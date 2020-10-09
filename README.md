@@ -70,7 +70,7 @@ Contributions are what makes the open-source community such an amazing place to 
 1. Fork the project, ie. https://gitlab.com/taskord/taskord/-/forks/new
 2. Clone your forked repository, ie. `git clone https://gitlab.com/<your-username>/taskord.git`
 3. Create your Feature Branch (`git checkout -b AmazingFeature`)
-4. Commit your changes (`git commit -m 'Add some AmazingFeature`)
+4. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
 5. Push to the Branch (`git push origin AmazingFeature`)
 6. Open a Merge Request
 
