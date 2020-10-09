@@ -5,15 +5,15 @@ namespace Tests\Feature;
 use App\Http\Livewire\User\Follow;
 use App\Http\Livewire\User\Followers;
 use App\Http\Livewire\User\Following;
+use App\Http\Livewire\User\LoadMore;
+use App\Http\Livewire\User\Moderator;
 use App\Http\Livewire\User\Products;
 use App\Http\Livewire\User\Questions;
 use App\Http\Livewire\User\Tasks;
-use App\Http\Livewire\User\LoadMore;
-use App\Http\Livewire\User\Moderator;
-use App\Models\User;
-use App\Models\Task;
 use App\Models\Product;
 use App\Models\Question;
+use App\Models\Task;
+use App\Models\User;
 use Livewire;
 use Tests\TestCase;
 
@@ -111,59 +111,59 @@ class UserTest extends TestCase
         Livewire::test(Follow::class, ['user' => $this->target])
             ->call('followUser');
     }
-    
+
     public function test_see_followers()
     {
         Livewire::test(Followers::class, ['user' => $this->admin])
             ->assertStatus(200);
     }
-    
+
     public function test_see_followings()
     {
         Livewire::test(Following::class, ['user' => $this->admin])
             ->assertStatus(200);
     }
-    
+
     public function test_see_done_tasks()
     {
         $task = Task::where([
-                ['user_id', $this->admin->id],
-                ['done', true],
-            ])
+            ['user_id', $this->admin->id],
+            ['done', true],
+        ])
             ->latest()
             ->first();
 
         Livewire::test(Tasks::class, ['user' => $this->admin, 'type' => 'user.done', 'page' => 1])
             ->assertSeeHtml($task->task);
     }
-    
+
     public function test_see_pending_tasks()
     {
         $task = Task::where([
-                ['user_id', $this->admin->id],
-                ['done', false],
-            ])
+            ['user_id', $this->admin->id],
+            ['done', false],
+        ])
             ->latest()
             ->first();
 
         Livewire::test(Tasks::class, ['user' => $this->admin, 'type' => 'user.pending', 'page' => 1])
             ->assertSeeHtml($task->task);
     }
-    
+
     public function test_load_more_done_tasks()
     {
         Livewire::test(LoadMore::class, ['user' => $this->admin, 'type' => 'user.done', 'page' => 1])
             ->call('loadMore')
             ->assertStatus(200);
     }
-    
+
     public function test_load_more_pending_tasks()
     {
         Livewire::test(LoadMore::class, ['user' => $this->admin, 'type' => 'user.pending', 'page' => 1])
             ->call('loadMore')
             ->assertStatus(200);
     }
-    
+
     public function test_see_products()
     {
         $product = Product::where('user_id', $this->admin->id)
@@ -172,7 +172,7 @@ class UserTest extends TestCase
         Livewire::test(Products::class, ['user' => $this->admin])
             ->assertSeeHtml($product->name);
     }
-    
+
     public function test_see_questions()
     {
         $question = Question::where('user_id', $this->admin->id)
@@ -182,7 +182,7 @@ class UserTest extends TestCase
         Livewire::test(Questions::class, ['user' => $this->admin])
             ->assertSeeHtml($question->title);
     }
-    
+
     public function test_mod_enroll_beta()
     {
         $this->actingAs($this->admin);
@@ -191,7 +191,7 @@ class UserTest extends TestCase
             ->call('enrollBeta')
             ->assertStatus(200);
     }
-    
+
     public function test_mod_enroll_staff()
     {
         $this->actingAs($this->admin);
@@ -200,7 +200,7 @@ class UserTest extends TestCase
             ->call('enrollStaff')
             ->assertStatus(200);
     }
-    
+
     public function test_mod_enroll_developer()
     {
         $this->actingAs($this->admin);
@@ -209,7 +209,7 @@ class UserTest extends TestCase
             ->call('enrollDeveloper')
             ->assertStatus(200);
     }
-    
+
     public function test_mod_enroll_private()
     {
         $this->actingAs($this->admin);
@@ -218,7 +218,7 @@ class UserTest extends TestCase
             ->call('privateUser')
             ->assertStatus(200);
     }
-    
+
     public function test_mod_flag_user()
     {
         $this->actingAs($this->admin);
@@ -227,7 +227,7 @@ class UserTest extends TestCase
             ->call('flagUser')
             ->assertStatus(200);
     }
-    
+
     public function test_mod_suspend_user()
     {
         $this->actingAs($this->admin);
@@ -236,7 +236,7 @@ class UserTest extends TestCase
             ->call('suspendUser')
             ->assertStatus(200);
     }
-    
+
     public function test_mod_enroll_patron()
     {
         $this->actingAs($this->admin);
@@ -245,7 +245,7 @@ class UserTest extends TestCase
             ->call('enrollPatron')
             ->assertStatus(200);
     }
-    
+
     public function test_mod_enroll_dark_mode()
     {
         $this->actingAs($this->admin);
@@ -254,7 +254,7 @@ class UserTest extends TestCase
             ->call('enrollDarkMode')
             ->assertStatus(200);
     }
-    
+
     public function test_mod_verify_user()
     {
         $this->actingAs($this->admin);
@@ -263,7 +263,7 @@ class UserTest extends TestCase
             ->call('verifyUser')
             ->assertStatus(200);
     }
-    
+
     public function test_mod_masquerade()
     {
         $this->actingAs($this->admin);
@@ -272,7 +272,7 @@ class UserTest extends TestCase
             ->call('masquerade')
             ->assertStatus(200);
     }
-    
+
     public function test_mod_delete_tasks()
     {
         $this->actingAs($this->admin);
@@ -281,7 +281,7 @@ class UserTest extends TestCase
             ->call('deleteTasks')
             ->assertStatus(200);
     }
-    
+
     public function test_mod_delete_comments()
     {
         $this->actingAs($this->admin);
@@ -290,7 +290,7 @@ class UserTest extends TestCase
             ->call('deleteComments')
             ->assertStatus(200);
     }
-    
+
     public function test_mod_delete_questions()
     {
         $this->actingAs($this->admin);
@@ -299,7 +299,7 @@ class UserTest extends TestCase
             ->call('deleteQuestions')
             ->assertStatus(200);
     }
-    
+
     public function test_mod_delete_answers()
     {
         $this->actingAs($this->admin);
@@ -308,7 +308,7 @@ class UserTest extends TestCase
             ->call('deleteAnswers')
             ->assertStatus(200);
     }
-    
+
     public function test_mod_delete_products()
     {
         $this->actingAs($this->admin);
