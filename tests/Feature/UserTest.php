@@ -3,20 +3,30 @@
 namespace Tests\Feature;
 
 use App\Http\Livewire\User\Follow;
+use App\Http\Livewire\User\Followers;
+use App\Http\Livewire\User\Following;
+use App\Http\Livewire\User\LoadMore;
+use App\Http\Livewire\User\Moderator;
+use App\Http\Livewire\User\Products;
+use App\Http\Livewire\User\Questions;
+use App\Http\Livewire\User\Tasks;
+use App\Models\Product;
+use App\Models\Question;
+use App\Models\Task;
 use App\Models\User;
 use Livewire;
 use Tests\TestCase;
 
 class UserTest extends TestCase
 {
-    public $user1;
-    public $user2;
+    public $admin;
+    public $target;
 
     public function setUp(): void
     {
         parent::setUp();
-        $this->user1 = User::find(1);
-        $this->user2 = User::find(2);
+        $this->admin = User::find(1);
+        $this->target = User::find(10);
     }
 
     public function test_user_done_url()
@@ -96,9 +106,215 @@ class UserTest extends TestCase
 
     public function test_follow_other_user()
     {
-        $this->actingAs($this->user1);
+        $this->actingAs($this->admin);
 
-        Livewire::test(Follow::class, ['user' => $this->user2])
+        Livewire::test(Follow::class, ['user' => $this->target])
             ->call('followUser');
+    }
+
+    public function test_see_followers()
+    {
+        Livewire::test(Followers::class, ['user' => $this->admin])
+            ->assertStatus(200);
+    }
+
+    public function test_see_followings()
+    {
+        Livewire::test(Following::class, ['user' => $this->admin])
+            ->assertStatus(200);
+    }
+
+    public function test_see_done_tasks()
+    {
+        $task = Task::where([
+            ['user_id', $this->admin->id],
+            ['done', true],
+        ])
+            ->latest()
+            ->first();
+
+        Livewire::test(Tasks::class, ['user' => $this->admin, 'type' => 'user.done', 'page' => 1])
+            ->assertSeeHtml($task->task);
+    }
+
+    public function test_see_pending_tasks()
+    {
+        $task = Task::where([
+            ['user_id', $this->admin->id],
+            ['done', false],
+        ])
+            ->latest()
+            ->first();
+
+        Livewire::test(Tasks::class, ['user' => $this->admin, 'type' => 'user.pending', 'page' => 1])
+            ->assertSeeHtml($task->task);
+    }
+
+    public function test_load_more_done_tasks()
+    {
+        Livewire::test(LoadMore::class, ['user' => $this->admin, 'type' => 'user.done', 'page' => 1])
+            ->call('loadMore')
+            ->assertStatus(200);
+    }
+
+    public function test_load_more_pending_tasks()
+    {
+        Livewire::test(LoadMore::class, ['user' => $this->admin, 'type' => 'user.pending', 'page' => 1])
+            ->call('loadMore')
+            ->assertStatus(200);
+    }
+
+    public function test_see_products()
+    {
+        $product = Product::where('user_id', $this->admin->id)
+            ->first();
+
+        Livewire::test(Products::class, ['user' => $this->admin])
+            ->assertSeeHtml($product->name);
+    }
+
+    public function test_see_questions()
+    {
+        $question = Question::where('user_id', $this->admin->id)
+            ->latest()
+            ->first();
+
+        Livewire::test(Questions::class, ['user' => $this->admin])
+            ->assertSeeHtml($question->title);
+    }
+
+    public function test_mod_enroll_beta()
+    {
+        $this->actingAs($this->admin);
+
+        Livewire::test(Moderator::class, ['user' => $this->target])
+            ->call('enrollBeta')
+            ->assertStatus(200);
+    }
+
+    public function test_mod_enroll_staff()
+    {
+        $this->actingAs($this->admin);
+
+        Livewire::test(Moderator::class, ['user' => $this->target])
+            ->call('enrollStaff')
+            ->assertStatus(200);
+    }
+
+    public function test_mod_enroll_developer()
+    {
+        $this->actingAs($this->admin);
+
+        Livewire::test(Moderator::class, ['user' => $this->target])
+            ->call('enrollDeveloper')
+            ->assertStatus(200);
+    }
+
+    public function test_mod_enroll_private()
+    {
+        $this->actingAs($this->admin);
+
+        Livewire::test(Moderator::class, ['user' => $this->target])
+            ->call('privateUser')
+            ->assertStatus(200);
+    }
+
+    public function test_mod_flag_user()
+    {
+        $this->actingAs($this->admin);
+
+        Livewire::test(Moderator::class, ['user' => $this->target])
+            ->call('flagUser')
+            ->assertStatus(200);
+    }
+
+    public function test_mod_suspend_user()
+    {
+        $this->actingAs($this->admin);
+
+        Livewire::test(Moderator::class, ['user' => $this->target])
+            ->call('suspendUser')
+            ->assertStatus(200);
+    }
+
+    public function test_mod_enroll_patron()
+    {
+        $this->actingAs($this->admin);
+
+        Livewire::test(Moderator::class, ['user' => $this->target])
+            ->call('enrollPatron')
+            ->assertStatus(200);
+    }
+
+    public function test_mod_enroll_dark_mode()
+    {
+        $this->actingAs($this->admin);
+
+        Livewire::test(Moderator::class, ['user' => $this->target])
+            ->call('enrollDarkMode')
+            ->assertStatus(200);
+    }
+
+    public function test_mod_verify_user()
+    {
+        $this->actingAs($this->admin);
+
+        Livewire::test(Moderator::class, ['user' => $this->target])
+            ->call('verifyUser')
+            ->assertStatus(200);
+    }
+
+    public function test_mod_masquerade()
+    {
+        $this->actingAs($this->admin);
+
+        Livewire::test(Moderator::class, ['user' => $this->target])
+            ->call('masquerade')
+            ->assertStatus(200);
+    }
+
+    public function test_mod_delete_tasks()
+    {
+        $this->actingAs($this->admin);
+
+        Livewire::test(Moderator::class, ['user' => $this->target])
+            ->call('deleteTasks')
+            ->assertStatus(200);
+    }
+
+    public function test_mod_delete_comments()
+    {
+        $this->actingAs($this->admin);
+
+        Livewire::test(Moderator::class, ['user' => $this->target])
+            ->call('deleteComments')
+            ->assertStatus(200);
+    }
+
+    public function test_mod_delete_questions()
+    {
+        $this->actingAs($this->admin);
+
+        Livewire::test(Moderator::class, ['user' => $this->target])
+            ->call('deleteQuestions')
+            ->assertStatus(200);
+    }
+
+    public function test_mod_delete_answers()
+    {
+        $this->actingAs($this->admin);
+
+        Livewire::test(Moderator::class, ['user' => $this->target])
+            ->call('deleteAnswers')
+            ->assertStatus(200);
+    }
+
+    public function test_mod_delete_products()
+    {
+        $this->actingAs($this->admin);
+
+        Livewire::test(Moderator::class, ['user' => $this->target])
+            ->call('deleteProducts')
+            ->assertStatus(200);
     }
 }
