@@ -137,6 +137,19 @@ class UserTest extends TestCase
             ->assertSeeHtml($task->task);
     }
     
+    public function test_see_pending_tasks()
+    {
+        $task = Task::where([
+                ['user_id', $this->admin->id],
+                ['done', false],
+            ])
+            ->latest()
+            ->first();
+
+        Livewire::test(Tasks::class, ['user' => $this->admin, 'type' => 'user.pending', 'page' => 1])
+            ->assertSeeHtml($task->task);
+    }
+    
     public function test_see_products()
     {
         $product = Product::where('user_id', $this->admin->id)
