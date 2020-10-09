@@ -64,7 +64,7 @@ class Account extends Component
         if (Auth::check()) {
             $this->validateOnly($field, [
                 'username' => 'required|min:2|max:20|alpha_dash|unique:users,username,'.$this->user->id,
-                'email' => 'required|email|max:255|unique:users,email,'.$this->user->id,
+                'email' => 'required|email|max:255|indisposable|unique:users,email,'.$this->user->id,
             ]);
         } else {
             return session()->flash('error', 'Forbidden!');
@@ -77,7 +77,7 @@ class Account extends Component
             if (Auth::id() === $this->user->id) {
                 $this->validate([
                     'username' => 'required|min:2|max:20|alpha_dash|unique:users,username,'.$this->user->id,
-                    'email' => 'required|email:rfc,dns|max:255|unique:users,email,'.$this->user->id,
+                    'email' => 'required|email|max:255|indisposable|unique:users,email,'.$this->user->id,
                 ]);
 
                 if ($this->email !== $this->user->email) {
