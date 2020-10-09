@@ -40,13 +40,15 @@ window.addEventListener('scroll', () => {
 // Admin Bar toggle in dropdown
 document.addEventListener("turbolinks:load", () => {
   document.getElementById("admin-bar-click").addEventListener("click", () => {
-    $.get("/admin/adminbar", (data, status) => {
-      if (data === "enabled" || data === "disabled") {
-        if (status === "success") {
-          window.location.reload();
+    window.fetch("/admin/adminbar")
+      .then(async r => {
+        const data = await r.text();
+        if (data === "enabled" || data === "disabled") {
+          if (r.status === 200) {
+            window.location.reload();
+          }
         }
-      }
-    });
+      });
   });
 });
 
