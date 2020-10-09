@@ -59,8 +59,9 @@
             <span class="font-weight-bold">
                 @php
                 $hour = Carbon::now()->setTimezone($user->timezone)->format('H');
+                $formattedTZ = str_replace("_", " ", $user->timezone)
                 @endphp
-                {{ $user->timezone }}
+                {{ $formattedTZ }}
                 •
                 <span class="text-black-50">
                     {{
