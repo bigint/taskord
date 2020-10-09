@@ -7,8 +7,11 @@ use App\Http\Livewire\User\Followers;
 use App\Http\Livewire\User\Following;
 use App\Http\Livewire\User\Products;
 use App\Http\Livewire\User\Questions;
+use App\Http\Livewire\User\Tasks;
+use App\Http\Livewire\User\LoadMore;
 use App\Http\Livewire\User\Moderator;
 use App\Models\User;
+use App\Models\Task;
 use App\Models\Product;
 use App\Models\Question;
 use Livewire;
@@ -119,6 +122,19 @@ class UserTest extends TestCase
     {
         Livewire::test(Following::class, ['user' => $this->admin])
             ->assertStatus(200);
+    }
+    
+    public function test_see_done_tasks()
+    {
+        $task = Task::where([
+                ['user_id', $this->admin->id],
+                ['done', true],
+            ])
+            ->latest()
+            ->first();
+
+        Livewire::test(Tasks::class, ['user' => $this->admin, 'type' => 'user.done', 'page' => 1])
+            ->assertSeeHtml($task->task);
     }
     
     public function test_see_products()
