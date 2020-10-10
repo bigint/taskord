@@ -25,6 +25,18 @@ class TaskSeeder extends Seeder
             'created_at' => $faker->dateTimeBetween($startDate = '-30 days', $endDate = '-5 days'),
             'updated_at' => $faker->dateTimeBetween($startDate = '-30 days', $endDate = '-5 days'),
         ]);
+        foreach (range(1, 50) as $index) {
+            DB::table('tasks')->insert([
+                'user_id' => 3,
+                'product_id' => 1,
+                'task' => $faker->sentence($nbWords = 6, $variableNbWords = true),
+                'done' => $faker->boolean($chanceOfGettingTrue = 50),
+                'source' => 'Taskord for Web',
+                'done_at' => $faker->dateTimeBetween($startDate = '-30 days', $endDate = '-5 days'),
+                'created_at' => $faker->dateTimeBetween($startDate = '-30 days', $endDate = '-5 days'),
+                'updated_at' => $faker->dateTimeBetween($startDate = '-30 days', $endDate = '-5 days'),
+            ]);
+        }
         foreach (range(1, 500) as $index) {
             DB::table('tasks')->insert([
                 'user_id' => $faker->numberBetween($min = 1, $max = 50),

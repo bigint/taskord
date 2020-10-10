@@ -20,7 +20,7 @@ class ProductSeeder extends Seeder
             'name' => 'Taskord',
             'avatar' => 'https://i.imgur.com/QpfHEy6.png',
             'description' => 'Get things done socially with Taskord',
-            'user_id' => 1,
+            'user_id' => 3,
             'website' => 'https://taskord.com',
             'twitter' => 'taskord',
             'repo' => 'https://gitlab.com/taskord/taskord',
