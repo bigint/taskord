@@ -21,7 +21,7 @@ if ($user->lastname and $user->lastname) {
 <div class="container">
     @include('user.profile')
     <div class="row justify-content-center mt-4">
-        <div class="col-md-8">
+        <div class="col-lg-8">
             @livewire('user.questions', [
                 'user' => $user
             ])

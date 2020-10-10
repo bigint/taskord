@@ -7,7 +7,7 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-lg-8">
             @guest
             <div class="p-5 rounded mb-4 text-white welcome-card">
                 <h1>Welcome to Taskord {{ Emoji::wavingHand() }}</h1>

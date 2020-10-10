@@ -9,7 +9,7 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-lg-8">
             @include('question.nav')
             @if (session()->has('question_deleted'))
                 <div class="alert alert-success alert-dismissible fade show mt-2">

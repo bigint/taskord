@@ -12,7 +12,7 @@
         <div class="col-sm">
             @include('search.sidebar')
         </div>
-        <div class="col-md-8">
+        <div class="col-lg-8">
             @if ($type === 'tasks')
                 <form action="/search/tasks" method="GET" role="search">
                     @csrf

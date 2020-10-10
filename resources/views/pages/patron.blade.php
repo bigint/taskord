@@ -18,7 +18,7 @@
         </div>
         <div class="card-body">
             <div class="row align-items-center font-monospace">
-                <div class="col-md-8">
+                <div class="col-lg-8">
                     <div class="font-weight-bold mb-3">You get the following benefits</div>
                     <ul>
                         <li>🌑 Enable Awesome Dark Mode</li>
