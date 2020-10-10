@@ -28,20 +28,6 @@
         Contact
     </a>
     @auth
-    <a
-        class="pr-2" href="#"
-        data-feedback-fish
-        data-feedback-fish-userid="{{ Auth::id() }}"
-        data-feedback-fish-email="{{ Auth::user()->email }}"
-    >
-        Feedback
-    </a>
-    @else
-    <a class="pr-2" href="#" data-feedback-fish>
-        Feedback
-    </a>
-    @endauth
-    @auth
     @if (Auth::user()->staffShip)
     <span class="pr-2 text-danger">
         Admin mode on
@@ -49,4 +35,3 @@
     @endif
     @endauth
 </div>
-<script defer src="https://feedback.fish/ff.js?pid=bb991c046cf648"></script>
