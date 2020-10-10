@@ -90,9 +90,9 @@
                                 </td>
                                 <td>
                                     @if ($user->provider === 'google')
-                                        <i class="fa fa-google text-danger"></i>
+                                        <i class="fab fa-google text-danger"></i>
                                     @elseif ($user->provider === 'twitter')
-                                        <i class="fa fa-twitter text-info"></i>
+                                        <i class="fab fa-twitter text-info"></i>
                                     @else
                                         <i class="fa fa-globe text-success"></i>
                                     @endif
