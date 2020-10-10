@@ -24,12 +24,23 @@
     <a class="pr-2" href="{{ route('sponsors') }}">
         Sponsors
     </a>
-    <a class="pr-2" href="https://forms.clickup.com/f/357rd-725/OL919ALCZ5V0ALREMH" target="_blank">
-        Bug Report
-    </a>
     <a class="pr-2" href="https://forms.clickup.com/f/357rd-767/8PPJM0SN435CWUX4X2" target="_blank">
         Contact
     </a>
+    @auth
+    <a
+        class="pr-2" href="#"
+        data-feedback-fish
+        data-feedback-fish-userid="{{ Auth::id() }}"
+        data-feedback-fish-email="{{ Auth::user()->email }}"
+    >
+        Feedback
+    </a>
+    @else
+    <a class="pr-2" href="#" data-feedback-fish>
+        Feedback
+    </a>
+    @endauth
     @auth
     @if (Auth::user()->staffShip)
     <span class="pr-2 text-danger">
