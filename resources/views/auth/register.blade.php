@@ -7,9 +7,9 @@
 @section('url', url()->current())
 
 @section('content')
-<div class="container">
+<div class="container-md">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-lg-8">
             <form class="form-signin" method="POST" action="{{ route('register') }}">
                 @csrf
                 <div class="text-center mb-4">

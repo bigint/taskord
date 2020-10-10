@@ -3,7 +3,7 @@
 @section('pageTitle', 'All Notifications ·')
 
 @section('content')
-<div class="container">
+<div class="container-md">
     <div class="row justify-content-center">
         <div class="col-lg-8">
             <a role="button" class="btn btn-primary mb-3" href="{{ route('notifications.unread') }}">

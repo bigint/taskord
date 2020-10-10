@@ -7,9 +7,9 @@
 @section('url', url()->current())
 
 @section('content')
-<div class="container">
+<div class="container-md">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-lg-8">
             @if (session()->has('product_deleted'))
                 <div class="alert alert-success alert-dismissible fade show">
                     <button type="button" class="btn-close small" data-dismiss="alert"></button>

@@ -9,7 +9,7 @@
 @section('content')
 <div class="container-fluid">
     <div class="row justify-content-center">
-        <div class="container">
+        <div class="container-md">
             @include('admin.nav')
             <div class="card">
                 <div class="card-header h6 pt-3 pb-3">

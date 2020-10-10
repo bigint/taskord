@@ -7,10 +7,10 @@
 @section('url', url()->current())
 
 @section('content')
-<div class="container">
+<div class="container-md">
     @include('product.profile')
     <div class="row justify-content-center mt-4">
-        <div class="col-md-8">
+        <div class="col-lg-8">
             @auth
             @if (
                 Auth::id() === $product->owner->id or

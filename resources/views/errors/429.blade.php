@@ -51,7 +51,7 @@
         </style>
     </head>
     <body>
-        <div class="container">
+        <div class="container-md">
             <img src="/images/pride.svg" />
             <h1>Whoa there!</h1>
             <p>You have triggered an abuse detection mechanism.</p>

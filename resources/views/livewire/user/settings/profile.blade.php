@@ -1,4 +1,4 @@
-<div class="col-md-8">
+<div class="col-lg-8">
     <x-alert />
     <div class="card mb-4">
         <div class="card-header pt-3 pb-3">

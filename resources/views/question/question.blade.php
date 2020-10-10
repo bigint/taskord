@@ -11,9 +11,9 @@
 @endif
 
 @section('content')
-<div class="container">
+<div class="container-md">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-lg-8">
             @if (session()->has('question_created'))
                 <div class="alert alert-success alert-dismissible fade show mt-2">
                     <button type="button" class="btn-close small" data-dismiss="alert"></button>

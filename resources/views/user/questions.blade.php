@@ -18,10 +18,10 @@ if ($user->lastname and $user->lastname) {
 @section('url', url()->current())
 
 @section('content')
-<div class="container">
+<div class="container-md">
     @include('user.profile')
     <div class="row justify-content-center mt-4">
-        <div class="col-md-8">
+        <div class="col-lg-8">
             @livewire('user.questions', [
                 'user' => $user
             ])

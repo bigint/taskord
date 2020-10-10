@@ -7,7 +7,7 @@
 @section('url', url()->current())
 
 @section('content')
-<div class="container">
+<div class="container-md">
     <div class="card">
         <div class="card-header pt-3 pb-3">
             <span class="h5">Heading</span>
