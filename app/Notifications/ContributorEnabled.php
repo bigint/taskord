@@ -27,7 +27,7 @@ class ContributorEnabled extends Notification implements ShouldQueue
                     ->subject('You are now contributor to Taskord 🎉')
                     ->greeting('Hello @'.$notifiable->username.' 👋')
                     ->line('You are marked as contributor by one of the staff member 🎉')
-                    ->line('You can see the contributor badge in your profile.')
+                    ->line('You can now see the contributor badge in your profile.')
                     ->line('Thank you for using and helping Taskord!');
     }
 }
