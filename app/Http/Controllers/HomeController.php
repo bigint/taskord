@@ -27,7 +27,6 @@ class HomeController extends Controller
     public function index()
     {
         $launched_today = Product::cacheFor(60 * 60)
-            ->select('slug', 'name', 'avatar', 'description', 'launched', 'launched_at', 'user_id')
             ->where('launched', true)
             ->whereDate('launched_at', Carbon::today())
             ->orderBy('launched_at', 'DESC')
