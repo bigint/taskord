@@ -8,7 +8,7 @@
         <div class="card-body">
             @if (session()->has('profile'))
                 <div class="alert alert-success alert-dismissible fade show mb-3">
-                    <button type="button" class="close" data-dismiss="alert">×</button>
+                    <button type="button" class="btn-close small" data-dismiss="alert"></button>
                     {{ session('profile') }}
                 </div>
             @endif
@@ -99,7 +99,7 @@
             </form>
         </div>
     </div>
-    
+
     <div class="card mb-4">
         <div class="card-header pt-3 pb-3">
             <span class="h5">Goal</span>
@@ -108,7 +108,7 @@
         <div class="card-body">
             @if (session()->has('setGoal'))
                 <div class="alert alert-success alert-dismissible fade show mb-3">
-                    <button type="button" class="close" data-dismiss="alert">×</button>
+                    <button type="button" class="btn-close small" data-dismiss="alert"></button>
                     {{ session('setGoal') }}
                 </div>
             @endif
@@ -136,7 +136,7 @@
             </form>
         </div>
     </div>
-    
+
     <div class="card mb-4">
         <div class="card-header pt-3 pb-3">
             <span class="h5">Homepage</span>
@@ -145,7 +145,7 @@
         <div class="card-body">
             @if (session()->has('showfollowing'))
                 <div class="alert alert-success alert-dismissible fade show mb-3">
-                    <button type="button" class="close" data-dismiss="alert">×</button>
+                    <button type="button" class="btn-close small" data-dismiss="alert"></button>
                     {{ session('showfollowing') }}
                 </div>
             @endif
@@ -154,7 +154,7 @@
             <span wire:loading wire:target="onlyFollowingsTasks" class="small ml-2 text-success font-weight-bold">Updating...</span>
         </div>
     </div>
-    
+
     <div class="card mb-4">
         <div class="card-header pt-3 pb-3">
             <span class="h5">Sponsor</span>
@@ -163,7 +163,7 @@
         <div class="card-body">
             @if (session()->has('sponsor'))
                 <div class="alert alert-success alert-dismissible fade show mb-3">
-                    <button type="button" class="close" data-dismiss="alert">×</button>
+                    <button type="button" class="btn-close small" data-dismiss="alert"></button>
                     {{ session('sponsor') }}
                 </div>
             @endif
@@ -186,7 +186,7 @@
             </form>
         </div>
     </div>
-    
+
     <div class="card mb-4">
         <div class="card-header pt-3 pb-3">
             <span class="h5">Social</span>
@@ -195,7 +195,7 @@
         <div class="card-body">
             @if (session()->has('social'))
                 <div class="alert alert-success alert-dismissible fade show mb-3">
-                    <button type="button" class="close" data-dismiss="alert">×</button>
+                    <button type="button" class="btn-close small" data-dismiss="alert"></button>
                     {{ session('social') }}
                 </div>
             @endif
