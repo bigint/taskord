@@ -43,7 +43,7 @@
         <div class="card-body">
             @if (session()->has('isBeta'))
                 <div class="alert alert-success alert-dismissible fade show mb-3">
-                    <button type="button" class="close" data-dismiss="alert">×</button>
+                    <button type="button" class="btn-close small" data-dismiss="alert"></button>
                     {{ session('isBeta') }}
                 </div>
             @endif
@@ -63,7 +63,7 @@
         <div class="card-body">
             @if (session()->has('isPrivate'))
                 <div class="alert alert-success alert-dismissible fade show mb-3">
-                    <button type="button" class="close" data-dismiss="alert">×</button>
+                    <button type="button" class="btn-close small" data-dismiss="alert"></button>
                     {{ session('isPrivate') }}
                 </div>
             @endif
