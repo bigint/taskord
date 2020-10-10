@@ -4,7 +4,7 @@
 @section('pageTitle', 'Hidden Comment ·')
 @else
 @section('pageTitle', $comment->comment.' ·')
-@section('title', 'Task by @'.$comment->user->username.' ·')
+@section('title', 'Comment by @'.$comment->user->username.' ·')
 @section('description', $comment->comment)
 @section('image', $comment->user->avatar)
 @section('url', url()->current())
