@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\User;
 
 use App\Models\User;
+use App\Notifications\ContributorEnabled;
 use App\Notifications\Logger;
 use App\Notifications\PatronGifted;
 use App\Notifications\UserVerified;
@@ -89,6 +90,7 @@ class Moderator extends Component
             $this->user->timestamps = false;
             $this->user->save();
             if ($this->user->isDeveloper) {
+                $this->user->notify(new ContributorEnabled(true));
                 $this->user->notify(
                     new Logger(
                         'MOD',
