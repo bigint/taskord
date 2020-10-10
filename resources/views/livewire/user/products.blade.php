@@ -12,9 +12,19 @@
                 </a>
                 <div>{{ $product->description }}</div>
             </span>
-            <a class="ml-auto" href="{{ route('user.done', ['username' => $product->owner->username]) }}">
-                <img class="rounded-circle float-right avatar-30 mt-1 ml-2" src="{{ $product->owner->avatar }}" height="50" width="50" />
-            </a>
+            <span class="ml-auto">
+                @if ($product->members()->count() > 1)
+                    <span class="mr-2 text-secondary font-weight-bold">+{{ $product->members()->count() - 1 }} more</span>
+                @endif
+                @foreach ($product->members()->limit(1)->get() as $user)
+                <a href="{{ route('user.done', ['username' => $user->username]) }}">
+                    <img class="rounded-circle avatar-30 mr-1" src="{{ $user->avatar }}" />
+                </a>
+                @endforeach
+                <a href="{{ route('user.done', ['username' => $product->owner->username]) }}">
+                    <img class="rounded-circle avatar-30 mr-0" src="{{ $product->owner->avatar }}" />
+                </a>
+            </span>
         </div>
     </div>
     @endforeach
