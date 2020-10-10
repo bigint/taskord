@@ -13,7 +13,9 @@ use App\Http\Livewire\Product\Team;
 use App\Http\Livewire\Product\Tasks;
 use App\Http\Livewire\Product\Updates;
 use App\Http\Livewire\Product\Update\NewUpdate;
+use App\Http\Livewire\Product\Update\SingleUpdate;
 use App\Models\Product;
+use App\Models\ProductUpdate;
 use App\Models\User;
 use App\Models\Question;
 use App\Models\Task;
@@ -288,5 +290,18 @@ class ProductTest extends TestCase
         Livewire::test(LoadMore::class, ['product' => $this->product, 'type' => 'product.pending', 'page' => 1])
             ->call('loadMore')
             ->assertStatus(200);
+    }
+    
+    public function test_see_single_update()
+    {
+        $update = ProductUpdate::create([
+            'user_id' =>  $this->user->id,
+            'product_id' =>  $this->product->id,
+            'title' => 'Test Update',
+            'body' => 'Test Update',
+        ]);
+
+        Livewire::test(SingleUpdate::class, ['update' => $update])
+            ->assertSeeHtml($update->title);
     }
 }
