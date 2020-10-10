@@ -251,7 +251,6 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js" defer data-turbolinks-track="true" data-turbolinks-eval=false></script>
 <script src="{{ asset('js/app.js', config('app.env') === 'production' ? true : false) }}" defer data-turbolinks-track="true" data-turbolinks-eval=false></script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-178044316-1" data-turbolinks-track="true" data-turbolinks-eval=false></script>
-<script defer src="https://feedback.fish/ff.js?pid=bb991c046cf648"></script>
 <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
