@@ -304,4 +304,35 @@ class ProductTest extends TestCase
         Livewire::test(SingleUpdate::class, ['update' => $update])
             ->assertSeeHtml($update->title);
     }
+    
+    public function test_praise_single_update()
+    {
+        $this->actingAs($this->user);
+        $update = ProductUpdate::create([
+            'user_id' =>  $this->user->id,
+            'product_id' =>  $this->product->id,
+            'title' => 'Test Update',
+            'body' => 'Test Update',
+        ]);
+
+        Livewire::test(SingleUpdate::class, ['update' => $update])
+            ->call('togglePraise')
+            ->assertStatus(200);
+    }
+    
+    public function test_delete_single_update()
+    {
+        $this->actingAs($this->user);
+        $update = ProductUpdate::create([
+            'user_id' =>  $this->user->id,
+            'product_id' =>  $this->product->id,
+            'title' => 'Test Update',
+            'body' => 'Test Update',
+        ]);
+
+        Livewire::test(SingleUpdate::class, ['update' => $update])
+            ->call('confirmDelete')
+            ->call('deleteUpdate')
+            ->assertEmitted('updateDeleted');
+    }
 }
