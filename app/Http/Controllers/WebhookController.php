@@ -45,22 +45,16 @@ class WebhookController extends Controller
             Helper::flagAccount(Auth::user());
         }
         if (! $throttler->check()) {
-            return response()->json([
-                'message' => 'Your are rate limited, try again later!',
-            ], 429);
+            return response('Your are rate limited, try again later', 429);
         }
 
         $webhook = Webhook::where('token', $token)->first();
         if (! $webhook) {
-            return response()->json([
-                'message' => 'No webhook exists',
-            ], 401);
+            return response('No webhook exists', 401);
         }
 
         if (User::find($webhook->user_id)->isFlagged) {
-            return response()->json([
-                'message' => 'Your account is flagged!',
-            ], 401);
+            return response('Your account is flagged', 401);
         }
 
         if ($webhook->type === 'web') {
@@ -69,9 +63,7 @@ class WebhookController extends Controller
                 ! array_key_exists('task', $request_body) or
                 ! array_key_exists('done', $request_body)
             ) {
-                return response()->json([
-                    'message' => 'Invalid parameters',
-                ], 422);
+                return response('Invalid parameters', 422);
             }
             if ($request_body['done']) {
                 $done_at = Carbon::now();
@@ -88,42 +80,28 @@ class WebhookController extends Controller
                 'Webhook'
             );
 
-            return response()->json([
-                'status' => 'success',
-            ], 200);
+            return response('success', 200);
         } elseif ($webhook->type === 'github' or $webhook->type === 'gitlab') {
             if ($request->header('X-GitHub-Event') === 'ping') {
-                return response()->json([
-                    'message' => 'Webhook Connected!',
-                ], 200);
+                return response('success', 200);
             }
             $request_body = $request->json()->all();
 
             if ($request->header('X-GitHub-Event') === 'push') {
                 if (Str::contains($request_body['pusher']['name'], '[bot]')) {
-                    return response()->json([
-                        'message' => 'Bot cannot log tasks!',
-                    ], 200);
+                    return response('Bot cannot log tasks', 200);
                 }
             } else {
-                return response()->json([
-                    'message' => 'Only push event is allowed!',
-                ], 200);
+                return response('Only push event is allowed', 200);
             }
             if ($request_body['repository']['default_branch'] !== str_replace("refs/heads/", "", $request_body['ref'])) {
-                return response()->json([
-                    'message' => 'Only default branch is allowed!',
-                ], 200);
-            }
-
-            if ($request_body['head_commit'] === 'None') {
-                return response()->json([
-                    'message' => 'No commits found!',
-                ], 200);
+                return response('Only default branch is allowed', 200);
             }
 
             if ($request_body['head_commit']) {
                 $task = Str::limit($request_body['head_commit']['message'], 100);
+            } else {
+                return response('No head_commit found', 200);
             }
 
             $this->createTask(
@@ -135,9 +113,7 @@ class WebhookController extends Controller
                 $webhook->type === 'github' ? 'GitHub' : 'GitLab'
             );
 
-            return response()->json([
-                'status' => 'success',
-            ], 200);
+            return response('success', 200);
         }
     }
 
@@ -166,13 +142,9 @@ class WebhookController extends Controller
                 $user->notify(new VersionReleased($message));
             }
 
-            return response()->json([
-                'status' => 'success',
-            ], 200);
+            return response('success', 200);
         } else {
-            return response()->json([
-                'status' => 'failed',
-            ], 500);
+            return response('failed', 500);
         }
     }
 }
