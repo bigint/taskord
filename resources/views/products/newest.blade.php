@@ -12,7 +12,7 @@
         <div class="col-md-8">
             @if (session()->has('product_deleted'))
                 <div class="alert alert-success alert-dismissible fade show">
-                    <button type="button" class="close" data-dismiss="alert">×</button>
+                    <button type="button" class="btn-close small" data-dismiss="alert"></button>
                     <i class="fa fa-check mr-1"></i>
                     {{ session('product_deleted') }}
                 </div>
