@@ -25,7 +25,7 @@ class TaskSeeder extends Seeder
             'created_at' => $faker->dateTimeBetween($startDate = '-30 days', $endDate = '-5 days'),
             'updated_at' => $faker->dateTimeBetween($startDate = '-30 days', $endDate = '-5 days'),
         ]);
-        foreach (range(1, 1000) as $index) {
+        foreach (range(1, 500) as $index) {
             DB::table('tasks')->insert([
                 'user_id' => $faker->numberBetween($min = 1, $max = 50),
                 'product_id' => $faker->numberBetween($min = 1, $max = 100),
