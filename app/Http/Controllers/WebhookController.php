@@ -94,7 +94,7 @@ class WebhookController extends Controller
             } else {
                 return response('Only push event is allowed', 200);
             }
-            if ($request_body['repository']['default_branch'] !== str_replace("refs/heads/", "", $request_body['ref'])) {
+            if ($request_body['repository']['default_branch'] !== str_replace('refs/heads/', '', $request_body['ref'])) {
                 return response('Only default branch is allowed', 200);
             }
 
