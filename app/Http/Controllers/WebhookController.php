@@ -37,6 +37,99 @@ class WebhookController extends Controller
         }
     }
 
+    public function simpleWebhook($request, $webhook)
+    {
+        $request_body = $request->json()->all();
+        if (
+            ! array_key_exists('task', $request_body) or
+            ! array_key_exists('done', $request_body)
+        ) {
+            return response('Invalid parameters', 422);
+        }
+        if ($request_body['done']) {
+            $done_at = Carbon::now();
+        } else {
+            $done_at = null;
+        }
+
+        $this->createTask(
+            $webhook,
+            $request_body['task'],
+            $request_body['done'],
+            $done_at,
+            $webhook->product_id,
+            'Webhook'
+        );
+
+        return response('success', 200);
+    }
+
+    public function githubWebhook($request, $webhook)
+    {
+        if ($request->header('X-GitHub-Event') === 'ping') {
+            return response('success', 200);
+        }
+        $request_body = $request->json()->all();
+
+        if ($request->header('X-GitHub-Event') === 'push') {
+            if (Str::contains($request_body['pusher']['name'], '[bot]')) {
+                return response('Bot cannot log tasks', 200);
+            }
+        } else {
+            return response('Only push event is allowed', 200);
+        }
+        if ($request_body['repository']['default_branch'] !== str_replace('refs/heads/', '', $request_body['ref'])) {
+            return response('Only default branch is allowed', 200);
+        }
+
+        if ($request_body['head_commit']) {
+            $task = Str::limit($request_body['head_commit']['message'], 100);
+        } else {
+            return response('No head_commit found', 200);
+        }
+
+        $this->createTask(
+            $webhook,
+            $task,
+            true,
+            Carbon::now(),
+            $webhook->product_id,
+            'GitHub'
+        );
+
+        return response('success', 200);
+    }
+
+    public function gitlabWebhook($request, $webhook)
+    {
+        $request_body = $request->json()->all();
+
+        if ($request->header('X-Gitlab-Event') !== 'Push Hook') {
+            return response('Only push event is allowed', 200);
+        }
+
+        if ($request_body['project']['default_branch'] !== str_replace('refs/heads/', '', $request_body['ref'])) {
+            return response('Only default branch is allowed', 200);
+        }
+
+        if (count($request_body['commits']) >= 1) {
+            $task = Str::limit($request_body['commits'][0]['message'], 100);
+        } else {
+            return response('No commits found', 200);
+        }
+
+        $this->createTask(
+            $webhook,
+            $task,
+            true,
+            Carbon::now(),
+            $webhook->product_id,
+            'GitLab'
+        );
+
+        return response('success', 200);
+    }
+
     public function web($token, WebhookRequest $request)
     {
         $throttler = Throttle::get(Request::instance(), 50, 5);
@@ -58,62 +151,11 @@ class WebhookController extends Controller
         }
 
         if ($webhook->type === 'web') {
-            $request_body = $request->json()->all();
-            if (
-                ! array_key_exists('task', $request_body) or
-                ! array_key_exists('done', $request_body)
-            ) {
-                return response('Invalid parameters', 422);
-            }
-            if ($request_body['done']) {
-                $done_at = Carbon::now();
-            } else {
-                $done_at = null;
-            }
-
-            $this->createTask(
-                $webhook,
-                $request_body['task'],
-                $request_body['done'],
-                $done_at,
-                $webhook->product_id,
-                'Webhook'
-            );
-
-            return response('success', 200);
-        } elseif ($webhook->type === 'github' or $webhook->type === 'gitlab') {
-            if ($request->header('X-GitHub-Event') === 'ping') {
-                return response('success', 200);
-            }
-            $request_body = $request->json()->all();
-
-            if ($request->header('X-GitHub-Event') === 'push') {
-                if (Str::contains($request_body['pusher']['name'], '[bot]')) {
-                    return response('Bot cannot log tasks', 200);
-                }
-            } else {
-                return response('Only push event is allowed', 200);
-            }
-            if ($request_body['repository']['default_branch'] !== str_replace('refs/heads/', '', $request_body['ref'])) {
-                return response('Only default branch is allowed', 200);
-            }
-
-            if ($request_body['head_commit']) {
-                $task = Str::limit($request_body['head_commit']['message'], 100);
-            } else {
-                return response('No head_commit found', 200);
-            }
-
-            $this->createTask(
-                $webhook,
-                $task,
-                true,
-                Carbon::now(),
-                $webhook->product_id,
-                $webhook->type === 'github' ? 'GitHub' : 'GitLab'
-            );
-
-            return response('success', 200);
+            return $this->simpleWebhook($request, $webhook);
+        } elseif ($webhook->type === 'github') {
+            return $this->githubWebhook($request, $webhook);
+        } elseif ($webhook->type === 'gitlab') {
+            return $this->gitlabWebhook($request, $webhook);
         }
     }
 
