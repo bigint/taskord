@@ -3,7 +3,7 @@
 @if ($comment->hidden)
 @section('pageTitle', 'Hidden Comment ·')
 @else
-@section('pageTitle', $comment->comment.' ·')
+@section('pageTitle', 'Comment by @'.$comment->user->username.' ·')
 @section('title', 'Comment by @'.$comment->user->username.' ·')
 @section('description', $comment->comment)
 @section('image', $comment->user->avatar)
