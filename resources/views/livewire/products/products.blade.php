@@ -32,6 +32,9 @@
                     <div>{{ $product->description }}</div>
                 </span>
                 <span class="ml-auto">
+                    @if ($product->members()->count() > 1)
+                        <span class="mr-2 text-secondary font-weight-bold">+{{ $product->members()->count() - 1 }} more</span>
+                    @endif
                     @foreach ($product->members()->limit(1)->get() as $user)
                     <a href="{{ route('user.done', ['username' => $user->username]) }}">
                     <img class="rounded-circle avatar-30 mr-1" src="{{ $user->avatar }}" />
