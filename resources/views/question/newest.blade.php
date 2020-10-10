@@ -13,7 +13,7 @@
             @include('question.nav')
             @if (session()->has('question_deleted'))
                 <div class="alert alert-success alert-dismissible fade show mt-2">
-                    <button type="button" class="close" data-dismiss="alert">×</button>
+                    <button type="button" class="btn-close small" data-dismiss="alert"></button>
                     <i class="fa fa-check mr-1"></i>
                     {{ session('question_deleted') }}
                 </div>
