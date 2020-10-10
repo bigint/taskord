@@ -52,7 +52,7 @@
         @endif
         @endauth
         <nav class="navbar navbar-expand-md navbar-dark bg-dark">
-            <div class="container">
+            <div class="container-md">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     @auth
                     @if (Auth::user()->isBeta)

@@ -3,7 +3,7 @@
 @section('pageTitle', 'Settings / Patron ·')
 
 @section('content')
-<div class="container">
+<div class="container-md">
     <div class="row justify-content-center mt-4">
         @include('user.settings.sidebar')
         <div class="col-lg-8">

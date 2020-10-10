@@ -7,7 +7,7 @@
 @section('url', url()->current())
 
 @section('content')
-<div class="container">
+<div class="container-md">
     <div class="row justify-content-center">
         <div class="col-sm">
             @include('search.sidebar')
@@ -36,7 +36,7 @@
                 </div>
                 @endif
             @endif
-            
+
             @if ($type === 'comments')
                 <form action="/search/comments" method="GET" role="search">
                     @csrf
@@ -58,7 +58,7 @@
                 </div>
                 @endif
             @endif
-            
+
             @if ($type === 'questions')
                 <form action="/search/questions" method="GET" role="search">
                     @csrf
@@ -81,7 +81,7 @@
                 </div>
                 @endif
             @endif
-            
+
             @if ($type === 'answers')
                 <form action="/search/answers" method="GET" role="search">
                     @csrf
@@ -113,7 +113,7 @@
                 </div>
                 @endif
             @endif
-            
+
             @if ($type === 'products')
                 <form action="/search/products" method="GET" role="search">
                     @csrf
@@ -170,7 +170,7 @@
                 </div>
                 @endif
             @endif
-            
+
             @if ($type === 'users')
                 <form action="/search/users" method="GET" role="search">
                     @csrf

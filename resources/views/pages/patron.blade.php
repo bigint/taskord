@@ -7,7 +7,7 @@
 @section('url', url()->current())
 
 @section('content')
-<div class="container">
+<div class="container-md">
     <div class="mb-4 text-center">
         <img src="/images/patron.svg" width="100" />
     </div>

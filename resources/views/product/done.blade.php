@@ -7,7 +7,7 @@
 @section('url', url()->current())
 
 @section('content')
-<div class="container">
+<div class="container-md">
     @include('product.profile')
     <div class="row justify-content-center mt-4">
         <div class="col-lg-8">
