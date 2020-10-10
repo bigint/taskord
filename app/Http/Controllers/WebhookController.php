@@ -110,6 +110,11 @@ class WebhookController extends Controller
                     'message' => 'Only push event is allowed!',
                 ], 200);
             }
+            if ($request_body['repository']['default_branch'] !== str_replace("refs/heads/", "", $request_body['ref'])) {
+                return response()->json([
+                    'message' => 'Only default branch is allowed!',
+                ], 200);
+            }
 
             if ($request_body['head_commit'] === 'None') {
                 return response()->json([
