@@ -3,22 +3,17 @@
 namespace Tests\Feature;
 
 use App\Http\Livewire\Product\EditProduct;
+use App\Http\Livewire\Product\LoadMore;
 use App\Http\Livewire\Product\NewProduct;
 use App\Http\Livewire\Product\Subscribe;
-use App\Http\Livewire\Product\AddMember;
-use App\Http\Livewire\Product\Leave;
-use App\Http\Livewire\Product\LoadMore;
 use App\Http\Livewire\Product\Subscribers;
-use App\Http\Livewire\Product\Team;
 use App\Http\Livewire\Product\Tasks;
-use App\Http\Livewire\Product\Updates;
 use App\Http\Livewire\Product\Update\NewUpdate;
 use App\Http\Livewire\Product\Update\SingleUpdate;
 use App\Models\Product;
 use App\Models\ProductUpdate;
-use App\Models\User;
-use App\Models\Question;
 use App\Models\Task;
+use App\Models\User;
 use Illuminate\Support\Str;
 use Livewire;
 use Tests\TestCase;
@@ -152,7 +147,7 @@ class ProductTest extends TestCase
     public function test_edit_product()
     {
         $product = Product::find(10);
-        
+
         Livewire::test(EditProduct::class, ['product' => $product])
             ->set('name', 'Test Product')
             ->set('slug', Str::random(5))
@@ -245,7 +240,7 @@ class ProductTest extends TestCase
         Livewire::test(Subscribe::class, ['product' => $this->product])
             ->call('subscribeProduct');
     }
-    
+
     public function test_see_subscribers()
     {
         Livewire::test(Subscribers::class, ['product' => $this->product])
@@ -291,7 +286,7 @@ class ProductTest extends TestCase
             ->call('loadMore')
             ->assertStatus(200);
     }
-    
+
     public function test_see_single_update()
     {
         $update = ProductUpdate::create([
@@ -304,7 +299,7 @@ class ProductTest extends TestCase
         Livewire::test(SingleUpdate::class, ['update' => $update])
             ->assertSeeHtml($update->title);
     }
-    
+
     public function test_praise_single_update()
     {
         $this->actingAs($this->user);
@@ -319,7 +314,7 @@ class ProductTest extends TestCase
             ->call('togglePraise')
             ->assertStatus(200);
     }
-    
+
     public function test_delete_single_update()
     {
         $this->actingAs($this->user);
