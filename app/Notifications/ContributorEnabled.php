@@ -24,8 +24,10 @@ class ContributorEnabled extends Notification implements ShouldQueue
     public function toMail($notifiable)
     {
         return (new MailMessage)
-                    ->line('The introduction to the notification.')
-                    ->action('Notification Action', url('/'))
-                    ->line('Thank you for using our application!');
+                    ->subject('You are now contributor to Taskord 🎉')
+                    ->greeting('Hello @'.$notifiable->username.' 👋')
+                    ->line('You are marked as contributor by one of the staff member 🎉')
+                    ->line('You can see the contributor badge in your profile.')
+                    ->line('Thank you for using and helping Taskord!');
     }
 }
