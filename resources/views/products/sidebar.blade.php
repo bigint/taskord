@@ -30,7 +30,6 @@
                 <a href="{{ route('user.done', ['username' => $product->owner->username]) }}">
                     <img class="rounded-circle avatar-30 mr-0" src="{{ $product->owner->avatar }}" />
                 </a>
-                </a>
             </span>
         </li>
         @endforeach
