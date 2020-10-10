@@ -36,6 +36,33 @@ class WebhookController extends Controller
             ]);
         }
     }
+    
+    public function simpleWebhook($request, $webhook)
+    {
+        $request_body = $request->json()->all();
+        if (
+            ! array_key_exists('task', $request_body) or
+            ! array_key_exists('done', $request_body)
+        ) {
+            return response('Invalid parameters', 422);
+        }
+        if ($request_body['done']) {
+            $done_at = Carbon::now();
+        } else {
+            $done_at = null;
+        }
+
+        $this->createTask(
+            $webhook,
+            $request_body['task'],
+            $request_body['done'],
+            $done_at,
+            $webhook->product_id,
+            'Webhook'
+        );
+
+        return response('success', 200);
+    }
 
     public function web($token, WebhookRequest $request)
     {
@@ -58,36 +85,14 @@ class WebhookController extends Controller
         }
 
         if ($webhook->type === 'web') {
-            $request_body = $request->json()->all();
-            if (
-                ! array_key_exists('task', $request_body) or
-                ! array_key_exists('done', $request_body)
-            ) {
-                return response('Invalid parameters', 422);
-            }
-            if ($request_body['done']) {
-                $done_at = Carbon::now();
-            } else {
-                $done_at = null;
-            }
-
-            $this->createTask(
-                $webhook,
-                $request_body['task'],
-                $request_body['done'],
-                $done_at,
-                $webhook->product_id,
-                'Webhook'
-            );
-
-            return response('success', 200);
+            return $this->simpleWebhook($request, $webhook);
         } elseif ($webhook->type === 'github' or $webhook->type === 'gitlab') {
             if ($request->header('X-GitHub-Event') === 'ping') {
                 return response('success', 200);
             }
             $request_body = $request->json()->all();
 
-            if ($request->header('X-GitHub-Event') === 'push') {
+            if ($request->header('X-GitHub-Event') === 'push' or $request->header('X-Gitlab-Event') === 'Push Hook') {
                 if (Str::contains($request_body['pusher']['name'], '[bot]')) {
                     return response('Bot cannot log tasks', 200);
                 }
