@@ -29,7 +29,7 @@ class ProductSeeder extends Seeder
             'launched_at' => $faker->dateTimeBetween($startDate = '-2 days', $endDate = 'now'),
             'created_at' => $faker->dateTimeBetween($startDate = '-2 days', $endDate = 'now'),
         ]);
-        foreach (range(1, 1000) as $index) {
+        foreach (range(1, 100) as $index) {
             DB::table('products')->insert([
                 'slug' => $faker->unique()->userName,
                 'name' => $faker->firstName,
