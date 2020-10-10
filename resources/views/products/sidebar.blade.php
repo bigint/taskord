@@ -21,9 +21,17 @@
                 {{ $product->tasks->count('id') }}
                 {{ $product->tasks->count('id') == 1 ? 'Task' : 'Tasks' }}
             </span>
-            <a href="{{ route('user.done', ['username' => $product->owner->username]) }}">
-                <img class="rounded-circle float-right avatar-30 mt-1 ml-2" src="{{ $product->owner->avatar }}" height="50" width="50" />
-            </a>
+            <span class="float-right">
+                @foreach ($product->members()->limit(1)->get() as $user)
+                <a href="{{ route('user.done', ['username' => $user->username]) }}">
+                    <img class="rounded-circle avatar-30 mr-1" src="{{ $user->avatar }}" />
+                </a>
+                @endforeach
+                <a href="{{ route('user.done', ['username' => $product->owner->username]) }}">
+                    <img class="rounded-circle avatar-30 mr-0" src="{{ $product->owner->avatar }}" />
+                </a>
+                </a>
+            </span>
         </li>
         @endforeach
     </ul>
