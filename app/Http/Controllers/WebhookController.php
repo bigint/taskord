@@ -36,7 +36,7 @@ class WebhookController extends Controller
             ]);
         }
     }
-    
+
     public function simpleWebhook($request, $webhook)
     {
         $request_body = $request->json()->all();
@@ -63,7 +63,7 @@ class WebhookController extends Controller
 
         return response('success', 200);
     }
-    
+
     public function githubWebhook($request, $webhook)
     {
         if ($request->header('X-GitHub-Event') === 'ping') {
@@ -99,7 +99,7 @@ class WebhookController extends Controller
 
         return response('success', 200);
     }
-    
+
     public function gitlabWebhook($request, $webhook)
     {
         $request_body = $request->json()->all();
@@ -107,11 +107,11 @@ class WebhookController extends Controller
         if ($request->header('X-Gitlab-Event') !== 'Push Hook') {
             return response('Only push event is allowed', 200);
         }
-        
+
         if ($request_body['project']['default_branch'] !== str_replace('refs/heads/', '', $request_body['ref'])) {
             return response('Only default branch is allowed', 200);
         }
-        
+
         if (count($request_body['commits']) >= 1) {
             $task = Str::limit($request_body['commits'][0]['message'], 100);
         } else {
