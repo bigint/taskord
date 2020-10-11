@@ -12,6 +12,10 @@ a {
   text-decoration: none;
 }
 
+.btn {
+  box-shadow: 0 1px 2px 0 rgba(0,0,0,.1) !important;
+}
+
 .btn-primary {
   color: #fff;
   background-color: $primary;
@@ -106,6 +110,7 @@ a {
 .btn-task {
   font-size: 12px;
   padding: 1px 8px;
+  box-shadow: none !important;
 }
 
 .btn-danger {

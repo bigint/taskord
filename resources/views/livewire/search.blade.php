@@ -20,7 +20,7 @@
             <li class="list-group-item">
                 <span>
                     <input
-                        class="form-check-input mt-1"
+                        class="form-check-input task-checkbox mt-1"
                         type="checkbox"
                         {{ $task->done ? "checked" : "unchecked" }}
                         disabled
