@@ -57,6 +57,11 @@ class CreateAnswer extends Component
             $this->emit('answerAdded');
             $this->answer = '';
             Helper::mentionUsers($users, $answer, 'answer');
+            Helper::notifySubscribers($answer->question->subscribers, $answer, 'answer');
+            if (! Auth::user()->hasSubscribed($answer->question)) {
+                Auth::user()->subscribe($answer->question);
+                $this->emit('questionSubscribed');
+            }
             if (Auth::id() !== $this->question->user->id) {
                 $this->question->user->notify(new Answered($answer));
                 givePoint(new CommentCreated($answer));

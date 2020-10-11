@@ -27,15 +27,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// Auth
+Auth::routes();
+Auth::routes(['verify' => true]);
+
+// Social Auth
+Route::get('login/{provider}', [SocialController::class, 'redirect']);
+Route::get('login/{provider}/callback', [SocialController::class, 'Callback']);
+
 Route::group(['middleware' => ['throttle:30,1']], function () {
-    // Auth
-    Auth::routes();
-    Auth::routes(['verify' => true]);
-
-    // Social Auth
-    Route::get('login/{provider}', [SocialController::class, 'redirect']);
-    Route::get('login/{provider}/callback', [SocialController::class, 'Callback']);
-
     // Home
     Route::get('/', [HomeController::class, 'index'])->name('home');
 

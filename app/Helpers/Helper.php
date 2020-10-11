@@ -10,7 +10,9 @@ use App\Models\User;
 use App\Notifications\AnswerPraised;
 use App\Notifications\CommentPraised;
 use App\Notifications\Mentioned;
+use App\Notifications\Question\NotifySubscribers as QuestionSubscribers;
 use App\Notifications\QuestionPraised;
+use App\Notifications\Task\NotifySubscribers as TaskSubscribers;
 use App\Notifications\TaskPraised;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
@@ -74,6 +76,22 @@ class Helper
                 if ($user !== null) {
                     if ($user->id !== Auth::id()) {
                         $user->notify(new Mentioned($task, $type));
+                    }
+                }
+            }
+        }
+    }
+
+    public static function notifySubscribers($users, $entity, $type)
+    {
+        $subscribers = $users->except(Auth::id());
+        if ($subscribers) {
+            for ($i = 0; $i < count($subscribers); $i++) {
+                if ($subscribers[$i] !== null) {
+                    if ($type === 'comment') {
+                        $subscribers[$i]->notify(new TaskSubscribers($entity));
+                    } elseif ($type === 'answer') {
+                        $subscribers[$i]->notify(new QuestionSubscribers($entity));
                     }
                 }
             }

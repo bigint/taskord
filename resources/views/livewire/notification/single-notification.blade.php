@@ -25,7 +25,9 @@
                     {{ Emoji::plus() }}
                 @elseif (
                     $type === "App\Notifications\Commented" or
-                    $type === "App\Notifications\Answered"
+                    $type === "App\Notifications\Answered" or
+                    $type === "App\Notifications\Task\NotifySubscribers" or
+                    $type === "App\Notifications\Question\NotifySubscribers"
                 )
                     {{ Emoji::speechBalloon() }}
                 @elseif (
@@ -191,6 +193,28 @@
                         @markdown($data['description'])
                     </div>
                 </div>
+            @elseif ($type === "App\Notifications\Task\NotifySubscribers")
+                <span class="align-middle">
+                    commented on a
+                    <a class="font-weight-bold" href="{{ route('task', ['id' => $data['task_id']]) }}">
+                        task
+                    </a>
+                    you subscribed
+                    <div class="mt-2 body-font">
+                        {!! nl2br(Purify::clean(Helper::renderTask($data['comment']))) !!}
+                    </div>
+                </span>
+            @elseif ($type === "App\Notifications\Question\NotifySubscribers")
+                <span class="align-middle">
+                    answered to the
+                    <a class="font-weight-bold" href="{{ route('question.question', ['id' => $data['question_id']]) }}">
+                        question
+                    </a>
+                    you subscribed
+                    <div class="mt-2 body-font">
+                        {!! nl2br(Purify::clean(Helper::renderTask($data['answer']))) !!}
+                    </div>
+                </span>
             @endif
             <div class="small mt-2 text-secondary">
                 {{ Carbon::createFromTimeStamp(strtotime($created_at))->diffForHumans() }}

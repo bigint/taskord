@@ -21,54 +21,6 @@
         <span class="float-right">
             <span role="button" class="dropdown dropleft">
                 <span class="font-weight-bold mr-3" data-toggle="dropdown">
-                    <i class="fa fa-tools mr-1"></i>
-                    Ops
-                </span>
-                <ul class="dropdown-menu shadow-sm border">
-                    <li class="dropdown-item">
-                        <span class="mr-3">
-                            <i class="fa fa-bug mr-1"></i>
-                            <a class="font-weight-bold text-dark" href="https://gitlab.com/taskord/taskord/-/error_tracking" target="_blank">
-                                Error Tracking
-                            </a>
-                        </span>
-                    </li>
-                    <li class="dropdown-item">
-                        <span class="mr-3">
-                            <i class="fa fa-server mr-1"></i>
-                            <a class="font-weight-bold text-dark" href="https://lightsail.aws.amazon.com/ls/webapp/home/instances" target="_blank">
-                                AWS Lightsail
-                            </a>
-                        </span>
-                    </li>
-                    <li class="dropdown-item">
-                        <span class="mr-3">
-                            <i class="fab fa-cloudflare mr-1"></i>
-                            <a class="font-weight-bold text-dark" href="https://dash.cloudflare.com/399292baad78b30006aa335f6ea19718/taskord.com" target="_blank">
-                                Cloudflare
-                            </a>
-                        </span>
-                    </li>
-                    <li class="dropdown-item">
-                        <span class="mr-3">
-                            <i class="fab fa-google mr-1"></i>
-                            <a class="font-weight-bold text-dark" href="https://analytics.google.com/analytics/web/#/report-home/a178044316w246352068p228891304" target="_blank">
-                                Google Analytics
-                            </a>
-                        </span>
-                    </li>
-                    <li class="dropdown-item">
-                        <span class="mr-3">
-                            <i class="fab fa-google mr-1"></i>
-                            <a class="font-weight-bold text-dark" href="https://search.google.com/search-console?resource_id=sc-domain%3Ataskord.com" target="_blank">
-                                Google Console
-                            </a>
-                        </span>
-                    </li>
-                </ul>
-            </span>
-            <span role="button" class="dropdown dropleft">
-                <span class="font-weight-bold mr-3" data-toggle="dropdown">
                     <i class="fa fa-chart-pie mr-1"></i>
                     Stats
                 </span>
