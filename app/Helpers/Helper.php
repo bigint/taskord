@@ -86,9 +86,7 @@ class Helper
         if ($users) {
             for ($i = 0; $i < count($users); $i++) {
                 if ($users[$i] !== null) {
-                    if ($users[$i]->id !== Auth::id()) {
-                        $users[$i]->notify(new NotifySubscribers($comment));
-                    }
+                    $users[$i]->notify(new NotifySubscribers($comment));
                 }
             }
         }
