@@ -7,10 +7,11 @@ use CyrildeWit\EloquentViewable\InteractsWithViews;
 use Illuminate\Database\Eloquent\Model;
 use Multicaret\Acquaintances\Traits\CanBeLiked;
 use Rennokki\QueryCache\Traits\QueryCacheable;
+use Multicaret\Acquaintances\Traits\CanBeSubscribed;
 
 class Question extends Model implements Viewable
 {
-    use InteractsWithViews, CanBeLiked, QueryCacheable;
+    use InteractsWithViews, CanBeLiked, QueryCacheable, CanBeSubscribed;
 
     public $cacheFor = 3600;
     protected static $flushCacheOnUpdate = true;

@@ -75,6 +75,16 @@
                     </span>
                 </div>
             </div>
+            @auth
+            <div class="card mb-4">
+                <div class="card-header">
+                    Subscribe this task
+                </div>
+                <div class="card-body d-flex align-items-center">
+                    @livewire('question.subscribe', ['question' => $question])
+                </div>
+            </div>
+            @endauth
             @if ($question->answer->count('id') > 0)
             <div class="card mb-4">
                 <div class="card-header">
