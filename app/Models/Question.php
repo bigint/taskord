@@ -6,8 +6,8 @@ use CyrildeWit\EloquentViewable\Contracts\Viewable;
 use CyrildeWit\EloquentViewable\InteractsWithViews;
 use Illuminate\Database\Eloquent\Model;
 use Multicaret\Acquaintances\Traits\CanBeLiked;
-use Rennokki\QueryCache\Traits\QueryCacheable;
 use Multicaret\Acquaintances\Traits\CanBeSubscribed;
+use Rennokki\QueryCache\Traits\QueryCacheable;
 
 class Question extends Model implements Viewable
 {

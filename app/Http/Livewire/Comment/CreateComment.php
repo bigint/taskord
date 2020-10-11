@@ -57,7 +57,7 @@ class CreateComment extends Component
             $this->emit('commentAdded');
             $this->comment = '';
             Helper::mentionUsers($users, $comment, 'comment');
-            if (!Auth::user()->hasSubscribed($comment->task)) {
+            if (! Auth::user()->hasSubscribed($comment->task)) {
                 Auth::user()->subscribe($comment->task);
                 $this->emit('taskSubscribed');
             }

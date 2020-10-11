@@ -57,7 +57,7 @@ class CreateAnswer extends Component
             $this->emit('answerAdded');
             $this->answer = '';
             Helper::mentionUsers($users, $answer, 'answer');
-            if (!Auth::user()->hasSubscribed($answer->question)) {
+            if (! Auth::user()->hasSubscribed($answer->question)) {
                 Auth::user()->subscribe($answer->question);
                 $this->emit('questionSubscribed');
             }
