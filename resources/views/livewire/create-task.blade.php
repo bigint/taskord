@@ -43,7 +43,7 @@
                     <span wire:target="submit" wire:loading class="spinner-border spinner-border-mini ml-2" role="status"></span>
                 </button>
                 </div>
-                <div wire:loading wire:target="image">
+                <div wire:loading wire:target="images">
                     <div class="spinner-border spinner-border-sm mt-4" role="status">
                       <span class="sr-only">Loading...</span>
                     </div>

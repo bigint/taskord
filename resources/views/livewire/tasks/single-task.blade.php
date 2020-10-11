@@ -19,9 +19,15 @@
             </span>
             @endif
         </span>
-        @if ($task->image)
+        @if ($task->images)
+        <div class="gallery mb-3">
+        @foreach ($task->images ?? [] as $image)
         <div>
-            <img class="img-fluid border mt-3 rounded w-50" src="{{ asset('storage/' . $task->image) }}" />
+            <a href="{{ asset('storage/' . $image) }}" data-lightbox="{{ $image }}" data-title="Image by {{ '@'.$task->user->username }}">
+                <img class="{{ count($task->images) === 1 ? 'w-50' : 'gallery' }} img-fluid border mt-3 rounded" src="{{ asset('storage/' . $image) }}" alt="{{ asset('storage/' . $image) }}" />
+            </a>
+        </div>
+        @endforeach
         </div>
         @endif
         <span class="d-flex small float-right ml-auto">

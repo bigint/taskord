@@ -30,17 +30,13 @@
                     <span wire:target="submit" wire:loading class="spinner-border spinner-border-mini ml-2" role="status"></span>
                 </button>
                 </div>
-                <div wire:loading wire:target="image">
+                <div wire:loading wire:target="images">
                     <div class="spinner-border spinner-border-sm mt-4" role="status">
                       <span class="sr-only">Loading...</span>
                     </div>
                 </div>
-                @error('image')
+                @error('images')
                 <div class="text-danger font-weight-bold mt-3">{{ $message }}</div>
-                @else
-                @if ($image)
-                <img class="img-fluid border mt-3 rounded" src="{{ $image->temporaryUrl() }}">
-                @endif
                 @enderror
             </form>
         </div>
