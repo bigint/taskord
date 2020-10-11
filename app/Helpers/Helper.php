@@ -12,7 +12,7 @@ use App\Notifications\CommentPraised;
 use App\Notifications\Mentioned;
 use App\Notifications\QuestionPraised;
 use App\Notifications\TaskPraised;
-use App\Notifications\Task\NotifySubscribers;
+use App\Notifications\Task\NotifySubscribers as TaskSubscribers;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 
@@ -86,7 +86,7 @@ class Helper
         if ($users) {
             for ($i = 0; $i < count($users); $i++) {
                 if ($users[$i] !== null) {
-                    $users[$i]->notify(new NotifySubscribers($comment));
+                    $users[$i]->notify(new TaskSubscribers($comment));
                 }
             }
         }
