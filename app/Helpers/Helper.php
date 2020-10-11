@@ -83,10 +83,11 @@ class Helper
 
     public static function notifySubscribers($users, $comment, $type)
     {
-        if ($users) {
-            for ($i = 0; $i < count($users); $i++) {
-                if ($users[$i] !== null) {
-                    $users[$i]->notify(new TaskSubscribers($comment));
+        $subscribers = $users->except(Auth::id());
+        if ($subscribers) {
+            for ($i = 0; $i < count($subscribers); $i++) {
+                if ($subscribers[$i] !== null) {
+                    $subscribers[$i]->notify(new TaskSubscribers($comment));
                 }
             }
         }

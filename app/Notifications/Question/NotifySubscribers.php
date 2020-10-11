@@ -2,6 +2,7 @@
 
 namespace App\Notifications\Question;
 
+use App\Models\User;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
@@ -11,51 +12,40 @@ class NotifySubscribers extends Notification implements ShouldQueue
 {
     use Queueable;
 
-    /**
-     * Create a new notification instance.
-     *
-     * @return void
-     */
-    public function __construct()
+    protected $answer;
+    protected $user_id;
+
+    public function __construct($answer)
     {
-        //
+        $this->answer = $answer;
+        $this->user_id = $answer->user->id;
     }
 
-    /**
-     * Get the notification's delivery channels.
-     *
-     * @param  mixed  $notifiable
-     * @return array
-     */
     public function via($notifiable)
     {
-        return ['mail'];
+        return ['mail', 'database'];
     }
 
-    /**
-     * Get the mail representation of the notification.
-     *
-     * @param  mixed  $notifiable
-     * @return \Illuminate\Notifications\Messages\MailMessage
-     */
     public function toMail($notifiable)
     {
+        $user = User::find($this->user_id);
+
         return (new MailMessage)
-                    ->line('The introduction to the notification.')
-                    ->action('Notification Action', url('/'))
-                    ->line('Thank you for using our application!');
+                    ->subject('@'.$user->username.' answered on the question')
+                    ->greeting('Hello @'.$notifiable->username.' 👋')
+                    ->line('👏 The question you subscribed has new answer by @'.$user->username)
+                    ->line('Question: '.$this->answer->question->title)
+                    ->line('Answer: '.$this->answer->answer)
+                    ->action('Go to Question', url('/question/'.$this->answer->question->id))
+                    ->line('Thank you for using Taskord!');
     }
 
-    /**
-     * Get the array representation of the notification.
-     *
-     * @param  mixed  $notifiable
-     * @return array
-     */
     public function toArray($notifiable)
     {
         return [
-            //
+            'answer' => $this->answer->answer,
+            'question_id' => $this->answer->question->id,
+            'user_id' => $this->user_id,
         ];
     }
 }
