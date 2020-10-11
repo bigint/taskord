@@ -118,7 +118,7 @@ class CreateTask extends Component
                 'task' => $this->task,
                 'done' => $state,
                 'done_at' => $done_at,
-                'image' => $images,
+                'images' => $images,
                 'due_at' => $this->due_at,
                 'type' => $product_id ? 'product' : 'user',
                 'source' => 'Taskord for Web',

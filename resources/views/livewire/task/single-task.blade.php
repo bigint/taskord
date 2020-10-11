@@ -82,14 +82,16 @@
             </span>
             @endif
         </span>
-        @if ($task->image)
-        @foreach ($task->image ?? [] as $image)
-        <div>
+        @if ($task->images)
+        <div class="gallery">
+        @foreach ($task->images ?? [] as $image)
+        <div class="img1">
             <a href="{{ asset('storage/' . $image) }}" data-lightbox="{{ $image }}" data-title="Image by {{ '@'.$task->user->username }}">
-                <img class="img-fluid border mt-3 rounded w-50" src="{{ asset('storage/' . $image) }}" alt="{{ asset('storage/' . $image) }}" />
+                <img class="gallery img-fluid border mt-3 rounded w-50" src="{{ asset('storage/' . $image) }}" alt="{{ asset('storage/' . $image) }}" />
             </a>
         </div>
         @endforeach
+        </div>
         @endif
         @endif
         <div class="mt-2">

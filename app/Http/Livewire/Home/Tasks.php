@@ -29,7 +29,7 @@ class Tasks extends Component
             $userIds = $user->followings->pluck('id');
             $userIds->push(Auth::id());
             $tasks = Task::cacheFor(60 * 60)
-                ->select('id', 'task', 'done', 'type', 'done_at', 'user_id', 'product_id', 'source', 'image', 'hidden')
+                ->select('id', 'task', 'done', 'type', 'done_at', 'user_id', 'product_id', 'source', 'images', 'hidden')
                 ->whereIn('user_id', $userIds)
                 ->whereHas('user', function ($q) {
                     $q->where([
@@ -42,7 +42,7 @@ class Tasks extends Component
                 ->paginate(20, null, null, $this->page);
         } else {
             $tasks = Task::cacheFor(60 * 60)
-                ->select('id', 'task', 'done', 'type', 'done_at', 'user_id', 'product_id', 'source', 'image', 'hidden')
+                ->select('id', 'task', 'done', 'type', 'done_at', 'user_id', 'product_id', 'source', 'images', 'hidden')
                 ->whereHas('user', function ($q) {
                     $q->where([
                         ['isFlagged', false],
