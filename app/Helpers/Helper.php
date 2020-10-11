@@ -12,6 +12,7 @@ use App\Notifications\CommentPraised;
 use App\Notifications\Mentioned;
 use App\Notifications\QuestionPraised;
 use App\Notifications\TaskPraised;
+use App\Notifications\Task\NotifySubscribers;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 
@@ -80,14 +81,13 @@ class Helper
         }
     }
     
-    public static function notifySubscribers($users, $task, $type)
+    public static function notifySubscribers($users, $comment, $type)
     {
         if ($users) {
             for ($i = 0; $i < count($users); $i++) {
-                $user = User::where('username', $users[$i])->first();
-                if ($user !== null) {
-                    if ($user->id !== Auth::id()) {
-                        $user->notify(new Mentioned($task, $type));
+                if ($users[$i] !== null) {
+                    if ($users[$i]->id !== Auth::id()) {
+                        $users[$i]->notify(new NotifySubscribers($comment));
                     }
                 }
             }
