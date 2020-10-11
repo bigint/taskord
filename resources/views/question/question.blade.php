@@ -78,7 +78,7 @@
             @auth
             <div class="card mb-4">
                 <div class="card-header">
-                    Subscribe this task
+                    Subscribe to this question
                 </div>
                 <div class="card-body d-flex align-items-center">
                     @livewire('question.subscribe', ['question' => $question])
