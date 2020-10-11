@@ -82,6 +82,14 @@
                 </div>
             </div>
             @endif
+            <div class="card mb-4">
+                <div class="card-header">
+                    Subscribe this task
+                </div>
+                <div class="card-body d-flex align-items-center">
+                    
+                </div>
+            </div>
             @if ($task->comments->count('id') > 0)
             <div class="card mb-4">
                 <div class="card-header">
