@@ -5,10 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Multicaret\Acquaintances\Traits\CanBeLiked;
 use Rennokki\QueryCache\Traits\QueryCacheable;
+use Multicaret\Acquaintances\Traits\CanBeSubscribed;
 
 class Task extends Model
 {
-    use CanBeLiked, QueryCacheable;
+    use CanBeLiked, QueryCacheable, CanBeSubscribed;
 
     public $cacheFor = 3600;
     protected static $flushCacheOnUpdate = true;
