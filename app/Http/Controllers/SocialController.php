@@ -51,7 +51,7 @@ class SocialController extends Controller
                 'username' => $username,
                 'firstname' => $userSocial->getName(),
                 'email' => $userSocial->getEmail(),
-                'avatar' => str_replace( 'http://', 'https://', $userSocial->avatar_original),
+                'avatar' => str_replace('http://', 'https://', $userSocial->avatar_original),
                 'provider_id' => $userSocial->getId(),
                 'provider' => $provider,
                 'email_verified_at' => date('Y-m-d H:i:s'),
