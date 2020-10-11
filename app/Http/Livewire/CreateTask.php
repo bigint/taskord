@@ -50,7 +50,11 @@ class CreateTask extends Component
     {
         if (Auth::check()) {
             $this->validate([
+                'images' => 'max:5',
                 'images.*' => 'nullable|mimes:jpeg,jpg,png,gif|max:2048',
+            ],
+            [
+                'images.max' => 'Only 5 Images are allowed!'
             ]);
         } else {
             return session()->flash('error', 'Forbidden!');
@@ -71,7 +75,11 @@ class CreateTask extends Component
         if (Auth::check()) {
             $this->validate([
                 'task' => 'required|min:5|max:10000',
+                'images' => 'max:5',
                 'images.*' => 'nullable|mimes:jpeg,jpg,png,gif|max:2048',
+            ],
+            [
+                'images.max' => 'Only 5 Images are allowed!'
             ]);
 
             if (! Auth::user()->hasVerifiedEmail()) {
