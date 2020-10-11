@@ -11,8 +11,8 @@ use App\Notifications\AnswerPraised;
 use App\Notifications\CommentPraised;
 use App\Notifications\Mentioned;
 use App\Notifications\QuestionPraised;
-use App\Notifications\TaskPraised;
 use App\Notifications\Task\NotifySubscribers as TaskSubscribers;
+use App\Notifications\TaskPraised;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 
@@ -80,7 +80,7 @@ class Helper
             }
         }
     }
-    
+
     public static function notifySubscribers($users, $comment, $type)
     {
         if ($users) {
