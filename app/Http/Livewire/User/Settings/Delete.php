@@ -33,7 +33,9 @@ class Delete extends Component
                 $user = User::find($this->user->id);
                 // Delete Task Images
                 foreach ($user->tasks as $task) {
-                    Storage::delete($task->image);
+                    foreach ($task->images ?? [] as $image) {
+                        Storage::delete($image);
+                    }
                 }
                 // Delete Product Logos
                 foreach ($user->ownedProducts as $product) {
