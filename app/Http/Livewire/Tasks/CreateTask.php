@@ -19,14 +19,18 @@ class CreateTask extends Component
     use WithFileUploads;
 
     public $task;
-    public $image;
+    public $images = [];
     public $due_at;
 
     public function updatedImage()
     {
         if (Auth::check()) {
             $this->validate([
-                'image' => 'nullable|mimes:jpeg,jpg,png,gif|max:2048',
+                'images' => 'max:5',
+                'images.*' => 'nullable|mimes:jpeg,jpg,png,gif|max:2048',
+            ],
+            [
+                'images.max' => 'Only 5 Images are allowed!'
             ]);
         } else {
             return session()->flash('error', 'Forbidden!');
@@ -47,7 +51,11 @@ class CreateTask extends Component
         if (Auth::check()) {
             $this->validate([
                 'task' => 'required|min:5|max:10000',
-                'image' => 'nullable|mimes:jpeg,jpg,png,gif|max:2048',
+                'images' => 'max:5',
+                'images.*' => 'nullable|mimes:jpeg,jpg,png,gif|max:2048',
+            ],
+            [
+                'images.max' => 'Only 5 Images are allowed!'
             ]);
 
             if (! Auth::user()->hasVerifiedEmail()) {
@@ -60,14 +68,18 @@ class CreateTask extends Component
 
             $users = Helper::getUserIDFromMention($this->task);
 
-            if ($this->image) {
-                $img = Image::make($this->image)
-                    ->encode('webp', 80);
-                $imageName = Str::random(32).'.png';
-                Storage::disk('public')->put('photos/'.$imageName, (string) $img);
-                $image = 'photos/'.$imageName;
+            if ($this->images) {
+                $images = [];
+                foreach ($this->images as $image) {
+                    $img = Image::make($image)
+                        ->encode('webp', 80);
+                    $imageName = Str::random(32).'.png';
+                    Storage::disk('public')->put('photos/'.$imageName, (string) $img);
+                    $image = 'photos/'.$imageName;
+                    array_push($images, $image);
+                }
             } else {
-                $image = null;
+                $images = null;
             }
 
             $product_id = Helper::getProductIDFromMention($this->task);
@@ -77,7 +89,7 @@ class CreateTask extends Component
                 'product_id' =>  $product_id,
                 'task' => $this->task,
                 'done' => false,
-                'image' => $image,
+                'images' => $images,
                 'due_at' => $this->due_at,
                 'type' => $product_id ? 'product' : 'user',
                 'source' => 'Taskord for Web',
