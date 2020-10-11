@@ -34,7 +34,7 @@ class LoadMore extends Component
                 $userIds = $user->followings->pluck('id');
                 $userIds->push(Auth::id());
                 $tasks = Task::cacheFor(60 * 60)
-                    ->select('id', 'task', 'done', 'type', 'done_at', 'user_id', 'product_id', 'source', 'image')
+                    ->select('id', 'task', 'done', 'type', 'done_at', 'user_id', 'product_id', 'source', 'images')
                     ->whereIn('user_id', $userIds)
                     ->whereHas('user', function ($q) {
                         $q->where([
@@ -47,7 +47,7 @@ class LoadMore extends Component
                     ->paginate(20, null, null, $this->page);
             } else {
                 $tasks = Task::cacheFor(60 * 60)
-                    ->select('id', 'task', 'done', 'type', 'done_at', 'user_id', 'product_id', 'source', 'image')
+                    ->select('id', 'task', 'done', 'type', 'done_at', 'user_id', 'product_id', 'source', 'images')
                     ->whereHas('user', function ($q) {
                         $q->where([
                             ['isFlagged', false],

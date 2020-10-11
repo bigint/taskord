@@ -20,9 +20,13 @@ class Task extends Model
         'source',
         'done_at',
         'due_at',
-        'image',
+        'images',
         'type',
         'hidden',
+    ];
+
+    protected $casts = [
+        'images' => 'array',
     ];
 
     public function user()

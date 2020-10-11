@@ -18,7 +18,7 @@ class Today extends Component
     public function render()
     {
         $tasks = Task::cacheFor(60 * 60)
-            ->select('id', 'task', 'done', 'image', 'user_id', 'created_at', 'due_at', 'type', 'product_id')
+            ->select('id', 'task', 'done', 'images', 'user_id', 'created_at', 'due_at', 'type', 'product_id')
             ->where('user_id', Auth::id())
             ->whereDate('created_at', Carbon::today())
             ->where('done', false)
