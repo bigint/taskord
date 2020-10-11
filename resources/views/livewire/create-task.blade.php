@@ -24,7 +24,7 @@
                 </div>
                 <div class="d-flex justify-content-between">
                 <div class="form-file form-file-sm col-6 col-lg-3">
-                    <input type="file" wire:model="image" class="form-file-input" accept="image/*">
+                    <input type="file" wire:model="images" class="form-file-input" accept="image/*" multiple>
                     <label class="form-file-label">
                         <span class="form-file-text">Choose file...</span>
                         <span class="form-file-button">Browse</span>
@@ -48,12 +48,8 @@
                       <span class="sr-only">Loading...</span>
                     </div>
                 </div>
-                @error('image')
+                @error('images.*')
                 <div class="text-danger font-weight-bold mt-3">{{ $message }}</div>
-                @else
-                @if ($image)
-                <img class="img-fluid border mt-3 rounded" src="{{ $image->temporaryUrl() }}">
-                @endif
                 @enderror
             </form>
         </div>

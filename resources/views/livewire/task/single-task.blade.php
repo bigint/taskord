@@ -83,11 +83,13 @@
             @endif
         </span>
         @if ($task->image)
+        @foreach ($task->image ?? [] as $image)
         <div>
-            <a href="{{ asset('storage/' . $task->image) }}" data-lightbox="{{ $task->image }}" data-title="Image by {{ '@'.$task->user->username }}">
-                <img class="img-fluid border mt-3 rounded w-50" src="{{ asset('storage/' . $task->image) }}" alt="{{ asset('storage/' . $task->image) }}" />
+            <a href="{{ asset('storage/' . $image) }}" data-lightbox="{{ $image }}" data-title="Image by {{ '@'.$task->user->username }}">
+                <img class="img-fluid border mt-3 rounded w-50" src="{{ asset('storage/' . $image) }}" alt="{{ asset('storage/' . $image) }}" />
             </a>
         </div>
+        @endforeach
         @endif
         @endif
         <div class="mt-2">

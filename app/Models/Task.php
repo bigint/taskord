@@ -24,6 +24,10 @@ class Task extends Model
         'type',
         'hidden',
     ];
+    
+    protected $casts = [
+        'image' => 'array'
+    ];
 
     public function user()
     {

@@ -21,7 +21,7 @@ class CreateTask extends Component
     use WithFileUploads;
 
     public $task;
-    public $image;
+    public $images = [];
     public $due_at;
     public $product;
 
@@ -33,7 +33,7 @@ class CreateTask extends Component
     private function resetInputFields()
     {
         $this->task = '';
-        $this->image = '';
+        $this->images = '';
     }
 
     public function checkState()
@@ -50,7 +50,7 @@ class CreateTask extends Component
     {
         if (Auth::check()) {
             $this->validate([
-                'image' => 'nullable|mimes:jpeg,jpg,png,gif|max:2048',
+                'images.*' => 'nullable|mimes:jpeg,jpg,png,gif|max:2048',
             ]);
         } else {
             return session()->flash('error', 'Forbidden!');
@@ -71,7 +71,7 @@ class CreateTask extends Component
         if (Auth::check()) {
             $this->validate([
                 'task' => 'required|min:5|max:10000',
-                'image' => 'nullable|mimes:jpeg,jpg,png,gif|max:2048',
+                'images.*' => 'nullable|mimes:jpeg,jpg,png,gif|max:2048',
             ]);
 
             if (! Auth::user()->hasVerifiedEmail()) {
@@ -84,16 +84,20 @@ class CreateTask extends Component
 
             $users = Helper::getUserIDFromMention($this->task);
 
-            if ($this->image) {
-                $img = Image::make($this->image)
-                    ->encode('webp', 80);
-                $imageName = Str::random(32).'.png';
-                Storage::disk('public')->put('photos/'.$imageName, (string) $img);
-                $image = 'photos/'.$imageName;
+            if ($this->images) {
+                $images = array();
+                foreach ($this->images as $image) {
+                    $img = Image::make($image)
+                        ->encode('webp', 80);
+                    $imageName = Str::random(32).'.png';
+                    Storage::disk('public')->put('photos/'.$imageName, (string) $img);
+                    $image = 'photos/'.$imageName;
+                    array_push($images, $image);
+                }
             } else {
-                $image = null;
+                $images = null;
             }
-
+            
             $state = Auth::user()->checkState;
 
             if ($state) {
@@ -114,7 +118,7 @@ class CreateTask extends Component
                 'task' => $this->task,
                 'done' => $state,
                 'done_at' => $done_at,
-                'image' => $image,
+                'image' => $images,
                 'due_at' => $this->due_at,
                 'type' => $product_id ? 'product' : 'user',
                 'source' => 'Taskord for Web',
