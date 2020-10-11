@@ -31,7 +31,7 @@ class NotifySubscribers extends Notification implements ShouldQueue
         $user = User::find($this->user_id);
 
         return (new MailMessage)
-                    ->subject('@'.$user->username.' answered on the question')
+                    ->subject('@'.$user->username.' answered to the question')
                     ->greeting('Hello @'.$notifiable->username.' 👋')
                     ->line('👏 The question you subscribed has new answer by @'.$user->username)
                     ->line('Question: '.$this->answer->question->title)
