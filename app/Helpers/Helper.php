@@ -79,6 +79,20 @@ class Helper
             }
         }
     }
+    
+    public static function notifySubscribers($users, $task, $type)
+    {
+        if ($users) {
+            for ($i = 0; $i < count($users); $i++) {
+                $user = User::where('username', $users[$i])->first();
+                if ($user !== null) {
+                    if ($user->id !== Auth::id()) {
+                        $user->notify(new Mentioned($task, $type));
+                    }
+                }
+            }
+        }
+    }
 
     public static function getUserIDFromMention($string)
     {
