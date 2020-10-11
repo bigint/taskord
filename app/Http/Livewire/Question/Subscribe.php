@@ -2,7 +2,6 @@
 
 namespace App\Http\Livewire\Question;
 
-use App\Notifications\Subscribed;
 use GrahamCampbell\Throttle\Facades\Throttle;
 use Helper;
 use Illuminate\Support\Facades\Auth;
@@ -14,14 +13,14 @@ class Subscribe extends Component
     public $listeners = [
         'questionSubscribed' => 'render',
     ];
-    
+
     public $question;
 
     public function mount($question)
     {
         $this->question = $question;
     }
-    
+
     public function subscribeQuestion()
     {
         $throttler = Throttle::get(Request::instance(), 10, 5);
@@ -51,7 +50,7 @@ class Subscribe extends Component
             return session()->flash('error', 'Forbidden!');
         }
     }
-    
+
     public function render()
     {
         return view('livewire.question.subscribe');
