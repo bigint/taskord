@@ -82,14 +82,16 @@
                 </div>
             </div>
             @endif
+            @auth
             <div class="card mb-4">
                 <div class="card-header">
                     Subscribe this task
                 </div>
                 <div class="card-body d-flex align-items-center">
-                    
+                    @livewire('task.subscribe', ['task' => $task])
                 </div>
             </div>
+            @endauth
             @if ($task->comments->count('id') > 0)
             <div class="card mb-4">
                 <div class="card-header">
