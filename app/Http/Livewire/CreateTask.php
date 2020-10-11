@@ -85,7 +85,7 @@ class CreateTask extends Component
             $users = Helper::getUserIDFromMention($this->task);
 
             if ($this->images) {
-                $images = array();
+                $images = [];
                 foreach ($this->images as $image) {
                     $img = Image::make($image)
                         ->encode('webp', 80);
@@ -97,7 +97,7 @@ class CreateTask extends Component
             } else {
                 $images = null;
             }
-            
+
             $state = Auth::user()->checkState;
 
             if ($state) {
