@@ -26,7 +26,7 @@
                 <div class="form-file form-file-sm col-6 col-lg-3">
                     <input type="file" wire:model="images" class="form-file-input" accept="image/*" multiple>
                     <label class="form-file-label">
-                        <span class="form-file-text">Choose file...</span>
+                        <span class="form-file-text">Choose files...</span>
                         <span class="form-file-button">Browse</span>
                     </label>
                 </div>

@@ -412,13 +412,11 @@ input[type="date"]:valid:before {
 
   img {
     width: 100% !important;
-    height: 80% !important;
+    height: auto;
     vertical-align: middle;
     object-fit: cover;
   }
 }
-
-.img1 { flex: 1.3344; }
 
 .gallery > div:not(:last-child) {
   margin-right: 2%;
