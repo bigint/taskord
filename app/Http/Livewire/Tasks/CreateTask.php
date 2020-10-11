@@ -30,7 +30,7 @@ class CreateTask extends Component
                 'images.*' => 'nullable|mimes:jpeg,jpg,png,gif|max:2048',
             ],
             [
-                'images.max' => 'Only 5 Images are allowed!'
+                'images.max' => 'Only 5 Images are allowed!',
             ]);
         } else {
             return session()->flash('error', 'Forbidden!');
@@ -55,7 +55,7 @@ class CreateTask extends Component
                 'images.*' => 'nullable|mimes:jpeg,jpg,png,gif|max:2048',
             ],
             [
-                'images.max' => 'Only 5 Images are allowed!'
+                'images.max' => 'Only 5 Images are allowed!',
             ]);
 
             if (! Auth::user()->hasVerifiedEmail()) {
