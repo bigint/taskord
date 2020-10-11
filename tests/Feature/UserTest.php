@@ -130,7 +130,6 @@ class UserTest extends TestCase
             ['user_id', $this->admin->id],
             ['done', true],
         ])
-            ->latest()
             ->first();
 
         Livewire::test(Tasks::class, ['user' => $this->admin, 'type' => 'user.done', 'page' => 1])
