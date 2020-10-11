@@ -11,6 +11,10 @@ use Livewire\Component;
 
 class Subscribe extends Component
 {
+    public $listeners = [
+        'taskSubscribed' => 'render',
+    ];
+    
     public $task;
 
     public function mount($task)
