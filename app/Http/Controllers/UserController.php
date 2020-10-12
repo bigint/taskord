@@ -216,7 +216,7 @@ class UserController extends Controller
 
         return $users;
     }
-    
+
     public function hovercard($id)
     {
         $user = User::find($id);
