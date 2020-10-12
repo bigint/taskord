@@ -127,4 +127,13 @@ class ProductController extends Controller
 
         return $users;
     }
+    
+    public function hovercard($id)
+    {
+        $product = Product::find($id);
+
+        return view('product.popover', [
+            'product' => $product,
+        ]);
+    }
 }

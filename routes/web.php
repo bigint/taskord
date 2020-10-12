@@ -186,4 +186,5 @@ Route::group(['prefix' => 'mention', 'middleware' => ['auth']], function () {
 // Hovercard
 Route::group(['prefix' => 'hovercard'], function () {
     Route::get('user/{id}', [UserController::class, 'hovercard']);
+    Route::get('product/{id}', [ProductController::class, 'hovercard']);
 });
