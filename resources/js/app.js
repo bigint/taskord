@@ -100,13 +100,17 @@ document.addEventListener("turbolinks:load", () => {
     var id = $el.attr("data-id");
     if (content === "") {
       $.get(`/hovercard/user/${id}`, function(data) {
-        $el.attr("data-content", getUserData(data));
-        $el.popover("show");
+        setTimeout(function() {
+          $el.attr("data-content", getUserData(data));
+          $el.popover("show");
+        }, 350);
       }).fail(function() {
         console.log("error");
       }); 
     } else {
-      $el.popover("show");
+      setTimeout(function() {
+        $el.popover("show");
+      }, 350);
     }
   }
   
