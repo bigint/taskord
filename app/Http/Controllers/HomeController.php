@@ -53,7 +53,7 @@ class HomeController extends Controller
             ->take(5)
             ->get();
         $reputations = User::cacheFor(60 * 60)
-            ->select('username', 'firstname', 'lastname', 'avatar', 'reputation', 'isVerified')
+            ->select('id', 'username', 'firstname', 'lastname', 'avatar', 'reputation', 'isVerified')
             ->where([
                 ['isFlagged', false],
                 ['id', '!=', 1],

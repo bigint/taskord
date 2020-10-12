@@ -263,7 +263,12 @@
                         <a href="{{ route('user.done', ['username' => $user->username]) }}">
                             <img class="rounded-circle avatar-30 mt-1 ml-2" src="{{ $user->avatar }}" alt="{{ $user->username }}" height="50" width="50" />
                         </a>
-                        <a href="{{ route('user.done', ['username' => $user->username]) }}" class="ml-2 mr-2 align-text-top font-weight-bold text-dark">
+                        <a
+                            href="{{ route('user.done', ['username' => $user->username]) }}"
+                            class="ml-2 mr-2 align-text-top font-weight-bold text-dark"
+                            id="user-hover"
+                            data-id="{{ $user->id }}"
+                        >
                             @if ($user->firstname or $user->lastname)
                                 {{ $user->firstname }}{{ ' '.$user->lastname }}
                             @else
