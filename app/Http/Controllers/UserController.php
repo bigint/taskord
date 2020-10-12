@@ -219,9 +219,13 @@ class UserController extends Controller
 
     public function hovercard($id)
     {
-        $user = User::find($id);
+        $user = User::select('username', 'firstname', 'lastname', 'location', 'bio', 'avatar')
+            ->whereId($id)
+            ->first();
 
-        return $user;
+        return view('user.popover', [
+            'user' => $user
+        ]);
     }
 
     public function darkMode()

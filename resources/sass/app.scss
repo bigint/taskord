@@ -377,6 +377,10 @@ input[type="date"]:valid:before {
   border-radius: 6px;
 }
 
+.popover-body {
+  padding: 0;
+}
+
 .rounded {
   border-radius: 6px !important;
 }
