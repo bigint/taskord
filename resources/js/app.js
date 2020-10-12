@@ -85,49 +85,50 @@ document.addEventListener("turbolinks:load", () => {
   $("[data-toggle='tooltip']").tooltip();
 });
 
-$(".status").hover(
-  onStatusHover,
-  function() {
-    console.log('sfsf');
-    $(this).popover("hide");
-  }
-);
-
-function onStatusHover() {
-    var $el = $(this);
-    var content = $el.attr("data-content");
-    var id = $el.attr("data-id");
-    if (content === "") {
-      $.get(`http://dev.taskord.com:8000/hovercard/user/${id}`, function(data) {
-        $el.attr("data-content", getUserData(data));
-        $el.popover("show");
-      }).fail(function() {
-        console.log("error");
-      }); 
-    } else {
-      $el.popover("show");
+document.addEventListener("turbolinks:load", () => {
+  $(".user-hover").hover(
+    onUserHover,
+    function() {
+      $(this).popover("hide");
     }
-}
-
-function getUserData(data) {
-  return `
-  <div class="d-flex">
-    <img class="avatar-40 rounded-circle mr-2" src="${data.avatar}" />
-    <div>
-      <div class="font-weight-bold">${data.firstname} ${data.lastname}</div>
-      <div class="small">@${data.username}</div>
-      ${data.bio ? `
-      <div class="mt-2">
-        ${data.bio}
-      </div>` : ``
+  );
+  
+  function onUserHover() {
+      var $el = $(this);
+      var content = $el.attr("data-content");
+      var id = $el.attr("data-id");
+      if (content === "") {
+        $.get(`http://dev.taskord.com:8000/hovercard/user/${id}`, function(data) {
+          $el.attr("data-content", getUserData(data));
+          $el.popover("show");
+        }).fail(function() {
+          console.log("error");
+        }); 
+      } else {
+        $el.popover("show");
       }
-      ${data.location ? `
-      <div class="mt-1">
-        <i class="fa fa-compass mr-1 text-black-50"></i>
-        ${data.location}
-      </div>` : ``
-      }
+  }
+  
+  function getUserData(data) {
+    return `
+    <div class="d-flex">
+      <img class="avatar-40 rounded-circle mr-2" src="${data.avatar}" />
+      <div>
+        <div class="font-weight-bold">${data.firstname} ${data.lastname}</div>
+        <div class="small">@${data.username}</div>
+        ${data.bio ? `
+        <div class="mt-2">
+          ${data.bio}
+        </div>` : ``
+        }
+        ${data.location ? `
+        <div class="mt-1">
+          <i class="fa fa-compass mr-1 text-black-50"></i>
+          ${data.location}
+        </div>` : ``
+        }
+      </div>
     </div>
-  </div>
-  `;
-}
+    `;
+  }
+});
