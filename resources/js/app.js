@@ -4,6 +4,8 @@ require("./tribute");
 import { isInViewport } from "observe-element-in-viewport";
 import lightbox from "lightbox2/dist/js/lightbox";
 import "livewire-turbolinks";
+import tippy from 'tippy.js';
+import 'tippy.js/dist/tippy.css';
 var Turbolinks = require("turbolinks");
 Turbolinks.start();
 
@@ -86,31 +88,22 @@ document.addEventListener("turbolinks:load", () => {
 });
 
 document.addEventListener("livewire:load", () => {
-  $(".user-hover").hover(
-    onUserHover,
-    function () {
-      $(this).popover("toggle")
-      $(this).popover("dispose")
-    }
-  );
-
-  function onUserHover() {
-    var $el = $(this);
-    var content = $el.attr("data-content");
-    var id = $el.attr("data-id");
-    if (content === "") {
-      $.get(`/hovercard/user/${id}`, function (data) {
-        setTimeout(function () {
-          $el.attr("data-content", data);
-          $el.popover("show");
-        }, 350);
-      }).fail(function () {
-        console.log("error");
-      });
-    } else {
-      setTimeout(function () {
-        $el.popover("show");
-      }, 350);
-    }
-  }
+  tippy('#user-hover', {
+    allowHTML: true,
+    interactive: true,
+    animation: 'scale',
+    content: '<div class="p-3"><div class="spinner-border spinner-border-sm text-light"></div></div>',
+    onShow(instance) {
+      const id = instance.reference.getAttribute('data-id');
+      window.fetch(`http://dev.taskord.com:8000/hovercard/user/${id}`)
+        .then((response) => response.text())
+        .then((blob) => {
+          instance.setContent(blob);
+        })
+        .catch((error) => {
+          // Fallback if the network request failed
+          instance.setContent(`Request failed. ${error}`);
+        });
+    },
+  });
 });

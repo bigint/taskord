@@ -431,3 +431,11 @@ input[type="date"]:valid:before {
 .gallery > div:not(:last-child) {
   margin-right: 1%;
 }
+
+.tippy-box {
+  border-radius: 6px !important;
+}
+
+.tippy-content {
+  padding: 0 !important;
+}
