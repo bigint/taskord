@@ -219,9 +219,7 @@ class UserController extends Controller
 
     public function hovercard($id)
     {
-        $user = User::select('username', 'firstname', 'lastname', 'location', 'bio', 'avatar')
-            ->whereId($id)
-            ->first();
+        $user = User::find($id);
 
         return view('user.popover', [
             'user' => $user
