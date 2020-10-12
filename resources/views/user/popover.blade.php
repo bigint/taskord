@@ -35,7 +35,7 @@
             <i class="fa fa-check mr-1 text-black-50"></i>
             <span>{{ $user->tasks()->whereDone(true)->count() }} Completed Tasks<span>
         </div>
-        <div>
+        <div class="mt-1">
             <i class="fa fa-hourglass-start mr-1 text-black-50"></i>
             <span>{{ $user->tasks()->whereDone(false)->count() }} Pending Tasks<span>
         </div>
