@@ -1,14 +1,18 @@
 import tippy from 'tippy.js';
 import 'tippy.js/dist/tippy.css';
+import 'tippy.js/animations/shift-away-subtle.css';
 
 document.addEventListener("livewire:load", () => {
-  // User Popover
-  tippy('#user-hover', {
+  const config = {
     allowHTML: true,
     interactive: true,
-    animation: 'scale',
+    animation: 'shift-away-subtle',
     delay: [200, 50],
     content: '<div class="p-3"><div class="spinner-border spinner-border-sm text-light"></div></div>',
+  };
+  // User Popover
+  tippy('#user-hover', {
+    ...config,
     onShow(instance) {
       const id = instance.reference.getAttribute('data-id');
       window.fetch(`/hovercard/user/${id}`)
@@ -24,11 +28,7 @@ document.addEventListener("livewire:load", () => {
   
   // Product Popover
   tippy('#product-hover', {
-    allowHTML: true,
-    interactive: true,
-    animation: 'scale',
-    delay: [200, 50],
-    content: '<div class="p-3"><div class="spinner-border spinner-border-sm text-light"></div></div>',
+    ...config,
     onShow(instance) {
       const id = instance.reference.getAttribute('data-id');
       window.fetch(`/hovercard/product/${id}`)
