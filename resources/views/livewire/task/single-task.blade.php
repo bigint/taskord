@@ -13,7 +13,6 @@
                 data-html="true"
                 data-toggle="popover"
                 data-placement="top"
-                title="{{ Emoji::fire() }} {{ number_format($task->user->getPoints()) }} {{ $task->user->getPoints(true) < 2 ? 'Reputation' : 'Reputations' }}"
             >
                 @if ($task->user->firstname or $task->user->lastname)
                     {{ $task->user->firstname }}{{ ' '.$task->user->lastname }}

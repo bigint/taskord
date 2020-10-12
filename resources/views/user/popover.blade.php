@@ -1,3 +1,6 @@
+<h3 class="popover-header small">
+    {{ Emoji::fire() }} {{ number_format($user->getPoints()) }} {{ $user->getPoints(true) < 2 ? 'Reputation' : 'Reputations' }}
+</h3>
 <div class="d-flex pr-3 pl-3 pt-3 pb-2">
     <img class="avatar-40 rounded-circle mr-2" src="{{ $user->avatar }}" />
     <div>
