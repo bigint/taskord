@@ -12,12 +12,14 @@ body {
   color: white;
 }
 
-.card {
+.card,
+.popover {
   background-color: $card-bg;
   color: white;
   border: 1px solid $border-bg;
 
-  .card-header {
+  .card-header,
+  .popover-header {
     background-color: #212529;
   }
 }
@@ -121,7 +123,8 @@ body {
   background-color: $card-bg;
 }
 
-.modal-header {
+.modal-header,
+.popover-header {
   border-bottom: 1px solid $border-bg;
 }
 
