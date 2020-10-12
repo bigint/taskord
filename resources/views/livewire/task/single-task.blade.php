@@ -79,7 +79,12 @@
             <span class="small text-black-50">
                 on
                 <img class="rounded mb-1 ml-1 avatar-15" src="{{ $task->product->avatar }}" alt="{{ $task->product->slug }}" />
-                <a class="text-black-50" href="{{ route('product.done', ['slug' => $task->product->slug]) }}">
+                <a
+                    class="text-black-50"
+                    href="{{ route('product.done', ['slug' => $task->product->slug]) }}"
+                    id="product-hover"
+                    data-id="{{ $task->product->id }}"
+                >
                     {{ $task->product->name }}
                 </a>
             </span>
