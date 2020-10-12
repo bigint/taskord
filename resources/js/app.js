@@ -110,5 +110,24 @@ function onStatusHover() {
 }
 
 function getUserData(data) {
-  return `<span>${data.username}</span>`;
+  return `
+  <div class="d-flex">
+    <img class="avatar-40 rounded-circle mr-2" src="${data.avatar}" />
+    <div>
+      <div class="font-weight-bold">${data.firstname} ${data.lastname}</div>
+      <div class="small">@${data.username}</div>
+      ${data.bio ? `
+      <div class="mt-2">
+        ${data.bio}
+      </div>` : ``
+      }
+      ${data.location ? `
+      <div class="mt-1">
+        <i class="fa fa-compass mr-1 text-black-50"></i>
+        ${data.location}
+      </div>` : ``
+      }
+    </div>
+  </div>
+  `;
 }
