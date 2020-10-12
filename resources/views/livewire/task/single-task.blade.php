@@ -5,7 +5,16 @@
             <img class="avatar-40 rounded-circle" src="{{ $task->user->avatar }}" alt="{{ $task->user->username }}" />
         </a>
         <span class="ml-2">
-            <a href="{{ route('user.done', ['username' => $task->user->username]) }}" class="user-hover font-weight-bold text-dark" data-content="" data-id="{{ $task->user->id }}" data-html="true" data-toggle="popover" data-placement="top">
+            <a
+                href="{{ route('user.done', ['username' => $task->user->username]) }}"
+                class="user-hover font-weight-bold text-dark"
+                data-content=""
+                data-id="{{ $task->user->id }}"
+                data-html="true"
+                data-toggle="popover"
+                data-placement="top"
+                title="Popover title"
+            >
                 @if ($task->user->firstname or $task->user->lastname)
                     {{ $task->user->firstname }}{{ ' '.$task->user->lastname }}
                 @else

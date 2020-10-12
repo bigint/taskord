@@ -89,24 +89,25 @@ document.addEventListener("turbolinks:load", () => {
   $(".user-hover").hover(
     onUserHover,
     function() {
-      $(this).popover("hide");
+      $(this).popover("toggle")
+      $(this).popover("dispose")
     }
   );
   
   function onUserHover() {
-      var $el = $(this);
-      var content = $el.attr("data-content");
-      var id = $el.attr("data-id");
-      if (content === "") {
-        $.get(`/hovercard/user/${id}`, function(data) {
-          $el.attr("data-content", getUserData(data));
-          $el.popover("show");
-        }).fail(function() {
-          console.log("error");
-        }); 
-      } else {
+    var $el = $(this);
+    var content = $el.attr("data-content");
+    var id = $el.attr("data-id");
+    if (content === "") {
+      $.get(`/hovercard/user/${id}`, function(data) {
+        $el.attr("data-content", getUserData(data));
         $el.popover("show");
-      }
+      }).fail(function() {
+        console.log("error");
+      }); 
+    } else {
+      $el.popover("show");
+    }
   }
   
   function getUserData(data) {
@@ -114,7 +115,7 @@ document.addEventListener("turbolinks:load", () => {
     <div class="d-flex">
       <img class="avatar-40 rounded-circle mr-2" src="${data.avatar}" />
       <div>
-        <div class="font-weight-bold">${data.firstname} ${data.lastname}</div>
+        <div class="font-weight-bold">${data.firstname ? data.firstname: ''} ${data.lastname ? data.lastname : ''}</div>
         <div class="small">@${data.username}</div>
         ${data.bio ? `
         <div class="mt-2">
