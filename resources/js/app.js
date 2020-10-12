@@ -95,14 +95,14 @@ document.addEventListener("livewire:load", () => {
     content: '<div class="p-3"><div class="spinner-border spinner-border-sm text-light"></div></div>',
     onShow(instance) {
       const id = instance.reference.getAttribute('data-id');
-      window.fetch(`http://dev.taskord.com:8000/hovercard/user/${id}`)
+      window.fetch(`/hovercard/user/${id}`)
         .then((response) => response.text())
         .then((blob) => {
           instance.setContent(blob);
         })
         .catch((error) => {
           // Fallback if the network request failed
-          instance.setContent(`Request failed. ${error}`);
+          instance.setContent(`<div class="p-3">Something went wrong!</div>`);
         });
     },
   });
