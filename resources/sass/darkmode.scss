@@ -20,7 +20,7 @@ body {
 
   .card-header,
   .popover-header {
-    background-color: #212529;
+    background-color: $input-bg;
   }
 }
 
@@ -93,7 +93,7 @@ body {
   background-color: $body-bg;
 }
 
-.border-bottom {
+.border-bottom, hr {
   border-bottom: 1px solid $border-bg !important;
 }
 
@@ -151,4 +151,9 @@ body {
 
 ::-webkit-scrollbar-thumb {
   -webkit-box-shadow: inset 6px 6px 6px 6px #adb5bd;
+}
+
+.tippy-box {
+  background-color: $input-bg !important;
+  border: 1px solid $border-bg !important;
 }

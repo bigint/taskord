@@ -1,12 +1,14 @@
 import tippy from 'tippy.js';
 import 'tippy.js/dist/tippy.css';
 import 'tippy.js/animations/shift-away-subtle.css';
+import 'tippy.js/themes/light-border.css';
 
 document.addEventListener("livewire:load", () => {
   const config = {
     allowHTML: true,
     interactive: true,
     animation: 'shift-away-subtle',
+    theme: 'light-border',
     delay: [200, 50],
     content: '<div class="p-3"><div class="spinner-border spinner-border-sm text-light"></div></div>',
   };
