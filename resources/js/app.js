@@ -89,8 +89,7 @@ document.addEventListener("livewire:load", () => {
   $(".user-hover").hover(
     onUserHover,
     function () {
-      $(this).popover("toggle")
-      $(this).popover("dispose")
+      $(this).popover("hide")
     }
   );
 
@@ -99,18 +98,18 @@ document.addEventListener("livewire:load", () => {
     var content = $el.attr("data-content");
     var id = $el.attr("data-id");
     if (content === "") {
-      $.get(`/hovercard/user/${id}`, function (data) {
-        setTimeout(function () {
+      $.get(`/hovercard/user/${id}`, (data) => {
+        setTimeout(() => {
           $el.attr("data-content", data);
           $el.popover("show");
-        }, 350);
-      }).fail(function () {
+        }, 300);
+      }).fail(() => {
         console.log("error");
       });
     } else {
       setTimeout(function () {
         $el.popover("show");
-      }, 350);
+      }, 300);
     }
   }
 });
