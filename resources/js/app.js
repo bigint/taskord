@@ -1,11 +1,10 @@
 require("./bootstrap");
 require("./shortcuts");
 require("./tribute");
+require("./tippy");
 import { isInViewport } from "observe-element-in-viewport";
 import lightbox from "lightbox2/dist/js/lightbox";
 import "livewire-turbolinks";
-import tippy from 'tippy.js';
-import 'tippy.js/dist/tippy.css';
 var Turbolinks = require("turbolinks");
 Turbolinks.start();
 
@@ -85,25 +84,4 @@ document.body.addEventListener("click", () => {
 
 document.addEventListener("turbolinks:load", () => {
   $("[data-toggle='tooltip']").tooltip();
-});
-
-document.addEventListener("livewire:load", () => {
-  tippy('#user-hover', {
-    allowHTML: true,
-    interactive: true,
-    animation: 'scale',
-    content: '<div class="p-3"><div class="spinner-border spinner-border-sm text-light"></div></div>',
-    onShow(instance) {
-      const id = instance.reference.getAttribute('data-id');
-      window.fetch(`/hovercard/user/${id}`)
-        .then((response) => response.text())
-        .then((blob) => {
-          instance.setContent(blob);
-        })
-        .catch((error) => {
-          // Fallback if the network request failed
-          instance.setContent(`<div class="p-3">Something went wrong!</div>`);
-        });
-    },
-  });
 });
