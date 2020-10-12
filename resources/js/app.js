@@ -85,7 +85,7 @@ document.addEventListener("turbolinks:load", () => {
   $("[data-toggle='tooltip']").tooltip();
 });
 
-document.addEventListener("turbolinks:load", () => {
+document.addEventListener("livewire:load", () => {
   $(".user-hover").hover(
     onUserHover,
     function () {
