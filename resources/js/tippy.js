@@ -10,7 +10,7 @@ document.addEventListener("livewire:load", () => {
     animation: 'shift-away-subtle',
     theme: 'light-border',
     delay: [200, 50],
-    content: '<div class="p-3"><div class="spinner-border spinner-border-sm text-light"></div></div>',
+    content: '<div class="p-3"><div class="spinner-border spinner-border-sm text-dark"></div></div>',
   };
   // User Popover
   tippy('#user-hover', {
