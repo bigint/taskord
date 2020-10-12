@@ -32,7 +32,7 @@
 <div class="pt-2 pb-2 pl-3 pr-3">
     <div class="text-dark">
         <div class="text-white">
-            <i class="fa fa-check mr-1"></i>
+            <i class="fa fa-check-square mr-1"></i>
             <span>{{ $user->tasks()->whereDone(true)->count() }} Completed Tasks<span>
         </div>
         <div class="mt-1 text-white">

@@ -4,6 +4,8 @@ require("./tribute");
 import { isInViewport } from "observe-element-in-viewport";
 import lightbox from "lightbox2/dist/js/lightbox";
 import "livewire-turbolinks";
+import tippy from 'tippy.js';
+import 'tippy.js/dist/tippy.css';
 var Turbolinks = require("turbolinks");
 Turbolinks.start();
 
@@ -115,8 +117,9 @@ document.addEventListener("turbolinks:load", () => {
 // });
 
 document.addEventListener("livewire:load", () => {
-  window.tippy('#user-hover', {
+  tippy('#user-hover', {
     allowHTML: true,
+    interactive: true,
     animation: 'scale',
     content: 'Loading...',
     onShow(instance) {
