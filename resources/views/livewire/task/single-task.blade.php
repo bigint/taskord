@@ -28,9 +28,7 @@
                         {{ Emoji::handshake() }}
                     </a>
                 @endif
-            </a>
-            <a class="text-black-50" href="{{ route('user.done', ['username' => $task->user->username]) }}">
-                <div class="small">{{ "@" . $task->user->username }}</div>
+                <div class="small text-black-50 font-weight-normal">{{ "@" . $task->user->username }}</div>
             </a>
         </span>
         <span class="align-text-top small float-right ml-auto text-black-50" type="button" data-toggle="collapse" data-target="#taskExpand-{{$task->id}}" aria-expanded="false">
