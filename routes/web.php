@@ -72,12 +72,6 @@ Route::group(['middleware' => ['throttle:30,1']], function () {
     // Suspended
     Route::get('suspended', [UserController::class, 'suspended'])->name('suspended');
 
-    // Mention
-    Route::group(['prefix' => 'mention', 'middleware' => ['auth']], function () {
-        Route::get('users', [UserController::class, 'mention']);
-        Route::get('products', [ProductController::class, 'mention']);
-    });
-
     // Avatar
     Route::get('avatar/{username}.png', [UserController::class, 'avatar'])->name('avatar');
 
@@ -181,4 +175,15 @@ Route::group(['middleware' => ['throttle:30,1']], function () {
         Route::get('redis', [StatusController::class, 'redis']);
         Route::get('memcached', [StatusController::class, 'memcached']);
     });
+});
+
+// Mention
+Route::group(['prefix' => 'mention', 'middleware' => ['auth']], function () {
+    Route::get('users', [UserController::class, 'mention']);
+    Route::get('products', [ProductController::class, 'mention']);
+});
+
+// Hovercard
+Route::group(['prefix' => 'hovercard'], function () {
+    Route::get('user/{id}', [UserController::class, 'hovercard']);
 });

@@ -217,6 +217,13 @@ class UserController extends Controller
         return $users;
     }
 
+    public function hovercard($id)
+    {
+        $user = User::find($id);
+
+        return $user;
+    }
+
     public function darkMode()
     {
         $user = Auth::user();
