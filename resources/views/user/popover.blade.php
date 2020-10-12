@@ -21,7 +21,7 @@
         <div class="mt-2 text-dark">{{ $user->bio }}</div>
         @endif
         @if ($user->location)
-        <div class="mt-1 text-dark">
+        <div class="mt-2 text-dark">
             <i class="fa fa-compass mr-1 text-black-50"></i>
             {{ $user->location }}
         </div>
