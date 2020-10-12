@@ -84,3 +84,31 @@ document.body.addEventListener("click", () => {
 document.addEventListener("turbolinks:load", () => {
   $("[data-toggle='tooltip']").tooltip();
 });
+
+$(".status").hover(
+  onStatusHover,
+  function() {
+    console.log('sfsf');
+    $(this).popover("hide");
+  }
+);
+
+function onStatusHover() {
+    var $el = $(this);
+    var content = $el.attr("data-content");
+    var id = $el.attr("data-id");
+    if (content === "") {
+      $.get(`http://dev.taskord.com:8000/hovercard/user/${id}`, function(data) {
+        $el.attr("data-content", getUserData(data));
+        $el.popover("show");
+      }).fail(function() {
+        console.log("error");
+      }); 
+    } else {
+      $el.popover("show");
+    }
+}
+
+function getUserData(data) {
+  return `<span>${data.username}</span>`;
+}
