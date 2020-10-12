@@ -122,7 +122,7 @@ document.addEventListener("turbolinks:load", () => {
           <div class="font-weight-bold text-dark">${data.firstname ? data.firstname : ''} ${data.lastname ? data.lastname : ''}</div>
           <div class="small text-dark">@${data.username}</div>
           ${data.bio ? `<div class="mt-2 text-dark">${data.bio}</div>` : ``}
-          ${data.location ? `<div class="mt-1 text-dark"><i class="fa fa-compass mr-1 text-dark"></i>${data.location}</div>` : ``}
+          ${data.location ? `<div class="mt-1 text-dark"><i class="fa fa-compass mr-1 text-black-50"></i>${data.location}</div>` : ``}
         </div>
       </div>
     `;
