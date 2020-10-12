@@ -1,5 +1,4 @@
-<div class="p-3">
-    <img class="rounded-circle avatar-40 mr-3" src="{{ $product->avatar }}" />
+<div class="d-flex p-3">
     <div>
         <div class="font-weight-bold text-white">
             {{ $product->name }}
