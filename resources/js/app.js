@@ -98,7 +98,7 @@ document.addEventListener("turbolinks:load", () => {
       var content = $el.attr("data-content");
       var id = $el.attr("data-id");
       if (content === "") {
-        $.get(`http://dev.taskord.com:8000/hovercard/user/${id}`, function(data) {
+        $.get(`/hovercard/user/${id}`, function(data) {
           $el.attr("data-content", getUserData(data));
           $el.popover("show");
         }).fail(function() {
