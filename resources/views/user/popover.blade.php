@@ -29,7 +29,7 @@
     </div>
 </div>
 <hr class="mt-0 mb-0">
-<div class="pt-2 pb-2 pl-3 pr-3">
+<div class="p-3">
     <div class="text-dark">
         <div class="text-white">
             <i class="fa fa-check-square mr-1"></i>
