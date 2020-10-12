@@ -85,31 +85,51 @@ document.addEventListener("turbolinks:load", () => {
   $("[data-toggle='tooltip']").tooltip();
 });
 
-document.addEventListener("livewire:load", () => {
-  $(".user-hover").hover(
-    onUserHover,
-    function () {
-      $(this).popover("hide")
-    }
-  );
+// document.addEventListener("livewire:load", () => {
+//   $(".user-hover").hover(
+//     onUserHover,
+//     function () {
+//       $(this).popover("hide")
+//     }
+//   );
 
-  function onUserHover() {
-    var $el = $(this);
-    var content = $el.attr("data-content");
-    var id = $el.attr("data-id");
-    if (content === "") {
-      $.get(`/hovercard/user/${id}`, (data) => {
-        setTimeout(() => {
-          $el.attr("data-content", data);
-          $el.popover("show");
-        }, 300);
-      }).fail(() => {
-        console.log("error");
-      });
-    } else {
-      setTimeout(function () {
-        $el.popover("show");
-      }, 300);
-    }
-  }
+//   function onUserHover() {
+//     var $el = $(this);
+//     var content = $el.attr("data-content");
+//     var id = $el.attr("data-id");
+//     if (content === "") {
+//       $.get(`/hovercard/user/${id}`, (data) => {
+//         setTimeout(() => {
+//           $el.attr("data-content", data);
+//           $el.popover("show");
+//         }, 300);
+//       }).fail(() => {
+//         console.log("error");
+//       });
+//     } else {
+//       setTimeout(function () {
+//         $el.popover("show");
+//       }, 300);
+//     }
+//   }
+// });
+
+document.addEventListener("livewire:load", () => {
+  window.tippy('#user-hover', {
+    allowHTML: true,
+    animation: 'scale',
+    content: 'Loading...',
+    onShow(instance) {
+      const id = instance.reference.getAttribute('data-id');
+      window.fetch(`http://dev.taskord.com:8000/hovercard/user/${id}`)
+        .then((response) => response.text())
+        .then((blob) => {
+          instance.setContent(blob);
+        })
+        .catch((error) => {
+          // Fallback if the network request failed
+          instance.setContent(`Request failed. ${error}`);
+        });
+    },
+  });
 });
