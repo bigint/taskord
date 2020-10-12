@@ -87,35 +87,6 @@ document.addEventListener("turbolinks:load", () => {
   $("[data-toggle='tooltip']").tooltip();
 });
 
-// document.addEventListener("livewire:load", () => {
-//   $(".user-hover").hover(
-//     onUserHover,
-//     function () {
-//       $(this).popover("hide")
-//     }
-//   );
-
-//   function onUserHover() {
-//     var $el = $(this);
-//     var content = $el.attr("data-content");
-//     var id = $el.attr("data-id");
-//     if (content === "") {
-//       $.get(`/hovercard/user/${id}`, (data) => {
-//         setTimeout(() => {
-//           $el.attr("data-content", data);
-//           $el.popover("show");
-//         }, 300);
-//       }).fail(() => {
-//         console.log("error");
-//       });
-//     } else {
-//       setTimeout(function () {
-//         $el.popover("show");
-//       }, 300);
-//     }
-//   }
-// });
-
 document.addEventListener("livewire:load", () => {
   tippy('#user-hover', {
     allowHTML: true,
