@@ -37,11 +37,20 @@
                     Created by
                 </div>
                 <div class="card-body d-flex align-items-center">
-                    <a href="{{ route('user.done', ['username' => $comment->user->username]) }}">
+                    <a
+                        href="{{ route('user.done', ['username' => $comment->user->username]) }}"
+                        id="user-hover"
+                        data-id="{{ $comment->user->id }}"
+                    >
                         <img class="rounded-circle avatar-40 mt-1" src="{{ $comment->user->avatar }}" />
                     </a>
                     <span class="ml-3">
-                        <a href="{{ route('user.done', ['username' => $comment->user->username]) }}" class="align-text-top text-dark">
+                        <a
+                            href="{{ route('user.done', ['username' => $comment->user->username]) }}"
+                            class="align-text-top text-dark"
+                            id="user-hover"
+                            data-id="{{ $comment->user->id }}"
+                        >
                             <span class="font-weight-bold">
                                 @if ($comment->user->firstname or $comment->user->lastname)
                                     {{ $comment->user->firstname }}{{ ' '.$comment->user->lastname }}
