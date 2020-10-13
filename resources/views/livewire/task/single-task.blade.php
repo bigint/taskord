@@ -1,11 +1,7 @@
 <span>
     <x-alert />
     <div class="align-items-center d-flex">
-        <a
-            href="{{ route('user.done', ['username' => $task->user->username]) }}"
-            id="user-hover"
-            data-id="{{ $task->user->id }}"
-        >
+        <a href="{{ route('user.done', ['username' => $task->user->username]) }}">
             <img class="avatar-40 rounded-circle" src="{{ $task->user->avatar }}" alt="{{ $task->user->username }}" />
         </a>
         <span class="ml-2">

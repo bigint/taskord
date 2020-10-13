@@ -1,11 +1,7 @@
 <li class="list-group-item p-3">
     <x-alert />
     <div class="align-items-center d-flex mb-2">
-        <a
-            href="{{ route('user.done', ['username' => $comment->user->username]) }}"
-            id="user-hover"
-            data-id="{{ $comment->user->id }}"
-        >
+        <a href="{{ route('user.done', ['username' => $comment->user->username]) }}">
             <img class="avatar-30 rounded-circle" src="{{ $comment->user->avatar }}" />
         </a>
         <span class="ml-2">

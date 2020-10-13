@@ -2,11 +2,7 @@
     <div class="card-body">
         <x-alert />
         <div class="d-flex align-items-center">
-            <a
-                href="{{ route('user.done', ['username' => $answer->user->username]) }}"
-                id="user-hover"
-                data-id="{{ $answer->user->id }}"
-            >
+            <a href="{{ route('user.done', ['username' => $answer->user->username]) }}">
                 <img class="avatar-40 rounded-circle" src="{{ $answer->user->avatar }}" />
             </a>
             <span class="ml-2">
