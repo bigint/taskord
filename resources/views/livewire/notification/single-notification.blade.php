@@ -42,7 +42,11 @@
                     {{ Emoji::partyPopper() }}
                 @endif
                 @if ($type !== "App\Notifications\Welcome" and $type !== "App\Notifications\VersionReleased")
-                <a href="{{ route('user.done', ['username' => $user->username]) }}">
+                <a
+                    href="{{ route('user.done', ['username' => $user->username]) }}"
+                    id="user-hover"
+                    data-id="{{ $user->id }}"
+                >
                     <img class="rounded-circle avatar-20 ml-2 mr-1" src="{{ $user->avatar }}" />
                     <span class="align-middle">
                         @if ($user->firstname or $user->lastname)
