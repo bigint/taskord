@@ -18,7 +18,13 @@
                     {{ views($question)->remember()->unique()->count('id') <= 1 ? 'View' : 'Views' }}
                 </div>
             </div>
-            <img class="rounded-circle avatar-30 ml-3 float-right" src="{{ $question->user->avatar }}" />
+            <a
+                href="{{ route('user.done', ['username' => $question->user->username]) }}"
+                id="user-hover"
+                data-id="{{ $question->user->id }}"
+            >
+                <img class="rounded-circle avatar-30 ml-3 float-right" src="{{ $question->user->avatar }}" />
+            </a>
         </li>
         @endforeach
     </ul>
