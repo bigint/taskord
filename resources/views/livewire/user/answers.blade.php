@@ -5,7 +5,11 @@
     @foreach ($answers as $answer)
         <div class="card mb-4">
             <div class="card-header h6 pt-3 pb-3">
-                <a href="{{ route('user.done', ['username' => $answer->question->user->username]) }}">
+                <a
+                    href="{{ route('user.done', ['username' => $answer->question->user->username]) }}"
+                    id="user-hover"
+                    data-id="{{ $answer->question->user->id }}"
+                >
                     <img class="rounded-circle avatar-30" src="{{ $answer->question->user->avatar }}" />
                 </a>
                 <a class="align-middle text-dark ml-2" href="{{ route('question.question', ['id' => $answer->question->id]) }}">
