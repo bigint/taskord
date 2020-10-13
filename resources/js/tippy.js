@@ -6,6 +6,7 @@ import 'tippy.js/themes/light-border.css';
 document.addEventListener("livewire:load", () => {
   const config = {
     allowHTML: true,
+    maxWidth: 350,
     interactive: true,
     animation: 'shift-away-subtle',
     theme: 'light-border',
@@ -26,6 +27,11 @@ document.addEventListener("livewire:load", () => {
           instance.setContent(`<div class="p-3">Something went wrong!</div>`);
         });
     },
+    onHidden(instance) {
+      instance.setContent(config.content);
+      instance._src = null;
+      instance._error = null;
+    },
   });
   
   // Product Popover
@@ -41,6 +47,11 @@ document.addEventListener("livewire:load", () => {
         .catch((error) => {
           instance.setContent(`<div class="p-3">Something went wrong!</div>`);
         });
+    },
+    onHidden(instance) {
+      instance.setContent(config.content);
+      instance._src = null;
+      instance._error = null;
     },
   });
 });
