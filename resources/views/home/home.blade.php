@@ -212,7 +212,11 @@
                 <ul class="list-group list-group-flush">
                     @foreach ($products as $product)
                     <li class="list-group-item pb-2 pt-2">
-                        <a href="{{ route('product.done', ['slug' => $product->slug]) }}">
+                        <a
+                            href="{{ route('product.done', ['slug' => $product->slug]) }}"
+                            id="product-hover"
+                            data-id="{{ $product->id }}"
+                        >
                             <img class="rounded avatar-30 mt-1 ml-2" src="{{ $product->avatar }}" alt="{{ $product->slug }}" height="50" width="50" />
                         </a>
                         <a
@@ -230,7 +234,11 @@
                         </a>
                         <span class="float-right">
                             @foreach ($product->members()->limit(1)->get() as $user)
-                            <a href="{{ route('user.done', ['username' => $user->username]) }}">
+                            <a
+                                href="{{ route('user.done', ['username' => $user->username]) }}"
+                                id="user-hover"
+                                data-id="{{ $product->owner->id }}"
+                            >
                                 <img class="rounded-circle avatar-30 mt-1 mr-1" src="{{ $user->avatar }}" />
                             </a>
                             @endforeach
@@ -269,7 +277,11 @@
                                 #{{ $loop->index + 1 }}
                             </span>
                         </span>
-                        <a href="{{ route('user.done', ['username' => $user->username]) }}">
+                        <a
+                            href="{{ route('user.done', ['username' => $user->username]) }}"
+                            id="user-hover"
+                            data-id="{{ $user->id }}"
+                        >
                             <img class="rounded-circle avatar-30 mt-1 ml-2" src="{{ $user->avatar }}" alt="{{ $user->username }}" height="50" width="50" />
                         </a>
                         <a
