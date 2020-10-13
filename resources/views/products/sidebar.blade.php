@@ -23,11 +23,19 @@
             </span>
             <span class="float-right">
                 @foreach ($product->members()->limit(1)->get() as $user)
-                <a href="{{ route('user.done', ['username' => $user->username]) }}">
+                <a
+                    href="{{ route('user.done', ['username' => $user->username]) }}"
+                    id="user-hover"
+                    data-id="{{ $user->id }}"
+                >
                     <img class="rounded-circle avatar-30 mr-1" src="{{ $user->avatar }}" />
                 </a>
                 @endforeach
-                <a href="{{ route('user.done', ['username' => $product->owner->username]) }}">
+                <a
+                    href="{{ route('user.done', ['username' => $product->owner->username]) }}"
+                    id="user-hover"
+                    data-id="{{ $product->owner->id }}"
+                >
                     <img class="rounded-circle avatar-30 mr-0" src="{{ $product->owner->avatar }}" />
                 </a>
             </span>
