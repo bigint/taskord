@@ -102,7 +102,6 @@
                 <div class="card-body align-items-center pb-2">
                     @foreach ($question->answer->groupBy('user_id') as $answer)
                         <a
-                            title="{{ $answer[0]->user->firstname ? $answer[0]->user->firstname . ' ' . $answer[0]->user->lastname : $answer[0]->user->username }}"
                             href="{{ route('user.done', ['username' => $answer[0]->user->username]) }}"
                             class="mr-1"
                             id="user-hover"
