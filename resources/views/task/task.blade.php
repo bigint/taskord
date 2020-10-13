@@ -45,11 +45,20 @@
                     Created by
                 </div>
                 <div class="card-body d-flex align-items-center">
-                    <a href="{{ route('user.done', ['username' => $task->user->username]) }}">
+                    <a
+                        href="{{ route('user.done', ['username' => $task->user->username]) }}"
+                        id="user-hover"
+                        data-id="{{ $task->user->id }}"
+                    >
                         <img class="rounded-circle avatar-40 mt-1" src="{{ $task->user->avatar }}" />
                     </a>
                     <span class="ml-3">
-                        <a href="{{ route('user.done', ['username' => $task->user->username]) }}" class="align-text-top text-dark">
+                        <a
+                            href="{{ route('user.done', ['username' => $task->user->username]) }}"
+                            class="align-text-top text-dark"
+                            id="user-hover"
+                            data-id="{{ $task->user->id }}"
+                        >
                             <span class="font-weight-bold">
                                 @if ($task->user->firstname or $task->user->lastname)
                                     {{ $task->user->firstname }}{{ ' '.$task->user->lastname }}
@@ -68,11 +77,20 @@
                     Product
                 </div>
                 <div class="card-body d-flex align-items-center">
-                    <a href="{{ route('product.done', ['slug' => \App\Models\Product::find($task->product_id)->slug]) }}">
+                    <a
+                        href="{{ route('product.done', ['slug' => \App\Models\Product::find($task->product_id)->slug]) }}"
+                        id="product-hover"
+                        data-id="{{ \App\Models\Product::find($task->product_id)->id }}"
+                    >
                         <img class="rounded avatar-40 mt-1" src="{{ \App\Models\Product::find($task->product_id)->avatar }}" />
                     </a>
                     <span class="ml-3">
-                        <a href="{{ route('user.done', ['username' => $task->user->username]) }}" class="align-text-top text-dark">
+                        <a
+                            href="{{ route('product.done', ['slug' => \App\Models\Product::find($task->product_id)->slug]) }}"
+                            class="align-text-top text-dark"
+                            id="product-hover"
+                            data-id="{{ \App\Models\Product::find($task->product_id)->id }}"
+                        >
                             <span class="font-weight-bold">
                                 {{ \App\Models\Product::find($task->product_id)->name }}
                             </span>
@@ -100,9 +118,10 @@
                 <div class="card-body align-items-center pb-2">
                     @foreach ($task->comments->groupBy('user_id') as $comment)
                         <a
-                            title="{{ $comment[0]->user->firstname ? $comment[0]->user->firstname . ' ' . $comment[0]->user->lastname : $comment[0]->user->username }}"
                             href="{{ route('user.done', ['username' => $comment[0]->user->username]) }}"
                             class="mr-1"
+                            id="user-hover"
+                            data-id="{{ $comment[0]->user->id }}"
                         >
                             <img class="rounded-circle avatar-30 mb-2" src="{{ $comment[0]->user->avatar }}" />
                         </a>

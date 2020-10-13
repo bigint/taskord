@@ -26,7 +26,11 @@
                 <div class="card-body">
                     @foreach ($recent_questions as $question)
                         <div class="{{ $loop->index === count($recent_questions) - 1 ? '' : 'mb-2' }} {{ $question->patronOnly ? 'bg-patron recent-questions' : '' }}">
-                            <a href="{{ route('user.done', ['username' => $question->user->username]) }}">
+                            <a
+                                href="{{ route('user.done', ['username' => $question->user->username]) }}"
+                                id="user-hover"
+                                data-id="{{ $question->user->id }}"
+                            >
                                 <img class="rounded-circle avatar-30" src="{{ $question->user->avatar }}" alt="{{ $question->user->username }}" />
                             </a>
                             <a href="{{ route('question.question', ['id' => $question->id]) }}">
@@ -78,11 +82,19 @@
                                     <span class="mr-2 mt-1 text-secondary font-weight-bold">+{{ $product->members()->count() - 1 }} more</span>
                                 @endif
                                 @foreach ($product->members()->limit(1)->get() as $user)
-                                <a href="{{ route('user.done', ['username' => $user->username]) }}">
+                                <a
+                                    href="{{ route('user.done', ['username' => $user->username]) }}"
+                                    id="user-hover"
+                                    data-id="{{ $user->id }}"
+                                >
                                     <img class="rounded-circle avatar-30 mt-1 mr-1" src="{{ $user->avatar }}" />
                                 </a>
                                 @endforeach
-                                <a href="{{ route('user.done', ['username' => $product->owner->username]) }}">
+                                <a
+                                    href="{{ route('user.done', ['username' => $product->owner->username]) }}"
+                                    id="user-hover"
+                                    data-id="{{ $product->owner->id }}"
+                                >
                                     <img class="rounded-circle avatar-30 mt-1 mr-0" src="{{ $product->owner->avatar }}" />
                                 </a>
                             </span>
@@ -212,10 +224,19 @@
                 <ul class="list-group list-group-flush">
                     @foreach ($products as $product)
                     <li class="list-group-item pb-2 pt-2">
-                        <a href="{{ route('product.done', ['slug' => $product->slug]) }}">
+                        <a
+                            href="{{ route('product.done', ['slug' => $product->slug]) }}"
+                            id="product-hover"
+                            data-id="{{ $product->id }}"
+                        >
                             <img class="rounded avatar-30 mt-1 ml-2" src="{{ $product->avatar }}" alt="{{ $product->slug }}" height="50" width="50" />
                         </a>
-                        <a href="{{ route('product.done', ['slug' => $product->slug]) }}" class="ml-2 mr-2 align-text-top font-weight-bold text-dark">
+                        <a
+                            href="{{ route('product.done', ['slug' => $product->slug]) }}"
+                            class="ml-2 mr-2 align-text-top font-weight-bold text-dark"
+                            id="product-hover"
+                            data-id="{{ $product->id }}"
+                        >
                             {{ $product->name }}
                             @if ($product->launched)
                                 <a href="{{ route('products.launched') }}" class="small" data-toggle="tooltip" data-placement="right" title="Launched">
@@ -225,11 +246,19 @@
                         </a>
                         <span class="float-right">
                             @foreach ($product->members()->limit(1)->get() as $user)
-                            <a href="{{ route('user.done', ['username' => $user->username]) }}">
+                            <a
+                                href="{{ route('user.done', ['username' => $user->username]) }}"
+                                id="user-hover"
+                                data-id="{{ $product->owner->id }}"
+                            >
                                 <img class="rounded-circle avatar-30 mt-1 mr-1" src="{{ $user->avatar }}" />
                             </a>
                             @endforeach
-                            <a href="{{ route('user.done', ['username' => $product->owner->username]) }}">
+                            <a
+                                href="{{ route('user.done', ['username' => $product->owner->username]) }}"
+                                id="user-hover"
+                                data-id="{{ $product->owner->id }}"
+                            >
                                 <img class="rounded-circle avatar-30 mt-1 mr-0" src="{{ $product->owner->avatar }}" />
                             </a>
                         </span>
@@ -260,7 +289,11 @@
                                 #{{ $loop->index + 1 }}
                             </span>
                         </span>
-                        <a href="{{ route('user.done', ['username' => $user->username]) }}">
+                        <a
+                            href="{{ route('user.done', ['username' => $user->username]) }}"
+                            id="user-hover"
+                            data-id="{{ $user->id }}"
+                        >
                             <img class="rounded-circle avatar-30 mt-1 ml-2" src="{{ $user->avatar }}" alt="{{ $user->username }}" height="50" width="50" />
                         </a>
                         <a

@@ -6,7 +6,12 @@
                 <img class="avatar-40 rounded-circle" src="{{ $question->user->avatar }}" />
             </a>
             <span class="ml-2">
-                <a href="{{ route('user.done', ['username' => $question->user->username]) }}" class="font-weight-bold text-dark">
+                <a
+                    href="{{ route('user.done', ['username' => $question->user->username]) }}"
+                    class="font-weight-bold text-dark"
+                    id="user-hover"
+                    data-id="{{ $question->user->id }}"
+                >
                     @if ($question->user->firstname or $question->user->lastname)
                         {{ $question->user->firstname }}{{ ' '.$question->user->lastname }}
                     @else

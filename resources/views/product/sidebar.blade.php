@@ -94,10 +94,19 @@
         </div>
         <ul class="list-group list-group-flush">
             <li class="list-group-item pt-2 pb-2">
-                <a href="{{ route('user.done', ['username' => $product->owner->username]) }}">
+                <a
+                    href="{{ route('user.done', ['username' => $product->owner->username]) }}"
+                    id="user-hover"
+                    data-id="{{ $product->owner->id }}"
+                >
                     <img class="rounded-circle avatar-30" src="{{ $product->owner->avatar }}" />
                 </a>
-                <a href="{{ route('user.done', ['username' => $product->owner->username]) }}" class="ml-2 align-middle font-weight-bold text-dark">
+                <a
+                    href="{{ route('user.done', ['username' => $product->owner->username]) }}"
+                    class="ml-2 align-middle font-weight-bold text-dark"
+                    id="user-hover"
+                    data-id="{{ $product->owner->id }}"
+                >
                     @if ($product->owner->firstname or $product->owner->lastname)
                         {{ $product->owner->firstname }}{{ ' '.$product->owner->lastname }}
                     @else
