@@ -58,11 +58,20 @@
                     Asked by
                 </div>
                 <div class="card-body d-flex align-items-center">
-                    <a href="{{ route('user.done', ['username' => $question->user->username]) }}">
+                    <a
+                        href="{{ route('user.done', ['username' => $question->user->username]) }}"
+                        id="user-hover"
+                        data-id="{{ $question->user->id }}"
+                    >
                         <img class="rounded-circle avatar-40 mt-1" src="{{ $question->user->avatar }}" />
                     </a>
                     <span class="ml-3">
-                        <a href="{{ route('user.done', ['username' => $question->user->username]) }}" class="align-text-top text-dark">
+                        <a
+                            href="{{ route('user.done', ['username' => $question->user->username]) }}"
+                            class="align-text-top text-dark"
+                            id="user-hover"
+                            data-id="{{ $question->user->id }}"
+                        >
                             <span class="font-weight-bold">
                                 @if ($question->user->firstname or $question->user->lastname)
                                     {{ $question->user->firstname }}{{ ' '.$question->user->lastname }}
@@ -96,6 +105,8 @@
                             title="{{ $answer[0]->user->firstname ? $answer[0]->user->firstname . ' ' . $answer[0]->user->lastname : $answer[0]->user->username }}"
                             href="{{ route('user.done', ['username' => $answer[0]->user->username]) }}"
                             class="mr-1"
+                            id="user-hover"
+                            data-id="{{ $answer[0]->user->id }}"
                         >
                             <img class="rounded-circle avatar-30 mb-2" src="{{ $answer[0]->user->avatar }}" />
                         </a>
