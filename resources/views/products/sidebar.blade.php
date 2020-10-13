@@ -8,7 +8,12 @@
             <a href="{{ route('product.done', ['slug' => $product->slug]) }}">
                 <img class="rounded avatar-30 mt-1 ml-2" src="{{ $product->avatar }}" height="50" width="50" />
             </a>
-            <a href="{{ route('product.done', ['slug' => $product->slug]) }}" class="ml-2 mr-2 align-text-top font-weight-bold text-dark">
+            <a
+                href="{{ route('product.done', ['slug' => $product->slug]) }}"
+                class="ml-2 mr-2 align-text-top font-weight-bold text-dark"
+                id="product-hover"
+                data-id="{{ $product->id }}"
+            >
                 {{ $product->name }}
                 @if ($product->launched)
                     <a href="{{ route('products.launched') }}" class="small" data-toggle="tooltip" data-placement="right" title="Launched">
