@@ -1,9 +1,20 @@
 <li class="list-group-item p-3">
     <x-alert />
     <div class="align-items-center d-flex mb-2">
-        <img class="avatar-30 rounded-circle" src="{{ $comment->user->avatar }}" />
+        <a
+            href="{{ route('user.done', ['username' => $comment->user->username]) }}"
+            id="user-hover"
+            data-id="{{ $comment->user->id }}"
+        >
+            <img class="avatar-30 rounded-circle" src="{{ $comment->user->avatar }}" />
+        </a>
         <span class="ml-2">
-            <a href="{{ route('user.done', ['username' => $comment->user->username]) }}" class="font-weight-bold text-dark">
+            <a
+                href="{{ route('user.done', ['username' => $comment->user->username]) }}"
+                class="font-weight-bold text-dark"
+                id="user-hover"
+                data-id="{{ $comment->user->id }}"
+            >
                 @if ($comment->user->firstname or $comment->user->lastname)
                     {{ $comment->user->firstname }}{{ ' '.$comment->user->lastname }}
                 @else
