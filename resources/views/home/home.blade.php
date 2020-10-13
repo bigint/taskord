@@ -26,7 +26,11 @@
                 <div class="card-body">
                     @foreach ($recent_questions as $question)
                         <div class="{{ $loop->index === count($recent_questions) - 1 ? '' : 'mb-2' }} {{ $question->patronOnly ? 'bg-patron recent-questions' : '' }}">
-                            <a href="{{ route('user.done', ['username' => $question->user->username]) }}">
+                            <a
+                                href="{{ route('user.done', ['username' => $question->user->username]) }}"
+                                id="user-hover"
+                                data-id="{{ $question->user->id }}"
+                            >
                                 <img class="rounded-circle avatar-30" src="{{ $question->user->avatar }}" alt="{{ $question->user->username }}" />
                             </a>
                             <a href="{{ route('question.question', ['id' => $question->id]) }}">
@@ -78,11 +82,19 @@
                                     <span class="mr-2 mt-1 text-secondary font-weight-bold">+{{ $product->members()->count() - 1 }} more</span>
                                 @endif
                                 @foreach ($product->members()->limit(1)->get() as $user)
-                                <a href="{{ route('user.done', ['username' => $user->username]) }}">
+                                <a
+                                    href="{{ route('user.done', ['username' => $user->username]) }}"
+                                    id="user-hover"
+                                    data-id="{{ $user->id }}"
+                                >
                                     <img class="rounded-circle avatar-30 mt-1 mr-1" src="{{ $user->avatar }}" />
                                 </a>
                                 @endforeach
-                                <a href="{{ route('user.done', ['username' => $product->owner->username]) }}">
+                                <a
+                                    href="{{ route('user.done', ['username' => $product->owner->username]) }}"
+                                    id="user-hover"
+                                    data-id="{{ $product->owner->id }}"
+                                >
                                     <img class="rounded-circle avatar-30 mt-1 mr-0" src="{{ $product->owner->avatar }}" />
                                 </a>
                             </span>
