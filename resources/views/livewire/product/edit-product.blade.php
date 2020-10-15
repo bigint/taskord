@@ -10,7 +10,7 @@
                     <x-alert />
                     <div class="mb-3">
                         <label class="form-label font-weight-bold">Name of the product</label>
-                        <input type="text" value="{{ $name }}" class="form-control @error('name') is-invalid @enderror" placeholder="Simply the name of the product" wire:model="name">
+                        <input type="text" value="{{ $name }}" class="form-control @error('name') is-invalid @enderror" placeholder="Simply the name of the product" wire:model.defer="name">
                         @error('name')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -19,7 +19,7 @@
                     </div>
                     <div class="mb-3">
                         <label class="form-label font-weight-bold">Slug</label>
-                        <input type="text" value="{{ $slug }}" class="form-control @error('slug') is-invalid @enderror" placeholder="Product Slug (/taskord)" wire:model="slug">
+                        <input type="text" value="{{ $slug }}" class="form-control @error('slug') is-invalid @enderror" placeholder="Product Slug (/taskord)" wire:model.defer="slug">
                         @error('slug')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -28,7 +28,7 @@
                     </div>
                     <div class="mb-3">
                         <label class="form-label font-weight-bold">Description</label>
-                        <textarea class="form-control @error('description') is-invalid @enderror" rows="3" placeholder="Some words about your awesome product" wire:model="description">{{ $description }}</textarea>
+                        <textarea class="form-control @error('description') is-invalid @enderror" rows="3" placeholder="Some words about your awesome product" wire:model.defer="description">{{ $description }}</textarea>
                         @error('description')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
