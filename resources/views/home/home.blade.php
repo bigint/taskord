@@ -249,7 +249,7 @@
                             <a
                                 href="{{ route('user.done', ['username' => $user->username]) }}"
                                 id="user-hover"
-                                data-id="{{ $product->owner->id }}"
+                                data-id="{{ $user->id }}"
                             >
                                 <img class="rounded-circle avatar-30 mt-1 mr-1" src="{{ $user->avatar }}" />
                             </a>
