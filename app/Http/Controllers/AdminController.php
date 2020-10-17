@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Task;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 
@@ -14,6 +15,17 @@ class AdminController extends Controller
 
         return view('admin.users', [
             'users' => $users,
+            'count' => $count,
+        ]);
+    }
+
+    public function tasks()
+    {
+        $tasks = Task::latest()->paginate(50);
+        $count = Task::all()->count('id');
+
+        return view('admin.users', [
+            'tasks' => $tasks,
             'count' => $count,
         ]);
     }

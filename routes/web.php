@@ -121,6 +121,7 @@ Route::group(['middleware' => ['throttle:30,1']], function () {
     // Admin
     Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['staff']], function () {
         Route::get('users', [AdminController::class, 'users'])->name('users');
+        Route::get('tasks', [AdminController::class, 'tasks'])->name('tasks');
         Route::get('adminbar', [AdminController::class, 'toggle'])->name('adminbar');
     });
 
