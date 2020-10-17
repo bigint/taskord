@@ -29,10 +29,10 @@
                             <i class="ml-2 fa fa-lock text-primary" data-toggle="tooltip" data-placement="right" title="Private Profile"></i>
                         @endif
                         @if ($user->isVerified)
-                            <i id="verified" class="ml-2 fa fa-check-circle text-primary"></i>
+                            <i class="verified ml-2 fa fa-check-circle text-primary"></i>
                         @endif
                         @if ($user->isPatron)
-                            <a id="patron" class="ml-2 small" href="{{ route('patron.home') }}">
+                            <a class="patron ml-2 small" href="{{ route('patron.home') }}">
                                 {{ Emoji::handshake() }}
                             </a>
                         @endif

@@ -56,13 +56,13 @@ document.addEventListener("livewire:load", () => {
     },
   });
   
-  tippy('#patron', {
+  tippy('.patron', {
     allowHTML: true,
     placement: 'right',
     content: 'Patron',
   });
   
-  tippy('#verified', {
+  tippy('.verified', {
     allowHTML: true,
     placement: 'right',
     content: 'Verified',
