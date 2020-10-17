@@ -24,7 +24,7 @@ class AdminController extends Controller
         $tasks = Task::latest()->paginate(50);
         $count = Task::all()->count('id');
 
-        return view('admin.users', [
+        return view('admin.tasks', [
             'tasks' => $tasks,
             'count' => $count,
         ]);
