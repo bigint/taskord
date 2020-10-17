@@ -6,6 +6,7 @@ use App\Models\Answer;
 use App\Models\Comment;
 use App\Models\Product;
 use App\Models\Question;
+use App\Models\Webhook;
 use App\Models\Task;
 use App\Models\User;
 use Illuminate\Support\Facades\DB;
@@ -47,6 +48,7 @@ class Adminbar extends Component
         $questions = Question::count('id');
         $answers = Answer::count('id');
         $comments = Comment::count('id');
+        $webhooks = Webhook::count('id');
         $notifications = DB::table('notifications')->count();
         $jobs = Queue::size();
 
@@ -62,6 +64,7 @@ class Adminbar extends Component
             'comments' => number_format($comments),
             'notifications' => number_format($notifications),
             'jobs' => number_format($jobs),
+            'webhooks' => number_format($webhooks),
         ]);
     }
 }
