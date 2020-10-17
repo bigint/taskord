@@ -11,6 +11,7 @@ document.addEventListener("livewire:load", () => {
     animation: 'shift-away-subtle',
     theme: 'light-border',
     delay: [200, 50],
+    classList: 'popover',
     content: '<div class="p-3"><div class="spinner-border spinner-border-sm text-dark"></div></div>',
   };
   // User Popover
@@ -53,5 +54,17 @@ document.addEventListener("livewire:load", () => {
       instance._src = null;
       instance._error = null;
     },
+  });
+  
+  tippy('#patron', {
+    allowHTML: true,
+    placement: 'right',
+    content: 'Patron',
+  });
+  
+  tippy('#verified', {
+    allowHTML: true,
+    placement: 'right',
+    content: 'Verified',
   });
 });

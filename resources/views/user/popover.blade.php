@@ -20,22 +20,21 @@
         @if ($user->bio)
         <div class="mt-2 text-dark">{{ $user->bio }}</div>
         @endif
-        @if ($user->location)
         <div class="mt-2 text-dark">
+            <i class="fa fa-briefcase mr-1 text-black-50"></i>
+            {{ $user->company }}
+        </div>
+        @if ($user->location)
+        <div class="mt-1 text-dark">
             <i class="fa fa-compass mr-1 text-black-50"></i>
             {{ $user->location }}
         </div>
         @endif
-    </div>
-</div>
-<hr class="mt-0 mb-0">
-<div class="p-3">
-    <div>
-        <i class="fa fa-check-square mr-1 text-black-50"></i>
-        <span class="text-dark">{{ $user->tasks()->whereDone(true)->count() }} Completed Tasks<span>
-    </div>
-    <div class="mt-1">
-        <i class="fa fa-hourglass-start mr-1 text-black-50"></i>
-        <span class="text-dark">{{ $user->tasks()->whereDone(false)->count() }} Pending Tasks<span>
+        @if ($user->company)
+        <div class="mt-1 text-dark">
+            <i class="fa fa-briefcase mr-1 text-black-50"></i>
+            {{ $user->company }}
+        </div>
+        @endif
     </div>
 </div>
