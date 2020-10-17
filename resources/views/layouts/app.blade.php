@@ -103,6 +103,7 @@
                                 @endif
                                 <li><a class="dropdown-item text-dark" href="{{ route('user.settings.integrations') }}">{{ Emoji::anchor() }} Integration</a></li>
                                 @endauth
+                                <li><a class="dropdown-item text-dark" href="https://www.notion.so/Roadmap-89c75352cfe14d24b62644daa0f1cba0" target="_blank">{{ Emoji::construction() }} Roadmap</a></li>
                             </ul>
                         </li>
                     </ul>
