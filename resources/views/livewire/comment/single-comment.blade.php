@@ -17,10 +17,10 @@
                     {{ $comment->user->username }}
                 @endif
                 @if ($comment->user->isVerified)
-                    <i class="fa fa-check-circle ml-1 text-primary" data-toggle="tooltip" data-placement="right" title="Verified"></i>
+                    <i class="verified fa fa-check-circle ml-1 text-primary"></i>
                 @endif
                 @if ($comment->user->isPatron)
-                    <a class="ml-1 small" href="{{ route('patron.home') }}" data-toggle="tooltip" data-placement="right" title="Patron">
+                    <a class="patron ml-1 small" href="{{ route('patron.home') }}">
                         {{ Emoji::handshake() }}
                     </a>
                 @endif
