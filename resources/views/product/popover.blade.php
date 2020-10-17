@@ -1,4 +1,4 @@
-<div class="d-flex p-3">
+<div class="d-flex p-2">
     <div>
         <div class="font-weight-bold text-dark">
             {{ $product->name }}
