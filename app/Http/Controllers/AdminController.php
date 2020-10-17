@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\User;
 use App\Models\Task;
+use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 
 class AdminController extends Controller
@@ -18,7 +18,7 @@ class AdminController extends Controller
             'count' => $count,
         ]);
     }
-    
+
     public function tasks()
     {
         $tasks = Task::latest()->paginate(50);
