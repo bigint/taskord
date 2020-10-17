@@ -8,14 +8,16 @@ import "livewire-turbolinks";
 var Turbolinks = require("turbolinks");
 Turbolinks.start();
 
-window.lightbox = lightbox;
-window.lightbox.option({
-  disableScrolling: true,
-  fadeDuration: 100,
-  imageFadeDuration: 100,
-  resizeDuration: 300,
-  fitImagesInViewport: true,
-  maxWidth: 1000,
+document.addEventListener("livewire:load", () => {
+  window.lightbox = lightbox;
+  window.lightbox.option({
+    disableScrolling: true,
+    fadeDuration: 100,
+    imageFadeDuration: 100,
+    resizeDuration: 300,
+    fitImagesInViewport: true,
+    maxWidth: 1000,
+  });
 });
 
 document.addEventListener("DOMContentLoaded", () => {
