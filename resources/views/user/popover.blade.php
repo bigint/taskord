@@ -8,10 +8,10 @@
                 {{ $user->username }}
             @endif
             @if ($user->isVerified)
-                <i class="fa fa-check-circle ml-1 text-primary" data-toggle="tooltip" data-placement="right" title="Verified"></i>
+                <i class="fa fa-check-circle ml-1 text-primary" title="Verified"></i>
             @endif
             @if ($user->isPatron)
-                <a class="ml-1 small" href="{{ route('patron.home') }}" data-toggle="tooltip" data-placement="right" title="Patron">
+                <a class="ml-1 small" href="{{ route('patron.home') }}" title="Patron">
                     {{ Emoji::handshake() }}
                 </a>
             @endif
@@ -26,16 +26,11 @@
             {{ $user->location }}
         </div>
         @endif
-    </div>
-</div>
-<hr class="mt-0 mb-0">
-<div class="p-3">
-    <div>
-        <i class="fa fa-check-square mr-1 text-black-50"></i>
-        <span class="text-dark">{{ $user->tasks()->whereDone(true)->count() }} Completed Tasks<span>
-    </div>
-    <div class="mt-1">
-        <i class="fa fa-hourglass-start mr-1 text-black-50"></i>
-        <span class="text-dark">{{ $user->tasks()->whereDone(false)->count() }} Pending Tasks<span>
+        @if ($user->company)
+        <div class="mt-2 text-dark">
+            <i class="fa fa-briefcase mr-1 text-black-50"></i>
+            {{ $user->company }}
+        </div>
+        @endif
     </div>
 </div>

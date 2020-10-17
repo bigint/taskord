@@ -47,7 +47,7 @@
                                     {{ $user->firstname.' '.$user->lastname }}
                                     @endif
                                     @if ($user->isVerified)
-                                        <i class="fa fa-check-circle ml-1 text-primary" data-toggle="tooltip" data-placement="right" title="Verified"></i>
+                                        <i class="verified fa fa-check-circle ml-1 text-primary"></i>
                                     @endif
                                 </td>
                                 <td>
