@@ -20,18 +20,14 @@
         @if ($user->bio)
         <div class="mt-2 text-dark">{{ $user->bio }}</div>
         @endif
-        <div class="mt-2 text-dark">
-            <i class="fa fa-briefcase mr-1 text-black-50"></i>
-            {{ $user->company }}
-        </div>
         @if ($user->location)
-        <div class="mt-1 text-dark">
+        <div class="mt-2 text-dark">
             <i class="fa fa-compass mr-1 text-black-50"></i>
             {{ $user->location }}
         </div>
         @endif
         @if ($user->company)
-        <div class="mt-1 text-dark">
+        <div class="mt-2 text-dark">
             <i class="fa fa-briefcase mr-1 text-black-50"></i>
             {{ $user->company }}
         </div>
