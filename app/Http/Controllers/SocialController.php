@@ -48,7 +48,7 @@ class SocialController extends Controller
                 $username = $userSocial->getId();
             }
             
-            if ($provider === 'gitlab') {
+            if ($provider === 'gitlab' or $provider === 'github') {
                 $avatar = $userSocial->avatar;
             } else {
                 $avatar = str_replace('http://', 'https://', $userSocial->avatar_original);
