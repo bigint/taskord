@@ -8,6 +8,7 @@ use App\Notifications\Logger;
 use App\Notifications\Welcome;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Str;
 use Socialite;
 
 class SocialController extends Controller
@@ -36,22 +37,28 @@ class SocialController extends Controller
 
             return redirect()->route('home');
         } else {
-            if ($provider === 'twitter') {
+            if ($provider === 'twitter' or $provider === 'gitlab') {
                 $user = User::where(['username' => $userSocial->getNickname()])->first();
                 if (! $user) {
                     $username = $userSocial->getNickname();
                 } else {
-                    $username = $userSocial->getId();
+                    $username = $userSocial->getNickname().'_'.Str::random(5);
                 }
             } else {
                 $username = $userSocial->getId();
+            }
+
+            if ($provider === 'gitlab' or $provider === 'github') {
+                $avatar = $userSocial->avatar;
+            } else {
+                $avatar = str_replace('http://', 'https://', $userSocial->avatar_original);
             }
 
             $user = User::create([
                 'username' => $username,
                 'firstname' => $userSocial->getName(),
                 'email' => $userSocial->getEmail(),
-                'avatar' => str_replace('http://', 'https://', $userSocial->avatar_original),
+                'avatar' => $avatar,
                 'provider_id' => $userSocial->getId(),
                 'provider' => $provider,
                 'email_verified_at' => date('Y-m-d H:i:s'),
