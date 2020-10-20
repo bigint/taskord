@@ -83,19 +83,6 @@
                             </span>
                         @enderror
                     </div>
-    
-                    <div class="form-label-group">
-                        <input
-                            type="password"
-                            id="password-confirm"
-                            name="password_confirmation"
-                            class="form-control"
-                            placeholder="Confirm Password"
-                            required
-                            autocomplete="new-password"
-                        >
-                        <label for="password-confirm">Confirm Password</label>
-                    </div>
                     <button class="btn btn-lg btn-primary btn-block" type="submit">
                         <span class="small">
                             <i class="fa fa-user-plus mr-1"></i>

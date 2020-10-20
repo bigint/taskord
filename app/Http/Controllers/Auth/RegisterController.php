@@ -56,7 +56,7 @@ class RegisterController extends Controller
         return Validator::make($data, [
             'username' => ['required', 'alpha_dash', 'string', 'min:2', 'max:20', 'unique:users'],
             'email' => ['required', 'string', 'email', 'indisposable', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8', 'confirmed', 'pwned'],
+            'password' => ['required', 'string', 'min:8', 'pwned'],
         ],
         [
             'password.pwned' => 'This password has been pwned before',
