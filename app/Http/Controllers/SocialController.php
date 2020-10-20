@@ -8,8 +8,8 @@ use App\Notifications\Logger;
 use App\Notifications\Welcome;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Socialite;
 use Illuminate\Support\Str;
+use Socialite;
 
 class SocialController extends Controller
 {
@@ -42,18 +42,18 @@ class SocialController extends Controller
                 if (! $user) {
                     $username = $userSocial->getNickname();
                 } else {
-                    $username = $userSocial->getNickname() .'_'. Str::random(5);
+                    $username = $userSocial->getNickname().'_'.Str::random(5);
                 }
             } else {
                 $username = $userSocial->getId();
             }
-            
+
             if ($provider === 'gitlab' or $provider === 'github') {
                 $avatar = $userSocial->avatar;
             } else {
                 $avatar = str_replace('http://', 'https://', $userSocial->avatar_original);
             }
-            
+
             $user = User::create([
                 'username' => $username,
                 'firstname' => $userSocial->getName(),
