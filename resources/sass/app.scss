@@ -176,6 +176,10 @@ input[type="color"]:focus,
   color: #ff0000;
 }
 
+.fa-google {
+  color: #DB4437;
+}
+
 .fa-product-hunt {
   color: #da552f;
 }
@@ -434,10 +438,6 @@ input[type="date"]:valid:before {
 }
 
 .btn-social {
-  .fa-google {
-    color: #DB4437;
-  }
-  
   &.btn-google {
     color: #DB4437;
     border-color: #DB4437;
