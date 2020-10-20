@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Multicaret\Acquaintances\Traits\CanBeLiked;
 use Multicaret\Acquaintances\Traits\CanBeSubscribed;
@@ -43,5 +44,10 @@ class Task extends Model
     public function product()
     {
         return $this->belongsTo(\App\Models\Product::class);
+    }
+
+    public function scopeFetch(Builder $query): Builder
+    {
+        return $query->orderBy('done_at', 'desc');
     }
 }
