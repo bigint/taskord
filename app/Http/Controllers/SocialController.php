@@ -37,22 +37,28 @@ class SocialController extends Controller
 
             return redirect()->route('home');
         } else {
-            if ($provider === 'twitter') {
+            if ($provider === 'twitter' or $provider === 'gitlab') {
                 $user = User::where(['username' => $userSocial->getNickname()])->first();
                 if (! $user) {
                     $username = $userSocial->getNickname();
                 } else {
-                    $username = $userSocial->getNickname() . Str::random(5);
+                    $username = $userSocial->getNickname() .'_'. Str::random(5);
                 }
             } else {
                 $username = $userSocial->getId();
             }
-
+            
+            if ($provider === 'gitlab') {
+                $avatar = $userSocial->avatar;
+            } else {
+                $avatar = str_replace('http://', 'https://', $userSocial->avatar_original);
+            }
+            
             $user = User::create([
                 'username' => $username,
                 'firstname' => $userSocial->getName(),
                 'email' => $userSocial->getEmail(),
-                'avatar' => str_replace('http://', 'https://', $userSocial->avatar_original),
+                'avatar' => $avatar,
                 'provider_id' => $userSocial->getId(),
                 'provider' => $provider,
                 'email_verified_at' => date('Y-m-d H:i:s'),
