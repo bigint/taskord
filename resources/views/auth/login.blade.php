@@ -26,99 +26,97 @@
                         Or <a class="font-weight-bold" href="/register">signup now!</a>
                     </p>
                 </div>
-                <div class="card p-4">
-                    <div class="form-label-group">
+                <div class="form-label-group">
+                    <input
+                        type="text"
+                        id="username"
+                        name="username"
+                        value="{{ old('username') }}"
+                        class="form-control {{ session('error') ? 'is-invalid' : '' }}"
+                        placeholder="Username or Email"
+                        autocomplete="username"
+                        required
+                        autofocus
+                    >
+                    <label for="username">Username or Email</label>
+                </div>
+                <div class="form-label-group">
+                    <input
+                        type="password"
+                        id="password"
+                        name="password"
+                        class="form-control {{ session('error') ? 'is-invalid' : '' }}"
+                        placeholder="Password"
+                        autocomplete="current-password"
+                    >
+                    <label for="password">Password</label>
+                    @if (session()->has('error'))
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ session('error') }}</strong>
+                        </span>
+                    @endif
+                </div>
+                <div class="checkbox mb-3">
+                    <label>
                         <input
-                            type="text"
-                            id="username"
-                            name="username"
-                            value="{{ old('username') }}"
-                            class="form-control {{ session('error') ? 'is-invalid' : '' }}"
-                            placeholder="Username or Email"
-                            autocomplete="username"
-                            required
-                            autofocus
+                            type="checkbox"
+                            name="remember"
+                            id="remember" {{ old('remember') ? 'checked' : '' }}
                         >
-                        <label for="username">Username or Email</label>
-                    </div>
-                    <div class="form-label-group">
-                        <input
-                            type="password"
-                            id="password"
-                            name="password"
-                            class="form-control {{ session('error') ? 'is-invalid' : '' }}"
-                            placeholder="Password"
-                            autocomplete="current-password"
-                        >
-                        <label for="password">Password</label>
-                        @if (session()->has('error'))
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ session('error') }}</strong>
-                            </span>
-                        @endif
-                    </div>
-                    <div class="checkbox mb-3">
-                        <label>
-                            <input
-                                type="checkbox"
-                                name="remember"
-                                id="remember" {{ old('remember') ? 'checked' : '' }}
-                            >
-                            Remember me
-                        </label>
-                        @if (Route::has('password.request'))
-                            <a class="float-right font-weight-bold" href="{{ route('password.request') }}">
-                                Forgot Password?
-                            </a>
-                        @endif
-                    </div>
-                    <div class="btn-group btn-block" role="group">
-                        <button class="btn btn-lg btn-primary" name="submit" value="login" type="submit">
+                        Remember me
+                    </label>
+                    @if (Route::has('password.request'))
+                        <a class="float-right font-weight-bold" href="{{ route('password.request') }}">
+                            Forgot Password?
+                        </a>
+                    @endif
+                </div>
+                <div class="btn-group btn-block" role="group">
+                    <button class="btn btn-lg btn-primary" name="submit" value="login" type="submit">
+                        <span class="small">
+                            <i class="fa fa-lock mr-1"></i>
+                            Login
+                        </span>
+                    </button>
+                    <button class="btn btn-lg btn-dark" name="submit" value="magic-link" type="submit">
+                        <span class="small">
+                            <i class="fa fa-magic mr-1"></i>
+                            Magic link
+                        </span>
+                    </button>
+                </div>
+                <div class="mt-3 row">
+                    <div class="col-6">
+                        <a href="/login/google" class="btn btn-social btn-google btn-block" type="submit">
                             <span class="small">
-                                <i class="fa fa-lock mr-1"></i>
-                                Login
+                                <i class="fab fa-google mr-1"></i>
+                                Google
                             </span>
-                        </button>
-                        <button class="btn btn-lg btn-dark" name="submit" value="magic-link" type="submit">
-                            <span class="small">
-                                <i class="fa fa-magic mr-1"></i>
-                                Magic link
-                            </span>
-                        </button>
+                        </a>
                     </div>
-                    <div class="mt-3 row">
-                        <div class="col-6">
-                            <a href="/login/google" class="btn btn-social btn-google btn-block" type="submit">
-                                <span class="small">
-                                    <i class="fab fa-google mr-1"></i>
-                                    Google
-                                </span>
-                            </a>
-                        </div>
-                        <div class="col-6">
-                            <a href="/login/twitter" class="btn btn-social btn-twitter btn-block" type="submit">
-                                <span class="small">
-                                    <i class="fab fa-twitter mr-1"></i>
-                                    Twitter
-                                </span>
-                            </a>
-                        </div>
-                        <div class="col-6 mt-2">
-                            <a href="/login/github" class="btn btn-social btn-github btn-block" type="submit">
-                                <span class="small">
-                                    <i class="fab fa-github mr-1"></i>
-                                    GitHub
-                                </span>
-                            </a>
-                        </div>
-                        <div class="col-6 mt-2">
-                            <a href="/login/gitlab" class="btn btn-social btn-gitlab btn-block" type="submit">
-                                <span class="small">
-                                    <i class="fab fa-gitlab mr-1"></i>
-                                    GitLab
-                                </span>
-                            </a>
-                        </div>
+                    <div class="col-6">
+                        <a href="/login/twitter" class="btn btn-social btn-twitter btn-block" type="submit">
+                            <span class="small">
+                                <i class="fab fa-twitter mr-1"></i>
+                                Twitter
+                            </span>
+                        </a>
+                    </div>
+                    <div class="col-6 mt-2">
+                        <a href="/login/github" class="btn btn-social btn-github btn-block" type="submit">
+                            <span class="small">
+                                <i class="fab fa-github mr-1"></i>
+                                GitHub
+                            </span>
+                        </a>
+                    </div>
+                    <div class="col-6 mt-2">
+                        <a href="/login/gitlab" class="btn btn-social btn-gitlab btn-block" type="submit">
+                            <span class="small">
+                                <i class="fab fa-gitlab mr-1"></i>
+                                GitLab
+                            </span>
+                        </a>
                     </div>
                 </div>
             </form>
