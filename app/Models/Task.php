@@ -2,11 +2,11 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Multicaret\Acquaintances\Traits\CanBeLiked;
 use Multicaret\Acquaintances\Traits\CanBeSubscribed;
 use Rennokki\QueryCache\Traits\QueryCacheable;
-use Illuminate\Database\Eloquent\Builder;
 
 class Task extends Model
 {
@@ -45,7 +45,7 @@ class Task extends Model
     {
         return $this->belongsTo(\App\Models\Product::class);
     }
-    
+
     public function scopeFetch(Builder $query): Builder
     {
         return $query->orderBy('done_at', 'desc');
