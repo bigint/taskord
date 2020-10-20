@@ -48,6 +48,6 @@ class Task extends Model
     
     public function scopeFetch(Builder $query): Builder
     {
-        return $query->latest();
+        return $query->orderBy('done_at', 'desc');
     }
 }
