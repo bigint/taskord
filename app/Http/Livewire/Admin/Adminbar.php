@@ -50,6 +50,7 @@ class Adminbar extends Component
         $comments = Comment::count('id');
         $webhooks = Webhook::count('id');
         $notifications = DB::table('notifications')->count();
+        $praises = DB::table('interactions')->whereRelation('like')->count();
         $jobs = Queue::size();
 
         return view('livewire.admin.adminbar', [
@@ -63,6 +64,7 @@ class Adminbar extends Component
             'answers' => number_format($answers),
             'comments' => number_format($comments),
             'notifications' => number_format($notifications),
+            'praises' => number_format($praises),
             'jobs' => number_format($jobs),
             'webhooks' => number_format($webhooks),
         ]);
