@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 use Multicaret\Acquaintances\Traits\CanBeLiked;
 use Multicaret\Acquaintances\Traits\CanBeSubscribed;
 use Rennokki\QueryCache\Traits\QueryCacheable;
+use Illuminate\Database\Eloquent\Builder;
 
 class Task extends Model
 {
@@ -43,5 +44,10 @@ class Task extends Model
     public function product()
     {
         return $this->belongsTo(\App\Models\Product::class);
+    }
+    
+    public function scopeFetch(Builder $query): Builder
+    {
+        return $query->latest();
     }
 }
