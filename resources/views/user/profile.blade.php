@@ -89,7 +89,6 @@
                     <div>
                         <span class="font-weight-bold">{{ Emoji::fire() }} {{ number_format($user->getPoints()) }}</span>
                         {{ $user->getPoints(true) < 2 ? 'Reputation' : 'Reputations' }}
-                        <x-beta background="light" />
                     </div>
                     @if (Auth::check() && Auth::id() === $user->id)
                     <div class="mt-2">
