@@ -2107,16 +2107,16 @@
         },
         {
             "name": "laravel/horizon",
-            "version": "v5.3.0",
+            "version": "v5.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/horizon.git",
-                "reference": "2d6e60011c3d58c86a6c38f03374167bb1232a0a"
+                "reference": "d08d10ee12f53b7ba2cbb938eb23857e93fe51d3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/horizon/zipball/2d6e60011c3d58c86a6c38f03374167bb1232a0a",
-                "reference": "2d6e60011c3d58c86a6c38f03374167bb1232a0a",
+                "url": "https://api.github.com/repos/laravel/horizon/zipball/d08d10ee12f53b7ba2cbb938eb23857e93fe51d3",
+                "reference": "d08d10ee12f53b7ba2cbb938eb23857e93fe51d3",
                 "shasum": ""
             },
             "require": {
@@ -2127,7 +2127,7 @@
                 "illuminate/queue": "^8.0",
                 "illuminate/support": "^8.0",
                 "nesbot/carbon": "^2.17",
-                "php": "^7.3",
+                "php": "^7.3|^8.0",
                 "ramsey/uuid": "^4.0",
                 "symfony/error-handler": "^5.0",
                 "symfony/process": "^5.0"
@@ -2176,7 +2176,7 @@
                 "laravel",
                 "queue"
             ],
-            "time": "2020-10-20T16:00:39+00:00"
+            "time": "2020-11-03T16:55:40+00:00"
         },
         {
             "name": "laravel/slack-notification-channel",
