@@ -4507,26 +4507,27 @@
         },
         {
             "name": "rennokki/laravel-eloquent-query-cache",
-            "version": "2.4.2",
+            "version": "2.5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/renoki-co/laravel-eloquent-query-cache.git",
-                "reference": "6a9e8bc485e87f96c06f6c80876b480333564eda"
+                "reference": "c298c5c564064a79ba9d130a3df1ed9cc7348ca9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/renoki-co/laravel-eloquent-query-cache/zipball/6a9e8bc485e87f96c06f6c80876b480333564eda",
-                "reference": "6a9e8bc485e87f96c06f6c80876b480333564eda",
+                "url": "https://api.github.com/repos/renoki-co/laravel-eloquent-query-cache/zipball/c298c5c564064a79ba9d130a3df1ed9cc7348ca9",
+                "reference": "c298c5c564064a79ba9d130a3df1ed9cc7348ca9",
                 "shasum": ""
             },
             "require": {
-                "illuminate/database": "^6.0|^7.0|^8.0",
-                "illuminate/support": "^6.0|^7.0|^8.0"
+                "illuminate/database": "^7.0|^8.0",
+                "illuminate/support": "^7.0|^8.0"
             },
             "require-dev": {
-                "laravel/legacy-factories": "^1.0.4",
-                "orchestra/database": "^4.0|^5.0|^6.0",
-                "orchestra/testbench": "^4.0|^5.0|^6.0"
+                "laravel/legacy-factories": "^1.1",
+                "mockery/mockery": "^1.4",
+                "orchestra/database": "^5.0|^6.0",
+                "orchestra/testbench": "^5.0|^6.0"
             },
             "type": "library",
             "autoload": {
@@ -4536,7 +4537,7 @@
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
-                "MIT"
+                "Apache-2.0"
             ],
             "authors": [
                 {
@@ -4562,7 +4563,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2020-09-06T20:18:27+00:00"
+            "time": "2020-11-20T08:30:28+00:00"
         },
         {
             "name": "sentry/sdk",
