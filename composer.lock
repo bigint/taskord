@@ -1901,12 +1901,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/laragraph/utils.git",
-                "reference": "fbe26b6fa0042de6b38bdb976f17bc4acd175726"
+                "reference": "f398f6a4eed5378442f5cb2be283b6b663efd197"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laragraph/utils/zipball/fbe26b6fa0042de6b38bdb976f17bc4acd175726",
-                "reference": "fbe26b6fa0042de6b38bdb976f17bc4acd175726",
+                "url": "https://api.github.com/repos/laragraph/utils/zipball/f398f6a4eed5378442f5cb2be283b6b663efd197",
+                "reference": "f398f6a4eed5378442f5cb2be283b6b663efd197",
                 "shasum": ""
             },
             "require": {
@@ -1946,7 +1946,7 @@
             ],
             "description": "Utilities for using GraphQL with Laravel",
             "homepage": "https://github.com/laragraph/utils",
-            "time": "2020-09-04T14:40:46+00:00"
+            "time": "2020-11-20T16:08:05+00:00"
         },
         {
             "name": "laravel/framework",
@@ -10360,35 +10360,35 @@
         },
         {
             "name": "wnx/laravel-stats",
-            "version": "v2.4.1",
+            "version": "v2.5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/stefanzweifel/laravel-stats.git",
-                "reference": "d248bc1fb3f0e004f397c92c596a83bd511f32a0"
+                "reference": "d6237ba1e44def2abd89a1a96faa10f15e47358a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/stefanzweifel/laravel-stats/zipball/d248bc1fb3f0e004f397c92c596a83bd511f32a0",
-                "reference": "d248bc1fb3f0e004f397c92c596a83bd511f32a0",
+                "url": "https://api.github.com/repos/stefanzweifel/laravel-stats/zipball/d6237ba1e44def2abd89a1a96faa10f15e47358a",
+                "reference": "d6237ba1e44def2abd89a1a96faa10f15e47358a",
                 "shasum": ""
             },
             "require": {
                 "ext-json": "*",
                 "illuminate/console": "^6.0 || ^7.0 || ^8.0",
                 "illuminate/support": "^6.0 || ^7.0 || ^8.0",
-                "php": ">=7.3.0",
+                "php": "^7.3 || ^8.0",
                 "stefanzweifel/laravel-stats-phploc": "^6.1 || ^7.1",
                 "symfony/finder": "^4.3 || ^5.0",
                 "symfony/process": "^4.3 || ^5.0"
             },
             "require-dev": {
-                "friendsofphp/php-cs-fixer": "^2.15",
                 "laravel/browser-kit-testing": "~5.0 || ~6.0 || ~7.0",
                 "laravel/dusk": "~5.0 || ~6.0",
                 "mockery/mockery": "^1.1",
                 "orchestra/testbench": "^4.0 || ^5.0 || ^6.0",
                 "phpunit/phpunit": "8.* || 9.*",
-                "vimeo/psalm": "^3.12"
+                "psalm/plugin-laravel": "^1.4",
+                "vimeo/psalm": "^4.0"
             },
             "type": "library",
             "extra": {
@@ -10433,7 +10433,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2020-09-29T18:09:12+00:00"
+            "time": "2020-11-20T19:49:06+00:00"
         }
     ],
     "aliases": [],
