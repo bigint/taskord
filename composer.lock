@@ -1901,12 +1901,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/laragraph/utils.git",
-                "reference": "f398f6a4eed5378442f5cb2be283b6b663efd197"
+                "reference": "13008054b5379d9b6341521875a65bfecdc07ff4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laragraph/utils/zipball/f398f6a4eed5378442f5cb2be283b6b663efd197",
-                "reference": "f398f6a4eed5378442f5cb2be283b6b663efd197",
+                "url": "https://api.github.com/repos/laragraph/utils/zipball/13008054b5379d9b6341521875a65bfecdc07ff4",
+                "reference": "13008054b5379d9b6341521875a65bfecdc07ff4",
                 "shasum": ""
             },
             "require": {
@@ -1917,16 +1917,16 @@
                 "webonyx/graphql-php": "^0.13.2 || ^14"
             },
             "require-dev": {
-                "ergebnis/composer-normalize": "^2.6.1",
-                "infection/infection": "~0.16.4",
-                "jangregor/phpstan-prophecy": "0.8.0",
+                "ergebnis/composer-normalize": "^2.11.0",
+                "infection/infection": "~0.20.2",
+                "jangregor/phpstan-prophecy": "0.8.1",
                 "orchestra/testbench": "3.6.* || 3.7.* || 3.8.* || 3.9.* || ^4 || ^5 || ^6",
                 "phpstan/extension-installer": "^1",
-                "phpstan/phpstan": "0.12.42",
+                "phpstan/phpstan": "0.12.57",
                 "phpstan/phpstan-deprecation-rules": "0.12.5",
                 "phpstan/phpstan-strict-rules": "0.12.5",
                 "phpunit/phpunit": "^7.5 || ^8.4",
-                "thecodingmachine/phpstan-safe-rule": "v1.0.0"
+                "thecodingmachine/phpstan-safe-rule": "v1.0.1"
             },
             "type": "library",
             "autoload": {
@@ -1946,7 +1946,7 @@
             ],
             "description": "Utilities for using GraphQL with Laravel",
             "homepage": "https://github.com/laragraph/utils",
-            "time": "2020-11-20T16:08:05+00:00"
+            "time": "2020-11-24T15:48:18+00:00"
         },
         {
             "name": "laravel/framework",
@@ -2113,16 +2113,16 @@
         },
         {
             "name": "laravel/horizon",
-            "version": "v5.4.0",
+            "version": "v5.5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/horizon.git",
-                "reference": "d08d10ee12f53b7ba2cbb938eb23857e93fe51d3"
+                "reference": "66743f65a55a71f52b5308de1a09fe5fd8453bcb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/horizon/zipball/d08d10ee12f53b7ba2cbb938eb23857e93fe51d3",
-                "reference": "d08d10ee12f53b7ba2cbb938eb23857e93fe51d3",
+                "url": "https://api.github.com/repos/laravel/horizon/zipball/66743f65a55a71f52b5308de1a09fe5fd8453bcb",
+                "reference": "66743f65a55a71f52b5308de1a09fe5fd8453bcb",
                 "shasum": ""
             },
             "require": {
@@ -2182,7 +2182,7 @@
                 "laravel",
                 "queue"
             ],
-            "time": "2020-11-03T16:55:40+00:00"
+            "time": "2020-11-24T17:09:52+00:00"
         },
         {
             "name": "laravel/slack-notification-channel",
