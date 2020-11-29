@@ -54,6 +54,16 @@
                                     <a href="{{ route('user.done', ['username' => $user->username]) }}" target="_blank">
                                         {{ '@'.$user->username }}
                                     </a>
+                                    @if ($user->isSuspended)
+                                    <span title="Suspended">
+                                        🤢
+                                    </span>
+                                    @endif
+                                    @if ($user->isFlagged)
+                                    <span title="Flagged">
+                                        🚩
+                                    </span>
+                                    @endif
                                 </td>
                                 <td>
                                     {{ $user->email }}
