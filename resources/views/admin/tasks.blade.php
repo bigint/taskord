@@ -25,6 +25,7 @@
                                 <th scope="col">Username</th>
                                 <th scope="col">Status</th>
                                 <th scope="col">Task</th>
+                                <th scope="col">Updated</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -47,6 +48,14 @@
                                     <a href="{{ route('task', ['id' => $task->id]) }}">
                                         {{ Str::limit($task->task, '100') }}
                                     </a>
+                                    @if ($task->hidden)
+                                    <span title="Flagged">{{ Emoji::nauseatedFace() }}</span>
+                                    @endif
+                                </td>
+                                <td>
+                                    <span title="{{ Carbon::parse($task->updated_at)->format('M d, Y g:i A') }}">
+                                        {{ Carbon::parse($task->updated_at)->format('M d, Y') }}
+                                    </span>
                                 </td>
                             </tr>
                             @endforeach
