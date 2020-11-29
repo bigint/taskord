@@ -49,7 +49,7 @@
                     </div>
                 </div>
                 @if ($images)
-                    <div class="gallery mb-3">
+                    <div class="gallery">
                     @foreach ($images ?? [] as $image)
                     <div>
                         <img class="{{ count($images) === 1 ? 'w-50' : 'gallery' }} img-fluid border mt-3 rounded" src="{{ $image->temporaryUrl() }}" />

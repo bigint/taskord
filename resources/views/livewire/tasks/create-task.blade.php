@@ -35,6 +35,15 @@
                       <span class="sr-only">Loading...</span>
                     </div>
                 </div>
+                @if ($images)
+                    <div class="gallery">
+                    @foreach ($images ?? [] as $image)
+                    <div>
+                        <img class="{{ count($images) === 1 ? 'w-50' : 'gallery' }} img-fluid border mt-3 rounded" src="{{ $image->temporaryUrl() }}" />
+                    </div>
+                    @endforeach
+                    </div>
+                @endif
                 @error('images')
                 <div class="text-danger font-weight-bold mt-3">{{ $message }}</div>
                 @enderror
