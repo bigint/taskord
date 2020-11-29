@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "07e87e2d2db9c176a78d4c7d834c0ba0",
+    "content-hash": "34fa71af56a2fa23585abb094dcbfa94",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -3158,16 +3158,16 @@
         },
         {
             "name": "nuwave/lighthouse",
-            "version": "v5.0-alpha.4",
+            "version": "v5.0-beta.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nuwave/lighthouse.git",
-                "reference": "9bde9f3a6aea8528b023ebb45587b2d6825c9d0e"
+                "reference": "3a3e686cf110740947c37a421aea62d532ece9a0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nuwave/lighthouse/zipball/9bde9f3a6aea8528b023ebb45587b2d6825c9d0e",
-                "reference": "9bde9f3a6aea8528b023ebb45587b2d6825c9d0e",
+                "url": "https://api.github.com/repos/nuwave/lighthouse/zipball/3a3e686cf110740947c37a421aea62d532ece9a0",
+                "reference": "3a3e686cf110740947c37a421aea62d532ece9a0",
                 "shasum": ""
             },
             "require": {
@@ -3192,6 +3192,7 @@
                 "bensampo/laravel-enum": "^1.28.3 || ^2 || ^3",
                 "ergebnis/composer-normalize": "^2.2.2",
                 "laravel/framework": "5.6.* || 5.7.* || 5.8.* || ^6 || ^7 || ^8",
+                "laravel/legacy-factories": "^1.0",
                 "laravel/lumen-framework": "5.6.* || 5.7.* || 5.8.* || ^6 || ^7 || ^8",
                 "laravel/scout": "^7 || ^8",
                 "mll-lab/graphql-php-scalars": "^3.1",
@@ -3273,7 +3274,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2020-09-15T22:05:04+00:00"
+            "time": "2020-11-27T15:42:06+00:00"
         },
         {
             "name": "opis/closure",
@@ -7541,16 +7542,16 @@
         },
         {
             "name": "thecodingmachine/safe",
-            "version": "v1.3.1",
+            "version": "v1.3.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thecodingmachine/safe.git",
-                "reference": "a6b795aeb367c90cc6ed88dadb4cdcac436377c2"
+                "reference": "a8ab0876305a4cdaef31b2350fcb9811b5608dbc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thecodingmachine/safe/zipball/a6b795aeb367c90cc6ed88dadb4cdcac436377c2",
-                "reference": "a6b795aeb367c90cc6ed88dadb4cdcac436377c2",
+                "url": "https://api.github.com/repos/thecodingmachine/safe/zipball/a8ab0876305a4cdaef31b2350fcb9811b5608dbc",
+                "reference": "a8ab0876305a4cdaef31b2350fcb9811b5608dbc",
                 "shasum": ""
             },
             "require": {
@@ -7672,7 +7673,7 @@
                 "MIT"
             ],
             "description": "PHP core functions that throw exceptions instead of returning FALSE on error",
-            "time": "2020-10-08T08:40:29+00:00"
+            "time": "2020-10-28T17:51:34+00:00"
         },
         {
             "name": "tijsverkoyen/css-to-inline-styles",
