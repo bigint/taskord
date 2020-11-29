@@ -171,8 +171,8 @@
                 @endif
             @endif
             @if (Auth::user()->staffShip)
-            <button type="button" class="btn btn-task {{ $task->hidden ? 'btn-danger' : 'btn-outline-danger' }} text-white ml-1" wire:click="hide" wire:loading.attr="disabled" wire:offline.attr="disabled" wire:key="{{ $task->id }}">
-                {{ Emoji::triangularFlag() }}
+            <button type="button" class="btn btn-task {{ $task->hidden ? 'btn-danger' : 'btn-outline-danger' }} text-white ml-1" wire:click="hide" wire:loading.attr="disabled" wire:offline.attr="disabled" wire:key="{{ $task->id }}" title="Flag to admins">
+                {{ Emoji::nauseatedFace() }}
             </button>
             @endif
             @endauth
