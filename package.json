@@ -22,7 +22,7 @@
         "vue-template-compiler": "^2.6.12"
     },
     "dependencies": {
-        "bootstrap": "^5.0.0-alpha3",
+        "bootstrap": "^5.0.0-alpha2",
         "hotkeys-js": "^3.8.1",
         "jquery": "^3.2",
         "lightbox2": "^2.11.3",
