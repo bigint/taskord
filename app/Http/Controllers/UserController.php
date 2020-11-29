@@ -50,6 +50,7 @@ class UserController extends Controller
                 'lastIP',
                 'timezone',
                 'updated_at',
+                'last_active',
                 'email_verified_at',
             )
             ->where('username', $username)->firstOrFail();

@@ -5,9 +5,17 @@
     <div class="card-body">
         <div class="mb-1">
             <i class="fa fa-clock text-black-50 mr-1"></i>
-            <span class="h6">Last Updated:</span>
+            <span class="h6">Last Active:</span>
             <span class="font-weight-bold">
-                {{ Carbon::parse($user->updated_at)->format('M d, Y g:i A') }}
+                @if ($user->last_active)
+                @if (strtotime(Carbon::now()) - strtotime($user->last_active) <= 5)
+                <span class="font-weight-bold text-success">active</span>
+                @else
+                {{ Carbon::parse($user->last_active)->diffForHumans() }}
+                @endif
+                @else
+                <span class="small font-weight-bold text-black-50">Not Set</span>
+                @endif
             </span>
         </div>
         <div class="mb-1">
