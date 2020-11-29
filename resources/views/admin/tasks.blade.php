@@ -44,7 +44,9 @@
                                     @endif
                                 </td>
                                 <td>
-                                    {{ Str::limit($task->task, '100') }}
+                                    <a href="{{ route('task', ['id' => $task->id]) }}">
+                                        {{ Str::limit($task->task, '100') }}
+                                    </a>
                                 </td>
                             </tr>
                             @endforeach
