@@ -8,15 +8,17 @@
 
 @section('content')
 <div class="container-md">
-    <div class="w-50">
-        <iframe
-            src="https://tally.so/embed/63lL53?transparentBackground=1"
-            width="100%"
-            height="1000"
-            frameborder="0"
-            marginheight="0"
-            marginwidth="0"
-        ></iframe>
+    <div class="row justify-content-center">
+        <div class="col-lg-7">
+            <iframe
+                src="https://tally.so/embed/63lL53?transparentBackground=1"
+                width="100%"
+                height="1000"
+                frameborder="0"
+                marginheight="0"
+                marginwidth="0"
+            ></iframe>
+        </div>
     </div>
 </div>
 @endsection
