@@ -7,7 +7,7 @@
         <h2>Page not found</h2>
         <p>This is not the web page you are looking for.</p>
         <p class="mt-3">
-            <a class="text-black-50" href="https://taskord.com/contact">Taskord Support</a> —
+            <a class="text-black-50" href="{{ route('contact') }}">Taskord Support</a> —
             <a class="text-black-50" href="https://status.taskord.com">Taskord Status</a> —
             <a class="text-black-50" href="https://twitter.com/taskord">@taskord</a>
         </p>

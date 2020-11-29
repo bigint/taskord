@@ -152,6 +152,7 @@ Route::group(['middleware' => ['throttle:30,1']], function () {
     Route::view('privacy', 'pages.privacy')->name('privacy');
     Route::view('security', 'pages.security')->name('security');
     Route::view('sponsors', 'pages.sponsors')->name('sponsors');
+    Route::view('contact', 'pages.contact')->name('contact');
     Route::get('open', [PagesController::class, 'open'])->name('open');
     Route::get('deals', [PagesController::class, 'deals'])->name('deals');
 
