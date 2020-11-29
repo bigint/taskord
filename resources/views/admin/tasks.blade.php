@@ -44,7 +44,7 @@
                                     @endif
                                 </td>
                                 <td>
-                                    {{ $task->task }}
+                                    {{ Str::limit($task->task, '100') }}
                                 </td>
                             </tr>
                             @endforeach
