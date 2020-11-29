@@ -24,7 +24,7 @@
     <a class="pr-2" href="{{ route('sponsors') }}">
         Sponsors
     </a>
-    <a class="pr-2" href="https://forms.clickup.com/f/357rd-767/8PPJM0SN435CWUX4X2" target="_blank">
+    <a class="pr-2" href="{{ route('contact') }}">
         Contact
     </a>
     @auth
