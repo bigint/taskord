@@ -13,7 +13,7 @@
         @auth
         @php
         $username = "@".Auth::user()->username;
-        $email = Auth::user()->email;
+        $email = urlencode(Auth::user()->email);
         $url = "https://tally.so/embed/5mVVam?username=".$username."&email=".$email."&transparentBackground=1";
         @endphp
         <iframe
