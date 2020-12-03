@@ -38,12 +38,14 @@
                     <i class="fa fa-calendar-alt mr-1 text-black-50"></i>
                     <span>Lauched at {{ Carbon::parse($product->launched_at)->format("F Y") }}</span>
                 </span>
+                @if ($product->website)
                 <span class="ml-3">
                     <a class="text-dark" target="_blank" rel="noreferrer" href="{{ $product->website }}">
                         <img class="rounded sponsor-icon mr-1" rel="preload" src="https://external-content.duckduckgo.com/ip3/{{ parse_url($product->website)['host'] }}.ico" />
                         {{ $product->website }}
                     </a>
                 </span>
+                @endif
             </div>
         </div>
     </div>
