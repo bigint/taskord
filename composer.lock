@@ -4859,27 +4859,27 @@
         },
         {
             "name": "spatie/emoji",
-            "version": "2.1.4",
+            "version": "2.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/emoji.git",
-                "reference": "2a75998711ba0bd58a2f93f6df908a9e32dceb5e"
+                "reference": "c893f899ba4be107b264e9d8685eb0ec96bdeedd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/emoji/zipball/2a75998711ba0bd58a2f93f6df908a9e32dceb5e",
-                "reference": "2a75998711ba0bd58a2f93f6df908a9e32dceb5e",
+                "url": "https://api.github.com/repos/spatie/emoji/zipball/c893f899ba4be107b264e9d8685eb0ec96bdeedd",
+                "reference": "c893f899ba4be107b264e9d8685eb0ec96bdeedd",
                 "shasum": ""
             },
             "require": {
                 "ext-mbstring": "*",
-                "php": "^7.2"
+                "php": "^7.2|^8.0"
             },
             "require-dev": {
                 "ext-iconv": "*",
                 "ext-json": "*",
-                "guzzlehttp/guzzle": "^6.3",
-                "phpunit/phpunit": "^8.0",
+                "guzzlehttp/guzzle": "^7.0",
+                "phpunit/phpunit": "^9.4",
                 "symfony/console": "^4.2",
                 "twig/twig": "^2.7"
             },
@@ -4907,7 +4907,17 @@
                 "emoji",
                 "spatie"
             ],
-            "time": "2020-09-18T06:37:07+00:00"
+            "funding": [
+                {
+                    "url": "https://spatie.be/open-source/support-us",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/spatie",
+                    "type": "github"
+                }
+            ],
+            "time": "2020-12-04T08:26:45+00:00"
         },
         {
             "name": "spatie/laravel-backup",
