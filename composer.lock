@@ -1373,16 +1373,16 @@
         },
         {
             "name": "grosv/laravel-passwordless-login",
-            "version": "1.3.0",
+            "version": "1.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/grosv/laravel-passwordless-login.git",
-                "reference": "3680d7ef1bf11f12322e60a7ab73b0fbc0da8fe8"
+                "reference": "67b2bf61517c27b67581ed93e3bca2ed5e09eb74"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/grosv/laravel-passwordless-login/zipball/3680d7ef1bf11f12322e60a7ab73b0fbc0da8fe8",
-                "reference": "3680d7ef1bf11f12322e60a7ab73b0fbc0da8fe8",
+                "url": "https://api.github.com/repos/grosv/laravel-passwordless-login/zipball/67b2bf61517c27b67581ed93e3bca2ed5e09eb74",
+                "reference": "67b2bf61517c27b67581ed93e3bca2ed5e09eb74",
                 "shasum": ""
             },
             "require": {
@@ -1414,7 +1414,7 @@
                 }
             ],
             "description": "Passwordless login using temporary signed URL",
-            "time": "2020-09-07T23:18:11+00:00"
+            "time": "2020-12-06T06:35:28+00:00"
         },
         {
             "name": "guzzlehttp/guzzle",
