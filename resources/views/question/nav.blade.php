@@ -9,7 +9,7 @@
         Popular
     </a>
     @auth
-    <button type="button" class="mb-2 btn btn-success float-md-end text-white" data-toggle="modal" data-target="#newQuestionModal">
+    <button type="button" class="mb-2 btn btn-success float-md-end text-white" data-bs-toggle="modal" data-bs-target="#newQuestionModal">
         <i class="fa fa-plus"></i>
         Ask a Question
     </button>

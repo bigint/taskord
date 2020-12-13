@@ -65,7 +65,7 @@
                 <div class="card">
                     <div class="card-header" id="headingOne">
                         <h2 class="mb-0">
-                            <a class="text-dark h5" type="button" checked data-toggle="collapse" data-target="#simpleDocs" aria-expanded="true" aria-controls="simpleDocs">
+                            <a class="text-dark h5" type="button" checked data-bs-toggle="collapse" data-bs-target="#simpleDocs" aria-expanded="true" aria-controls="simpleDocs">
                                 <i class="fa fa-globe me-1"></i>
                                 Simple Webhook
                             </a>
@@ -103,7 +103,7 @@
                 <div class="card">
                     <div class="card-header" id="headingTwo">
                         <h2 class="mb-0">
-                            <a class="text-dark h5" type="button" data-toggle="collapse" data-target="#githubDocs" aria-expanded="false" aria-controls="githubDocs">
+                            <a class="text-dark h5" type="button" data-bs-toggle="collapse" data-bs-target="#githubDocs" aria-expanded="false" aria-controls="githubDocs">
                                 <i class="fab fa-github me-1"></i>
                                 GitHub
                             </a>
@@ -126,7 +126,7 @@
                 <div class="card">
                     <div class="card-header" id="headingThree">
                         <h2 class="mb-0">
-                            <a class="text-dark h5" type="button" data-toggle="collapse" data-target="#gitlabDocs" aria-expanded="false" aria-controls="gitlabDocs">
+                            <a class="text-dark h5" type="button" data-bs-toggle="collapse" data-bs-target="#gitlabDocs" aria-expanded="false" aria-controls="gitlabDocs">
                                 <i class="fab fa-gitlab me-1"></i>
                                 GitLab
                             </a>

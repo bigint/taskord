@@ -17,7 +17,7 @@
             </div>
             @auth
             @if (Auth::user()->staffShip)
-            <button type="button" class="mt-2 btn btn-success text-white" data-toggle="modal" data-target="#newQuestionModal">
+            <button type="button" class="mt-2 btn btn-success text-white" data-bs-toggle="modal" data-bs-target="#newQuestionModal">
                 <i class="fa fa-plus me-1"></i>
                 Add a Deal
             </button>

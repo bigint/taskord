@@ -85,5 +85,5 @@ document.body.addEventListener("click", () => {
 });
 
 document.addEventListener("turbolinks:load", () => {
-  $("[data-toggle='tooltip']").tooltip();
+  $("[data-bs-toggle='tooltip']").tooltip();
 });
