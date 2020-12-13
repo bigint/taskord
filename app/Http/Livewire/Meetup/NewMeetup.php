@@ -80,7 +80,7 @@ class NewMeetup extends Component
 
             session()->flash('global', 'Meetup has been created!');
 
-            return redirect()->route('meetups');
+            return redirect()->route('meetups.home');
         } else {
             session()->flash('error', 'Forbidden!');
         }
