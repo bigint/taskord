@@ -46,7 +46,7 @@
                             @endif
                             <span class="avatar-stack ms-1">
                                 @foreach ($question->answer->groupBy('user_id')->take(5) as $answer)
-                                <img class="replies-avatar rounded-circle {{ $loop->last ? 'mr-0' : '' }}" src="{{ $answer[0]->user->avatar }}" alt="{{ $answer[0]->user->username }}" />
+                                <img class="replies-avatar rounded-circle {{ $loop->last ? 'me-0' : '' }}" src="{{ $answer[0]->user->avatar }}" alt="{{ $answer[0]->user->username }}" />
                                 @endforeach
                             </span>
                         </div>
@@ -95,7 +95,7 @@
                                     id="user-hover"
                                     data-id="{{ $product->owner->id }}"
                                 >
-                                    <img class="rounded-circle avatar-30 mt-1 mr-0" src="{{ $product->owner->avatar }}" />
+                                    <img class="rounded-circle avatar-30 mt-1 me-0" src="{{ $product->owner->avatar }}" />
                                 </a>
                             </span>
                         </div>
@@ -259,7 +259,7 @@
                                 id="user-hover"
                                 data-id="{{ $product->owner->id }}"
                             >
-                                <img class="rounded-circle avatar-30 mt-1 mr-0" src="{{ $product->owner->avatar }}" />
+                                <img class="rounded-circle avatar-30 mt-1 me-0" src="{{ $product->owner->avatar }}" />
                             </a>
                         </span>
                     </li>

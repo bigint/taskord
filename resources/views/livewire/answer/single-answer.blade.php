@@ -53,7 +53,7 @@
                     </span>
                     <span class="avatar-stack ms-1">
                     @foreach($answer->likers->take(5) as $user)
-                    <img class="praise-avatar rounded-circle {{ $loop->last ? 'mr-0' : '' }}" src="{{ $user->avatar }}" />
+                    <img class="praise-avatar rounded-circle {{ $loop->last ? 'me-0' : '' }}" src="{{ $user->avatar }}" />
                     @endforeach
                     </span>
                 </button>
@@ -66,7 +66,7 @@
                     </span>
                     <span class="avatar-stack ms-1">
                     @foreach($answer->likers->take(5) as $user)
-                    <img class="praise-avatar rounded-circle {{ $loop->last ? 'mr-0' : '' }}" src="{{ $user->avatar }}" />
+                    <img class="praise-avatar rounded-circle {{ $loop->last ? 'me-0' : '' }}" src="{{ $user->avatar }}" />
                     @endforeach
                     </span>
                     @endif
@@ -99,7 +99,7 @@
                     </span>
                     <span class="avatar-stack ms-1">
                     @foreach($answer->likers->take(5) as $user)
-                    <img class="praise-avatar rounded-circle {{ $loop->last ? 'mr-0' : '' }}" src="{{ $user->avatar }}" />
+                    <img class="praise-avatar rounded-circle {{ $loop->last ? 'me-0' : '' }}" src="{{ $user->avatar }}" />
                     @endforeach
                     </span>
                     @endif
