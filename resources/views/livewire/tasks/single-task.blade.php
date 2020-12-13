@@ -30,7 +30,7 @@
         @endforeach
         </div>
         @endif
-        <span class="d-flex small float-right ms-auto">
+        <span class="d-flex small float-end ms-auto">
             <span class="fw-bold me-2">
                 @if ($task->due_at)
                     {!! Helper::dueDate($task->due_at) !!}

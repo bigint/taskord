@@ -31,7 +31,7 @@
                     </span>
                 </span>
                 <a href="{{ route('user.done', ['username' => $task->user->username]) }}">
-                    <img class="rounded-circle float-right avatar-30" src="{{ $task->user->avatar }}" />
+                    <img class="rounded-circle float-end avatar-30" src="{{ $task->user->avatar }}" />
                 </a>
             </li>
             @endforeach
@@ -78,7 +78,7 @@
                     </a>
                 </span>
                 <a href="{{ route('user.done', ['username' => $product->owner->username]) }}">
-                    <img class="rounded-circle float-right avatar-30" src="{{ $product->owner->avatar }}" />
+                    <img class="rounded-circle float-end avatar-30" src="{{ $product->owner->avatar }}" />
                 </a>
             </li>
             @endforeach
@@ -97,7 +97,7 @@
                     </a>
                 </span>
                 <a href="{{ route('user.done', ['username' => $question->user->username]) }}">
-                    <img class="rounded-circle float-right avatar-30" src="{{ $question->user->avatar }}" />
+                    <img class="rounded-circle float-end avatar-30" src="{{ $question->user->avatar }}" />
                 </a>
             </li>
             @endforeach

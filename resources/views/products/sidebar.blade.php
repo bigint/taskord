@@ -26,7 +26,7 @@
                 {{ $product->tasks->count('id') }}
                 {{ $product->tasks->count('id') == 1 ? 'Task' : 'Tasks' }}
             </span>
-            <span class="float-right">
+            <span class="float-end">
                 @foreach ($product->members()->limit(1)->get() as $user)
                 <a
                     href="{{ route('user.done', ['username' => $user->username]) }}"

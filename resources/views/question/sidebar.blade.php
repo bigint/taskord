@@ -23,7 +23,7 @@
                 id="user-hover"
                 data-id="{{ $question->user->id }}"
             >
-                <img class="rounded-circle avatar-30 ms-3 float-right" src="{{ $question->user->avatar }}" />
+                <img class="rounded-circle avatar-30 ms-3 float-end" src="{{ $question->user->avatar }}" />
             </a>
         </li>
         @endforeach

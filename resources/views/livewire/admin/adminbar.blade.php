@@ -1,6 +1,6 @@
 <div class="card p-1 rounded-0 d-flex border-bottom border-primary bg-primary text-white">
     <div class="pl-2 pr-2">
-        <span class="float-left">
+        <span class="float-start">
             <a class="text-white fw-bold" href="https://gitlab.com/taskord/taskord/-/tree/{{ $branchname }}"
                 target="_blank">
                 <i class="fa fa-code-branch me-1"></i>
@@ -22,7 +22,7 @@
                 PHP v{{ phpversion() }}
             </a>
         </span>
-        <span class="float-right">
+        <span class="float-end">
             <span role="button" class="dropdown dropleft">
                 <span class="fw-bold me-3" data-toggle="dropdown">
                     <i class="fa fa-chart-pie me-1"></i>

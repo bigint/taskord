@@ -28,7 +28,7 @@
                 </a>
                 <div class="small">{{ "@" . $question->user->username }}</div>
             </span>
-            <span class="align-text-top small float-right ms-auto">
+            <span class="align-text-top small float-end ms-auto">
                 <a class="text-black-50" href="{{ route('question.question', ['id' => $question->id]) }}">
                     {{ Carbon::parse($question->created_at)->diffForHumans() }}
                 </a>

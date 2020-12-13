@@ -160,7 +160,7 @@
                                 </div>
                             </span>
                             <a class="ms-auto" href="{{ route('user.done', ['username' => $product->owner->username]) }}">
-                                <img class="rounded-circle float-right avatar-30 mt-1 ms-2" src="{{ $product->owner->avatar }}" height="50" width="50" />
+                                <img class="rounded-circle float-end avatar-30 mt-1 ms-2" src="{{ $product->owner->avatar }}" height="50" width="50" />
                             </a>
                         </div>
                     </li>

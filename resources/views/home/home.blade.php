@@ -148,7 +148,7 @@
                                     {{ '@'.Str::limit(Auth::user()->username, '20') }}
                                 </div>
                             </a>
-                            <a class="btn btn-sm btn-success text-white float-right ms-auto" href="{{ route('user.settings.profile') }}">
+                            <a class="btn btn-sm btn-success text-white float-end ms-auto" href="{{ route('user.settings.profile') }}">
                                 <i class="fa fa-cog me-1"></i>
                                 Update
                             </a>
@@ -244,7 +244,7 @@
                                 </a>
                             @endif
                         </a>
-                        <span class="float-right">
+                        <span class="float-end">
                             @foreach ($product->members()->limit(1)->get() as $user)
                             <a
                                 href="{{ route('user.done', ['username' => $user->username]) }}"
