@@ -47,8 +47,6 @@ class Clean extends Command
         $this->info('Views Cleared ✅');
         Artisan::call('cache:clear');
         $this->info('Cache Cleared ✅');
-        Artisan::call('lighthouse:clear-cache');
-        $this->info('Lighthouse Cache Cleared ✅');
         $this->info('Cleaning Ended ✅');
 
         return 0;
