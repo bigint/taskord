@@ -12,7 +12,7 @@
             @include('meetups.header')
             <div class="card-body">
                 @if (count($meetups) === 0)
-                    <x-empty icon="handshake" text="No RSVPd meetups found" />
+                    <x-empty icon="handshake" text="No finished meetups found" />
                 @endif
                 <div class="container-fluid">
                     <div class="row">
