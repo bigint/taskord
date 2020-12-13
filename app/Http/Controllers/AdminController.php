@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Task;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Artisan;
 
 class AdminController extends Controller
 {
@@ -44,5 +45,12 @@ class AdminController extends Controller
 
             return 'enabled';
         }
+    }
+
+    public static function clean()
+    {
+        Artisan::call('app:clean');
+
+        return redirect('/');
     }
 }
