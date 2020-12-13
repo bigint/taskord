@@ -24,11 +24,7 @@
                 </div>
                 <div class="d-flex justify-content-between">
                 <div class="form-file form-file-sm col-6 col-lg-3">
-                    <input type="file" wire:model="images" class="form-file-input" accept="image/*" multiple>
-                    <label class="form-file-label">
-                        <span class="form-file-text">Choose files...</span>
-                        <span class="form-file-button">Browse</span>
-                    </label>
+                    <input class="form-control form-control-sm" wire:model="images" accept="image/*" type="file" multiple>
                 </div>
                 @auth
                 @if (!Auth::user()->checkState)

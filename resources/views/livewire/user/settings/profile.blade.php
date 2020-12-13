@@ -61,11 +61,7 @@
                 <div class="mb-3">
                     <label class="form-label">Avatar</label>
                     <div class="form-file w-25">
-                        <input type="file" wire:model="avatar" class="form-file-input">
-                        <label class="form-file-label">
-                            <span class="form-file-text">Choose file...</span>
-                            <span class="form-file-button">Browse</span>
-                        </label>
+                        <input class="form-control form-control-sm" wire:model="avatar" type="file">
                         <button wire:click="useGravatar" class="btn btn-success text-white mt-3">
                             Use Gravatar
                             <span wire:target="useGravatar" wire:loading class="spinner-border spinner-border-sm ms-2" role="status"></span>
