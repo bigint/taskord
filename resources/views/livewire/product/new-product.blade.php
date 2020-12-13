@@ -38,11 +38,7 @@
                     <div class="mb-3">
                         <label class="form-label fw-bold">Logo</label>
                         <div class="form-file w-50">
-                            <input type="file" wire:model="avatar" class="form-file-input">
-                            <label class="form-file-label">
-                                <span class="form-file-text">Choose file...</span>
-                                <span class="form-file-button">Browse</span>
-                            </label>
+                            <input class="form-control form-control-sm" wire:model="avatar" type="file">
                         </div>
                     </div>
                     <div wire:loading wire:target="avatar">

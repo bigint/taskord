@@ -60,11 +60,7 @@
                     <div class="mb-3">
                         <label class="form-label fw-bold">Cover (1500x500)</label>
                         <div class="form-file w-50">
-                            <input type="file" wire:model="cover" class="form-file-input">
-                            <label class="form-file-label">
-                                <span class="form-file-text">Choose file...</span>
-                                <span class="form-file-button">Browse</span>
-                            </label>
+                            <input class="form-control form-control-sm" wire:model="cover" type="file">
                         </div>
                     </div>
                     <div wire:loading wire:target="cover">
