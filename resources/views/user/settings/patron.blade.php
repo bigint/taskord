@@ -51,13 +51,13 @@
                             <div class="mt-2">
                                 @if ($user->patron->update_url)
                                 <a class="btn btn-success text-white" href="{{ $user->patron->update_url }}" target="_blank">
-                                    <i class="fa fa-pen mr-1"></i>
+                                    <i class="fa fa-pen me-1"></i>
                                     Update Payment
                                 </a>
                                 @endif
                                 @if ($user->patron->cancel_url)
                                 <a class="btn btn-danger" href="{{ $user->patron->cancel_url }}" target="_blank">
-                                    <i class="fa fa-times mr-1"></i>
+                                    <i class="fa fa-times me-1"></i>
                                     Cancel Patron
                                 </a>
                                 @endif

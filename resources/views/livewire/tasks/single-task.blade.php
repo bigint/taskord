@@ -31,7 +31,7 @@
         </div>
         @endif
         <span class="d-flex small float-right ms-auto">
-            <span class="fw-bold mr-2">
+            <span class="fw-bold me-2">
                 @if ($task->due_at)
                     {!! Helper::dueDate($task->due_at) !!}
                 @endif

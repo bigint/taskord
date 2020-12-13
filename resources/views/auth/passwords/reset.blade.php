@@ -70,7 +70,7 @@
                 </div>
                 <button class="btn btn-lg btn-primary btn-block" type="submit">
                     <span class="small">
-                        <i class="fa fa-refresh mr-1"></i>
+                        <i class="fa fa-refresh me-1"></i>
                         Reset Password
                     </span>
                 </button>

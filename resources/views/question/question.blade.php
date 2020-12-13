@@ -17,14 +17,14 @@
             @if (session()->has('question_created'))
                 <div class="alert alert-success alert-dismissible fade show mt-2">
                     <button type="button" class="btn-close small" data-dismiss="alert"></button>
-                    <i class="fa fa-check mr-1"></i>
+                    <i class="fa fa-check me-1"></i>
                     {{ session('question_created') }}
                 </div>
             @endif
             @if (session()->has('question_edited'))
                 <div class="alert alert-success alert-dismissible fade show mt-2">
                     <button type="button" class="btn-close small" data-dismiss="alert"></button>
-                    <i class="fa fa-check mr-1"></i>
+                    <i class="fa fa-check me-1"></i>
                     {{ session('question_edited') }}
                 </div>
             @endif
@@ -103,7 +103,7 @@
                     @foreach ($question->answer->groupBy('user_id') as $answer)
                         <a
                             href="{{ route('user.done', ['username' => $answer[0]->user->username]) }}"
-                            class="mr-1"
+                            class="me-1"
                             id="user-hover"
                             data-id="{{ $answer[0]->user->id }}"
                         >

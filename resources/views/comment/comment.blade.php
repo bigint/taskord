@@ -73,7 +73,7 @@
                         <a
                             title="{{ $user->firstname ? $user->firstname . ' ' . $user->lastname : $user->username }}"
                             href="{{ route('user.done', ['username' => $user->username]) }}"
-                            class="mr-1"
+                            class="me-1"
                         >
                             <img class="rounded-circle avatar-30 mb-2" src="{{ $user->avatar }}" />
                         </a>

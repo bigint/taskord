@@ -84,7 +84,7 @@
                 </div>
                 <button class="btn btn-lg btn-primary btn-block" type="submit">
                     <span class="small">
-                        <i class="fa fa-user-plus mr-1"></i>
+                        <i class="fa fa-user-plus me-1"></i>
                         Sign up
                     </span>
                 </button>
@@ -92,7 +92,7 @@
                     <div class="col-6">
                         <a href="/login/google" class="btn btn-social btn-google btn-block" type="submit">
                             <span class="small">
-                                <i class="fab fa-google mr-1"></i>
+                                <i class="fab fa-google me-1"></i>
                                 Google
                             </span>
                         </a>
@@ -100,7 +100,7 @@
                     <div class="col-6">
                         <a href="/login/twitter" class="btn btn-social btn-twitter btn-block" type="submit">
                             <span class="small">
-                                <i class="fab fa-twitter mr-1"></i>
+                                <i class="fab fa-twitter me-1"></i>
                                 Twitter
                             </span>
                         </a>
@@ -108,7 +108,7 @@
                     <div class="col-6 mt-2">
                         <a href="/login/github" class="btn btn-social btn-github btn-block" type="submit">
                             <span class="small">
-                                <i class="fab fa-github mr-1"></i>
+                                <i class="fab fa-github me-1"></i>
                                 GitHub
                             </span>
                         </a>
@@ -116,7 +116,7 @@
                     <div class="col-6 mt-2">
                         <a href="/login/gitlab" class="btn btn-social btn-gitlab btn-block" type="submit">
                             <span class="small">
-                                <i class="fab fa-gitlab mr-1"></i>
+                                <i class="fab fa-gitlab me-1"></i>
                                 GitLab
                             </span>
                         </a>

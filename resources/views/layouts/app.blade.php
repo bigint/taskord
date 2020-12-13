@@ -70,7 +70,7 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     @livewire('search')
-                    <ul class="navbar-nav mr-auto">
+                    <ul class="navbar-nav me-auto">
                         <li class="nav-item">
                             <a class="nav-link text-white fw-bold" href="{{ route('products.newest') }}">
                                 Products
@@ -109,7 +109,7 @@
                     </ul>
                     <ul class="navbar-nav ms-auto">
                         @guest
-                            <li class="nav-item mr-3">
+                            <li class="nav-item me-3">
                                 <a class="nav-link text-white fw-bold" href="{{ route('login') }}">Login</a>
                             </li>
                             @if (Route::has('register'))
@@ -120,7 +120,7 @@
                         @else
                             @livewire('notification.icon')
                             @if (Auth::user()->hasGoal)
-                            <li class="nav-item mr-2">
+                            <li class="nav-item me-2">
                                 <div class="nav-link">
                                     <a
                                         href="{{ route('user.settings.profile') }}"
@@ -136,7 +136,7 @@
                                 </div>
                             </li>
                             @endif
-                            <li class="nav-item mr-2">
+                            <li class="nav-item me-2">
                                 <div class="nav-link">
                                     <span class="badge rounded-pill text-secondary score bg-warning">
                                         {{ Emoji::fire() }} {{ number_format(Auth::user()->getPoints()) }}
@@ -211,7 +211,7 @@
         @if (session()->has('global'))
             <div class="alert alert-success alert-dismissible fade show rounded-0 mb-0">
                 <button type="button" class="btn-close small" data-dismiss="alert"></button>
-                <i class="fa fa-check mr-1"></i>
+                <i class="fa fa-check me-1"></i>
                 {{ session('global') }}
             </div>
         @endif
@@ -219,7 +219,7 @@
         @if (Auth::user()->isFlagged)
         <div class="alert alert-danger rounded-0" role="alert">
             <div class="fw-bold">
-                <i class="fa fa-flag mr-1"></i>
+                <i class="fa fa-flag me-1"></i>
                 Your account has been flagged.
             </div>
             <div class="mt-1">
@@ -230,7 +230,7 @@
         @if (!Auth::user()->hasVerifiedEmail())
         <div class="alert alert-warning rounded-0" role="alert">
             <div class="fw-bold">
-                <i class="fa fa-envelope mr-1"></i>
+                <i class="fa fa-envelope me-1"></i>
                 Verify Your Email Address <x-beta background="light" />
             </div>
             <form class="mt-1" method="POST" action="{{ route('verification.resend') }}">

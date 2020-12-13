@@ -4,7 +4,7 @@
     </div>
     <div class="card-body">
         <div class="mb-1">
-            <i class="fa fa-clock text-black-50 mr-1"></i>
+            <i class="fa fa-clock text-black-50 me-1"></i>
             <span class="h6">Last Active:</span>
             <span class="fw-bold">
                 @if ($user->last_active)
@@ -19,7 +19,7 @@
             </span>
         </div>
         <div class="mb-1">
-            <i class="fa fa-envelope text-black-50 mr-1"></i>
+            <i class="fa fa-envelope text-black-50 me-1"></i>
             <span class="h6">User Email:</span>
             <a class="fw-bold" href="mailto:{{ $user->email }}">
                 {{ $user->email }}
@@ -32,7 +32,7 @@
         </div>
         <div class="mb-1">
             <span class="h6">
-                <i class="fa fa-address-card text-black-50 mr-1"></i>
+                <i class="fa fa-address-card text-black-50 me-1"></i>
                 Last login IP:
             </span>
             @if ($user->lastIP)
@@ -53,14 +53,14 @@
             @endphp
             @if ($usersCount > 1)
             <div class="small mt-1">
-                <i class="fa fa-exclamation-triangle text-danger mr-1"></i>
+                <i class="fa fa-exclamation-triangle text-danger me-1"></i>
                 <span class="fw-bold">{{ $usersCount }}</span>  {{ $usersCount < 1 ? 'user' : 'users' }} associated with the same IP
             </div>
             @endif
         </div>
         <div class="mb-3">
             <span class="h6">
-                <i class="fa fa-user-clock text-black-50 mr-1"></i>
+                <i class="fa fa-user-clock text-black-50 me-1"></i>
                 Timezone:
             </span>
             @if ($user->timezone)
@@ -97,7 +97,7 @@
             @endif
         </div>
         <div class="text-info h5 mb-3">
-            <i class="fa fa-flag-checkered mr-1"></i>
+            <i class="fa fa-flag-checkered me-1"></i>
             Flags
         </div>
         <div class="mb-2 mt-3">
@@ -138,7 +138,7 @@
         @if (!$user->isStaff)
         <div class="mt-3">
             <button wire:click="masquerade" class="btn btn-sm btn-warning fw-bold">
-                <i class="fas fa-theater-masks mr-1"></i>
+                <i class="fas fa-theater-masks me-1"></i>
                 Masquerade
             </button>
             <span wire:loading wire:target="Masquerade" class="small ms-2 text-danger fw-bold">masquerading...</span>
@@ -147,7 +147,7 @@
         @if (!$user->isStaff)
         <hr>
         <div class="text-danger h5 mb-3">
-            <i class="fa fa-user-ninja mr-1"></i>
+            <i class="fa fa-user-ninja me-1"></i>
             Danger Zone
         </div>
         <div class="mt-2">
@@ -162,48 +162,48 @@
         </div>
         <div class="mt-3">
             <button wire:click="deleteTasks" class="btn btn-sm btn-danger fw-bold">
-                <i class="fa fa-trash mr-1"></i>
-                <i class="fa fa-check mr-1"></i>
+                <i class="fa fa-trash me-1"></i>
+                <i class="fa fa-check me-1"></i>
                 Delete all tasks
             </button>
             <span wire:loading wire:target="deleteTasks" class="small ms-2 text-danger fw-bold">Deleting...</span>
         </div>
         <div class="mt-2">
             <button wire:click="deleteComments" class="btn btn-sm btn-danger fw-bold">
-                <i class="fa fa-trash mr-1"></i>
-                <i class="fa fa-comment mr-1"></i>
+                <i class="fa fa-trash me-1"></i>
+                <i class="fa fa-comment me-1"></i>
                 Delete all comments
             </button>
             <span wire:loading wire:target="deleteComments" class="small ms-2 text-danger fw-bold">Deleting...</span>
         </div>
         <div class="mt-2">
             <button wire:click="deleteQuestions" class="btn btn-sm btn-danger fw-bold">
-                <i class="fa fa-trash mr-1"></i>
-                <i class="fa fa-question-circle mr-1"></i>
+                <i class="fa fa-trash me-1"></i>
+                <i class="fa fa-question-circle me-1"></i>
                 Delete all questions
             </button>
             <span wire:loading wire:target="deleteQuestions" class="small ms-2 text-danger fw-bold">Deleting...</span>
         </div>
         <div class="mt-2">
             <button wire:click="deleteAnswers" class="btn btn-sm btn-danger fw-bold">
-                <i class="fa fa-trash mr-1"></i>
-                <i class="fa fa-comments mr-1"></i>
+                <i class="fa fa-trash me-1"></i>
+                <i class="fa fa-comments me-1"></i>
                 Delete all answers
             </button>
             <span wire:loading wire:target="deleteAnswers" class="small ms-2 text-danger fw-bold">Deleting...</span>
         </div>
         <div class="mt-2">
             <button wire:click="deleteProducts" class="btn btn-sm btn-danger fw-bold">
-                <i class="fa fa-trash mr-1"></i>
-                <i class="fa fa-box-open mr-1"></i>
+                <i class="fa fa-trash me-1"></i>
+                <i class="fa fa-box-open me-1"></i>
                 Delete all products
             </button>
             <span wire:loading wire:target="deleteProducts" class="small ms-2 text-danger fw-bold">Deleting...</span>
         </div>
         <div class="mt-2">
             <button wire:click="deleteUser" class="btn btn-sm btn-danger fw-bold">
-                <i class="fa fa-trash mr-1"></i>
-                <i class="fa fa-user mr-1"></i>
+                <i class="fa fa-trash me-1"></i>
+                <i class="fa fa-user me-1"></i>
                 Delete this user
             </button>
             <span wire:loading wire:target="deleteUser" class="small ms-2 text-danger fw-bold">Deleting...</span>

@@ -1,4 +1,4 @@
-<div class="d-none d-md-block mr-3">
+<div class="d-none d-md-block me-3">
     <form action="/search/tasks" method="GET" role="search" autocomplete="off">
         @csrf
         <input
@@ -55,7 +55,7 @@
                             @endif
                         </span>
                         @if ($user->isVerified)
-                            <i class="verified fa fa-check-circle ms-1 mr-1 text-primary"></i>
+                            <i class="verified fa fa-check-circle ms-1 me-1 text-primary"></i>
                         @endif
                         <span class="small">{{ "@" . $user->username }}</span>
                     </a>

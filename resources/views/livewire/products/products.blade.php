@@ -21,7 +21,7 @@
                     <img class="rounded avatar-50 mt-1 ms-2" src="{{ $product->avatar }}" height="50" width="50" />
                 </a>
                 <span class="ms-3">
-                    <a href="{{ route('product.done', ['slug' => $product->slug]) }}" class="mr-2 h5 align-text-top fw-bold text-dark">
+                    <a href="{{ route('product.done', ['slug' => $product->slug]) }}" class="me-2 h5 align-text-top fw-bold text-dark">
                         {{ $product->name }}
                         @if ($product->launched)
                             <a href="{{ route('products.launched') }}" class="small" data-toggle="tooltip" data-placement="right" title="Launched">
@@ -33,7 +33,7 @@
                 </span>
                 <span class="ms-auto">
                     @if ($product->members()->count() > 1)
-                        <span class="mr-2 text-secondary fw-bold">+{{ $product->members()->count() - 1 }} more</span>
+                        <span class="me-2 text-secondary fw-bold">+{{ $product->members()->count() - 1 }} more</span>
                     @endif
                     @foreach ($product->members()->limit(1)->get() as $user)
                     <a
@@ -41,7 +41,7 @@
                         id="user-hover"
                         data-id="{{ $user->id }}"
                     >
-                        <img class="rounded-circle avatar-30 mr-1" src="{{ $user->avatar }}" />
+                        <img class="rounded-circle avatar-30 me-1" src="{{ $user->avatar }}" />
                     </a>
                     @endforeach
                     <a

@@ -106,7 +106,7 @@
             @auth
             @if (!$task->user->isPrivate)
             @if (Auth::user()->hasLiked($task))
-            <button type="button" class="btn btn-task btn-success text-white mr-1" wire:click="togglePraise" wire:loading.attr="disabled" wire:offline.attr="disabled" wire:key="{{ $task->id }}">
+            <button type="button" class="btn btn-task btn-success text-white me-1" wire:click="togglePraise" wire:loading.attr="disabled" wire:offline.attr="disabled" wire:key="{{ $task->id }}">
                 {{ Emoji::clappingHands() }}
                 <span class="small text-white fw-bold">
                     {{ number_format($task->likerscount()) }}
@@ -118,7 +118,7 @@
                 </span>
             </button>
             @else
-            <button type="button" class="btn btn-task btn-outline-success mr-1" wire:click="togglePraise" wire:loading.attr="disabled" wire:offline.attr="disabled" wire:key="{{ $task->id }}">
+            <button type="button" class="btn btn-task btn-outline-success me-1" wire:click="togglePraise" wire:loading.attr="disabled" wire:offline.attr="disabled" wire:key="{{ $task->id }}">
                 {{ Emoji::clappingHands() }}
                 @if ($task->likerscount() !== 0)
                 <span class="small text-dark fw-bold">
@@ -135,7 +135,7 @@
             @endif
             @endauth
             @guest
-                <a href="/login" class="btn btn-task btn-outline-success mr-1">
+                <a href="/login" class="btn btn-task btn-outline-success me-1">
                     {{ Emoji::clappingHands() }}
                     @if ($task->likerscount() !== 0)
                     <span class="small text-dark fw-bold">
@@ -149,7 +149,7 @@
                     @endif
                 </a>
             @endguest
-            <a href="{{ route('task', ['id' => $task->id]) }}" class="btn btn-task btn-outline-primary mr-1">
+            <a href="{{ route('task', ['id' => $task->id]) }}" class="btn btn-task btn-outline-primary me-1">
                 {{ Emoji::speechBalloon() }}
                 @if ($task->comments->count('id') !== 0)
                 <span class="small text-dark fw-bold">
@@ -180,7 +180,7 @@
     </div>
     <div class="collapse mt-3 text-black-50" id="taskExpand-{{$task->id}}">
         <a class="text-black-50" href="{{ route('task', ['id' => $task->id]) }}">
-            <i class="fa fa-calendar-check small mr-1"></i>
+            <i class="fa fa-calendar-check small me-1"></i>
             @auth
             {{
                 !$task->done_at ?

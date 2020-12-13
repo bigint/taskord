@@ -5,7 +5,7 @@
             @error('task')
                 <div class="alert alert-danger alert-dismissible fade show mt-2">
                     <button type="button" class="btn-close small" data-dismiss="alert"></button>
-                    <i class="fa fa-exclamation-triangle mr-1"></i>
+                    <i class="fa fa-exclamation-triangle me-1"></i>
                     {{ $message }}
                 </div>
             @enderror
@@ -32,13 +32,13 @@
                 </div>
                 @auth
                 @if (!Auth::user()->checkState)
-                <div class="form-group ms-auto mr-2 d-none d-sm-block">
+                <div class="form-group ms-auto me-2 d-none d-sm-block">
                     <input class="form-control form-control-sm" wire:model.defer="due_at" type="date" placeholder="Due date" min="{{ Carbon::today()->format('Y-m-d') }}" />
                 </div>
                 @endif
                 @endauth
                 <button wire:loading.attr="disabled" wire:offline.attr="disabled" class="btn btn-sm btn-primary" type="submit">
-                    <i class="fa fa-plus mr-1"></i>
+                    <i class="fa fa-plus me-1"></i>
                     Add Task
                     <span wire:target="submit" wire:loading class="spinner-border spinner-border-mini ms-2" role="status"></span>
                 </button>

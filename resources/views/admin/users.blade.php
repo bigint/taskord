@@ -38,7 +38,7 @@
                             <tr>
                                 <th>{{ $user->id }}</th>
                                 <td>
-                                    <img class="avatar-30 rounded-circle mr-2" src="{{ $user->avatar }}" />
+                                    <img class="avatar-30 rounded-circle me-2" src="{{ $user->avatar }}" />
                                 </td>
                                 <td class="fw-bold">
                                     @if (!$user->firstname and !$user->lastname)
@@ -126,67 +126,67 @@
                                         <ul class="dropdown-menu">
                                             <li>
                                                 <span class="dropdown-item">
-                                                    <i class="fa fa-check mr-1"></i>
+                                                    <i class="fa fa-check me-1"></i>
                                                     <span class="fw-bold">{{ $user->tasks()->count('id') }}</span> Tasks
                                                 </span>
                                             </li>
                                             <li>
                                                 <span class="dropdown-item">
-                                                    <i class="fa fa-comment mr-1"></i>
+                                                    <i class="fa fa-comment me-1"></i>
                                                     <span class="fw-bold">{{ $user->comments()->count('id') }}</span> Comments
                                                 </span>
                                             </li>
                                             <li>
                                                 <span class="dropdown-item">
-                                                    <i class="fa fa-question-circle mr-1"></i>
+                                                    <i class="fa fa-question-circle me-1"></i>
                                                     <span class="fw-bold">{{ $user->questions()->count('id') }}</span> Questions
                                                 </span>
                                             </li>
                                             <li>
                                                 <span class="dropdown-item">
-                                                    <i class="fa fa-comments mr-1"></i>
+                                                    <i class="fa fa-comments me-1"></i>
                                                     <span class="fw-bold">{{ $user->answers()->count('id') }}</span> Answers
                                                 </span>
                                             </li>
                                             <li>
                                                 <span class="dropdown-item">
-                                                    <i class="fa fa-box-open mr-1"></i>
+                                                    <i class="fa fa-box-open me-1"></i>
                                                     <span class="fw-bold">{{ $user->ownedProducts('id')->count() }}</span> Products
                                                 </span>
                                             </li>
                                             <li>
                                                 <span class="dropdown-item">
-                                                    <i class="fa fa-handshake mr-1"></i>
+                                                    <i class="fa fa-handshake me-1"></i>
                                                     <span class="fw-bold">{{ $user->products()->count() }}</span> Membership
                                                 </span>
                                             </li>
                                             <li>
                                                 <span class="dropdown-item">
-                                                    <i class="fa fa-bell mr-1"></i>
+                                                    <i class="fa fa-bell me-1"></i>
                                                     <span class="fw-bold">{{ $user->notifications()->count('id') }}</span> Notifications
                                                 </span>
                                             </li>
                                             <li>
                                                 <span class="dropdown-item">
-                                                    <i class="fa fa-anchor mr-1"></i>
+                                                    <i class="fa fa-anchor me-1"></i>
                                                     <span class="fw-bold">{{ $user->webhooks()->count('id') }}</span> Webhooks
                                                 </span>
                                             </li>
                                             <li>
                                                 <span class="dropdown-item">
-                                                    <i class="fa fa-user-clock mr-1"></i>
+                                                    <i class="fa fa-user-clock me-1"></i>
                                                     <span class="fw-bold">{{ $user->timezone }}</span>
                                                 </span>
                                             </li>
                                             <li>
                                                 <span class="dropdown-item" title="{{ Carbon::parse($user->updated_at)->format('M d, Y g:i A') }}">
-                                                    <i class="fa fa-calendar mr-1"></i>
+                                                    <i class="fa fa-calendar me-1"></i>
                                                     <span class="fw-bold">{{ Carbon::parse($user->updated_at)->format('M d, Y') }}</span>
                                                 </span>
                                             </li>
                                             <li>
                                                 <span class="dropdown-item" title="{{ Carbon::parse($user->created_at)->format('M d, Y g:i A') }}">
-                                                    <i class="fa fa-calendar mr-1"></i>
+                                                    <i class="fa fa-calendar me-1"></i>
                                                     <span class="fw-bold">{{ Carbon::parse($user->created_at)->format('M d, Y') }}</span>
                                                     @if ($user->created_at->diffInDays(Carbon::today()) < 7)
                                                         🆕

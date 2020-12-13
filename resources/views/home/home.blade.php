@@ -67,7 +67,7 @@
                                 <img class="rounded avatar-50 mt-1 ms-2" src="{{ $product->avatar }}" alt="{{ $product->slug }}" height="50" width="50" />
                             </a>
                             <span class="ms-3">
-                                <a href="{{ route('product.done', ['slug' => $product->slug]) }}" class="mr-2 h5 align-text-top fw-bold text-dark">
+                                <a href="{{ route('product.done', ['slug' => $product->slug]) }}" class="me-2 h5 align-text-top fw-bold text-dark">
                                     {{ $product->name }}
                                     @if ($product->launched)
                                         <a href="{{ route('products.launched') }}" class="small" data-toggle="tooltip" data-placement="right" title="Launched">
@@ -79,7 +79,7 @@
                             </span>
                             <span class="ms-auto">
                                 @if ($product->members()->count() > 1)
-                                    <span class="mr-2 mt-1 text-secondary fw-bold">+{{ $product->members()->count() - 1 }} more</span>
+                                    <span class="me-2 mt-1 text-secondary fw-bold">+{{ $product->members()->count() - 1 }} more</span>
                                 @endif
                                 @foreach ($product->members()->limit(1)->get() as $user)
                                 <a
@@ -87,7 +87,7 @@
                                     id="user-hover"
                                     data-id="{{ $user->id }}"
                                 >
-                                    <img class="rounded-circle avatar-30 mt-1 mr-1" src="{{ $user->avatar }}" />
+                                    <img class="rounded-circle avatar-30 mt-1 me-1" src="{{ $user->avatar }}" />
                                 </a>
                                 @endforeach
                                 <a
@@ -149,24 +149,24 @@
                                 </div>
                             </a>
                             <a class="btn btn-sm btn-success text-white float-right ms-auto" href="{{ route('user.settings.profile') }}">
-                                <i class="fa fa-cog mr-1"></i>
+                                <i class="fa fa-cog me-1"></i>
                                 Update
                             </a>
                         </div>
                     </div>
                     <div class="card-footer small fw-bold d-flex justify-content-between">
                         <a class="text-dark" href="{{ route('user.following', ['username' => Auth::user()->username]) }}">
-                            <i class="fa fa-plus mr-1 text-black-50"></i>
+                            <i class="fa fa-plus me-1 text-black-50"></i>
                             {{ Auth::user()->followings()->count() }}
                             Following
                         </a>
                         <a class="text-dark" href="{{ route('user.followers', ['username' => Auth::user()->username]) }}">
-                            <i class="fa fa-users mr-1 text-black-50"></i>
+                            <i class="fa fa-users me-1 text-black-50"></i>
                             {{ number_format(Auth::user()->followers()->count()) }}
                             {{ Auth::user()->followers()->count() === 1 ? "Follower" : "Followers" }}
                         </a>
                         <span>
-                            <i class="fa fa-fire mr-1 text-black-50"></i>
+                            <i class="fa fa-fire me-1 text-black-50"></i>
                             {{ number_format(Auth::user()->getPoints()) }}
                             {{ Auth::user()->getPoints() < 2 ? 'Reputation' : 'Reputations' }}
                         </span>
@@ -233,7 +233,7 @@
                         </a>
                         <a
                             href="{{ route('product.done', ['slug' => $product->slug]) }}"
-                            class="ms-2 mr-2 align-text-top fw-bold text-dark"
+                            class="ms-2 me-2 align-text-top fw-bold text-dark"
                             id="product-hover"
                             data-id="{{ $product->id }}"
                         >
@@ -251,7 +251,7 @@
                                 id="user-hover"
                                 data-id="{{ $user->id }}"
                             >
-                                <img class="rounded-circle avatar-30 mt-1 mr-1" src="{{ $user->avatar }}" />
+                                <img class="rounded-circle avatar-30 mt-1 me-1" src="{{ $user->avatar }}" />
                             </a>
                             @endforeach
                             <a
@@ -298,7 +298,7 @@
                         </a>
                         <a
                             href="{{ route('user.done', ['username' => $user->username]) }}"
-                            class="ms-2 mr-2 align-text-top fw-bold text-dark"
+                            class="ms-2 me-2 align-text-top fw-bold text-dark"
                             id="user-hover"
                             data-id="{{ $user->id }}"
                         >

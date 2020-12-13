@@ -59,7 +59,7 @@
         <div class="mt-3">
             @auth
             @if (Auth::user()->hasLiked($question))
-                <button role="button" class="btn btn-task btn-success text-white mr-1" wire:click="togglePraise" wire:loading.attr="disabled" wire:offline.attr="disabled">
+                <button role="button" class="btn btn-task btn-success text-white me-1" wire:click="togglePraise" wire:loading.attr="disabled" wire:offline.attr="disabled">
                     {{ Emoji::clappingHands() }}
                     <span class="small text-white fw-bold">
                         {{ number_format($question->likerscount()) }}
@@ -71,7 +71,7 @@
                     </span>
                 </button>
             @else
-                <button role="button" class="btn btn-task btn-outline-success mr-1" wire:click="togglePraise" wire:loading.attr="disabled" wire:offline.attr="disabled">
+                <button role="button" class="btn btn-task btn-outline-success me-1" wire:click="togglePraise" wire:loading.attr="disabled" wire:offline.attr="disabled">
                     {{ Emoji::clappingHands() }}
                     @if ($question->likerscount() !== 0)
                     <span class="small text-dark fw-bold">
@@ -87,7 +87,7 @@
             @endif
             @if (Auth::user()->staffShip or Auth::id() === $question->user->id)
             @if ($type === "question.question")
-            <button role="button" class="btn btn-task btn-outline-info text-white mr-1" data-toggle="modal" data-target="#editQuestionModal">
+            <button role="button" class="btn btn-task btn-outline-info text-white me-1" data-toggle="modal" data-target="#editQuestionModal">
                 {{ Emoji::writingHand() }}
                 <span class="small text-dark fw-bold">
                     Edit
@@ -98,12 +98,12 @@
             ])
             @endif
             @if ($confirming === $question->id)
-            <button role="button" class="btn btn-task btn-danger mr-1" wire:click="deleteQuestion" wire:loading.attr="disabled" wire:offline.attr="disabled">
+            <button role="button" class="btn btn-task btn-danger me-1" wire:click="deleteQuestion" wire:loading.attr="disabled" wire:offline.attr="disabled">
                 Are you sure?
                 <span wire:target="deleteQuestion" wire:loading class="spinner-border spinner-border-mini ms-2" role="status"></span>
             </button>
             @else
-            <button role="button" class="btn btn-task btn-outline-danger mr-1" wire:click="confirmDelete" wire:loading.attr="disabled" wire:offline.attr="disabled">
+            <button role="button" class="btn btn-task btn-outline-danger me-1" wire:click="confirmDelete" wire:loading.attr="disabled" wire:offline.attr="disabled">
                 {{ Emoji::wastebasket() }}
             </button>
             @endif
@@ -115,7 +115,7 @@
             @endif
             @endauth
             @guest
-                <a href="/login" class="btn btn-task btn-outline-success mr-1">
+                <a href="/login" class="btn btn-task btn-outline-success me-1">
                     {{ Emoji::clappingHands() }}
                     @if ($question->likerscount() !== 0)
                     <span class="small text-dark fw-bold">
@@ -130,8 +130,8 @@
                 </a>
             @endguest
             @if (views($question)->remember()->count('id') > 0)
-            <span class="align-middle ms-2 mr-2">
-                <i class="fa fa-eye mr-1"></i>
+            <span class="align-middle ms-2 me-2">
+                <i class="fa fa-eye me-1"></i>
                 <span class="text-secondary">
                     <span class="fw-bold">{{ number_format(views($question)->remember()->unique()->count('id')) }}</span>
                     {{ views($question)->remember()->unique()->count('id') <= 1 ? 'View' : 'Views' }}

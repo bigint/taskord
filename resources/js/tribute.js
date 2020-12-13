@@ -21,7 +21,7 @@ document.addEventListener("turbolinks:load", () => {
             ${firstname ? firstname : ""} ${lastname ? lastname : ""}
             ${
               isVerified
-                ? '<i class="fa fa-check-circle ms-1 mr-1 text-primary"></i>'
+                ? '<i class="fa fa-check-circle ms-1 me-1 text-primary"></i>'
                 : ""
             }
           </span>

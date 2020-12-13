@@ -45,7 +45,7 @@
                 @endif
                 <button class="btn btn-lg btn-primary btn-block mt-3" type="submit">
                     <span class="small">
-                        <i class="fa fa-check mr-1"></i>
+                        <i class="fa fa-check me-1"></i>
                         Confirm Password
                     </span>
                 </button>

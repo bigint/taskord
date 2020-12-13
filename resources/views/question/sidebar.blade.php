@@ -1,6 +1,6 @@
 <div class="card mb-4">
     <div class="card-header">
-        <i class="fa fa-fire text-danger mr-1"></i>
+        <i class="fa fa-fire text-danger me-1"></i>
         Trending
     </div>
     <ul class="list-group list-group-flush">
@@ -13,7 +13,7 @@
                     </span>
                 </a>
                 <div class="text-secondary small mt-1">
-                    <i class="fa fa-eye mr-1"></i>
+                    <i class="fa fa-eye me-1"></i>
                     <span class="fw-bold">{{ views($question)->remember()->unique()->count('id') }}</span>
                     {{ views($question)->remember()->unique()->count('id') <= 1 ? 'View' : 'Views' }}
                 </div>

@@ -11,7 +11,7 @@
     <div class="row justify-content-center">
         <div class="col-lg-8">
             <div class="h4 font-weight-normal">
-                <i class="fa fa-search mr-2"></i>
+                <i class="fa fa-search me-2"></i>
                 <span>
                     Search more than
                     <span class="fw-bold">{{ $random }}</span>

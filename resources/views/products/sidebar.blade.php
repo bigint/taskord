@@ -10,7 +10,7 @@
             </a>
             <a
                 href="{{ route('product.done', ['slug' => $product->slug]) }}"
-                class="ms-2 mr-2 align-text-top fw-bold text-dark"
+                class="ms-2 me-2 align-text-top fw-bold text-dark"
                 id="product-hover"
                 data-id="{{ $product->id }}"
             >
@@ -22,7 +22,7 @@
                 @endif
             </a>
             <span class="small text-black-50 ms-3">
-                <i class="fa fa-check text-success mr-1"></i>
+                <i class="fa fa-check text-success me-1"></i>
                 {{ $product->tasks->count('id') }}
                 {{ $product->tasks->count('id') == 1 ? 'Task' : 'Tasks' }}
             </span>
@@ -33,7 +33,7 @@
                     id="user-hover"
                     data-id="{{ $user->id }}"
                 >
-                    <img class="rounded-circle avatar-30 mr-1" src="{{ $user->avatar }}" />
+                    <img class="rounded-circle avatar-30 me-1" src="{{ $user->avatar }}" />
                 </a>
                 @endforeach
                 <a

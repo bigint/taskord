@@ -12,7 +12,7 @@
                     {{ Auth::user()->unreadNotifications->count('id') }}
                 </span>
             </a>
-            <a role="button" class="btn btn-primary mb-3 mr-2" href="{{ route('notifications.all') }}">
+            <a role="button" class="btn btn-primary mb-3 me-2" href="{{ route('notifications.all') }}">
                 All
             </a>
             @if (Auth::user()->unreadNotifications->count('id') !== 0)

@@ -132,7 +132,7 @@
                                 <img class="rounded avatar-50 mt-1 ms-2" src="{{ $product->avatar }}" height="50" width="50" />
                             </a>
                             <span class="ms-3">
-                                <a href="{{ route('product.done', ['slug' => $product->slug]) }}" class="mr-2 h5 align-text-top fw-bold text-dark">
+                                <a href="{{ route('product.done', ['slug' => $product->slug]) }}" class="me-2 h5 align-text-top fw-bold text-dark">
                                     {{ $product->name }}
                                     @if ($product->launched)
                                         <a href="{{ route('products.launched') }}" class="small" data-toggle="tooltip" data-placement="right" title="Launched">
@@ -150,7 +150,7 @@
                                 </div>
                                 <div>{{ $product->description }}</div>
                                 <div class="small mt-2">
-                                    <i class="fa fa-calendar-alt mr-1 text-black-50"></i>
+                                    <i class="fa fa-calendar-alt me-1 text-black-50"></i>
                                     <span>Lauched at {{ Carbon::parse($product->launched_at)->format("F Y") }}</span>
                                 </div>
                                 <div class="mt-3">
@@ -189,7 +189,7 @@
                                 <img class="rounded-circle avatar-50 mt-1 ms-2" src="{{ $user->avatar }}" height="50" width="50" />
                             </a>
                             <span class="ms-3">
-                                <a href="{{ route('user.done', ['username' => $user->username]) }}" class="mr-2 h5 align-text-top fw-bold text-dark">
+                                <a href="{{ route('user.done', ['username' => $user->username]) }}" class="me-2 h5 align-text-top fw-bold text-dark">
                                     @if ($user->firstname or $user->lastname)
                                         {{ $user->firstname }}{{ ' '.$user->lastname }}
                                     @else
@@ -217,20 +217,20 @@
                                 <div>{{ $user->bio }}</div>
                                 <div class="small mt-2">
                                     <span>
-                                        <i class="fa fa-calendar-alt mr-1 text-black-50"></i>
+                                        <i class="fa fa-calendar-alt me-1 text-black-50"></i>
                                         Joined {{ Carbon::parse($user->created_at)->format("F Y") }}
                                     </span>
                                     @if ($user->location)
                                     <span class="ms-3">
                                         <a class="text-dark" target="_blank" rel="noreferrer" href="https://www.google.com/maps/search/{{ urlencode($user->location) }}">
-                                            <i class="fa fa-compass mr-1 text-black-50"></i>
+                                            <i class="fa fa-compass me-1 text-black-50"></i>
                                             {{ $user->location }}
                                         </a>
                                     </span>
                                     @endif
                                     @if ($user->company)
                                     <span class="ms-3">
-                                        <i class="fa fa-briefcase mr-1 text-black-50"></i>
+                                        <i class="fa fa-briefcase me-1 text-black-50"></i>
                                         {{ $user->company }}
                                     </span>
                                     @if ($user->isStaff)

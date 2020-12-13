@@ -27,7 +27,7 @@
                         @enderror
                     </div>
                     <div class="h6 fw-bold mb-3">
-                        <i class="fab fa-markdown mr-1"></i>
+                        <i class="fab fa-markdown me-1"></i>
                         Markdown is supported
                     </div>
                     @auth

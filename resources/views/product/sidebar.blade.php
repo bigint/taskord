@@ -4,15 +4,15 @@
     <div class="card mb-4">
         <div class="card-body">
             <button type="button" class="btn btn-block btn-success text-white fw-bold" data-toggle="modal" data-target="#newUpdateModal">
-                <i class="fa fa-bell mr-1"></i>
+                <i class="fa fa-bell me-1"></i>
                 Write a product update
             </button>
             <button type="button" class="btn btn-block btn-success text-white fw-bold" data-toggle="modal" data-target="#editProductModal">
-                <i class="fa fa-edit mr-1"></i>
+                <i class="fa fa-edit me-1"></i>
                 Edit Product
             </button>
             <button type="button" class="btn btn-block btn-success text-white fw-bold" data-toggle="modal" data-target="#addMemberModal">
-                <i class="fa fa-plus mr-1"></i>
+                <i class="fa fa-plus me-1"></i>
                 Add Member
             </button>
         </div>
@@ -36,30 +36,30 @@
         <ul class="list-group list-group-flush">
             @if ($product->website)
             <a class="list-group-item link-dark" href="{{ $product->website }}" target="_blank">
-                <img class="rounded favicon mr-1" rel="preload" src="https://external-content.duckduckgo.com/ip3/{{ parse_url($product->website)['host'] }}.ico" />
+                <img class="rounded favicon me-1" rel="preload" src="https://external-content.duckduckgo.com/ip3/{{ parse_url($product->website)['host'] }}.ico" />
                 {{ Helper::removeProtocol($product->website) }}
             </a>
             @endif
             @if ($product->producthunt)
             <a class="list-group-item link-dark" href="https://www.producthunt.com/posts/{{ $product->producthunt }}" target="_blank">
-                <i class="fab fa-product-hunt mr-1"></i>
+                <i class="fab fa-product-hunt me-1"></i>
                 {{ Helper::removeProtocol($product->producthunt) }}
             </a>
             @endif
             @if ($product->twitter)
             <a class="list-group-item link-dark" href="https://twitter.com/{{ $product->twitter }}" target="_blank">
-                <i class="fab fa-twitter mr-1"></i>
+                <i class="fab fa-twitter me-1"></i>
                 {{ $product->twitter }}
             </a>
             @endif
             @if ($product->repo and strlen(trim(parse_url($product->repo)['path'], '/')) !== 0)
             <a class="list-group-item link-dark" href="{{ $product->repo }}" target="_blank">
                 @if (parse_url($product->repo)['host'] === 'github.com')
-                <i class="fab fa-github mr-1"></i>
+                <i class="fab fa-github me-1"></i>
                 @elseif (parse_url($product->repo)['host'] === 'gitlab.com')
-                <i class="fab fa-gitlab mr-1"></i>
+                <i class="fab fa-gitlab me-1"></i>
                 @elseif (parse_url($product->repo)['host'] === 'bitbucket.org')
-                <i class="fab fa-bitbucket mr-1"></i>
+                <i class="fab fa-bitbucket me-1"></i>
                 @endif
                 {{ trim(parse_url($product->repo)['path'], '/') }}
             </a>
@@ -74,7 +74,7 @@
         </div>
         <div class="card-body">
             <a class="btn btn-block btn-outline-primary" href="{{ $product->sponsor }}" target="_blank">
-                <img class="rounded sponsor-icon mr-1" rel="preload" src="https://external-content.duckduckgo.com/ip3/{{ parse_url($product->sponsor)['host'] }}.ico" />
+                <img class="rounded sponsor-icon me-1" rel="preload" src="https://external-content.duckduckgo.com/ip3/{{ parse_url($product->sponsor)['host'] }}.ico" />
                 <span class="fw-bold">Sponsor {{ $product->name }}</span>
             </a>
         </div>

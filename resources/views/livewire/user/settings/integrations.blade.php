@@ -66,7 +66,7 @@
                     <div class="card-header" id="headingOne">
                         <h2 class="mb-0">
                             <a class="text-dark h5" type="button" checked data-toggle="collapse" data-target="#simpleDocs" aria-expanded="true" aria-controls="simpleDocs">
-                                <i class="fa fa-globe mr-1"></i>
+                                <i class="fa fa-globe me-1"></i>
                                 Simple Webhook
                             </a>
                         </h2>
@@ -104,7 +104,7 @@
                     <div class="card-header" id="headingTwo">
                         <h2 class="mb-0">
                             <a class="text-dark h5" type="button" data-toggle="collapse" data-target="#githubDocs" aria-expanded="false" aria-controls="githubDocs">
-                                <i class="fab fa-github mr-1"></i>
+                                <i class="fab fa-github me-1"></i>
                                 GitHub
                             </a>
                         </h2>
@@ -127,7 +127,7 @@
                     <div class="card-header" id="headingThree">
                         <h2 class="mb-0">
                             <a class="text-dark h5" type="button" data-toggle="collapse" data-target="#gitlabDocs" aria-expanded="false" aria-controls="gitlabDocs">
-                                <i class="fab fa-gitlab mr-1"></i>
+                                <i class="fab fa-gitlab me-1"></i>
                                 GitLab
                             </a>
                         </h2>
@@ -170,11 +170,11 @@
                     <tr>
                         <td>
                             @if ($webhook->type === 'web')
-                            <i title="Simple Webhook | ID: {{ $webhook->id }}" class="fa fa-globe mr-1"></i>
+                            <i title="Simple Webhook | ID: {{ $webhook->id }}" class="fa fa-globe me-1"></i>
                             @elseif ($webhook->type === 'github')
-                            <i title="GitHub | ID: {{ $webhook->id }}" class="fab fa-github mr-1"></i>
+                            <i title="GitHub | ID: {{ $webhook->id }}" class="fab fa-github me-1"></i>
                             @elseif ($webhook->type === 'gitlab')
-                            <i title="GitLab | ID: {{ $webhook->id }}" class="fab fa-gitlab mr-1"></i>
+                            <i title="GitLab | ID: {{ $webhook->id }}" class="fab fa-gitlab me-1"></i>
                             @endif
                         </td>
                         <td class="fw-bold">
@@ -188,7 +188,7 @@
                         </td>
                         <td>
                             <button wire:click="deleteWebhook({{ $webhook->id }})" class="btn btn-sm btn-block btn-danger">
-                                <i class="fa fa-trash mr-1"></i>
+                                <i class="fa fa-trash me-1"></i>
                                 Delete
                             </button>
                         </td>

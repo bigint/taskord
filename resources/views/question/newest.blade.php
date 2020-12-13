@@ -14,7 +14,7 @@
                 @if (session()->has('question_deleted'))
                     <div class="alert alert-success alert-dismissible fade show mt-2">
                         <button type="button" class="btn-close small" data-dismiss="alert"></button>
-                        <i class="fa fa-check mr-1"></i>
+                        <i class="fa fa-check me-1"></i>
                         {{ session('question_deleted') }}
                     </div>
                 @endif
