@@ -23,12 +23,12 @@
             </a>
         </span>
         <span class="float-end">
-            <span role="button" class="dropdown dropleft">
-                <span class="fw-bold me-3" data-toggle="dropdown">
+            <span role="button" class="dropdown">
+                <span class="fw-bold me-3" data-bs-toggle="dropdown">
                     <i class="fa fa-chart-pie me-1"></i>
                     Stats
                 </span>
-                <ul class="dropdown-menu shadow-sm border">
+                <ul class="dropdown-menu shadow-sm border mt-2">
                     <li class="dropdown-item">
                         <span class="me-3">
                             <i class="fa fa-check me-1"></i>
