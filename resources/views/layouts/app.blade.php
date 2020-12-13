@@ -90,10 +90,10 @@
                         </li>
                         @endauth
                         <li class="nav-item dropdown">
-                            <a class="nav-link text-white fw-bold" href="#" data-toggle="dropdown">
+                            <a class="nav-link text-white fw-bold" href="#" data-bs-toggle="dropdown">
                                 More
                             </a>
-                            <ul class="dropdown-menu shadow-sm border" aria-labelledby="navbarDropdown">
+                            <ul class="dropdown-menu shadow-sm border">
                                 <li><a class="dropdown-item text-dark" href="{{ route('deals') }}">{{ Emoji::wrappedGift() }} Deals</a></li>
                                 @auth
                                 @if (Auth::user()->staffShip)
@@ -144,11 +144,11 @@
                                 </div>
                             </li>
                             <li class="nav-item dropdown">
-                                <a id="navbarDropdown" href="#" role="button" data-toggle="dropdown" v-pre>
+                                <a href="#" role="button" data-bs-toggle="dropdown" v-pre>
                                     <img class="rounded-circle avatar-30 mt-1" src="{{ Auth::user()->avatar }}" />
                                 </a>
 
-                                <div class="dropdown-menu shadow-sm border dropdown-menu-right mt-2" aria-labelledby="navbarDropdown">
+                                <div class="dropdown-menu shadow-sm border dropdown-menu-right mt-2">
                                     <a href="{{ route('user.done', ['username' => Auth::user()->username]) }}" class="dropdown-item">
                                         Signed in as
                                         <div class="fw-bold">
