@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Meetup;
+use Illuminate\Support\Facades\Auth;
 
 class MeetupController extends Controller
 {
@@ -20,10 +21,9 @@ class MeetupController extends Controller
 
     public function rsvpd()
     {
-        $meetups = Meetup::cacheFor(60 * 60)
-            ->where('date', '>=', date('Y-m-d'))
+        $meetups = Auth::user()->subscriptions(Meetup::class)
             ->orderBy('date')
-            ->paginate(12);
+            ->get();
 
         return view('meetups.rsvpd', [
             'meetups' => $meetups,

@@ -19,7 +19,6 @@
                         @foreach ($meetups as $meetup)
                             @livewire('meetup.single-meetup', ['meetup' => $meetup])
                         @endforeach
-                        {{ $meetups->links() }}
                     </div>
                 </div>
             </div>
