@@ -1,7 +1,7 @@
-$body-bg: #17181a !important;
-$card-bg: #343a40;
-$border-bg: #495057;
-$input-bg: #212529;
+$body-bg: #06090f !important;
+$card-bg: #0d1117;
+$border-bg: #30363d;
+$input-bg: #161b22;
 
 a:hover {
   color: #7d79cc;
@@ -9,7 +9,15 @@ a:hover {
 
 body {
   background-color: $body-bg;
-  color: white;
+  color: #c9d1d9;
+}
+
+.navbar {
+  background-color: $input-bg !important;
+}
+
+#search-input {
+  background-color: $card-bg !important;
 }
 
 .card,
@@ -40,7 +48,7 @@ body {
 
 .text-dark,
 .link-dark {
-  color: white !important;
+  color: #c9d1d9 !important;
 }
 
 .reputation {
