@@ -41,7 +41,7 @@
                     id="user-hover"
                     data-id="{{ $product->owner->id }}"
                 >
-                    <img class="rounded-circle avatar-30 mr-0" src="{{ $product->owner->avatar }}" />
+                    <img class="rounded-circle avatar-30 me-0" src="{{ $product->owner->avatar }}" />
                 </a>
             </span>
         </li>
