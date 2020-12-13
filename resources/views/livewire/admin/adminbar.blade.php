@@ -1,5 +1,5 @@
 <div class="card p-1 rounded-0 d-flex border-bottom border-primary bg-primary text-white">
-    <div class="pl-2 pr-2">
+    <div class="ps-2 pe-2">
         <span class="float-start">
             <a class="text-white fw-bold" href="https://gitlab.com/taskord/taskord/-/tree/{{ $branchname }}"
                 target="_blank">

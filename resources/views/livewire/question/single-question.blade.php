@@ -144,7 +144,7 @@
                 <img class="rounded-circle avatar avatar-30" src="{{ $answer[0]->user->avatar }}" />
                 @endforeach
                 @if ($question->answer->groupBy('user_id')->count('id') >= 5)
-                <span class="ms-3 pl-1 align-middle fw-bold small">
+                <span class="ms-3 ps-1 align-middle fw-bold small">
                     +{{ number_format($question->answer->groupBy('user_id')->count('id') - 5) }} more
                 </span>
                 @endif

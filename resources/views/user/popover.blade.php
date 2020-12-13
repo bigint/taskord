@@ -2,7 +2,7 @@
     <div>
         <img class="avatar-50 rounded-circle" src="{{ $user->avatar }}" />
         @if ($user->isPatron)
-            <div class="border border-2 border-success mt-2 pl-1 pr-1 rounded-pill small text-center">Patron</div>
+            <div class="border border-2 border-success mt-2 ps-1 pe-1 rounded-pill small text-center">Patron</div>
         @endif
     </div>
     <div class="ms-3">
