@@ -8,7 +8,7 @@ These prerequisites assume you're working on a Linux-based operating system.
 
 ```sh
 sudo add-apt-repository ppa:ondrej/php -y
-sudo apt install php7.4 php7.4-curl php7.4-common php7.4-cli php7.4-mysql php7.4-mbstring php7.4-fpm php7.4-xml php7.4-zip php7.4-memcached php7.4-redis -y
+sudo apt install php8.0 php8.0-curl php8.0-common php8.0-cli php8.0-mysql php8.0-mbstring php8.0-fpm php8.0-xml php8.0-zip php8.0-memcached php8.0-redis php8.0-gd -y
 ```
 
 ### Nginx
@@ -17,8 +17,8 @@ sudo apt install php7.4 php7.4-curl php7.4-common php7.4-cli php7.4-mysql php7.4
 sudo apt install nginx -y
 sudo systemctl start nginx
 sudo systemctl enable nginx
-sudo systemctl start php7.4-fpm
-sudo systemctl enable php7.4-fpm
+sudo systemctl start php8.0-fpm
+sudo systemctl enable php8.0-fpm
 ```
 
 ### Composer
@@ -134,27 +134,27 @@ Copy and paste the conf file
 server {
     listen 80;
     listen [::]:80 ipv6only=on;
- 
+
     # Log files for Debugging
     access_log /var/log/nginx/laravel-access.log;
     error_log /var/log/nginx/laravel-error.log;
- 
+
     # Webroot Directory for Taskord project
     root /var/www/taskord/public;
     index index.php index.html index.htm;
- 
+
     # Your Domain Name
     server_name localhost;
- 
+
     location / {
         try_files $uri $uri/ /index.php?$query_string;
     }
- 
+
     # PHP-FPM Configuration Nginx
     location ~ \.php$ {
         try_files $uri =404;
         fastcgi_split_path_info ^(.+\.php)(/.+)$;
-        fastcgi_pass unix:/run/php/php7.4-fpm.sock;
+        fastcgi_pass unix:/run/php/php8.0-fpm.sock;
         fastcgi_index index.php;
         fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
         include fastcgi_params;
