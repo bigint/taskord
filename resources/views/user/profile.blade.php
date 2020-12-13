@@ -125,24 +125,24 @@
         )
         <a class="text-dark fw-bold me-4" href="{{ route('user.done', ['username' => $user->username]) }}">
             <span class="@if (Route::currentRouteName() === 'user.done') text-primary @endif">Done</span>
-            <span class="small font-weight-normal text-black-50">{{ number_format($done_count) }}</span>
+            <span class="small fw-normal text-black-50">{{ number_format($done_count) }}</span>
         </a>
         <a class="text-dark fw-bold me-4" href="{{ route('user.pending', ['username' => $user->username]) }}">
             <span class="@if (Route::currentRouteName() === 'user.pending') text-primary @endif">Pending</span>
-            <span class="small font-weight-normal text-black-50">{{ number_format($pending_count) }}</span>
+            <span class="small fw-normal text-black-50">{{ number_format($pending_count) }}</span>
         </a>
         @endif
         <a class="text-dark fw-bold me-4" href="{{ route('user.products', ['username' => $user->username]) }}">
             <span class="@if (Route::currentRouteName() === 'user.products') text-primary @endif">Products</span>
-            <span class="small font-weight-normal text-black-50">{{ number_format($product_count) }}</span>
+            <span class="small fw-normal text-black-50">{{ number_format($product_count) }}</span>
         </a>
         <a class="text-dark fw-bold me-4" href="{{ route('user.questions', ['username' => $user->username]) }}">
             <span class="@if (Route::currentRouteName() === 'user.questions') text-primary @endif">Questions</span>
-            <span class="small font-weight-normal text-black-50">{{ number_format($question_count) }}</span>
+            <span class="small fw-normal text-black-50">{{ number_format($question_count) }}</span>
         </a>
         <a class="text-dark fw-bold me-4" href="{{ route('user.answers', ['username' => $user->username]) }}">
             <span class="@if (Route::currentRouteName() === 'user.answers') text-primary @endif">Answers</span>
-            <span class="small font-weight-normal text-black-50">{{ number_format($answer_count) }}</span>
+            <span class="small fw-normal text-black-50">{{ number_format($answer_count) }}</span>
         </a>
     </div>
 </div>

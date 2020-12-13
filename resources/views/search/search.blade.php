@@ -10,7 +10,7 @@
 <div class="container pt-5">
     <div class="row justify-content-center">
         <div class="col-lg-8">
-            <div class="h4 font-weight-normal">
+            <div class="h4 fw-normal">
                 <i class="fa fa-search me-2"></i>
                 <span>
                     Search more than

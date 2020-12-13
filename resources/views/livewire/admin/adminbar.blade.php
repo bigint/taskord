@@ -101,14 +101,14 @@
             <a class="fw-bold me-3 text-white" href="/admin/horizon" target="_blank">
                 <i class="fa fa-wrench me-1"></i>
                 {{ $jobs }}
-                <span class="font-weight-normal">
+                <span class="fw-normal">
                     jobs
                 </span>
             </a>
             <span class="fw-bold me-3">
                 <i class="fa fa-clock me-1"></i>
                 {{ round(microtime(true) - LARAVEL_START, 2) * 1000 }}ms
-                <span class="font-weight-normal">response total</span>
+                <span class="fw-normal">response total</span>
             </span>
             <span class="fw-bold me-3">
                 <a href="{{ route('admin.clean') }}" title="Clear Cache">

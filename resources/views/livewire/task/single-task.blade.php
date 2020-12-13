@@ -24,7 +24,7 @@
                         {{ Emoji::handshake() }}
                     </a>
                 @endif
-                <div class="small text-black-50 font-weight-normal">{{ "@" . $task->user->username }}</div>
+                <div class="small text-black-50 fw-normal">{{ "@" . $task->user->username }}</div>
             </a>
         </span>
         <span class="align-text-top small float-end ms-auto text-black-50" type="button" data-toggle="collapse" data-target="#taskExpand-{{$task->id}}" aria-expanded="false">
