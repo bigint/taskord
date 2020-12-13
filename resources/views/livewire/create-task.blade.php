@@ -58,7 +58,7 @@
                     </div>
                 @endif
                 @error('images.*')
-                <div class="text-danger font-weight-bold mt-3">{{ $message }}</div>
+                <div class="text-danger fw-bold mt-3">{{ $message }}</div>
                 @enderror
             </form>
         </div>

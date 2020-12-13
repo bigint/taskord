@@ -55,7 +55,7 @@
                         Here's your webhook for Taskord. Keep it secret.
                     </span>
                     <div class="small text-black-50">Make sure you save it - you won't be able to access it again.</div>
-                    <div class="font-weight-bold text-primary font-monospace mt-2">
+                    <div class="fw-bold text-primary font-monospace mt-2">
                         https://taskord.com/webhook/web/{{ session('created')->token }}
                     </div>
                 </div>
@@ -177,7 +177,7 @@
                             <i title="GitLab | ID: {{ $webhook->id }}" class="fab fa-gitlab mr-1"></i>
                             @endif
                         </td>
-                        <td class="font-weight-bold">
+                        <td class="fw-bold">
                             {{ Str::limit($webhook->name, '20') }}
                         </td>
                         <td class="font-monospace">

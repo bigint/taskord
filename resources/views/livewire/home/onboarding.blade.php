@@ -26,12 +26,12 @@
                 Welcome to Taskord, here are some onboarding steps!
             </div>
             @if (session()->has('success'))
-                <div class="mb-1 text-success font-weight-bold">{{ session('success') }}</div>
+                <div class="mb-1 text-success fw-bold">{{ session('success') }}</div>
             @endif
             @if (session()->has('error'))
-                <div class="mb-1 text-danger font-weight-bold">{{ session('error') }}</div>
+                <div class="mb-1 text-danger fw-bold">{{ session('error') }}</div>
             @endif
-            <a class="btn btn-blurple font-weight-bold mb-3" href="https://discord.gg/9M4Q65b" target="_blank">
+            <a class="btn btn-blurple fw-bold mb-3" href="https://discord.gg/9M4Q65b" target="_blank">
                 <i class="fab fa-discord mr-1"></i>
                 Join Taskord's Discord
             </a>

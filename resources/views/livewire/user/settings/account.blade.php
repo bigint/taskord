@@ -49,7 +49,7 @@
             @endif
             <input wire:click="enrollBeta" id="enrollBeta" class="form-check-input" type="checkbox" {{ $user->isBeta ? 'checked' : '' }}>
             <label for="enrollBeta" class="ml-1">Enroll to Beta</label>
-            <span wire:loading wire:target="enrollBeta" class="small ml-2 text-success font-weight-bold">Enrolling...</span>
+            <span wire:loading wire:target="enrollBeta" class="small ml-2 text-success fw-bold">Enrolling...</span>
         </div>
     </div>
     <div class="card">
@@ -70,7 +70,7 @@
             @if ($user->isPatron)
             <input wire:click="enrollPrivate" id="enrollPrivate" class="form-check-input" type="checkbox" {{ $user->isPrivate ? 'checked' : '' }}>
             <label for="enrollPrivate" class="ml-1">Hide all tasks from public</label>
-            <span wire:loading wire:target="enrollPrivate" class="small ml-2 text-success font-weight-bold">Enrolling...</span>
+            <span wire:loading wire:target="enrollPrivate" class="small ml-2 text-success fw-bold">Enrolling...</span>
             @else
             <a class="btn btn-success text-white" href={{ route('patron.home') }}>
                 Support Taskord

@@ -15,13 +15,13 @@
     </button>
     @endif
     @if (session()->has('error'))
-        <span class="ml-2 text-danger font-weight-bold">{{ session('error') }}</span>
+        <span class="ml-2 text-danger fw-bold">{{ session('error') }}</span>
     @endif
     @endif
     @endauth
     <div class="small">
         <a class="text-dark" href="{{ route('product.subscribers', ['slug' => $product->slug]) }}">
-            <span class="font-weight-bold">{{ number_format($product->subscribersCount()) }}</span>
+            <span class="fw-bold">{{ number_format($product->subscribersCount()) }}</span>
             {{ $product->subscribersCount() <= 1 ? 'Subscriber' : 'Subscribers' }}
         </a>
     </div>

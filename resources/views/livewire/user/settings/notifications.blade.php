@@ -16,7 +16,7 @@
                     <span class="ml-4">
                         <input wire:click="mentionsWeb" id="mentionsWeb" class="form-check-input" type="checkbox" {{ $user->taskMentionedWeb ? 'checked' : '' }}>
                         <label for="mentionsWeb" class="ml-1">Web</label>
-                        <span wire:loading wire:target="mentionsEmail, mentionsWeb" class="small ml-2 text-success font-weight-bold">Updating...</span>
+                        <span wire:loading wire:target="mentionsEmail, mentionsWeb" class="small ml-2 text-success fw-bold">Updating...</span>
                     </span>
                 </div>
             </li>
@@ -31,7 +31,7 @@
                     <span class="ml-4">
                         <input wire:click="taskPraisedWeb" id="taskPraisedWeb" class="form-check-input" type="checkbox" {{ $user->taskPraisedWeb ? 'checked' : '' }}>
                         <label for="taskPraisedWeb" class="ml-1">Web</label>
-                        <span wire:loading wire:target="taskPraisedEmail, taskPraisedWeb" class="small ml-2 text-success font-weight-bold">Updating...</span>
+                        <span wire:loading wire:target="taskPraisedEmail, taskPraisedWeb" class="small ml-2 text-success fw-bold">Updating...</span>
                     </span>
                 </div>
             </li>
@@ -46,7 +46,7 @@
                     <span class="ml-4">
                         <input wire:click="commentPraisedWeb" id="commentPraisedWeb" class="form-check-input" type="checkbox" {{ $user->commentPraisedWeb ? 'checked' : '' }}>
                         <label for="commentPraisedWeb" class="ml-1">Web</label>
-                        <span wire:loading wire:target="commentPraisedEmail, commentPraisedWeb" class="small ml-2 text-success font-weight-bold">Updating...</span>
+                        <span wire:loading wire:target="commentPraisedEmail, commentPraisedWeb" class="small ml-2 text-success fw-bold">Updating...</span>
                     </span>
                 </div>
             </li>
@@ -61,7 +61,7 @@
                     <span class="ml-4">
                         <input wire:click="questionPraisedWeb" id="questionPraisedWeb" class="form-check-input" type="checkbox" {{ $user->questionPraisedWeb ? 'checked' : '' }}>
                         <label for="questionPraisedWeb" class="ml-1">Web</label>
-                        <span wire:loading wire:target="questionPraisedEmail, questionPraisedWeb" class="small ml-2 text-success font-weight-bold">Updating...</span>
+                        <span wire:loading wire:target="questionPraisedEmail, questionPraisedWeb" class="small ml-2 text-success fw-bold">Updating...</span>
                     </span>
                 </div>
             </li>
@@ -76,7 +76,7 @@
                     <span class="ml-4">
                         <input wire:click="answerPraisedWeb" id="answerPraisedWeb" class="form-check-input" type="checkbox" {{ $user->answerPraisedWeb ? 'checked' : '' }}>
                         <label for="answerPraisedWeb" class="ml-1">Web</label>
-                        <span wire:loading wire:target="answerPraisedEmail, answerPraisedWeb" class="small ml-2 text-success font-weight-bold">Updating...</span>
+                        <span wire:loading wire:target="answerPraisedEmail, answerPraisedWeb" class="small ml-2 text-success fw-bold">Updating...</span>
                     </span>
                 </div>
             </li>
@@ -91,7 +91,7 @@
                     <span class="ml-4">
                         <input wire:click="commentAddedWeb" id="commentAddedWeb" class="form-check-input" type="checkbox" {{ $user->commentAddedWeb ? 'checked' : '' }}>
                         <label for="commentAddedWeb" class="ml-1">Web</label>
-                        <span wire:loading wire:target="commentAddedEmail, commentAddedWeb" class="small ml-2 text-success font-weight-bold">Updating...</span>
+                        <span wire:loading wire:target="commentAddedEmail, commentAddedWeb" class="small ml-2 text-success fw-bold">Updating...</span>
                     </span>
                 </div>
             </li>
@@ -106,7 +106,7 @@
                     <span class="ml-4">
                         <input wire:click="answerAddedWeb" id="answerAddedWeb" class="form-check-input" type="checkbox" {{ $user->answerAddedWeb ? 'checked' : '' }}>
                         <label for="answerAddedWeb" class="ml-1">Web</label>
-                        <span wire:loading wire:target="answerAddedEmail, answerAddedWeb" class="small ml-2 text-success font-weight-bold">Updating...</span>
+                        <span wire:loading wire:target="answerAddedEmail, answerAddedWeb" class="small ml-2 text-success fw-bold">Updating...</span>
                     </span>
                 </div>
             </li>
@@ -121,7 +121,7 @@
                     <span class="ml-4">
                         <input wire:click="userFollowedWeb" id="userFollowedWeb" class="form-check-input" type="checkbox" {{ $user->userFollowedWeb ? 'checked' : '' }}>
                         <label for="userFollowedWeb" class="ml-1">Web</label>
-                        <span wire:loading wire:target="userFollowedEmail, userFollowedWeb" class="small ml-2 text-success font-weight-bold">Updating...</span>
+                        <span wire:loading wire:target="userFollowedEmail, userFollowedWeb" class="small ml-2 text-success fw-bold">Updating...</span>
                     </span>
                 </div>
             </li>
@@ -136,7 +136,7 @@
                     <span class="ml-4">
                         <input wire:click="productSubscribedWeb" id="productSubscribedWeb" class="form-check-input" type="checkbox" {{ $user->productSubscribedWeb ? 'checked' : '' }}>
                         <label for="productSubscribedWeb" class="ml-1">Web</label>
-                        <span wire:loading wire:target="productSubscribedEmail, productSubscribedWeb" class="small ml-2 text-success font-weight-bold">Updating...</span>
+                        <span wire:loading wire:target="productSubscribedEmail, productSubscribedWeb" class="small ml-2 text-success fw-bold">Updating...</span>
                     </span>
                 </div>
             </li>
@@ -151,7 +151,7 @@
                     <span class="ml-4">
                         <input wire:click="productUpdatesWeb" id="productUpdatesWeb" class="form-check-input" type="checkbox" {{ $user->productUpdatesWeb ? 'checked' : '' }}>
                         <label for="productUpdatesWeb" class="ml-1">Web</label>
-                        <span wire:loading wire:target="productUpdatesEmail, productUpdatesWeb" class="small ml-2 text-success font-weight-bold">Updating...</span>
+                        <span wire:loading wire:target="productUpdatesEmail, productUpdatesWeb" class="small ml-2 text-success fw-bold">Updating...</span>
                     </span>
                 </div>
             </li>

@@ -8,7 +8,7 @@
             <span class="ml-2">
                 <a
                     href="{{ route('user.done', ['username' => $question->user->username]) }}"
-                    class="font-weight-bold text-dark"
+                    class="fw-bold text-dark"
                     id="user-hover"
                     data-id="{{ $question->user->id }}"
                 >
@@ -39,7 +39,7 @@
         @if ($question->hidden)
         <span class="task-font font-italic text-secondary">Question was hidden by moderator</span>
         @else
-        <a href="{{ route('question.question', ['id' => $question->id]) }}" class="h5 align-text-top font-weight-bold text-dark">
+        <a href="{{ route('question.question', ['id' => $question->id]) }}" class="h5 align-text-top fw-bold text-dark">
             @if ($type !== "question.question")
                 {{ Str::words($question->title, '10') }}
             @else
@@ -61,7 +61,7 @@
             @if (Auth::user()->hasLiked($question))
                 <button role="button" class="btn btn-task btn-success text-white mr-1" wire:click="togglePraise" wire:loading.attr="disabled" wire:offline.attr="disabled">
                     {{ Emoji::clappingHands() }}
-                    <span class="small text-white font-weight-bold">
+                    <span class="small text-white fw-bold">
                         {{ number_format($question->likerscount()) }}
                     </span>
                     <span class="avatar-stack ml-1">
@@ -74,7 +74,7 @@
                 <button role="button" class="btn btn-task btn-outline-success mr-1" wire:click="togglePraise" wire:loading.attr="disabled" wire:offline.attr="disabled">
                     {{ Emoji::clappingHands() }}
                     @if ($question->likerscount() !== 0)
-                    <span class="small text-dark font-weight-bold">
+                    <span class="small text-dark fw-bold">
                         {{ number_format($question->likerscount()) }}
                     </span>
                     <span class="avatar-stack ml-1">
@@ -89,7 +89,7 @@
             @if ($type === "question.question")
             <button role="button" class="btn btn-task btn-outline-info text-white mr-1" data-toggle="modal" data-target="#editQuestionModal">
                 {{ Emoji::writingHand() }}
-                <span class="small text-dark font-weight-bold">
+                <span class="small text-dark fw-bold">
                     Edit
                 </span>
             </button>
@@ -118,7 +118,7 @@
                 <a href="/login" class="btn btn-task btn-outline-success mr-1">
                     {{ Emoji::clappingHands() }}
                     @if ($question->likerscount() !== 0)
-                    <span class="small text-dark font-weight-bold">
+                    <span class="small text-dark fw-bold">
                         {{ number_format($question->likerscount()) }}
                     </span>
                     <span class="avatar-stack ml-1">
@@ -133,7 +133,7 @@
             <span class="align-middle ml-2 mr-2">
                 <i class="fa fa-eye mr-1"></i>
                 <span class="text-secondary">
-                    <span class="font-weight-bold">{{ number_format(views($question)->remember()->unique()->count('id')) }}</span>
+                    <span class="fw-bold">{{ number_format(views($question)->remember()->unique()->count('id')) }}</span>
                     {{ views($question)->remember()->unique()->count('id') <= 1 ? 'View' : 'Views' }}
                 </span>
             </span>
@@ -144,7 +144,7 @@
                 <img class="rounded-circle avatar avatar-30" src="{{ $answer[0]->user->avatar }}" />
                 @endforeach
                 @if ($question->answer->groupBy('user_id')->count('id') >= 5)
-                <span class="ml-3 pl-1 align-middle font-weight-bold small">
+                <span class="ml-3 pl-1 align-middle fw-bold small">
                     +{{ number_format($question->answer->groupBy('user_id')->count('id') - 5) }} more
                 </span>
                 @endif

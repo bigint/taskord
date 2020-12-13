@@ -14,7 +14,7 @@
         <div class="card-body">
             <a class="btn btn-block btn-outline-primary" href="{{ $user->sponsor }}" target="_blank">
                 <img class="rounded sponsor-icon mr-1" rel="preload" src="https://external-content.duckduckgo.com/ip3/{{ parse_url($user->sponsor)['host'] }}.ico" />
-                <span class="font-weight-bold">Sponsor {{ '@'.$user->username }}</span>
+                <span class="fw-bold">Sponsor {{ '@'.$user->username }}</span>
             </a>
         </div>
     </div>
@@ -83,7 +83,7 @@
                 </a>
                 <a
                     href="{{ route('product.done', ['slug' => $product->slug]) }}"
-                    class="ml-2 mr-2 align-text-top font-weight-bold text-dark"
+                    class="ml-2 mr-2 align-text-top fw-bold text-dark"
                     id="product-hover"
                     data-id="{{ $product->id }}"
                 >
@@ -94,7 +94,7 @@
         </ul>
         @if (count($user->ownedProducts->merge($user->products)) > 5)
         <div class="card-footer">
-            <a class="font-weight-bold" href="{{ route('user.products', ['username' => $user->username]) }}">
+            <a class="fw-bold" href="{{ route('user.products', ['username' => $user->username]) }}">
                 {{ count($user->ownedProducts) + count($user->products) - 5 }} more Products
             </a>
         </div>

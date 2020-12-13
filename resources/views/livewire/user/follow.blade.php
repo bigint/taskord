@@ -15,17 +15,17 @@
     </button>
     @endif
     @if (session()->has('error'))
-        <span class="ml-2 text-danger font-weight-bold">{{ session('error') }}</span>
+        <span class="ml-2 text-danger fw-bold">{{ session('error') }}</span>
     @endif
     @endif
     @endauth
     <div class="small">
         <a class="text-dark" href="{{ route('user.following', ['username' => $user->username]) }}">
-            <span class="font-weight-bold">{{ $user->followings()->count('id') }}</span>
+            <span class="fw-bold">{{ $user->followings()->count('id') }}</span>
             Following
         </a>
         <a class="text-dark" href="{{ route('user.followers', ['username' => $user->username]) }}">
-            <span class="font-weight-bold ml-2">{{ number_format($user->followers()->count()) }}</span>
+            <span class="fw-bold ml-2">{{ number_format($user->followers()->count()) }}</span>
             {{ $user->followers()->count('id') <= 1 ? "Follower" : "Followers" }}
         </a>
         @php
@@ -34,7 +34,7 @@
                 $user->likes(App\Models\Question::class)->count('id') +
                 $user->likes(App\Models\Answer::class)->count('id')
         @endphp
-        <span class="font-weight-bold ml-2">
+        <span class="fw-bold ml-2">
             {{
                 number_format(
                     $likes

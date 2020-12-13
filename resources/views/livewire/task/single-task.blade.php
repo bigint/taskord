@@ -7,7 +7,7 @@
         <span class="ml-2">
             <a
                 href="{{ route('user.done', ['username' => $task->user->username]) }}"
-                class="font-weight-bold text-dark"
+                class="fw-bold text-dark"
                 id="user-hover"
                 data-id="{{ $task->user->id }}"
             >
@@ -73,7 +73,7 @@
         </span>
         @endif
         @endif
-        <span class="ml-1 task-font @if ($launched or $bug or $learn) font-weight-bold @endif @if ($launched) text-success @endif">
+        <span class="ml-1 task-font @if ($launched or $bug or $learn) fw-bold @endif @if ($launched) text-success @endif">
             {!! Purify::clean(Helper::renderTask($task->task)) !!}
             @if ($task->type === 'product')
             <span class="small text-black-50">
@@ -108,7 +108,7 @@
             @if (Auth::user()->hasLiked($task))
             <button type="button" class="btn btn-task btn-success text-white mr-1" wire:click="togglePraise" wire:loading.attr="disabled" wire:offline.attr="disabled" wire:key="{{ $task->id }}">
                 {{ Emoji::clappingHands() }}
-                <span class="small text-white font-weight-bold">
+                <span class="small text-white fw-bold">
                     {{ number_format($task->likerscount()) }}
                 </span>
                 <span class="avatar-stack ml-1">
@@ -121,7 +121,7 @@
             <button type="button" class="btn btn-task btn-outline-success mr-1" wire:click="togglePraise" wire:loading.attr="disabled" wire:offline.attr="disabled" wire:key="{{ $task->id }}">
                 {{ Emoji::clappingHands() }}
                 @if ($task->likerscount() !== 0)
-                <span class="small text-dark font-weight-bold">
+                <span class="small text-dark fw-bold">
                     {{ number_format($task->likerscount()) }}
                 </span>
                 <span class="avatar-stack ml-1">
@@ -138,7 +138,7 @@
                 <a href="/login" class="btn btn-task btn-outline-success mr-1">
                     {{ Emoji::clappingHands() }}
                     @if ($task->likerscount() !== 0)
-                    <span class="small text-dark font-weight-bold">
+                    <span class="small text-dark fw-bold">
                         {{ number_format($task->likerscount()) }}
                     </span>
                     <span class="avatar-stack ml-1">
@@ -152,7 +152,7 @@
             <a href="{{ route('task', ['id' => $task->id]) }}" class="btn btn-task btn-outline-primary mr-1">
                 {{ Emoji::speechBalloon() }}
                 @if ($task->comments->count('id') !== 0)
-                <span class="small text-dark font-weight-bold">
+                <span class="small text-dark fw-bold">
                     {{ number_format($task->comments->count('id')) }}
                 </span>
                 @endif
@@ -199,7 +199,7 @@
             }}
             @endauth
             · via
-            <span class="font-weight-bold">{{ $task->source }}</span>
+            <span class="fw-bold">{{ $task->source }}</span>
         </a>
     </div>
 </span>

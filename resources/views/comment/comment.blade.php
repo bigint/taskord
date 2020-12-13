@@ -27,7 +27,7 @@
                 'comment' => $comment,
             ], key($comment->id))
             </div>
-            <a href="{{ route('task', ['id' => $task->id]) }}" class="btn btn-block btn-success mt-4 text-white font-weight-bold">
+            <a href="{{ route('task', ['id' => $task->id]) }}" class="btn btn-block btn-success mt-4 text-white fw-bold">
                 Go back to task
             </a>
         </div>
@@ -51,7 +51,7 @@
                             id="user-hover"
                             data-id="{{ $comment->user->id }}"
                         >
-                            <span class="font-weight-bold">
+                            <span class="fw-bold">
                                 @if ($comment->user->firstname or $comment->user->lastname)
                                     {{ $comment->user->firstname }}{{ ' '.$comment->user->lastname }}
                                 @else

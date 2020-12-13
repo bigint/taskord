@@ -19,7 +19,7 @@
         <div class="card-body">
             <div class="row align-items-center font-monospace">
                 <div class="col-lg-8">
-                    <div class="font-weight-bold mb-3">You get the following benefits</div>
+                    <div class="fw-bold mb-3">You get the following benefits</div>
                     <ul>
                         <li>🌑 Enable Awesome Dark Mode</li>
                         <li>💬 Patrons only discussion to make it more meaningful</li>

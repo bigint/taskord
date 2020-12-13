@@ -3,15 +3,15 @@
     @if (Auth::user()->staffShip or Auth::id() === $product->owner->id)
     <div class="card mb-4">
         <div class="card-body">
-            <button type="button" class="btn btn-block btn-success text-white font-weight-bold" data-toggle="modal" data-target="#newUpdateModal">
+            <button type="button" class="btn btn-block btn-success text-white fw-bold" data-toggle="modal" data-target="#newUpdateModal">
                 <i class="fa fa-bell mr-1"></i>
                 Write a product update
             </button>
-            <button type="button" class="btn btn-block btn-success text-white font-weight-bold" data-toggle="modal" data-target="#editProductModal">
+            <button type="button" class="btn btn-block btn-success text-white fw-bold" data-toggle="modal" data-target="#editProductModal">
                 <i class="fa fa-edit mr-1"></i>
                 Edit Product
             </button>
-            <button type="button" class="btn btn-block btn-success text-white font-weight-bold" data-toggle="modal" data-target="#addMemberModal">
+            <button type="button" class="btn btn-block btn-success text-white fw-bold" data-toggle="modal" data-target="#addMemberModal">
                 <i class="fa fa-plus mr-1"></i>
                 Add Member
             </button>
@@ -75,7 +75,7 @@
         <div class="card-body">
             <a class="btn btn-block btn-outline-primary" href="{{ $product->sponsor }}" target="_blank">
                 <img class="rounded sponsor-icon mr-1" rel="preload" src="https://external-content.duckduckgo.com/ip3/{{ parse_url($product->sponsor)['host'] }}.ico" />
-                <span class="font-weight-bold">Sponsor {{ $product->name }}</span>
+                <span class="fw-bold">Sponsor {{ $product->name }}</span>
             </a>
         </div>
     </div>
@@ -103,7 +103,7 @@
                 </a>
                 <a
                     href="{{ route('user.done', ['username' => $product->owner->username]) }}"
-                    class="ml-2 align-middle font-weight-bold text-dark"
+                    class="ml-2 align-middle fw-bold text-dark"
                     id="user-hover"
                     data-id="{{ $product->owner->id }}"
                 >

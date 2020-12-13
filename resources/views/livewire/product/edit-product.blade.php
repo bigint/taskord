@@ -9,7 +9,7 @@
                 <div class="modal-body">
                     <x-alert />
                     <div class="mb-3">
-                        <label class="form-label font-weight-bold">Name of the product</label>
+                        <label class="form-label fw-bold">Name of the product</label>
                         <input type="text" value="{{ $name }}" class="form-control @error('name') is-invalid @enderror" placeholder="Simply the name of the product" wire:model.defer="name">
                         @error('name')
                             <span class="invalid-feedback" role="alert">
@@ -18,7 +18,7 @@
                         @enderror
                     </div>
                     <div class="mb-3">
-                        <label class="form-label font-weight-bold">Slug</label>
+                        <label class="form-label fw-bold">Slug</label>
                         <input type="text" value="{{ $slug }}" class="form-control @error('slug') is-invalid @enderror" placeholder="Product Slug (/taskord)" wire:model.defer="slug">
                         @error('slug')
                             <span class="invalid-feedback" role="alert">
@@ -27,7 +27,7 @@
                         @enderror
                     </div>
                     <div class="mb-3">
-                        <label class="form-label font-weight-bold">Description</label>
+                        <label class="form-label fw-bold">Description</label>
                         <textarea class="form-control @error('description') is-invalid @enderror" rows="3" placeholder="Some words about your awesome product" wire:model.defer="description">{{ $description }}</textarea>
                         @error('description')
                             <span class="invalid-feedback" role="alert">
@@ -36,7 +36,7 @@
                         @enderror
                     </div>
                     <div class="mb-3">
-                        <label class="form-label font-weight-bold">Logo</label>
+                        <label class="form-label fw-bold">Logo</label>
                         <div class="form-file w-50">
                             <input type="file" wire:model="avatar" class="form-file-input">
                             <label class="form-file-label">
@@ -51,7 +51,7 @@
                         </div>
                     </div>
                     @error('avatar')
-                    <div class="text-danger font-weight-bold mt-3">{{ $message }}</div>
+                    <div class="text-danger fw-bold mt-3">{{ $message }}</div>
                     @else
                     @if ($avatar)
                     <div>
@@ -121,12 +121,12 @@
                         @enderror
                     </div>
                     <div class="mb-3">
-                        <div class="font-weight-bold mb-2">Status</div>
+                        <div class="fw-bold mb-2">Status</div>
                         <input id="launched" class="form-check-input" type="checkbox" wire:model.defer="launched">
                         <label for="launched" class="ml-1">This product is launched</label>
                     </div>
                     <div class="mb-3">
-                        <div class="font-weight-bold mb-2">Deprecated</div>
+                        <div class="fw-bold mb-2">Deprecated</div>
                         <input id="deprecated" class="form-check-input" type="checkbox" wire:model.defer="deprecated">
                         <label for="deprecated" class="ml-1">This product is no longer available</label>
                     </div>
@@ -134,12 +134,12 @@
                 <div class="modal-footer">
                     @if ($confirming === $product->id)
                     <button type="button" wire:click="deleteProduct" class="btn btn-danger">
-                        <span class="font-weight-bold">Are you sure?</span>
+                        <span class="fw-bold">Are you sure?</span>
                         <span wire:target="deleteProduct" wire:loading class="spinner-border spinner-border-sm ml-2" role="status"></span>
                     </button>
                     @else
                     <button type="button" wire:click="confirmDelete" class="btn btn-danger">
-                        <span class="font-weight-bold">Delete</span> {{ $slug }}
+                        <span class="fw-bold">Delete</span> {{ $slug }}
                     </button>
                     @endif
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

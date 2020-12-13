@@ -15,7 +15,7 @@
                         alt=""
                         height="60"
                     >
-                    <h1 class="h3 mb-3 font-weight-bold">
+                    <h1 class="h3 mb-3 fw-bold">
                         Reset Password
                     </h1>
                 </div>

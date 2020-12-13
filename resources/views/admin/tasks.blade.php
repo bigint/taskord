@@ -14,7 +14,7 @@
             <div class="card">
                 <div class="card-header h6 pt-3 pb-3">
                     <div class="h5">Tasks</div>
-                    <span class="font-weight-bold">{{ $count }}</span>
+                    <span class="fw-bold">{{ $count }}</span>
                     total tasks
                 </div>
                 <div class="table-responsive">

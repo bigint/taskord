@@ -34,7 +34,7 @@
             @endif
             @endauth
             @guest
-                <a href="/login" class="btn btn-block btn-success mt-4 text-white font-weight-bold">
+                <a href="/login" class="btn btn-block btn-success mt-4 text-white fw-bold">
                     {{ Emoji::wavingHand() }} Login or Signup to comment
                 </a>
             @endguest
@@ -59,7 +59,7 @@
                             id="user-hover"
                             data-id="{{ $task->user->id }}"
                         >
-                            <span class="font-weight-bold">
+                            <span class="fw-bold">
                                 @if ($task->user->firstname or $task->user->lastname)
                                     {{ $task->user->firstname }}{{ ' '.$task->user->lastname }}
                                 @else
@@ -91,7 +91,7 @@
                             id="product-hover"
                             data-id="{{ \App\Models\Product::find($task->product_id)->id }}"
                         >
-                            <span class="font-weight-bold">
+                            <span class="fw-bold">
                                 {{ \App\Models\Product::find($task->product_id)->name }}
                             </span>
                             <div>{{ \App\Models\Product::find($task->product_id)->description }}</div>

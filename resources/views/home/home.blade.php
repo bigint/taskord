@@ -12,7 +12,7 @@
             <div class="p-5 rounded mb-4 text-white welcome-card">
                 <h1>Welcome to Taskord {{ Emoji::wavingHand() }}</h1>
                 <p class="lead">
-                    <span class="font-weight-bold">Don't fake just make!</span> Get things done in public with awesome community of makers.
+                    <span class="fw-bold">Don't fake just make!</span> Get things done in public with awesome community of makers.
                 </p>
                 <a class="btn btn-lg btn-light" href="/register" role="button">
                     Signup now
@@ -34,7 +34,7 @@
                                 <img class="rounded-circle avatar-30" src="{{ $question->user->avatar }}" alt="{{ $question->user->username }}" />
                             </a>
                             <a href="{{ route('question.question', ['id' => $question->id]) }}">
-                                <span class="ml-1 font-weight-bold align-middle text-dark">{{ Str::words($question->title, '10') }}</span>
+                                <span class="ml-1 fw-bold align-middle text-dark">{{ Str::words($question->title, '10') }}</span>
                                 @if ($question->answer->count('id') >= 1)
                                 <span class="ml-1 align-middle text-black-50">
                                     {{ $question->answer->count('id') }} {{ $question->answer->count('id') >= 1 ? 'answers' : 'answer' }}
@@ -67,7 +67,7 @@
                                 <img class="rounded avatar-50 mt-1 ml-2" src="{{ $product->avatar }}" alt="{{ $product->slug }}" height="50" width="50" />
                             </a>
                             <span class="ml-3">
-                                <a href="{{ route('product.done', ['slug' => $product->slug]) }}" class="mr-2 h5 align-text-top font-weight-bold text-dark">
+                                <a href="{{ route('product.done', ['slug' => $product->slug]) }}" class="mr-2 h5 align-text-top fw-bold text-dark">
                                     {{ $product->name }}
                                     @if ($product->launched)
                                         <a href="{{ route('products.launched') }}" class="small" data-toggle="tooltip" data-placement="right" title="Launched">
@@ -79,7 +79,7 @@
                             </span>
                             <span class="ml-auto">
                                 @if ($product->members()->count() > 1)
-                                    <span class="mr-2 mt-1 text-secondary font-weight-bold">+{{ $product->members()->count() - 1 }} more</span>
+                                    <span class="mr-2 mt-1 text-secondary fw-bold">+{{ $product->members()->count() - 1 }} more</span>
                                 @endif
                                 @foreach ($product->members()->limit(1)->get() as $user)
                                 <a
@@ -104,7 +104,7 @@
                 </ul>
                 @if (count($launched_today) > 5)
                 <div class="card-footer">
-                    <a class="font-weight-bold" href="{{ route('products.newest') }}">More Products...</a>
+                    <a class="fw-bold" href="{{ route('products.newest') }}">More Products...</a>
                 </div>
                 @endif
             </div>
@@ -144,7 +144,7 @@
                                     @endif
                                 </div>
                                 @endif
-                                <div class="small font-weight-bold">
+                                <div class="small fw-bold">
                                     {{ '@'.Str::limit(Auth::user()->username, '20') }}
                                 </div>
                             </a>
@@ -154,7 +154,7 @@
                             </a>
                         </div>
                     </div>
-                    <div class="card-footer small font-weight-bold d-flex justify-content-between">
+                    <div class="card-footer small fw-bold d-flex justify-content-between">
                         <a class="text-dark" href="{{ route('user.following', ['username' => Auth::user()->username]) }}">
                             <i class="fa fa-plus mr-1 text-black-50"></i>
                             {{ Auth::user()->followings()->count() }}
@@ -185,7 +185,7 @@
                         </a>
                         <span class="ml-3">
                             <a href="{{ route('user.done', ['username' => $user->username]) }}" class="align-text-top text-dark">
-                                <span class="font-weight-bold">
+                                <span class="fw-bold">
                                     @if ($user->firstname or $user->lastname)
                                         {{ $user->firstname }}{{ ' '.$user->lastname }}
                                     @else
@@ -213,7 +213,7 @@
                 </ul>
                 @if ($recently_joined_count > 5)
                 <div class="card-footer">
-                    <span class="font-weight-bold">{{ $recently_joined_count - 5 }} more...</span>
+                    <span class="fw-bold">{{ $recently_joined_count - 5 }} more...</span>
                 </div>
                 @endif
             </div>
@@ -233,7 +233,7 @@
                         </a>
                         <a
                             href="{{ route('product.done', ['slug' => $product->slug]) }}"
-                            class="ml-2 mr-2 align-text-top font-weight-bold text-dark"
+                            class="ml-2 mr-2 align-text-top fw-bold text-dark"
                             id="product-hover"
                             data-id="{{ $product->id }}"
                         >
@@ -266,7 +266,7 @@
                     @endforeach
                 </ul>
                 <div class="card-footer">
-                    <a class="font-weight-bold" href="{{ route('products.newest') }}">More Products...</a>
+                    <a class="fw-bold" href="{{ route('products.newest') }}">More Products...</a>
                 </div>
             </div>
             <div class="card mb-4">
@@ -278,11 +278,11 @@
                     <li class="list-group-item pb-2 pt-2">
                         <span class="h6 text-black-50" style="vertical-align:sub">
                             @if ($loop->index === 0)
-                            <span class="font-weight-bold" style="color:#38c172">
+                            <span class="fw-bold" style="color:#38c172">
                             @elseif ($loop->index === 1)
-                            <span class="font-weight-bold" style="color:#6a63ec">
+                            <span class="fw-bold" style="color:#6a63ec">
                             @elseif ($loop->index === 2)
-                            <span class="font-weight-bold" style="color:#fd5f60">
+                            <span class="fw-bold" style="color:#fd5f60">
                             @else
                             <span>
                             @endif
@@ -298,7 +298,7 @@
                         </a>
                         <a
                             href="{{ route('user.done', ['username' => $user->username]) }}"
-                            class="ml-2 mr-2 align-text-top font-weight-bold text-dark"
+                            class="ml-2 mr-2 align-text-top fw-bold text-dark"
                             id="user-hover"
                             data-id="{{ $user->id }}"
                         >

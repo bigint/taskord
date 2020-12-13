@@ -9,7 +9,7 @@
                 <div class="modal-body">
                     <x-alert />
                     <div class="mb-3">
-                        <label class="form-label font-weight-bold">Title</label>
+                        <label class="form-label fw-bold">Title</label>
                         <input type="text" value="{{ $title }}" class="form-control @error('title') is-invalid @enderror" placeholder="Ask and discuss!" wire:model.defer="title">
                         @error('title')
                             <span class="invalid-feedback" role="alert">
@@ -18,7 +18,7 @@
                         @enderror
                     </div>
                     <div class="mb-3">
-                        <label class="form-label font-weight-bold">Body</label>
+                        <label class="form-label fw-bold">Body</label>
                         <textarea class="form-control @error('body') is-invalid @enderror" rows="6" placeholder="What's on your mind?" wire:model.lazy="body">{{ $body }}</textarea>
                         @error('body')
                             <span class="invalid-feedback" role="alert">
@@ -26,12 +26,12 @@
                             </span>
                         @enderror
                     </div>
-                    <div class="h6 font-weight-bold mb-3">
+                    <div class="h6 fw-bold mb-3">
                         <i class="fab fa-markdown mr-1"></i>
                         Markdown is supported
                     </div>
                     <div class="mb-3">
-                        <div class="font-weight-bold mb-2">Patron only</div>
+                        <div class="fw-bold mb-2">Patron only</div>
                         <input id="patronOnly" class="form-check-input" type="checkbox" wire:model.defer="patronOnly">
                         <label for="patronOnly" class="ml-1">This question will visible only for patrons</label>
                     </div>

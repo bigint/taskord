@@ -6,7 +6,7 @@
         @endif
     </div>
     <div class="ml-3">
-        <div class="font-weight-bold text-dark">
+        <div class="fw-bold text-dark">
             @if ($user->firstname or $user->lastname)
                 {{ $user->firstname }}{{ ' '.$user->lastname }}
             @else

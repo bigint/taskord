@@ -36,7 +36,7 @@
             </li>
             @endforeach
         @else
-            <li class="list-group-item">We couldn’t find any tasks matching <span class="font-weight-bold">{{ $query }}</span>!</li>
+            <li class="list-group-item">We couldn’t find any tasks matching <span class="fw-bold">{{ $query }}</span>!</li>
         @endif
         <li class="list-group-item">
             <span class="h5">Users</span>
@@ -47,7 +47,7 @@
                 <img class="rounded-circle avatar-30" src="{{ $user->avatar }}" />
                 <span>
                     <a class="ml-2 task-font text-dark align-middle" href="{{ route('user.done', ['username' => $user->username]) }}">
-                        <span class="font-weight-bold">
+                        <span class="fw-bold">
                             @if ($user->firstname or $user->lastname)
                                 {{ $user->firstname }}{{ ' '.$user->lastname }}
                             @else
@@ -63,7 +63,7 @@
             </li>
             @endforeach
         @else
-            <li class="list-group-item">We couldn’t find any users matching <span class="font-weight-bold">{{ $query }}</span>!</li>
+            <li class="list-group-item">We couldn’t find any users matching <span class="fw-bold">{{ $query }}</span>!</li>
         @endif
         <li class="list-group-item">
             <span class="h5">Products</span>
@@ -74,7 +74,7 @@
                 <img class="rounded avatar-30" src="{{ $product->avatar }}" />
                 <span>
                     <a class="ml-2 task-font text-dark align-middle" href="{{ route('product.done', ['slug' => $product->slug]) }}">
-                        <span class="font-weight-bold">{{ $product->name }}</span>
+                        <span class="fw-bold">{{ $product->name }}</span>
                     </a>
                 </span>
                 <a href="{{ route('user.done', ['username' => $product->owner->username]) }}">
@@ -83,7 +83,7 @@
             </li>
             @endforeach
         @else
-            <li class="list-group-item">We couldn’t find any products matching <span class="font-weight-bold">{{ $query }}</span>!</li>
+            <li class="list-group-item">We couldn’t find any products matching <span class="fw-bold">{{ $query }}</span>!</li>
         @endif
         <li class="list-group-item">
             <span class="h5">Questions</span>
@@ -93,7 +93,7 @@
             <li class="list-group-item">
                 <span>
                     <a class="ml-2 task-font text-dark" href="{{ route('question.question', ['id' => $question->id]) }}">
-                        <span class="font-weight-bold">{{ Str::words($question->title, '8') }}</span>
+                        <span class="fw-bold">{{ Str::words($question->title, '8') }}</span>
                     </a>
                 </span>
                 <a href="{{ route('user.done', ['username' => $question->user->username]) }}">
@@ -102,7 +102,7 @@
             </li>
             @endforeach
         @else
-            <li class="list-group-item">We couldn’t find any questions matching <span class="font-weight-bold">{{ $query }}</span>!</li>
+            <li class="list-group-item">We couldn’t find any questions matching <span class="fw-bold">{{ $query }}</span>!</li>
         @endif
         @endif
     </ul>

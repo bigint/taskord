@@ -42,7 +42,7 @@
             @endif
             @endauth
             @guest
-                <a href="/login" class="btn btn-block btn-success mt-4 text-white font-weight-bold">
+                <a href="/login" class="btn btn-block btn-success mt-4 text-white fw-bold">
                     {{ Emoji::wavingHand() }} Login or Signup to comment
                 </a>
             @endguest
@@ -72,7 +72,7 @@
                             id="user-hover"
                             data-id="{{ $question->user->id }}"
                         >
-                            <span class="font-weight-bold">
+                            <span class="fw-bold">
                                 @if ($question->user->firstname or $question->user->lastname)
                                     {{ $question->user->firstname }}{{ ' '.$question->user->lastname }}
                                 @else

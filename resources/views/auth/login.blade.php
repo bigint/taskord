@@ -19,11 +19,11 @@
                         alt=""
                         height="60"
                     >
-                    <h1 class="h3 mb-2 font-weight-bold">
+                    <h1 class="h3 mb-2 fw-bold">
                         Sign in to your account
                     </h1>
                     <p>
-                        Or <a class="font-weight-bold" href="/register">signup now!</a>
+                        Or <a class="fw-bold" href="/register">signup now!</a>
                     </p>
                 </div>
                 <div class="form-label-group">
@@ -66,7 +66,7 @@
                         Remember me
                     </label>
                     @if (Route::has('password.request'))
-                        <a class="float-right font-weight-bold" href="{{ route('password.request') }}">
+                        <a class="float-right fw-bold" href="{{ route('password.request') }}">
                             Forgot Password?
                         </a>
                     @endif

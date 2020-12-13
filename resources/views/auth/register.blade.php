@@ -19,11 +19,11 @@
                         alt=""
                         height="60"
                     >
-                    <h1 class="h3 mb-2 font-weight-bold">
+                    <h1 class="h3 mb-2 fw-bold">
                         Sign up to Taskord
                     </h1>
                     <p>
-                        Or <a class="font-weight-bold" href="/login">login now!</a>
+                        Or <a class="fw-bold" href="/login">login now!</a>
                     </p>
                 </div>
                 <div class="form-label-group">

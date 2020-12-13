@@ -132,7 +132,7 @@
                                 <img class="rounded avatar-50 mt-1 ml-2" src="{{ $product->avatar }}" height="50" width="50" />
                             </a>
                             <span class="ml-3">
-                                <a href="{{ route('product.done', ['slug' => $product->slug]) }}" class="mr-2 h5 align-text-top font-weight-bold text-dark">
+                                <a href="{{ route('product.done', ['slug' => $product->slug]) }}" class="mr-2 h5 align-text-top fw-bold text-dark">
                                     {{ $product->name }}
                                     @if ($product->launched)
                                         <a href="{{ route('products.launched') }}" class="small" data-toggle="tooltip" data-placement="right" title="Launched">
@@ -189,7 +189,7 @@
                                 <img class="rounded-circle avatar-50 mt-1 ml-2" src="{{ $user->avatar }}" height="50" width="50" />
                             </a>
                             <span class="ml-3">
-                                <a href="{{ route('user.done', ['username' => $user->username]) }}" class="mr-2 h5 align-text-top font-weight-bold text-dark">
+                                <a href="{{ route('user.done', ['username' => $user->username]) }}" class="mr-2 h5 align-text-top fw-bold text-dark">
                                     @if ($user->firstname or $user->lastname)
                                         {{ $user->firstname }}{{ ' '.$user->lastname }}
                                     @else

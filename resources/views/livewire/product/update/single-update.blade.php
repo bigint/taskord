@@ -4,7 +4,7 @@
             <img class="avatar-30 rounded-circle" src="{{ $update->user->avatar }}" />
         </a>
         <span class="ml-2">
-            <a href="{{ route('user.done', ['username' => $update->user->username]) }}" class="font-weight-bold text-dark">
+            <a href="{{ route('user.done', ['username' => $update->user->username]) }}" class="fw-bold text-dark">
                 @if ($update->user->firstname or $update->user->lastname)
                     {{ $update->user->firstname }}{{ ' '.$update->user->lastname }}
                 @else
@@ -31,7 +31,7 @@
             <span>
                 <button type="button" class="btn btn-task btn-success text-white mr-1" wire:click="togglePraise" wire:loading.attr="disabled" wire:offline.attr="disabled" wire:key="{{ $update->id }}">
                     {{ Emoji::clappingHands() }}
-                    <span class="small text-white font-weight-bold">
+                    <span class="small text-white fw-bold">
                         {{ number_format($update->likerscount()) }}
                     </span>
                     <span class="avatar-stack ml-1">
@@ -46,7 +46,7 @@
                 <button type="button" class="btn btn-task btn-outline-success mr-1" wire:click="togglePraise" wire:loading.attr="disabled" wire:offline.attr="disabled" wire:key="{{ $update->id }}">
                     {{ Emoji::clappingHands() }}
                     @if ($update->likerscount() !== 0)
-                    <span class="small text-dark font-weight-bold">
+                    <span class="small text-dark fw-bold">
                         {{ number_format($update->likerscount()) }}
                     </span>
                     <span class="avatar-stack ml-1">
@@ -64,7 +64,7 @@
                 <a href="/login" class="btn btn-task btn-outline-success mr-1">
                     {{ Emoji::clappingHands() }}
                     @if ($update->likerscount() !== 0)
-                    <span class="small text-dark font-weight-bold">
+                    <span class="small text-dark fw-bold">
                         {{ number_format($update->likerscount()) }}
                     </span>
                     <span class="avatar-stack ml-1">

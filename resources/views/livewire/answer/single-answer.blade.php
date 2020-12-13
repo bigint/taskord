@@ -8,7 +8,7 @@
             <span class="ml-2">
                 <a
                     href="{{ route('user.done', ['username' => $answer->user->username]) }}"
-                    class="font-weight-bold text-dark"
+                    class="fw-bold text-dark"
                     id="user-hover"
                     data-id="{{ $answer->user->id }}"
                 >
@@ -48,7 +48,7 @@
             @if (Auth::user()->hasLiked($answer))
                 <button type="button" class="btn btn-task btn-success text-white mr-1" wire:click="togglePraise" wire:loading.attr="disabled" wire:offline.attr="disabled">
                     {{ Emoji::clappingHands() }}
-                    <span class="small text-white font-weight-bold">
+                    <span class="small text-white fw-bold">
                         {{ number_format($answer->likerscount()) }}
                     </span>
                     <span class="avatar-stack ml-1">
@@ -61,7 +61,7 @@
                 <button type="button" class="btn btn-task btn-outline-success mr-1" wire:click="togglePraise" wire:loading.attr="disabled" wire:offline.attr="disabled">
                     {{ Emoji::clappingHands() }}
                     @if ($answer->likerscount() !== 0)
-                    <span class="small text-dark font-weight-bold">
+                    <span class="small text-dark fw-bold">
                         {{ number_format($answer->likerscount()) }}
                     </span>
                     <span class="avatar-stack ml-1">
@@ -94,7 +94,7 @@
                 <a href="/login" class="btn btn-task btn-outline-success mr-1">
                     {{ Emoji::clappingHands() }}
                     @if ($answer->likerscount() !== 0)
-                    <span class="small text-dark font-weight-bold">
+                    <span class="small text-dark fw-bold">
                         {{ number_format($answer->likerscount()) }}
                     </span>
                     <span class="avatar-stack ml-1">

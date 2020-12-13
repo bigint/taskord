@@ -7,7 +7,7 @@
     @endphp
     <div class="card mb-3">
         <div class="card-body">
-            <span class="font-weight-bold">
+            <span class="fw-bold">
                 @if (
                     $type === "App\Notifications\TaskPraised" or
                     $type === "App\Notifications\QuestionPraised" or
@@ -57,7 +57,7 @@
             @if ($type === "App\Notifications\TaskPraised")
                 <span class="align-middle">
                     praised your
-                    <a class="font-weight-bold" href="{{ route('task', ['id' => $data['task_id']]) }}">
+                    <a class="fw-bold" href="{{ route('task', ['id' => $data['task_id']]) }}">
                         task
                     </a>
                 </span>
@@ -68,21 +68,21 @@
                 @if ($data['body_type'] === 'task')
                 <span class="align-middle">
                     mentioned you in a
-                    <a class="font-weight-bold" href="{{ route('task', ['id' => $data['body_id']]) }}">
+                    <a class="fw-bold" href="{{ route('task', ['id' => $data['body_id']]) }}">
                         task
                     </a>
                 </span>
                 @elseif ($data['body_type'] === 'comment')
                 <span class="align-middle">
                     mentioned you in a
-                    <a class="font-weight-bold" href="{{ route('comment', ['id' => $data['body_id'], 'comment_id' => $data['entity_id']]) }}">
+                    <a class="fw-bold" href="{{ route('comment', ['id' => $data['body_id'], 'comment_id' => $data['entity_id']]) }}">
                         comment
                     </a>
                 </span>
                 @elseif ($data['body_type'] === 'answer')
                 <span class="align-middle">
                     mentioned you in an
-                    <a class="font-weight-bold" href="{{ route('question.question', ['id' => $data['body_id']]) }}">
+                    <a class="fw-bold" href="{{ route('question.question', ['id' => $data['body_id']]) }}">
                         answer
                     </a>
                 </span>
@@ -93,7 +93,7 @@
             @elseif ($type === "App\Notifications\CommentPraised")
                 <span class="align-middle">
                     praised your
-                    <a class="font-weight-bold" href="{{ route('comment', ['id' => $data['task_id'], 'comment_id' => $data['comment_id']]) }}">
+                    <a class="fw-bold" href="{{ route('comment', ['id' => $data['task_id'], 'comment_id' => $data['comment_id']]) }}">
                         comment
                     </a>
                 </span>
@@ -103,7 +103,7 @@
             @elseif ($type === "App\Notifications\QuestionPraised")
                 <span class="align-middle">
                     praised your
-                    <a class="font-weight-bold" href="{{ route('question.question', ['id' => $data['question_id']]) }}">
+                    <a class="fw-bold" href="{{ route('question.question', ['id' => $data['question_id']]) }}">
                         question
                     </a>
                 </span>
@@ -113,7 +113,7 @@
             @elseif ($type === "App\Notifications\AnswerPraised")
                 <span class="align-middle">
                     praised your
-                    <a class="font-weight-bold" href="{{ route('question.question', ['id' => $data['question_id']]) }}">
+                    <a class="fw-bold" href="{{ route('question.question', ['id' => $data['question_id']]) }}">
                         answer
                     </a>
                 </span>
@@ -123,7 +123,7 @@
             @elseif ($type === "App\Notifications\Commented")
                 <span class="align-middle">
                     commented on your
-                    <a class="font-weight-bold" href="{{ route('comment', ['id' => $data['task_id'], 'comment_id' => $data['comment_id']]) }}">
+                    <a class="fw-bold" href="{{ route('comment', ['id' => $data['task_id'], 'comment_id' => $data['comment_id']]) }}">
                         task
                     </a>
                 </span>
@@ -133,7 +133,7 @@
             @elseif ($type === "App\Notifications\Answered")
                 <span class="align-middle">
                     answered to your
-                    <a class="font-weight-bold" href="{{ route('question.question', ['id' => $data['question_id']]) }}">
+                    <a class="fw-bold" href="{{ route('question.question', ['id' => $data['question_id']]) }}">
                         question
                     </a>
                 </span>
@@ -150,7 +150,7 @@
             @elseif ($type === "App\Notifications\Subscribed")
                 <span class="align-middle">
                     subscribed to your product
-                    <a class="font-weight-bold" href="{{ route('product.done', ['slug' => \App\Models\Product::find($data['product_id'])->slug]) }}">
+                    <a class="fw-bold" href="{{ route('product.done', ['slug' => \App\Models\Product::find($data['product_id'])->slug]) }}">
                         <img class="rounded avatar-20 ml-1 mr-1" src="{{ \App\Models\Product::find($data['product_id'])->avatar }}" />
                         {{ \App\Models\Product::find($data['product_id'])->name }}
                     </a>
@@ -158,7 +158,7 @@
             @elseif ($type === "App\Notifications\Product\MemberAdded")
                 <span class="align-middle">
                     added you to the product
-                    <a class="font-weight-bold" href="{{ route('product.done', ['slug' => \App\Models\Product::find($data['product_id'])->slug]) }}">
+                    <a class="fw-bold" href="{{ route('product.done', ['slug' => \App\Models\Product::find($data['product_id'])->slug]) }}">
                         <img class="rounded avatar-20 ml-1 mr-1" src="{{ \App\Models\Product::find($data['product_id'])->avatar }}" />
                         {{ \App\Models\Product::find($data['product_id'])->name }}
                     </a>
@@ -166,7 +166,7 @@
             @elseif ($type === "App\Notifications\Product\MemberRemoved")
                 <span class="align-middle">
                     removed you from the product
-                    <a class="font-weight-bold" href="{{ route('product.done', ['slug' => \App\Models\Product::find($data['product_id'])->slug]) }}">
+                    <a class="fw-bold" href="{{ route('product.done', ['slug' => \App\Models\Product::find($data['product_id'])->slug]) }}">
                         <img class="rounded avatar-20 ml-1 mr-1" src="{{ \App\Models\Product::find($data['product_id'])->avatar }}" />
                         {{ \App\Models\Product::find($data['product_id'])->name }}
                     </a>
@@ -174,21 +174,21 @@
             @elseif ($type === "App\Notifications\Product\MemberLeft")
                 <span class="align-middle">
                     left from the product
-                    <a class="font-weight-bold" href="{{ route('product.done', ['slug' => \App\Models\Product::find($data['product_id'])->slug]) }}">
+                    <a class="fw-bold" href="{{ route('product.done', ['slug' => \App\Models\Product::find($data['product_id'])->slug]) }}">
                         <img class="rounded avatar-20 ml-1 mr-1" src="{{ \App\Models\Product::find($data['product_id'])->avatar }}" />
                         {{ \App\Models\Product::find($data['product_id'])->name }}
                     </a>
                 </span>
             @elseif ($type === "App\Notifications\Welcome")
-                <span class="ml-1 font-weight-bold">
+                <span class="ml-1 fw-bold">
                     Welcome to Taskord
                 </span>
             @elseif ($type === "App\Notifications\VersionReleased")
-                <span class="ml-1 font-weight-bold">
+                <span class="ml-1 fw-bold">
                     Version {{ $data['tagName'] }} has been released!
                 </span>
                 <div class="mt-2">
-                    <span class="font-weight-bold">Changelog</span>
+                    <span class="fw-bold">Changelog</span>
                     <div class="mt-1">
                         @markdown($data['description'])
                     </div>
@@ -196,7 +196,7 @@
             @elseif ($type === "App\Notifications\Task\NotifySubscribers")
                 <span class="align-middle">
                     commented on a
-                    <a class="font-weight-bold" href="{{ route('task', ['id' => $data['task_id']]) }}">
+                    <a class="fw-bold" href="{{ route('task', ['id' => $data['task_id']]) }}">
                         task
                     </a>
                     you subscribed
@@ -207,7 +207,7 @@
             @elseif ($type === "App\Notifications\Question\NotifySubscribers")
                 <span class="align-middle">
                     answered to the
-                    <a class="font-weight-bold" href="{{ route('question.question', ['id' => $data['question_id']]) }}">
+                    <a class="fw-bold" href="{{ route('question.question', ['id' => $data['question_id']]) }}">
                         question
                     </a>
                     you subscribed

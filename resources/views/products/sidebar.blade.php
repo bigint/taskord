@@ -10,7 +10,7 @@
             </a>
             <a
                 href="{{ route('product.done', ['slug' => $product->slug]) }}"
-                class="ml-2 mr-2 align-text-top font-weight-bold text-dark"
+                class="ml-2 mr-2 align-text-top fw-bold text-dark"
                 id="product-hover"
                 data-id="{{ $product->id }}"
             >

@@ -50,12 +50,12 @@
                         @if ($deal->coupon)
                         <div class="mt-2">
                             Coupon Code
-                            <code class="ml-2 font-weight-bold">
+                            <code class="ml-2 fw-bold">
                                 {{ $deal->coupon }}
                             </code>
                         </div>
                         @else
-                        <div class="mt-2 font-weight-bold">
+                        <div class="mt-2 fw-bold">
                             <a href="{{ $deal->referral }}" target="_blank">
                                 Click here to get your deal
                             </a>
