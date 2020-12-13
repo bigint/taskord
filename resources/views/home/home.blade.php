@@ -17,9 +17,6 @@
                 <a class="btn btn-lg btn-light" href="/register" role="button">
                     Signup now
                 </a>
-                <a href="https://www.producthunt.com/posts/taskord-1?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-taskord-1" target="_blank">
-                    <img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=271125&theme=light" alt="Taskord - Taskord is where productivity grows on trees. 🙌🏻 | Product Hunt" style="height: 48px;" />
-                </a>
             </div>
             @endguest
             <div class="card mb-4">
