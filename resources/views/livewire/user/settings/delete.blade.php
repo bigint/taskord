@@ -28,7 +28,7 @@
             <button wire:click="deleteAccount" class="btn btn-danger">
                 <i class="fa fa-question mr-1"></i>
                 Are you sure?
-                <span wire:loading class="spinner-border spinner-border-sm ml-2" role="status"></span>
+                <span wire:loading class="spinner-border spinner-border-sm ms-2" role="status"></span>
             </button>
             @else
             <button wire:click="confirmDelete" class="btn btn-danger">

@@ -15,7 +15,7 @@
             <button class="btn btn-sm btn-primary float-right" type="submit" wire:click="submit">
                 <i class="fa fa-plus mr-1"></i>
                 Add answer
-                <span wire:target="submit" wire:loading class="spinner-border spinner-border-mini ml-2" role="status"></span>
+                <span wire:target="submit" wire:loading class="spinner-border spinner-border-mini ms-2" role="status"></span>
             </button>
         </div>
     </div>

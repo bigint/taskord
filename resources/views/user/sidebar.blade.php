@@ -79,11 +79,11 @@
                     id="product-hover"
                     data-id="{{ $product->id }}"
                 >
-                    <img class="rounded avatar-30 mt-1 ml-2" src="{{ $product->avatar }}" height="50" width="50" />
+                    <img class="rounded avatar-30 mt-1 ms-2" src="{{ $product->avatar }}" height="50" width="50" />
                 </a>
                 <a
                     href="{{ route('product.done', ['slug' => $product->slug]) }}"
-                    class="ml-2 mr-2 align-text-top fw-bold text-dark"
+                    class="ms-2 mr-2 align-text-top fw-bold text-dark"
                     id="product-hover"
                     data-id="{{ $product->id }}"
                 >

@@ -6,11 +6,11 @@
         @foreach ($products as $product)
         <li class="list-group-item pb-2 pt-2">
             <a href="{{ route('product.done', ['slug' => $product->slug]) }}">
-                <img class="rounded avatar-30 mt-1 ml-2" src="{{ $product->avatar }}" height="50" width="50" />
+                <img class="rounded avatar-30 mt-1 ms-2" src="{{ $product->avatar }}" height="50" width="50" />
             </a>
             <a
                 href="{{ route('product.done', ['slug' => $product->slug]) }}"
-                class="ml-2 mr-2 align-text-top fw-bold text-dark"
+                class="ms-2 mr-2 align-text-top fw-bold text-dark"
                 id="product-hover"
                 data-id="{{ $product->id }}"
             >
@@ -21,7 +21,7 @@
                     </a>
                 @endif
             </a>
-            <span class="small text-black-50 ml-3">
+            <span class="small text-black-50 ms-3">
                 <i class="fa fa-check text-success mr-1"></i>
                 {{ $product->tasks->count('id') }}
                 {{ $product->tasks->count('id') == 1 ? 'Task' : 'Tasks' }}

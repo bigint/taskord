@@ -4,7 +4,7 @@
         <a href="{{ route('user.done', ['username' => $task->user->username]) }}">
             <img class="avatar-40 rounded-circle" src="{{ $task->user->avatar }}" alt="{{ $task->user->username }}" />
         </a>
-        <span class="ml-2">
+        <span class="ms-2">
             <a
                 href="{{ route('user.done', ['username' => $task->user->username]) }}"
                 class="fw-bold text-dark"
@@ -17,17 +17,17 @@
                     {{ $task->user->username }}
                 @endif
                 @if ($task->user->isVerified)
-                    <i class="verified fa fa-check-circle ml-1 text-primary"></i>
+                    <i class="verified fa fa-check-circle ms-1 text-primary"></i>
                 @endif
                 @if ($task->user->isPatron)
-                    <a class="patron ml-1 small" href="{{ route('patron.home') }}">
+                    <a class="patron ms-1 small" href="{{ route('patron.home') }}">
                         {{ Emoji::handshake() }}
                     </a>
                 @endif
                 <div class="small text-black-50 font-weight-normal">{{ "@" . $task->user->username }}</div>
             </a>
         </span>
-        <span class="align-text-top small float-right ml-auto text-black-50" type="button" data-toggle="collapse" data-target="#taskExpand-{{$task->id}}" aria-expanded="false">
+        <span class="align-text-top small float-right ms-auto text-black-50" type="button" data-toggle="collapse" data-target="#taskExpand-{{$task->id}}" aria-expanded="false">
             {{ !$task->done_at ? Carbon::parse($task->created_at)->diffForHumans() : Carbon::parse($task->done_at)->diffForHumans() }}
         </span>
     </div>
@@ -60,25 +60,25 @@
             }}
         />
         @if ($launched)
-        <span class="ml-1">
+        <span class="ms-1">
             {{ Emoji::rocket() }}
         </span>
         @elseif ($bug)
-        <span class="ml-1">
+        <span class="ms-1">
             {{ Emoji::bug() }}
         </span>
         @elseif ($learn)
-        <span class="ml-1">
+        <span class="ms-1">
             {{ Emoji::greenBook() }}
         </span>
         @endif
         @endif
-        <span class="ml-1 task-font @if ($launched or $bug or $learn) fw-bold @endif @if ($launched) text-success @endif">
+        <span class="ms-1 task-font @if ($launched or $bug or $learn) fw-bold @endif @if ($launched) text-success @endif">
             {!! Purify::clean(Helper::renderTask($task->task)) !!}
             @if ($task->type === 'product')
             <span class="small text-black-50">
                 on
-                <img class="rounded mb-1 ml-1 avatar-15" src="{{ $task->product->avatar }}" alt="{{ $task->product->slug }}" />
+                <img class="rounded mb-1 ms-1 avatar-15" src="{{ $task->product->avatar }}" alt="{{ $task->product->slug }}" />
                 <a
                     class="text-black-50"
                     href="{{ route('product.done', ['slug' => $task->product->slug]) }}"
@@ -111,7 +111,7 @@
                 <span class="small text-white fw-bold">
                     {{ number_format($task->likerscount()) }}
                 </span>
-                <span class="avatar-stack ml-1">
+                <span class="avatar-stack ms-1">
                 @foreach($task->likers->take(5) as $user)
                 <img class="praise-avatar rounded-circle {{ $loop->last ? 'mr-0' : '' }}" src="{{ $user->avatar }}" alt="{{ $user->username }}" />
                 @endforeach
@@ -124,7 +124,7 @@
                 <span class="small text-dark fw-bold">
                     {{ number_format($task->likerscount()) }}
                 </span>
-                <span class="avatar-stack ml-1">
+                <span class="avatar-stack ms-1">
                 @foreach($task->likers->take(5) as $user)
                 <img class="praise-avatar rounded-circle {{ $loop->last ? 'mr-0' : '' }}" src="{{ $user->avatar }}" alt="{{ $user->username }}" />
                 @endforeach
@@ -141,7 +141,7 @@
                     <span class="small text-dark fw-bold">
                         {{ number_format($task->likerscount()) }}
                     </span>
-                    <span class="avatar-stack ml-1">
+                    <span class="avatar-stack ms-1">
                     @foreach($task->likers->take(5) as $user)
                     <img class="praise-avatar rounded-circle {{ $loop->last ? 'mr-0' : '' }}" src="{{ $user->avatar }}" alt="{{ $user->username }}" />
                     @endforeach
@@ -162,7 +162,7 @@
                 @if ($confirming === $task->id)
                 <button type="button" class="btn btn-task btn-danger" wire:click="deleteTask" wire:loading.attr="disabled" wire:offline.attr="disabled">
                     Are you sure?
-                    <span wire:target="deleteTask" wire:loading class="spinner-border spinner-border-mini ml-2" role="status"></span>
+                    <span wire:target="deleteTask" wire:loading class="spinner-border spinner-border-mini ms-2" role="status"></span>
                 </button>
                 @else
                 <button type="button" class="btn btn-task btn-outline-danger" wire:click="confirmDelete" wire:loading.attr="disabled" wire:offline.attr="disabled">
@@ -171,7 +171,7 @@
                 @endif
             @endif
             @if (Auth::user()->staffShip)
-            <button type="button" class="btn btn-task {{ $task->hidden ? 'btn-danger' : 'btn-outline-danger' }} text-white ml-1" wire:click="hide" wire:loading.attr="disabled" wire:offline.attr="disabled" wire:key="{{ $task->id }}" title="Flag to admins">
+            <button type="button" class="btn btn-task {{ $task->hidden ? 'btn-danger' : 'btn-outline-danger' }} text-white ms-1" wire:click="hide" wire:loading.attr="disabled" wire:offline.attr="disabled" wire:key="{{ $task->id }}" title="Flag to admins">
                 {{ Emoji::nauseatedFace() }}
             </button>
             @endif

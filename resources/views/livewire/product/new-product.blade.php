@@ -117,14 +117,14 @@
                     <div class="mb-3">
                         <div class="fw-bold mb-2">Status</div>
                         <input id="launched" class="form-check-input" type="checkbox" wire:model.defer="launched">
-                        <label for="launched" class="ml-1">This product is launched</label>
+                        <label for="launched" class="ms-1">This product is launched</label>
                     </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                     <button type="submit" class="btn btn-primary">
                         Create Product
-                        <span wire:target="submit" wire:loading class="spinner-border spinner-border-sm ml-2" role="status"></span>
+                        <span wire:target="submit" wire:loading class="spinner-border spinner-border-sm ms-2" role="status"></span>
                     </button>
                 </div>
             </form>

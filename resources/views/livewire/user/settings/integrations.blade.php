@@ -31,13 +31,13 @@
                             Simple Webhook
                         </label>
                     </span>
-                    <span class="form-check ml-3">
+                    <span class="form-check ms-3">
                         <input class="form-check-input" type="radio" id="github" name="type" value="github" wire:model.defer="type">
                         <label class="form-check-label" for="github">
                             GitHub
                         </label>
                     </span>
-                    <span class="form-check ml-3">
+                    <span class="form-check ms-3">
                         <input class="form-check-input" type="radio" id="gitlab" name="type" value="gitlab" wire:model.defer="type">
                         <label class="form-check-label" for="gitlab">
                             GitLab
@@ -46,7 +46,7 @@
                 </div>
                 <button type="submit" class="btn btn-primary">
                     Create Hook
-                    <span wire:target="submit" wire:loading class="spinner-border spinner-border-sm ml-2" role="status"></span>
+                    <span wire:target="submit" wire:loading class="spinner-border spinner-border-sm ms-2" role="status"></span>
                 </button>
             </form>
             @if (session()->has('created'))

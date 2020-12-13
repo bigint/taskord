@@ -25,8 +25,8 @@
                         {{ $task->done ? "checked" : "unchecked" }}
                         disabled
                     />
-                    <a class="ml-1 task-font text-dark" href="{{ route('task', ['id' => $task->id]) }}">{{ $task->task }}</a>
-                    <span class="small ml-2">👏
+                    <a class="ms-1 task-font text-dark" href="{{ route('task', ['id' => $task->id]) }}">{{ $task->task }}</a>
+                    <span class="small ms-2">👏
                         <span class="text-black-50">{{ $task->likerscount() }}</span>
                     </span>
                 </span>
@@ -46,7 +46,7 @@
             <li class="list-group-item">
                 <img class="rounded-circle avatar-30" src="{{ $user->avatar }}" />
                 <span>
-                    <a class="ml-2 task-font text-dark align-middle" href="{{ route('user.done', ['username' => $user->username]) }}">
+                    <a class="ms-2 task-font text-dark align-middle" href="{{ route('user.done', ['username' => $user->username]) }}">
                         <span class="fw-bold">
                             @if ($user->firstname or $user->lastname)
                                 {{ $user->firstname }}{{ ' '.$user->lastname }}
@@ -55,7 +55,7 @@
                             @endif
                         </span>
                         @if ($user->isVerified)
-                            <i class="verified fa fa-check-circle ml-1 mr-1 text-primary"></i>
+                            <i class="verified fa fa-check-circle ms-1 mr-1 text-primary"></i>
                         @endif
                         <span class="small">{{ "@" . $user->username }}</span>
                     </a>
@@ -73,7 +73,7 @@
             <li class="list-group-item">
                 <img class="rounded avatar-30" src="{{ $product->avatar }}" />
                 <span>
-                    <a class="ml-2 task-font text-dark align-middle" href="{{ route('product.done', ['slug' => $product->slug]) }}">
+                    <a class="ms-2 task-font text-dark align-middle" href="{{ route('product.done', ['slug' => $product->slug]) }}">
                         <span class="fw-bold">{{ $product->name }}</span>
                     </a>
                 </span>
@@ -92,7 +92,7 @@
             @foreach ($questions as $question)
             <li class="list-group-item">
                 <span>
-                    <a class="ml-2 task-font text-dark" href="{{ route('question.question', ['id' => $question->id]) }}">
+                    <a class="ms-2 task-font text-dark" href="{{ route('question.question', ['id' => $question->id]) }}">
                         <span class="fw-bold">{{ Str::words($question->title, '8') }}</span>
                     </a>
                 </span>

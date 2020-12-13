@@ -3,22 +3,22 @@
         <a href="{{ $product->avatar }}" data-lightbox="{{ $product->avatar }}" data-title="{{ $product->name }}'s Logo">
             <img class="rounded avatar-120" src="{{ $product->avatar }}" />
         </a>
-        <div class="ml-4">
+        <div class="ms-4">
             <div class="h5 mb-0">
                 {{ $product->name }}
                 @if ($product->launched)
-                    <span class="ml-1 small" title="Launched">
+                    <span class="ms-1 small" title="Launched">
                         {{ Emoji::rocket() }}
                     </span>
                 @endif
                 @if ($product->deprecated)
-                    <span class="ml-1 small" title="Deprecated">
+                    <span class="ms-1 small" title="Deprecated">
                         <i class="fa fa-ghost text-danger"></i>
                     </span>
                 @endif
                 @auth
                 @if (Auth::user()->staffShip)
-                    <span class="ml-1 text-secondary small">#{{ $product->id }}</span>
+                    <span class="ms-1 text-secondary small">#{{ $product->id }}</span>
                 @endif
                 @endauth
             </div>
@@ -39,7 +39,7 @@
                     <span>Lauched at {{ Carbon::parse($product->launched_at)->format("F Y") }}</span>
                 </span>
                 @if ($product->website)
-                <span class="ml-3">
+                <span class="ms-3">
                     <a class="text-dark" target="_blank" rel="noreferrer" href="{{ $product->website }}">
                         <img class="rounded sponsor-icon mr-1" rel="preload" src="https://external-content.duckduckgo.com/ip3/{{ parse_url($product->website)['host'] }}.ico" />
                         {{ $product->website }}

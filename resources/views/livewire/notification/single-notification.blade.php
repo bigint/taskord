@@ -43,7 +43,7 @@
                 @endif
                 @if ($type !== "App\Notifications\Welcome" and $type !== "App\Notifications\VersionReleased")
                 <a href="{{ route('user.done', ['username' => $user->username]) }}">
-                    <img class="rounded-circle avatar-20 ml-2 mr-1" src="{{ $user->avatar }}" />
+                    <img class="rounded-circle avatar-20 ms-2 mr-1" src="{{ $user->avatar }}" />
                     <span class="align-middle">
                         @if ($user->firstname or $user->lastname)
                             {{ $user->firstname }}{{ ' '.$user->lastname }}
@@ -151,7 +151,7 @@
                 <span class="align-middle">
                     subscribed to your product
                     <a class="fw-bold" href="{{ route('product.done', ['slug' => \App\Models\Product::find($data['product_id'])->slug]) }}">
-                        <img class="rounded avatar-20 ml-1 mr-1" src="{{ \App\Models\Product::find($data['product_id'])->avatar }}" />
+                        <img class="rounded avatar-20 ms-1 mr-1" src="{{ \App\Models\Product::find($data['product_id'])->avatar }}" />
                         {{ \App\Models\Product::find($data['product_id'])->name }}
                     </a>
                 </span>
@@ -159,7 +159,7 @@
                 <span class="align-middle">
                     added you to the product
                     <a class="fw-bold" href="{{ route('product.done', ['slug' => \App\Models\Product::find($data['product_id'])->slug]) }}">
-                        <img class="rounded avatar-20 ml-1 mr-1" src="{{ \App\Models\Product::find($data['product_id'])->avatar }}" />
+                        <img class="rounded avatar-20 ms-1 mr-1" src="{{ \App\Models\Product::find($data['product_id'])->avatar }}" />
                         {{ \App\Models\Product::find($data['product_id'])->name }}
                     </a>
                 </span>
@@ -167,7 +167,7 @@
                 <span class="align-middle">
                     removed you from the product
                     <a class="fw-bold" href="{{ route('product.done', ['slug' => \App\Models\Product::find($data['product_id'])->slug]) }}">
-                        <img class="rounded avatar-20 ml-1 mr-1" src="{{ \App\Models\Product::find($data['product_id'])->avatar }}" />
+                        <img class="rounded avatar-20 ms-1 mr-1" src="{{ \App\Models\Product::find($data['product_id'])->avatar }}" />
                         {{ \App\Models\Product::find($data['product_id'])->name }}
                     </a>
                 </span>
@@ -175,16 +175,16 @@
                 <span class="align-middle">
                     left from the product
                     <a class="fw-bold" href="{{ route('product.done', ['slug' => \App\Models\Product::find($data['product_id'])->slug]) }}">
-                        <img class="rounded avatar-20 ml-1 mr-1" src="{{ \App\Models\Product::find($data['product_id'])->avatar }}" />
+                        <img class="rounded avatar-20 ms-1 mr-1" src="{{ \App\Models\Product::find($data['product_id'])->avatar }}" />
                         {{ \App\Models\Product::find($data['product_id'])->name }}
                     </a>
                 </span>
             @elseif ($type === "App\Notifications\Welcome")
-                <span class="ml-1 fw-bold">
+                <span class="ms-1 fw-bold">
                     Welcome to Taskord
                 </span>
             @elseif ($type === "App\Notifications\VersionReleased")
-                <span class="ml-1 fw-bold">
+                <span class="ms-1 fw-bold">
                     Version {{ $data['tagName'] }} has been released!
                 </span>
                 <div class="mt-2">

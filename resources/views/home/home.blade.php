@@ -34,17 +34,17 @@
                                 <img class="rounded-circle avatar-30" src="{{ $question->user->avatar }}" alt="{{ $question->user->username }}" />
                             </a>
                             <a href="{{ route('question.question', ['id' => $question->id]) }}">
-                                <span class="ml-1 fw-bold align-middle text-dark">{{ Str::words($question->title, '10') }}</span>
+                                <span class="ms-1 fw-bold align-middle text-dark">{{ Str::words($question->title, '10') }}</span>
                                 @if ($question->answer->count('id') >= 1)
-                                <span class="ml-1 align-middle text-black-50">
+                                <span class="ms-1 align-middle text-black-50">
                                     {{ $question->answer->count('id') }} {{ $question->answer->count('id') >= 1 ? 'answers' : 'answer' }}
                                 </span>
                                 @endif
                             </a>
                             @if ($question->created_at->isToday())
-                            <span class="badge bg-success ml-2 align-middle">New</span>
+                            <span class="badge bg-success ms-2 align-middle">New</span>
                             @endif
-                            <span class="avatar-stack ml-1">
+                            <span class="avatar-stack ms-1">
                                 @foreach ($question->answer->groupBy('user_id')->take(5) as $answer)
                                 <img class="replies-avatar rounded-circle {{ $loop->last ? 'mr-0' : '' }}" src="{{ $answer[0]->user->avatar }}" alt="{{ $answer[0]->user->username }}" />
                                 @endforeach
@@ -64,9 +64,9 @@
                     <li class="list-group-item">
                         <div class="d-flex align-items-center">
                             <a href="{{ route('product.done', ['slug' => $product->slug]) }}">
-                                <img class="rounded avatar-50 mt-1 ml-2" src="{{ $product->avatar }}" alt="{{ $product->slug }}" height="50" width="50" />
+                                <img class="rounded avatar-50 mt-1 ms-2" src="{{ $product->avatar }}" alt="{{ $product->slug }}" height="50" width="50" />
                             </a>
-                            <span class="ml-3">
+                            <span class="ms-3">
                                 <a href="{{ route('product.done', ['slug' => $product->slug]) }}" class="mr-2 h5 align-text-top fw-bold text-dark">
                                     {{ $product->name }}
                                     @if ($product->launched)
@@ -77,7 +77,7 @@
                                 </a>
                                 <div>{{ $product->description }}</div>
                             </span>
-                            <span class="ml-auto">
+                            <span class="ms-auto">
                                 @if ($product->members()->count() > 1)
                                     <span class="mr-2 mt-1 text-secondary fw-bold">+{{ $product->members()->count() - 1 }} more</span>
                                 @endif
@@ -135,12 +135,12 @@
                             <a href="{{ route('user.done', ['username' => Auth::user()->username]) }}">
                                 <img class="rounded-circle avatar-50 mt-1" src="{{ Auth::user()->avatar }}" alt="{{ Auth::user()->username }}" />
                             </a>
-                            <a class="ml-3 text-dark" href="{{ route('user.done', ['username' => Auth::user()->username]) }}">
+                            <a class="ms-3 text-dark" href="{{ route('user.done', ['username' => Auth::user()->username]) }}">
                                 @if (Auth::user()->firstname or Auth::user()->lastname)
                                 <div class="h5">
                                     {{ Auth::user()->firstname }}{{ ' '.Auth::user()->lastname }}
                                     @if (Auth::user()->isVerified)
-                                        <i class="verified fa fa-check-circle ml-1 text-primary"></i>
+                                        <i class="verified fa fa-check-circle ms-1 text-primary"></i>
                                     @endif
                                 </div>
                                 @endif
@@ -148,7 +148,7 @@
                                     {{ '@'.Str::limit(Auth::user()->username, '20') }}
                                 </div>
                             </a>
-                            <a class="btn btn-sm btn-success text-white float-right ml-auto" href="{{ route('user.settings.profile') }}">
+                            <a class="btn btn-sm btn-success text-white float-right ms-auto" href="{{ route('user.settings.profile') }}">
                                 <i class="fa fa-cog mr-1"></i>
                                 Update
                             </a>
@@ -183,7 +183,7 @@
                         <a href="{{ route('user.done', ['username' => $user->username]) }}">
                             <img class="rounded-circle avatar-40 mt-1" src="{{ $user->avatar }}" alt="{{ $user->username }}" />
                         </a>
-                        <span class="ml-3">
+                        <span class="ms-3">
                             <a href="{{ route('user.done', ['username' => $user->username]) }}" class="align-text-top text-dark">
                                 <span class="fw-bold">
                                     @if ($user->firstname or $user->lastname)
@@ -192,7 +192,7 @@
                                         {{ $user->username }}
                                     @endif
                                     @if ($user->isVerified)
-                                        <i class="verified fa fa-check-circle ml-1 text-primary"></i>
+                                        <i class="verified fa fa-check-circle ms-1 text-primary"></i>
                                     @endif
                                 </span>
                                 <div>
@@ -229,11 +229,11 @@
                             id="product-hover"
                             data-id="{{ $product->id }}"
                         >
-                            <img class="rounded avatar-30 mt-1 ml-2" src="{{ $product->avatar }}" alt="{{ $product->slug }}" height="50" width="50" />
+                            <img class="rounded avatar-30 mt-1 ms-2" src="{{ $product->avatar }}" alt="{{ $product->slug }}" height="50" width="50" />
                         </a>
                         <a
                             href="{{ route('product.done', ['slug' => $product->slug]) }}"
-                            class="ml-2 mr-2 align-text-top fw-bold text-dark"
+                            class="ms-2 mr-2 align-text-top fw-bold text-dark"
                             id="product-hover"
                             data-id="{{ $product->id }}"
                         >
@@ -294,11 +294,11 @@
                             id="user-hover"
                             data-id="{{ $user->id }}"
                         >
-                            <img class="rounded-circle avatar-30 mt-1 ml-2" src="{{ $user->avatar }}" alt="{{ $user->username }}" height="50" width="50" />
+                            <img class="rounded-circle avatar-30 mt-1 ms-2" src="{{ $user->avatar }}" alt="{{ $user->username }}" height="50" width="50" />
                         </a>
                         <a
                             href="{{ route('user.done', ['username' => $user->username]) }}"
-                            class="ml-2 mr-2 align-text-top fw-bold text-dark"
+                            class="ms-2 mr-2 align-text-top fw-bold text-dark"
                             id="user-hover"
                             data-id="{{ $user->id }}"
                         >
@@ -308,7 +308,7 @@
                                 {{ $user->username }}
                             @endif
                             @if ($user->isVerified)
-                                <i class="verified fa fa-check-circle ml-1 text-primary"></i>
+                                <i class="verified fa fa-check-circle ms-1 text-primary"></i>
                             @endif
                         </a>
                         <span class="badge rounded-pill bg-warning text-dark align-middle reputation" title="{{ Emoji::fire() }} {{ number_format($user->getPoints()) }}">

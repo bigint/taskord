@@ -16,7 +16,7 @@
                 <a href="{{ $user->avatar }}" data-lightbox="{{ $user->avatar }}" data-title="{{ '@'.$user->username }}'s Avatar">
                     <img class="rounded-circle avatar-120" src="{{ $user->avatar }}" />
                 </a>
-                <div class="ml-4">
+                <div class="ms-4">
                     <div class="h5 mb-0">
                         @if ($user->firstname or $user->lastname)
                             {{ $user->firstname }}{{ ' '.$user->lastname }}
@@ -26,22 +26,22 @@
                         @auth
                         @endauth
                         @if ($user->isPrivate)
-                            <i class="ml-2 fa fa-lock text-primary" data-toggle="tooltip" data-placement="right" title="Private Profile"></i>
+                            <i class="ms-2 fa fa-lock text-primary" data-toggle="tooltip" data-placement="right" title="Private Profile"></i>
                         @endif
                         @if ($user->isVerified)
-                            <i class="verified ml-2 fa fa-check-circle text-primary"></i>
+                            <i class="verified ms-2 fa fa-check-circle text-primary"></i>
                         @endif
                         @if ($user->isPatron)
-                            <a class="patron ml-2 small" href="{{ route('patron.home') }}">
+                            <a class="patron ms-2 small" href="{{ route('patron.home') }}">
                                 {{ Emoji::handshake() }}
                             </a>
                         @endif
                         @auth
                         @if ($user->isFollowing(Auth::user()))
-                            <span class="ml-2 badge bg-light text-secondary">Follows you</span>
+                            <span class="ms-2 badge bg-light text-secondary">Follows you</span>
                         @endif
                         @if (Auth::user()->staffShip)
-                            <span class="ml-2 text-secondary small">#{{ $user->id }}</span>
+                            <span class="ms-2 text-secondary small">#{{ $user->id }}</span>
                         @endif
                         @endauth
                     </div>
@@ -62,7 +62,7 @@
                             Joined {{ Carbon::parse($user->created_at)->format("F Y") }}
                         </span>
                         @if ($user->location)
-                        <span class="ml-3">
+                        <span class="ms-3">
                             <a class="text-dark" target="_blank" rel="noreferrer" href="https://www.google.com/maps/search/{{ urlencode($user->location) }}">
                                 <i class="fa fa-compass mr-1 text-black-50"></i>
                                 {{ $user->location }}
@@ -70,12 +70,12 @@
                         </span>
                         @endif
                         @if ($user->company)
-                        <span class="ml-3">
+                        <span class="ms-3">
                             <i class="fa fa-briefcase mr-1 text-black-50"></i>
                             {{ $user->company }}
                         </span>
                         @if ($user->isStaff)
-                        <span class="badge rounded-pill bg-primary ml-1">Staff</span>
+                        <span class="badge rounded-pill bg-primary ms-1">Staff</span>
                         @endif
                         @endif
                     </div>

@@ -18,7 +18,7 @@
                 </div>
                 <button type="submit" class="btn btn-primary">
                     Regenerate
-                    <span wire:target="regenerateToken" wire:loading class="spinner-border spinner-border-sm ml-2" role="status"></span>
+                    <span wire:target="regenerateToken" wire:loading class="spinner-border spinner-border-sm ms-2" role="status"></span>
                 </button>
             </form>
         </div>

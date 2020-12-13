@@ -8,7 +8,7 @@
     </a>
     <a
         href="{{ route('user.done', ['username' => $user->username]) }}"
-        class="ml-2 align-middle fw-bold text-dark"
+        class="ms-2 align-middle fw-bold text-dark"
         id="user-hover"
         data-id="{{ $user->id }}"
     >

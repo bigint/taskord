@@ -21,7 +21,7 @@
                 ], key($task->id))
                 </span>
             </div>
-            <div class="ml-4 vertical-line"></div>
+            <div class="ms-4 vertical-line"></div>
             <div class="mb-4">
             @livewire('comment.single-comment', [
                 'comment' => $comment,
@@ -44,7 +44,7 @@
                     >
                         <img class="rounded-circle avatar-40 mt-1" src="{{ $comment->user->avatar }}" />
                     </a>
-                    <span class="ml-3">
+                    <span class="ms-3">
                         <a
                             href="{{ route('user.done', ['username' => $comment->user->username]) }}"
                             class="align-text-top text-dark"

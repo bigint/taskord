@@ -52,7 +52,7 @@
                     >
                         <img class="rounded-circle avatar-40 mt-1" src="{{ $task->user->avatar }}" />
                     </a>
-                    <span class="ml-3">
+                    <span class="ms-3">
                         <a
                             href="{{ route('user.done', ['username' => $task->user->username]) }}"
                             class="align-text-top text-dark"
@@ -84,7 +84,7 @@
                     >
                         <img class="rounded avatar-40 mt-1" src="{{ \App\Models\Product::find($task->product_id)->avatar }}" />
                     </a>
-                    <span class="ml-3">
+                    <span class="ms-3">
                         <a
                             href="{{ route('product.done', ['slug' => \App\Models\Product::find($task->product_id)->slug]) }}"
                             class="align-text-top text-dark"

@@ -38,24 +38,24 @@
             @if (preg_match('/^[a-f0-9]{32}$/', Auth::user()->username))
             <div class="mb-2">
                 <input class="form-check-input" type="checkbox" disabled {{ $changed_username ? '' : 'checked' }}>
-                <span class="ml-1">Change your username</span>
+                <span class="ms-1">Change your username</span>
             </div>
             @endif
             <div class="mb-2">
                 <input class="form-check-input" type="checkbox" disabled {{ strlen($has_name) === 0 ? '' : 'checked' }}>
-                <span class="ml-1">Add your name</span>
+                <span class="ms-1">Add your name</span>
             </div>
             <div class="mb-2">
                 <input class="form-check-input" type="checkbox" disabled {{ $task_count === 0 ? '' : 'checked' }}>
-                <span class="ml-1">Add a new task</span>
+                <span class="ms-1">Add a new task</span>
             </div>
             <div class="mb-2">
                 <input class="form-check-input" type="checkbox" disabled {{ $praise_count === 0 ? '' : 'checked' }}>
-                <span class="ml-1">Praise one task</span>
+                <span class="ms-1">Praise one task</span>
             </div>
             <div>
                 <input class="form-check-input" type="checkbox" disabled {{ $product_count === 0 ? '' : 'checked' }}>
-                <span class="ml-1">Add your product</span>
+                <span class="ms-1">Add your product</span>
             </div>
         </div>
     </div>

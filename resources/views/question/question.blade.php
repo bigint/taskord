@@ -65,7 +65,7 @@
                     >
                         <img class="rounded-circle avatar-40 mt-1" src="{{ $question->user->avatar }}" />
                     </a>
-                    <span class="ml-3">
+                    <span class="ms-3">
                         <a
                             href="{{ route('user.done', ['username' => $question->user->username]) }}"
                             class="align-text-top text-dark"

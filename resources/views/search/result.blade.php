@@ -99,7 +99,7 @@
                             <a href="{{ route('user.done', ['username' => $answer->question->user->username]) }}">
                                 <img class="rounded-circle avatar-30" src="{{ $answer->question->user->avatar }}" />
                             </a>
-                            <a class="align-middle text-dark ml-2" href="{{ route('question.question', ['id' => $answer->question->id]) }}">
+                            <a class="align-middle text-dark ms-2" href="{{ route('question.question', ['id' => $answer->question->id]) }}">
                                 {{ $answer->question->title }}
                             </a>
                         </div>
@@ -129,9 +129,9 @@
                     <li class="list-group-item pt-3 pb-3">
                         <div class="d-flex align-items-center">
                             <a href="{{ route('product.done', ['slug' => $product->slug]) }}">
-                                <img class="rounded avatar-50 mt-1 ml-2" src="{{ $product->avatar }}" height="50" width="50" />
+                                <img class="rounded avatar-50 mt-1 ms-2" src="{{ $product->avatar }}" height="50" width="50" />
                             </a>
-                            <span class="ml-3">
+                            <span class="ms-3">
                                 <a href="{{ route('product.done', ['slug' => $product->slug]) }}" class="mr-2 h5 align-text-top fw-bold text-dark">
                                     {{ $product->name }}
                                     @if ($product->launched)
@@ -140,7 +140,7 @@
                                         </a>
                                     @endif
                                     @if ($product->deprecated)
-                                        <span class="ml-1 small" title="Deprecated">
+                                        <span class="ms-1 small" title="Deprecated">
                                             <i class="fa fa-ghost text-danger"></i>
                                         </span>
                                     @endif
@@ -159,8 +159,8 @@
                                     ], key($product->id))
                                 </div>
                             </span>
-                            <a class="ml-auto" href="{{ route('user.done', ['username' => $product->owner->username]) }}">
-                                <img class="rounded-circle float-right avatar-30 mt-1 ml-2" src="{{ $product->owner->avatar }}" height="50" width="50" />
+                            <a class="ms-auto" href="{{ route('user.done', ['username' => $product->owner->username]) }}">
+                                <img class="rounded-circle float-right avatar-30 mt-1 ms-2" src="{{ $product->owner->avatar }}" height="50" width="50" />
                             </a>
                         </div>
                     </li>
@@ -186,9 +186,9 @@
                     <li class="list-group-item pt-3 pb-3">
                         <div class="d-flex align-items-center">
                             <a href="{{ route('user.done', ['username' => $user->username]) }}">
-                                <img class="rounded-circle avatar-50 mt-1 ml-2" src="{{ $user->avatar }}" height="50" width="50" />
+                                <img class="rounded-circle avatar-50 mt-1 ms-2" src="{{ $user->avatar }}" height="50" width="50" />
                             </a>
-                            <span class="ml-3">
+                            <span class="ms-3">
                                 <a href="{{ route('user.done', ['username' => $user->username]) }}" class="mr-2 h5 align-text-top fw-bold text-dark">
                                     @if ($user->firstname or $user->lastname)
                                         {{ $user->firstname }}{{ ' '.$user->lastname }}
@@ -197,17 +197,17 @@
                                     @endif
                                     @auth
                                     @if (Auth::user()->staffShip)
-                                        <span class="ml-2 text-secondary small">#{{ $user->id }}</span>
+                                        <span class="ms-2 text-secondary small">#{{ $user->id }}</span>
                                     @endif
                                     @endauth
                                     @if ($user->isPatron)
-                                        <a class="ml-2 small" href="{{ route('patron.home') }}" title="Patron">
+                                        <a class="ms-2 small" href="{{ route('patron.home') }}" title="Patron">
                                             {{ Emoji::handshake() }}
                                         </a>
                                     @endif
                                     @auth
                                     @if ($user->isFollowing(Auth::user()))
-                                        <span class="ml-2 badge bg-light text-black-50">Follows you</span>
+                                        <span class="ms-2 badge bg-light text-black-50">Follows you</span>
                                     @endif
                                     @endauth
                                 </a>
@@ -221,7 +221,7 @@
                                         Joined {{ Carbon::parse($user->created_at)->format("F Y") }}
                                     </span>
                                     @if ($user->location)
-                                    <span class="ml-3">
+                                    <span class="ms-3">
                                         <a class="text-dark" target="_blank" rel="noreferrer" href="https://www.google.com/maps/search/{{ urlencode($user->location) }}">
                                             <i class="fa fa-compass mr-1 text-black-50"></i>
                                             {{ $user->location }}
@@ -229,12 +229,12 @@
                                     </span>
                                     @endif
                                     @if ($user->company)
-                                    <span class="ml-3">
+                                    <span class="ms-3">
                                         <i class="fa fa-briefcase mr-1 text-black-50"></i>
                                         {{ $user->company }}
                                     </span>
                                     @if ($user->isStaff)
-                                    <span class="badge rounded-pill bg-primary ml-1">Staff</span>
+                                    <span class="badge rounded-pill bg-primary ms-1">Staff</span>
                                     @endif
                                     @endif
                                 </div>

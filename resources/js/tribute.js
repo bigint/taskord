@@ -16,12 +16,12 @@ document.addEventListener("turbolinks:load", () => {
       return `
       <span class="d-flex align-items-center">
         <img class="rounded-circle avatar-30" src="${avatar}" />
-        <span class="ml-3">
+        <span class="ms-3">
           <span class="fw-bold">
             ${firstname ? firstname : ""} ${lastname ? lastname : ""}
             ${
               isVerified
-                ? '<i class="fa fa-check-circle ml-1 mr-1 text-primary"></i>'
+                ? '<i class="fa fa-check-circle ms-1 mr-1 text-primary"></i>'
                 : ""
             }
           </span>
@@ -52,7 +52,7 @@ document.addEventListener("turbolinks:load", () => {
       return `
       <span class="d-flex align-items-center">
         <img class="rounded avatar-30" src="${avatar}" />
-        <span class="ml-3">
+        <span class="ms-3">
           <span class="fw-bold">
             ${name}
           </span>

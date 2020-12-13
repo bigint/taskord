@@ -107,7 +107,7 @@
                             </ul>
                         </li>
                     </ul>
-                    <ul class="navbar-nav ml-auto">
+                    <ul class="navbar-nav ms-auto">
                         @guest
                             <li class="nav-item mr-3">
                                 <a class="nav-link text-white fw-bold" href="{{ route('login') }}">Login</a>

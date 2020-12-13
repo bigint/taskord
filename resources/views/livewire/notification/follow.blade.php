@@ -11,6 +11,6 @@
     </button>
     @endif
     @if (session()->has('error'))
-        <span class="ml-2 text-danger fw-bold">{{ session('error') }}</span>
+        <span class="ms-2 text-danger fw-bold">{{ session('error') }}</span>
     @endif
 </div>

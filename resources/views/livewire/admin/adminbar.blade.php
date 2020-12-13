@@ -6,17 +6,17 @@
                 <i class="fa fa-code-branch mr-1"></i>
                 {{ $branchname }}
             </a>
-            <a class="text-white fw-bold ml-3"
+            <a class="text-white fw-bold ms-3"
                 href="https://gitlab.com/taskord/taskord/-/releases/v{{ $version }}" target="_blank">
                 <i class="fa fa-cube mr-1"></i>
                 v{{ $version }}
             </a>
-            <a class="text-white fw-bold ml-3"
+            <a class="text-white fw-bold ms-3"
                 href="https://github.com/laravel/framework/releases/tag/v{{ App::VERSION() }}" target="_blank">
                 <i class="fab fa-laravel mr-1"></i>
                 Laravel v{{ App::VERSION() }}
             </a>
-            <a class="text-white fw-bold ml-3"
+            <a class="text-white fw-bold ms-3"
                 href="http://git.php.net/?p=php-src.git;a=shortlog;h=refs/heads/PHP-{{ phpversion() }}" target="_blank">
                 <i class="fab fa-php mr-1"></i>
                 PHP v{{ phpversion() }}

@@ -47,7 +47,7 @@
                                     {{ $user->firstname.' '.$user->lastname }}
                                     @endif
                                     @if ($user->isVerified)
-                                        <i class="verified fa fa-check-circle ml-1 text-primary"></i>
+                                        <i class="verified fa fa-check-circle ms-1 text-primary"></i>
                                     @endif
                                 </td>
                                 <td>
@@ -68,9 +68,9 @@
                                 <td>
                                     {{ $user->email }}
                                     @if ($user->hasVerifiedEmail())
-                                    <i class="fa fa-check text-success ml-1" title="Email Verified"></i>
+                                    <i class="fa fa-check text-success ms-1" title="Email Verified"></i>
                                     @else
-                                    <i class="fa fa-times text-danger ml-1" title="Email not Verified"></i>
+                                    <i class="fa fa-times text-danger ms-1" title="Email not Verified"></i>
                                     @endif
                                 </td>
                                 <td>

@@ -33,14 +33,14 @@
                     <div class="mb-3">
                         <div class="fw-bold mb-2">Patron only</div>
                         <input id="patronOnly" class="form-check-input" type="checkbox" wire:model.defer="patronOnly">
-                        <label for="patronOnly" class="ml-1">This question will visible only for patrons</label>
+                        <label for="patronOnly" class="ms-1">This question will visible only for patrons</label>
                     </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                     <button type="submit" class="btn btn-primary">
                         Update
-                        <span wire:target="submit" wire:loading class="spinner-border spinner-border-sm ml-2" role="status"></span>
+                        <span wire:target="submit" wire:loading class="spinner-border spinner-border-sm ms-2" role="status"></span>
                     </button>
                 </div>
             </form>

@@ -4,7 +4,7 @@
         <a href="{{ route('user.done', ['username' => $comment->user->username]) }}">
             <img class="avatar-30 rounded-circle" src="{{ $comment->user->avatar }}" />
         </a>
-        <span class="ml-2">
+        <span class="ms-2">
             <a
                 href="{{ route('user.done', ['username' => $comment->user->username]) }}"
                 class="fw-bold text-dark"
@@ -17,17 +17,17 @@
                     {{ $comment->user->username }}
                 @endif
                 @if ($comment->user->isVerified)
-                    <i class="verified fa fa-check-circle ml-1 text-primary"></i>
+                    <i class="verified fa fa-check-circle ms-1 text-primary"></i>
                 @endif
                 @if ($comment->user->isPatron)
-                    <a class="patron ml-1 small" href="{{ route('patron.home') }}">
+                    <a class="patron ms-1 small" href="{{ route('patron.home') }}">
                         {{ Emoji::handshake() }}
                     </a>
                 @endif
             </a>
         </span>
         <a
-            class="align-text-top small float-right ml-auto text-black-50"
+            class="align-text-top small float-right ms-auto text-black-50"
             href="{{ route('comment', ['id' => $comment->task->id, 'comment_id' => $comment->id]) }}"
         >
             {{ Carbon::parse($comment->created_at)->diffForHumans() }}
@@ -48,7 +48,7 @@
                 <span class="small text-white fw-bold">
                     {{ number_format($comment->likerscount()) }}
                 </span>
-                <span class="avatar-stack ml-1">
+                <span class="avatar-stack ms-1">
                 @foreach($comment->likers->take(5) as $user)
                 <img class="praise-avatar rounded-circle {{ $loop->last ? 'mr-0' : '' }}" src="{{ $user->avatar }}" />
                 @endforeach
@@ -61,7 +61,7 @@
                 <span class="small text-dark fw-bold">
                     {{ number_format($comment->likerscount()) }}
                 </span>
-                <span class="avatar-stack ml-1">
+                <span class="avatar-stack ms-1">
                 @foreach($comment->likers->take(5) as $user)
                 <img class="praise-avatar rounded-circle {{ $loop->last ? 'mr-0' : '' }}" src="{{ $user->avatar }}" />
                 @endforeach
@@ -73,7 +73,7 @@
             @if ($confirming === $comment->id)
             <button type="button" class="btn btn-task btn-danger" wire:click="deleteComment" wire:loading.attr="disabled" wire:offline.attr="disabled">
                 Are you sure?
-                <span wire:target="deleteComment" wire:loading class="spinner-border spinner-border-mini ml-2" role="status"></span>
+                <span wire:target="deleteComment" wire:loading class="spinner-border spinner-border-mini ms-2" role="status"></span>
             </button>
             @else
             <button type="button" class="btn btn-task btn-outline-danger" wire:click="confirmDelete" wire:loading.attr="disabled" wire:offline.attr="disabled">
@@ -82,7 +82,7 @@
             @endif
         @endif
         @if (Auth::user()->staffShip)
-        <button type="button" class="btn btn-task {{ $comment->hidden ? 'btn-danger' : 'btn-outline-danger' }} text-white ml-1" wire:click="hide" wire:loading.attr="disabled" wire:offline.attr="disabled" wire:key="{{ $comment->id }}" title="Flag to admins">
+        <button type="button" class="btn btn-task {{ $comment->hidden ? 'btn-danger' : 'btn-outline-danger' }} text-white ms-1" wire:click="hide" wire:loading.attr="disabled" wire:offline.attr="disabled" wire:key="{{ $comment->id }}" title="Flag to admins">
             {{ Emoji::nauseatedFace() }}
         </button>
         @endif
@@ -94,7 +94,7 @@
                 <span class="small text-dark fw-bold">
                     {{ number_format($comment->likerscount()) }}
                 </span>
-                <span class="avatar-stack ml-1">
+                <span class="avatar-stack ms-1">
                 @foreach($comment->likers->take(5) as $user)
                 <img class="praise-avatar rounded-circle {{ $loop->last ? 'mr-0' : '' }}" src="{{ $user->avatar }}" />
                 @endforeach
