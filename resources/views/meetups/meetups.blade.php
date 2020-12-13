@@ -16,12 +16,15 @@
                     <div>Meet and greet.</div>
                 </div>
                 <div>
-                    <button class="btn btn-outline-primary">
+                    <a class="btn btn-outline-success">
+                        RSVP'd
+                    </a>
+                    <a class="btn btn-outline-primary">
                         Upcoming
-                    </button>
-                    <button class="btn btn-outline-primary">
+                    </a>
+                    <a class="btn btn-outline-primary">
                         Finished
-                    </button>
+                    </a>
                     @auth
                     <button class="btn btn-success text-white" data-toggle="modal" data-target="#newMeetupModal">
                         <i class="fa fa-plus mr-1"></i>
