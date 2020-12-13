@@ -19,6 +19,18 @@ class MeetupController extends Controller
         ]);
     }
 
+    public function finished()
+    {
+        $meetups = Meetup::cacheFor(60 * 60)
+            ->where('date', '<=', date('Y-m-d'))
+            ->latest()
+            ->paginate(12);
+
+        return view('meetups.finished', [
+            'meetups' => $meetups,
+        ]);
+    }
+
     public function rsvpd()
     {
         $meetups = Auth::user()->subscriptions(Meetup::class)

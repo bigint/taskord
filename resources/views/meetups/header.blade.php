@@ -8,10 +8,7 @@
             <a href="{{ route('meetups.rsvpd') }}" class="btn btn-outline-success">
                 RSVPd
             </a>
-            <a class="btn btn-outline-primary">
-                Upcoming
-            </a>
-            <a class="btn btn-outline-primary">
+            <a href="{{ route('meetups.finished') }}" class="btn btn-outline-primary">
                 Finished
             </a>
             @auth

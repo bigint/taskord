@@ -160,6 +160,7 @@ Route::group(['middleware' => ['throttle:30,1']], function () {
     Route::group(['prefix' => 'meetups', 'as' => 'meetups.'], function () {
         Route::get('/', [MeetupController::class, 'meetups'])->name('home')->middleware('staff');
         Route::get('/rsvpd', [MeetupController::class, 'rsvpd'])->name('rsvpd')->middleware('staff');
+        Route::get('/finished', [MeetupController::class, 'finished'])->name('finished')->middleware('staff');
     });
 
     // https://web.dev/change-password-url
