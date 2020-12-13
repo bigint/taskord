@@ -148,7 +148,7 @@
                                     <img class="rounded-circle avatar-30 mt-1" src="{{ Auth::user()->avatar }}" />
                                 </a>
 
-                                <div class="dropdown-menu shadow-sm border dropdown-menu-right mt-2">
+                                <div class="dropdown-menu shadow-sm border dropdown-menu-end mt-2">
                                     <a href="{{ route('user.done', ['username' => Auth::user()->username]) }}" class="dropdown-item">
                                         Signed in as
                                         <div class="fw-bold">
