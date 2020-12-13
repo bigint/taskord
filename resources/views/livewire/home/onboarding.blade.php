@@ -26,36 +26,36 @@
                 Welcome to Taskord, here are some onboarding steps!
             </div>
             @if (session()->has('success'))
-                <div class="mb-1 text-success font-weight-bold">{{ session('success') }}</div>
+                <div class="mb-1 text-success fw-bold">{{ session('success') }}</div>
             @endif
             @if (session()->has('error'))
-                <div class="mb-1 text-danger font-weight-bold">{{ session('error') }}</div>
+                <div class="mb-1 text-danger fw-bold">{{ session('error') }}</div>
             @endif
-            <a class="btn btn-blurple font-weight-bold mb-3" href="https://discord.gg/9M4Q65b" target="_blank">
-                <i class="fab fa-discord mr-1"></i>
+            <a class="btn btn-blurple fw-bold mb-3" href="https://discord.gg/9M4Q65b" target="_blank">
+                <i class="fab fa-discord me-1"></i>
                 Join Taskord's Discord
             </a>
             @if (preg_match('/^[a-f0-9]{32}$/', Auth::user()->username))
             <div class="mb-2">
                 <input class="form-check-input" type="checkbox" disabled {{ $changed_username ? '' : 'checked' }}>
-                <span class="ml-1">Change your username</span>
+                <span class="ms-1">Change your username</span>
             </div>
             @endif
             <div class="mb-2">
                 <input class="form-check-input" type="checkbox" disabled {{ strlen($has_name) === 0 ? '' : 'checked' }}>
-                <span class="ml-1">Add your name</span>
+                <span class="ms-1">Add your name</span>
             </div>
             <div class="mb-2">
                 <input class="form-check-input" type="checkbox" disabled {{ $task_count === 0 ? '' : 'checked' }}>
-                <span class="ml-1">Add a new task</span>
+                <span class="ms-1">Add a new task</span>
             </div>
             <div class="mb-2">
                 <input class="form-check-input" type="checkbox" disabled {{ $praise_count === 0 ? '' : 'checked' }}>
-                <span class="ml-1">Praise one task</span>
+                <span class="ms-1">Praise one task</span>
             </div>
             <div>
                 <input class="form-check-input" type="checkbox" disabled {{ $product_count === 0 ? '' : 'checked' }}>
-                <span class="ml-1">Add your product</span>
+                <span class="ms-1">Add your product</span>
             </div>
         </div>
     </div>

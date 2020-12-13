@@ -65,35 +65,35 @@
                     <img src="/images/logo.svg" height="35" alt="Taskord">
                     @endguest
                 </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     @livewire('search')
-                    <ul class="navbar-nav mr-auto">
+                    <ul class="navbar-nav me-auto">
                         <li class="nav-item">
-                            <a class="nav-link text-white font-weight-bold" href="{{ route('products.newest') }}">
+                            <a class="nav-link text-white fw-bold" href="{{ route('products.newest') }}">
                                 Products
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-white font-weight-bold" href="{{ route('questions.newest') }}">
+                            <a class="nav-link text-white fw-bold" href="{{ route('questions.newest') }}">
                                 Questions
                             </a>
                         </li>
                         @auth
                         <li class="nav-item">
-                            <a class="nav-link text-white font-weight-bold" href="{{ route('tasks') }}">
+                            <a class="nav-link text-white fw-bold" href="{{ route('tasks') }}">
                                 Tasks
                                 <x-beta background="dark" />
                             </a>
                         </li>
                         @endauth
                         <li class="nav-item dropdown">
-                            <a class="nav-link text-white font-weight-bold" href="#" data-toggle="dropdown">
+                            <a class="nav-link text-white fw-bold" href="#" data-bs-toggle="dropdown">
                                 More
                             </a>
-                            <ul class="dropdown-menu shadow-sm border" aria-labelledby="navbarDropdown">
+                            <ul class="dropdown-menu shadow-sm border">
                                 <li><a class="dropdown-item text-dark" href="{{ route('deals') }}">{{ Emoji::wrappedGift() }} Deals</a></li>
                                 @auth
                                 @if (Auth::user()->staffShip)
@@ -107,20 +107,20 @@
                             </ul>
                         </li>
                     </ul>
-                    <ul class="navbar-nav ml-auto">
+                    <ul class="navbar-nav ms-auto">
                         @guest
-                            <li class="nav-item mr-3">
-                                <a class="nav-link text-white font-weight-bold" href="{{ route('login') }}">Login</a>
+                            <li class="nav-item me-3">
+                                <a class="nav-link text-white fw-bold" href="{{ route('login') }}">Login</a>
                             </li>
                             @if (Route::has('register'))
                                 <li class="nav-item">
-                                    <a class="nav-link text-white btn btn-primary font-weight-bold" href="{{ route('register') }}">Register</a>
+                                    <a class="nav-link text-white btn btn-primary fw-bold" href="{{ route('register') }}">Register</a>
                                 </li>
                             @endif
                         @else
                             @livewire('notification.icon')
                             @if (Auth::user()->hasGoal)
-                            <li class="nav-item mr-2">
+                            <li class="nav-item me-2">
                                 <div class="nav-link">
                                     <a
                                         href="{{ route('user.settings.profile') }}"
@@ -136,7 +136,7 @@
                                 </div>
                             </li>
                             @endif
-                            <li class="nav-item mr-2">
+                            <li class="nav-item me-2">
                                 <div class="nav-link">
                                     <span class="badge rounded-pill text-secondary score bg-warning">
                                         {{ Emoji::fire() }} {{ number_format(Auth::user()->getPoints()) }}
@@ -144,14 +144,14 @@
                                 </div>
                             </li>
                             <li class="nav-item dropdown">
-                                <a id="navbarDropdown" href="#" role="button" data-toggle="dropdown" v-pre>
+                                <a href="#" role="button" data-bs-toggle="dropdown" v-pre>
                                     <img class="rounded-circle avatar-30 mt-1" src="{{ Auth::user()->avatar }}" />
                                 </a>
 
-                                <div class="dropdown-menu shadow-sm border dropdown-menu-right mt-2" aria-labelledby="navbarDropdown">
+                                <div class="dropdown-menu shadow-sm border dropdown-menu-end mt-2">
                                     <a href="{{ route('user.done', ['username' => Auth::user()->username]) }}" class="dropdown-item">
                                         Signed in as
-                                        <div class="font-weight-bold">
+                                        <div class="fw-bold">
                                             {{ Auth::user()->username }}
                                         </div>
                                     </a>
@@ -211,15 +211,15 @@
         @if (session()->has('global'))
             <div class="alert alert-success alert-dismissible fade show rounded-0 mb-0">
                 <button type="button" class="btn-close small" data-dismiss="alert"></button>
-                <i class="fa fa-check mr-1"></i>
+                <i class="fa fa-check me-1"></i>
                 {{ session('global') }}
             </div>
         @endif
         @auth
         @if (Auth::user()->isFlagged)
         <div class="alert alert-danger rounded-0" role="alert">
-            <div class="font-weight-bold">
-                <i class="fa fa-flag mr-1"></i>
+            <div class="fw-bold">
+                <i class="fa fa-flag me-1"></i>
                 Your account has been flagged.
             </div>
             <div class="mt-1">
@@ -229,8 +229,8 @@
         @endif
         @if (!Auth::user()->hasVerifiedEmail())
         <div class="alert alert-warning rounded-0" role="alert">
-            <div class="font-weight-bold">
-                <i class="fa fa-envelope mr-1"></i>
+            <div class="fw-bold">
+                <i class="fa fa-envelope me-1"></i>
                 Verify Your Email Address <x-beta background="light" />
             </div>
             <form class="mt-1" method="POST" action="{{ route('verification.resend') }}">

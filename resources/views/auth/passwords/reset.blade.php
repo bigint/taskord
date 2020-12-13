@@ -16,7 +16,7 @@
                         alt=""
                         height="60"
                     >
-                    <h1 class="h3 mb-3 font-weight-bold">
+                    <h1 class="h3 mb-3 fw-bold">
                         Reset Password
                     </h1>
                 </div>
@@ -68,9 +68,9 @@
                     >
                     <label for="password-confirm">Confirm Password</label>
                 </div>
-                <button class="btn btn-lg btn-primary btn-block" type="submit">
+                <button class="btn btn-lg btn-primary w-100" type="submit">
                     <span class="small">
-                        <i class="fa fa-refresh mr-1"></i>
+                        <i class="fa fa-refresh me-1"></i>
                         Reset Password
                     </span>
                 </button>

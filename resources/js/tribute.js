@@ -16,16 +16,16 @@ document.addEventListener("turbolinks:load", () => {
       return `
       <span class="d-flex align-items-center">
         <img class="rounded-circle avatar-30" src="${avatar}" />
-        <span class="ml-3">
-          <span class="font-weight-bold">
+        <span class="ms-3">
+          <span class="fw-bold">
             ${firstname ? firstname : ""} ${lastname ? lastname : ""}
             ${
               isVerified
-                ? '<i class="fa fa-check-circle ml-1 mr-1 text-primary"></i>'
+                ? '<i class="fa fa-check-circle ms-1 me-1 text-primary"></i>'
                 : ""
             }
           </span>
-          <span class="d-block text-black-50 font-weight-normal">
+          <span class="d-block text-black-50 fw-normal">
             @${username}
           </span>
         </span>
@@ -35,7 +35,7 @@ document.addEventListener("turbolinks:load", () => {
       return "<li>No users Found!</li>";
     },
   });
-  
+
   // Products
   var productsMention = new Tribute({
     values: (text, cb) => {
@@ -52,11 +52,11 @@ document.addEventListener("turbolinks:load", () => {
       return `
       <span class="d-flex align-items-center">
         <img class="rounded avatar-30" src="${avatar}" />
-        <span class="ml-3">
-          <span class="font-weight-bold">
+        <span class="ms-3">
+          <span class="fw-bold">
             ${name}
           </span>
-          <span class="d-block text-black-50 font-weight-normal">
+          <span class="d-block text-black-50 fw-normal">
             #${slug}
           </span>
         </span>
@@ -66,7 +66,7 @@ document.addEventListener("turbolinks:load", () => {
       return "<li>No products Found!</li>";
     },
   });
-  
+
   const getData = (text, cb, type) => {
     var URL = type === "user" ? "/mention/users" : "/mention/products";
     var xhr = new XMLHttpRequest();

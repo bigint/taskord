@@ -4,7 +4,7 @@
             <img class="card-img-top" src="{{ $meetup->cover }}" alt="{{ $meetup->name }}">
         </a>
         <div class="card-body">
-            <div class="font-weight-bold text-uppercase small">
+            <div class="fw-bold text-uppercase small">
                 @auth
                 {{ Carbon::parse($meetup->date)->setTimezone(Auth::user()->timezone)->format('D, M d, H:i') }}
                 @else

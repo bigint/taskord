@@ -19,11 +19,11 @@
                         alt=""
                         height="60"
                     >
-                    <h1 class="h3 mb-2 font-weight-bold">
+                    <h1 class="h3 mb-2 fw-bold">
                         Sign in to your account
                     </h1>
                     <p>
-                        Or <a class="font-weight-bold" href="/register">signup now!</a>
+                        Or <a class="fw-bold" href="/register">signup now!</a>
                     </p>
                 </div>
                 <div class="form-label-group">
@@ -66,54 +66,54 @@
                         Remember me
                     </label>
                     @if (Route::has('password.request'))
-                        <a class="float-right font-weight-bold" href="{{ route('password.request') }}">
+                        <a class="float-end fw-bold" href="{{ route('password.request') }}">
                             Forgot Password?
                         </a>
                     @endif
                 </div>
-                <div class="btn-group btn-block" role="group">
+                <div class="btn-group w-100" role="group">
                     <button class="btn btn-lg btn-primary" name="submit" value="login" type="submit">
                         <span class="small">
-                            <i class="fa fa-lock mr-1"></i>
+                            <i class="fa fa-lock me-1"></i>
                             Login
                         </span>
                     </button>
                     <button class="btn btn-lg btn-dark" name="submit" value="magic-link" type="submit">
                         <span class="small">
-                            <i class="fa fa-magic mr-1"></i>
+                            <i class="fa fa-magic me-1"></i>
                             Magic link
                         </span>
                     </button>
                 </div>
                 <div class="mt-3 row">
                     <div class="col-6">
-                        <a href="/login/google" class="btn btn-social btn-google btn-block" type="submit">
+                        <a href="/login/google" class="btn btn-social btn-google w-100" type="submit">
                             <span class="small">
-                                <i class="fab fa-google mr-1"></i>
+                                <i class="fab fa-google me-1"></i>
                                 Google
                             </span>
                         </a>
                     </div>
                     <div class="col-6">
-                        <a href="/login/twitter" class="btn btn-social btn-twitter btn-block" type="submit">
+                        <a href="/login/twitter" class="btn btn-social btn-twitter w-100" type="submit">
                             <span class="small">
-                                <i class="fab fa-twitter mr-1"></i>
+                                <i class="fab fa-twitter me-1"></i>
                                 Twitter
                             </span>
                         </a>
                     </div>
                     <div class="col-6 mt-2">
-                        <a href="/login/github" class="btn btn-social btn-github btn-block" type="submit">
+                        <a href="/login/github" class="btn btn-social btn-github w-100" type="submit">
                             <span class="small">
-                                <i class="fab fa-github mr-1"></i>
+                                <i class="fab fa-github me-1"></i>
                                 GitHub
                             </span>
                         </a>
                     </div>
                     <div class="col-6 mt-2">
-                        <a href="/login/gitlab" class="btn btn-social btn-gitlab btn-block" type="submit">
+                        <a href="/login/gitlab" class="btn btn-social btn-gitlab w-100" type="submit">
                             <span class="small">
-                                <i class="fab fa-gitlab mr-1"></i>
+                                <i class="fab fa-gitlab me-1"></i>
                                 GitLab
                             </span>
                         </a>

@@ -17,14 +17,14 @@
             @if (session()->has('question_created'))
                 <div class="alert alert-success alert-dismissible fade show mt-2">
                     <button type="button" class="btn-close small" data-dismiss="alert"></button>
-                    <i class="fa fa-check mr-1"></i>
+                    <i class="fa fa-check me-1"></i>
                     {{ session('question_created') }}
                 </div>
             @endif
             @if (session()->has('question_edited'))
                 <div class="alert alert-success alert-dismissible fade show mt-2">
                     <button type="button" class="btn-close small" data-dismiss="alert"></button>
-                    <i class="fa fa-check mr-1"></i>
+                    <i class="fa fa-check me-1"></i>
                     {{ session('question_edited') }}
                 </div>
             @endif
@@ -42,7 +42,7 @@
             @endif
             @endauth
             @guest
-                <a href="/login" class="btn btn-block btn-success mt-4 text-white font-weight-bold">
+                <a href="/login" class="btn w-100 btn-success mt-4 text-white fw-bold">
                     {{ Emoji::wavingHand() }} Login or Signup to comment
                 </a>
             @endguest
@@ -65,14 +65,14 @@
                     >
                         <img class="rounded-circle avatar-40 mt-1" src="{{ $question->user->avatar }}" />
                     </a>
-                    <span class="ml-3">
+                    <span class="ms-3">
                         <a
                             href="{{ route('user.done', ['username' => $question->user->username]) }}"
                             class="align-text-top text-dark"
                             id="user-hover"
                             data-id="{{ $question->user->id }}"
                         >
-                            <span class="font-weight-bold">
+                            <span class="fw-bold">
                                 @if ($question->user->firstname or $question->user->lastname)
                                     {{ $question->user->firstname }}{{ ' '.$question->user->lastname }}
                                 @else
@@ -103,7 +103,7 @@
                     @foreach ($question->answer->groupBy('user_id') as $answer)
                         <a
                             href="{{ route('user.done', ['username' => $answer[0]->user->username]) }}"
-                            class="mr-1"
+                            class="me-1"
                             id="user-hover"
                             data-id="{{ $answer[0]->user->id }}"
                         >

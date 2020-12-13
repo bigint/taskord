@@ -4,7 +4,7 @@
             <div class="h5">
                 Today
             </div>
-            <span class="font-weight-bold">{{ $tasks->count('id') }}</span>
+            <span class="fw-bold">{{ $tasks->count('id') }}</span>
             Pending Tasks
         </div>
         <ul class="list-group list-group-flush">

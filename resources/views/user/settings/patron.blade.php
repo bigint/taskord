@@ -21,11 +21,11 @@
                         @if ($user->patron)
                         <div>
                             <div>
-                                <span class="font-weight-bold">Checkout ID:</span>
+                                <span class="fw-bold">Checkout ID:</span>
                                 <code class="fa-1x">{{ $user->patron->checkout_id }}</code>
                             </div>
                             <div>
-                                <span class="font-weight-bold">Subscribed to:</span>
+                                <span class="fw-bold">Subscribed to:</span>
                                 @if ($user->patron->subscription_plan_id === 619848)
                                 <span>Tier 1</span>
                                 @elseif ($user->patron->subscription_plan_id === 621377)
@@ -37,27 +37,27 @@
                                 @endif
                             </div>
                             <div>
-                                <span class="font-weight-bold">Subscribed at:</span>
+                                <span class="fw-bold">Subscribed at:</span>
                                 <span>{{ Carbon::parse($user->patron->created_at)->format('d M Y') }}</span>
                             </div>
                             <div>
-                                <span class="font-weight-bold">Last transaction:</span>
+                                <span class="fw-bold">Last transaction:</span>
                                 <span>{{ Carbon::parse($user->patron->event_time)->format('d M Y') }}</span>
                             </div>
                             <div>
-                                <span class="font-weight-bold">Next bill date:</span>
+                                <span class="fw-bold">Next bill date:</span>
                                 <span>{{ Carbon::parse($user->patron->next_bill_date)->format('d M Y') }}</span>
                             </div>
                             <div class="mt-2">
                                 @if ($user->patron->update_url)
                                 <a class="btn btn-success text-white" href="{{ $user->patron->update_url }}" target="_blank">
-                                    <i class="fa fa-pen mr-1"></i>
+                                    <i class="fa fa-pen me-1"></i>
                                     Update Payment
                                 </a>
                                 @endif
                                 @if ($user->patron->cancel_url)
                                 <a class="btn btn-danger" href="{{ $user->patron->cancel_url }}" target="_blank">
-                                    <i class="fa fa-times mr-1"></i>
+                                    <i class="fa fa-times me-1"></i>
                                     Cancel Patron
                                 </a>
                                 @endif

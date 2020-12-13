@@ -12,9 +12,9 @@
             Sponsor
         </div>
         <div class="card-body">
-            <a class="btn btn-block btn-outline-primary" href="{{ $user->sponsor }}" target="_blank">
-                <img class="rounded sponsor-icon mr-1" rel="preload" src="https://external-content.duckduckgo.com/ip3/{{ parse_url($user->sponsor)['host'] }}.ico" />
-                <span class="font-weight-bold">Sponsor {{ '@'.$user->username }}</span>
+            <a class="btn w-100 btn-outline-primary" href="{{ $user->sponsor }}" target="_blank">
+                <img class="rounded sponsor-icon me-1" rel="preload" src="https://external-content.duckduckgo.com/ip3/{{ parse_url($user->sponsor)['host'] }}.ico" />
+                <span class="fw-bold">Sponsor {{ '@'.$user->username }}</span>
             </a>
         </div>
     </div>
@@ -27,37 +27,37 @@
         <ul class="list-group list-group-flush">
             @if ($user->website)
             <a class="list-group-item link-dark" href="{{ $user->website }}" target="_blank">
-                <img class="rounded favicon mr-1" rel="preload" src="https://external-content.duckduckgo.com/ip3/{{ parse_url($user->website)['host'] }}.ico" />
+                <img class="rounded favicon me-1" rel="preload" src="https://external-content.duckduckgo.com/ip3/{{ parse_url($user->website)['host'] }}.ico" />
                 {{ Helper::removeProtocol($user->website) }}
             </a>
             @endif
             @if ($user->twitter)
             <a class="list-group-item link-dark" href="https://twitter.com/{{ $user->twitter }}" target="_blank">
-                <i class="fab fa-twitter mr-1"></i>
+                <i class="fab fa-twitter me-1"></i>
                 {{ $user->twitter }}
             </a>
             @endif
             @if ($user->twitch)
             <a class="list-group-item link-dark" href="https://twitch.tv/{{ $user->twitch }}" target="_blank">
-                <i class="fab fa-twitch mr-1"></i>
+                <i class="fab fa-twitch me-1"></i>
                 {{ $user->twitch }}
             </a>
             @endif
             @if ($user->telegram)
             <a class="list-group-item link-dark" href="https://t.me/{{ $user->telegram }}" target="_blank">
-                <i class="fab fa-telegram mr-1"></i>
+                <i class="fab fa-telegram me-1"></i>
                 {{ $user->telegram }}
             </a>
             @endif
             @if ($user->github)
             <a class="list-group-item link-dark" href="https://github.com/{{ $user->github }}" target="_blank">
-                <i class="fab fa-github mr-1"></i>
+                <i class="fab fa-github me-1"></i>
                 {{ $user->github }}
             </a>
             @endif
             @if ($user->youtube)
             <a class="list-group-item link-dark" href="https://youtube.com/{{ $user->youtube }}" target="_blank">
-                <i class="fab fa-youtube mr-1"></i>
+                <i class="fab fa-youtube me-1"></i>
                 {{ $user->youtube }}
             </a>
             @endif
@@ -79,11 +79,11 @@
                     id="product-hover"
                     data-id="{{ $product->id }}"
                 >
-                    <img class="rounded avatar-30 mt-1 ml-2" src="{{ $product->avatar }}" height="50" width="50" />
+                    <img class="rounded avatar-30 mt-1 ms-2" src="{{ $product->avatar }}" height="50" width="50" />
                 </a>
                 <a
                     href="{{ route('product.done', ['slug' => $product->slug]) }}"
-                    class="ml-2 mr-2 align-text-top font-weight-bold text-dark"
+                    class="ms-2 me-2 align-text-top fw-bold text-dark"
                     id="product-hover"
                     data-id="{{ $product->id }}"
                 >
@@ -94,7 +94,7 @@
         </ul>
         @if (count($user->ownedProducts->merge($user->products)) > 5)
         <div class="card-footer">
-            <a class="font-weight-bold" href="{{ route('user.products', ['username' => $user->username]) }}">
+            <a class="fw-bold" href="{{ route('user.products', ['username' => $user->username]) }}">
                 {{ count($user->ownedProducts) + count($user->products) - 5 }} more Products
             </a>
         </div>

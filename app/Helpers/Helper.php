@@ -169,22 +169,22 @@ class Helper
         $format = Carbon::parse($date)->format('M d, Y');
 
         if ($diff > 1) {
-            return "<span title='$format' class='mr-2 text-success'>Due in $days days</span>";
+            return "<span title='$format' class='me-2 text-success'>Due in $days days</span>";
         }
 
         if ($diff === 1) {
-            return "<span title='$format' class='mr-2 text-info'>Due tomorrow</span>";
+            return "<span title='$format' class='me-2 text-info'>Due tomorrow</span>";
         }
 
         if ($diff === 0) {
-            return "<span title='$format' class='mr-2 text-danger'>Due today</span>";
+            return "<span title='$format' class='me-2 text-danger'>Due today</span>";
         }
 
         if ($diff < 0) {
             if ($days > 1) {
-                return "<span title='$format' class='mr-2 text-danger'>Overdue by $days days</span>";
+                return "<span title='$format' class='me-2 text-danger'>Overdue by $days days</span>";
             } else {
-                return "<span title='$format' class='mr-2 text-danger'>Overdue by $days day</span>";
+                return "<span title='$format' class='me-2 text-danger'>Overdue by $days day</span>";
             }
         }
     }

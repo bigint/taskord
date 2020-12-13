@@ -21,13 +21,13 @@
                 ], key($task->id))
                 </span>
             </div>
-            <div class="ml-4 vertical-line"></div>
+            <div class="ms-4 vertical-line"></div>
             <div class="mb-4">
             @livewire('comment.single-comment', [
                 'comment' => $comment,
             ], key($comment->id))
             </div>
-            <a href="{{ route('task', ['id' => $task->id]) }}" class="btn btn-block btn-success mt-4 text-white font-weight-bold">
+            <a href="{{ route('task', ['id' => $task->id]) }}" class="btn w-100 btn-success mt-4 text-white fw-bold">
                 Go back to task
             </a>
         </div>
@@ -44,14 +44,14 @@
                     >
                         <img class="rounded-circle avatar-40 mt-1" src="{{ $comment->user->avatar }}" />
                     </a>
-                    <span class="ml-3">
+                    <span class="ms-3">
                         <a
                             href="{{ route('user.done', ['username' => $comment->user->username]) }}"
                             class="align-text-top text-dark"
                             id="user-hover"
                             data-id="{{ $comment->user->id }}"
                         >
-                            <span class="font-weight-bold">
+                            <span class="fw-bold">
                                 @if ($comment->user->firstname or $comment->user->lastname)
                                     {{ $comment->user->firstname }}{{ ' '.$comment->user->lastname }}
                                 @else
@@ -73,7 +73,7 @@
                         <a
                             title="{{ $user->firstname ? $user->firstname . ' ' . $user->lastname : $user->username }}"
                             href="{{ route('user.done', ['username' => $user->username]) }}"
-                            class="mr-1"
+                            class="me-1"
                         >
                             <img class="rounded-circle avatar-30 mb-2" src="{{ $user->avatar }}" />
                         </a>

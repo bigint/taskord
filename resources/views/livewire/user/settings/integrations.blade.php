@@ -31,13 +31,13 @@
                             Simple Webhook
                         </label>
                     </span>
-                    <span class="form-check ml-3">
+                    <span class="form-check ms-3">
                         <input class="form-check-input" type="radio" id="github" name="type" value="github" wire:model.defer="type">
                         <label class="form-check-label" for="github">
                             GitHub
                         </label>
                     </span>
-                    <span class="form-check ml-3">
+                    <span class="form-check ms-3">
                         <input class="form-check-input" type="radio" id="gitlab" name="type" value="gitlab" wire:model.defer="type">
                         <label class="form-check-label" for="gitlab">
                             GitLab
@@ -46,7 +46,7 @@
                 </div>
                 <button type="submit" class="btn btn-primary">
                     Create Hook
-                    <span wire:target="submit" wire:loading class="spinner-border spinner-border-sm ml-2" role="status"></span>
+                    <span wire:target="submit" wire:loading class="spinner-border spinner-border-sm ms-2" role="status"></span>
                 </button>
             </form>
             @if (session()->has('created'))
@@ -55,7 +55,7 @@
                         Here's your webhook for Taskord. Keep it secret.
                     </span>
                     <div class="small text-black-50">Make sure you save it - you won't be able to access it again.</div>
-                    <div class="font-weight-bold text-primary font-monospace mt-2">
+                    <div class="fw-bold text-primary font-monospace mt-2">
                         https://taskord.com/webhook/web/{{ session('created')->token }}
                     </div>
                 </div>
@@ -65,8 +65,8 @@
                 <div class="card">
                     <div class="card-header" id="headingOne">
                         <h2 class="mb-0">
-                            <a class="text-dark h5" type="button" checked data-toggle="collapse" data-target="#simpleDocs" aria-expanded="true" aria-controls="simpleDocs">
-                                <i class="fa fa-globe mr-1"></i>
+                            <a class="text-dark h5" type="button" checked data-bs-toggle="collapse" data-bs-target="#simpleDocs" aria-expanded="true" aria-controls="simpleDocs">
+                                <i class="fa fa-globe me-1"></i>
                                 Simple Webhook
                             </a>
                         </h2>
@@ -103,8 +103,8 @@
                 <div class="card">
                     <div class="card-header" id="headingTwo">
                         <h2 class="mb-0">
-                            <a class="text-dark h5" type="button" data-toggle="collapse" data-target="#githubDocs" aria-expanded="false" aria-controls="githubDocs">
-                                <i class="fab fa-github mr-1"></i>
+                            <a class="text-dark h5" type="button" data-bs-toggle="collapse" data-bs-target="#githubDocs" aria-expanded="false" aria-controls="githubDocs">
+                                <i class="fab fa-github me-1"></i>
                                 GitHub
                             </a>
                         </h2>
@@ -126,8 +126,8 @@
                 <div class="card">
                     <div class="card-header" id="headingThree">
                         <h2 class="mb-0">
-                            <a class="text-dark h5" type="button" data-toggle="collapse" data-target="#gitlabDocs" aria-expanded="false" aria-controls="gitlabDocs">
-                                <i class="fab fa-gitlab mr-1"></i>
+                            <a class="text-dark h5" type="button" data-bs-toggle="collapse" data-bs-target="#gitlabDocs" aria-expanded="false" aria-controls="gitlabDocs">
+                                <i class="fab fa-gitlab me-1"></i>
                                 GitLab
                             </a>
                         </h2>
@@ -170,14 +170,14 @@
                     <tr>
                         <td>
                             @if ($webhook->type === 'web')
-                            <i title="Simple Webhook | ID: {{ $webhook->id }}" class="fa fa-globe mr-1"></i>
+                            <i title="Simple Webhook | ID: {{ $webhook->id }}" class="fa fa-globe me-1"></i>
                             @elseif ($webhook->type === 'github')
-                            <i title="GitHub | ID: {{ $webhook->id }}" class="fab fa-github mr-1"></i>
+                            <i title="GitHub | ID: {{ $webhook->id }}" class="fab fa-github me-1"></i>
                             @elseif ($webhook->type === 'gitlab')
-                            <i title="GitLab | ID: {{ $webhook->id }}" class="fab fa-gitlab mr-1"></i>
+                            <i title="GitLab | ID: {{ $webhook->id }}" class="fab fa-gitlab me-1"></i>
                             @endif
                         </td>
-                        <td class="font-weight-bold">
+                        <td class="fw-bold">
                             {{ Str::limit($webhook->name, '20') }}
                         </td>
                         <td class="font-monospace">
@@ -187,8 +187,8 @@
                             {{ Carbon::parse($webhook->created_at)->format('M d, Y') }}
                         </td>
                         <td>
-                            <button wire:click="deleteWebhook({{ $webhook->id }})" class="btn btn-sm btn-block btn-danger">
-                                <i class="fa fa-trash mr-1"></i>
+                            <button wire:click="deleteWebhook({{ $webhook->id }})" class="btn btn-sm w-100 btn-danger">
+                                <i class="fa fa-trash me-1"></i>
                                 Delete
                             </button>
                         </td>

@@ -61,14 +61,10 @@
                 <div class="mb-3">
                     <label class="form-label">Avatar</label>
                     <div class="form-file w-25">
-                        <input type="file" wire:model="avatar" class="form-file-input">
-                        <label class="form-file-label">
-                            <span class="form-file-text">Choose file...</span>
-                            <span class="form-file-button">Browse</span>
-                        </label>
+                        <input class="form-control form-control-sm" wire:model="avatar" type="file">
                         <button wire:click="useGravatar" class="btn btn-success text-white mt-3">
                             Use Gravatar
-                            <span wire:target="useGravatar" wire:loading class="spinner-border spinner-border-sm ml-2" role="status"></span>
+                            <span wire:target="useGravatar" wire:loading class="spinner-border spinner-border-sm ms-2" role="status"></span>
                         </button>
                     </div>
                 </div>
@@ -78,7 +74,7 @@
                     </div>
                 </div>
                 @error('avatar')
-                <div class="text-danger font-weight-bold mt-3">{{ $message }}</div>
+                <div class="text-danger fw-bold mt-3">{{ $message }}</div>
                 @else
                 @if ($avatar)
                 <div>
@@ -94,7 +90,7 @@
                 @enderror
                 <button type="submit" class="btn btn-primary">
                     Save
-                    <span wire:target="updateProfile" wire:loading class="spinner-border spinner-border-sm ml-2" role="status"></span>
+                    <span wire:target="updateProfile" wire:loading class="spinner-border spinner-border-sm ms-2" role="status"></span>
                 </button>
             </form>
         </div>
@@ -115,8 +111,8 @@
             <form wire:submit.prevent="setGoal">
                 <div>
                     <input wire:click="enableGoal" id="enableGoal" class="form-check-input" type="checkbox" {{ $user->hasGoal ? 'checked' : '' }}>
-                    <label for="enableGoal" class="ml-1">Enable Goal</label>
-                    <span wire:loading wire:target="enableGoal" class="small ml-2 text-success font-weight-bold">Updating...</span>
+                    <label for="enableGoal" class="ms-1">Enable Goal</label>
+                    <span wire:loading wire:target="enableGoal" class="small ms-2 text-success fw-bold">Updating...</span>
                 </div>
                 @if ($user->hasGoal)
                 <div class="mt-2 mb-3">
@@ -130,7 +126,7 @@
                 </div>
                 <button type="submit" class="btn btn-primary">
                     Set Goal
-                    <span wire:target="setGoal" wire:loading class="spinner-border spinner-border-sm ml-2" role="status"></span>
+                    <span wire:target="setGoal" wire:loading class="spinner-border spinner-border-sm ms-2" role="status"></span>
                 </button>
                 @endif
             </form>
@@ -150,8 +146,8 @@
                 </div>
             @endif
             <input wire:click="onlyFollowingsTasks" id="onlyFollowingsTasks" class="form-check-input" type="checkbox" {{ $user->onlyFollowingsTasks ? 'checked' : '' }}>
-            <label for="onlyFollowingsTasks" class="ml-1">Show only following user's tasks on homepage</label>
-            <span wire:loading wire:target="onlyFollowingsTasks" class="small ml-2 text-success font-weight-bold">Updating...</span>
+            <label for="onlyFollowingsTasks" class="ms-1">Show only following user's tasks on homepage</label>
+            <span wire:loading wire:target="onlyFollowingsTasks" class="small ms-2 text-success fw-bold">Updating...</span>
         </div>
     </div>
 
@@ -181,7 +177,7 @@
                 </div>
                 <button type="submit" class="btn btn-primary">
                     Save
-                    <span wire:target="updateSponsor" wire:loading class="spinner-border spinner-border-sm ml-2" role="status"></span>
+                    <span wire:target="updateSponsor" wire:loading class="spinner-border spinner-border-sm ms-2" role="status"></span>
                 </button>
             </form>
         </div>
@@ -268,7 +264,7 @@
                 </div>
                 <button type="submit" class="btn btn-primary">
                     Save
-                    <span wire:target="updateSocial" wire:loading class="spinner-border spinner-border-sm ml-2" role="status"></span>
+                    <span wire:target="updateSocial" wire:loading class="spinner-border spinner-border-sm ms-2" role="status"></span>
                 </button>
             </form>
         </div>

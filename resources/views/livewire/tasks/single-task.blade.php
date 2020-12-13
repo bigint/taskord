@@ -7,12 +7,12 @@
             wire:click="checkTask"
             unchecked
         />
-        <span class="ml-1 task-font">
+        <span class="ms-1 task-font">
             {!! Purify::clean(Helper::renderTask($task->task)) !!}
             @if ($task->type === 'product')
             <span class="small text-black-50">
                 on
-                <img class="rounded mb-1 ml-1 avatar-15" src="{{ $task->product->avatar }}" />
+                <img class="rounded mb-1 ms-1 avatar-15" src="{{ $task->product->avatar }}" />
                 <a class="text-black-50" href="{{ route('product.done', ['slug' => $task->product->slug]) }}">
                     {{ $task->product->name }}
                 </a>
@@ -30,8 +30,8 @@
         @endforeach
         </div>
         @endif
-        <span class="d-flex small float-right ml-auto">
-            <span class="font-weight-bold mr-2">
+        <span class="d-flex small float-end ms-auto">
+            <span class="fw-bold me-2">
                 @if ($task->due_at)
                     {!! Helper::dueDate($task->due_at) !!}
                 @endif
@@ -40,7 +40,7 @@
                 @if ($confirming === $task->id)
                 <button type="button" class="btn btn-task btn-danger" wire:click="deleteTask" wire:loading.attr="disabled">
                     Are you sure?
-                    <span wire:target="deleteTask" wire:loading class="spinner-border spinner-border-mini ml-2" role="status"></span>
+                    <span wire:target="deleteTask" wire:loading class="spinner-border spinner-border-mini ms-2" role="status"></span>
                 </button>
                 @else
                 <button type="button" class="btn btn-task btn-outline-danger" wire:click="confirmDelete" wire:loading.attr="disabled">

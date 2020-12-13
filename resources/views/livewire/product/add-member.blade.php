@@ -9,7 +9,7 @@
                 <div class="modal-body">
                     <x-alert />
                     <div class="mb-3">
-                        <label class="form-label font-weight-bold">Username</label>
+                        <label class="form-label fw-bold">Username</label>
                         <input type="text" class="form-control @if (session()->has('team-error')) is-invalid @endif" placeholder="Enter the username" wire:model.defer="username">
                         @if (session()->has('team-error'))
                             <span class="invalid-feedback" role="alert">
@@ -22,7 +22,7 @@
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                     <button type="submit" class="btn btn-primary">
                         Add Member
-                        <span wire:target="submit" wire:loading class="spinner-border spinner-border-sm ml-2" role="status"></span>
+                        <span wire:target="submit" wire:loading class="spinner-border spinner-border-sm ms-2" role="status"></span>
                     </button>
                 </div>
             </form>

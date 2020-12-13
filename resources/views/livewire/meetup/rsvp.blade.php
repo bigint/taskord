@@ -5,16 +5,16 @@
     @endforeach
     @auth
     @if (Auth::user()->hasSubscribed($meetup))
-    <button class="btn btn-task btn-danger text-white float-right font-weight-bold" wire:click="toggleRSVP">
+    <button class="btn btn-task btn-danger text-white float-end fw-bold" wire:click="toggleRSVP">
         {{ Emoji::crossMarkButton() }} Can't attend
     </button>
     @else
-    <button class="btn btn-task btn-outline-success text-dark float-right" wire:click="toggleRSVP">
+    <button class="btn btn-task btn-outline-success text-dark float-end" wire:click="toggleRSVP">
         {{ Emoji::checkMarkButton() }} RSVP
     </button>
     @endif
     @else
-    <a class="btn btn-task btn-outline-secondary text-dark float-right" href="{{ route('login') }}">
+    <a class="btn btn-task btn-outline-secondary text-dark float-end" href="{{ route('login') }}">
         {{ Emoji::checkMarkButton() }} RSVP
     </a>
     @endauth

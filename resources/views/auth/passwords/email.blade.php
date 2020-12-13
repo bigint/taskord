@@ -15,7 +15,7 @@
                         alt=""
                         height="60"
                     >
-                    <h1 class="h3 mb-3 font-weight-bold">
+                    <h1 class="h3 mb-3 fw-bold">
                         Reset Password
                     </h1>
                 </div>
@@ -38,9 +38,9 @@
                         </span>
                     @enderror
                 </div>
-                <button class="btn btn-lg btn-primary btn-block" type="submit">
+                <button class="btn btn-lg btn-primary w-100" type="submit">
                     <span class="small">
-                        <i class="fa fa-envelope mr-1"></i>
+                        <i class="fa fa-envelope me-1"></i>
                         Send Password Reset Link
                     </span>
                 </button>

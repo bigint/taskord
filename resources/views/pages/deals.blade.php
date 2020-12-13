@@ -17,8 +17,8 @@
             </div>
             @auth
             @if (Auth::user()->staffShip)
-            <button type="button" class="mt-2 btn btn-success text-white" data-toggle="modal" data-target="#newQuestionModal">
-                <i class="fa fa-plus mr-1"></i>
+            <button type="button" class="mt-2 btn btn-success text-white" data-bs-toggle="modal" data-bs-target="#newQuestionModal">
+                <i class="fa fa-plus me-1"></i>
                 Add a Deal
             </button>
             @livewire('pages.create-deal')
@@ -34,12 +34,12 @@
                     <div>
                         <img class="rounded avatar-100" src="{{ $deal->logo }}" />
                     </div>
-                    <div class="ml-4">
+                    <div class="ms-4">
                         <span class="h4">
                             {{ $deal->name }}
                         </span>
                         <span class="h5">
-                            <span class="align-text-top badge bg-success font-weight-normal p-1 ml-1">{{ $deal->offer }}% OFF</span>
+                            <span class="align-text-top badge bg-success fw-normal p-1 ms-1">{{ $deal->offer }}% OFF</span>
                         </span>
                         <div class="h6 mt-3">{{ $deal->description }}</div>
                         <div class="mt-2">
@@ -50,12 +50,12 @@
                         @if ($deal->coupon)
                         <div class="mt-2">
                             Coupon Code
-                            <code class="ml-2 font-weight-bold">
+                            <code class="ms-2 fw-bold">
                                 {{ $deal->coupon }}
                             </code>
                         </div>
                         @else
-                        <div class="mt-2 font-weight-bold">
+                        <div class="mt-2 fw-bold">
                             <a href="{{ $deal->referral }}" target="_blank">
                                 Click here to get your deal
                             </a>

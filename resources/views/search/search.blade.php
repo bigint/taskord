@@ -10,11 +10,11 @@
 <div class="container pt-5">
     <div class="row justify-content-center">
         <div class="col-lg-8">
-            <div class="h4 font-weight-normal">
-                <i class="fa fa-search mr-2"></i>
+            <div class="h4 fw-normal">
+                <i class="fa fa-search me-2"></i>
                 <span>
                     Search more than
-                    <span class="font-weight-bold">{{ $random }}</span>
+                    <span class="fw-bold">{{ $random }}</span>
                 </span>
             </div>
             <form action="/search/tasks" method="GET" role="search">

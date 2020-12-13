@@ -11,7 +11,7 @@
                 <div class="modal-body">
                     <x-alert />
                     <div class="mb-3">
-                        <label class="form-label font-weight-bold">Name</label>
+                        <label class="form-label fw-bold">Name</label>
                         <input type="text" class="form-control @error('name') is-invalid @enderror" placeholder="Product Name" wire:model.defer="name">
                         @error('name')
                             <span class="invalid-feedback" role="alert">
@@ -20,7 +20,7 @@
                         @enderror
                     </div>
                     <div class="mb-3">
-                        <label class="form-label font-weight-bold">Description</label>
+                        <label class="form-label fw-bold">Description</label>
                         <textarea class="form-control @error('description') is-invalid @enderror" rows="6" placeholder="About the product" wire:model.defer="description"></textarea>
                         @error('description')
                             <span class="invalid-feedback" role="alert">
@@ -29,7 +29,7 @@
                         @enderror
                     </div>
                     <div class="mb-3">
-                        <label class="form-label font-weight-bold">Offer %</label>
+                        <label class="form-label fw-bold">Offer %</label>
                         <input type="text" class="form-control @error('offer') is-invalid @enderror" placeholder="Offer in %" wire:model.defer="offer">
                         @error('offer')
                             <span class="invalid-feedback" role="alert">
@@ -38,7 +38,7 @@
                         @enderror
                     </div>
                     <div class="mb-3">
-                        <label class="form-label font-weight-bold">Coupon code</label>
+                        <label class="form-label fw-bold">Coupon code</label>
                         <input type="text" class="form-control @error('coupon') is-invalid @enderror" placeholder="Coupon code" wire:model.defer="coupon">
                         @error('coupon')
                             <span class="invalid-feedback" role="alert">
@@ -47,7 +47,7 @@
                         @enderror
                     </div>
                     <div class="mb-3">
-                        <label class="form-label font-weight-bold">Referral URL</label>
+                        <label class="form-label fw-bold">Referral URL</label>
                         <input type="text" class="form-control @error('referral') is-invalid @enderror" placeholder="Referral URL" wire:model.defer="referral">
                         @error('referral')
                             <span class="invalid-feedback" role="alert">
@@ -56,7 +56,7 @@
                         @enderror
                     </div>
                     <div class="mb-3">
-                        <label class="form-label font-weight-bold">Website URL</label>
+                        <label class="form-label fw-bold">Website URL</label>
                         <input type="text" class="form-control @error('website') is-invalid @enderror" placeholder="Website URL" wire:model.defer="website">
                         @error('website')
                             <span class="invalid-feedback" role="alert">
@@ -65,7 +65,7 @@
                         @enderror
                     </div>
                     <div class="mb-3">
-                        <label class="form-label font-weight-bold">Logo URL</label>
+                        <label class="form-label fw-bold">Logo URL</label>
                         <input type="text" class="form-control @error('logo') is-invalid @enderror" placeholder="Logo URL" wire:model.defer="logo">
                         @error('logo')
                             <span class="invalid-feedback" role="alert">
@@ -78,7 +78,7 @@
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                     <button type="submit" class="btn btn-primary">
                         Add
-                        <span wire:target="submit" wire:loading class="spinner-border spinner-border-sm ml-2" role="status"></span>
+                        <span wire:target="submit" wire:loading class="spinner-border spinner-border-sm ms-2" role="status"></span>
                     </button>
                 </div>
             </form>

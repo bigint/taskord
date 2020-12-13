@@ -1,4 +1,4 @@
-<div class="d-none d-md-block mr-3">
+<div class="d-none d-md-block me-3">
     <form action="/search/tasks" method="GET" role="search" autocomplete="off">
         @csrf
         <input
@@ -25,18 +25,18 @@
                         {{ $task->done ? "checked" : "unchecked" }}
                         disabled
                     />
-                    <a class="ml-1 task-font text-dark" href="{{ route('task', ['id' => $task->id]) }}">{{ $task->task }}</a>
-                    <span class="small ml-2">👏
+                    <a class="ms-1 task-font text-dark" href="{{ route('task', ['id' => $task->id]) }}">{{ $task->task }}</a>
+                    <span class="small ms-2">👏
                         <span class="text-black-50">{{ $task->likerscount() }}</span>
                     </span>
                 </span>
                 <a href="{{ route('user.done', ['username' => $task->user->username]) }}">
-                    <img class="rounded-circle float-right avatar-30" src="{{ $task->user->avatar }}" />
+                    <img class="rounded-circle float-end avatar-30" src="{{ $task->user->avatar }}" />
                 </a>
             </li>
             @endforeach
         @else
-            <li class="list-group-item">We couldn’t find any tasks matching <span class="font-weight-bold">{{ $query }}</span>!</li>
+            <li class="list-group-item">We couldn’t find any tasks matching <span class="fw-bold">{{ $query }}</span>!</li>
         @endif
         <li class="list-group-item">
             <span class="h5">Users</span>
@@ -46,8 +46,8 @@
             <li class="list-group-item">
                 <img class="rounded-circle avatar-30" src="{{ $user->avatar }}" />
                 <span>
-                    <a class="ml-2 task-font text-dark align-middle" href="{{ route('user.done', ['username' => $user->username]) }}">
-                        <span class="font-weight-bold">
+                    <a class="ms-2 task-font text-dark align-middle" href="{{ route('user.done', ['username' => $user->username]) }}">
+                        <span class="fw-bold">
                             @if ($user->firstname or $user->lastname)
                                 {{ $user->firstname }}{{ ' '.$user->lastname }}
                             @else
@@ -55,7 +55,7 @@
                             @endif
                         </span>
                         @if ($user->isVerified)
-                            <i class="verified fa fa-check-circle ml-1 mr-1 text-primary"></i>
+                            <i class="verified fa fa-check-circle ms-1 me-1 text-primary"></i>
                         @endif
                         <span class="small">{{ "@" . $user->username }}</span>
                     </a>
@@ -63,7 +63,7 @@
             </li>
             @endforeach
         @else
-            <li class="list-group-item">We couldn’t find any users matching <span class="font-weight-bold">{{ $query }}</span>!</li>
+            <li class="list-group-item">We couldn’t find any users matching <span class="fw-bold">{{ $query }}</span>!</li>
         @endif
         <li class="list-group-item">
             <span class="h5">Products</span>
@@ -73,17 +73,17 @@
             <li class="list-group-item">
                 <img class="rounded avatar-30" src="{{ $product->avatar }}" />
                 <span>
-                    <a class="ml-2 task-font text-dark align-middle" href="{{ route('product.done', ['slug' => $product->slug]) }}">
-                        <span class="font-weight-bold">{{ $product->name }}</span>
+                    <a class="ms-2 task-font text-dark align-middle" href="{{ route('product.done', ['slug' => $product->slug]) }}">
+                        <span class="fw-bold">{{ $product->name }}</span>
                     </a>
                 </span>
                 <a href="{{ route('user.done', ['username' => $product->owner->username]) }}">
-                    <img class="rounded-circle float-right avatar-30" src="{{ $product->owner->avatar }}" />
+                    <img class="rounded-circle float-end avatar-30" src="{{ $product->owner->avatar }}" />
                 </a>
             </li>
             @endforeach
         @else
-            <li class="list-group-item">We couldn’t find any products matching <span class="font-weight-bold">{{ $query }}</span>!</li>
+            <li class="list-group-item">We couldn’t find any products matching <span class="fw-bold">{{ $query }}</span>!</li>
         @endif
         <li class="list-group-item">
             <span class="h5">Questions</span>
@@ -92,17 +92,17 @@
             @foreach ($questions as $question)
             <li class="list-group-item">
                 <span>
-                    <a class="ml-2 task-font text-dark" href="{{ route('question.question', ['id' => $question->id]) }}">
-                        <span class="font-weight-bold">{{ Str::words($question->title, '8') }}</span>
+                    <a class="ms-2 task-font text-dark" href="{{ route('question.question', ['id' => $question->id]) }}">
+                        <span class="fw-bold">{{ Str::words($question->title, '8') }}</span>
                     </a>
                 </span>
                 <a href="{{ route('user.done', ['username' => $question->user->username]) }}">
-                    <img class="rounded-circle float-right avatar-30" src="{{ $question->user->avatar }}" />
+                    <img class="rounded-circle float-end avatar-30" src="{{ $question->user->avatar }}" />
                 </a>
             </li>
             @endforeach
         @else
-            <li class="list-group-item">We couldn’t find any questions matching <span class="font-weight-bold">{{ $query }}</span>!</li>
+            <li class="list-group-item">We couldn’t find any questions matching <span class="fw-bold">{{ $query }}</span>!</li>
         @endif
         @endif
     </ul>

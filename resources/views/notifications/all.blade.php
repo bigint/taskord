@@ -8,11 +8,11 @@
         <div class="col-lg-8">
             <a role="button" class="btn btn-primary mb-3" href="{{ route('notifications.unread') }}">
                 Unread
-                <span class="ml-1 badge bg-white text-black-50">
+                <span class="ms-1 badge bg-white text-black-50">
                     {{ Auth::user()->unreadNotifications->count('id') }}
                 </span>
             </a>
-            <a role="button" class="btn btn-primary mb-3 mr-2" href="{{ route('notifications.all') }}">
+            <a role="button" class="btn btn-primary mb-3 me-2" href="{{ route('notifications.all') }}">
                 All
             </a>
             @if (Auth::user()->notifications->count('id') !== 0)

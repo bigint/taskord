@@ -12,8 +12,8 @@
                 Finished
             </a>
             @auth
-                <button class="btn btn-success text-white" data-toggle="modal" data-target="#newMeetupModal">
-                    <i class="fa fa-plus mr-1"></i>
+                <button class="btn btn-success text-white" data-bs-toggle="modal" data-bs-target="#newMeetupModal">
+                    <i class="fa fa-plus me-1"></i>
                     New Meetup
                 </button>
                 @livewire('meetup.new-meetup')

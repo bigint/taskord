@@ -8,7 +8,7 @@
     </a>
     <a
         href="{{ route('user.done', ['username' => $user->username]) }}"
-        class="ml-2 align-middle font-weight-bold text-dark"
+        class="ms-2 align-middle fw-bold text-dark"
         id="user-hover"
         data-id="{{ $user->id }}"
     >
@@ -20,8 +20,8 @@
     </a>
     @auth
     @if ($product->owner->id === Auth::id())
-        <button class="btn btn-sm btn-danger float-right" wire:click="removeMember">
-            <i class="fa fa-times mr-1"></i>
+        <button class="btn btn-sm btn-danger float-end" wire:click="removeMember">
+            <i class="fa fa-times me-1"></i>
             Remove
         </button>
     @endif

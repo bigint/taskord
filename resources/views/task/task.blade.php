@@ -34,7 +34,7 @@
             @endif
             @endauth
             @guest
-                <a href="/login" class="btn btn-block btn-success mt-4 text-white font-weight-bold">
+                <a href="/login" class="btn w-100 btn-success mt-4 text-white fw-bold">
                     {{ Emoji::wavingHand() }} Login or Signup to comment
                 </a>
             @endguest
@@ -52,14 +52,14 @@
                     >
                         <img class="rounded-circle avatar-40 mt-1" src="{{ $task->user->avatar }}" />
                     </a>
-                    <span class="ml-3">
+                    <span class="ms-3">
                         <a
                             href="{{ route('user.done', ['username' => $task->user->username]) }}"
                             class="align-text-top text-dark"
                             id="user-hover"
                             data-id="{{ $task->user->id }}"
                         >
-                            <span class="font-weight-bold">
+                            <span class="fw-bold">
                                 @if ($task->user->firstname or $task->user->lastname)
                                     {{ $task->user->firstname }}{{ ' '.$task->user->lastname }}
                                 @else
@@ -84,14 +84,14 @@
                     >
                         <img class="rounded avatar-40 mt-1" src="{{ \App\Models\Product::find($task->product_id)->avatar }}" />
                     </a>
-                    <span class="ml-3">
+                    <span class="ms-3">
                         <a
                             href="{{ route('product.done', ['slug' => \App\Models\Product::find($task->product_id)->slug]) }}"
                             class="align-text-top text-dark"
                             id="product-hover"
                             data-id="{{ \App\Models\Product::find($task->product_id)->id }}"
                         >
-                            <span class="font-weight-bold">
+                            <span class="fw-bold">
                                 {{ \App\Models\Product::find($task->product_id)->name }}
                             </span>
                             <div>{{ \App\Models\Product::find($task->product_id)->description }}</div>
@@ -119,7 +119,7 @@
                     @foreach ($task->comments->groupBy('user_id') as $comment)
                         <a
                             href="{{ route('user.done', ['username' => $comment[0]->user->username]) }}"
-                            class="mr-1"
+                            class="me-1"
                             id="user-hover"
                             data-id="{{ $comment[0]->user->id }}"
                         >
@@ -139,7 +139,7 @@
                         <a
                             title="{{ $user->firstname ? $user->firstname . ' ' . $user->lastname : $user->username }}"
                             href="{{ route('user.done', ['username' => $user->username]) }}"
-                            class="mr-1"
+                            class="me-1"
                         >
                             <img class="rounded-circle avatar-30 mb-2" src="{{ $user->avatar }}" />
                         </a>

@@ -15,7 +15,7 @@
                         alt=""
                         height="60"
                     >
-                    <h1 class="h3 mb-3 font-weight-bold">
+                    <h1 class="h3 mb-3 fw-bold">
                         Confirm password to continue
                     </h1>
                 </div>
@@ -39,13 +39,13 @@
                     @enderror
                 </div>
                 @if (Route::has('password.request'))
-                    <a class="font-weight-bold" href="{{ route('password.request') }}">
+                    <a class="fw-bold" href="{{ route('password.request') }}">
                         Forgot Password?
                     </a>
                 @endif
-                <button class="btn btn-lg btn-primary btn-block mt-3" type="submit">
+                <button class="btn btn-lg btn-primary w-100 mt-3" type="submit">
                     <span class="small">
-                        <i class="fa fa-check mr-1"></i>
+                        <i class="fa fa-check me-1"></i>
                         Confirm Password
                     </span>
                 </button>
