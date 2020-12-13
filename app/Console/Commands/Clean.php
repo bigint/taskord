@@ -50,6 +50,7 @@ class Clean extends Command
         Artisan::call('lighthouse:clear-cache');
         $this->info('Lighthouse Cache Cleared ✅');
         $this->info('Cleaning Ended ✅');
+
         return 0;
     }
 }
