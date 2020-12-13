@@ -51,6 +51,6 @@ class AdminController extends Controller
     {
         Artisan::call('app:clean');
 
-        return redirect('/');
+        return redirect()->route('home');
     }
 }
