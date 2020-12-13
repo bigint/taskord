@@ -111,17 +111,17 @@
                 <span class="font-weight-normal">response total</span>
             </span>
             <span class="font-weight-bold mr-3">
-                <a href="{{ route('admin.clean') }}">
+                <a href="{{ route('admin.clean') }}" title="Clear Cache">
                     <i class="fa fa-trash-alt text-white"></i>
                 </a>
             </span>
             <span class="font-weight-bold mr-3">
-                <a href="/graphiql" target="_blank">
+                <a href="/graphiql" target="_blank" title="GraphiQL">
                     <i class="fa fa-sitemap text-white"></i>
                 </a>
             </span>
             <span class="font-weight-bold">
-                <a href="{{ route('admin.users') }}">
+                <a href="{{ route('admin.users') }}" title="Admin">
                     <i class="fa fa-rocket text-white"></i>
                 </a>
             </span>
