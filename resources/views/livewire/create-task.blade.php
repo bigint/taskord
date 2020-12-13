@@ -32,7 +32,7 @@
                 </div>
                 @auth
                 @if (!Auth::user()->checkState)
-                <div class="form-group ms-auto me-2 d-none d-sm-block">
+                <div class="ms-auto me-2 d-none d-sm-block">
                     <input class="form-control form-control-sm" wire:model.defer="due_at" type="date" placeholder="Due date" min="{{ Carbon::today()->format('Y-m-d') }}" />
                 </div>
                 @endif
