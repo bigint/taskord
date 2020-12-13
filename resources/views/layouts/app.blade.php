@@ -97,7 +97,7 @@
                                 <li><a class="dropdown-item text-dark" href="{{ route('deals') }}">{{ Emoji::wrappedGift() }} Deals</a></li>
                                 @auth
                                 @if (Auth::user()->staffShip)
-                                <li><a class="dropdown-item text-dark" href="{{ route('meetups') }}">{{ Emoji::bustsInSilhouette() }} Meetups</a></li>
+                                <li><a class="dropdown-item text-dark" href="{{ route('meetups.home') }}">{{ Emoji::bustsInSilhouette() }} Meetups</a></li>
                                 <li><a class="dropdown-item text-dark" href="#">{{ Emoji::thinkingFace() }} Help</a></li>
                                 <li><a class="dropdown-item text-dark" href="#">{{ Emoji::barChart() }} Open</a></li>
                                 @endif

@@ -157,8 +157,9 @@ Route::group(['middleware' => ['throttle:30,1']], function () {
     Route::get('deals', [PagesController::class, 'deals'])->name('deals');
 
     // Meetups
-    Route::group(['prefix' => 'meetups'], function () {
-        Route::get('/', [MeetupController::class, 'meetups'])->name('meetups')->middleware('staff');;
+    Route::group(['prefix' => 'meetups', 'as' => 'meetups.'], function () {
+        Route::get('/', [MeetupController::class, 'meetups'])->name('home')->middleware('staff');
+        Route::get('/rsvpd', [MeetupController::class, 'rsvpd'])->name('rsvpd')->middleware('staff');
     });
 
     // https://web.dev/change-password-url
