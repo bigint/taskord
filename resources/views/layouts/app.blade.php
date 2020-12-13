@@ -150,9 +150,7 @@
 
                                 <div class="dropdown-menu shadow-sm border dropdown-menu-right mt-2" aria-labelledby="navbarDropdown">
                                     <a href="{{ route('user.done', ['username' => Auth::user()->username]) }}" class="dropdown-item">
-                                        <div>
-                                            Signed in as
-                                        </div>
+                                        Signed in as
                                         <div class="font-weight-bold">
                                             {{ Auth::user()->username }}
                                         </div>
