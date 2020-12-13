@@ -150,11 +150,11 @@
 
                                 <div class="dropdown-menu shadow-sm border dropdown-menu-right mt-2" aria-labelledby="navbarDropdown">
                                     <a href="{{ route('user.done', ['username' => Auth::user()->username]) }}" class="dropdown-item">
-                                        <div class="font-weight-bold">
-                                            {{ Auth::user()->firstname ? Auth::user()->firstname . ' ' . Auth::user()->lastname : '' }}
+                                        <div>
+                                            Signed in as
                                         </div>
-                                        <div class="small">
-                                            {{ "@" . Auth::user()->username }}
+                                        <div class="font-weight-bold">
+                                            {{ Auth::user()->username }}
                                         </div>
                                     </a>
                                     <div class="dropdown-divider"></div>
