@@ -1,7 +1,0 @@
-version = 1
-
-test_patterns = ["/tests/Feature/**"]
-
-[[analyzers]]
-name = "test-coverage"
-enabled = true
