@@ -34,7 +34,7 @@
             @endif
             @endauth
             @guest
-                <a href="/login" class="btn btn-block btn-success mt-4 text-white fw-bold">
+                <a href="/login" class="btn w-100 btn-success mt-4 text-white fw-bold">
                     {{ Emoji::wavingHand() }} Login or Signup to comment
                 </a>
             @endguest

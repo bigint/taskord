@@ -38,7 +38,7 @@
                         </span>
                     @enderror
                 </div>
-                <button class="btn btn-lg btn-primary btn-block" type="submit">
+                <button class="btn btn-lg btn-primary w-100" type="submit">
                     <span class="small">
                         <i class="fa fa-envelope me-1"></i>
                         Send Password Reset Link

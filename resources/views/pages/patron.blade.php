@@ -29,7 +29,7 @@
                         <li>More coming soon...</li>
                     </ul>
                 </div>
-                <div class="col-sm">
+                <div class="col-sm d-grid">
                     @auth
                     @if (Auth::user()->isPatron and Auth::user()->patron()->count() === 1)
                     <div class="text-center">
@@ -43,7 +43,7 @@
                     </div>
                     @else
                     <a
-                        class="paddle_button btn btn-block btn-primary"
+                        class="paddle_button btn btn-primary"
                         data-theme="none"
                         data-product="619848"
                         data-message="Support $5/month for Taskord!"
@@ -52,7 +52,7 @@
                         Support $5/month
                     </a>
                     <a
-                        class="paddle_button btn btn-block btn-primary"
+                        class="paddle_button btn mt-2 btn-primary"
                         data-theme="none"
                         data-product="621377"
                         data-message="Support $10/month for Taskord!"
@@ -61,7 +61,7 @@
                         Support $10/month
                     </a>
                     <a
-                        class="paddle_button btn btn-block btn-primary"
+                        class="paddle_button btn mt-2 btn-primary"
                         data-theme="none"
                         data-product="621379"
                         data-message="Support $20/month for Taskord!"
@@ -70,7 +70,7 @@
                         Support $20/month
                     </a>
                     <a
-                        class="paddle_button btn btn-block btn-primary"
+                        class="paddle_button btn mt-2 btn-primary"
                         data-theme="none"
                         data-product="621380"
                         data-message="Support $50/month for Taskord!"
@@ -79,7 +79,7 @@
                         Support $50/month
                     </a>
                     <a
-                        class="paddle_button btn btn-block btn-primary"
+                        class="paddle_button btn mt-2 btn-primary"
                         data-theme="none"
                         data-product="629491"
                         data-message="Support $100 onetime for lifetime pro in Taskord!"
@@ -90,7 +90,7 @@
                     @endif
                     @endauth
                     @guest
-                    <a class="btn btn-block btn-success text-white" href="{{ route('login') }}">
+                    <a class="btn mt-2 btn-success text-white" href="{{ route('login') }}">
                         Login to support!
                     </a>
                     @endguest

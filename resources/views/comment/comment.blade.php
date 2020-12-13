@@ -27,7 +27,7 @@
                 'comment' => $comment,
             ], key($comment->id))
             </div>
-            <a href="{{ route('task', ['id' => $task->id]) }}" class="btn btn-block btn-success mt-4 text-white fw-bold">
+            <a href="{{ route('task', ['id' => $task->id]) }}" class="btn w-100 btn-success mt-4 text-white fw-bold">
                 Go back to task
             </a>
         </div>

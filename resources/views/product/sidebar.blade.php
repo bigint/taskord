@@ -2,16 +2,16 @@
     @auth
     @if (Auth::user()->staffShip or Auth::id() === $product->owner->id)
     <div class="card mb-4">
-        <div class="card-body">
-            <button type="button" class="btn btn-block btn-success text-white fw-bold" data-toggle="modal" data-target="#newUpdateModal">
+        <div class="card-body d-grid">
+            <button type="button" class="btn btn-success text-white fw-bold" data-toggle="modal" data-target="#newUpdateModal">
                 <i class="fa fa-bell me-1"></i>
                 Write a product update
             </button>
-            <button type="button" class="btn btn-block btn-success text-white fw-bold" data-toggle="modal" data-target="#editProductModal">
+            <button type="button" class="btn mt-2 btn-success text-white fw-bold" data-toggle="modal" data-target="#editProductModal">
                 <i class="fa fa-edit me-1"></i>
                 Edit Product
             </button>
-            <button type="button" class="btn btn-block btn-success text-white fw-bold" data-toggle="modal" data-target="#addMemberModal">
+            <button type="button" class="btn mt-2 btn-success text-white fw-bold" data-toggle="modal" data-target="#addMemberModal">
                 <i class="fa fa-plus me-1"></i>
                 Add Member
             </button>
@@ -73,7 +73,7 @@
             Sponsor
         </div>
         <div class="card-body">
-            <a class="btn btn-block btn-outline-primary" href="{{ $product->sponsor }}" target="_blank">
+            <a class="btn w-100 btn-outline-primary" href="{{ $product->sponsor }}" target="_blank">
                 <img class="rounded sponsor-icon me-1" rel="preload" src="https://external-content.duckduckgo.com/ip3/{{ parse_url($product->sponsor)['host'] }}.ico" />
                 <span class="fw-bold">Sponsor {{ $product->name }}</span>
             </a>

@@ -43,7 +43,7 @@
                         Forgot Password?
                     </a>
                 @endif
-                <button class="btn btn-lg btn-primary btn-block mt-3" type="submit">
+                <button class="btn btn-lg btn-primary w-100 mt-3" type="submit">
                     <span class="small">
                         <i class="fa fa-check me-1"></i>
                         Confirm Password
