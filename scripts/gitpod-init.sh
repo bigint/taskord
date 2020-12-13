@@ -1,3 +1,5 @@
+#!/bin/bash
+
 mysql -u root -e "CREATE DATABASE taskord"
 cp .env.gitpod .env
 sed -i "s|APP_URL=|APP_URL=${GITPOD_WORKSPACE_URL}|g" .env
