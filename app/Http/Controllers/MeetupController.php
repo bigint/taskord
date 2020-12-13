@@ -17,4 +17,16 @@ class MeetupController extends Controller
             'meetups' => $meetups,
         ]);
     }
+
+    public function rsvpd()
+    {
+        $meetups = Meetup::cacheFor(60 * 60)
+            ->where('date', '>=', date('Y-m-d'))
+            ->orderBy('date')
+            ->paginate(12);
+
+        return view('meetups.rsvpd', [
+            'meetups' => $meetups,
+        ]);
+    }
 }
