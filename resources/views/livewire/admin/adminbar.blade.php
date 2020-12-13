@@ -1,19 +1,23 @@
 <div class="card p-1 rounded-0 d-flex border-bottom border-primary bg-primary text-white">
     <div class="pl-2 pr-2">
         <span class="float-left">
-            <a class="text-white font-weight-bold" href="https://gitlab.com/taskord/taskord/-/tree/{{ $branchname }}" target="_blank">
+            <a class="text-white font-weight-bold" href="https://gitlab.com/taskord/taskord/-/tree/{{ $branchname }}"
+                target="_blank">
                 <i class="fa fa-code-branch mr-1"></i>
                 {{ $branchname }}
             </a>
-            <a class="text-white font-weight-bold ml-3" href="https://gitlab.com/taskord/taskord/-/releases/v{{ $version }}" target="_blank">
+            <a class="text-white font-weight-bold ml-3"
+                href="https://gitlab.com/taskord/taskord/-/releases/v{{ $version }}" target="_blank">
                 <i class="fa fa-cube mr-1"></i>
                 v{{ $version }}
             </a>
-            <a class="text-white font-weight-bold ml-3" href="https://github.com/laravel/framework/releases/tag/v{{ App::VERSION() }}" target="_blank">
+            <a class="text-white font-weight-bold ml-3"
+                href="https://github.com/laravel/framework/releases/tag/v{{ App::VERSION() }}" target="_blank">
                 <i class="fab fa-laravel mr-1"></i>
                 Laravel v{{ App::VERSION() }}
             </a>
-            <a class="text-white font-weight-bold ml-3" href="http://git.php.net/?p=php-src.git;a=shortlog;h=refs/heads/PHP-{{ phpversion() }}" target="_blank">
+            <a class="text-white font-weight-bold ml-3"
+                href="http://git.php.net/?p=php-src.git;a=shortlog;h=refs/heads/PHP-{{ phpversion() }}" target="_blank">
                 <i class="fab fa-php mr-1"></i>
                 PHP v{{ phpversion() }}
             </a>
@@ -105,6 +109,11 @@
                 <i class="fa fa-clock mr-1"></i>
                 {{ round(microtime(true) - LARAVEL_START, 2) * 1000 }}ms
                 <span class="font-weight-normal">response total</span>
+            </span>
+            <span class="font-weight-bold mr-3">
+                <a href="{{ route('admin.clean') }}">
+                    <i class="fa fa-trash-alt text-white"></i>
+                </a>
             </span>
             <span class="font-weight-bold mr-3">
                 <a href="/graphiql" target="_blank">
