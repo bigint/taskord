@@ -156,7 +156,10 @@ Route::group(['middleware' => ['throttle:30,1']], function () {
     Route::get('open', [PagesController::class, 'open'])->name('open');
     Route::get('deals', [PagesController::class, 'deals'])->name('deals');
 
-    Route::get('meetups', [MeetupController::class, 'meetups'])->name('meetups')->middleware('staff');
+    // Meetups
+    Route::group(['prefix' => 'meetups'], function () {
+        Route::get('/', [MeetupController::class, 'meetups'])->name('meetups')->middleware('staff');;
+    });
 
     // https://web.dev/change-password-url
     Route::get('.well-known/change-password', function () {
