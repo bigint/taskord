@@ -17,8 +17,8 @@ class LoadMore extends Component
 
     public function mount($page = 1)
     {
-        $this->page = $page + 1; //increment the page
-        $this->loadMore = false; //show the button
+        $this->page = $page + 1;
+        $this->loadMore = false;
     }
 
     public function loadMore()
