@@ -36,7 +36,11 @@
             <div class="small mt-3">
                 <span>
                     <i class="fa fa-calendar-alt me-1 text-black-50"></i>
+                    @if ($product->launched)
                     <span>Launched at {{ Carbon::parse($product->launched_at)->format("F Y") }}</span>
+                    @else
+                    <span>Created at {{ Carbon::parse($product->created_at)->format("F Y") }}</span>
+                    @endif
                 </span>
                 @if ($product->website)
                 <span class="ms-3">

@@ -151,7 +151,11 @@
                                 <div>{{ $product->description }}</div>
                                 <div class="small mt-2">
                                     <i class="fa fa-calendar-alt me-1 text-black-50"></i>
+                                    @if ($product->launched)
                                     <span>Launched at {{ Carbon::parse($product->launched_at)->format("F Y") }}</span>
+                                    @else
+                                    <span>Created at {{ Carbon::parse($product->created_at)->format("F Y") }}</span>
+                                    @endif
                                 </div>
                                 <div class="mt-3">
                                     @livewire('product.subscribe', [
