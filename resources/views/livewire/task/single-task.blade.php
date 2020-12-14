@@ -31,7 +31,7 @@
             {{ !$task->done_at ? Carbon::parse($task->created_at)->diffForHumans() : Carbon::parse($task->done_at)->diffForHumans() }}
         </span>
     </div>
-    <div class="mt-3">
+    <div class="pt-3">
         @if ($task->hidden)
         <span class="task-font font-italic text-secondary">Task was hidden by moderator</span>
         @else
@@ -91,7 +91,7 @@
             @endif
         </span>
         @if ($task->images)
-        <div class="gallery mb-3">
+        <div class="gallery">
         @foreach ($task->images ?? [] as $image)
         <div>
             <a href="{{ asset('storage/' . $image) }}" data-lightbox="{{ $image }}" data-title="Image by {{ '@'.$task->user->username }}">
@@ -102,41 +102,23 @@
         </div>
         @endif
         @endif
-    </div>
-    <div class="mt-2">
-        @auth
-        @if (!$task->user->isPrivate)
-        @if (Auth::user()->hasLiked($task))
-        <button type="button" class="btn btn-task btn-success text-white me-1" wire:click="togglePraise" wire:loading.attr="disabled" wire:offline.attr="disabled" wire:key="{{ $task->id }}">
-            {{ Emoji::clappingHands() }}
-            <span class="small text-white fw-bold">
-                {{ number_format($task->likerscount()) }}
-            </span>
-            <span class="avatar-stack ms-1">
-            @foreach($task->likers->take(5) as $user)
-            <img class="praise-avatar rounded-circle {{ $loop->last ? 'me-0' : '' }}" src="{{ $user->avatar }}" alt="{{ $user->username }}" />
-            @endforeach
-            </span>
-        </button>
-        @else
-        <button type="button" class="btn btn-task btn-outline-success me-1" wire:click="togglePraise" wire:loading.attr="disabled" wire:offline.attr="disabled" wire:key="{{ $task->id }}">
-            {{ Emoji::clappingHands() }}
-            @if ($task->likerscount() !== 0)
-            <span class="small text-dark fw-bold">
-                {{ number_format($task->likerscount()) }}
-            </span>
-            <span class="avatar-stack ms-1">
-            @foreach($task->likers->take(5) as $user)
-            <img class="praise-avatar rounded-circle {{ $loop->last ? 'me-0' : '' }}" src="{{ $user->avatar }}" alt="{{ $user->username }}" />
-            @endforeach
-            </span>
-            @endif
-        </button>
-        @endif
-        @endif
-        @endauth
-        @guest
-            <a href="/login" class="btn btn-task btn-outline-success me-1">
+        <div class="pt-3">
+            @auth
+            @if (!$task->user->isPrivate)
+            @if (Auth::user()->hasLiked($task))
+            <button type="button" class="btn btn-task btn-success text-white me-1" wire:click="togglePraise" wire:loading.attr="disabled" wire:offline.attr="disabled" wire:key="{{ $task->id }}">
+                {{ Emoji::clappingHands() }}
+                <span class="small text-white fw-bold">
+                    {{ number_format($task->likerscount()) }}
+                </span>
+                <span class="avatar-stack ms-1">
+                @foreach($task->likers->take(5) as $user)
+                <img class="praise-avatar rounded-circle {{ $loop->last ? 'me-0' : '' }}" src="{{ $user->avatar }}" alt="{{ $user->username }}" />
+                @endforeach
+                </span>
+            </button>
+            @else
+            <button type="button" class="btn btn-task btn-outline-success me-1" wire:click="togglePraise" wire:loading.attr="disabled" wire:offline.attr="disabled" wire:key="{{ $task->id }}">
                 {{ Emoji::clappingHands() }}
                 @if ($task->likerscount() !== 0)
                 <span class="small text-dark fw-bold">
@@ -148,35 +130,53 @@
                 @endforeach
                 </span>
                 @endif
+            </button>
+            @endif
+            @endif
+            @endauth
+            @guest
+                <a href="/login" class="btn btn-task btn-outline-success me-1">
+                    {{ Emoji::clappingHands() }}
+                    @if ($task->likerscount() !== 0)
+                    <span class="small text-dark fw-bold">
+                        {{ number_format($task->likerscount()) }}
+                    </span>
+                    <span class="avatar-stack ms-1">
+                    @foreach($task->likers->take(5) as $user)
+                    <img class="praise-avatar rounded-circle {{ $loop->last ? 'me-0' : '' }}" src="{{ $user->avatar }}" alt="{{ $user->username }}" />
+                    @endforeach
+                    </span>
+                    @endif
+                </a>
+            @endguest
+            <a href="{{ route('task', ['id' => $task->id]) }}" class="btn btn-task btn-outline-primary me-1">
+                {{ Emoji::speechBalloon() }}
+                @if ($task->comments->count('id') !== 0)
+                <span class="small text-dark fw-bold">
+                    {{ number_format($task->comments->count('id')) }}
+                </span>
+                @endif
             </a>
-        @endguest
-        <a href="{{ route('task', ['id' => $task->id]) }}" class="btn btn-task btn-outline-primary me-1">
-            {{ Emoji::speechBalloon() }}
-            @if ($task->comments->count('id') !== 0)
-            <span class="small text-dark fw-bold">
-                {{ number_format($task->comments->count('id')) }}
-            </span>
+            @auth
+            @if (Auth::user()->staffShip or Auth::id() === $task->user->id)
+                @if ($confirming === $task->id)
+                <button type="button" class="btn btn-task btn-danger" wire:click="deleteTask" wire:loading.attr="disabled" wire:offline.attr="disabled">
+                    Are you sure?
+                    <span wire:target="deleteTask" wire:loading class="spinner-border spinner-border-mini ms-2" role="status"></span>
+                </button>
+                @else
+                <button type="button" class="btn btn-task btn-outline-danger" wire:click="confirmDelete" wire:loading.attr="disabled" wire:offline.attr="disabled">
+                    {{ Emoji::wastebasket() }}
+                </button>
+                @endif
             @endif
-        </a>
-        @auth
-        @if (Auth::user()->staffShip or Auth::id() === $task->user->id)
-            @if ($confirming === $task->id)
-            <button type="button" class="btn btn-task btn-danger" wire:click="deleteTask" wire:loading.attr="disabled" wire:offline.attr="disabled">
-                Are you sure?
-                <span wire:target="deleteTask" wire:loading class="spinner-border spinner-border-mini ms-2" role="status"></span>
-            </button>
-            @else
-            <button type="button" class="btn btn-task btn-outline-danger" wire:click="confirmDelete" wire:loading.attr="disabled" wire:offline.attr="disabled">
-                {{ Emoji::wastebasket() }}
+            @if (Auth::user()->staffShip)
+            <button type="button" class="btn btn-task {{ $task->hidden ? 'btn-danger' : 'btn-outline-danger' }} text-white ms-1" wire:click="hide" wire:loading.attr="disabled" wire:offline.attr="disabled" wire:key="{{ $task->id }}" title="Flag to admins">
+                {{ Emoji::nauseatedFace() }}
             </button>
             @endif
-        @endif
-        @if (Auth::user()->staffShip)
-        <button type="button" class="btn btn-task {{ $task->hidden ? 'btn-danger' : 'btn-outline-danger' }} text-white ms-1" wire:click="hide" wire:loading.attr="disabled" wire:offline.attr="disabled" wire:key="{{ $task->id }}" title="Flag to admins">
-            {{ Emoji::nauseatedFace() }}
-        </button>
-        @endif
-        @endauth
+            @endauth
+        </div>
     </div>
     <div class="collapse mt-3 text-black-50" id="taskExpand-{{$task->id}}">
         <a class="text-black-50" href="{{ route('task', ['id' => $task->id]) }}">
