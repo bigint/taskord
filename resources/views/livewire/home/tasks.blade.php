@@ -14,7 +14,7 @@
     @endforeach
     @if ($tasks->hasMorePages())
         @livewire('home.load-more', [
-            'page' => $page,
+            'page' => $page
         ])
     @endif
     @if ($page === 1)

@@ -15,7 +15,7 @@
     @foreach ($tasks as $task)
     <li class="list-group-item p-3">
         @livewire('task.single-task', [
-            'task' => $task,
+            'task' => $task
         ], key($task->id))
     </li>
     @endforeach
