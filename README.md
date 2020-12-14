@@ -26,9 +26,6 @@
     <a href="https://gitpod.io/#https://gitlab.com/taskord/taskord" alt="Codacy">
         <img src="https://img.shields.io/badge/setup-automated-blue?logo=gitpod" alt="GitPod badge">
     </a>
-    <a href="https://depfu.com">
-        <img src="https://badges.depfu.com/badges/5ce5b5de9047cfe9e0040c076c331717/status.svg" alt="Depfu">
-    </a>
     <a href="LICENSE">
         <img src="https://img.shields.io/badge/license-GNU%20AGPLv3-green?longCache=true" alt="MIT License">
     </a>
