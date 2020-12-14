@@ -10,6 +10,7 @@ use Illuminate\Support\Str;
 use Intervention\Image\Facades\Image;
 use Livewire\Component;
 use Livewire\WithFileUploads;
+use Carbon\Carbon;
 
 class EditProduct extends Component
 {
@@ -91,6 +92,9 @@ class EditProduct extends Component
             }
 
             if (Auth::user()->staffShip or Auth::id() === $product->owner->id) {
+                if ($this->launched) {
+                    $product->launched_at = Carbon::now();
+                }
                 $product->name = $this->name;
                 $product->slug = $this->slug;
                 $product->description = $this->description;
