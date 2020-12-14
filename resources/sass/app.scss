@@ -442,19 +442,23 @@ input[type="date"]:valid:before {
     color: #DB4437;
     border-color: #DB4437;
   }
-  
+
   &.btn-twitter {
     color: #38a1f3;
     border-color: #38a1f3;
   }
-  
+
   &.btn-github {
     color: #24292e;
     border-color: #24292e;
   }
-  
+
   &.btn-gitlab {
     color: #FC6D27;
     border-color: #FC6D27;
   }
+}
+
+.cursor-pointer {
+  cursor: pointer;
 }

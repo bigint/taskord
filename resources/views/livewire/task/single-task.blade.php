@@ -27,7 +27,7 @@
                 <div class="small text-black-50 fw-normal">{{ "@" . $task->user->username }}</div>
             </a>
         </span>
-        <span class="align-text-top small float-end ms-auto text-black-50" type="button" data-bs-toggle="collapse" data-bs-target="#taskExpand-{{$task->id}}" aria-expanded="false">
+        <span class="align-text-top small float-end ms-auto text-black-50 cursor-pointer" data-bs-toggle="collapse" data-bs-target="#taskExpand-{{$task->id}}" aria-expanded="false">
             {{ !$task->done_at ? Carbon::parse($task->created_at)->diffForHumans() : Carbon::parse($task->done_at)->diffForHumans() }}
         </span>
     </div>
