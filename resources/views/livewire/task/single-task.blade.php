@@ -136,19 +136,19 @@
         @endif
         @endauth
         @guest
-            <a href="/login" class="btn btn-task btn-outline-success me-1">
-                {{ Emoji::clappingHands() }}
-                @if ($task->likerscount() !== 0)
-                <span class="small text-dark fw-bold">
-                    {{ number_format($task->likerscount()) }}
-                </span>
-                <span class="avatar-stack ms-1">
-                @foreach($task->likers->take(5) as $user)
-                <img class="praise-avatar rounded-circle {{ $loop->last ? 'me-0' : '' }}" src="{{ $user->avatar }}" alt="{{ $user->username }}" />
-                @endforeach
-                </span>
-                @endif
-            </a>
+        <a href="/login" class="btn btn-task btn-outline-success me-1">
+            {{ Emoji::clappingHands() }}
+            @if ($task->likerscount() !== 0)
+            <span class="small text-dark fw-bold">
+                {{ number_format($task->likerscount()) }}
+            </span>
+            <span class="avatar-stack ms-1">
+            @foreach($task->likers->take(5) as $user)
+            <img class="praise-avatar rounded-circle {{ $loop->last ? 'me-0' : '' }}" src="{{ $user->avatar }}" alt="{{ $user->username }}" />
+            @endforeach
+            </span>
+            @endif
+        </a>
         @endguest
         <a href="{{ route('task', ['id' => $task->id]) }}" class="btn btn-task btn-outline-primary me-1">
             {{ Emoji::speechBalloon() }}
