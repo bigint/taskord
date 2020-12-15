@@ -1,5 +1,6 @@
 <span>
     <div class="text-uppercase fw-bold text-black-50 pb-2">
+        <i class="fa fa-shield-alt text-danger me-1"></i>
         <span class="text-danger">Moderator</span>
     </div>
     <div class="card border-danger mb-4">

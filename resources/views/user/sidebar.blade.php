@@ -8,6 +8,7 @@
     @endauth
     @if ($user->sponsor)
     <div class="text-uppercase fw-bold text-black-50 pb-2">
+        <i class="fa fa-heart text-danger me-1"></i>
         Sponsor
     </div>
     <div class="mb-4">
@@ -19,6 +20,7 @@
     @endif
     @if ($user->website or $user->twitter or $user->twitch or $user->telegram or $user->github or $user->youtube)
     <div class="text-uppercase fw-bold text-black-50 pb-2">
+        <i class="fa fa-share-alt text-info me-1"></i>
         Social
     </div>
     <div class="card mb-4">
@@ -63,6 +65,7 @@
     </div>
     @endif
     <div class="text-uppercase fw-bold text-black-50 pb-2">
+        <i class="fa fa-box-open text-success me-1"></i>
         Products
     </div>
     <div class="card mb-4">
