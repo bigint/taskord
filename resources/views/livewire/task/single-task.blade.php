@@ -33,7 +33,7 @@
     </div>
     <div class="pt-3">
         @if ($task->hidden)
-        <span class="task-font fw-italic text-secondary">Task was hidden by moderator</span>
+        <span class="task-font fst-italic text-secondary">Task was hidden by moderator</span>
         @else
         @if ($task->source === 'GitLab')
         <span>

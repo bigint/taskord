@@ -37,7 +37,7 @@
     </div>
     <div class="card-body pt-1">
         @if ($question->hidden)
-        <span class="task-font fw-italic text-secondary">Question was hidden by moderator</span>
+        <span class="task-font fst-italic text-secondary">Question was hidden by moderator</span>
         @else
         <a href="{{ route('question.question', ['id' => $question->id]) }}" class="h5 align-text-top fw-bold text-dark">
             @if ($type !== "question.question")
