@@ -8,6 +8,8 @@
 <div class="container-md">
     <div class="row justify-content-center">
         <div class="col-lg-8">
+        <button class="trigger">Emoji</button>
+
             @guest
             <div class="p-5 rounded mb-4 text-white welcome-card">
                 <h1>Welcome to Taskord {{ Emoji::wavingHand() }}</h1>
