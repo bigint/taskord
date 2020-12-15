@@ -3,7 +3,7 @@
         <x-alert />
         @error('comment')
             <div class="alert alert-danger alert-dismissible fade show mt-2">
-                <button type="button" class="btn-close small" data-dismiss="alert"></button>
+                <button type="button" class="btn-close small" data-bs-dismiss="alert"></button>
                 <i class="fa fa-exclamation-triangle me-1"></i>
                 {{ $message }}
             </div>

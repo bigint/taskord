@@ -8,7 +8,7 @@
         <div class="card-body">
             @if (session()->has('profile'))
                 <div class="alert alert-success alert-dismissible fade show mb-3">
-                    <button type="button" class="btn-close small" data-dismiss="alert"></button>
+                    <button type="button" class="btn-close small" data-bs-dismiss="alert"></button>
                     {{ session('profile') }}
                 </div>
             @endif
@@ -104,7 +104,7 @@
         <div class="card-body">
             @if (session()->has('setGoal'))
                 <div class="alert alert-success alert-dismissible fade show mb-3">
-                    <button type="button" class="btn-close small" data-dismiss="alert"></button>
+                    <button type="button" class="btn-close small" data-bs-dismiss="alert"></button>
                     {{ session('setGoal') }}
                 </div>
             @endif
@@ -141,7 +141,7 @@
         <div class="card-body">
             @if (session()->has('showfollowing'))
                 <div class="alert alert-success alert-dismissible fade show mb-3">
-                    <button type="button" class="btn-close small" data-dismiss="alert"></button>
+                    <button type="button" class="btn-close small" data-bs-dismiss="alert"></button>
                     {{ session('showfollowing') }}
                 </div>
             @endif
@@ -159,7 +159,7 @@
         <div class="card-body">
             @if (session()->has('sponsor'))
                 <div class="alert alert-success alert-dismissible fade show mb-3">
-                    <button type="button" class="btn-close small" data-dismiss="alert"></button>
+                    <button type="button" class="btn-close small" data-bs-dismiss="alert"></button>
                     {{ session('sponsor') }}
                 </div>
             @endif
@@ -191,7 +191,7 @@
         <div class="card-body">
             @if (session()->has('social'))
                 <div class="alert alert-success alert-dismissible fade show mb-3">
-                    <button type="button" class="btn-close small" data-dismiss="alert"></button>
+                    <button type="button" class="btn-close small" data-bs-dismiss="alert"></button>
                     {{ session('social') }}
                 </div>
             @endif
