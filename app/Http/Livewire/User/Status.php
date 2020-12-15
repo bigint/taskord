@@ -2,13 +2,13 @@
 
 namespace App\Http\Livewire\User;
 
-use Livewire\Component;
 use Illuminate\Support\Facades\Auth;
+use Livewire\Component;
 
 class Status extends Component
 {
     public $listeners = [
-        'statusUpdated'  => 'render'
+        'statusUpdated'  => 'render',
     ];
 
     public $user;
@@ -30,12 +30,14 @@ class Status extends Component
                 Auth::user()->status_emoji = $event['status_emoji'];
                 Auth::user()->save();
                 $this->emit('statusUpdated');
+
                 return session()->flash('success', 'Status set successfully!');
             } else {
                 Auth::user()->status = null;
                 Auth::user()->status_emoji = null;
                 Auth::user()->save();
                 $this->emit('statusUpdated');
+
                 return session()->flash('success', 'Status cleared successfully!');
             }
         } else {
