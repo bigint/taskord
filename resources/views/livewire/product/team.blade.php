@@ -1,4 +1,4 @@
-<li class="list-group-item pt-2 pb-2">
+<div class="py-2 px-3">
     <a
         href="{{ route('user.done', ['username' => $user->username]) }}"
         id="user-hover"
@@ -26,4 +26,4 @@
         </button>
     @endif
     @endauth
-</li>
+</div>

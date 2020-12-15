@@ -29,10 +29,10 @@
     ])
     @endauth
     @if ($product->website or $product->twitter or $product->producthunt or $product->repo)
+    <div class="text-uppercase fw-bold text-black-50 pb-2">
+        Social
+    </div>
     <div class="card mb-4">
-        <div class="card-header">
-            Social
-        </div>
         <ul class="list-group list-group-flush">
             @if ($product->website)
             <a class="list-group-item link-dark" href="{{ $product->website }}" target="_blank">
@@ -68,32 +68,30 @@
     </div>
     @endif
     @if ($product->sponsor)
-    <div class="card mb-4">
-        <div class="card-header">
-            Sponsor
-        </div>
-        <div class="card-body">
-            <a class="btn w-100 btn-outline-primary" href="{{ $product->sponsor }}" target="_blank">
-                <img class="rounded sponsor-icon me-1" rel="preload" src="https://external-content.duckduckgo.com/ip3/{{ parse_url($product->sponsor)['host'] }}.ico" />
-                <span class="fw-bold">Sponsor {{ $product->name }}</span>
-            </a>
-        </div>
+    <div class="text-uppercase fw-bold text-black-50 pb-2">
+        Sponsor
+    </div>
+    <div class="mb-4">
+        <a class="btn w-100 btn-outline-primary" href="{{ $product->sponsor }}" target="_blank">
+            <img class="rounded sponsor-icon me-1" rel="preload" src="https://external-content.duckduckgo.com/ip3/{{ parse_url($product->sponsor)['host'] }}.ico" />
+            <span class="fw-bold">Sponsor {{ $product->name }}</span>
+        </a>
     </div>
     @endif
+    <div class="text-uppercase fw-bold text-black-50 pb-2">
+        Activity by month
+    </div>
     <div class="card mb-4">
-        <div class="card-header">
-            Activity by month
-        </div>
         <div class="card-body">
             <canvas id="myChart" height="40"></canvas>
         </div>
     </div>
+    <div class="text-uppercase fw-bold text-black-50 pb-2">
+        Team
+    </div>
     <div class="card mb-4">
-        <div class="card-header">
-            Team
-        </div>
-        <ul class="list-group list-group-flush">
-            <li class="list-group-item pt-2 pb-2">
+        <div class="pt-2 pb-2">
+            <div class="py-2 px-3">
                 <a
                     href="{{ route('user.done', ['username' => $product->owner->username]) }}"
                     id="user-hover"
@@ -113,14 +111,14 @@
                         {{ $product->owner->username }}
                     @endif
                 </a>
-            </li>
+            </div>
             @foreach ($product->members()->get() as $user)
             @livewire('product.team', [
                 'product' => $product,
                 'user' => $user
             ])
             @endforeach
-        </ul>
+        </div>
     </div>
     @if ($product->members->contains(Auth::id()))
     @livewire('product.leave', [
