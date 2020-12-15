@@ -269,13 +269,13 @@
                     <a class="fw-bold" href="{{ route('products.newest') }}">More Products...</a>
                 </div>
             </div>
+            <div class="text-uppercase fw-bold text-black-50 pb-2">
+                Top Reputations
+            </div>
             <div class="card mb-4">
-                <div class="card-header">
-                    🥇 Top Reputations
-                </div>
-                <ul class="list-group list-group-flush">
+                <div class="pt-2 pb-2">
                     @foreach ($reputations as $user)
-                    <li class="list-group-item pb-2 pt-2">
+                    <div class="py-2 px-3">
                         <span class="h6 text-black-50" style="vertical-align:sub">
                             @if ($loop->index === 0)
                             <span class="fw-bold" style="color:#38c172">
@@ -314,9 +314,9 @@
                         <span class="badge rounded-pill bg-warning text-dark align-middle reputation" title="{{ Emoji::fire() }} {{ number_format($user->getPoints()) }}">
                             {{ Emoji::fire() }} {{ $user->getPoints(true) }}
                         </span>
-                    </li>
+                    </div>
                     @endforeach
-                </ul>
+                </div>
             </div>
             <x-footer />
         </div>
