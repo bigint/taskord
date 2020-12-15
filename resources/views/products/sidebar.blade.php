@@ -1,10 +1,10 @@
+<div class="text-uppercase fw-bold text-black-50 pb-2">
+    Active Products
+</div>
 <div class="card mb-4">
-    <div class="card-header">
-        ✨ Active Products
-    </div>
-    <ul class="list-group list-group-flush">
+    <div class="pt-2 pb-2">
         @foreach ($products as $product)
-        <li class="list-group-item pb-2 pt-2">
+        <div class="py-2 px-3">
             <a href="{{ route('product.done', ['slug' => $product->slug]) }}">
                 <img class="rounded avatar-30 mt-1 ms-2" src="{{ $product->avatar }}" height="50" width="50" />
             </a>
@@ -44,7 +44,7 @@
                     <img class="rounded-circle avatar-30 me-0" src="{{ $product->owner->avatar }}" />
                 </a>
             </span>
-        </li>
+        </div>
         @endforeach
-    </ul>
+    </div>
 </div>
