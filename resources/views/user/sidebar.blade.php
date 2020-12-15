@@ -7,6 +7,7 @@
     @endif
     <div class="text-uppercase fw-bold text-black-50 pb-2">
         Staus
+        <x-beta background="light" />
     </div>
     @livewire('user.status', [
         'user' => $user
