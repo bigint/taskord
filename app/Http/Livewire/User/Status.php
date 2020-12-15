@@ -8,30 +8,28 @@ use Illuminate\Support\Facades\Auth;
 class Status extends Component
 {
     public $user;
-    public $status;
 
     public function mount($user)
     {
         $this->user = $user;
-        $this->status = $user->status;
     }
 
-    public function resetStatus()
+    public function submit($event)
     {
         if (Auth::check()) {
-            Auth::user()->status = null;
-            Auth::user()->status_emoji = null;
-            Auth::user()->save();
-        } else {
-            return session()->flash('error', 'Forbidden!');
-        }
-    }
+            if (strlen($event['status_emoji']) === 0) {
+                dd('select emoji');
+            }
 
-    public function setStatus()
-    {
-        if (Auth::check()) {
-            Auth::user()->status = $this->status;
-            Auth::user()->save();
+            if (strlen($event['status']) !== 0) {
+                Auth::user()->status = $event['status'];
+                Auth::user()->status_emoji = $event['status_emoji'];
+                Auth::user()->save();
+            } else {
+                Auth::user()->status = null;
+                Auth::user()->status_emoji = null;
+                Auth::user()->save();
+            }
         } else {
             return session()->flash('error', 'Forbidden!');
         }

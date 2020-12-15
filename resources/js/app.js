@@ -14,6 +14,7 @@ Turbolinks.start();
 
 picker.on('emoji', selection => {
   trigger.innerHTML = selection.emoji;
+  document.getElementById("emoji_input").value = selection.emoji;
 });
 
 trigger.addEventListener('click', () => picker.togglePicker(trigger));
