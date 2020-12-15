@@ -111,7 +111,7 @@
                 <span class="fw-normal">response total</span>
             </span>
             <span class="fw-bold me-3">
-                <a href="{{ route('admin.clean') }}" title="Clear Cache">
+                <a href="{{ route('admin.clean') }}" title="Clear Cache" data-turbolinks="false">
                     <i class="fa fa-trash-alt text-white"></i>
                 </a>
             </span>
