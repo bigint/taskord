@@ -35,6 +35,7 @@ class AppServiceProvider extends ServiceProvider
             $version = File::get('../VERSION');
             config(['app.version' => $version]);
         } else {
+            $version = '0.0.0';
             config(['app.version' => $version]);
         }
     }
