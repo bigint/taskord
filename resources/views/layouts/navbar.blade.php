@@ -105,12 +105,12 @@
                             <div class="dropdown-divider"></div>
                             <div class="px-2 text-dark">
                                 @if (Auth::user()->status)
-                                <button type="button" class="btn btn-outline-secondary btn-sm text-dark text-start w-100">
-                                    {{ Auth::user()->status_emoji }} {{ Str::limit(Auth::user()->status, 15) }}
-                                </button>
+                                <a href="{{ route('user.done', ['username' => Auth::user()->username]) }}" class="border border-2 d-flex px-2 py-1 rounded text-dark text-start">
+                                    {{ Auth::user()->status_emoji }} {{ Str::limit(Auth::user()->status, 10) }}
+                                </a>
                                 @else
-                                <a href="{{ route('user.done', ['username' => Auth::user()->username]) }}" class="btn btn-outline-secondary btn-sm text-dark text-start w-100">
-                                    Set Staus
+                                <a href="{{ route('user.done', ['username' => Auth::user()->username]) }}" class="border border-2 d-flex px-2 py-1 rounded text-dark text-start">
+                                    ✅ Set Staus
                                 </a>
                                 @endif
                             </div>
