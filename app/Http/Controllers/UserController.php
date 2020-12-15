@@ -137,6 +137,8 @@ class UserController extends Controller
     {
         if (Auth::check()) {
             $account = User::find(Auth::id());
+            $followings = $account->followings;
+            $followers = $account->followers;
             $tasks = Task::where('user_id', Auth::id())->get();
             $comment = Comment::where('user_id', Auth::id())->get();
             $products = Product::where('user_id', Auth::id())->get();
@@ -146,6 +148,8 @@ class UserController extends Controller
             $patron = Patron::where('user_id', Auth::id())->get();
             $data = collect([
                 'account' => $account,
+                'followings' => $followings,
+                'followers' => $followers,
                 'tasks' => $tasks,
                 'comments' => $comment,
                 'products' => $products,
