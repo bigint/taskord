@@ -104,7 +104,7 @@
         @endif
         <div class="pt-3">
             @auth
-            @if (!$task->user->isPrivate)
+            @if (!$task->user->isPrivate and !$task->hidden)
             @if (Auth::user()->hasLiked($task))
             <button type="button" class="btn btn-task btn-success text-white me-1" wire:click="togglePraise" wire:loading.attr="disabled" wire:offline.attr="disabled" wire:key="{{ $task->id }}">
                 {{ Emoji::clappingHands() }}
