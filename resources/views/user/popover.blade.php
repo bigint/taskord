@@ -1,6 +1,6 @@
 @if ($user->status)
 <div class="px-3 py-2 bg-success text-white tippy-status">
-    {{ $user->status }} {{ $user->status_emoji }}
+    {{ $user->status_emoji }} {{ $user->status }}
 </div>
 @endif
 <div class="d-flex p-3">
