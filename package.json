@@ -22,6 +22,7 @@
         "vue-template-compiler": "^2.6.12"
     },
     "dependencies": {
+        "@joeattardi/emoji-button": "^4.6.0",
         "bootstrap": "^5.0.0-alpha3",
         "hotkeys-js": "^3.8.1",
         "jquery": "^3.2",

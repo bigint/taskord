@@ -30,6 +30,8 @@ class UserController extends Controller
                 'bio',
                 'location',
                 'company',
+                'status',
+                'status_emoji',
                 'sponsor',
                 'website',
                 'twitter',
