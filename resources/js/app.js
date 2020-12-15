@@ -13,12 +13,10 @@ var Turbolinks = require("turbolinks");
 Turbolinks.start();
 
 picker.on('emoji', selection => {
-  // `selection` object has an `emoji` property
-  // containing the selected emoji
+  trigger.innerHTML = selection.emoji;
 });
 
 trigger.addEventListener('click', () => picker.togglePicker(trigger));
-
 
 document.addEventListener("livewire:load", () => {
   window.lightbox = lightbox;

@@ -5,6 +5,15 @@
             'user' => $user
         ])
     @endif
+    <div class="text-uppercase fw-bold text-black-50 pb-2">
+        Staus
+    </div>
+    <div class="card mb-4">
+        <div class="card-body input-group">
+            <button class="btn btn-outline-secondary trigger" type="button">🍑</button>
+            <input type="text" class="form-control" placeholder="What's happening?">
+        </div>
+    </div>
     @endauth
     @if ($user->sponsor)
     <div class="text-uppercase fw-bold text-black-50 pb-2">

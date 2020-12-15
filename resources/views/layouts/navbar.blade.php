@@ -104,7 +104,7 @@
                             </a>
                             <div class="dropdown-divider"></div>
                             <div class="dropdown-item text-dark">
-                                <button class="btn btn-outline-secondary btn-sm text-dark text-start w-100">
+                                <button type="button" class="btn btn-outline-secondary btn-sm text-dark text-start w-100">
                                     🍑 Status
                                 </button>
                             </div>
