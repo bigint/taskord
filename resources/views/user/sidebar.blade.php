@@ -5,6 +5,7 @@
             'user' => $user
         ])
     @endif
+    @if (Auth::id() === $user->id)
     <div class="text-uppercase fw-bold text-black-50 pb-2">
         Staus
         <x-beta background="light" />
@@ -12,6 +13,7 @@
     @livewire('user.status', [
         'user' => $user
     ])
+    @endif
     @endauth
     @if ($user->sponsor)
     <div class="text-uppercase fw-bold text-black-50 pb-2">
