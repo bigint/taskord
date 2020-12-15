@@ -7,23 +7,21 @@
     @endif
     @endauth
     @if ($user->sponsor)
-    <div class="card mb-4">
-        <div class="card-header">
-            Sponsor
-        </div>
-        <div class="card-body">
-            <a class="btn w-100 btn-outline-primary" href="{{ $user->sponsor }}" target="_blank">
-                <img class="rounded sponsor-icon me-1" rel="preload" src="https://external-content.duckduckgo.com/ip3/{{ parse_url($user->sponsor)['host'] }}.ico" />
-                <span class="fw-bold">Sponsor {{ '@'.$user->username }}</span>
-            </a>
-        </div>
+    <div class="text-uppercase fw-bold text-black-50 pb-2">
+        Sponsor
+    </div>
+    <div class="mb-4">
+        <a class="btn w-100 btn-outline-primary" href="{{ $user->sponsor }}" target="_blank">
+            <img class="rounded sponsor-icon me-1" rel="preload" src="https://external-content.duckduckgo.com/ip3/{{ parse_url($user->sponsor)['host'] }}.ico" />
+            <span class="fw-bold">Sponsor {{ '@'.$user->username }}</span>
+        </a>
     </div>
     @endif
     @if ($user->website or $user->twitter or $user->twitch or $user->telegram or $user->github or $user->youtube)
+    <div class="text-uppercase fw-bold text-black-50 pb-2">
+        Social
+    </div>
     <div class="card mb-4">
-        <div class="card-header">
-            Social
-        </div>
         <ul class="list-group list-group-flush">
             @if ($user->website)
             <a class="list-group-item link-dark" href="{{ $user->website }}" target="_blank">
@@ -64,22 +62,22 @@
         </ul>
     </div>
     @endif
+    <div class="text-uppercase fw-bold text-black-50 pb-2">
+        Products
+    </div>
     <div class="card mb-4">
-        <div class="card-header">
-            Products
-        </div>
-        <ul class="list-group list-group-flush">
+        <div class="pt-2 pb-2">
             @if (count($user->ownedProducts->merge($user->products)) === 0)
             <x-empty icon="box-open" text="No products made!" />
             @endif
             @foreach ($user->ownedProducts->merge($user->products)->take(5) as $product)
-            <li class="list-group-item">
+            <div class="py-2 px-3">
                 <a
                     href="{{ route('product.done', ['slug' => $product->slug]) }}"
                     id="product-hover"
                     data-id="{{ $product->id }}"
                 >
-                    <img class="rounded avatar-30 mt-1 ms-2" src="{{ $product->avatar }}" height="50" width="50" />
+                    <img class="rounded avatar-30 ms-2" src="{{ $product->avatar }}" height="50" width="50" />
                 </a>
                 <a
                     href="{{ route('product.done', ['slug' => $product->slug]) }}"
@@ -89,9 +87,9 @@
                 >
                     {{ $product->name }}
                 </a>
-            </li>
+            </div>
             @endforeach
-        </ul>
+        </div>
         @if (count($user->ownedProducts->merge($user->products)) > 5)
         <div class="card-footer">
             <a class="fw-bold" href="{{ route('user.products', ['username' => $user->username]) }}">

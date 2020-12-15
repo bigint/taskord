@@ -1,7 +1,7 @@
-<div class="card border-warning mb-4">
-    <div class="card-header fw-bold">
-        Moderator
-    </div>
+<div class="text-uppercase fw-bold text-black-50 pb-2">
+    <span class="text-danger">Moderator</span>
+</div>
+<div class="card border-danger mb-4">
     <div class="card-body">
         <div class="mb-1">
             <i class="fa fa-clock text-black-50 me-1"></i>
