@@ -1,4 +1,4 @@
-<div class="d-flex p-2">
+<div class="d-flex p-3">
     <img class="avatar-50 rounded me-3" src="{{ $product->avatar }}" />
     <div>
         <div class="fw-bold text-dark">

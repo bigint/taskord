@@ -1,3 +1,8 @@
+@if ($user->status)
+<div class="px-3 py-2 bg-success text-white tippy-status">
+    {{ $user->status }} {{ $user->status_emoji }}
+</div>
+@endif
 <div class="d-flex p-3">
     <div>
         <img class="avatar-50 rounded-circle" src="{{ $user->avatar }}" />

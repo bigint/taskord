@@ -462,3 +462,11 @@ input[type="date"]:valid:before {
 .cursor-pointer {
   cursor: pointer;
 }
+
+.tippy-content {
+  padding: 0 !important;
+}
+
+.tippy-status {
+  border-radius: 5px 5px 0 0;
+}
