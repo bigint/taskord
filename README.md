@@ -91,10 +91,10 @@ Start coding in a [ready-to-code development environment](https://www.gitpod.io)
     composer install
 
     # Install NPM Dependencies
-    npm install
+    npm install / yarn install
 
     # Build and watch assets for development
-    npm run watch
+    npm run watch / yarn watch
 
     # Generate Application Key
     php artisan key:generate

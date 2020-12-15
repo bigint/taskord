@@ -2,6 +2,6 @@
 
 git pull origin main
 composer install
-npm install
-npm run prod
+yarn install
+yarn prod
 php artisan app:clean
