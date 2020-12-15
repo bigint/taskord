@@ -103,10 +103,16 @@
                                 </div>
                             </a>
                             <div class="dropdown-divider"></div>
-                            <div class="dropdown-item text-dark">
+                            <div class="px-2 text-dark">
+                                @if (Auth::user()->status)
                                 <button type="button" class="btn btn-outline-secondary btn-sm text-dark text-start w-100">
-                                    🍑 Status
+                                    {{ Auth::user()->status_emoji }} {{ Str::limit(Auth::user()->status, 15) }}
                                 </button>
+                                @else
+                                <a href="{{ route('user.done', ['username' => Auth::user()->username]) }}" class="btn btn-outline-secondary btn-sm text-dark text-start w-100">
+                                    Set Staus
+                                </a>
+                                @endif
                             </div>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item text-dark" href="{{ route('user.done', ['username' => Auth::user()->username]) }}">
