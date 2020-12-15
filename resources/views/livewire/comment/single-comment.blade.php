@@ -34,7 +34,7 @@
         </a>
     </div>
     @if ($comment->hidden)
-    <span class="body-font font-italic text-secondary">Comment was hidden by moderator</span>
+    <span class="body-font fw-italic text-secondary">Comment was hidden by moderator</span>
     @else
     <span class="body-font">
         {!! nl2br(Purify::clean(Helper::renderTask($comment->comment))) !!}

@@ -37,7 +37,7 @@
     </div>
     <div class="card-body pt-1">
         @if ($answer->hidden)
-        <span class="body-font font-italic text-secondary">Answer was hidden by moderator</span>
+        <span class="body-font fw-italic text-secondary">Answer was hidden by moderator</span>
         @else
         <div class="body-font">
             {!! nl2br(Purify::clean(Helper::renderTask($answer->answer))) !!}
