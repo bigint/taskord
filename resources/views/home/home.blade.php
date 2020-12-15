@@ -173,98 +173,98 @@
                     </div>
                 </div>
             @endauth
+            <div class="text-uppercase fw-bold text-black-50 pb-2">
+                Recently Joined
+            </div>
             <div class="card mb-4">
-                <div class="card-header">
-                    🙌 Recently Joined
-                </div>
-                <ul class="list-group list-group-flush">
-                    @foreach ($recently_joined as $user)
-                    <li class="d-flex list-group-item align-items-center">
-                        <a href="{{ route('user.done', ['username' => $user->username]) }}">
-                            <img class="rounded-circle avatar-40 mt-1" src="{{ $user->avatar }}" alt="{{ $user->username }}" />
-                        </a>
-                        <span class="ms-3">
-                            <a href="{{ route('user.done', ['username' => $user->username]) }}" class="align-text-top text-dark">
-                                <span class="fw-bold">
-                                    @if ($user->firstname or $user->lastname)
-                                        {{ $user->firstname }}{{ ' '.$user->lastname }}
-                                    @else
-                                        {{ $user->username }}
-                                    @endif
-                                    @if ($user->isVerified)
-                                        <i class="verified fa fa-check-circle ms-1 text-primary"></i>
-                                    @endif
+                <div class="pt-2 pb-2">
+                @foreach ($recently_joined as $user)
+                <div class="d-flex align-items-center py-1 px-3">
+                    <a href="{{ route('user.done', ['username' => $user->username]) }}">
+                        <img class="rounded-circle avatar-40 mt-1" src="{{ $user->avatar }}" alt="{{ $user->username }}" />
+                    </a>
+                    <span class="ms-3">
+                        <a href="{{ route('user.done', ['username' => $user->username]) }}" class="align-text-top text-dark">
+                            <span class="fw-bold">
+                                @if ($user->firstname or $user->lastname)
+                                    {{ $user->firstname }}{{ ' '.$user->lastname }}
+                                @else
+                                    {{ $user->username }}
+                                @endif
+                                @if ($user->isVerified)
+                                    <i class="verified fa fa-check-circle ms-1 text-primary"></i>
+                                @endif
+                            </span>
+                            <div>
+                                @if ($user->bio)
+                                <span class="small">
+                                    {{ $user->bio }}
                                 </span>
-                                <div>
-                                    @if ($user->bio)
-                                    <span class="small">
-                                        {{ $user->bio }}
-                                    </span>
-                                    @else
-                                    <span class="small text-black-50">
-                                        Joined {{ Carbon::parse($user->created_at)->diffForHumans() }}
-                                    </span>
-                                    @endif
-                                </div>
-                            </a>
-                        </span>
-                    </li>
-                    @endforeach
-                </ul>
+                                @else
+                                <span class="small text-black-50">
+                                    Joined {{ Carbon::parse($user->created_at)->diffForHumans() }}
+                                </span>
+                                @endif
+                            </div>
+                        </a>
+                    </span>
+                </div>
+                @endforeach
+                </div>
                 @if ($recently_joined_count > 5)
                 <div class="card-footer">
                     <span class="fw-bold">{{ $recently_joined_count - 5 }} more...</span>
                 </div>
                 @endif
             </div>
+            <div class="text-uppercase fw-bold text-black-50 pb-2">
+                Recently Launched
+            </div>
             <div class="card mb-4">
-                <div class="card-header">
-                    ✨ Recently Launched
+                <div class="pt-2 pb-2">
+                @foreach ($products as $product)
+                <div class="py-2 px-3">
+                    <a
+                        href="{{ route('product.done', ['slug' => $product->slug]) }}"
+                        id="product-hover"
+                        data-id="{{ $product->id }}"
+                    >
+                        <img class="rounded avatar-30" src="{{ $product->avatar }}" alt="{{ $product->slug }}" height="50" width="50" />
+                    </a>
+                    <a
+                        href="{{ route('product.done', ['slug' => $product->slug]) }}"
+                        class="ms-2 me-2 align-text-top fw-bold text-dark"
+                        id="product-hover"
+                        data-id="{{ $product->id }}"
+                    >
+                        {{ $product->name }}
+                        @if ($product->launched)
+                            <a href="{{ route('products.launched') }}" class="small" data-bs-toggle="tooltip" data-placement="right" title="Launched">
+                                {{ Emoji::rocket() }}
+                            </a>
+                        @endif
+                    </a>
+                    <span class="float-end">
+                        @foreach ($product->members()->limit(1)->get() as $user)
+                        <a
+                            href="{{ route('user.done', ['username' => $user->username]) }}"
+                            id="user-hover"
+                            data-id="{{ $user->id }}"
+                        >
+                            <img class="rounded-circle avatar-30 mt-1 me-1" src="{{ $user->avatar }}" />
+                        </a>
+                        @endforeach
+                        <a
+                            href="{{ route('user.done', ['username' => $product->owner->username]) }}"
+                            id="user-hover"
+                            data-id="{{ $product->owner->id }}"
+                        >
+                            <img class="rounded-circle avatar-30 mt-1 me-0" src="{{ $product->owner->avatar }}" />
+                        </a>
+                    </span>
                 </div>
-                <ul class="list-group list-group-flush">
-                    @foreach ($products as $product)
-                    <li class="list-group-item pb-2 pt-2">
-                        <a
-                            href="{{ route('product.done', ['slug' => $product->slug]) }}"
-                            id="product-hover"
-                            data-id="{{ $product->id }}"
-                        >
-                            <img class="rounded avatar-30 mt-1 ms-2" src="{{ $product->avatar }}" alt="{{ $product->slug }}" height="50" width="50" />
-                        </a>
-                        <a
-                            href="{{ route('product.done', ['slug' => $product->slug]) }}"
-                            class="ms-2 me-2 align-text-top fw-bold text-dark"
-                            id="product-hover"
-                            data-id="{{ $product->id }}"
-                        >
-                            {{ $product->name }}
-                            @if ($product->launched)
-                                <a href="{{ route('products.launched') }}" class="small" data-bs-toggle="tooltip" data-placement="right" title="Launched">
-                                    {{ Emoji::rocket() }}
-                                </a>
-                            @endif
-                        </a>
-                        <span class="float-end">
-                            @foreach ($product->members()->limit(1)->get() as $user)
-                            <a
-                                href="{{ route('user.done', ['username' => $user->username]) }}"
-                                id="user-hover"
-                                data-id="{{ $user->id }}"
-                            >
-                                <img class="rounded-circle avatar-30 mt-1 me-1" src="{{ $user->avatar }}" />
-                            </a>
-                            @endforeach
-                            <a
-                                href="{{ route('user.done', ['username' => $product->owner->username]) }}"
-                                id="user-hover"
-                                data-id="{{ $product->owner->id }}"
-                            >
-                                <img class="rounded-circle avatar-30 mt-1 me-0" src="{{ $product->owner->avatar }}" />
-                            </a>
-                        </span>
-                    </li>
-                    @endforeach
-                </ul>
+                @endforeach
+                </div>
                 <div class="card-footer">
                     <a class="fw-bold" href="{{ route('products.newest') }}">More Products...</a>
                 </div>
