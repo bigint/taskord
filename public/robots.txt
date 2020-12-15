@@ -14,7 +14,9 @@ Disallow: /notifications
 Disallow: /webhook
 Disallow: /suspended
 
+Sitemap: https://taskord.com/sitemap_urls.txt
 Sitemap: https://taskord.com/sitemap_users.txt
 Sitemap: https://taskord.com/sitemap_products.txt
-Sitemap: https://taskord.com/sitemap_question.txt
+Sitemap: https://taskord.com/sitemap_questions.txt
 Sitemap: https://taskord.com/sitemap_tasks.txt
+Sitemap: https://taskord.com/sitemap_comments.txt
