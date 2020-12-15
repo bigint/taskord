@@ -1,11 +1,11 @@
+<div class="text-uppercase fw-bold text-black-50 pb-2">
+    <i class="fa fa-fire text-danger me-1"></i>
+    Trending
+</div>
 <div class="card mb-4">
-    <div class="card-header">
-        <i class="fa fa-fire text-danger me-1"></i>
-        Trending
-    </div>
-    <ul class="list-group list-group-flush">
+    <div class="pt-2 pb-2">
         @foreach ($trending as $question)
-        <li class="d-flex list-group-item align-items-center justify-content-between">
+        <div class="d-flex align-items-center justify-content-between py-2 px-3">
             <div>
                 <a href="{{ route('question.question', ['id' => $question->id]) }}" class="align-text-top text-dark">
                     <span class="fw-bold">
@@ -25,7 +25,7 @@
             >
                 <img class="rounded-circle avatar-30 ms-3 float-end" src="{{ $question->user->avatar }}" />
             </a>
-        </li>
+        </div>
         @endforeach
-    </ul>
+    </div>
 </div>
