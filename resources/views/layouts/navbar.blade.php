@@ -160,6 +160,10 @@
                             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                 @csrf
                             </form>
+                            <div class="dropdown-divider"></div>
+                            <div class="dropdown-header text-dark-50 fw-bold">
+                                v{{ config('app.version') }} • <a href="/" target="_blank">Changelog</a>
+                            </div>
                         </div>
                     </li>
                 @endguest
