@@ -111,7 +111,7 @@
                 <span class="fw-normal">response total</span>
             </span>
             <span class="fw-bold me-3">
-                <a href="{{ route('admin.clean') }}" title="Clear Cache" data-turbolinks="false">
+                <a class="cursor-pointer" data-bs-toggle="modal" data-bs-target="#cleanModal" title="Clear Cache">
                     <i class="fa fa-trash-alt text-white"></i>
                 </a>
             </span>
@@ -126,5 +126,30 @@
                 </a>
             </span>
         </span>
+    </div>
+</div>
+
+<div class="modal fade" data-bs-backdrop="static" id="cleanModal" tabindex="-1" aria-labelledby="cleanModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="cleanModalLabel">Are you sure?</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="fw-bold mb-2">This will do following actions</div>
+                <ul class="mb-0">
+                    <li>Clean <b>Application Cache</b></li>
+                    <li>Clean Cached <b>Application Views</b></li>
+                    <li>Clean Cached <b>Configuration</b></li>
+                    <li>Purge <b>Cloudflare Cache</b></li>
+                    <li>Cache the <b>Configuration</b></li>
+                </ul>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <a href="{{ route('admin.clean') }}" class="btn btn-primary" data-turbolinks="false">Clean Cache</a>
+            </div>
+        </div>
     </div>
 </div>
