@@ -30,7 +30,6 @@
     @endauth
     @if ($product->website or $product->twitter or $product->producthunt or $product->repo)
     <div class="text-uppercase fw-bold text-black-50 pb-2">
-        <i class="fa fa-share-alt text-info me-1"></i>
         Social
     </div>
     <div class="card mb-4">
@@ -81,7 +80,6 @@
     </div>
     @endif
     <div class="text-uppercase fw-bold text-black-50 pb-2">
-        <i class="fa fa-chart-line text-success me-1"></i>
         Activity by month
     </div>
     <div class="card mb-4">
@@ -90,7 +88,6 @@
         </div>
     </div>
     <div class="text-uppercase fw-bold text-black-50 pb-2">
-        <i class="fa fa-users text-danger me-1"></i>
         Team
     </div>
     <div class="card mb-4">

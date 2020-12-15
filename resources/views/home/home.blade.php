@@ -174,7 +174,6 @@
                 </div>
             @endauth
             <div class="text-uppercase fw-bold text-black-50 pb-2">
-                <i class="fa fa-hand-sparkles text-success me-1"></i>
                 Recently Joined
             </div>
             <div class="card mb-4">
@@ -219,7 +218,6 @@
                 @endif
             </div>
             <div class="text-uppercase fw-bold text-black-50 pb-2">
-                <i class="fa fa-rocket text-info me-1"></i>
                 Recently Launched
             </div>
             <div class="card mb-4">
@@ -272,7 +270,6 @@
                 </div>
             </div>
             <div class="text-uppercase fw-bold text-black-50 pb-2">
-                <i class="fa fa-fire text-danger me-1"></i>
                 Top Reputations
             </div>
             <div class="card mb-4">
