@@ -29,6 +29,7 @@ Test:
     - sudo composer install
     - cp .env.ci .env
     - php artisan key:generate
+    - sudo npm i -g yarn
     - sudo yarn install
     - yarn production
     - php artisan horizon:install
