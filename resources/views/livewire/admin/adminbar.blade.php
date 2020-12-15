@@ -7,9 +7,9 @@
                 {{ $branchname }}
             </a>
             <a class="text-white fw-bold ms-3"
-                href="https://gitlab.com/taskord/taskord/-/releases/v{{ $version }}" target="_blank">
+                href="https://gitlab.com/taskord/taskord/-/releases/v{{ config('app.version') }}" target="_blank">
                 <i class="fa fa-cube me-1"></i>
-                v{{ $version }}
+                v{{ config('app.version') }}
             </a>
             <a class="text-white fw-bold ms-3"
                 href="https://github.com/laravel/framework/releases/tag/v{{ App::VERSION() }}" target="_blank">

@@ -34,11 +34,6 @@ class Adminbar extends Component
         } else {
             $branchname = 'master';
         }
-        if (file_exists('../VERSION')) {
-            $version = File::get('../VERSION');
-        } else {
-            $version = '0.0.0';
-        }
 
         // DB Details
         $tasks = Task::count('id');
@@ -54,7 +49,6 @@ class Adminbar extends Component
         $jobs = Queue::size();
 
         return view('livewire.admin.adminbar', [
-            'version' => $version,
             'branchname' => $branchname,
             'tasks' => number_format($tasks),
             'users' => number_format($users),

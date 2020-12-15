@@ -5,6 +5,7 @@ namespace App\Providers;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\URL;
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Facades\File;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -29,5 +30,12 @@ class AppServiceProvider extends ServiceProvider
             URL::forceScheme('https');
         }
         Paginator::useBootstrap();
+
+        if (file_exists('../VERSION')) {
+            $version = File::get('../VERSION');
+            config(['app.version' => $version]);
+        } else {
+            config(['app.version' => $version]);
+        }
     }
 }
