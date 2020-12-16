@@ -37,23 +37,23 @@
                                 </td>
                                 <td>
                                     @if($activity->causer_id)
-                                    @php
-                                    $user = App\Models\User::find($activity->causer_id);
-                                    @endphp
-                                    @if ($user)
-                                    <img class="avatar-20 mb-1 me-1 rounded-circle" src="{{ $user->avatar }}" />
-                                    <a
-                                        id="user-hover"
-                                        data-id="{{ $user->id }}"
-                                        href="{{ route('user.done', ['username' => $user->username]) }}"
-                                    >
-                                        {{ '@' . $user->username }}
-                                    </a>
+                                        @php
+                                        $user = App\Models\User::find($activity->causer_id);
+                                        @endphp
+                                        @if ($user)
+                                        <img class="avatar-20 mb-1 me-1 rounded-circle" src="{{ $user->avatar }}" />
+                                        <a
+                                            id="user-hover"
+                                            data-id="{{ $user->id }}"
+                                            href="{{ route('user.done', ['username' => $user->username]) }}"
+                                        >
+                                            {{ '@' . $user->username }}
+                                        </a>
+                                        @else
+                                        <span class="text-danger">Deleted User</span>
+                                        @endif
                                     @else
                                     <span class="text-info">Anonymous</span>
-                                    @endif
-                                    @else
-                                    <span class="text-danger">Deleted User</span>
                                     @endif
                                 </td>
                                 <td>
