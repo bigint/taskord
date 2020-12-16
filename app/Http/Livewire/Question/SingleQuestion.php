@@ -43,6 +43,9 @@ class SingleQuestion extends Component
                 return session()->flash('error', 'You can\'t praise your own question!');
             }
             Helper::togglePraise($this->question, 'QUESTION');
+            activity()
+                ->withProperties(['type' => 'Question'])
+                ->log('Question praise was toggled Q: ' . $this->question->id);
         } else {
             return session()->flash('error', 'Forbidden!');
         }
@@ -53,6 +56,9 @@ class SingleQuestion extends Component
         if (Auth::check()) {
             if (Auth::user()->isStaff and Auth::user()->staffShip) {
                 Helper::hide($this->question);
+                activity()
+                    ->withProperties(['type' => 'Admin'])
+                    ->log('Question hide was toggled Q: ' . $this->question->id);
             } else {
                 return session()->flash('error', 'Forbidden!');
             }
@@ -74,6 +80,9 @@ class SingleQuestion extends Component
             }
 
             if (Auth::user()->staffShip or Auth::id() === $this->question->user_id) {
+                activity()
+                    ->withProperties(['type' => 'Question'])
+                    ->log('Question was deleted Q: ' . $this->question->id);
                 $this->question->delete();
                 Auth::user()->touch();
                 session()->flash('question_deleted', 'Question has been deleted!');
