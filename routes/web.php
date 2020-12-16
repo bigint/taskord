@@ -192,8 +192,8 @@ Route::group(['prefix' => 'mention', 'middleware' => ['auth']], function () {
     Route::get('products', [ProductController::class, 'mention']);
 });
 
-// Hovercard
-Route::group(['prefix' => 'hovercard'], function () {
-    Route::get('user/{id}', [UserController::class, 'hovercard']);
-    Route::get('product/{id}', [ProductController::class, 'hovercard']);
+// Popover
+Route::group(['prefix' => 'popover'], function () {
+    Route::get('user/{id}', [UserController::class, 'popover']);
+    Route::get('product/{id}', [ProductController::class, 'popover']);
 });

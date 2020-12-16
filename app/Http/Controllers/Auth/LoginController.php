@@ -92,11 +92,15 @@ class LoginController extends Controller
                     "🔒 User logged in to Taskord\n\n`".$request->ip().'`'
                 )
             );
-            activity()->log('User logged in via Taskord auth');
+            activity()
+                ->withProperties(['type' => 'Auth'])
+                ->log('User logged in via Taskord auth');
 
             return redirect()->route('home');
         } else {
-            activity()->log('User login failed');
+            activity()
+                ->withProperties(['type' => 'Auth'])
+                ->log('User login failed');
             $request->session()->flash('error', 'Invalid login credentials');
 
             return redirect()->back();

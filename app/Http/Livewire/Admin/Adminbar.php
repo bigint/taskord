@@ -22,7 +22,10 @@ class Adminbar extends Component
 
     public function refreshStats()
     {
-        activity()->log('Adminbar Status Refreshed');
+        activity()
+            ->withProperties(['type' => 'Admin'])
+            ->log('Adminbar Status Refreshed');
+
         $this->emitSelf('refreshStats');
     }
 

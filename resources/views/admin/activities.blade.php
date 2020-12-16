@@ -52,6 +52,9 @@
                                         @if ($activity->getExtraProperty('type') === 'Admin')
                                             🛡 Admin
                                         @endif
+                                        @if ($activity->getExtraProperty('type') === 'Auth')
+                                            🚪 Auth
+                                        @endif
                                     @else
                                         🌐 Others
                                     @endif

@@ -19,7 +19,7 @@ document.addEventListener("livewire:load", () => {
     ...config,
     onShow(instance) {
       const id = instance.reference.getAttribute('data-id');
-      window.fetch(`/hovercard/user/${id}`)
+      window.fetch(`/popover/user/${id}`)
         .then((response) => response.text())
         .then((blob) => {
           instance.setContent(blob);
@@ -40,7 +40,7 @@ document.addEventListener("livewire:load", () => {
     ...config,
     onShow(instance) {
       const id = instance.reference.getAttribute('data-id');
-      window.fetch(`/hovercard/product/${id}`)
+      window.fetch(`/popover/product/${id}`)
         .then((response) => response.text())
         .then((blob) => {
           instance.setContent(blob);

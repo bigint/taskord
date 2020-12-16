@@ -14,9 +14,6 @@ class AdminController extends Controller
     {
         $users = User::latest('last_active')->paginate(50);
         $count = User::all()->count('id');
-        activity()
-            ->withProperties(['type' => 'Admin'])
-            ->log('Opened /admin/users');
 
         return view('admin.users', [
             'users' => $users,
@@ -28,9 +25,6 @@ class AdminController extends Controller
     {
         $tasks = Task::latest()->paginate(50);
         $count = Task::all()->count('id');
-        activity()
-            ->withProperties(['type' => 'Admin'])
-            ->log('Opened /admin/tasks');
 
         return view('admin.tasks', [
             'tasks' => $tasks,
@@ -42,9 +36,6 @@ class AdminController extends Controller
     {
         $activities = Activity::latest()->paginate('50');
         $count = Activity::all()->count('id');
-        activity()
-            ->withProperties(['type' => 'Admin'])
-            ->log('Opened /admin/activities');
 
         return view('admin.activities', [
             'activities' => $activities,
