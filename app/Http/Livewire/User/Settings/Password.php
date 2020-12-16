@@ -53,6 +53,9 @@ class Password extends Component
 
                 $user->password = Hash::make($this->newPassword);
                 $user->save();
+                activity()
+                    ->withProperties(['type' => 'User'])
+                    ->log('Account password was changed');
 
                 return session()->flash('success', 'Your password has been changed!');
             } else {

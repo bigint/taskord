@@ -102,6 +102,9 @@ class Profile extends Component
                     $this->user->location = $this->location;
                     $this->user->company = $this->company;
                     $this->user->save();
+                    activity()
+                        ->withProperties(['type' => 'User'])
+                        ->log('Profile settings was updated');
 
                     return session()->flash('profile', 'Your profile has been updated!');
                 }

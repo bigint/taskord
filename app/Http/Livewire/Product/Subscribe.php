@@ -45,6 +45,9 @@ class Subscribe extends Component
                 if (Auth::user()->hasSubscribed($this->product)) {
                     $this->product->owner->notify(new Subscribed($this->product, Auth::id()));
                 }
+                activity()
+                    ->withProperties(['type' => 'Product'])
+                    ->log('Product subscribe was toggled P: #'.$this->product->slug);
             }
         } else {
             return session()->flash('error', 'Forbidden!');

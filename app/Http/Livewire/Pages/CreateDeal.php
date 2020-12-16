@@ -29,7 +29,7 @@ class CreateDeal extends Component
                 'logo' => 'required|active_url',
             ]);
             if (Auth::user()->isStaff) {
-                Deal::create([
+                $deal = Deal::create([
                     'name' =>  $this->name,
                     'description' => $this->description,
                     'offer' => $this->offer,
@@ -40,6 +40,9 @@ class CreateDeal extends Component
                 ]);
                 Auth::user()->touch();
                 session()->flash('success', 'Deal has been created!');
+                activity()
+                    ->withProperties(['type' => 'Admin'])
+                    ->log('New deal has been created D: '.$deal->id);
 
                 return redirect()->route('deals');
             } else {

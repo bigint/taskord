@@ -41,6 +41,9 @@ class SingleComment extends Component
                 return session()->flash('error', 'You can\'t praise your own comment!');
             }
             Helper::togglePraise($this->comment, 'COMMENT');
+            activity()
+                ->withProperties(['type' => 'Comment'])
+                ->log('Comment praise was toggled C: '.$this->comment->id);
         } else {
             return session()->flash('error', 'Forbidden!');
         }
@@ -51,6 +54,9 @@ class SingleComment extends Component
         if (Auth::check()) {
             if (Auth::user()->isStaff and Auth::user()->staffShip) {
                 Helper::hide($this->comment);
+                activity()
+                    ->withProperties(['type' => 'Admin'])
+                    ->log('Comment hide was toggled C: '.$this->comment->id);
             } else {
                 return session()->flash('error', 'Forbidden!');
             }
@@ -71,6 +77,9 @@ class SingleComment extends Component
                 return session()->flash('error', 'Your account is flagged!');
             }
             if (Auth::user()->staffShip or Auth::id() === $this->comment->user->id) {
+                activity()
+                    ->withProperties(['type' => 'Comment'])
+                    ->log('Comment was deleted C: '.$this->comment->id);
                 $this->comment->delete();
                 $this->emit('commentDeleted');
                 Auth::user()->touch();

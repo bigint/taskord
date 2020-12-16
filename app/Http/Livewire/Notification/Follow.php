@@ -41,6 +41,9 @@ class Follow extends Component
                 if (Auth::user()->isFollowing($this->user)) {
                     $this->user->notify(new Followed(Auth::user()));
                 }
+                activity()
+                    ->withProperties(['type' => 'Notification'])
+                    ->log('User toggle follow from notification U: @'.$this->user->username);
             }
         } else {
             return session()->flash('error', 'Forbidden!');

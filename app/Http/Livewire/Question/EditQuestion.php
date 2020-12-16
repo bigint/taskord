@@ -61,6 +61,9 @@ class EditQuestion extends Component
                 Auth::user()->touch();
 
                 session()->flash('question_edited', 'Question has been edited!');
+                activity()
+                    ->withProperties(['type' => 'Question'])
+                    ->log('Question has been edited Q: '.$question->id);
 
                 return redirect()->route('question.question', ['id' => $question->id]);
             } else {

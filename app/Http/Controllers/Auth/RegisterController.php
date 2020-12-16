@@ -88,6 +88,9 @@ class RegisterController extends Controller
                 '🎉 New user signed up to Taskord'
             )
         );
+        activity()
+            ->withProperties(['type' => 'Auth'])
+            ->log('New user has been signed up - @'.$data['username']);
         $user->notify(new Welcome(true));
 
         return $user;

@@ -38,6 +38,9 @@ class Api extends Component
                 Auth::user()->api_token = Str::random(60);
                 Auth::user()->save();
                 $this->emit('tokenRegenerated');
+                activity()
+                    ->withProperties(['type' => 'User'])
+                    ->log('New API key was generated');
             } else {
                 return session()->flash('error', 'Forbidden!');
             }

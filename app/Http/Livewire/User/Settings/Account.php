@@ -89,6 +89,9 @@ class Account extends Component
                     $this->user->email = $this->email;
                     $this->user->save();
                     $this->user->sendEmailVerificationNotification();
+                    activity()
+                        ->withProperties(['type' => 'User'])
+                        ->log('Account settings was updated');
 
                     return session()->flash('success', 'Your account has been updated!');
                 }

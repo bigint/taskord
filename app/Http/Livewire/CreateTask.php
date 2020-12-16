@@ -141,6 +141,9 @@ class CreateTask extends Component
                 Auth::user()->save();
                 CheckGoal::dispatch(Auth::user(), $task);
             }
+            activity()
+                ->withProperties(['type' => 'Task'])
+                ->log('New task has been created U: @'.$task->user->username.' T: '.$task->id);
 
             return session()->flash('success', 'Task has been created!');
         } else {

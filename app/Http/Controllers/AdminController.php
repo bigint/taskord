@@ -6,6 +6,7 @@ use App\Models\Task;
 use App\Models\User;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Auth;
+use Spatie\Activitylog\Models\Activity;
 
 class AdminController extends Controller
 {
@@ -31,17 +32,34 @@ class AdminController extends Controller
         ]);
     }
 
+    public function activities()
+    {
+        $activities = Activity::latest()->paginate('50');
+        $count = Activity::all()->count('id');
+
+        return view('admin.activities', [
+            'activities' => $activities,
+            'count' => $count,
+        ]);
+    }
+
     public static function toggle()
     {
         $user = Auth::user();
         if ($user->staffShip) {
             $user->staffShip = false;
             $user->save();
+            activity()
+                ->withProperties(['type' => 'Admin'])
+                ->log('Disabled StaffShip');
 
             return 'disabled';
         } else {
             $user->staffShip = true;
             $user->save();
+            activity()
+                ->withProperties(['type' => 'Admin'])
+                ->log('Enabled StaffShip');
 
             return 'enabled';
         }
@@ -50,6 +68,9 @@ class AdminController extends Controller
     public static function clean()
     {
         Artisan::call('app:clean');
+        activity()
+            ->withProperties(['type' => 'Admin'])
+            ->log('Cleaned the Taskord Application');
 
         return redirect()->route('home');
     }

@@ -18,6 +18,7 @@ class SingleUpdate extends Component
         $this->update = $update;
     }
 
+    // TODO
     public function togglePraise()
     {
         $throttler = Throttle::get(Request::instance(), 20, 5);
@@ -68,6 +69,9 @@ class SingleUpdate extends Component
             }
 
             if (Auth::user()->staffShip or Auth::id() === $this->update->user->id) {
+                activity()
+                    ->withProperties(['type' => 'Product'])
+                    ->log('Product update was deleted PU: '.$this->update->id);
                 $this->update->delete();
                 $this->emit('updateDeleted');
             } else {

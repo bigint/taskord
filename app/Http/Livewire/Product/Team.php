@@ -23,6 +23,9 @@ class Team extends Component
             $this->user->products()->detach($this->product);
             session()->flash('global', 'User has been removed from the team!');
             $this->user->notify(new MemberRemoved($this->product, Auth::id()));
+            activity()
+                ->withProperties(['type' => 'Product'])
+                ->log('Product member was removed from the team P: #'.$this->product->slug.' U: @'.$this->user->username);
 
             return redirect()->route('product.done', ['slug' => $this->product->slug]);
         }

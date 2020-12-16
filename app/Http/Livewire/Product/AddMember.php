@@ -33,6 +33,9 @@ class AddMember extends Component
             $user->products()->attach($this->product);
             session()->flash('global', 'User has been added to the team!');
             $user->notify(new MemberAdded($this->product, Auth::id()));
+            activity()
+                ->withProperties(['type' => 'Product'])
+                ->log('New member was added to the team P: #'.$this->product->slug.' U: @'.$user->username);
 
             return redirect()->route('product.done', ['slug' => $this->product->slug]);
         }

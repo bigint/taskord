@@ -13,6 +13,9 @@ class MarkAsRead extends Component
             Auth::user()->unreadNotifications->markAsRead();
             $this->emit('markAsRead');
             Auth::user()->touch();
+            activity()
+                ->withProperties(['type' => 'Notification'])
+                ->log('Notifications mark as read');
         } else {
             return session()->flash('global', 'Forbidden!');
         }

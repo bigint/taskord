@@ -122,6 +122,7 @@ Route::group(['middleware' => ['throttle:30,1']], function () {
     Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['staff']], function () {
         Route::get('users', [AdminController::class, 'users'])->name('users');
         Route::get('tasks', [AdminController::class, 'tasks'])->name('tasks');
+        Route::get('activities', [AdminController::class, 'activities'])->name('activities');
         Route::get('adminbar', [AdminController::class, 'toggle'])->name('adminbar');
         Route::get('clean', [AdminController::class, 'clean'])->name('clean');
     });
@@ -191,8 +192,8 @@ Route::group(['prefix' => 'mention', 'middleware' => ['auth']], function () {
     Route::get('products', [ProductController::class, 'mention']);
 });
 
-// Hovercard
-Route::group(['prefix' => 'hovercard'], function () {
-    Route::get('user/{id}', [UserController::class, 'hovercard']);
-    Route::get('product/{id}', [ProductController::class, 'hovercard']);
+// Popover
+Route::group(['prefix' => 'popover'], function () {
+    Route::get('user/{id}', [UserController::class, 'popover']);
+    Route::get('product/{id}', [ProductController::class, 'popover']);
 });

@@ -13,6 +13,9 @@ class OnlyFollowing extends Component
             Auth::user()->onlyFollowingsTasks = ! Auth::user()->onlyFollowingsTasks;
             Auth::user()->save();
             $this->emit('onlyFollowings');
+            activity()
+                    ->withProperties(['type' => 'User'])
+                    ->log('Toggled only followings tasks');
         } else {
             return session()->flash('error', 'Forbidden!');
         }

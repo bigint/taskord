@@ -22,6 +22,9 @@ class Leave extends Component
             session()->flash('global', 'You are no longer member of the team!');
             $this->product->owner->notify(new MemberLeft($this->product, Auth::id()));
             Auth::user()->touch();
+            activity()
+                ->withProperties(['type' => 'Product'])
+                ->log('Product member left the team P: #'.$this->product->slug.'U: @'.Auth::user()->username);
 
             return redirect()->route('product.done', ['slug' => $this->product->slug]);
         }

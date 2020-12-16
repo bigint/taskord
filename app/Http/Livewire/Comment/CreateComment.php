@@ -66,6 +66,9 @@ class CreateComment extends Component
                 $this->task->user->notify(new Commented($comment));
                 givePoint(new CommentCreated($comment));
             }
+            activity()
+                ->withProperties(['type' => 'Comment'])
+                ->log('New comment has been created T: '.$this->task->user->id.' C: '.$comment->id);
 
             return session()->flash('success', 'Comment has been added!');
         } else {
