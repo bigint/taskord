@@ -1,5 +1,5 @@
 @if ($user->status)
-<div class="px-3 py-2 border-bottom">
+<div class="px-3 py-2 border-bottom tippy-status">
     {{ $user->status_emoji }} {{ $user->status }}
 </div>
 @endif
