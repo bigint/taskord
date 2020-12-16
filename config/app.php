@@ -181,7 +181,6 @@ return [
         Laravel\Socialite\SocialiteServiceProvider::class,
         Stevebauman\Purify\PurifyServiceProvider::class,
         QCod\Gamify\GamifyServiceProvider::class,
-        Taskord\EloquentViewable\EloquentViewableServiceProvider::class,
         Intervention\Image\ImageServiceProvider::class,
         Propaganistas\LaravelDisposableEmail\DisposableEmailServiceProvider::class,
 

@@ -2,16 +2,14 @@
 
 namespace App\Models;
 
-use Taskord\EloquentViewable\Contracts\Viewable;
-use Taskord\EloquentViewable\InteractsWithViews;
 use Illuminate\Database\Eloquent\Model;
 use Multicaret\Acquaintances\Traits\CanBeLiked;
 use Multicaret\Acquaintances\Traits\CanBeSubscribed;
 use Rennokki\QueryCache\Traits\QueryCacheable;
 
-class Question extends Model implements Viewable
+class Question extends Model
 {
-    use InteractsWithViews, CanBeLiked, QueryCacheable, CanBeSubscribed;
+    use CanBeLiked, QueryCacheable, CanBeSubscribed;
 
     public $cacheFor = 3600;
     protected static $flushCacheOnUpdate = true;
