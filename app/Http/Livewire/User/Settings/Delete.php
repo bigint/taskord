@@ -30,6 +30,9 @@ class Delete extends Component
     {
         if (Auth::check()) {
             if (Auth::id() === $this->user->id) {
+                activity()
+                    ->withProperties(['type' => 'User'])
+                    ->log('User account was deleted');
                 $user = User::find($this->user->id);
                 // Delete Task Images
                 foreach ($user->tasks as $task) {
