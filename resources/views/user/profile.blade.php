@@ -26,7 +26,7 @@
                         @auth
                         @endauth
                         @if ($user->isPrivate)
-                            <i class="ms-2 fa fa-lock text-primary" data-bs-toggle="tooltip" data-placement="right" title="Private Profile"></i>
+                            <i class="private ms-2 fa fa-lock text-primary"></i>
                         @endif
                         @if ($user->isVerified)
                             <i class="verified ms-2 fa fa-check-circle text-primary"></i>
