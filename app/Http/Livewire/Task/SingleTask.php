@@ -44,7 +44,7 @@ class SingleTask extends Component
                     Auth::user()->touch();
                     activity()
                         ->withProperties(['type' => 'Task'])
-                        ->log('Task was marked as pending T: ' . $this->task->id);
+                        ->log('Task was marked as pending T: '.$this->task->id);
                 } else {
                     $this->task->done_at = Carbon::now();
                     Auth::user()->touch();
@@ -56,7 +56,7 @@ class SingleTask extends Component
                     givePoint(new TaskCompleted($this->task));
                     activity()
                         ->withProperties(['type' => 'Task'])
-                        ->log('Task was marked as done T: ' . $this->task->id);
+                        ->log('Task was marked as done T: '.$this->task->id);
                 }
                 $this->task->done = ! $this->task->done;
                 $this->task->save();
@@ -96,7 +96,7 @@ class SingleTask extends Component
             Helper::togglePraise($this->task, 'TASK');
             activity()
                 ->withProperties(['type' => 'Task'])
-                ->log('Task praise was toggled T: ' . $this->task->id);
+                ->log('Task praise was toggled T: '.$this->task->id);
         } else {
             return session()->flash('error', 'Forbidden!');
         }
@@ -109,7 +109,7 @@ class SingleTask extends Component
                 Helper::hide($this->task);
                 activity()
                     ->withProperties(['type' => 'Admin'])
-                    ->log('Task hide was toggled T: ' . $this->task->id);
+                    ->log('Task hide was toggled T: '.$this->task->id);
             } else {
                 return session()->flash('error', 'Forbidden!');
             }
@@ -133,7 +133,7 @@ class SingleTask extends Component
             if (Auth::user()->staffShip or Auth::id() === $this->task->user->id) {
                 activity()
                     ->withProperties(['type' => 'Task'])
-                    ->log('Task was deleted T: ' . $this->task->id);
+                    ->log('Task was deleted T: '.$this->task->id);
                 foreach ($this->task->images ?? [] as $image) {
                     Storage::delete($image);
                 }

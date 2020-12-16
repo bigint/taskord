@@ -50,7 +50,7 @@ class NewUpdate extends Component
             }
             activity()
                 ->withProperties(['type' => 'Product'])
-                ->log('New product update has been created P: ' . $this->product->id . ' PU: ' . $update->id);
+                ->log('New product update has been created P: '.$this->product->id.' PU: '.$update->id);
 
             return redirect()->route('product.updates', ['slug' => $update->product->slug]);
         } else {

@@ -42,7 +42,7 @@ class CreateDeal extends Component
                 session()->flash('success', 'Deal has been created!');
                 activity()
                     ->withProperties(['type' => 'Admin'])
-                    ->log('New deal has been created D: ' . $deal->id);
+                    ->log('New deal has been created D: '.$deal->id);
 
                 return redirect()->route('deals');
             } else {

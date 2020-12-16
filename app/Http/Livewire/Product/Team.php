@@ -25,7 +25,7 @@ class Team extends Component
             $this->user->notify(new MemberRemoved($this->product, Auth::id()));
             activity()
                 ->withProperties(['type' => 'Product'])
-                ->log('Product member was removed from the team P: #' . $this->product->slug . ' U: @' . $this->user->username);
+                ->log('Product member was removed from the team P: #'.$this->product->slug.' U: @'.$this->user->username);
 
             return redirect()->route('product.done', ['slug' => $this->product->slug]);
         }

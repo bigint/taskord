@@ -24,7 +24,7 @@ class Leave extends Component
             Auth::user()->touch();
             activity()
                 ->withProperties(['type' => 'Product'])
-                ->log('Product member left the team P: #' . $this->product->slug . 'U: @' . Auth::user()->username);
+                ->log('Product member left the team P: #'.$this->product->slug.'U: @'.Auth::user()->username);
 
             return redirect()->route('product.done', ['slug' => $this->product->slug]);
         }

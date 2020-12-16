@@ -100,7 +100,7 @@ class CreateTask extends Component
             givePoint(new TaskCreated($task));
             activity()
                 ->withProperties(['type' => 'Task'])
-                ->log('New task has been created U: @' . $task->user->username . ' T: ' . $task->id);
+                ->log('New task has been created U: @'.$task->user->username.' T: '.$task->id);
         } else {
             return session()->flash('error', 'Forbidden!');
         }

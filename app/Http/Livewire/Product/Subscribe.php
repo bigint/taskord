@@ -47,7 +47,7 @@ class Subscribe extends Component
                 }
                 activity()
                     ->withProperties(['type' => 'Product'])
-                    ->log('Product subscribe was toggled P: #' . $this->product->slug);
+                    ->log('Product subscribe was toggled P: #'.$this->product->slug);
             }
         } else {
             return session()->flash('error', 'Forbidden!');

@@ -101,7 +101,7 @@ class NewProduct extends Component
             session()->flash('global', 'Product has been created!');
             activity()
                 ->withProperties(['type' => 'Product'])
-                ->log('New product has been created P: #' . $product->slug);
+                ->log('New product has been created P: #'.$product->slug);
 
             return redirect()->route('product.done', ['slug' => $product->slug]);
         } else {
