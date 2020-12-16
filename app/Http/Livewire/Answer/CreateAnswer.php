@@ -68,7 +68,7 @@ class CreateAnswer extends Component
             }
             activity()
                 ->withProperties(['type' => 'Answer'])
-                ->log('New answer has been created U: @' . $this->question->user->username . ' A: ' . $answer->id);
+                ->log('New answer has been created U: @'.$this->question->user->username.' A: '.$answer->id);
 
             return session()->flash('success', 'Answer has been added!');
         } else {

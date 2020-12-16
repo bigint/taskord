@@ -42,7 +42,7 @@ class SingleAnswer extends Component
             Helper::togglePraise($this->answer, 'ANSWER');
             activity()
                 ->withProperties(['type' => 'Answer'])
-                ->log('Answer praise was toggled A: ' . $this->answer->id);
+                ->log('Answer praise was toggled A: '.$this->answer->id);
         } else {
             return session()->flash('error', 'Forbidden!');
         }
@@ -55,7 +55,7 @@ class SingleAnswer extends Component
                 Helper::hide($this->answer);
                 activity()
                     ->withProperties(['type' => 'Admin'])
-                    ->log('Answer hide was toggled A: ' . $this->answer->id);
+                    ->log('Answer hide was toggled A: '.$this->answer->id);
             } else {
                 return session()->flash('error', 'Forbidden!');
             }
@@ -79,7 +79,7 @@ class SingleAnswer extends Component
             if (Auth::user()->staffShip or Auth::id() === $this->answer->user->id) {
                 activity()
                     ->withProperties(['type' => 'Answer'])
-                    ->log('Answer was deleted A: ' . $this->answer->id);
+                    ->log('Answer was deleted A: '.$this->answer->id);
                 $this->answer->delete();
                 $this->emit('answerDeleted');
                 Auth::user()->touch();
