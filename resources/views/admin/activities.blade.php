@@ -40,6 +40,7 @@
                                     @php
                                     $user = App\Models\User::find($activity->causer_id);
                                     @endphp
+                                    @if ($user)
                                     <img class="avatar-20 mb-1 me-1 rounded-circle" src="{{ $user->avatar }}" />
                                     <a
                                         id="user-hover"
@@ -50,6 +51,9 @@
                                     </a>
                                     @else
                                     <span>Anonymous</span>
+                                    @endif
+                                    @else
+                                    <span>Deleted User</span>
                                     @endif
                                 </td>
                                 <td>
