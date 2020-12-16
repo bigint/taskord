@@ -30,6 +30,9 @@ class Status extends Component
                 Auth::user()->status_emoji = $event['status_emoji'];
                 Auth::user()->save();
                 $this->emit('statusUpdated');
+                activity()
+                    ->withProperties(['type' => 'User'])
+                    ->log('User status was updated');
 
                 return session()->flash('success', 'Status set successfully!');
             } else {
@@ -37,6 +40,9 @@ class Status extends Component
                 Auth::user()->status_emoji = null;
                 Auth::user()->save();
                 $this->emit('statusUpdated');
+                activity()
+                    ->withProperties(['type' => 'User'])
+                    ->log('User status was cleared');
 
                 return session()->flash('success', 'Status cleared successfully!');
             }
