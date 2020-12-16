@@ -44,7 +44,7 @@ class Follow extends Component
                 }
                 activity()
                     ->withProperties(['type' => 'User'])
-                    ->log('@' . Auth::user()->username . ' toggle follow @' . $this->user->username);
+                    ->log('@'.Auth::user()->username.' toggle follow @'.$this->user->username);
             }
         } else {
             return session()->flash('error', 'Forbidden!');
