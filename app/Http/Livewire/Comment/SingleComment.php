@@ -41,6 +41,9 @@ class SingleComment extends Component
                 return session()->flash('error', 'You can\'t praise your own comment!');
             }
             Helper::togglePraise($this->comment, 'COMMENT');
+            activity()
+                ->withProperties(['type' => 'Comment'])
+                ->log('Comment praise was toggled C: ' . $this->comment->id);
         } else {
             return session()->flash('error', 'Forbidden!');
         }

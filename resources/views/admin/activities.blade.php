@@ -55,6 +55,21 @@
                                         @if ($activity->getExtraProperty('type') === 'Auth')
                                             🚪 Auth
                                         @endif
+                                        @if ($activity->getExtraProperty('type') === 'Task')
+                                            ✅ Task
+                                        @endif
+                                        @if ($activity->getExtraProperty('type') === 'Answer')
+                                            💬 Answer
+                                        @endif
+                                        @if ($activity->getExtraProperty('type') === 'Comment')
+                                            💬 Comment
+                                        @endif
+                                        @if ($activity->getExtraProperty('type') === 'Question')
+                                            ❓ Question
+                                        @endif
+                                        @if ($activity->getExtraProperty('type') === 'User')
+                                            👤 User
+                                        @endif
                                     @else
                                         🌐 Others
                                     @endif

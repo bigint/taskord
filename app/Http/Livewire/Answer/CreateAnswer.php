@@ -66,6 +66,9 @@ class CreateAnswer extends Component
                 $this->question->user->notify(new Answered($answer));
                 givePoint(new CommentCreated($answer));
             }
+            activity()
+                ->withProperties(['type' => 'Answer'])
+                ->log('New answer has been created Q: ' . $this->question->user->id . ' A: ' . $answer->id);
 
             return session()->flash('success', 'Answer has been added!');
         } else {

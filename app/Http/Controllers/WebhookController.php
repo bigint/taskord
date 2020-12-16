@@ -34,6 +34,9 @@ class WebhookController extends Controller
                 'type' => $product_id ? 'product' : 'user',
                 'source' => $type,
             ]);
+            activity()
+                ->withProperties(['type' => 'Task'])
+                ->log('New Task created via ' . $type);
         }
     }
 
@@ -60,6 +63,9 @@ class WebhookController extends Controller
             $webhook->product_id,
             'Webhook'
         );
+        activity()
+            ->withProperties(['type' => 'Task'])
+            ->log('New Task created via Webhook');
 
         return response('success', 200);
     }
@@ -183,6 +189,9 @@ class WebhookController extends Controller
             foreach ($users as $user) {
                 $user->notify(new VersionReleased($message));
             }
+            activity()
+                ->withProperties(['type' => 'Admin'])
+                ->log('New version Webhook has been Initiated');
 
             return response('success', 200);
         } else {
