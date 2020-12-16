@@ -45,6 +45,9 @@ class SingleTask extends Component
                 Auth::user()->save();
                 CheckGoal::dispatch(Auth::user(), $this->task);
             }
+            activity()
+                ->withProperties(['type' => 'Task'])
+                ->log('Task was marked as done T: ' . $this->task->id);
 
             return true;
         } else {
@@ -65,6 +68,9 @@ class SingleTask extends Component
             }
 
             if (Auth::user()->staffShip or Auth::id() === $this->task->user->id) {
+                activity()
+                    ->withProperties(['type' => 'Task'])
+                    ->log('Task was deleted T: ' . $this->task->id);
                 foreach ($this->task->images ?? [] as $image) {
                     Storage::delete($image);
                 }

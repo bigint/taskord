@@ -42,6 +42,9 @@ class SingleTask extends Component
                 if ($this->task->done) {
                     $this->task->done_at = Carbon::now();
                     Auth::user()->touch();
+                    activity()
+                        ->withProperties(['type' => 'Task'])
+                        ->log('Task was marked as pending T: ' . $this->task->id);
                 } else {
                     $this->task->done_at = Carbon::now();
                     Auth::user()->touch();
@@ -51,6 +54,9 @@ class SingleTask extends Component
                         CheckGoal::dispatch(Auth::user(), $this->task);
                     }
                     givePoint(new TaskCompleted($this->task));
+                    activity()
+                        ->withProperties(['type' => 'Task'])
+                        ->log('Task was marked as done T: ' . $this->task->id);
                 }
                 $this->task->done = ! $this->task->done;
                 $this->task->save();
