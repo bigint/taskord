@@ -23,6 +23,7 @@
                             <tr>
                                 <th scope="col">#</th>
                                 <th scope="col" class="w-25">TimeStamp</th>
+                                <th scope="col" class="w-25">Caused by</th>
                                 <th scope="col">Description</th>
                             </tr>
                         </thead>
@@ -32,6 +33,18 @@
                                 <td>{{ $activity->id }}</td>
                                 <td class="w-25 text-black-50">
                                     {{ Carbon::parse($activity->created_at)->format('l, d M Y H:i:s') }} UTC
+                                </td>
+                                <td>
+                                    @if($activity->causer_id)
+                                    @php
+                                    $username = App\Models\User::find($activity->causer_id)->username;
+                                    @endphp
+                                    <a href="{{ route('user.done', ['username' => $username]) }}">
+                                        {{ '@' . $username }}
+                                    </a>
+                                    @else
+                                    <span>Anon</span>
+                                    @endif
                                 </td>
                                 <td class="fw-bold">{{ $activity->description }}</td>
                             </tr>
