@@ -15,7 +15,7 @@ class OnlyFollowing extends Component
             $this->emit('onlyFollowings');
             activity()
                     ->withProperties(['type' => 'User'])
-                    ->log('Toggled only followings tasks');
+                    ->log('Toggled only followings tasks in homepage');
         } else {
             return session()->flash('error', 'Forbidden!');
         }

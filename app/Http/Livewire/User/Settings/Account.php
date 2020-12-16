@@ -25,9 +25,15 @@ class Account extends Component
                 $this->user->isBeta = ! $this->user->isBeta;
                 $this->user->save();
                 if ($this->user->isBeta) {
-                    session()->flash('isBeta', 'Your are now beta member!');
+                    activity()
+                        ->withProperties(['type' => 'User'])
+                        ->log('Enrolled to beta');
+                    return session()->flash('isBeta', 'Your are now beta member!');
                 } else {
-                    session()->flash('isBeta', 'Your are no longer a beta member!');
+                    activity()
+                        ->withProperties(['type' => 'User'])
+                        ->log('Opt out from beta');
+                    return session()->flash('isBeta', 'Your are no longer a beta member!');
                 }
             } else {
                 return session()->flash('error', 'Forbidden!');
@@ -47,8 +53,14 @@ class Account extends Component
                 $this->user->isPrivate = ! $this->user->isPrivate;
                 $this->user->save();
                 if ($this->user->isPrivate) {
+                    activity()
+                        ->withProperties(['type' => 'User'])
+                        ->log('Enrolled as a private user');
                     return session()->flash('isPrivate', 'All your tasks are now private');
                 } else {
+                    activity()
+                        ->withProperties(['type' => 'User'])
+                        ->log('Enrolled as a public user');
                     return session()->flash('isPrivate', 'All your tasks are now public');
                 }
             } else {

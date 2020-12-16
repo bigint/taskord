@@ -126,6 +126,9 @@ class Profile extends Component
                 }
                 $this->user->avatar = 'https://secure.gravatar.com/avatar/'.md5(Auth::user()->email).'?s=500&d=identicon';
                 $this->user->save();
+                activity()
+                    ->withProperties(['type' => 'User'])
+                    ->log('Changed avatar provider to Gravatar');
 
                 return session()->flash('profile', 'Your profile has been updated!');
             } else {
@@ -142,6 +145,9 @@ class Profile extends Component
             if (Auth::id() === $this->user->id) {
                 $this->user->hasGoal = ! $this->user->hasGoal;
                 $this->user->save();
+                activity()
+                    ->withProperties(['type' => 'User'])
+                    ->log('Enabled goals for the account');
             } else {
                 return session()->flash('error', 'Forbidden!');
             }
@@ -161,6 +167,9 @@ class Profile extends Component
                 if (Auth::check()) {
                     $this->user->daily_goal = $this->daily_goal;
                     $this->user->save();
+                    activity()
+                        ->withProperties(['type' => 'User'])
+                        ->log('Goal was set as ' . $this->daily_goal . '/day');
 
                     return session()->flash('setGoal', 'Your goal has been updated!');
                 }
@@ -183,6 +192,9 @@ class Profile extends Component
                 if (Auth::check()) {
                     $this->user->sponsor = $this->sponsor;
                     $this->user->save();
+                    activity()
+                        ->withProperties(['type' => 'User'])
+                        ->log('Sponsor URL was updated');
 
                     return session()->flash('sponsor', 'Your sponsor link has been updated!');
                 }
@@ -215,6 +227,9 @@ class Profile extends Component
                     $this->user->github = $this->github;
                     $this->user->youtube = $this->youtube;
                     $this->user->save();
+                    activity()
+                        ->withProperties(['type' => 'User'])
+                        ->log('Social URLs were updated');
 
                     return session()->flash('social', 'Your social links has been updated!');
                 }
@@ -237,6 +252,9 @@ class Profile extends Component
                 } else {
                     session()->flash('showfollowing', 'All user\'s task will be show on homepage');
                 }
+                activity()
+                    ->withProperties(['type' => 'User'])
+                    ->log('Toggled only followings tasks in settings');
             } else {
                 return session()->flash('error', 'Forbidden!');
             }
