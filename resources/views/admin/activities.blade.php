@@ -23,7 +23,8 @@
                             <tr>
                                 <th scope="col">#</th>
                                 <th scope="col" class="w-25">TimeStamp</th>
-                                <th scope="col" class="w-25">Caused by</th>
+                                <th scope="col">Caused by</th>
+                                <th scope="col">Type</th>
                                 <th scope="col">Description</th>
                             </tr>
                         </thead>
@@ -43,7 +44,16 @@
                                         {{ '@' . $username }}
                                     </a>
                                     @else
-                                    <span>Anon</span>
+                                    <span>Anonymous</span>
+                                    @endif
+                                </td>
+                                <td>
+                                    @if (count($activity->properties) !== 0)
+                                        @if ($activity->getExtraProperty('type') === 'Admin')
+                                            🛡 Admin
+                                        @endif
+                                    @else
+                                        🌐 Others
                                     @endif
                                 </td>
                                 <td class="fw-bold">{{ $activity->description }}</td>
