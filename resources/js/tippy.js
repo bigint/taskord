@@ -34,7 +34,7 @@ document.addEventListener("livewire:load", () => {
       instance._error = null;
     },
   });
-  
+
   // Product Popover
   tippy('#product-hover', {
     ...config,
@@ -55,16 +55,22 @@ document.addEventListener("livewire:load", () => {
       instance._error = null;
     },
   });
-  
+
   tippy('.patron', {
     allowHTML: true,
     placement: 'right',
     content: 'Patron',
   });
-  
+
   tippy('.verified', {
     allowHTML: true,
     placement: 'right',
     content: 'Verified',
+  });
+
+  tippy('.private', {
+    allowHTML: true,
+    placement: 'right',
+    content: 'Private Profile',
   });
 });
