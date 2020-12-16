@@ -36,7 +36,7 @@ class SocialController extends Controller
             );
             activity()
                 ->withProperties(['type' => 'Auth'])
-                ->log('User logged in via Social auth from ' . $request->ip());
+                ->log('User logged in via Social auth from '.$request->ip());
 
             return redirect()->route('home');
         } else {
