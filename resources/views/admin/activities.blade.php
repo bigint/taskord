@@ -38,10 +38,11 @@
                                 <td>
                                     @if($activity->causer_id)
                                     @php
-                                    $username = App\Models\User::find($activity->causer_id)->username;
+                                    $user = App\Models\User::find($activity->causer_id);
                                     @endphp
-                                    <a href="{{ route('user.done', ['username' => $username]) }}">
-                                        {{ '@' . $username }}
+                                    <img class="avatar-20 mb-1 me-1 rounded-circle" src="{{ $user->avatar }}" />
+                                    <a href="{{ route('user.done', ['username' => $user->username]) }}">
+                                        {{ '@' . $user->username }}
                                     </a>
                                     @else
                                     <span>Anonymous</span>
