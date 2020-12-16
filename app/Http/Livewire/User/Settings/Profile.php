@@ -169,7 +169,7 @@ class Profile extends Component
                     $this->user->save();
                     activity()
                         ->withProperties(['type' => 'User'])
-                        ->log('Goal was set as ' . $this->daily_goal . '/day');
+                        ->log('Goal was set as '.$this->daily_goal.'/day');
 
                     return session()->flash('setGoal', 'Your goal has been updated!');
                 }

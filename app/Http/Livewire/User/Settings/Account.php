@@ -28,11 +28,13 @@ class Account extends Component
                     activity()
                         ->withProperties(['type' => 'User'])
                         ->log('Enrolled to beta');
+
                     return session()->flash('isBeta', 'Your are now beta member!');
                 } else {
                     activity()
                         ->withProperties(['type' => 'User'])
                         ->log('Opt out from beta');
+
                     return session()->flash('isBeta', 'Your are no longer a beta member!');
                 }
             } else {
@@ -56,11 +58,13 @@ class Account extends Component
                     activity()
                         ->withProperties(['type' => 'User'])
                         ->log('Enrolled as a private user');
+
                     return session()->flash('isPrivate', 'All your tasks are now private');
                 } else {
                     activity()
                         ->withProperties(['type' => 'User'])
                         ->log('Enrolled as a public user');
+
                     return session()->flash('isPrivate', 'All your tasks are now public');
                 }
             } else {
