@@ -41,7 +41,11 @@
                                     $user = App\Models\User::find($activity->causer_id);
                                     @endphp
                                     <img class="avatar-20 mb-1 me-1 rounded-circle" src="{{ $user->avatar }}" />
-                                    <a href="{{ route('user.done', ['username' => $user->username]) }}">
+                                    <a
+                                        id="user-hover"
+                                        data-id="{{ $user->id }}"
+                                        href="{{ route('user.done', ['username' => $user->username]) }}"
+                                    >
                                         {{ '@' . $user->username }}
                                     </a>
                                     @else
