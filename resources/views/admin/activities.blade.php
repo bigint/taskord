@@ -70,6 +70,9 @@
                                         @if ($activity->getExtraProperty('type') === 'User')
                                             👤 User
                                         @endif
+                                        @if ($activity->getExtraProperty('type') === 'Notification')
+                                            🔔 Notification
+                                        @endif
                                     @else
                                         🌐 Others
                                     @endif

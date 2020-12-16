@@ -13,6 +13,9 @@ class Delete extends Component
             Auth::user()->notifications()->delete();
             $this->emit('deleteAll');
             Auth::user()->touch();
+            activity()
+                ->withProperties(['type' => 'Notification'])
+                ->log('Deleted all notifications');
         } else {
             return session()->flash('global', 'Forbidden!');
         }
