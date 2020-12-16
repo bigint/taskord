@@ -88,6 +88,9 @@ class SingleTask extends Component
                 return session()->flash('error', 'You can\'t praise your own task!');
             }
             Helper::togglePraise($this->task, 'TASK');
+            activity()
+                ->withProperties(['type' => 'Task'])
+                ->log('Task praise was toggled T: ' . $this->task->id);
         } else {
             return session()->flash('error', 'Forbidden!');
         }
@@ -98,6 +101,9 @@ class SingleTask extends Component
         if (Auth::check()) {
             if (Auth::user()->isStaff and Auth::user()->staffShip) {
                 Helper::hide($this->task);
+                activity()
+                    ->withProperties(['type' => 'Admin'])
+                    ->log('Task hide was toggled T: ' . $this->task->id);
             } else {
                 return session()->flash('error', 'Forbidden!');
             }
@@ -119,6 +125,9 @@ class SingleTask extends Component
             }
 
             if (Auth::user()->staffShip or Auth::id() === $this->task->user->id) {
+                activity()
+                    ->withProperties(['type' => 'Task'])
+                    ->log('Task was deleted T: ' . $this->task->id);
                 foreach ($this->task->images ?? [] as $image) {
                     Storage::delete($image);
                 }

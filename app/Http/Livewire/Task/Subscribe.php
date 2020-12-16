@@ -45,6 +45,9 @@ class Subscribe extends Component
                 Auth::user()->toggleSubscribe($this->task);
                 $this->task->refresh();
                 Auth::user()->touch();
+                activity()
+                    ->withProperties(['type' => 'Task'])
+                    ->log('Task subscribe was toggled T: ' . $this->task->id);
             }
         } else {
             return session()->flash('error', 'Forbidden!');
