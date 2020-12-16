@@ -147,7 +147,7 @@ class Profile extends Component
                 $this->user->save();
                 activity()
                     ->withProperties(['type' => 'User'])
-                    ->log('Enabled goals for the account');
+                    ->log('Goals for the account was toggled');
             } else {
                 return session()->flash('error', 'Forbidden!');
             }
