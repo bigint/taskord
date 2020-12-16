@@ -6,6 +6,7 @@ use App\Models\Task;
 use App\Models\User;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Auth;
+use Spatie\Activitylog\Models\Activity;
 
 class AdminController extends Controller
 {
@@ -27,6 +28,17 @@ class AdminController extends Controller
 
         return view('admin.tasks', [
             'tasks' => $tasks,
+            'count' => $count,
+        ]);
+    }
+
+    public function activities()
+    {
+        $activities = Activity::latest()->paginate('50');
+        $count = Activity::all()->count('id');
+
+        return view('admin.activities', [
+            'activities' => $activities,
             'count' => $count,
         ]);
     }
