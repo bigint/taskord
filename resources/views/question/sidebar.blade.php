@@ -12,6 +12,11 @@
                         {{ Str::words($question->title, '10') }}
                     </span>
                 </a>
+                <div class="text-secondary small mt-1">
+                    <i class="fa fa-eye me-1"></i>
+                    <span class="fw-bold">{{ views($question)->remember()->unique()->count('id') }}</span>
+                    {{ views($question)->remember()->unique()->count('id') <= 1 ? 'View' : 'Views' }}
+                </div>
             </div>
             <a
                 href="{{ route('user.done', ['username' => $question->user->username]) }}"
