@@ -50,10 +50,10 @@
                                         {{ '@' . $user->username }}
                                     </a>
                                     @else
-                                    <span>Anonymous</span>
+                                    <span class="text-info">Anonymous</span>
                                     @endif
                                     @else
-                                    <span>Deleted User</span>
+                                    <span class="text-danger">Deleted User</span>
                                     @endif
                                 </td>
                                 <td>

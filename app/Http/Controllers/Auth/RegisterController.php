@@ -90,7 +90,7 @@ class RegisterController extends Controller
         );
         activity()
             ->withProperties(['type' => 'Auth'])
-            ->log('New user has been signed up - @'.$data['username']);
+            ->log('New user has been signed up via Taskord auth - @'.$data['username'].' from '.request()->ip());
         $user->notify(new Welcome(true));
 
         return $user;
