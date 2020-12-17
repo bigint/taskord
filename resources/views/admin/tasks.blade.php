@@ -49,7 +49,7 @@
                                         {{ Str::limit($task->task, '100') }}
                                     </a>
                                     @if ($task->hidden)
-                                    <span title="Flagged">{{ Emoji::nauseatedFace() }}</span>
+                                    <span title="Flagged">🤢</span>
                                     @endif
                                 </td>
                                 <td>

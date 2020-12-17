@@ -21,7 +21,7 @@
                 @endif
                 @if ($task->user->isPatron)
                     <a class="patron ms-1 small" href="{{ route('patron.home') }}">
-                        {{ Emoji::handshake() }}
+                        🤝
                     </a>
                 @endif
                 <div class="small text-black-50 fw-normal">{{ "@" . $task->user->username }}</div>
@@ -61,15 +61,15 @@
         />
         @if ($launched)
         <span class="ms-1">
-            {{ Emoji::rocket() }}
+            🚀
         </span>
         @elseif ($bug)
         <span class="ms-1">
-            {{ Emoji::bug() }}
+            🐛
         </span>
         @elseif ($learn)
         <span class="ms-1">
-            {{ Emoji::greenBook() }}
+            📗
         </span>
         @endif
         @endif
@@ -107,7 +107,7 @@
             @if (!$task->user->isPrivate and !$task->hidden)
             @if (Auth::user()->hasLiked($task))
             <button type="button" class="btn btn-task btn-success text-white me-1" wire:click="togglePraise" wire:loading.attr="disabled" wire:offline.attr="disabled" wire:key="{{ $task->id }}">
-                {{ Emoji::clappingHands() }}
+                👏
                 <span class="small text-white fw-bold">
                     {{ number_format($task->likerscount()) }}
                 </span>
@@ -119,7 +119,7 @@
             </button>
             @else
             <button type="button" class="btn btn-task btn-outline-success me-1" wire:click="togglePraise" wire:loading.attr="disabled" wire:offline.attr="disabled" wire:key="{{ $task->id }}">
-                {{ Emoji::clappingHands() }}
+                👏
                 @if ($task->likerscount() !== 0)
                 <span class="small text-dark fw-bold">
                     {{ number_format($task->likerscount()) }}
@@ -136,7 +136,7 @@
             @endauth
             @guest
                 <a href="/login" class="btn btn-task btn-outline-success me-1">
-                    {{ Emoji::clappingHands() }}
+                    👏
                     @if ($task->likerscount() !== 0)
                     <span class="small text-dark fw-bold">
                         {{ number_format($task->likerscount()) }}
@@ -150,7 +150,7 @@
                 </a>
             @endguest
             <a href="{{ route('task', ['id' => $task->id]) }}" class="btn btn-task btn-outline-primary me-1">
-                {{ Emoji::speechBalloon() }}
+                💬
                 @if ($task->comments->count('id') !== 0)
                 <span class="small text-dark fw-bold">
                     {{ number_format($task->comments->count('id')) }}
@@ -166,13 +166,13 @@
                 </button>
                 @else
                 <button type="button" class="btn btn-task btn-outline-danger" wire:click="confirmDelete" wire:loading.attr="disabled" wire:offline.attr="disabled">
-                    {{ Emoji::wastebasket() }}
+                    🗑
                 </button>
                 @endif
             @endif
             @if (Auth::user()->staffShip)
             <button type="button" class="btn btn-task {{ $task->hidden ? 'btn-danger' : 'btn-outline-danger' }} text-white ms-1" wire:click="hide" wire:loading.attr="disabled" wire:offline.attr="disabled" wire:key="{{ $task->id }}" title="Flag to admins">
-                {{ Emoji::nauseatedFace() }}
+                🤢
             </button>
             @endif
             @endauth

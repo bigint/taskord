@@ -10,7 +10,7 @@
         <div class="col-lg-8">
             @guest
             <div class="p-5 rounded mb-4 text-white welcome-card">
-                <h1>Welcome to Taskord {{ Emoji::wavingHand() }}</h1>
+                <h1>Welcome to Taskord 👋</h1>
                 <p class="lead">
                     <span class="fw-bold">Don't fake just make!</span> Get things done in public with awesome community of makers.
                 </p>
@@ -21,7 +21,7 @@
             @endguest
             <div class="card mb-4">
                 <div class="card-header">
-                    {{ Emoji::speechBalloon() }} Recent questions
+                    💬 Recent questions
                 </div>
                 <div class="card-body">
                     @foreach ($recent_questions as $question)
@@ -71,7 +71,7 @@
                                     {{ $product->name }}
                                     @if ($product->launched)
                                         <a href="{{ route('products.launched') }}" class="small" data-bs-toggle="tooltip" data-placement="right" title="Launched">
-                                            {{ Emoji::rocket() }}
+                                            🚀
                                         </a>
                                     @endif
                                 </a>
@@ -240,7 +240,7 @@
                         {{ $product->name }}
                         @if ($product->launched)
                             <a href="{{ route('products.launched') }}" class="small" data-bs-toggle="tooltip" data-placement="right" title="Launched">
-                                {{ Emoji::rocket() }}
+                                🚀
                             </a>
                         @endif
                     </a>
@@ -311,8 +311,8 @@
                                 <i class="verified fa fa-check-circle ms-1 text-primary"></i>
                             @endif
                         </a>
-                        <span class="badge rounded-pill bg-warning text-dark align-middle reputation" title="{{ Emoji::fire() }} {{ number_format($user->getPoints()) }}">
-                            {{ Emoji::fire() }} {{ $user->getPoints(true) }}
+                        <span class="badge rounded-pill bg-warning text-dark align-middle reputation" title="🔥 {{ number_format($user->getPoints()) }}">
+                            🔥 {{ $user->getPoints(true) }}
                         </span>
                     </div>
                     @endforeach

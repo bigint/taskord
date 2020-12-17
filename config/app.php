@@ -238,7 +238,6 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
 
         // Plugins
-        'Emoji' => Spatie\Emoji\Emoji::class,
         'Carbon' => Carbon\Carbon::class,
         'Socialite' => Laravel\Socialite\Facades\Socialite::class,
         'Purify' => Stevebauman\Purify\Facades\Purify::class,

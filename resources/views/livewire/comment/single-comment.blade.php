@@ -21,7 +21,7 @@
                 @endif
                 @if ($comment->user->isPatron)
                     <a class="patron ms-1 small" href="{{ route('patron.home') }}">
-                        {{ Emoji::handshake() }}
+                        🤝
                     </a>
                 @endif
             </a>
@@ -44,7 +44,7 @@
         @auth
         @if (Auth::user()->hasLiked($comment))
             <button type="button" class="btn btn-task btn-success text-white me-1" wire:click="togglePraise" wire:loading.attr="disabled" wire:offline.attr="disabled">
-                {{ Emoji::clappingHands() }}
+                👏
                 <span class="small text-white fw-bold">
                     {{ number_format($comment->likerscount()) }}
                 </span>
@@ -56,7 +56,7 @@
             </button>
         @else
             <button type="button" class="btn btn-task btn-outline-success me-1" wire:click="togglePraise" wire:loading.attr="disabled" wire:offline.attr="disabled">
-                {{ Emoji::clappingHands() }}
+                👏
                 @if ($comment->likerscount() !== 0)
                 <span class="small text-dark fw-bold">
                     {{ number_format($comment->likerscount()) }}
@@ -77,19 +77,19 @@
             </button>
             @else
             <button type="button" class="btn btn-task btn-outline-danger" wire:click="confirmDelete" wire:loading.attr="disabled" wire:offline.attr="disabled">
-                {{ Emoji::wastebasket() }}
+                🗑
             </button>
             @endif
         @endif
         @if (Auth::user()->staffShip)
         <button type="button" class="btn btn-task {{ $comment->hidden ? 'btn-danger' : 'btn-outline-danger' }} text-white ms-1" wire:click="hide" wire:loading.attr="disabled" wire:offline.attr="disabled" wire:key="{{ $comment->id }}" title="Flag to admins">
-            {{ Emoji::nauseatedFace() }}
+            🤢
         </button>
         @endif
         @endauth
         @guest
             <a href="/login" class="btn btn-task btn-outline-success me-1">
-                {{ Emoji::clappingHands() }}
+                👏
                 @if ($comment->likerscount() !== 0)
                 <span class="small text-dark fw-bold">
                     {{ number_format($comment->likerscount()) }}

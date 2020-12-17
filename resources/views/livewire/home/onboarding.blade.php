@@ -1,9 +1,9 @@
 <div>
     @if ($task_count === 0 || $praise_count === 0 || $product_count === 0 || strlen($has_name) === 0)
+    <div class="text-uppercase fw-bold text-black-50 pb-2">
+        👋 Getting Started
+    </div>
     <div class="card border-success mb-4">
-        <div class="card-header">
-            👋 Getting Started
-        </div>
         <div class="card-body">
             <div class="progress mb-3" style="height: 25px;">
                 <div
