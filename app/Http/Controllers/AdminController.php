@@ -17,7 +17,7 @@ class AdminController extends Controller
 
         return view('admin.users', [
             'users' => $users,
-            'count' => $count,
+            'count' => number_format($count),
         ]);
     }
 
@@ -28,7 +28,7 @@ class AdminController extends Controller
 
         return view('admin.tasks', [
             'tasks' => $tasks,
-            'count' => $count,
+            'count' => number_format($count),
         ]);
     }
 
@@ -39,7 +39,7 @@ class AdminController extends Controller
 
         return view('admin.activities', [
             'activities' => $activities,
-            'count' => $count,
+            'count' => number_format($count),
         ]);
     }
 
