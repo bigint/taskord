@@ -107,7 +107,7 @@
             </a>
             <span class="fw-bold me-3">
                 <i class="fa fa-clock me-1"></i>
-                {{ round(microtime(true) - LARAVEL_START, 2) * 1000 }}ms
+                {{ bcmul((microtime(true) - LARAVEL_START), '1000', 0) }}ms
                 <span class="fw-normal">response total</span>
             </span>
             <span class="fw-bold me-3">
