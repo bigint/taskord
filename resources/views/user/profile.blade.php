@@ -92,25 +92,25 @@
                     </div>
                     @if (Auth::check() && Auth::id() === $user->id)
                     <div class="mt-2">
-                        <span>{{ Emoji::blossom() }} You are a</span>
+                        <span>🌸 You are a</span>
                         <span class="fw-bold">{{ count($level) === 0 ? 'Beginner' : $level->last()->name }}</span>
                         <x-beta background="light" />
                     </div>
                     @else
                     <div class="mt-2">
-                        <span>{{ Emoji::blossom() }} {{ $user->username }} is a</span>
+                        <span>🌸 {{ $user->username }} is a</span>
                         <span class="fw-bold">{{ count($level) === 0 ? 'Beginner' : $level->last()->name }}</span>
                         <x-beta background="light" />
                     </div>
                     @endif
                     @if ($user->isBeta)
                     <div class="mt-2">
-                        <span class="fw-bold">{{ Emoji::testTube() }} Beta Program Member</span>
+                        <span class="fw-bold">🧪 Beta Program Member</span>
                     </div>
                     @endif
                     @if ($user->isDeveloper)
                     <div class="mt-2">
-                        <span class="fw-bold">{{ Emoji::checkBoxWithCheck() }} Taskord Contributor</span>
+                        <span class="fw-bold">✅ Taskord Contributor</span>
                     </div>
                     @endif
                 </div>
