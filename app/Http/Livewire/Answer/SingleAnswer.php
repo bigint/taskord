@@ -29,6 +29,7 @@ class SingleAnswer extends Component
             activity()
                 ->withProperties(['type' => 'Throttle'])
                 ->log('Rate limited while praising the answer');
+
             return session()->flash('error', 'Your are rate limited, try again later!');
         }
 
