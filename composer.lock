@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e14b50b2ef3ec41b2f7c21cf87f8b91e",
+    "content-hash": "eaa45e7827fba5cb8a5a316d6c526ebd",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -3344,16 +3344,16 @@
         },
         {
             "name": "nuwave/lighthouse",
-            "version": "v5.0-beta.1",
+            "version": "v5.0-beta.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nuwave/lighthouse.git",
-                "reference": "3a3e686cf110740947c37a421aea62d532ece9a0"
+                "reference": "a21518c39648a52f9f196c4e9e825b58922d48bb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nuwave/lighthouse/zipball/3a3e686cf110740947c37a421aea62d532ece9a0",
-                "reference": "3a3e686cf110740947c37a421aea62d532ece9a0",
+                "url": "https://api.github.com/repos/nuwave/lighthouse/zipball/a21518c39648a52f9f196c4e9e825b58922d48bb",
+                "reference": "a21518c39648a52f9f196c4e9e825b58922d48bb",
                 "shasum": ""
             },
             "require": {
@@ -3381,7 +3381,7 @@
                 "laravel/legacy-factories": "^1.0",
                 "laravel/lumen-framework": "5.6.* || 5.7.* || 5.8.* || ^6 || ^7 || ^8",
                 "laravel/scout": "^7 || ^8",
-                "mll-lab/graphql-php-scalars": "^3.1",
+                "mll-lab/graphql-php-scalars": "^4",
                 "mockery/mockery": "^1.0",
                 "nunomaduro/larastan": "^0.6",
                 "orchestra/testbench": "3.6.* || 3.7.* || 3.8.* || 3.9.* || ^4 || ^5 || ^6",
@@ -3464,7 +3464,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2020-11-27T15:42:06+00:00"
+            "time": "2020-12-15T20:21:25+00:00"
         },
         {
             "name": "opis/closure",
@@ -5305,16 +5305,16 @@
         },
         {
             "name": "spatie/laravel-backup",
-            "version": "6.14.0",
+            "version": "6.14.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/laravel-backup.git",
-                "reference": "982d8377816eaceac0ac0a78fbf9b0f75fb009db"
+                "reference": "f8bd2e719a76bd197c5cdec0172b2c9a7b6436da"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/laravel-backup/zipball/982d8377816eaceac0ac0a78fbf9b0f75fb009db",
-                "reference": "982d8377816eaceac0ac0a78fbf9b0f75fb009db",
+                "url": "https://api.github.com/repos/spatie/laravel-backup/zipball/f8bd2e719a76bd197c5cdec0172b2c9a7b6436da",
+                "reference": "f8bd2e719a76bd197c5cdec0172b2c9a7b6436da",
                 "shasum": ""
             },
             "require": {
@@ -5378,7 +5378,7 @@
             ],
             "support": {
                 "issues": "https://github.com/spatie/laravel-backup/issues",
-                "source": "https://github.com/spatie/laravel-backup/tree/6.14.0"
+                "source": "https://github.com/spatie/laravel-backup/tree/6.14.1"
             },
             "funding": [
                 {
@@ -5390,7 +5390,86 @@
                     "type": "other"
                 }
             ],
-            "time": "2020-12-09T20:35:29+00:00"
+            "time": "2020-12-16T07:40:24+00:00"
+        },
+        {
+            "name": "spatie/laravel-responsecache",
+            "version": "6.6.7",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/spatie/laravel-responsecache.git",
+                "reference": "2a9cf083839e5ec5a7cd968e7779c85863901b6e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spatie/laravel-responsecache/zipball/2a9cf083839e5ec5a7cd968e7779c85863901b6e",
+                "reference": "2a9cf083839e5ec5a7cd968e7779c85863901b6e",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/cache": "^7.13|^8.0",
+                "illuminate/console": "^7.13|^8.0",
+                "illuminate/container": "^7.13|^8.0",
+                "illuminate/http": "^7.13|^8.0",
+                "illuminate/support": "^7.13|^8.0",
+                "nesbot/carbon": "^2.35",
+                "php": "^7.4|^8.0"
+            },
+            "require-dev": {
+                "laravel/framework": "^7.13|^8.0",
+                "mockery/mockery": "^1.4",
+                "orchestra/testbench": "^5.2|^6.0",
+                "phpunit/phpunit": "^9.1.5"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Spatie\\ResponseCache\\ResponseCacheServiceProvider"
+                    ],
+                    "aliases": {
+                        "ResponseCache": "Spatie\\ResponseCache\\Facades\\ResponseCache"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Spatie\\ResponseCache\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Freek Van der Herten",
+                    "email": "freek@spatie.be",
+                    "homepage": "https://spatie.be",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Speed up a Laravel application by caching the entire response",
+            "homepage": "https://github.com/spatie/laravel-responsecache",
+            "keywords": [
+                "cache",
+                "laravel",
+                "laravel-responsecache",
+                "performance",
+                "response",
+                "spatie"
+            ],
+            "support": {
+                "issues": "https://github.com/spatie/laravel-responsecache/issues",
+                "source": "https://github.com/spatie/laravel-responsecache/tree/6.6.7"
+            },
+            "funding": [
+                {
+                    "url": "https://spatie.be/open-source/support-us",
+                    "type": "custom"
+                }
+            ],
+            "time": "2020-11-28T22:55:41+00:00"
         },
         {
             "name": "spatie/temporary-directory",

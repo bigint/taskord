@@ -6,7 +6,7 @@
 <br>
 <div align="center">
     <a href="https://www.php.net">
-        <img src="https://img.shields.io/badge/PHP-v7.4-blue.svg?logo=php" alt="PHP Version">
+        <img src="https://img.shields.io/badge/PHP-v8.0-blue.svg?logo=php" alt="PHP Version">
     </a>
     <a href="http://laravel.com">
         <img src="https://img.shields.io/badge/Laravel-v8.x-important.svg?logo=laravel&longCache=true" alt="Laravel Version">
@@ -89,6 +89,9 @@ Start coding in a [ready-to-code development environment](https://www.gitpod.io)
     ```sh
     # Install Composer Dependencies
     composer install
+
+    # For Windows
+    composer install --ignore-platform-reqs
 
     # Install NPM Dependencies
     npm install / yarn install
