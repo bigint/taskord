@@ -12,7 +12,9 @@ Turbolinks.start();
 
 document.addEventListener("turbolinks:load", () => {
   const trigger = document.querySelector('.trigger');
-  const picker = new EmojiButton();
+  const picker = new EmojiButton({
+    showPreview: false,
+  });
   picker.on('emoji', selection => {
     trigger.innerHTML = selection.emoji;
     document.getElementById("emoji_input").value = selection.emoji;
