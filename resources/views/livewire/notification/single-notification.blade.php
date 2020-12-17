@@ -16,13 +16,13 @@
                 )
                     👏
                 @elseif ($type === "App\Notifications\Mentioned")
-                    {{ Emoji::raisedHand() }}
+                    🙌
                 @elseif (
                     $type === "App\Notifications\Followed" or
                     $type === "App\Notifications\Subscribed" or
                     $type === "App\Notifications\Product\MemberAdded"
                 )
-                    {{ Emoji::plus() }}
+                    ➕
                 @elseif (
                     $type === "App\Notifications\Commented" or
                     $type === "App\Notifications\Answered" or
@@ -34,12 +34,12 @@
                     $type === "App\Notifications\Product\MemberRemoved" or
                     $type === "App\Notifications\Product\MemberLeft"
                 )
-                    {{ Emoji::door() }}
+                    🚪
                 @elseif (
                     $type === "App\Notifications\Welcome" or
                     $type === "App\Notifications\VersionReleased"
                 )
-                    {{ Emoji::partyPopper() }}
+                    🎉
                 @endif
                 @if ($type !== "App\Notifications\Welcome" and $type !== "App\Notifications\VersionReleased")
                 <a href="{{ route('user.done', ['username' => $user->username]) }}">
