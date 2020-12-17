@@ -85,6 +85,9 @@
                                         @if ($activity->getExtraProperty('type') === 'Notification')
                                             🔔 Notification
                                         @endif
+                                        @if ($activity->getExtraProperty('type') === 'Search')
+                                            🔍 Search
+                                        @endif
                                     @else
                                         🌐 Others
                                     @endif

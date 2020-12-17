@@ -166,6 +166,9 @@ class UserController extends Controller
                 'Content-Type' => 'application/json',
                 'Content-Disposition' => 'attachment; filename="'.$file_name.'"',
             ]);
+            activity()
+                ->withProperties(['type' => 'User'])
+                ->log('Exported the account data');
 
             return $response;
         } else {
