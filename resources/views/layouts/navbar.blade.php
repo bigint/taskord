@@ -50,7 +50,7 @@
                         @endif
                         <li><a class="dropdown-item text-dark" href="{{ route('user.settings.integrations') }}">⚓ Integration</a></li>
                         @endauth
-                        <li><a class="dropdown-item text-dark" href="https://www.notion.so/Roadmap-89c75352cfe14d24b62644daa0f1cba0" target="_blank">{{ Emoji::construction() }} Roadmap</a></li>
+                        <li><a class="dropdown-item text-dark" href="https://www.notion.so/Roadmap-89c75352cfe14d24b62644daa0f1cba0" target="_blank">🚧 Roadmap</a></li>
                     </ul>
                 </li>
             </ul>
@@ -122,18 +122,18 @@
                                 ⏳ Pending Tasks
                             </a>
                             <a class="dropdown-item text-dark" href="{{ route('user.settings.profile') }}">
-                                {{ Emoji::gear() }} Settings
+                                ⚙ Settings
                             </a>
                             <a class="dropdown-item text-dark" href="{{ route('patron.home') }}" data-turbolinks="false">
-                                {{ Emoji::handshake() }} Patron
+                                🤝 Patron
                             </a>
                             <div class="dropdown-divider"></div>
                             @if (Auth::user()->isStaff)
                             <a class="dropdown-item text-dark" id="admin-bar-click" role="button">
                                 @if (Auth::user()->staffShip)
-                                {{ Emoji::seeNoEvilMonkey() }} Hide Admin Bar
+                                🙈 Hide Admin Bar
                                 @else
-                                {{ Emoji::eyes() }} Show Admin Bar
+                                👀 Show Admin Bar
                                 @endif
                             </a>
                             <div class="dropdown-divider"></div>
@@ -141,21 +141,21 @@
                             @if (Auth::user()->isPatron)
                             <a class="dropdown-item text-dark" id="dark-mode" role="button">
                                 @if (Auth::user()->darkMode)
-                                {{ Emoji::sunWithFace() }} Light Mode
+                                🌞 Light Mode
                                 @else
-                                {{ Emoji::newMoonFace() }} Dark Mode
+                                🌚 Dark Mode
                                 @endif
                             </a>
                             @endif
                             @if (Auth::user()->isDeveloper)
                             <a class="dropdown-item text-dark" href="https://gitlab.com/taskord/taskord" target="_blank">
-                                {{ Emoji::octopus() }} GitLab
+                                🦊 GitLab
                             </a>
                             @endif
                             <a class="dropdown-item text-dark" href="{{ route('logout') }}"
                                 onclick="event.preventDefault();
                                                 document.getElementById('logout-form').submit();">
-                                {{ Emoji::door() }} Logout
+                                🚪 Logout
                             </a>
                             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                 @csrf
