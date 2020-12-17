@@ -33,7 +33,7 @@
                         @endif
                         @if ($user->isPatron)
                             <a class="patron ms-2 small" href="{{ route('patron.home') }}">
-                                {{ Emoji::handshake() }}
+                                🤝
                             </a>
                         @endif
                         @auth

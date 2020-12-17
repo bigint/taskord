@@ -206,7 +206,7 @@
                                     @endauth
                                     @if ($user->isPatron)
                                         <a class="ms-2 small" href="{{ route('patron.home') }}" title="Patron">
-                                            {{ Emoji::handshake() }}
+                                            🤝
                                         </a>
                                     @endif
                                     @auth

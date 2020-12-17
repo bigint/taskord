@@ -21,7 +21,7 @@
                 @endif
                 @if ($comment->user->isPatron)
                     <a class="patron ms-1 small" href="{{ route('patron.home') }}">
-                        {{ Emoji::handshake() }}
+                        🤝
                     </a>
                 @endif
             </a>

@@ -21,7 +21,7 @@
                 @endif
                 @if ($task->user->isPatron)
                     <a class="patron ms-1 small" href="{{ route('patron.home') }}">
-                        {{ Emoji::handshake() }}
+                        🤝
                     </a>
                 @endif
                 <div class="small text-black-50 fw-normal">{{ "@" . $task->user->username }}</div>
