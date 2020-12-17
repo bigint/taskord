@@ -14,7 +14,7 @@
                     $type === "App\Notifications\AnswerPraised" or
                     $type === "App\Notifications\CommentPraised"
                 )
-                    {{ Emoji::clappingHands() }}
+                    👏
                 @elseif ($type === "App\Notifications\Mentioned")
                     {{ Emoji::raisedHand() }}
                 @elseif (

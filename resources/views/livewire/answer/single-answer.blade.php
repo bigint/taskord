@@ -47,7 +47,7 @@
             @auth
             @if (Auth::user()->hasLiked($answer))
                 <button type="button" class="btn btn-task btn-success text-white me-1" wire:click="togglePraise" wire:loading.attr="disabled" wire:offline.attr="disabled">
-                    {{ Emoji::clappingHands() }}
+                    👏
                     <span class="small text-white fw-bold">
                         {{ number_format($answer->likerscount()) }}
                     </span>
@@ -59,7 +59,7 @@
                 </button>
             @else
                 <button type="button" class="btn btn-task btn-outline-success me-1" wire:click="togglePraise" wire:loading.attr="disabled" wire:offline.attr="disabled">
-                    {{ Emoji::clappingHands() }}
+                    👏
                     @if ($answer->likerscount() !== 0)
                     <span class="small text-dark fw-bold">
                         {{ number_format($answer->likerscount()) }}
@@ -92,7 +92,7 @@
             @endauth
             @guest
                 <a href="/login" class="btn btn-task btn-outline-success me-1">
-                    {{ Emoji::clappingHands() }}
+                    👏
                     @if ($answer->likerscount() !== 0)
                     <span class="small text-dark fw-bold">
                         {{ number_format($answer->likerscount()) }}

@@ -107,7 +107,7 @@
             @if (!$task->user->isPrivate and !$task->hidden)
             @if (Auth::user()->hasLiked($task))
             <button type="button" class="btn btn-task btn-success text-white me-1" wire:click="togglePraise" wire:loading.attr="disabled" wire:offline.attr="disabled" wire:key="{{ $task->id }}">
-                {{ Emoji::clappingHands() }}
+                👏
                 <span class="small text-white fw-bold">
                     {{ number_format($task->likerscount()) }}
                 </span>
@@ -119,7 +119,7 @@
             </button>
             @else
             <button type="button" class="btn btn-task btn-outline-success me-1" wire:click="togglePraise" wire:loading.attr="disabled" wire:offline.attr="disabled" wire:key="{{ $task->id }}">
-                {{ Emoji::clappingHands() }}
+                👏
                 @if ($task->likerscount() !== 0)
                 <span class="small text-dark fw-bold">
                     {{ number_format($task->likerscount()) }}
@@ -136,7 +136,7 @@
             @endauth
             @guest
                 <a href="/login" class="btn btn-task btn-outline-success me-1">
-                    {{ Emoji::clappingHands() }}
+                    👏
                     @if ($task->likerscount() !== 0)
                     <span class="small text-dark fw-bold">
                         {{ number_format($task->likerscount()) }}

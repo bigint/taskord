@@ -30,7 +30,7 @@
             @if (Auth::user()->hasLiked($update))
             <span>
                 <button type="button" class="btn btn-task btn-success text-white me-1" wire:click="togglePraise" wire:loading.attr="disabled" wire:offline.attr="disabled" wire:key="{{ $update->id }}">
-                    {{ Emoji::clappingHands() }}
+                    👏
                     <span class="small text-white fw-bold">
                         {{ number_format($update->likerscount()) }}
                     </span>
@@ -44,7 +44,7 @@
             @else
             <span>
                 <button type="button" class="btn btn-task btn-outline-success me-1" wire:click="togglePraise" wire:loading.attr="disabled" wire:offline.attr="disabled" wire:key="{{ $update->id }}">
-                    {{ Emoji::clappingHands() }}
+                    👏
                     @if ($update->likerscount() !== 0)
                     <span class="small text-dark fw-bold">
                         {{ number_format($update->likerscount()) }}
@@ -62,7 +62,7 @@
             @endauth
             @guest
                 <a href="/login" class="btn btn-task btn-outline-success me-1">
-                    {{ Emoji::clappingHands() }}
+                    👏
                     @if ($update->likerscount() !== 0)
                     <span class="small text-dark fw-bold">
                         {{ number_format($update->likerscount()) }}
