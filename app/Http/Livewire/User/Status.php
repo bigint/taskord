@@ -18,6 +18,23 @@ class Status extends Component
         $this->user = $user;
     }
 
+    public function clearStatus()
+    {
+        if (Auth::check()) {
+            Auth::user()->status = null;
+            Auth::user()->status_emoji = null;
+            Auth::user()->save();
+            $this->emit('statusUpdated');
+            activity()
+                ->withProperties(['type' => 'User'])
+                ->log('User status was cleared');
+
+            return session()->flash('success', 'Status cleared successfully!');
+        } else {
+            return session()->flash('error', 'Forbidden!');
+        }
+    }
+
     public function submit($event)
     {
         if (Auth::check()) {
