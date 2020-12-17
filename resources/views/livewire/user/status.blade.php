@@ -8,8 +8,12 @@
                 <input type="text" class="form-control" name="status" value="{{ $user->status }}" placeholder="What's happening?">
             </div>
 
-            <div class="justify-content-around pt-3">
-                <button type="submit" class="btn btn-sm btn-success text-white float-end">
+            <div class="d-flex justify-content-around pt-3">
+                <button type="submit" class="btn btn-sm btn-danger text-white float-end w-100 me-1">
+                    Clear Status
+                    <span wire:target="submit" wire:loading class="spinner-border spinner-border-sm ms-2" role="status"></span>
+                </button>
+                <button type="submit" class="btn btn-sm btn-success text-white float-end w-100 ms-1">
                     Set Status
                     <span wire:target="submit" wire:loading class="spinner-border spinner-border-sm ms-2" role="status"></span>
                 </button>
