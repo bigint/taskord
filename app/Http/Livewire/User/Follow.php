@@ -29,6 +29,7 @@ class Follow extends Component
             activity()
                 ->withProperties(['type' => 'Throttle'])
                 ->log('Rate limited while following the user');
+
             return session()->flash('error', 'Please slow down!');
         }
 

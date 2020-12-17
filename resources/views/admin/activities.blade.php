@@ -89,7 +89,7 @@
                                             🔍 Search
                                         @endif
                                         @if ($activity->getExtraProperty('type') === 'Throttle')
-                                            🛑 Rate Limited
+                                            🛑 Throttled
                                         @endif
                                     @else
                                         🌐 Others

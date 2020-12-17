@@ -147,6 +147,7 @@ class WebhookController extends Controller
             activity()
                 ->withProperties(['type' => 'Throttle'])
                 ->log('Rate limited in Webhook');
+
             return response('Your are rate limited, try again later', 429);
         }
 
