@@ -239,11 +239,17 @@ class UserController extends Controller
         if ($user->darkMode) {
             $user->darkMode = false;
             $user->save();
+            activity()
+                ->withProperties(['type' => 'User'])
+                ->log('Disabled Dark mode');
 
             return 'disabled';
         } else {
             $user->darkMode = true;
             $user->save();
+            activity()
+                ->withProperties(['type' => 'User'])
+                ->log('Enabled Dark mode');
 
             return 'enabled';
         }
