@@ -30,6 +30,9 @@ class SingleTask extends Component
             Helper::flagAccount(Auth::user());
         }
         if (! $throttler->check()) {
+            activity()
+                ->withProperties(['type' => 'Throttle'])
+                ->log('Rate limited while praising the task');
             return session()->flash('error', 'Your are rate limited, try again later!');
         }
 

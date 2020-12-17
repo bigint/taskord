@@ -29,6 +29,9 @@ class Subscribe extends Component
             Helper::flagAccount(Auth::user());
         }
         if (! $throttler->check()) {
+            activity()
+                ->withProperties(['type' => 'Throttle'])
+                ->log('Rate limited while subscribing to the question');
             return session()->flash('error', 'Please slow down!');
         }
 

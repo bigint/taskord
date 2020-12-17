@@ -26,6 +26,9 @@ class SingleAnswer extends Component
             Helper::flagAccount(Auth::user());
         }
         if (! $throttler->check()) {
+            activity()
+                ->withProperties(['type' => 'Throttle'])
+                ->log('Rate limited while praising the answer');
             return session()->flash('error', 'Your are rate limited, try again later!');
         }
 

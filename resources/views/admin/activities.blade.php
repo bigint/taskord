@@ -88,6 +88,9 @@
                                         @if ($activity->getExtraProperty('type') === 'Search')
                                             🔍 Search
                                         @endif
+                                        @if ($activity->getExtraProperty('type') === 'Throttle')
+                                            🛑 Rate Limited
+                                        @endif
                                     @else
                                         🌐 Others
                                     @endif

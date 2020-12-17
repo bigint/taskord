@@ -144,6 +144,9 @@ class WebhookController extends Controller
             Helper::flagAccount(Auth::user());
         }
         if (! $throttler->check()) {
+            activity()
+                ->withProperties(['type' => 'Throttle'])
+                ->log('Rate limited in Webhook');
             return response('Your are rate limited, try again later', 429);
         }
 
