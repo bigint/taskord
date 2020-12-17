@@ -38,7 +38,6 @@ class Kernel extends HttpKernel
             \App\Http\Middleware\VerifyCsrfToken::class,
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
             \App\Http\Middleware\CheckUser::class,
-            \Spatie\ResponseCache\Middlewares\CacheResponse::class,
         ],
 
         'api' => [
@@ -69,6 +68,5 @@ class Kernel extends HttpKernel
         'beta' => \App\Http\Middleware\IsBeta::class,
         'patron' => \App\Http\Middleware\IsPatron::class,
         'feature' => \App\Http\Middleware\Feature::class,
-        'doNotCacheResponse' => \Spatie\ResponseCache\Middlewares\DoNotCacheResponse::class,
     ];
 }
