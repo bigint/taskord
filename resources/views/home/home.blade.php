@@ -311,8 +311,8 @@
                                 <i class="verified fa fa-check-circle ms-1 text-primary"></i>
                             @endif
                         </a>
-                        <span class="badge rounded-pill bg-warning text-dark align-middle reputation" title="{{ Emoji::fire() }} {{ number_format($user->getPoints()) }}">
-                            {{ Emoji::fire() }} {{ $user->getPoints(true) }}
+                        <span class="badge rounded-pill bg-warning text-dark align-middle reputation" title="🔥 {{ number_format($user->getPoints()) }}">
+                            🔥 {{ $user->getPoints(true) }}
                         </span>
                     </div>
                     @endforeach

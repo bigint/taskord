@@ -86,7 +86,7 @@
                     <li class="nav-item me-2">
                         <div class="nav-link">
                             <span class="badge rounded-pill text-secondary score bg-warning">
-                                {{ Emoji::fire() }} {{ number_format(Auth::user()->getPoints()) }}
+                                🔥 {{ number_format(Auth::user()->getPoints()) }}
                             </span>
                         </div>
                     </li>
