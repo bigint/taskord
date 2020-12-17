@@ -78,7 +78,7 @@
                                         bg-info
                                     @endif"
                             >
-                                {{ Emoji::bullseye() }} {{ Auth::user()->daily_goal_reached }}/{{ Auth::user()->daily_goal }}
+                                🎯 {{ Auth::user()->daily_goal_reached }}/{{ Auth::user()->daily_goal }}
                             </a>
                         </div>
                     </li>
@@ -116,10 +116,10 @@
                             </div>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item text-dark" href="{{ route('user.done', ['username' => Auth::user()->username]) }}">
-                                {{ Emoji::bustInSilhouette() }} Profile
+                                👤 Profile
                             </a>
                             <a class="dropdown-item text-dark" href="{{ route('user.pending', ['username' => Auth::user()->username]) }}">
-                                {{ Emoji::hourglassNotDone() }} Pending Tasks
+                                ⏳ Pending Tasks
                             </a>
                             <a class="dropdown-item text-dark" href="{{ route('user.settings.profile') }}">
                                 {{ Emoji::gear() }} Settings
