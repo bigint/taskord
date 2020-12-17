@@ -104,13 +104,13 @@
             </button>
             @else
             <button role="button" class="btn btn-task btn-outline-danger me-1" wire:click="confirmDelete" wire:loading.attr="disabled" wire:offline.attr="disabled">
-                {{ Emoji::wastebasket() }}
+                🗑
             </button>
             @endif
             @endif
             @if (Auth::user()->staffShip)
             <button type="button" class="btn btn-task {{ $question->hidden ? 'btn-danger' : 'btn-outline-danger' }} text-white" wire:click="hide" wire:loading.attr="disabled" wire:offline.attr="disabled" wire:key="{{ $question->id }}" title="Flag to admins">
-                {{ Emoji::nauseatedFace() }}
+                🤢
             </button>
             @endif
             @endauth

@@ -84,7 +84,7 @@
                 </button>
                 @else
                 <button type="button" class="btn btn-task btn-outline-danger" wire:click="confirmDelete" wire:loading.attr="disabled" wire:offline.attr="disabled">
-                    {{ Emoji::wastebasket() }}
+                    🗑
                 </button>
                 @endif
             @endif

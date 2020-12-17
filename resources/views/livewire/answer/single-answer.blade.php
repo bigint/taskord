@@ -80,13 +80,13 @@
                 </button>
                 @else
                 <button type="button" class="btn btn-task btn-outline-danger me-1" wire:click="confirmDelete" wire:loading.attr="disabled" wire:offline.attr="disabled">
-                    {{ Emoji::wastebasket() }}
+                    🗑
                 </button>
                 @endif
             @endif
             @if (Auth::user()->staffShip)
             <button type="button" class="btn btn-task {{ $answer->hidden ? 'btn-danger' : 'btn-outline-danger' }} text-white ms-1" wire:click="hide" wire:loading.attr="disabled" wire:offline.attr="disabled" wire:key="{{ $answer->id }}" title="Flag to admins">
-                {{ Emoji::nauseatedFace() }}
+                🤢
             </button>
             @endif
             @endauth
