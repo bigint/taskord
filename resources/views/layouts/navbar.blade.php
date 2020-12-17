@@ -41,14 +41,14 @@
                         More
                     </a>
                     <ul class="dropdown-menu shadow-sm border">
-                        <li><a class="dropdown-item text-dark" href="{{ route('deals') }}">{{ Emoji::wrappedGift() }} Deals</a></li>
+                        <li><a class="dropdown-item text-dark" href="{{ route('deals') }}">🎁 Deals</a></li>
                         @auth
                         @if (Auth::user()->staffShip)
-                        <li><a class="dropdown-item text-dark" href="{{ route('meetups.home') }}">{{ Emoji::bustsInSilhouette() }} Meetups</a></li>
-                        <li><a class="dropdown-item text-dark" href="#">{{ Emoji::thinkingFace() }} Help</a></li>
-                        <li><a class="dropdown-item text-dark" href="#">{{ Emoji::barChart() }} Open</a></li>
+                        <li><a class="dropdown-item text-dark" href="{{ route('meetups.home') }}">👥 Meetups</a></li>
+                        <li><a class="dropdown-item text-dark" href="#">🤔 Help</a></li>
+                        <li><a class="dropdown-item text-dark" href="#">📊 Open</a></li>
                         @endif
-                        <li><a class="dropdown-item text-dark" href="{{ route('user.settings.integrations') }}">{{ Emoji::anchor() }} Integration</a></li>
+                        <li><a class="dropdown-item text-dark" href="{{ route('user.settings.integrations') }}">⚓ Integration</a></li>
                         @endauth
                         <li><a class="dropdown-item text-dark" href="https://www.notion.so/Roadmap-89c75352cfe14d24b62644daa0f1cba0" target="_blank">{{ Emoji::construction() }} Roadmap</a></li>
                     </ul>

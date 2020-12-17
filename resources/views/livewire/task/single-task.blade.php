@@ -61,7 +61,7 @@
         />
         @if ($launched)
         <span class="ms-1">
-            {{ Emoji::rocket() }}
+            🚀
         </span>
         @elseif ($bug)
         <span class="ms-1">
