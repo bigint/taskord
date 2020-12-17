@@ -35,7 +35,7 @@ class Integrations extends Component
         if (! $throttler->check()) {
             activity()
                 ->withProperties(['type' => 'Throttle'])
-                ->log('Rate limited while creating a integration');
+                ->log('Rate limited while creating an API integration');
             return session()->flash('error', 'Your are rate limited, try again later!');
         }
 
