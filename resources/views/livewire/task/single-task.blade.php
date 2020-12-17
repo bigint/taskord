@@ -65,11 +65,11 @@
         </span>
         @elseif ($bug)
         <span class="ms-1">
-            {{ Emoji::bug() }}
+            🐛
         </span>
         @elseif ($learn)
         <span class="ms-1">
-            {{ Emoji::greenBook() }}
+            📗
         </span>
         @endif
         @endif
@@ -150,7 +150,7 @@
                 </a>
             @endguest
             <a href="{{ route('task', ['id' => $task->id]) }}" class="btn btn-task btn-outline-primary me-1">
-                {{ Emoji::speechBalloon() }}
+                💬
                 @if ($task->comments->count('id') !== 0)
                 <span class="small text-dark fw-bold">
                     {{ number_format($task->comments->count('id')) }}

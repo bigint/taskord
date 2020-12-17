@@ -29,7 +29,7 @@
                     $type === "App\Notifications\Task\NotifySubscribers" or
                     $type === "App\Notifications\Question\NotifySubscribers"
                 )
-                    {{ Emoji::speechBalloon() }}
+                    💬
                 @elseif (
                     $type === "App\Notifications\Product\MemberRemoved" or
                     $type === "App\Notifications\Product\MemberLeft"
