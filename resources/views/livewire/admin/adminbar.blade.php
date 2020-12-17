@@ -137,9 +137,10 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <div class="fw-bold mb-2">This will do following actions</div>
+                <div class="fw-bold mb-2 text-danger">This will do following actions</div>
                 <ul class="mb-0">
                     <li>Clean <b>Application Cache</b></li>
+                    <li>Clean <b>Response Cache</b></li>
                     <li>Clean Cached <b>Application Views</b></li>
                     <li>Clean Cached <b>Configuration</b></li>
                     <li>Purge <b>Cloudflare Cache</b></li>
