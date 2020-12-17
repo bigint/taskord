@@ -34,8 +34,7 @@
                     @if (Auth::user()->isPatron and Auth::user()->patron()->count() === 1)
                     <div class="text-center">
                         <div class="h5">
-                            {{ Emoji::redHeart() }}
-                            You are already a patron!
+                            ❤ You are already a patron!
                         </div>
                         <a class="text-primary" href="{{ route('user.settings.patron') }}">
                             Go to settings

@@ -40,7 +40,7 @@
                     @else
                     <div class="mb-2">
                         <a class="text-primary" href="{{ route('patron.home') }}">
-                            {{ Emoji::redHeart() }} Support Taskord to post patron only questions!
+                            ❤ Support Taskord to post patron only questions!
                         </a>
                     </div>
                     @endif
