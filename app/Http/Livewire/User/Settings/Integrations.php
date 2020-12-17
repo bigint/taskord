@@ -36,6 +36,7 @@ class Integrations extends Component
             activity()
                 ->withProperties(['type' => 'Throttle'])
                 ->log('Rate limited while creating a integration');
+
             return session()->flash('error', 'Your are rate limited, try again later!');
         }
 

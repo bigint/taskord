@@ -28,6 +28,7 @@ class Rsvp extends Component
             activity()
                 ->withProperties(['type' => 'Throttle'])
                 ->log('Rate limited while toggling RSVP');
+
             return session()->flash('error', 'Please slow down!');
         }
 

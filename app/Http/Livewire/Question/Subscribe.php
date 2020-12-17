@@ -32,6 +32,7 @@ class Subscribe extends Component
             activity()
                 ->withProperties(['type' => 'Throttle'])
                 ->log('Rate limited while subscribing to the question');
+
             return session()->flash('error', 'Please slow down!');
         }
 
