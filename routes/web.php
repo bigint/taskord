@@ -120,9 +120,9 @@ Route::group(['middleware' => ['throttle:30,1']], function () {
 
     // Admin
     Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['staff']], function () {
-        Route::get('users', [AdminController::class, 'users'])->name('users');
-        Route::get('tasks', [AdminController::class, 'tasks'])->name('tasks');
-        Route::get('activities', [AdminController::class, 'activities'])->name('activities');
+        Route::get('users', [AdminController::class, 'users'])->middleware('password.confirm')->name('users');
+        Route::get('tasks', [AdminController::class, 'tasks'])->middleware('password.confirm')->name('tasks');
+        Route::get('activities', [AdminController::class, 'activities'])->middleware('password.confirm')->name('activities');
         Route::get('adminbar', [AdminController::class, 'toggle'])->name('adminbar');
         Route::get('clean', [AdminController::class, 'clean'])->name('clean');
     });
