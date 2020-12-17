@@ -3,9 +3,9 @@
         <x-alert />
         <form wire:submit.prevent="submit(Object.fromEntries(new FormData($event.target)))">
             <div class="input-group">
-                <button class="btn btn-outline-secondary trigger" type="button">{{ $user->status_emoji ? $user->status_emoji : '💭' }}</button>
+                <button class="bg-transparent border px-2 rounded-start trigger" type="button">{{ $user->status_emoji ? $user->status_emoji : '💭' }}</button>
                 <input type="hidden" id="emoji_input" name="status_emoji" value="{{ $user->status_emoji ? $user->status_emoji : '💭' }}">
-                <input type="text" class="form-control" name="status" value="{{ $user->status }}" placeholder="What's happening?">
+                <input type="text" class="form-control border" name="status" value="{{ $user->status }}" placeholder="What's happening?">
             </div>
 
             <div class="d-flex justify-content-around pt-3">

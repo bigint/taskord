@@ -144,6 +144,10 @@ input[type="color"]:focus,
   box-shadow: none !important;
 }
 
+*:focus {
+  outline: 0 !important;
+}
+
 .fa-link {
   color: $primary;
 }
