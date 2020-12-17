@@ -18,7 +18,7 @@
                 {{ $product->name }}
                 @if ($product->launched)
                     <a href="{{ route('products.launched') }}" class="small" data-bs-toggle="tooltip" data-placement="right" title="Launched">
-                        {{ Emoji::rocket() }}
+                        🚀
                     </a>
                 @endif
             </a>

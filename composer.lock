@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "fb49c3f373e45992aa07c90cb3a790b0",
+    "content-hash": "7a754d7e2e15f000dfd555a32e120375",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -5146,72 +5146,6 @@
                 }
             ],
             "time": "2020-11-10T09:20:18+00:00"
-        },
-        {
-            "name": "spatie/emoji",
-            "version": "2.2.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/spatie/emoji.git",
-                "reference": "c893f899ba4be107b264e9d8685eb0ec96bdeedd"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/spatie/emoji/zipball/c893f899ba4be107b264e9d8685eb0ec96bdeedd",
-                "reference": "c893f899ba4be107b264e9d8685eb0ec96bdeedd",
-                "shasum": ""
-            },
-            "require": {
-                "ext-mbstring": "*",
-                "php": "^7.2|^8.0"
-            },
-            "require-dev": {
-                "ext-iconv": "*",
-                "ext-json": "*",
-                "guzzlehttp/guzzle": "^7.0",
-                "phpunit/phpunit": "^9.4",
-                "symfony/console": "^4.2",
-                "twig/twig": "^2.7"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Spatie\\Emoji\\": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Freek Van der Herten",
-                    "email": "freek@spatie.be",
-                    "homepage": "https://spatie.be",
-                    "role": "Developer"
-                }
-            ],
-            "description": "Display emoji characters",
-            "homepage": "https://github.com/spatie/emoji",
-            "keywords": [
-                "emoji",
-                "spatie"
-            ],
-            "support": {
-                "issues": "https://github.com/spatie/emoji/issues",
-                "source": "https://github.com/spatie/emoji/tree/2.2.0"
-            },
-            "funding": [
-                {
-                    "url": "https://spatie.be/open-source/support-us",
-                    "type": "custom"
-                },
-                {
-                    "url": "https://github.com/spatie",
-                    "type": "github"
-                }
-            ],
-            "time": "2020-12-04T08:26:45+00:00"
         },
         {
             "name": "spatie/laravel-activitylog",

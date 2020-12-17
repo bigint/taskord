@@ -8,7 +8,7 @@
                 {{ $product->name }}
                 @if ($product->launched)
                     <span class="ms-1 small" title="Launched">
-                        {{ Emoji::rocket() }}
+                        🚀
                     </span>
                 @endif
                 @if ($product->deprecated)

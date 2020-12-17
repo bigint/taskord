@@ -22,7 +22,7 @@
                     @endif
                     @if ($question->user->isPatron)
                         <a class="patron ms-1 small" href="{{ route('patron.home') }}">
-                            {{ Emoji::handshake() }}
+                            🤝
                         </a>
                     @endif
                 </a>
@@ -60,7 +60,7 @@
             @auth
             @if (Auth::user()->hasLiked($question))
                 <button role="button" class="btn btn-task btn-success text-white me-1" wire:click="togglePraise" wire:loading.attr="disabled" wire:offline.attr="disabled">
-                    {{ Emoji::clappingHands() }}
+                    👏
                     <span class="small text-white fw-bold">
                         {{ number_format($question->likerscount()) }}
                     </span>
@@ -72,7 +72,7 @@
                 </button>
             @else
                 <button role="button" class="btn btn-task btn-outline-success me-1" wire:click="togglePraise" wire:loading.attr="disabled" wire:offline.attr="disabled">
-                    {{ Emoji::clappingHands() }}
+                    👏
                     @if ($question->likerscount() !== 0)
                     <span class="small text-dark fw-bold">
                         {{ number_format($question->likerscount()) }}
@@ -88,7 +88,7 @@
             @if (Auth::user()->staffShip or Auth::id() === $question->user->id)
             @if ($type === "question.question")
             <button role="button" class="btn btn-task btn-outline-info text-white me-1" data-bs-toggle="modal" data-bs-target="#editQuestionModal">
-                {{ Emoji::writingHand() }}
+                ✍
                 <span class="small text-dark fw-bold">
                     Edit
                 </span>
@@ -104,19 +104,19 @@
             </button>
             @else
             <button role="button" class="btn btn-task btn-outline-danger me-1" wire:click="confirmDelete" wire:loading.attr="disabled" wire:offline.attr="disabled">
-                {{ Emoji::wastebasket() }}
+                🗑
             </button>
             @endif
             @endif
             @if (Auth::user()->staffShip)
             <button type="button" class="btn btn-task {{ $question->hidden ? 'btn-danger' : 'btn-outline-danger' }} text-white" wire:click="hide" wire:loading.attr="disabled" wire:offline.attr="disabled" wire:key="{{ $question->id }}" title="Flag to admins">
-                {{ Emoji::nauseatedFace() }}
+                🤢
             </button>
             @endif
             @endauth
             @guest
                 <a href="/login" class="btn btn-task btn-outline-success me-1">
-                    {{ Emoji::clappingHands() }}
+                    👏
                     @if ($question->likerscount() !== 0)
                     <span class="small text-dark fw-bold">
                         {{ number_format($question->likerscount()) }}
