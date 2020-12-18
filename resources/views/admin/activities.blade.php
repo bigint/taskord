@@ -43,7 +43,7 @@
                                         @if ($user)
                                         <img class="avatar-20 mb-1 me-1 rounded-circle" src="{{ $user->avatar }}" alt="{{ $user->username }}'s avatar" />
                                         <a
-                                            id="user-hover"
+                                            class="user-hover"
                                             data-id="{{ $user->id }}"
                                             href="{{ route('user.done', ['username' => $user->username]) }}"
                                         >

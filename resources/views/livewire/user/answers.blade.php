@@ -7,7 +7,7 @@
             <div class="card-header h6 pt-3 pb-3">
                 <a
                     href="{{ route('user.done', ['username' => $answer->question->user->username]) }}"
-                    id="user-hover"
+                    class="user-hover"
                     data-id="{{ $answer->question->user->id }}"
                 >
                     <img class="rounded-circle avatar-30" src="{{ $answer->question->user->avatar }}" alt="{{ $answer->question->user->username }}'s avatar" />

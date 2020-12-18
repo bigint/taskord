@@ -8,8 +8,7 @@
             <span class="ms-2">
                 <a
                     href="{{ route('user.done', ['username' => $answer->user->username]) }}"
-                    class="fw-bold text-dark"
-                    id="user-hover"
+                    class="fw-bold text-dark user-hover"
                     data-id="{{ $answer->user->id }}"
                 >
                     @if ($answer->user->firstname or $answer->user->lastname)

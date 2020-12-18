@@ -20,7 +20,7 @@
             </div>
             <a
                 href="{{ route('user.done', ['username' => $question->user->username]) }}"
-                id="user-hover"
+                class="user-hover"
                 data-id="{{ $question->user->id }}"
             >
                 <img class="rounded-circle avatar-30 ms-3 float-end" src="{{ $question->user->avatar }}" alt="{{ $question->user->username }}'s avatar" />

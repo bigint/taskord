@@ -39,7 +39,7 @@
                 <div class="card-body d-flex align-items-center">
                     <a
                         href="{{ route('user.done', ['username' => $comment->user->username]) }}"
-                        id="user-hover"
+                        class="user-hover"
                         data-id="{{ $comment->user->id }}"
                     >
                         <img class="rounded-circle avatar-40 mt-1" src="{{ $comment->user->avatar }}" alt="{{ $comment->user->username }}'s avatar" />
@@ -47,8 +47,7 @@
                     <span class="ms-3">
                         <a
                             href="{{ route('user.done', ['username' => $comment->user->username]) }}"
-                            class="align-text-top text-dark"
-                            id="user-hover"
+                            class="align-text-top text-dark user-hover"
                             data-id="{{ $comment->user->id }}"
                         >
                             <span class="fw-bold">

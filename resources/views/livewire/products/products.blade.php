@@ -38,7 +38,7 @@
                     @foreach ($product->members()->limit(1)->get() as $user)
                     <a
                         href="{{ route('user.done', ['username' => $user->username]) }}"
-                        id="user-hover"
+                        class="user-hover"
                         data-id="{{ $user->id }}"
                     >
                         <img class="rounded-circle avatar-30 me-1" src="{{ $user->avatar }}" alt="{{ $user->username }}'s avatar" />
@@ -46,7 +46,7 @@
                     @endforeach
                     <a
                         href="{{ route('user.done', ['username' => $product->owner->username]) }}"
-                        id="user-hover"
+                        class="user-hover"
                         data-id="{{ $product->owner->id }}"
                     >
                         <img class="rounded-circle avatar-30 me-0" src="{{ $product->owner->avatar }}" alt="{{ $product->owner->username }}'s avatar" />

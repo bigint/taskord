@@ -95,15 +95,14 @@
             <div class="py-2 px-3">
                 <a
                     href="{{ route('user.done', ['username' => $product->owner->username]) }}"
-                    id="user-hover"
+                    class="user-hover"
                     data-id="{{ $product->owner->id }}"
                 >
                     <img class="rounded-circle avatar-30" src="{{ $product->owner->avatar }}" alt="{{ $product->owner->username }}'s avatar" />
                 </a>
                 <a
                     href="{{ route('user.done', ['username' => $product->owner->username]) }}"
-                    class="ms-2 align-middle fw-bold text-dark"
-                    id="user-hover"
+                    class="ms-2 align-middle fw-bold text-dark user-hover"
                     data-id="{{ $product->owner->id }}"
                 >
                     @if ($product->owner->firstname or $product->owner->lastname)

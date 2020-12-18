@@ -7,8 +7,7 @@
         <span class="ms-2">
             <a
                 href="{{ route('user.done', ['username' => $comment->user->username]) }}"
-                class="fw-bold text-dark"
-                id="user-hover"
+                class="fw-bold text-dark user-hover"
                 data-id="{{ $comment->user->id }}"
             >
                 @if ($comment->user->firstname or $comment->user->lastname)

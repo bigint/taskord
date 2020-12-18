@@ -15,7 +15,7 @@ document.addEventListener("livewire:load", () => {
     content: '<div class="p-3"><div class="spinner-border spinner-border-sm text-dark"></div></div>',
   };
   // User Popover
-  tippy('#user-hover', {
+  tippy('.user-hover', {
     ...config,
     onShow(instance) {
       const id = instance.reference.getAttribute('data-id');

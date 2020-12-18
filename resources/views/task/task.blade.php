@@ -47,7 +47,7 @@
                 <div class="card-body d-flex align-items-center">
                     <a
                         href="{{ route('user.done', ['username' => $task->user->username]) }}"
-                        id="user-hover"
+                        class="user-hover"
                         data-id="{{ $task->user->id }}"
                     >
                         <img class="rounded-circle avatar-40 mt-1" src="{{ $task->user->avatar }}" alt="{{ $task->user->username }}'s avatar" />
@@ -55,8 +55,7 @@
                     <span class="ms-3">
                         <a
                             href="{{ route('user.done', ['username' => $task->user->username]) }}"
-                            class="align-text-top text-dark"
-                            id="user-hover"
+                            class="align-text-top text-dark user-hover"
                             data-id="{{ $task->user->id }}"
                         >
                             <span class="fw-bold">
@@ -119,8 +118,7 @@
                     @foreach ($task->comments->groupBy('user_id') as $comment)
                         <a
                             href="{{ route('user.done', ['username' => $comment[0]->user->username]) }}"
-                            class="me-1"
-                            id="user-hover"
+                            class="me-1 user-hover"
                             data-id="{{ $comment[0]->user->id }}"
                         >
                             <img class="rounded-circle avatar-30 mb-2" src="{{ $comment[0]->user->avatar }}" alt="{{ $comment[0]->user->username }}'s avatar" />
