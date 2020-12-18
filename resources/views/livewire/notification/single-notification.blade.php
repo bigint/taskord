@@ -43,7 +43,7 @@
                 @endif
                 @if ($type !== "App\Notifications\Welcome" and $type !== "App\Notifications\VersionReleased")
                 <a href="{{ route('user.done', ['username' => $user->username]) }}">
-                    <img class="rounded-circle avatar-20 ms-2 me-1" src="{{ $user->avatar }}" />
+                    <img class="rounded-circle avatar-20 ms-2 me-1" src="{{ $user->avatar }}" alt="{{ $user->username }}'s avatar" />
                     <span class="align-middle">
                         @if ($user->firstname or $user->lastname)
                             {{ $user->firstname }}{{ ' '.$user->lastname }}

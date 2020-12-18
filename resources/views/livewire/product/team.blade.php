@@ -4,7 +4,7 @@
         id="user-hover"
         data-id="{{ $user->id }}"
     >
-        <img class="rounded-circle avatar-30" src="{{ $user->avatar }}" />
+        <img class="rounded-circle avatar-30" src="{{ $user->avatar }}" alt="{{ $user->username }}'s avatar" />
     </a>
     <a
         href="{{ route('user.done', ['username' => $user->username]) }}"

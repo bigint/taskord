@@ -2,7 +2,7 @@
     <x-alert />
     <div class="align-items-center d-flex">
         <a href="{{ route('user.done', ['username' => $task->user->username]) }}">
-            <img class="avatar-40 rounded-circle" src="{{ $task->user->avatar }}" alt="{{ $task->user->username }}" />
+            <img class="avatar-40 rounded-circle" src="{{ $task->user->avatar }}" alt="{{ $task->user->username }}'s avatar" />
         </a>
         <span class="ms-2">
             <a
@@ -78,7 +78,7 @@
             @if ($task->type === 'product')
             <span class="small text-black-50">
                 on
-                <img class="rounded mb-1 ms-1 avatar-15" src="{{ $task->product->avatar }}" alt="{{ $task->product->slug }}" />
+                <img class="rounded mb-1 ms-1 avatar-15" src="{{ $task->product->avatar }}" alt="{{ $task->product->slug }}'s avatar" />
                 <a
                     class="text-black-50"
                     href="{{ route('product.done', ['slug' => $task->product->slug]) }}"
@@ -113,7 +113,7 @@
                 </span>
                 <span class="avatar-stack ms-1">
                 @foreach($task->likers->take(5) as $user)
-                <img class="praise-avatar rounded-circle {{ $loop->last ? 'me-0' : '' }}" src="{{ $user->avatar }}" alt="{{ $user->username }}" />
+                <img class="praise-avatar rounded-circle {{ $loop->last ? 'me-0' : '' }}" src="{{ $user->avatar }}" alt="{{ $user->username }}'s avatar" />
                 @endforeach
                 </span>
             </button>
@@ -126,7 +126,7 @@
                 </span>
                 <span class="avatar-stack ms-1">
                 @foreach($task->likers->take(5) as $user)
-                <img class="praise-avatar rounded-circle {{ $loop->last ? 'me-0' : '' }}" src="{{ $user->avatar }}" alt="{{ $user->username }}" />
+                <img class="praise-avatar rounded-circle {{ $loop->last ? 'me-0' : '' }}" src="{{ $user->avatar }}" alt="{{ $user->username }}'s avatar" />
                 @endforeach
                 </span>
                 @endif
@@ -143,7 +143,7 @@
                     </span>
                     <span class="avatar-stack ms-1">
                     @foreach($task->likers->take(5) as $user)
-                    <img class="praise-avatar rounded-circle {{ $loop->last ? 'me-0' : '' }}" src="{{ $user->avatar }}" alt="{{ $user->username }}" />
+                    <img class="praise-avatar rounded-circle {{ $loop->last ? 'me-0' : '' }}" src="{{ $user->avatar }}" alt="{{ $user->username }}'s avatar" />
                     @endforeach
                     </span>
                     @endif
