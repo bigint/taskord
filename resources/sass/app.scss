@@ -4,122 +4,115 @@
 @import "~tributejs/dist/tribute.css"; // Tribute
 @import "~lightbox2/dist/css/lightbox.min.css"; // lightbox2
 @import "floating-labels";
-
 a {
-  text-decoration: none;
+    text-decoration: none;
 }
 
 .btn {
-  box-shadow: 0 1px 2px 0 rgba(0,0,0,.1) !important;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, .1) !important;
 }
 
 .btn-primary {
-  color: #fff;
-  background-color: $primary;
-
-  &:hover,
-  &:active,
-  &:focus {
-    background-color: #6f68ee;
-  }
+    color: #fff;
+    background-color: $primary;
+    &:hover,
+    &:active,
+    &:focus {
+        background-color: #6f68ee;
+    }
 }
 
 .btn-blurple {
-  color: #fff;
-  background-color: #7289da;
-
-  &:hover,
-  &:active,
-  &:focus {
-    background-color: #657ac3;
     color: #fff;
-  }
+    background-color: #7289da;
+    &:hover,
+    &:active,
+    &:focus {
+        background-color: #657ac3;
+        color: #fff;
+    }
 }
 
 .navbar {
-  .score {
-    padding: 5px 7px;
-  }
-
-  .bg-secondary {
-    background-color: #515a63 !important;
-  }
-
-  ::placeholder {
-    color: #fff;
-    opacity: 1;
-  }
+    .score {
+        padding: 5px 7px;
+    }
+    .bg-secondary {
+        background-color: #515a63 !important;
+    }
+     ::placeholder {
+        color: #fff;
+        opacity: 1;
+    }
 }
 
 .sponsor-icon {
-  height: 17px;
-  width: 17px;
-  vertical-align: sub;
+    height: 17px;
+    width: 17px;
+    vertical-align: sub;
 }
 
 .favicon {
-  height: 16px;
-  width: 16px;
-  vertical-align: sub;
+    height: 16px;
+    width: 16px;
+    vertical-align: sub;
 }
 
 .avatar-15 {
-  height: 15px !important;
-  width: auto !important;
+    height: 15px !important;
+    width: auto !important;
 }
 
 .avatar-20 {
-  height: 20px !important;
-  width: 20px !important;
+    height: 20px !important;
+    width: 20px !important;
 }
 
 .avatar-30 {
-  height: 30px !important;
-  width: 30px !important;
+    height: 30px !important;
+    width: 30px !important;
 }
 
 .avatar-40 {
-  height: 40px !important;
-  width: 40px !important;
+    height: 40px !important;
+    width: 40px !important;
 }
 
 .avatar-50 {
-  height: 50px !important;
-  width: 50px !important;
+    height: 50px !important;
+    width: 50px !important;
 }
 
 .avatar-100 {
-  height: 100px !important;
-  width: 100px !important;
+    height: 100px !important;
+    width: 100px !important;
 }
 
 .avatar-120 {
-  height: 120px !important;
-  width: 120px !important;
-  border: 2px solid #dedede;
+    height: 120px !important;
+    width: 120px !important;
+    border: 2px solid #dedede;
 }
 
 .avatar-150 {
-  height: 150px !important;
-  width: 150px !important;
+    height: 150px !important;
+    width: 150px !important;
 }
 
 .btn-task {
-  font-size: 12px;
-  padding: 1px 8px;
-  box-shadow: none !important;
+    font-size: 12px;
+    padding: 1px 8px;
+    box-shadow: none !important;
 }
 
 .btn-danger {
-  color: white;
-
-  &:hover {
     color: white;
-  }
+    &:hover {
+        color: white;
+    }
 }
 
 // Remove Bootstrap Glow on Input and Button
-
 textarea:focus,
 input[type="text"]:focus,
 input[type="password"]:focus,
@@ -141,234 +134,230 @@ input[type="color"]:focus,
 .btn.focus:active,
 .btn:active:focus,
 .btn:focus {
-  box-shadow: none !important;
+    box-shadow: none !important;
 }
 
 *:focus {
-  outline: 0 !important;
+    outline: 0 !important;
 }
 
 .fa-link {
-  color: $primary;
+    color: $primary;
 }
 
 .fa-twitter {
-  color: #38a1f3;
+    color: #38a1f3;
 }
 
 .fa-twitch {
-  color: #9147ff;
+    color: #9147ff;
 }
 
 .fa-telegram {
-  color: #0088cc;
+    color: #0088cc;
 }
 
 .fa-github {
-  color: #333;
+    color: #333;
 }
 
 .fa-gitlab {
-  color: #fc6d27;
+    color: #fc6d27;
 }
 
 .fa-bitbucket {
-  color: #2684ff;
+    color: #2684ff;
 }
 
 .fa-youtube {
-  color: #ff0000;
+    color: #ff0000;
 }
 
 .fa-google {
-  color: #DB4437;
+    color: #DB4437;
 }
 
 .fa-product-hunt {
-  color: #da552f;
+    color: #da552f;
 }
 
 .list-group-item {
-  padding: 0.4rem 1rem;
+    padding: 0.4rem 1rem;
 }
 
 .form-check-input {
-  &:disabled {
-    opacity: initial;
-  }
+    &:disabled {
+        opacity: initial;
+    }
 }
 
 .input-group-text {
-  .task-checkbox {
-    margin-top: 0;
-  }
+    .task-checkbox {
+        margin-top: 0;
+    }
 }
 
 .task-checkbox {
-  width: 1.1rem;
-  height: 1.1rem;
-  background-position: inherit;
+    width: 1.1rem;
+    height: 1.1rem;
+    background-position: inherit;
 }
 
 .task-font {
-  font-size: 1rem;
-
-  img {
-    width: 100%;
-    border-radius: 5px;
-    border: 1px solid #dee2e6;
-  }
+    font-size: 1rem;
+    img {
+        width: 100%;
+        border-radius: 5px;
+        border: 1px solid #dee2e6;
+    }
 }
 
 .body-font {
-  img {
-    width: 100%;
-    border-radius: 5px;
-    border: 1px solid #dee2e6;
-  }
+    img {
+        width: 100%;
+        border-radius: 5px;
+        border: 1px solid #dee2e6;
+    }
 }
 
 .task-gitlab {
-  color: #fc6d27;
+    color: #fc6d27;
 }
 
 .task-github {
-  color: #333333;
+    color: #333333;
 }
 
 .admin-bar {
-  font-size: 13px;
-
-  .fa,
-  .fab {
-    font-size: 12px;
-  }
+    font-size: 13px;
+    .fa,
+    .fab {
+        font-size: 12px;
+    }
 }
 
 .welcome-card {
-  background: linear-gradient(90deg, #6a63ec 0%, #6a63ecba 90%);
-  background-size: contain;
+    background: linear-gradient(90deg, #6a63ec 0%, #6a63ecba 90%);
+    background-size: contain;
 }
 
 .avatar-stack {
-  .avatar {
-    height: 30px;
-    margin-right: -18px;
-    border: 2px solid white;
-    transition: all 0.2s ease;
-  }
-  .praise-avatar {
-    height: 15px;
-    width: 15px;
-    margin-right: -10px;
-    border: 1px solid white;
-    vertical-align: sub;
-  }
-  .replies-avatar {
-    height: 18px;
-    width: 18px;
-    margin-right: -10px;
-    border: 1px solid white;
-  }
-  span {
-    margin-left: 15px !important;
-  }
-  &:hover .avatar {
-    margin-right: -3px !important;
-  }
-  &:hover span {
-    margin-left: 5px !important;
-  }
+    .avatar {
+        height: 30px;
+        margin-right: -18px;
+        border: 2px solid white;
+        transition: all 0.2s ease;
+    }
+    .praise-avatar {
+        height: 15px;
+        width: 15px;
+        margin-right: -10px;
+        border: 1px solid white;
+        vertical-align: sub;
+    }
+    .replies-avatar {
+        height: 18px;
+        width: 18px;
+        margin-right: -10px;
+        border: 1px solid white;
+    }
+    span {
+        margin-left: 15px !important;
+    }
+    &:hover .avatar {
+        margin-right: -3px !important;
+    }
+    &:hover span {
+        margin-left: 5px !important;
+    }
 }
 
 .spinner-border-mini {
-  height: 13px;
-  width: 13px;
-  margin-bottom: 1px;
-  border-width: 0.2em;
+    height: 13px;
+    width: 13px;
+    margin-bottom: 1px;
+    border-width: 0.2em;
 }
 
 .beta-badge {
-  background-color: transparent !important;
-  border: 1px solid $green;
+    background-color: transparent !important;
+    border: 1px solid $green;
 }
 
 .notification-count {
-  font-size: 10px;
-  padding: 2px 4px;
-  vertical-align: super;
-  margin-left: -1px;
+    font-size: 10px;
+    padding: 2px 4px;
+    vertical-align: super;
+    margin-left: -1px;
 }
 
 .dropdown-item:active {
-  color: white !important;
+    color: white !important;
 }
 
 .bg-patron {
-  background-color: #fffde8 !important;
+    background-color: #fffde8 !important;
 }
 
 .recent-questions {
-  border-radius: 15px !important;
+    border-radius: 15px !important;
 }
 
 input[type="date"]:before {
-  content: attr(placeholder) !important;
-  color: #aaa;
-  margin-right: 0.5em;
+    content: attr(placeholder) !important;
+    color: #aaa;
+    margin-right: 0.5em;
 }
 
 input[type="date"]:focus:before,
 input[type="date"]:valid:before {
-  content: "";
+    content: "";
 }
 
 .sticky-footer {
-  position: sticky;
-  top: 25px;
+    position: sticky;
+    top: 25px;
 }
 
 .pagination {
-  justify-content: center;
+    justify-content: center;
 }
 
 .page-link {
-  background-color: transparent;
-  border: none;
-  border-radius: 5px;
-  margin: 10px;
+    background-color: transparent;
+    border: none;
+    border-radius: 5px;
+    margin: 10px;
 }
 
 .tribute-container {
-  background-color: white;
-  border: 1px solid $gray-400;
-  border-radius: 6px;
-  margin-top: 10px;
-  max-width: auto;
+    background-color: white;
+    border: 1px solid $gray-400;
+    border-radius: 6px;
+    margin-top: 10px;
+    max-width: auto;
 }
 
 .tribute-container ul {
-  background: $gray-200;
+    background: $gray-200;
 }
 
 .tribute-container li {
-  cursor: pointer;
-  margin-bottom: 1px;
-  background: white;
-  padding: 5px 15px;
-
-  &.highlight {
-    background: $gray-200;
-  }
+    cursor: pointer;
+    margin-bottom: 1px;
+    background: white;
+    padding: 5px 15px;
+    &.highlight {
+        background: $gray-200;
+    }
 }
 
 .vertical-line {
-  border-left: 3px solid lightgray;
-  height: 40px;
+    border-left: 3px solid lightgray;
+    height: 40px;
 }
 
 // Curvy Style
-
 .card,
 .form-control,
 .input-group-text,
@@ -379,94 +368,90 @@ input[type="date"]:valid:before {
 .alert,
 .tooltip-inner,
 .popover {
-  border-radius: 6px;
+    border-radius: 6px;
 }
 
 .popover-body {
-  padding: 0;
+    padding: 0;
 }
 
 .rounded {
-  border-radius: 6px !important;
+    border-radius: 6px !important;
 }
 
 .card-header:first-child,
 .popover-header {
-  border-radius: 6px 6px 0 0;
+    border-radius: 6px 6px 0 0;
 }
 
 .badge {
-  border-radius: 15px;
+    border-radius: 15px;
 }
 
 .list-group-item:first-child {
-  border-top-left-radius: 6px;
-  border-top-right-radius: 6px;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
 }
 
 .list-group-item:last-child {
-  border-bottom-right-radius: 6px;
-  border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 6px;
+    border-bottom-left-radius: 6px;
 }
 
 ::-webkit-scrollbar {
-  width: 10px;
+    width: 10px;
 }
 
 ::-webkit-scrollbar-track {
-  -webkit-box-shadow: inset 6px 6px 6px 6px transparent;
-  border-radius: 6px;
+    -webkit-box-shadow: inset 6px 6px 6px 6px transparent;
+    border-radius: 6px;
 }
 
 ::-webkit-scrollbar-thumb {
-  border-radius: 6px;
-  -webkit-box-shadow: inset 6px 6px 6px 6px $gray-500;
+    border-radius: 6px;
+    -webkit-box-shadow: inset 6px 6px 6px 6px $gray-500;
 }
 
 .gallery {
-  display: flex;
-
-  img {
-    width: 100%;
-    height: auto;
-    vertical-align: middle;
-  }
+    display: flex;
+    img {
+        width: 100%;
+        height: auto;
+        vertical-align: middle;
+    }
 }
 
-.gallery > div:not(:last-child) {
-  margin-right: 1%;
+.gallery>div:not(:last-child) {
+    margin-right: 1%;
 }
 
 .tippy-box {
-  border-radius: 6px !important;
+    border-radius: 6px !important;
 }
 
 .btn-social {
-  &.btn-google {
-    color: #DB4437;
-    border-color: #DB4437;
-  }
-
-  &.btn-twitter {
-    color: #38a1f3;
-    border-color: #38a1f3;
-  }
-
-  &.btn-github {
-    color: #24292e;
-    border-color: #24292e;
-  }
-
-  &.btn-gitlab {
-    color: #FC6D27;
-    border-color: #FC6D27;
-  }
+    &.btn-google {
+        color: #DB4437;
+        border-color: #DB4437;
+    }
+    &.btn-twitter {
+        color: #38a1f3;
+        border-color: #38a1f3;
+    }
+    &.btn-github {
+        color: #24292e;
+        border-color: #24292e;
+    }
+    &.btn-gitlab {
+        color: #FC6D27;
+        border-color: #FC6D27;
+    }
 }
 
 .cursor-pointer {
-  cursor: pointer;
+    cursor: pointer;
 }
 
 .tippy-status {
-  margin: -5px -9px 0px -9px;
+    margin: -5px -9px 0px -9px;
 }
