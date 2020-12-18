@@ -1,7 +1,7 @@
 <div class="card-footer text-muted">
-    <img class="avatar-20 rounded-circle" src="{{ $meetup->user->avatar }}" />
+    <img class="avatar-20 rounded-circle" src="{{ $meetup->user->avatar }}" alt="{{ $meetup->user->username }}'s avatar" />
     @foreach($meetup->subscribers->take(5) as $user)
-    <img class="avatar-20 rounded-circle" src="{{ $user->avatar }}" />
+    <img class="avatar-20 rounded-circle" src="{{ $user->avatar }}" alt="{{ $user->username }}'s avatar" />
     @endforeach
     @auth
     @if (Auth::user()->hasSubscribed($meetup))
