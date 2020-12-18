@@ -1,7 +1,7 @@
 <div class="card">
     <div class="card-body d-flex align-items-center">
         <a href="{{ $product->avatar }}" data-lightbox="{{ $product->avatar }}" data-title="{{ $product->name }}'s Logo">
-            <img class="rounded avatar-120" src="{{ $product->avatar }}" />
+            <img class="rounded avatar-120" src="{{ $product->avatar }}" alt="{{ $product->slug }}'s avatar" />
         </a>
         <div class="ms-4">
             <div class="h5 mb-0">
