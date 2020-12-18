@@ -42,7 +42,7 @@ class Adminbar extends Component
 
         if (file_exists('../.git/refs/heads/'.$branchname)) {
             $head = File::get('../.git/refs/heads/'.$branchname);
-            $headHASH = Str::limit($head, 8, '');
+            $headHASH = $head;
         } else {
             $headHASH = '00000000';
         }
