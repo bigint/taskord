@@ -11,8 +11,7 @@
             </a>
             <a
                 href="{{ route('product.done', ['slug' => $product->slug]) }}"
-                class="ms-2 me-2 align-text-top fw-bold text-dark"
-                id="product-hover"
+                class="ms-2 me-2 align-text-top fw-bold text-dark product-hover"
                 data-id="{{ $product->id }}"
             >
                 {{ $product->name }}

@@ -78,7 +78,7 @@
                 <div class="card-body d-flex align-items-center">
                     <a
                         href="{{ route('product.done', ['slug' => \App\Models\Product::find($task->product_id)->slug]) }}"
-                        id="product-hover"
+                        class="product-hover"
                         data-id="{{ \App\Models\Product::find($task->product_id)->id }}"
                     >
                         <img class="rounded avatar-40 mt-1" src="{{ \App\Models\Product::find($task->product_id)->avatar }}" />
@@ -86,8 +86,7 @@
                     <span class="ms-3">
                         <a
                             href="{{ route('product.done', ['slug' => \App\Models\Product::find($task->product_id)->slug]) }}"
-                            class="align-text-top text-dark"
-                            id="product-hover"
+                            class="align-text-top text-dark product-hover"
                             data-id="{{ \App\Models\Product::find($task->product_id)->id }}"
                         >
                             <span class="fw-bold">

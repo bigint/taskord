@@ -84,15 +84,14 @@
             <div class="py-2 px-3">
                 <a
                     href="{{ route('product.done', ['slug' => $product->slug]) }}"
-                    id="product-hover"
+                    class="product-hover"
                     data-id="{{ $product->id }}"
                 >
                     <img class="rounded avatar-30 ms-2" src="{{ $product->avatar }}" height="50" width="50" alt="{{ $product->slug }}'s avatar" />
                 </a>
                 <a
                     href="{{ route('product.done', ['slug' => $product->slug]) }}"
-                    class="ms-2 me-2 align-text-top fw-bold text-dark"
-                    id="product-hover"
+                    class="ms-2 me-2 align-text-top fw-bold text-dark product-hover"
                     data-id="{{ $product->id }}"
                 >
                     {{ $product->name }}

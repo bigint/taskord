@@ -36,7 +36,7 @@ document.addEventListener("livewire:load", () => {
   });
 
   // Product Popover
-  tippy('#product-hover', {
+  tippy('.product-hover', {
     ...config,
     onShow(instance) {
       const id = instance.reference.getAttribute('data-id');

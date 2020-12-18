@@ -79,9 +79,8 @@
                 on
                 <img class="rounded mb-1 ms-1 avatar-15" src="{{ $task->product->avatar }}" alt="{{ $task->product->slug }}'s avatar" />
                 <a
-                    class="text-black-50"
+                    class="text-black-50 product-hover"
                     href="{{ route('product.done', ['slug' => $task->product->slug]) }}"
-                    id="product-hover"
                     data-id="{{ $task->product->id }}"
                 >
                     {{ $task->product->name }}
