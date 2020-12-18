@@ -1,58 +1,62 @@
-# You can override the included template(s) by including variable overrides
-# See https://docs.gitlab.com/ee/user/application_security/sast/#customizing-the-sast-settings
-# Note that environment variables can be set in several places
-# See https://docs.gitlab.com/ee/ci/variables/#priority-of-environment-variables
 include:
 - template: Dependency-Scanning.gitlab-ci.yml
 - template: License-Scanning.gitlab-ci.yml
 - template: Secret-Detection.gitlab-ci.yml
+
 services:
-- mysql:latest
+  - mysql:latest
+
 variables:
   MYSQL_ROOT_PASSWORD: root
   MYSQL_USER: taskord
   MYSQL_PASSWORD: taskord
   MYSQL_DATABASE: taskord
   DB_HOST: mysql
+
 stages:
-- test
-- deploy
+  - test
+  - deploy
+
 cache:
   paths:
-  - vendor/
-  - node_modules/
+    - vendor/
+    - node_modules/
+
 Test:
   image: taskord/php:7.4
   stage: test
   script:
-  - sudo composer install
-  - cp .env.ci .env
-  - php artisan key:generate
-  - sudo npm i -g yarn
-  - sudo yarn install
-  - yarn production
-  - php artisan horizon:install
-  - php artisan horizon:publish
-  - php artisan migrate:fresh --seed
-  - vendor/bin/phpunit --coverage-text --colors=never
+    - sudo composer install
+    - cp .env.ci .env
+    - php artisan key:generate
+    - sudo npm i -g yarn
+    - sudo yarn install
+    - yarn production
+    - php artisan horizon:install
+    - php artisan horizon:publish
+    - php artisan migrate:fresh --seed
+    - vendor/bin/phpunit --coverage-text --colors=never
   artifacts:
     expire_in: 1 day
+
 Housekeeping:
   stage: deploy
   script:
-  - curl --request POST --header "PRIVATE-TOKEN:$ACCESS_TOKEN" https://gitlab.com/api/v4/projects/$CI_PROJECT_ID/housekeeping
+    - curl --request POST --header "PRIVATE-TOKEN:$ACCESS_TOKEN" https://gitlab.com/api/v4/projects/$CI_PROJECT_ID/housekeeping
   only:
-  - main
+    - main
   artifacts:
     expire_in: 1 day
+
 Merged Branches:
   stage: deploy
   script:
-  - curl --request DELETE --header "PRIVATE-TOKEN:$ACCESS_TOKEN" https://gitlab.com/api/v4/projects/$CI_PROJECT_ID/repository/merged_branches
+    - curl --request DELETE --header "PRIVATE-TOKEN:$ACCESS_TOKEN" https://gitlab.com/api/v4/projects/$CI_PROJECT_ID/repository/merged_branches
   only:
-  - main
+    - main
   artifacts:
     expire_in: 1 day
+
 Deploy Production:
   stage: deploy
   when: manual
@@ -60,13 +64,10 @@ Deploy Production:
     name: Production
     url: https://taskord.com
   script:
-  - cat $PRIVATE_KEY > taskord.pem
-  - chmod 400 taskord.pem
-  - ssh -o StrictHostKeyChecking=no -i "taskord.pem" ubuntu@deploy.taskord.com 'cd
-    /var/www/taskord; ./scrtips/deploy.sh'
+    - cat $PRIVATE_KEY > taskord.pem
+    - chmod 400 taskord.pem
+    - ssh -o StrictHostKeyChecking=no -i "taskord.pem" ubuntu@deploy.taskord.com 'cd /var/www/taskord; ./scrtips/deploy.sh'
   only:
-  - main
+    - main
   artifacts:
     expire_in: 1 day
-sast:
-  stage: test
