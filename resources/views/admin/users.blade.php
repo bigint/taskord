@@ -38,7 +38,7 @@
                             <tr>
                                 <th>{{ $user->id }}</th>
                                 <td>
-                                    <img class="avatar-30 rounded-circle me-2" src="{{ $user->avatar }}" />
+                                    <img class="avatar-30 rounded-circle me-2" src="{{ $user->avatar }}" alt="{{ $user->username }}'s avatar" />
                                 </td>
                                 <td class="fw-bold">
                                     @if (!$user->firstname and !$user->lastname)

@@ -92,7 +92,7 @@
                     </li>
                     <li class="nav-item dropdown">
                         <a href="#" role="button" data-bs-toggle="dropdown" v-pre>
-                            <img class="rounded-circle avatar-30 mt-1" src="{{ Auth::user()->avatar }}" />
+                            <img class="rounded-circle avatar-30 mt-1" src="{{ Auth::user()->avatar }}" alt="{{ $user->username }}'s avatar" />
                         </a>
 
                         <div class="dropdown-menu shadow-sm border dropdown-menu-end mt-2">

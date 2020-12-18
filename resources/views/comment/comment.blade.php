@@ -42,7 +42,7 @@
                         id="user-hover"
                         data-id="{{ $comment->user->id }}"
                     >
-                        <img class="rounded-circle avatar-40 mt-1" src="{{ $comment->user->avatar }}" />
+                        <img class="rounded-circle avatar-40 mt-1" src="{{ $comment->user->avatar }}" alt="{{ $comment->user->username }}'s avatar" />
                     </a>
                     <span class="ms-3">
                         <a
@@ -75,7 +75,7 @@
                             href="{{ route('user.done', ['username' => $user->username]) }}"
                             class="me-1"
                         >
-                            <img class="rounded-circle avatar-30 mb-2" src="{{ $user->avatar }}" />
+                            <img class="rounded-circle avatar-30 mb-2" src="{{ $user->avatar }}" alt="{{ $user->username }}'s avatar" />
                         </a>
                     @endforeach
                 </div>

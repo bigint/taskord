@@ -41,7 +41,7 @@
                                         $user = App\Models\User::find($activity->causer_id);
                                         @endphp
                                         @if ($user)
-                                        <img class="avatar-20 mb-1 me-1 rounded-circle" src="{{ $user->avatar }}" />
+                                        <img class="avatar-20 mb-1 me-1 rounded-circle" src="{{ $user->avatar }}" alt="{{ $user->username }}'s avatar" />
                                         <a
                                             id="user-hover"
                                             data-id="{{ $user->id }}"
