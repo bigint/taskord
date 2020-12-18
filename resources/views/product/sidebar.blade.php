@@ -84,7 +84,7 @@
     </div>
     <div class="card mb-4">
         <div class="card-body">
-            <canvas id="myChart" height="40"></canvas>
+            🚧
         </div>
     </div>
     <div class="text-uppercase fw-bold text-black-50 pb-2">
@@ -127,43 +127,4 @@
     ])
     @endif
     <x-footer />
-    <script type="text/javascript">
-        const ctx = document.getElementById('myChart').getContext('2d');
-        const chart = new Chart(ctx, {
-            type: 'line',
-            data: {
-                labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
-                datasets: [{
-                    data: {{ '['.implode(",", $graph).']' }},
-                    backgroundColor: '#e3f9ec',
-                }],
-            },
-            options: {
-                responsive: false,
-                legend: {
-                    display: false
-                },
-                elements: {
-                    line: {
-                        borderColor: '#38c172',
-                        borderWidth: 2
-                    },
-                    point: {
-                        radius: 0
-                    }
-                },
-                tooltips: {
-                    enabled: false
-                },
-                scales: {
-                    yAxes: [{
-                        display: false
-                    }],
-                    xAxes: [{
-                        display: false
-                    }]
-                }
-            }
-        });
-    </script>
 </div>
