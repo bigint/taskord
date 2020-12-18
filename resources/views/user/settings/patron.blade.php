@@ -14,7 +14,7 @@
                 </div>
                 <div class="card-body">
                     @if (!$user->isPatron)
-                        <a class="btn btn-success text-white" href="{{ route('patron.home') }}">
+                        <a class="btn btn-success text-white" href="{{ route('patron.home') }}" data-turbolinks="false">
                             Support now!
                         </a>
                     @else
@@ -65,7 +65,7 @@
                         </div>
                         @else
                             <div>You are using gifted account!</div>
-                            <a class="btn btn-success text-white mt-2" href="{{ route('patron.home') }}">
+                            <a class="btn btn-success text-white mt-2" href="{{ route('patron.home') }}" data-turbolinks="false">
                                 Support now!
                             </a>
                         @endif
