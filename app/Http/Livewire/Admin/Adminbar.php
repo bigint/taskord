@@ -36,7 +36,7 @@ class Adminbar extends Component
             $explodedstring = explode('/', $branch, 3);
             $branchname = str_replace("\n", '', $explodedstring[2]);
         } else {
-            $branchname = 'master';
+            $branchname = 'main';
         }
 
         // DB Details
