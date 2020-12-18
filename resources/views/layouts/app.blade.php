@@ -20,7 +20,6 @@
     <link rel="icon" href="/images/logo.svg" sizes="any" type="image/svg+xml">
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
     <link href="{{ mix('css/app.css') }}" rel="stylesheet" data-turbolinks-track="true">
     <script type="text/javascript">
         (function() {
@@ -39,6 +38,7 @@
     @endif
     @endauth
     @livewireStyles
+    @laravelPWA
 </head>
 <body>
     <div id="app">
@@ -91,7 +91,6 @@
     </div>
 </body>
 @livewireScripts
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js" defer data-turbolinks-track="true" data-turbolinks-eval=false></script>
 <script src="{{ asset('js/app.js', config('app.env') === 'production' ? true : false) }}" defer data-turbolinks-track="true" data-turbolinks-eval=false></script>
 <script src="https://static.cloudflareinsights.com/beacon.min.js" defer data-cf-beacon="{'token': '0ebade4d5737444ea409cab9471ddb4d'}" data-turbolinks-track="true" data-turbolinks-eval=false></script>
 </html>
