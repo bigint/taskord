@@ -31,7 +31,7 @@
             @if (session()->has('error'))
                 <div class="mb-1 text-danger fw-bold">{{ session('error') }}</div>
             @endif
-            <a class="btn btn-blurple fw-bold mb-3" href="https://discord.gg/9M4Q65b" target="_blank">
+            <a class="btn btn-blurple fw-bold mb-3" href="https://discord.gg/9M4Q65b" target="_blank" rel="noreferrer">
                 <i class="fab fa-discord me-1"></i>
                 Join Taskord's Discord
             </a>

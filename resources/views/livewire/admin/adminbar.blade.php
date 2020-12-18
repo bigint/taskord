@@ -3,22 +3,22 @@
         <span class="float-start">
             <span class="fw-bold">
                 <i class="fa fa-code-branch me-1"></i>
-                <a class="text-white" href="https://gitlab.com/taskord/taskord/-/tree/{{ $branchname }}" target="_blank">{{ $branchname }}</a>
+                <a class="text-white" href="https://gitlab.com/taskord/taskord/-/tree/{{ $branchname }}" target="_blank" rel="noreferrer">{{ $branchname }}</a>
                 <span>➜</span>
-                <a class="text-white" href="https://gitlab.com/taskord/taskord/-/tree/{{ $headHASH }}" target="_blank">{{ Str::limit($headHASH, 8, '') }}</a>
+                <a class="text-white" href="https://gitlab.com/taskord/taskord/-/tree/{{ $headHASH }}" target="_blank" rel="noreferrer">{{ Str::limit($headHASH, 8, '') }}</a>
             </span>
             <a class="text-white fw-bold ms-3"
-                href="https://gitlab.com/taskord/taskord/-/releases/v{{ config('app.version') }}" target="_blank">
+                href="https://gitlab.com/taskord/taskord/-/releases/v{{ config('app.version') }}" target="_blank" rel="noreferrer">
                 <i class="fa fa-cube me-1"></i>
                 v{{ config('app.version') }}
             </a>
             <a class="text-white fw-bold ms-3"
-                href="https://github.com/laravel/framework/releases/tag/v{{ App::VERSION() }}" target="_blank">
+                href="https://github.com/laravel/framework/releases/tag/v{{ App::VERSION() }}" target="_blank" rel="noreferrer">
                 <i class="fab fa-laravel me-1"></i>
                 Laravel v{{ App::VERSION() }}
             </a>
             <a class="text-white fw-bold ms-3"
-                href="http://git.php.net/?p=php-src.git;a=shortlog;h=refs/heads/PHP-{{ phpversion() }}" target="_blank">
+                href="http://git.php.net/?p=php-src.git;a=shortlog;h=refs/heads/PHP-{{ phpversion() }}" target="_blank" rel="noreferrer">
                 <i class="fab fa-php me-1"></i>
                 PHP v{{ phpversion() }}
             </a>
@@ -99,7 +99,7 @@
                     </li>
                 </ul>
             </span>
-            <a class="fw-bold me-3 text-white" href="/admin/horizon" target="_blank">
+            <a class="fw-bold me-3 text-white" href="/admin/horizon" target="_blank" rel="noreferrer">
                 <i class="fa fa-wrench me-1"></i>
                 {{ $jobs }}
                 <span class="fw-normal">
@@ -117,7 +117,7 @@
                 </a>
             </span>
             <span class="fw-bold me-3">
-                <a href="/graphiql" target="_blank" title="GraphiQL">
+                <a href="/graphiql" target="_blank" title="GraphiQL" rel="noreferrer">
                     <i class="fa fa-sitemap text-white"></i>
                 </a>
             </span>

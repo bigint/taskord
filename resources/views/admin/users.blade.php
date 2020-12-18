@@ -91,7 +91,7 @@
                                 </td>
                                 <td>
                                     @if ($user->lastIP)
-                                    <a class="font-monospace" href="https://ipinfo.io/{{ $user->lastIP }}" title="{{ $user->lastIP }}" target="_blank">
+                                    <a class="font-monospace" href="https://ipinfo.io/{{ $user->lastIP }}" title="{{ $user->lastIP }}" target="_blank" rel="noreferrer">
                                         {{ Str::limit($user->lastIP, 15, '..') }}
                                     </a>
                                     @else

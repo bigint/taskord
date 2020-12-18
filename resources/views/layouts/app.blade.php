@@ -67,7 +67,7 @@
                 Your account has been flagged.
             </div>
             <div class="mt-1">
-                Because of that, your profile will be hidden from the public. If you believe this is a mistake, <a href="https://forms.clickup.com/f/357rd-767/8PPJM0SN435CWUX4X2" target="_blank">contact support</a> to have your account status reviewed.
+                Because of that, your profile will be hidden from the public. If you believe this is a mistake, <a href="https://forms.clickup.com/f/357rd-767/8PPJM0SN435CWUX4X2" target="_blank" rel="noreferrer">contact support</a> to have your account status reviewed.
             </div>
         </div>
         @endif

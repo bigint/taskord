@@ -63,7 +63,7 @@
                         </span>
                         @if ($user->location)
                         <span class="ms-3">
-                            <a class="text-dark" target="_blank" rel="noreferrer" href="https://www.google.com/maps/search/{{ urlencode($user->location) }}">
+                            <a class="text-dark" href="https://www.google.com/maps/search/{{ urlencode($user->location) }}" target="_blank" rel="noreferrer">
                                 <i class="fa fa-compass me-1 text-black-50"></i>
                                 {{ $user->location }}
                             </a>

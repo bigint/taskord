@@ -38,7 +38,7 @@
                     Last login IP:
                 </span>
                 @if ($user->lastIP)
-                <a class="fw-bold" href="https://ipinfo.io/{{ $user->lastIP }}" target="_blank">
+                <a class="fw-bold" href="https://ipinfo.io/{{ $user->lastIP }}" target="_blank" rel="noreferrer">
                     {{ $user->lastIP }}
                 </a>
                 @else

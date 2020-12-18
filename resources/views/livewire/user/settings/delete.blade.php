@@ -14,9 +14,9 @@
                 As the downloadable file you will receive will contain your profile information, you should keep it secure and be careful when storing, sending, or uploading it to any other services.
             </div>
             <div class="mb-3">
-                If you have any questions or concerns about the personal data contained in your downloadable file, please <a href="https://taskord.freshdesk.com/support/tickets/new" target="_blank">contact us</a>.
+                If you have any questions or concerns about the personal data contained in your downloadable file, please <a href="https://taskord.freshdesk.com/support/tickets/new" target="_blank" rel="noreferrer">contact us</a>.
             </div>
-            <a class="btn btn-success text-white" href="{{ route('user.settings.export') }}" target="_blank">
+            <a class="btn btn-success text-white" href="{{ route('user.settings.export') }}" target="_blank" rel="noreferrer">
                 <i class="fa fa-download me-1"></i>
                 Export now
             </a>

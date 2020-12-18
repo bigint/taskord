@@ -50,7 +50,7 @@
                         @endif
                         <li><a class="dropdown-item text-dark" href="{{ route('user.settings.integrations') }}">⚓ Integration</a></li>
                         @endauth
-                        <li><a class="dropdown-item text-dark" href="https://www.notion.so/Roadmap-89c75352cfe14d24b62644daa0f1cba0" target="_blank">🚧 Roadmap</a></li>
+                        <li><a class="dropdown-item text-dark" href="https://www.notion.so/Roadmap-89c75352cfe14d24b62644daa0f1cba0" target="_blank" rel="noreferrer">🚧 Roadmap</a></li>
                     </ul>
                 </li>
             </ul>
@@ -148,7 +148,7 @@
                             </a>
                             @endif
                             @if (Auth::user()->isDeveloper)
-                            <a class="dropdown-item text-dark" href="https://gitlab.com/taskord/taskord" target="_blank">
+                            <a class="dropdown-item text-dark" href="https://gitlab.com/taskord/taskord" target="_blank" rel="noreferrer">
                                 🦊 GitLab
                             </a>
                             @endif
@@ -162,7 +162,7 @@
                             </form>
                             <div class="dropdown-divider"></div>
                             <div class="dropdown-header text-dark-50 fw-bold">
-                                v{{ config('app.version') }} • <a href="/" target="_blank">Changelog</a>
+                                v{{ config('app.version') }} • <a href="/" target="_blank" rel="noreferrer">Changelog</a>
                             </div>
                         </div>
                     </li>

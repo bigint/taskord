@@ -35,25 +35,25 @@
     <div class="card mb-4">
         <ul class="list-group list-group-flush">
             @if ($product->website)
-            <a class="list-group-item link-dark" href="{{ $product->website }}" target="_blank">
+            <a class="list-group-item link-dark" href="{{ $product->website }}" target="_blank" rel="noreferrer">
                 <img class="rounded favicon me-1" rel="preload" src="https://external-content.duckduckgo.com/ip3/{{ parse_url($product->website)['host'] }}.ico" />
                 {{ Helper::removeProtocol($product->website) }}
             </a>
             @endif
             @if ($product->producthunt)
-            <a class="list-group-item link-dark" href="https://www.producthunt.com/posts/{{ $product->producthunt }}" target="_blank">
+            <a class="list-group-item link-dark" href="https://www.producthunt.com/posts/{{ $product->producthunt }}" target="_blank" rel="noreferrer">
                 <i class="fab fa-product-hunt me-1"></i>
                 {{ Helper::removeProtocol($product->producthunt) }}
             </a>
             @endif
             @if ($product->twitter)
-            <a class="list-group-item link-dark" href="https://twitter.com/{{ $product->twitter }}" target="_blank">
+            <a class="list-group-item link-dark" href="https://twitter.com/{{ $product->twitter }}" target="_blank" rel="noreferrer">
                 <i class="fab fa-twitter me-1"></i>
                 {{ $product->twitter }}
             </a>
             @endif
             @if ($product->repo and strlen(trim(parse_url($product->repo)['path'], '/')) !== 0)
-            <a class="list-group-item link-dark" href="{{ $product->repo }}" target="_blank">
+            <a class="list-group-item link-dark" href="{{ $product->repo }}" target="_blank" rel="noreferrer">
                 @if (parse_url($product->repo)['host'] === 'github.com')
                 <i class="fab fa-github me-1"></i>
                 @elseif (parse_url($product->repo)['host'] === 'gitlab.com')
@@ -73,7 +73,7 @@
         Sponsor
     </div>
     <div class="mb-4">
-        <a class="btn w-100 btn-outline-primary" href="{{ $product->sponsor }}" target="_blank">
+        <a class="btn w-100 btn-outline-primary" href="{{ $product->sponsor }}" target="_blank" rel="noreferrer">
             <img class="rounded sponsor-icon me-1" rel="preload" src="https://external-content.duckduckgo.com/ip3/{{ parse_url($product->sponsor)['host'] }}.ico" />
             <span class="fw-bold">Sponsor {{ $product->name }}</span>
         </a>
