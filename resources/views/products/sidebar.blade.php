@@ -7,7 +7,7 @@
         @foreach ($products as $product)
         <div class="py-2 px-3">
             <a href="{{ route('product.done', ['slug' => $product->slug]) }}">
-                <img class="rounded avatar-30 mt-1 ms-2" src="{{ $product->avatar }}" height="50" width="50" />
+                <img class="rounded avatar-30 mt-1 ms-2" src="{{ $product->avatar }}" height="50" width="50" alt="{{ $product->slug }}'s avatar" />
             </a>
             <a
                 href="{{ route('product.done', ['slug' => $product->slug]) }}"
@@ -34,7 +34,7 @@
                     id="user-hover"
                     data-id="{{ $user->id }}"
                 >
-                    <img class="rounded-circle avatar-30 me-1" src="{{ $user->avatar }}" />
+                    <img class="rounded-circle avatar-30 me-1" src="{{ $user->avatar }}" alt="{{ $user->username }}'s avatar" />
                 </a>
                 @endforeach
                 <a
@@ -42,7 +42,7 @@
                     id="user-hover"
                     data-id="{{ $product->owner->id }}"
                 >
-                    <img class="rounded-circle avatar-30 me-0" src="{{ $product->owner->avatar }}" />
+                    <img class="rounded-circle avatar-30 me-0" src="{{ $product->owner->avatar }}" alt="{{ $product->owner->username }}'s avatar" />
                 </a>
             </span>
         </div>
