@@ -50,7 +50,7 @@
                         id="user-hover"
                         data-id="{{ $task->user->id }}"
                     >
-                        <img class="rounded-circle avatar-40 mt-1" src="{{ $task->user->avatar }}" />
+                        <img class="rounded-circle avatar-40 mt-1" src="{{ $task->user->avatar }}" alt="{{ $task->user->username }}'s avatar" />
                     </a>
                     <span class="ms-3">
                         <a
@@ -123,7 +123,7 @@
                             id="user-hover"
                             data-id="{{ $comment[0]->user->id }}"
                         >
-                            <img class="rounded-circle avatar-30 mb-2" src="{{ $comment[0]->user->avatar }}" />
+                            <img class="rounded-circle avatar-30 mb-2" src="{{ $comment[0]->user->avatar }}" alt="{{ $comment[0]->user->username }}'s avatar" />
                         </a>
                     @endforeach
                 </div>
@@ -141,7 +141,7 @@
                             href="{{ route('user.done', ['username' => $user->username]) }}"
                             class="me-1"
                         >
-                            <img class="rounded-circle avatar-30 mb-2" src="{{ $user->avatar }}" />
+                            <img class="rounded-circle avatar-30 mb-2" src="{{ $user->avatar }}" alt="{{ $user->username }}'s avatar" />
                         </a>
                     @endforeach
                 </div>
