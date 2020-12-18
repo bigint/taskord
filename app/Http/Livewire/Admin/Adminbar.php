@@ -11,6 +11,7 @@ use App\Models\User;
 use App\Models\Webhook;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Queue;
 use Livewire\Component;
 
@@ -39,6 +40,13 @@ class Adminbar extends Component
             $branchname = 'main';
         }
 
+        if (file_exists('../.git/refs/heads/'.$branchname)) {
+            $head = File::get('../.git/refs/heads/'.$branchname);
+            $headHASH = Str::limit($head, 8, '');
+        } else {
+            $headHASH = '00000000';
+        }
+
         // DB Details
         $tasks = Task::count('id');
         $users = User::count('id');
@@ -54,6 +62,7 @@ class Adminbar extends Component
 
         return view('livewire.admin.adminbar', [
             'branchname' => $branchname,
+            'headHASH' => $headHASH,
             'tasks' => number_format($tasks),
             'users' => number_format($users),
             'products' => number_format($products),

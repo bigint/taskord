@@ -4,7 +4,7 @@
             <a class="text-white fw-bold" href="https://gitlab.com/taskord/taskord/-/tree/{{ $branchname }}"
                 target="_blank">
                 <i class="fa fa-code-branch me-1"></i>
-                {{ $branchname }}
+                {{ $branchname }} {{ $headHASH }}
             </a>
             <a class="text-white fw-bold ms-3"
                 href="https://gitlab.com/taskord/taskord/-/releases/v{{ config('app.version') }}" target="_blank">
