@@ -13,7 +13,7 @@
             <span class="h5">Deals</span>
             <div>Discounts and special deals for Taskord members. Only available for patrons.</div>
             <div>
-                <a href="https://taskord.typeform.com/to/RQFk3SXy" target="_blank">Add your product</a>
+                <a href="https://tally.so/r/63l4o3" target="_blank">Add your product</a>
             </div>
             @auth
             @if (Auth::user()->staffShip)
