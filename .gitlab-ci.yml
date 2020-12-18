@@ -1,7 +1,7 @@
 include:
-  - template: Dependency-Scanning.gitlab-ci.yml
-  - template: License-Scanning.gitlab-ci.yml
-  - template: Secret-Detection.gitlab-ci.yml
+- template: Dependency-Scanning.gitlab-ci.yml
+- template: License-Scanning.gitlab-ci.yml
+- template: Secret-Detection.gitlab-ci.yml
 
 services:
   - mysql:latest
@@ -62,11 +62,11 @@ Deploy Production:
   when: manual
   environment:
     name: Production
-    url: "https://taskord.com"
+    url: https://taskord.com
   script:
     - cat $PRIVATE_KEY > taskord.pem
     - chmod 400 taskord.pem
-    - ssh -o StrictHostKeyChecking=no -i "taskord.pem" ubuntu@deploy.taskord.com 'cd /var/www/taskord; ./scrtips/deploy.sh'
+    - ssh -o StrictHostKeyChecking=no -i "taskord.pem" ubuntu@deploy.taskord.com 'cd /var/www/taskord; ./scripts/deploy.sh'
   only:
     - main
   artifacts:
