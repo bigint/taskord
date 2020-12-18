@@ -5,7 +5,7 @@
                 <i class="fa fa-code-branch me-1"></i>
                 <a class="text-white" href="https://gitlab.com/taskord/taskord/-/tree/{{ $branchname }}" target="_blank" rel="noreferrer">{{ $branchname }}</a>
                 <span>➜</span>
-                <a class="text-white" href="https://gitlab.com/taskord/taskord/-/tree/{{ $headHASH }}" target="_blank" rel="noreferrer">{{ Str::limit($headHASH, 8, '') }}</a>
+                <a class="text-white" href="https://gitlab.com/taskord/taskord/-/commit/{{ $headHASH }}" target="_blank" rel="noreferrer">{{ Str::limit($headHASH, 8, '') }}</a>
             </span>
             <a class="text-white fw-bold ms-3"
                 href="https://gitlab.com/taskord/taskord/-/releases/v{{ config('app.version') }}" target="_blank" rel="noreferrer">
