@@ -7,7 +7,7 @@
             wire:click="checkTask"
             unchecked
         />
-        <span class="ms-1 task-font">
+        <label class="ms-1 task-font">
             {!! Purify::clean(Helper::renderTask($task->task)) !!}
             @if ($task->type === 'product')
             <span class="small text-black-50">
@@ -18,7 +18,7 @@
                 </a>
             </span>
             @endif
-        </span>
+        </label>
         @if ($task->images)
         <div class="gallery mb-3">
         @foreach ($task->images ?? [] as $image)
