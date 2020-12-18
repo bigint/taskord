@@ -11,7 +11,6 @@ use App\Models\User;
 use App\Models\Webhook;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
-use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Queue;
 use Livewire\Component;
 
