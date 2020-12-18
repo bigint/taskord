@@ -38,6 +38,7 @@
     @endif
     @endauth
     @livewireStyles
+    @laravelPWA
 </head>
 <body>
     <div id="app">
