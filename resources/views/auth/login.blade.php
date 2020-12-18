@@ -87,7 +87,7 @@
                 </div>
                 <div class="mt-3 row">
                     <div class="col-6">
-                        <a href="/login/google" class="btn btn-social btn-google w-100" type="submit">
+                        <a href="/login/google" class="btn btn-social btn-google w-100" data-turbolinks="false">
                             <span class="small">
                                 <i class="fab fa-google me-1"></i>
                                 Google
@@ -95,7 +95,7 @@
                         </a>
                     </div>
                     <div class="col-6">
-                        <a href="/login/twitter" class="btn btn-social btn-twitter w-100" type="submit">
+                        <a href="/login/twitter" class="btn btn-social btn-twitter w-100" data-turbolinks="false">
                             <span class="small">
                                 <i class="fab fa-twitter me-1"></i>
                                 Twitter
@@ -103,7 +103,7 @@
                         </a>
                     </div>
                     <div class="col-6 mt-2">
-                        <a href="/login/github" class="btn btn-social btn-github w-100" type="submit">
+                        <a href="/login/github" class="btn btn-social btn-github w-100" data-turbolinks="false">
                             <span class="small">
                                 <i class="fab fa-github me-1"></i>
                                 GitHub
@@ -111,7 +111,7 @@
                         </a>
                     </div>
                     <div class="col-6 mt-2">
-                        <a href="/login/gitlab" class="btn btn-social btn-gitlab w-100" type="submit">
+                        <a href="/login/gitlab" class="btn btn-social btn-gitlab w-100" data-turbolinks="false">
                             <span class="small">
                                 <i class="fab fa-gitlab me-1"></i>
                                 GitLab
