@@ -22,7 +22,7 @@
                     id="user-hover"
                     data-id="{{ $user->id }}"
                 >
-                    <img class="rounded-circle avatar-30 me-1" src="{{ $user->avatar }}" />
+                    <img class="rounded-circle avatar-30 me-1" src="{{ $user->avatar }}" alt="{{ $user->username }}'s avatar" />
                 </a>
                 @endforeach
                 <a
@@ -30,7 +30,7 @@
                     id="user-hover"
                     data-id="{{ $product->owner->id }}"
                 >
-                    <img class="rounded-circle avatar-30 me-0" src="{{ $product->owner->avatar }}" />
+                    <img class="rounded-circle avatar-30 me-0" src="{{ $product->owner->avatar }}" alt="{{ $product->owner->username }}'s avatar" />
                 </a>
             </span>
         </div>
