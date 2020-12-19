@@ -271,7 +271,7 @@
             <div class="text-uppercase fw-bold text-black-50 pb-2">
                 Top Reputations
             </div>
-            <div class="card mb-4">
+            {{-- <div class="card mb-4">
                 <div class="pt-2 pb-2">
                     @foreach ($reputations as $user)
                     <div class="py-2 px-3">
@@ -315,7 +315,7 @@
                     </div>
                     @endforeach
                 </div>
-            </div>
+            </div> --}}
             {{-- <x-footer /> --}}
         </div>
     </div>
