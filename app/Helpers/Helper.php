@@ -26,7 +26,11 @@ class Helper
             $cleaned_url = preg_replace('#^[^:/.]*[:/]+#i', '', $url);
             $processed_url = 'https://i0.wp.com/'.$cleaned_url;
 
-            return $processed_url;
+            if (strpos($url, 'avatar.tobi.sh')) {
+                return $url;
+            } else {
+                return $processed_url;
+            }
         } else {
             return $url;
         }
