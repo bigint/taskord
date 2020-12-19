@@ -9,7 +9,7 @@
     <div class="row justify-content-center">
         <div class="col-lg-8">
             @guest
-            {{-- <div class="p-5 rounded mb-4 text-white welcome-card">
+            <div class="p-5 rounded mb-4 text-white welcome-card">
                 <h1>Welcome to Taskord 👋</h1>
                 <p class="lead">
                     <span class="fw-bold">Don't fake just make!</span> Get things done in public with awesome community of makers.
@@ -17,9 +17,9 @@
                 <a class="btn btn-lg btn-light" href="/register" role="button">
                     Signup now
                 </a>
-            </div> --}}
+            </div>
             @endguest
-            {{-- <div class="card mb-4">
+            <div class="card mb-4">
                 <div class="card-header">
                     💬 Recent questions
                 </div>
@@ -52,9 +52,9 @@
                         </div>
                     @endforeach
                 </div>
-            </div> --}}
+            </div>
             @if (count($launched_today) > 0)
-            {{-- <div class="card mb-4">
+            <div class="card mb-4">
                 <div class="card-header">
                     🚀 Launched Today
                     <x-beta background="light" />
@@ -107,21 +107,21 @@
                     <a class="fw-bold" href="{{ route('products.newest') }}">More Products...</a>
                 </div>
                 @endif
-            </div> --}}
+            </div>
             @endif
             @auth
                 @if (!Auth::user()->isFlagged)
                 @livewire('create-task')
                 @endif
             @endauth
-            {{-- <div class="mb-3">
+            <div class="mb-3">
                 <span class="h5">
                     Tasks
                 </span>
                 @auth
                 @livewire('home.only-following')
                 @endauth
-            </div> --}}
+            </div>
             @livewire('home.tasks', [
                 'page' => 1,
             ])
