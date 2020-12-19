@@ -23,10 +23,10 @@
                         🤝
                     </a>
                 @endif
-                <div class="small text-black-50 fw-normal">{{ "@" . $task->user->username }}</div>
+                <div class="small text-secondary fw-normal">{{ "@" . $task->user->username }}</div>
             </a>
         </span>
-        <span class="align-text-top small float-end ms-auto text-black-50 cursor-pointer" data-bs-toggle="collapse" data-bs-target="#taskExpand-{{$task->id}}" aria-expanded="false">
+        <span class="align-text-top small float-end ms-auto text-secondary cursor-pointer" data-bs-toggle="collapse" data-bs-target="#taskExpand-{{$task->id}}" aria-expanded="false">
             {{ !$task->done_at ? Carbon::parse($task->created_at)->diffForHumans() : Carbon::parse($task->done_at)->diffForHumans() }}
         </span>
     </div>
@@ -75,7 +75,7 @@
         <label class="ms-1 task-font @if ($launched or $bug or $learn) fw-bold @endif @if ($launched) text-success @endif">
             {!! Purify::clean(Helper::renderTask($task->task)) !!}
             @if ($task->type === 'product')
-            <span class="small text-black-50">
+            <span class="small text-secondary">
                 on
                 <img class="rounded mb-1 ms-1 avatar-15" src="{{ $task->product->avatar }}" alt="{{ $task->product->slug }}'s avatar" />
                 <a
@@ -177,7 +177,7 @@
         </div>
     </div>
     <div class="collapse mt-3 text-black-50" id="taskExpand-{{$task->id}}">
-        <a class="text-black-50" href="{{ route('task', ['id' => $task->id]) }}">
+        <a class="text-secondary" href="{{ route('task', ['id' => $task->id]) }}">
             <i class="fa fa-calendar-check small me-1"></i>
             @auth
             {{
