@@ -15,16 +15,17 @@ use App\Notifications\QuestionPraised;
 use App\Notifications\Task\NotifySubscribers as TaskSubscribers;
 use App\Notifications\TaskPraised;
 use Carbon\Carbon;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\Auth;
 
 class Helper
 {
     public static function getCDNImage($url, $type)
     {
         if (App::environment() === 'production') {
-            $cleaned_url = preg_replace( "#^[^:/.]*[:/]+#i", "", $url );
+            $cleaned_url = preg_replace('#^[^:/.]*[:/]+#i', '', $url);
             $processed_url = 'https://i0.wp.com/'.$cleaned_url;
+
             return $processed_url;
         } else {
             return $url;
