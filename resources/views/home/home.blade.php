@@ -114,14 +114,14 @@
                 @livewire('create-task')
                 @endif
             @endauth
-            <div class="mb-3">
+            {{-- <div class="mb-3">
                 <span class="h5">
                     Tasks
                 </span>
                 @auth
                 @livewire('home.only-following')
                 @endauth
-            </div>
+            </div> --}}
             @livewire('home.tasks', [
                 'page' => 1,
             ])
