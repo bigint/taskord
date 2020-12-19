@@ -5,7 +5,7 @@
 @section('url', url()->current())
 
 @section('content')
-<div class="">
+<div class="container-md">
     <div class="row justify-content-center">
         <div class="col-lg-8">
             @guest
