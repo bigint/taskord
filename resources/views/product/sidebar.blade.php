@@ -98,7 +98,7 @@
                     class="user-hover"
                     data-id="{{ $product->owner->id }}"
                 >
-                    <img class="rounded-circle avatar-30" src="{{ $product->owner->avatar }}" alt="{{ $product->owner->username }}'s avatar" />
+                    <img class="rounded-circle avatar-30" src="{{ Helper::getCDNImage($product->owner->avatar) }}" alt="{{ $product->owner->username }}'s avatar" />
                 </a>
                 <a
                     href="{{ route('user.done', ['username' => $product->owner->username]) }}"

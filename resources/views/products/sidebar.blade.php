@@ -7,7 +7,7 @@
         @foreach ($products as $product)
         <div class="py-2 px-3">
             <a href="{{ route('product.done', ['slug' => $product->slug]) }}">
-                <img class="rounded avatar-30 mt-1 ms-2" src="{{ $product->avatar }}" height="50" width="50" alt="{{ $product->slug }}'s avatar" />
+                <img class="rounded avatar-30 mt-1 ms-2" src="{{ Helper::getCDNImage($product->avatar) }}" height="50" width="50" alt="{{ $product->slug }}'s avatar" />
             </a>
             <a
                 href="{{ route('product.done', ['slug' => $product->slug]) }}"

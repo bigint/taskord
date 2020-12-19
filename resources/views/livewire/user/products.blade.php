@@ -5,7 +5,7 @@
     @foreach ($products as $product)
     <div class="card mb-2">
         <div class="card-body d-flex align-items-center">
-            <img class="rounded avatar-50 mt-1 ms-2" src="{{ $product->avatar }}" height="50" width="50" alt="{{ $product->slug }}'s avatar" />
+            <img class="rounded avatar-50 mt-1 ms-2" src="{{ Helper::getCDNImage($product->avatar) }}" height="50" width="50" alt="{{ $product->slug }}'s avatar" />
             <span class="ms-3">
                 <a href="{{ route('product.done', ['slug' => $product->slug]) }}" class="me-2 h5 align-text-top fw-bold text-dark">
                     {{ $product->name }}
@@ -22,7 +22,7 @@
                     class="user-hover"
                     data-id="{{ $user->id }}"
                 >
-                    <img class="rounded-circle avatar-30 me-1" src="{{ $user->avatar }}" alt="{{ $user->username }}'s avatar" />
+                    <img class="rounded-circle avatar-30 me-1" src="{{ Helper::getCDNImage($user->avatar) }}" alt="{{ $user->username }}'s avatar" />
                 </a>
                 @endforeach
                 <a
@@ -30,7 +30,7 @@
                     class="user-hover"
                     data-id="{{ $product->owner->id }}"
                 >
-                    <img class="rounded-circle avatar-30 me-0" src="{{ $product->owner->avatar }}" alt="{{ $product->owner->username }}'s avatar" />
+                    <img class="rounded-circle avatar-30 me-0" src="{{ Helper::getCDNImage($product->owner->avatar) }}" alt="{{ $product->owner->username }}'s avatar" />
                 </a>
             </span>
         </div>
