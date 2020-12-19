@@ -7,7 +7,7 @@
             wire:click="checkTask"
             unchecked
         />
-        <label class="ms-1 task-font">
+        <label class="ms-1 task-font d-inline">
             {!! Purify::clean(Helper::renderTask($task->task)) !!}
             @if ($task->type === 'product')
             <span class="small text-black-50">
