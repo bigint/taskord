@@ -23,7 +23,7 @@
                 class="user-hover"
                 data-id="{{ $question->user->id }}"
             >
-                <img class="rounded-circle avatar-30 ms-3 float-end" src="{{ $question->user->avatar }}" alt="{{ $question->user->username }}'s avatar" />
+                <img class="rounded-circle avatar-30 ms-3 float-end" src="{{ Helper::getCDNImage($question->user->avatar) }}" alt="{{ $question->user->username }}'s avatar" />
             </a>
         </div>
         @endforeach

@@ -63,7 +63,7 @@
                         class="user-hover"
                         data-id="{{ $question->user->id }}"
                     >
-                        <img class="rounded-circle avatar-40 mt-1" src="{{ $question->user->avatar }}" alt="{{ $question->user->username }}'s avatar" />
+                        <img class="rounded-circle avatar-40 mt-1" src="{{ Helper::getCDNImage($question->user->avatar) }}" alt="{{ $question->user->username }}'s avatar" />
                     </a>
                     <span class="ms-3">
                         <a
@@ -105,7 +105,7 @@
                             class="me-1 user-hover"
                             data-id="{{ $answer[0]->user->id }}"
                         >
-                            <img class="rounded-circle avatar-30 mb-2" src="{{ $answer[0]->user->avatar }}" alt="{{ $answer[0]->user->username }}'s avatar" />
+                            <img class="rounded-circle avatar-30 mb-2" src="{{ Helper::getCDNImage($answer[0]->user->avatar) }}" alt="{{ $answer[0]->user->username }}'s avatar" />
                         </a>
                     @endforeach
                 </div>

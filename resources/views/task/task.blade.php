@@ -50,7 +50,7 @@
                         class="user-hover"
                         data-id="{{ $task->user->id }}"
                     >
-                        <img class="rounded-circle avatar-40 mt-1" src="{{ $task->user->avatar }}" alt="{{ $task->user->username }}'s avatar" />
+                        <img class="rounded-circle avatar-40 mt-1" src="{{ Helper::getCDNImage($task->user->avatar) }}" alt="{{ $task->user->username }}'s avatar" />
                     </a>
                     <span class="ms-3">
                         <a
@@ -81,7 +81,7 @@
                         class="product-hover"
                         data-id="{{ \App\Models\Product::find($task->product_id)->id }}"
                     >
-                        <img class="rounded avatar-40 mt-1" src="{{ \App\Models\Product::find($task->product_id)->avatar }}" />
+                        <img class="rounded avatar-40 mt-1" src="{{ Helper::getCDNImage(\App\Models\Product::find($task->product_id)->avatar) }}" />
                     </a>
                     <span class="ms-3">
                         <a
@@ -120,7 +120,7 @@
                             class="me-1 user-hover"
                             data-id="{{ $comment[0]->user->id }}"
                         >
-                            <img class="rounded-circle avatar-30 mb-2" src="{{ $comment[0]->user->avatar }}" alt="{{ $comment[0]->user->username }}'s avatar" />
+                            <img class="rounded-circle avatar-30 mb-2" src="{{ Helper::getCDNImage($comment[0]->user->avatar) }}" alt="{{ $comment[0]->user->username }}'s avatar" />
                         </a>
                     @endforeach
                 </div>
@@ -138,7 +138,7 @@
                             href="{{ route('user.done', ['username' => $user->username]) }}"
                             class="me-1"
                         >
-                            <img class="rounded-circle avatar-30 mb-2" src="{{ $user->avatar }}" alt="{{ $user->username }}'s avatar" />
+                            <img class="rounded-circle avatar-30 mb-2" src="{{ Helper::getCDNImage($user->avatar) }}" alt="{{ $user->username }}'s avatar" />
                         </a>
                     @endforeach
                 </div>

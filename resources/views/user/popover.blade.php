@@ -5,7 +5,7 @@
 @endif
 <div class="d-flex p-3">
     <div>
-        <img class="avatar-50 rounded-circle" src="{{ $user->avatar }}" alt="{{ $user->username }}'s avatar" />
+        <img class="avatar-50 rounded-circle" src="{{ Helper::getCDNImage($user->avatar) }}" alt="{{ $user->username }}'s avatar" />
         @if ($user->isPatron)
             <div class="border border-2 border-success mt-2 ps-1 pe-1 rounded-pill small text-center text-dark">Patron</div>
         @endif
