@@ -56,7 +56,7 @@
                     @else
                     @if ($product->avatar)
                     <div>
-                        <img class="avatar-100 rounded mb-3" src="{{ $product->avatar }}" alt="{{ $product->slug }}'s avatar" />
+                        <img class="avatar-100 rounded mb-3" src="{{ Helper::getCDNImage($product->avatar) }}" alt="{{ $product->slug }}'s avatar" />
                     </div>
                     @endif
                     @endif

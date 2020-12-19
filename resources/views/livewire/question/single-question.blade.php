@@ -3,7 +3,7 @@
         <x-alert />
         <div class="d-flex align-items-center">
             <a href="{{ route('user.done', ['username' => $question->user->username]) }}">
-                <img class="avatar-40 rounded-circle" src="{{ $question->user->avatar }}" alt="{{ $question->user->username }}'s avatar" />
+                <img class="avatar-40 rounded-circle" src="{{ Helper::getCDNImage($question->user->avatar) }}" alt="{{ $question->user->username }}'s avatar" />
             </a>
             <span class="ms-2">
                 <a
@@ -65,7 +65,7 @@
                     </span>
                     <span class="avatar-stack ms-1">
                     @foreach($question->likers->take(5) as $user)
-                    <img class="praise-avatar rounded-circle {{ $loop->last ? 'me-0' : '' }}" src="{{ $user->avatar }}" alt="{{ $user->username }}'s avatar" />
+                    <img class="praise-avatar rounded-circle {{ $loop->last ? 'me-0' : '' }}" src="{{ Helper::getCDNImage($user->avatar) }}" alt="{{ $user->username }}'s avatar" />
                     @endforeach
                     </span>
                 </button>
