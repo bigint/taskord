@@ -129,7 +129,7 @@
         <div class="col-sm">
             @auth
                 @livewire('home.onboarding')
-                {{-- <div class="card mb-4">
+                <div class="card mb-4">
                     <div class="card-body">
                         <div class="d-flex align-items-center">
                             <a href="{{ route('user.done', ['username' => Auth::user()->username]) }}">
@@ -171,12 +171,12 @@
                             {{ Auth::user()->getPoints() < 2 ? 'Reputation' : 'Reputations' }}
                         </span>
                     </div>
-                </div> --}}
+                </div>
             @endauth
             <div class="text-uppercase fw-bold text-black-50 pb-2">
                 Recently Joined
             </div>
-            <div class="card mb-4">
+            {{-- <div class="card mb-4">
                 <div class="pt-2 pb-2">
                 @foreach ($recently_joined as $user)
                 <div class="d-flex align-items-center py-1 px-3">
@@ -216,11 +216,11 @@
                     <span class="fw-bold">{{ $recently_joined_count - 5 }} more...</span>
                 </div>
                 @endif
-            </div>
+            </div> --}}
             <div class="text-uppercase fw-bold text-black-50 pb-2">
                 Recently Launched
             </div>
-            <div class="card mb-4">
+            {{-- <div class="card mb-4">
                 <div class="pt-2 pb-2">
                 @foreach ($products as $product)
                 <div class="py-2 px-3">
@@ -267,7 +267,7 @@
                 <div class="card-footer">
                     <a class="fw-bold" href="{{ route('products.newest') }}">More Products...</a>
                 </div>
-            </div>
+            </div> --}}
             <div class="text-uppercase fw-bold text-black-50 pb-2">
                 Top Reputations
             </div>
@@ -316,7 +316,7 @@
                     @endforeach
                 </div>
             </div>
-            <x-footer />
+            {{-- <x-footer /> --}}
         </div>
     </div>
 </div>
