@@ -129,7 +129,7 @@
         <div class="col-sm">
             @auth
                 @livewire('home.onboarding')
-                <div class="card mb-4">
+                {{-- <div class="card mb-4">
                     <div class="card-body">
                         <div class="d-flex align-items-center">
                             <a href="{{ route('user.done', ['username' => Auth::user()->username]) }}">
@@ -171,7 +171,7 @@
                             {{ Auth::user()->getPoints() < 2 ? 'Reputation' : 'Reputations' }}
                         </span>
                     </div>
-                </div>
+                </div> --}}
             @endauth
             <div class="text-uppercase fw-bold text-black-50 pb-2">
                 Recently Joined
