@@ -22,7 +22,7 @@
     </div>
     <div class="mb-4">
         <a class="btn w-100 btn-outline-primary" href="{{ $user->sponsor }}" target="_blank" rel="noreferrer">
-            <img class="rounded sponsor-icon me-1" rel="preload" src="https://external-content.duckduckgo.com/ip3/{{ parse_url($user->sponsor)['host'] }}.ico" />
+            <img loading=lazy class="rounded sponsor-icon me-1" rel="preload" src="https://external-content.duckduckgo.com/ip3/{{ parse_url($user->sponsor)['host'] }}.ico" />
             <span class="fw-bold">Sponsor {{ '@'.$user->username }}</span>
         </a>
     </div>
@@ -35,7 +35,7 @@
         <ul class="list-group list-group-flush">
             @if ($user->website)
             <a class="list-group-item link-dark" href="{{ $user->website }}" target="_blank" rel="noreferrer">
-                <img class="rounded favicon me-1" rel="preload" src="https://external-content.duckduckgo.com/ip3/{{ parse_url($user->website)['host'] }}.ico" />
+                <img loading=lazy class="rounded favicon me-1" rel="preload" src="https://external-content.duckduckgo.com/ip3/{{ parse_url($user->website)['host'] }}.ico" />
                 {{ Helper::removeProtocol($user->website) }}
             </a>
             @endif
@@ -87,7 +87,7 @@
                     class="product-hover"
                     data-id="{{ $product->id }}"
                 >
-                    <img class="rounded avatar-30 ms-2" src="{{ Helper::getCDNImage($product->avatar) }}" height="50" width="50" alt="{{ $product->slug }}'s avatar" />
+                    <img loading=lazy class="rounded avatar-30 ms-2" src="{{ Helper::getCDNImage($product->avatar) }}" height="50" width="50" alt="{{ $product->slug }}'s avatar" />
                 </a>
                 <a
                     href="{{ route('product.done', ['slug' => $product->slug]) }}"

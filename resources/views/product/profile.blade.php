@@ -1,7 +1,7 @@
 <div class="card">
     <div class="card-body d-flex align-items-center">
         <a href="{{ $product->avatar }}" data-lightbox="{{ $product->avatar }}" data-title="{{ $product->name }}'s Logo">
-            <img class="rounded avatar-120" src="{{ Helper::getCDNImage($product->avatar) }}" alt="{{ $product->slug }}'s avatar" />
+            <img loading=lazy class="rounded avatar-120" src="{{ Helper::getCDNImage($product->avatar) }}" alt="{{ $product->slug }}'s avatar" />
         </a>
         <div class="ms-4">
             <div class="h5 mb-0">
@@ -45,7 +45,7 @@
                 @if ($product->website)
                 <span class="ms-3">
                     <a class="text-dark" target="_blank" href="{{ $product->website }}" rel="noreferrer">
-                        <img class="rounded sponsor-icon me-1" rel="preload" src="https://external-content.duckduckgo.com/ip3/{{ parse_url($product->website)['host'] }}.ico" />
+                        <img loading=lazy class="rounded sponsor-icon me-1" rel="preload" src="https://external-content.duckduckgo.com/ip3/{{ parse_url($product->website)['host'] }}.ico" />
                         {{ $product->website }}
                     </a>
                 </span>

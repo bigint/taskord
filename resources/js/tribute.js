@@ -15,7 +15,7 @@ document.addEventListener("turbolinks:load", () => {
       const { avatar, username, firstname, lastname, isVerified } = item.original;
       return `
       <span class="d-flex align-items-center">
-        <img class="rounded-circle avatar-30" src="${avatar}" />
+        <img loading=lazy class="rounded-circle avatar-30" src="${avatar}" />
         <span class="ms-3">
           <span class="fw-bold">
             ${firstname ? firstname : ""} ${lastname ? lastname : ""}
@@ -51,7 +51,7 @@ document.addEventListener("turbolinks:load", () => {
       const { avatar, slug, name } = item.original;
       return `
       <span class="d-flex align-items-center">
-        <img class="rounded avatar-30" src="${avatar}" />
+        <img loading=lazy class="rounded avatar-30" src="${avatar}" />
         <span class="ms-3">
           <span class="fw-bold">
             ${name}

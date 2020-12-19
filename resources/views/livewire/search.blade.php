@@ -31,7 +31,7 @@
                     </span>
                 </span>
                 <a href="{{ route('user.done', ['username' => $task->user->username]) }}">
-                    <img class="rounded-circle float-end avatar-30" src="{{ Helper::getCDNImage($task->user->avatar) }}" alt="{{ $task->user->username }}'s avatar" />
+                    <img loading=lazy class="rounded-circle float-end avatar-30" src="{{ Helper::getCDNImage($task->user->avatar) }}" alt="{{ $task->user->username }}'s avatar" />
                 </a>
             </li>
             @endforeach
@@ -44,7 +44,7 @@
         @if (count($users) > 0)
             @foreach ($users as $user)
             <li class="list-group-item">
-                <img class="rounded-circle avatar-30" src="{{ Helper::getCDNImage($user->avatar) }}" alt="{{ $user->username }}'s avatar" />
+                <img loading=lazy class="rounded-circle avatar-30" src="{{ Helper::getCDNImage($user->avatar) }}" alt="{{ $user->username }}'s avatar" />
                 <span>
                     <a class="ms-2 task-font text-dark align-middle" href="{{ route('user.done', ['username' => $user->username]) }}">
                         <span class="fw-bold">
@@ -71,14 +71,14 @@
         @if (count($products) > 0)
             @foreach ($products as $product)
             <li class="list-group-item">
-                <img class="rounded avatar-30" src="{{ Helper::getCDNImage($product->avatar) }}" alt="{{ $product->slug }}'s avatar" />
+                <img loading=lazy class="rounded avatar-30" src="{{ Helper::getCDNImage($product->avatar) }}" alt="{{ $product->slug }}'s avatar" />
                 <span>
                     <a class="ms-2 task-font text-dark align-middle" href="{{ route('product.done', ['slug' => $product->slug]) }}">
                         <span class="fw-bold">{{ $product->name }}</span>
                     </a>
                 </span>
                 <a href="{{ route('user.done', ['username' => $product->owner->username]) }}">
-                    <img class="rounded-circle float-end avatar-30" src="{{ Helper::getCDNImage($product->owner->avatar) }}" alt="{{ $product->owner->username }}'s avatar" />
+                    <img loading=lazy class="rounded-circle float-end avatar-30" src="{{ Helper::getCDNImage($product->owner->avatar) }}" alt="{{ $product->owner->username }}'s avatar" />
                 </a>
             </li>
             @endforeach
@@ -97,7 +97,7 @@
                     </a>
                 </span>
                 <a href="{{ route('user.done', ['username' => $question->user->username]) }}">
-                    <img class="rounded-circle float-end avatar-30" src="{{ Helper::getCDNImage($question->user->avatar) }}" alt="{{ $question->user->username }}'s avatar" />
+                    <img loading=lazy class="rounded-circle float-end avatar-30" src="{{ Helper::getCDNImage($question->user->avatar) }}" alt="{{ $question->user->username }}'s avatar" />
                 </a>
             </li>
             @endforeach

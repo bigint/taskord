@@ -3,13 +3,13 @@
         <a class="navbar-brand" href="{{ url('/') }}">
             @auth
             @if (Auth::user()->isBeta)
-            <img src="/images/beta.svg" height="35" alt="Taskord Beta">
+            <img loading=lazy src="/images/beta.svg" height="35" alt="Taskord Beta">
             @else
-            <img src="/images/logo.svg" height="35" alt="Taskord">
+            <img loading=lazy src="/images/logo.svg" height="35" alt="Taskord">
             @endif
             @endauth
             @guest
-            <img src="/images/logo.svg" height="35" alt="Taskord">
+            <img loading=lazy src="/images/logo.svg" height="35" alt="Taskord">
             @endguest
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -92,7 +92,7 @@
                     </li>
                     <li class="nav-item dropdown">
                         <a href="#" role="button" data-bs-toggle="dropdown" v-pre>
-                            <img class="rounded-circle avatar-30 mt-1" src="{{ Helper::getCDNImage(Auth::user()->avatar) }}" alt="{{ Auth::user()->username }}'s avatar" />
+                            <img loading=lazy class="rounded-circle avatar-30 mt-1" src="{{ Helper::getCDNImage(Auth::user()->avatar) }}" alt="{{ Auth::user()->username }}'s avatar" />
                         </a>
 
                         <div class="dropdown-menu shadow-sm border dropdown-menu-end mt-2">

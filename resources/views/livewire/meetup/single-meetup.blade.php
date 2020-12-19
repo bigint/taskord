@@ -1,7 +1,7 @@
 <div class="col-md-6 col-lg-3 mb-4">
     <div class="card mx-auto">
         <a href="#url">
-            <img class="card-img-top" src="{{ $meetup->cover }}" alt="{{ $meetup->name }}">
+            <img loading=lazy class="card-img-top" src="{{ $meetup->cover }}" alt="{{ $meetup->name }}">
         </a>
         <div class="card-body">
             <div class="fw-bold text-uppercase small">

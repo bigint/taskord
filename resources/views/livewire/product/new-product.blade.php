@@ -51,7 +51,7 @@
                     @else
                     @if ($avatar)
                     <div>
-                        <img class="avatar-100 rounded mb-3" src="{{ $avatar->temporaryUrl() }}">
+                        <img loading=lazy class="avatar-100 rounded mb-3" src="{{ $avatar->temporaryUrl() }}">
                     </div>
                     @endif
                     @enderror

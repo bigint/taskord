@@ -13,7 +13,7 @@
             <form class="form-signin" method="POST" action="{{ route('login') }}">
                 @csrf
                 <div class="text-center mb-3">
-                    <img
+                    <img loading=lazy
                         class="mb-4"
                         src="/images/logo.svg"
                         alt=""

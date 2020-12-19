@@ -9,7 +9,7 @@
 @section('content')
 <div class="container-md">
     <div class="mb-4 text-center">
-        <img src="/images/patron.svg" width="100" />
+        <img loading=lazy src="/images/patron.svg" width="100" />
     </div>
     <div class="card">
         <div class="card-header pt-3 pb-3">

@@ -2,7 +2,7 @@
     <x-alert />
     <div class="align-items-center d-flex">
         <a href="{{ route('user.done', ['username' => $task->user->username]) }}">
-            <img class="avatar-40 rounded-circle" src="{{ Helper::getCDNImage($task->user->avatar) }}" alt="{{ $task->user->username }}'s avatar" />
+            <img loading=lazy class="avatar-40 rounded-circle" src="{{ Helper::getCDNImage($task->user->avatar) }}" alt="{{ $task->user->username }}'s avatar" />
         </a>
         <span class="ms-2">
             <a
@@ -77,7 +77,7 @@
             @if ($task->type === 'product')
             <span class="small text-secondary">
                 on
-                <img class="rounded mb-1 ms-1 avatar-15" src="{{ Helper::getCDNImage($task->product->avatar) }}" alt="{{ $task->product->slug }}'s avatar" />
+                <img loading=lazy class="rounded mb-1 ms-1 avatar-15" src="{{ Helper::getCDNImage($task->product->avatar) }}" alt="{{ $task->product->slug }}'s avatar" />
                 <a
                     class="text-black-50 product-hover"
                     href="{{ route('product.done', ['slug' => $task->product->slug]) }}"
@@ -93,7 +93,7 @@
         @foreach ($task->images ?? [] as $image)
         <div>
             <a href="{{ asset('storage/' . $image) }}" data-lightbox="{{ $image }}" data-title="Image by {{ '@'.$task->user->username }}">
-                <img class="{{ count($task->images) === 1 ? 'w-50' : 'gallery' }} img-fluid border mt-3 rounded" src="{{ Helper::getCDNImage(asset('storage/' . $image)) }}" alt="{{ asset('storage/' . $image) }}" />
+                <img loading=lazy class="{{ count($task->images) === 1 ? 'w-50' : 'gallery' }} img-fluid border mt-3 rounded" src="{{ Helper::getCDNImage(asset('storage/' . $image)) }}" alt="{{ asset('storage/' . $image) }}" />
             </a>
         </div>
         @endforeach
@@ -111,7 +111,7 @@
                 </span>
                 <span class="avatar-stack ms-1">
                 @foreach($task->likers->take(5) as $user)
-                <img class="praise-avatar rounded-circle {{ $loop->last ? 'me-0' : '' }}" src="{{ Helper::getCDNImage($user->avatar) }}" alt="{{ $user->username }}'s avatar" />
+                <img loading=lazy class="praise-avatar rounded-circle {{ $loop->last ? 'me-0' : '' }}" src="{{ Helper::getCDNImage($user->avatar) }}" alt="{{ $user->username }}'s avatar" />
                 @endforeach
                 </span>
             </button>
@@ -124,7 +124,7 @@
                 </span>
                 <span class="avatar-stack ms-1">
                 @foreach($task->likers->take(5) as $user)
-                <img class="praise-avatar rounded-circle {{ $loop->last ? 'me-0' : '' }}" src="{{ Helper::getCDNImage($user->avatar) }}" alt="{{ $user->username }}'s avatar" />
+                <img loading=lazy class="praise-avatar rounded-circle {{ $loop->last ? 'me-0' : '' }}" src="{{ Helper::getCDNImage($user->avatar) }}" alt="{{ $user->username }}'s avatar" />
                 @endforeach
                 </span>
                 @endif
@@ -141,7 +141,7 @@
                     </span>
                     <span class="avatar-stack ms-1">
                     @foreach($task->likers->take(5) as $user)
-                    <img class="praise-avatar rounded-circle {{ $loop->last ? 'me-0' : '' }}" src="{{ Helper::getCDNImage($user->avatar) }}" alt="{{ $user->username }}'s avatar" />
+                    <img loading=lazy class="praise-avatar rounded-circle {{ $loop->last ? 'me-0' : '' }}" src="{{ Helper::getCDNImage($user->avatar) }}" alt="{{ $user->username }}'s avatar" />
                     @endforeach
                     </span>
                     @endif

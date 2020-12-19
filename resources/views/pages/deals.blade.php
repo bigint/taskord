@@ -32,7 +32,7 @@
             @foreach ($deals as $deal)
                 <div class="d-flex align-items-center {{ $loop->last ? '' : 'mb-5' }}">
                     <div>
-                        <img class="rounded avatar-100" src="{{ $deal->logo }}" />
+                        <img loading=lazy class="rounded avatar-100" src="{{ $deal->logo }}" />
                     </div>
                     <div class="ms-4">
                         <span class="h4">

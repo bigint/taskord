@@ -51,12 +51,12 @@
                     @else
                     @if ($avatar)
                     <div>
-                        <img class="avatar-100 rounded mb-3" src="{{ $avatar->temporaryUrl() }}">
+                        <img loading=lazy class="avatar-100 rounded mb-3" src="{{ $avatar->temporaryUrl() }}">
                     </div>
                     @else
                     @if ($product->avatar)
                     <div>
-                        <img class="avatar-100 rounded mb-3" src="{{ Helper::getCDNImage($product->avatar) }}" alt="{{ $product->slug }}'s avatar" />
+                        <img loading=lazy class="avatar-100 rounded mb-3" src="{{ Helper::getCDNImage($product->avatar) }}" alt="{{ $product->slug }}'s avatar" />
                     </div>
                     @endif
                     @endif

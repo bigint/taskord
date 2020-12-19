@@ -1,5 +1,5 @@
 <div class="d-flex p-3">
-    <img class="avatar-50 rounded me-3" src="{{ Helper::getCDNImage($product->avatar) }}" alt="{{ $product->slug }}'s avatar" />
+    <img loading=lazy class="avatar-50 rounded me-3" src="{{ Helper::getCDNImage($product->avatar) }}" alt="{{ $product->slug }}'s avatar" />
     <div>
         <div class="fw-bold text-dark">
             {{ $product->name }}

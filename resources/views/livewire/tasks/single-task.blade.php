@@ -12,7 +12,7 @@
             @if ($task->type === 'product')
             <span class="small text-black-50">
                 on
-                <img class="rounded mb-1 ms-1 avatar-15" src="{{ Helper::getCDNImage($task->product->avatar) }}" alt="{{ $task->product->slug }}'s avatar" />
+                <img loading=lazy class="rounded mb-1 ms-1 avatar-15" src="{{ Helper::getCDNImage($task->product->avatar) }}" alt="{{ $task->product->slug }}'s avatar" />
                 <a class="text-black-50" href="{{ route('product.done', ['slug' => $task->product->slug]) }}">
                     {{ $task->product->name }}
                 </a>
@@ -24,7 +24,7 @@
         @foreach ($task->images ?? [] as $image)
         <div>
             <a href="{{ asset('storage/' . $image) }}" data-lightbox="{{ $image }}" data-title="Image by {{ '@'.$task->user->username }}">
-                <img class="{{ count($task->images) === 1 ? 'w-50' : 'gallery' }} img-fluid border mt-3 rounded" src="{{ Helper::getCDNImage(asset('storage/' . $image)) }}" alt="{{ asset('storage/' . $image) }}" />
+                <img loading=lazy class="{{ count($task->images) === 1 ? 'w-50' : 'gallery' }} img-fluid border mt-3 rounded" src="{{ Helper::getCDNImage(asset('storage/' . $image)) }}" alt="{{ asset('storage/' . $image) }}" />
             </a>
         </div>
         @endforeach
