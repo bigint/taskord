@@ -2,7 +2,7 @@
     <x-alert />
     <div class="align-items-center d-flex">
         <a href="{{ route('user.done', ['username' => $task->user->username]) }}">
-            <img class="avatar-40 rounded-circle" src="{{ Helper::getCDNImage($task->user->avatar, 'avatar') }}" alt="{{ $task->user->username }}'s avatar" />
+            <img class="avatar-40 rounded-circle" src="{{ Helper::getCDNImage($task->user->avatar) }}" alt="{{ $task->user->username }}'s avatar" />
         </a>
         <span class="ms-2">
             <a

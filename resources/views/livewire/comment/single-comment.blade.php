@@ -49,7 +49,7 @@
                 </span>
                 <span class="avatar-stack ms-1">
                 @foreach($comment->likers->take(5) as $user)
-                <img class="praise-avatar rounded-circle {{ $loop->last ? 'me-0' : '' }}" src="{{ $user->avatar }}" alt="{{ $user->username }}'s avatar" />
+                <img class="praise-avatar rounded-circle {{ $loop->last ? 'me-0' : '' }}" src="{{ Helper::getCDNImage($user->avatar) }}" alt="{{ $user->username }}'s avatar" />
                 @endforeach
                 </span>
             </button>

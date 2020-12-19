@@ -20,7 +20,7 @@ use Illuminate\Support\Facades\App;
 
 class Helper
 {
-    public static function getCDNImage($url, $type)
+    public static function getCDNImage($url)
     {
         if (App::environment() === 'production') {
             $cleaned_url = preg_replace( "#^[^:/.]*[:/]+#i", "", $url );

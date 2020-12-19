@@ -31,7 +31,7 @@
                                 class="user-hover"
                                 data-id="{{ $question->user->id }}"
                             >
-                                <img class="rounded-circle avatar-30" src="{{ $question->user->avatar }}" alt="{{ $question->user->username }}'s avatar" />
+                                <img class="rounded-circle avatar-30" src="{{ Helper::getCDNImage($question->user->avatar) }}" alt="{{ $question->user->username }}'s avatar" />
                             </a>
                             <a href="{{ route('question.question', ['id' => $question->id]) }}">
                                 <span class="align-middle ms-1 text-dark fw-bold">{{ Str::words($question->title, '10') }}</span>
@@ -46,7 +46,7 @@
                             @endif
                             <span class="avatar-stack ms-1">
                                 @foreach ($question->answer->groupBy('user_id')->take(5) as $answer)
-                                <img class="replies-avatar rounded-circle {{ $loop->last ? 'me-0' : '' }}" src="{{ $answer[0]->user->avatar }}" alt="{{ $answer[0]->user->username }}'s avatar" />
+                                <img class="replies-avatar rounded-circle {{ $loop->last ? 'me-0' : '' }}" src="{{ Helper::getCDNImage($answer[0]->user->avatar) }}" alt="{{ $answer[0]->user->username }}'s avatar" />
                                 @endforeach
                             </span>
                         </div>
@@ -64,7 +64,7 @@
                     <li class="list-group-item">
                         <div class="d-flex align-items-center">
                             <a href="{{ route('product.done', ['slug' => $product->slug]) }}">
-                                <img class="rounded avatar-50 mt-1 ms-2" src="{{ $product->avatar }}" alt="{{ $product->slug }}'s avatar" height="50" width="50" />
+                                <img class="rounded avatar-50 mt-1 ms-2" src="{{ Helper::getCDNImage($product->avatar) }}" alt="{{ $product->slug }}'s avatar" height="50" width="50" />
                             </a>
                             <span class="ms-3">
                                 <a href="{{ route('product.done', ['slug' => $product->slug]) }}" class="me-2 h5 align-text-top fw-bold text-dark">
@@ -87,7 +87,7 @@
                                     class="user-hover"
                                     data-id="{{ $user->id }}"
                                 >
-                                    <img class="rounded-circle avatar-30 mt-1 me-1" src="{{ $user->avatar }}" alt="{{ $user->username }}'s avatar" />
+                                    <img class="rounded-circle avatar-30 mt-1 me-1" src="{{ Helper::getCDNImage($user->avatar) }}" alt="{{ $user->username }}'s avatar" />
                                 </a>
                                 @endforeach
                                 <a
@@ -95,7 +95,7 @@
                                     class="user-hover"
                                     data-id="{{ $product->owner->id }}"
                                 >
-                                    <img class="rounded-circle avatar-30 mt-1 me-0" src="{{ $product->owner->avatar }}" alt="{{ $product->owner->username }}'s avatar" />
+                                    <img class="rounded-circle avatar-30 mt-1 me-0" src="{{ Helper::getCDNImage($product->owner->avatar) }}" alt="{{ $product->owner->username }}'s avatar" />
                                 </a>
                             </span>
                         </div>
@@ -133,7 +133,7 @@
                     <div class="card-body">
                         <div class="d-flex align-items-center">
                             <a href="{{ route('user.done', ['username' => Auth::user()->username]) }}">
-                                <img class="rounded-circle avatar-50 mt-1" src="{{ Auth::user()->avatar }}" alt="{{ Auth::user()->username }}'s avatar" />
+                                <img class="rounded-circle avatar-50 mt-1" src="{{ Helper::getCDNImage(Auth::user()->avatar) }}" alt="{{ Auth::user()->username }}'s avatar" />
                             </a>
                             <a class="ms-3 text-dark" href="{{ route('user.done', ['username' => Auth::user()->username]) }}">
                                 @if (Auth::user()->firstname or Auth::user()->lastname)
@@ -181,7 +181,7 @@
                 @foreach ($recently_joined as $user)
                 <div class="d-flex align-items-center py-1 px-3">
                     <a href="{{ route('user.done', ['username' => $user->username]) }}">
-                        <img class="rounded-circle avatar-40 mt-1" src="{{ $user->avatar }}" alt="{{ $user->username }}'s avatar" />
+                        <img class="rounded-circle avatar-40 mt-1" src="{{ Helper::getCDNImage($user->avatar) }}" alt="{{ $user->username }}'s avatar" />
                     </a>
                     <span class="ms-3">
                         <a href="{{ route('user.done', ['username' => $user->username]) }}" class="align-text-top text-dark">
@@ -229,7 +229,7 @@
                         class="product-hover"
                         data-id="{{ $product->id }}"
                     >
-                        <img class="rounded avatar-30" src="{{ $product->avatar }}" alt="{{ $product->slug }}'s avatar" height="50" width="50" />
+                        <img class="rounded avatar-30" src="{{ Helper::getCDNImage($product->avatar) }}" alt="{{ $product->slug }}'s avatar" height="50" width="50" />
                     </a>
                     <a
                         href="{{ route('product.done', ['slug' => $product->slug]) }}"
@@ -250,7 +250,7 @@
                             class="user-hover"
                             data-id="{{ $user->id }}"
                         >
-                            <img class="rounded-circle avatar-30 mt-1 me-1" src="{{ $user->avatar }}" alt="{{ $user->username }}'s avatar" />
+                            <img class="rounded-circle avatar-30 mt-1 me-1" src="{{ Helper::getCDNImage($user->avatar) }}" alt="{{ $user->username }}'s avatar" />
                         </a>
                         @endforeach
                         <a
@@ -258,7 +258,7 @@
                             class="user-hover"
                             data-id="{{ $product->owner->id }}"
                         >
-                            <img class="rounded-circle avatar-30 mt-1 me-0" src="{{ $product->owner->avatar }}" alt="{{ $product->owner->username }}'s avatar" />
+                            <img class="rounded-circle avatar-30 mt-1 me-0" src="{{ Helper::getCDNImage($product->owner->avatar) }}" alt="{{ $product->owner->username }}'s avatar" />
                         </a>
                     </span>
                 </div>
@@ -293,7 +293,7 @@
                             class="user-hover"
                             data-id="{{ $user->id }}"
                         >
-                            <img class="rounded-circle avatar-30 mt-1 ms-2" src="{{ $user->avatar }}" height="50" width="50" alt="{{ $user->username }}'s avatar" />
+                            <img class="rounded-circle avatar-30 mt-1 ms-2" src="{{ Helper::getCDNImage($user->avatar) }}" height="50" width="50" alt="{{ $user->username }}'s avatar" />
                         </a>
                         <a
                             href="{{ route('user.done', ['username' => $user->username]) }}"
