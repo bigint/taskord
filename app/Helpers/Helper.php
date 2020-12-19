@@ -16,9 +16,21 @@ use App\Notifications\Task\NotifySubscribers as TaskSubscribers;
 use App\Notifications\TaskPraised;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\App;
 
 class Helper
 {
+    public static function getCDNImage($url, $type)
+    {
+        if (App::environment() === 'production') {
+            $cleaned_url = preg_replace( "#^[^:/.]*[:/]+#i", "", $url );
+            $processed_url = 'https://i0.wp.com/'.$cleaned_url;
+            return $processed_url;
+        } else {
+            return $url;
+        }
+    }
+
     public static function togglePraise($entity, $type)
     {
         if (Auth::user()->hasLiked($entity)) {
