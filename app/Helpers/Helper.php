@@ -25,10 +25,10 @@ class Helper
         if (App::environment() === 'production') {
             $cleaned_url = preg_replace('#^[^:/.]*[:/]+#i', '', $url);
             $processed_url = 'https://i0.wp.com/'.$cleaned_url;
-            $allow_list = array(
-                "avatar.tobi.sh",
-                "secure.gravatar.com"
-            );
+            $allow_list = [
+                'avatar.tobi.sh',
+                'secure.gravatar.com',
+            ];
 
             if (in_array(parse_url($url)['host'], $allow_list)) {
                 return $url;
