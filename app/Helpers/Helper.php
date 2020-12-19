@@ -23,7 +23,7 @@ class Helper
     public static function getCDNImage($url)
     {
         if (App::environment() === 'production') {
-            $cleaned_url = str_replace('https://taskord.com/storage', '', $url);
+            $cleaned_url = str_replace('https://taskord.com/storage/', '', $url);
             $processed_url = 'https://ik.imagekit.io/blbrg3136a/'.$cleaned_url;
 
             return $processed_url;
