@@ -24,7 +24,7 @@
         @foreach ($task->images ?? [] as $image)
         <div>
             <a href="{{ asset('storage/' . $image) }}" data-lightbox="{{ $image }}" data-title="Image by {{ '@'.$task->user->username }}">
-                <img class="{{ count($task->images) === 1 ? 'w-50' : 'gallery' }} img-fluid border mt-3 rounded" src="{{ asset('storage/' . $image) }}" alt="{{ asset('storage/' . $image) }}" />
+                <img class="{{ count($task->images) === 1 ? 'w-50' : 'gallery' }} img-fluid border mt-3 rounded" src="{{ Helper::getCDNImage(asset('storage/' . $image)) }}" alt="{{ asset('storage/' . $image) }}" />
             </a>
         </div>
         @endforeach
