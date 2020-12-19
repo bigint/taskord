@@ -23,18 +23,10 @@ class Helper
     public static function getCDNImage($url)
     {
         if (App::environment() === 'production') {
-            $cleaned_url = preg_replace('#^[^:/.]*[:/]+#i', '', $url);
-            $processed_url = 'https://i0.wp.com/'.$cleaned_url;
-            $allow_list = [
-                'avatar.tobi.sh',
-                'secure.gravatar.com',
-            ];
+            $cleaned_url = str_replace("https://taskord.com/storage", "", $url);
+            $processed_url = 'https://ik.imagekit.io/blbrg3136a/'.$cleaned_url;
 
-            if (in_array(parse_url($url)['host'], $allow_list)) {
-                return $url;
-            } else {
-                return $processed_url;
-            }
+            return $processed_url;
         } else {
             return $url;
         }
