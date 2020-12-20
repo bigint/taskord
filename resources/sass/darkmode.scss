@@ -157,3 +157,11 @@ hr {
     background-color: $input-bg !important;
     border: 1px solid $border-bg !important;
 }
+
+.tippy-arrow:before {
+    border-top-color: $input-bg !important;
+}
+
+.tippy-arrow:after {
+    border-top-color: rgb(255 255 255 / 20%) !important;
+}
