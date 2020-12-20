@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Admin;
 
+use App\Jobs\Clean;
 use App\Models\Answer;
 use App\Models\Comment;
 use App\Models\Product;
@@ -13,7 +14,6 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Queue;
 use Livewire\Component;
-use App\Jobs\Clean;
 
 class Adminbar extends Component
 {

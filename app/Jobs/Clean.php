@@ -2,15 +2,14 @@
 
 namespace App\Jobs;
 
+use GuzzleHttp\Client;
 use Illuminate\Bus\Queueable;
-use Illuminate\Contracts\Queue\ShouldBeUnique;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
-use Illuminate\Support\Facades\Artisan;
-use GuzzleHttp\Client;
 use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\Artisan;
 
 class Clean implements ShouldQueue
 {
@@ -39,11 +38,11 @@ class Clean implements ShouldQueue
                 'headers' => [
                     'X-Auth-Email' => env('CLOUDFLARE_EMAIL'),
                     'X-Auth-Key'      => env('CLOUDFLARE_API_KEY'),
-                    'Content-Type'     => 'application/json'
+                    'Content-Type'     => 'application/json',
                 ],
                 'json' => [
                     'purge_everything' => true,
-                ]
+                ],
             ]);
         }
 
