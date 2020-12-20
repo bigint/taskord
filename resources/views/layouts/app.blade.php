@@ -28,7 +28,6 @@
     @endif
     @endauth
     @livewireStyles
-    <script async src="https://cdn.splitbee.io/sb.js" defer data-turbolinks-track="true" data-turbolinks-eval=false></script>
     @laravelPWA
 </head>
 <body>
