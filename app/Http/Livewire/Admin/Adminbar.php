@@ -46,7 +46,7 @@ class Adminbar extends Component
 
     public function deploy()
     {
-        $process = new Process(['cd /var/www/taskord && pwd']);
+        $process = new Process(['cd /var/www/taskord']);
         $process->run();
 
         if (! $process->isSuccessful()) {
