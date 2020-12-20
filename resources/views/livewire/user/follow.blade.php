@@ -25,7 +25,7 @@
             Following
         </a>
         <a class="text-dark" href="{{ route('user.followers', ['username' => $user->username]) }}">
-            <span class="fw-bold ms-2">{{ number_format($user->followers()->count('id')) }}</span>
+            <span class="fw-bold ms-2">{{ number_format($user->followers()->count()) }}</span>
             {{ $user->followers()->count('id') <= 1 ? "Follower" : "Followers" }}
         </a>
         @php
