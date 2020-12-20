@@ -13,8 +13,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Queue;
 use Livewire\Component;
-use Illuminate\Support\Facades\Artisan;
-use GuzzleHttp\Client;
+use App\Jobs\Clean;
 
 class Adminbar extends Component
 {
@@ -33,22 +32,11 @@ class Adminbar extends Component
 
     public function clean()
     {
-        $client = new Client();
-        $res = $client->request('POST', 'https://api.cloudflare.com/client/v4/zones/06be44cac798e7deeb4abda1378c4339/purge_cache', [
-            'headers' => [
-                'X-Auth-Email' => env('CLOUDFLARE_EMAIL'),
-                'X-Auth-Key'      => env('CLOUDFLARE_API_KEY'),
-                'Content-Type'     => 'application/json'
-            ],
-            'json' => [
-                'purge_everything' => true,
-            ]
-        ]);
-
-        Artisan::call('app:clean');
+        Clean::dispatch()->delay(now()->addMinutes(1));
         activity()
             ->withProperties(['type' => 'Admin'])
             ->log('Cleaned the Taskord Application');
+        session()->flash('global', 'Cleaning process has been initiated successfully 🧼!');
 
         return redirect()->route('home');
     }
