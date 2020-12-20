@@ -15,8 +15,6 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Queue;
 use Livewire\Component;
-use Symfony\Component\Process\Exception\ProcessFailedException;
-use Symfony\Component\Process\Process;
 
 class Adminbar extends Component
 {
@@ -46,7 +44,7 @@ class Adminbar extends Component
 
     public function deploy()
     {
-        dd(shell_exec('php ' . __DIR__ . 'ls'));
+        dd(shell_exec('php '.__DIR__.'ls'));
         Deploy::dispatch()->delay(now()->addSeconds(10));
         activity()
             ->withProperties(['type' => 'Admin'])
