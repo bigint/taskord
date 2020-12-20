@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Queue;
 use Livewire\Component;
 use Illuminate\Support\Facades\Artisan;
+use GuzzleHttp\Client;
 
 class Adminbar extends Component
 {
@@ -32,6 +33,18 @@ class Adminbar extends Component
 
     public function clean()
     {
+        $client = new Client();
+        $res = $client->request('POST', 'https://api.cloudflare.com/client/v4/zones/06be44cac798e7deeb4abda1378c4339/purge_cache', [
+            'headers' => [
+                'X-Auth-Email' => env('CLOUDFLARE_EMAIL'),
+                'X-Auth-Key'      => env('CLOUDFLARE_API_KEY'),
+                'Content-Type'     => 'application/json'
+            ],
+            'json' => [
+                'purge_everything' => true,
+            ]
+        ]);
+
         Artisan::call('app:clean');
         activity()
             ->withProperties(['type' => 'Admin'])
