@@ -17,7 +17,7 @@
                 If you have any questions or concerns about the personal data contained in your downloadable file, please <a href="https://taskord.freshdesk.com/support/tickets/new" target="_blank" rel="noreferrer">contact us</a>.
             </div>
             <a class="btn btn-success text-white" href="{{ route('user.settings.export') }}" target="_blank" rel="noreferrer">
-                <i class="fa fa-download me-1"></i>
+                <x-heroicon-o-download class="heroicon" />
                 Export now
             </a>
             <div class="h5 text-danger mt-3 mb-3">Delete your Account</div>
@@ -26,13 +26,13 @@
             </div>
             @if ($confirming === Auth::id())
             <button wire:click="deleteAccount" class="btn btn-danger">
-                <i class="fa fa-question me-1"></i>
+                <x-heroicon-o-question-mark-circle class="heroicon" />
                 Are you sure?
                 <span wire:loading class="spinner-border spinner-border-sm ms-2" role="status"></span>
             </button>
             @else
             <button wire:click="confirmDelete" class="btn btn-danger">
-                <i class="fa fa-trash-alt me-1"></i>
+                <x-heroicon-o-trash class="heroicon" />
                 Delete now
             </button>
             @endif

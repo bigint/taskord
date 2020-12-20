@@ -71,7 +71,7 @@
                 </div>
                 <button class="btn btn-lg btn-primary w-100" type="submit">
                     <span class="small">
-                        <i class="fa fa-refresh me-1"></i>
+                        <x-heroicon-o-refresh class="heroicon-2x" />
                         Reset Password
                     </span>
                 </button>

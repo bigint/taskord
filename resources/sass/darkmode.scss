@@ -47,7 +47,7 @@ body {
     background-color: $input-bg;
 }
 
-.text-black-50 {
+.text-secondary {
     color: #c0c0c0 !important;
 }
 
@@ -103,10 +103,6 @@ hr {
 
 .border {
     border: 1px solid $border-bg !important;
-}
-
-.fa-github {
-    color: white;
 }
 
 .bg-patron {

@@ -16,7 +16,7 @@
                     {{ $task->user->username }}
                 @endif
                 @if ($task->user->isVerified)
-                    <i class="verified fa fa-check-circle ms-1 text-primary"></i>
+                    <x-heroicon-s-badge-check class="heroicon ms-1 text-primary verified" />
                 @endif
                 @if ($task->user->isPatron)
                     <a class="patron ms-1 small" href="{{ route('patron.home') }}">
@@ -36,15 +36,15 @@
         @else
         @if ($task->source === 'GitLab')
         <span>
-            <i class="fab fa-gitlab task-gitlab task-font"></i>
+            <img class="task-icon" src="{{ asset('images/brand/gitlab.svg') }}" />
         </span>
         @elseif ($task->source === 'GitHub')
         <span>
-            <i class="fab fa-github task-github task-font"></i>
+            <img class="task-icon" src="{{ asset('images/brand/github.svg') }}" />
         </span>
         @elseif ($task->source === 'Webhook')
         <span>
-            <i class="fa fa-globe text-info task-font"></i>
+            <x-heroicon-o-globe-alt class="heroicon text-info" />
         </span>
         @else
         <input
@@ -79,7 +79,7 @@
                 on
                 <img loading=lazy class="rounded mb-1 ms-1 avatar-15" src="{{ Helper::getCDNImage($task->product->avatar) }}" alt="{{ $task->product->slug }}'s avatar" />
                 <a
-                    class="text-black-50 product-hover"
+                    class="text-secondary product-hover"
                     href="{{ route('product.done', ['slug' => $task->product->slug]) }}"
                     data-id="{{ $task->product->id }}"
                 >
@@ -176,9 +176,9 @@
             @endauth
         </div>
     </div>
-    <div class="collapse mt-3 text-black-50" id="taskExpand-{{$task->id}}">
+    <div class="collapse mt-3 text-secondary" id="taskExpand-{{$task->id}}">
         <a class="text-secondary" href="{{ route('task', ['id' => $task->id]) }}">
-            <i class="fa fa-calendar-check small me-1"></i>
+            <x-heroicon-o-calendar class="heroicon" />
             @auth
             {{
                 !$task->done_at ?

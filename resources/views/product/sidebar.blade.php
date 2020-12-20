@@ -4,15 +4,15 @@
     <div class="card mb-4">
         <div class="card-body d-grid">
             <button type="button" class="btn btn-success text-white fw-bold" data-bs-toggle="modal" data-bs-target="#newUpdateModal">
-                <i class="fa fa-bell me-1"></i>
+                <x-heroicon-o-bell class="heroicon" />
                 Write a product update
             </button>
             <button type="button" class="btn mt-2 btn-success text-white fw-bold" data-bs-toggle="modal" data-bs-target="#editProductModal">
-                <i class="fa fa-edit me-1"></i>
+                <x-heroicon-o-pencil class="heroicon" />
                 Edit Product
             </button>
             <button type="button" class="btn mt-2 btn-success text-white fw-bold" data-bs-toggle="modal" data-bs-target="#addMemberModal">
-                <i class="fa fa-plus me-1"></i>
+                <x-heroicon-o-plus class="heroicon" />
                 Add Member
             </button>
         </div>
@@ -29,7 +29,7 @@
     ])
     @endauth
     @if ($product->website or $product->twitter or $product->producthunt or $product->repo)
-    <div class="text-uppercase fw-bold text-black-50 pb-2">
+    <div class="text-uppercase fw-bold text-secondary pb-2">
         Social
     </div>
     <div class="card mb-4">
@@ -42,24 +42,24 @@
             @endif
             @if ($product->producthunt)
             <a class="list-group-item link-dark" href="https://www.producthunt.com/posts/{{ $product->producthunt }}" target="_blank" rel="noreferrer">
-                <i class="fab fa-product-hunt me-1"></i>
+                <img class="brand-icon" src="{{ asset('images/brand/producthunt.svg') }}" />
                 {{ Helper::removeProtocol($product->producthunt) }}
             </a>
             @endif
             @if ($product->twitter)
             <a class="list-group-item link-dark" href="https://twitter.com/{{ $product->twitter }}" target="_blank" rel="noreferrer">
-                <i class="fab fa-twitter me-1"></i>
+                <img class="brand-icon" src="{{ asset('images/brand/twitter.svg') }}" />
                 {{ $product->twitter }}
             </a>
             @endif
             @if ($product->repo and strlen(trim(parse_url($product->repo)['path'], '/')) !== 0)
             <a class="list-group-item link-dark" href="{{ $product->repo }}" target="_blank" rel="noreferrer">
                 @if (parse_url($product->repo)['host'] === 'github.com')
-                <i class="fab fa-github me-1"></i>
+                <img class="brand-icon" src="{{ asset('images/brand/github.svg') }}" />
                 @elseif (parse_url($product->repo)['host'] === 'gitlab.com')
-                <i class="fab fa-gitlab me-1"></i>
+                <img class="brand-icon" src="{{ asset('images/brand/gitlab.svg') }}" />
                 @elseif (parse_url($product->repo)['host'] === 'bitbucket.org')
-                <i class="fab fa-bitbucket me-1"></i>
+                <img class="brand-icon" src="{{ asset('images/brand/bitbucket.svg') }}" />
                 @endif
                 {{ trim(parse_url($product->repo)['path'], '/') }}
             </a>
@@ -68,8 +68,8 @@
     </div>
     @endif
     @if ($product->sponsor)
-    <div class="text-uppercase fw-bold text-black-50 pb-2">
-        <i class="fa fa-heart text-danger me-1"></i>
+    <div class="text-uppercase fw-bold text-secondary pb-2">
+        <x-heroicon-o-heart class="heroicon text-danger" />
         Sponsor
     </div>
     <div class="mb-4">
@@ -79,7 +79,7 @@
         </a>
     </div>
     @endif
-    <div class="text-uppercase fw-bold text-black-50 pb-2">
+    <div class="text-uppercase fw-bold text-secondary pb-2">
         Activity by month
     </div>
     <div class="card mb-4">
@@ -87,7 +87,7 @@
             🚧
         </div>
     </div>
-    <div class="text-uppercase fw-bold text-black-50 pb-2">
+    <div class="text-uppercase fw-bold text-secondary pb-2">
         Team
     </div>
     <div class="card mb-4">

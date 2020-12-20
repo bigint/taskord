@@ -17,7 +17,7 @@
                         {{ $question->user->username }}
                     @endif
                     @if ($question->user->isVerified)
-                    <i class="verified fa fa-check-circle ms-1 text-primary"></i>
+                    <x-heroicon-s-badge-check class="heroicon ms-1 text-primary verified" />
                     @endif
                     @if ($question->user->isPatron)
                         <a class="patron ms-1 small" href="{{ route('patron.home') }}">
@@ -28,7 +28,7 @@
                 <div class="small">{{ "@" . $question->user->username }}</div>
             </span>
             <span class="align-text-top small float-end ms-auto">
-                <a class="text-black-50" href="{{ route('question.question', ['id' => $question->id]) }}">
+                <a class="text-secondary" href="{{ route('question.question', ['id' => $question->id]) }}">
                     {{ Carbon::parse($question->created_at)->diffForHumans() }}
                 </a>
             </span>
@@ -130,7 +130,7 @@
             @endguest
             @if (views($question)->remember()->count('id') > 0)
             <span class="align-middle ms-2 me-2">
-                <i class="fa fa-eye me-1"></i>
+                <x-heroicon-o-eye class="heroicon" />
                 <span class="text-secondary">
                     <span class="fw-bold">{{ number_format(views($question)->remember()->unique()->count('id')) }}</span>
                     {{ views($question)->remember()->unique()->count('id') <= 1 ? 'View' : 'Views' }}

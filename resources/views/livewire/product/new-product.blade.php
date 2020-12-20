@@ -57,7 +57,7 @@
                     @enderror
                     <div class="input-group mb-3">
                         <span class="input-group-text">
-                            <i class="fa fa-link"></i>
+                            <x-heroicon-o-link class="heroicon" />
                         </span>
                         <input type="text" class="form-control @error('website') is-invalid @enderror" placeholder="Website" wire:model.defer="website">
                         @error('website')
@@ -68,7 +68,7 @@
                     </div>
                     <div class="input-group mb-3">
                         <span class="input-group-text">
-                            <i class="fab fa-twitter"></i>
+                            <img class="brand-icon" src="{{ asset('images/brand/twitter.svg') }}" />
                         </span>
                         <input type="text" class="form-control @error('twitter') is-invalid @enderror" placeholder="Twitter" wire:model.defer="twitter">
                         @error('twitter')
@@ -79,7 +79,7 @@
                     </div>
                     <div class="input-group mb-3">
                         <span class="input-group-text">
-                            <i class="fab fa-product-hunt"></i>
+                            <img class="brand-icon" src="{{ asset('images/brand/producthunt.svg') }}" />
                         </span>
                         <input type="text" class="form-control @error('producthunt') is-invalid @enderror" placeholder="Product Hunt" wire:model.defer="producthunt">
                         @error('producthunt')
@@ -90,7 +90,7 @@
                     </div>
                     <div class="input-group mb-3">
                         <span class="input-group-text">
-                            <i class="fa fa-code"></i>
+                            <x-heroicon-o-code class="heroicon" />
                         </span>
                         <input type="text" class="form-control @error('repo') is-invalid @enderror" placeholder="Repository" wire:model.defer="repo">
                         @error('repo')
@@ -101,7 +101,7 @@
                     </div>
                     <div class="input-group mb-3">
                         <span class="input-group-text">
-                            <i class="fa fa-hands-helping text-info"></i>
+                            <x-heroicon-o-heart class="heroicon text-danger" />
                         </span>
                         <input type="text" class="form-control @error('sponsor') is-invalid @enderror" placeholder="Sponsor URL" wire:model.defer="sponsor">
                         @error('sponsor')

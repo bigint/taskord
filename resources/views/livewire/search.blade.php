@@ -27,7 +27,7 @@
                     />
                     <a class="ms-1 task-font text-dark" href="{{ route('task', ['id' => $task->id]) }}">{{ $task->task }}</a>
                     <span class="small ms-2">👏
-                        <span class="text-black-50">{{ $task->likerscount() }}</span>
+                        <span class="text-secondary">{{ $task->likerscount() }}</span>
                     </span>
                 </span>
                 <a href="{{ route('user.done', ['username' => $task->user->username]) }}">
@@ -55,7 +55,7 @@
                             @endif
                         </span>
                         @if ($user->isVerified)
-                            <i class="verified fa fa-check-circle ms-1 me-1 text-primary"></i>
+                            <x-heroicon-s-badge-check class="heroicon ms-1 text-primary verified" />
                         @endif
                         <span class="small">{{ "@" . $user->username }}</span>
                     </a>

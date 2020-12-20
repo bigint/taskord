@@ -17,14 +17,14 @@
             @if (session()->has('question_created'))
                 <div class="alert alert-success alert-dismissible fade show mt-2">
                     <button type="button" class="btn-close small" data-bs-dismiss="alert"></button>
-                    <i class="fa fa-check me-1"></i>
+                    <x-heroicon-o-check class="heroicon" />
                     {{ session('question_created') }}
                 </div>
             @endif
             @if (session()->has('question_edited'))
                 <div class="alert alert-success alert-dismissible fade show mt-2">
                     <button type="button" class="btn-close small" data-bs-dismiss="alert"></button>
-                    <i class="fa fa-check me-1"></i>
+                    <x-heroicon-o-check class="heroicon" />
                     {{ session('question_edited') }}
                 </div>
             @endif

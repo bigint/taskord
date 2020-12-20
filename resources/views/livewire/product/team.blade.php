@@ -20,7 +20,7 @@
     @auth
     @if ($product->owner->id === Auth::id())
         <button class="btn btn-sm btn-danger float-end" wire:click="removeMember">
-            <i class="fa fa-times me-1"></i>
+            <x-heroicon-o-x class="heroicon" />
             Remove
         </button>
     @endif

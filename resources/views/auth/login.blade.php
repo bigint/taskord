@@ -75,13 +75,13 @@
                 <div class="btn-group w-100" role="group">
                     <button class="btn btn-lg btn-primary" name="submit" value="login" type="submit">
                         <span class="small">
-                            <i class="fa fa-lock me-1"></i>
+                            <x-heroicon-o-lock-closed class="heroicon-2x" />
                             Login
                         </span>
                     </button>
                     <button class="btn btn-lg btn-dark" name="submit" value="magic-link" type="submit">
                         <span class="small">
-                            <i class="fa fa-magic me-1"></i>
+                            <x-heroicon-o-mail class="heroicon-2x" />
                             Magic link
                         </span>
                     </button>
@@ -90,7 +90,7 @@
                     <div class="col-6">
                         <a href="/login/google" class="btn btn-social btn-google w-100" data-turbolinks="false">
                             <span class="small">
-                                <i class="fab fa-google me-1"></i>
+                                <img class="brand-icon" src="{{ asset('images/brand/google.svg') }}" />
                                 Google
                             </span>
                         </a>
@@ -98,7 +98,7 @@
                     <div class="col-6">
                         <a href="/login/twitter" class="btn btn-social btn-twitter w-100" data-turbolinks="false">
                             <span class="small">
-                                <i class="fab fa-twitter me-1"></i>
+                                <img class="brand-icon" src="{{ asset('images/brand/twitter.svg') }}" />
                                 Twitter
                             </span>
                         </a>
@@ -106,7 +106,7 @@
                     <div class="col-6 mt-2">
                         <a href="/login/github" class="btn btn-social btn-github w-100" data-turbolinks="false">
                             <span class="small">
-                                <i class="fab fa-github me-1"></i>
+                                <img class="brand-icon" src="{{ asset('images/brand/github.svg') }}" />
                                 GitHub
                             </span>
                         </a>
@@ -114,7 +114,7 @@
                     <div class="col-6 mt-2">
                         <a href="/login/gitlab" class="btn btn-social btn-gitlab w-100" data-turbolinks="false">
                             <span class="small">
-                                <i class="fab fa-gitlab me-1"></i>
+                                <img class="brand-icon" src="{{ asset('images/brand/gitlab.svg') }}" />
                                 GitLab
                             </span>
                         </a>

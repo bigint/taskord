@@ -54,7 +54,7 @@
                     <span class="h5">
                         Here's your webhook for Taskord. Keep it secret.
                     </span>
-                    <div class="small text-black-50">Make sure you save it - you won't be able to access it again.</div>
+                    <div class="small text-secondary">Make sure you save it - you won't be able to access it again.</div>
                     <div class="fw-bold text-primary font-monospace mt-2">
                         https://taskord.com/webhook/web/{{ session('created')->token }}
                     </div>
@@ -66,7 +66,7 @@
                     <div class="card-header" id="headingOne">
                         <h2 class="mb-0">
                             <a class="text-dark h5" type="button" checked data-bs-toggle="collapse" data-bs-target="#simpleDocs" aria-expanded="true" aria-controls="simpleDocs">
-                                <i class="fa fa-globe me-1"></i>
+                                <x-heroicon-o-globe-alt class="heroicon" />
                                 Simple Webhook
                             </a>
                         </h2>
@@ -104,7 +104,7 @@
                     <div class="card-header" id="headingTwo">
                         <h2 class="mb-0">
                             <a class="text-dark h5" type="button" data-bs-toggle="collapse" data-bs-target="#githubDocs" aria-expanded="false" aria-controls="githubDocs">
-                                <i class="fab fa-github me-1"></i>
+                                <img class="brand-icon" src="{{ asset('images/brand/github.svg') }}" />
                                 GitHub
                             </a>
                         </h2>
@@ -127,7 +127,7 @@
                     <div class="card-header" id="headingThree">
                         <h2 class="mb-0">
                             <a class="text-dark h5" type="button" data-bs-toggle="collapse" data-bs-target="#gitlabDocs" aria-expanded="false" aria-controls="gitlabDocs">
-                                <i class="fab fa-gitlab me-1"></i>
+                                <img class="brand-icon" src="{{ asset('images/brand/gitlab.svg') }}" />
                                 GitLab
                             </a>
                         </h2>
@@ -153,7 +153,12 @@
         </div>
         <div class="card-body">
             @if (count($user->webhooks) === 0)
-            <x-empty icon="globe" text="No webhooks found" />
+            <div class="card-body text-center mt-3 mb-3">
+                <x-heroicon-o-globe class="heroicon-4x text-primary mb-2" />
+                <div class="h4">
+                    No webhooks found
+                </div>
+            </div>
             @else
             <table class="table table-bordered align-middle text-dark">
                 <thead>
@@ -170,11 +175,13 @@
                     <tr>
                         <td>
                             @if ($webhook->type === 'web')
-                            <i title="Simple Webhook | ID: {{ $webhook->id }}" class="fa fa-globe me-1"></i>
+                            <span title="Simple Webhook | ID: {{ $webhook->id }}">
+                                <x-heroicon-o-globe-alt class="heroicon text-info" />
+                            </span>
                             @elseif ($webhook->type === 'github')
-                            <i title="GitHub | ID: {{ $webhook->id }}" class="fab fa-github me-1"></i>
+                            <img class="brand-icon" src="{{ asset('images/brand/github.svg') }}" />
                             @elseif ($webhook->type === 'gitlab')
-                            <i title="GitLab | ID: {{ $webhook->id }}" class="fab fa-gitlab me-1"></i>
+                            <img class="brand-icon" src="{{ asset('images/brand/gitlab.svg') }}" />
                             @endif
                         </td>
                         <td class="fw-bold">
@@ -188,7 +195,7 @@
                         </td>
                         <td>
                             <button wire:click="deleteWebhook({{ $webhook->id }})" class="btn btn-sm w-100 btn-danger">
-                                <i class="fa fa-trash me-1"></i>
+                                <x-heroicon-o-trash class="heroicon" />
                                 Delete
                             </button>
                         </td>

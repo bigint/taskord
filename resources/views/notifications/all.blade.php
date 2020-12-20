@@ -8,7 +8,7 @@
         <div class="col-lg-8">
             <a role="button" class="btn btn-primary mb-3" href="{{ route('notifications.unread') }}">
                 Unread
-                <span class="ms-1 badge bg-white text-black-50">
+                <span class="ms-1 badge bg-white text-secondary">
                     {{ Auth::user()->unreadNotifications->count('id') }}
                 </span>
             </a>

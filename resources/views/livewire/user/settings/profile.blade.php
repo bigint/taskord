@@ -166,7 +166,7 @@
             <form wire:target="updateSponsor" wire:submit.prevent="updateSponsor">
                 <div class="input-group mb-3">
                     <span class="input-group-text">
-                        <i class="fa fa-hands-helping text-info"></i>
+                        <x-heroicon-o-heart class="heroicon text-danger" />
                     </span>
                     <input type="text" class="form-control @error('sponsor') is-invalid @enderror" placeholder="Sponsor URL" value="{{ $user->sponsor }}" wire:model.defer="sponsor">
                     @error('sponsor')
@@ -198,7 +198,7 @@
             <form wire:target="updateSocial" wire:submit.prevent="updateSocial">
                 <div class="input-group mb-3">
                     <span class="input-group-text">
-                        <i class="fa fa-link"></i>
+                        <x-heroicon-o-link class="heroicon" />
                     </span>
                     <input type="text" class="form-control @error('website') is-invalid @enderror" placeholder="Website" value="{{ $user->website }}" wire:model.defer="website">
                     @error('website')
@@ -209,7 +209,7 @@
                 </div>
                 <div class="input-group mb-3">
                     <span class="input-group-text">
-                        <i class="fab fa-twitter"></i>
+                        <img class="brand-icon" src="{{ asset('images/brand/twitter.svg') }}" />
                     </span>
                     <input type="text" class="form-control @error('twitter') is-invalid @enderror" placeholder="Twitter" value="{{ $user->twitter }}" wire:model.defer="twitter">
                     @error('twitter')
@@ -220,7 +220,7 @@
                 </div>
                 <div class="input-group mb-3">
                     <span class="input-group-text">
-                        <i class="fab fa-twitch"></i>
+                        <img class="brand-icon" src="{{ asset('images/brand/twitch.svg') }}" />
                     </span>
                     <input type="text" class="form-control @error('twitch') is-invalid @enderror" placeholder="Twitch" value="{{ $user->twitch }}" wire:model.defer="twitch">
                     @error('twitch')
@@ -231,7 +231,7 @@
                 </div>
                 <div class="input-group mb-3">
                     <span class="input-group-text">
-                        <i class="fab fa-telegram"></i>
+                        <img class="brand-icon" src="{{ asset('images/brand/telegram.svg') }}" />
                     </span>
                     <input type="text" class="form-control @error('telegram') is-invalid @enderror" placeholder="Telegram" value="{{ $user->telegram }}" wire:model.defer="telegram">
                     @error('telegram')
@@ -242,7 +242,7 @@
                 </div>
                 <div class="input-group mb-3">
                     <span class="input-group-text">
-                        <i class="fab fa-github"></i>
+                        <img class="brand-icon" src="{{ asset('images/brand/github.svg') }}" />
                     </span>
                     <input type="text" class="form-control @error('github') is-invalid @enderror" placeholder="GitHub" value="{{ $user->github }}" wire:model.defer="github">
                     @error('github')
@@ -253,7 +253,7 @@
                 </div>
                 <div class="input-group mb-3">
                     <span class="input-group-text">
-                        <i class="fab fa-youtube"></i>
+                        <img class="brand-icon" src="{{ asset('images/brand/youtube.svg') }}" />
                     </span>
                     <input type="text" class="form-control @error('youtube') is-invalid @enderror" placeholder="YouTube" value="{{ $user->youtube }}" wire:model.defer="youtube">
                     @error('youtube')

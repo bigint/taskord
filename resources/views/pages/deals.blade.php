@@ -18,7 +18,7 @@
             @auth
             @if (Auth::user()->staffShip)
             <button type="button" class="mt-2 btn btn-success text-white" data-bs-toggle="modal" data-bs-target="#newQuestionModal">
-                <i class="fa fa-plus me-1"></i>
+                <x-heroicon-o-plus class="heroicon" />
                 Add a Deal
             </button>
             @livewire('pages.create-deal')
@@ -27,7 +27,12 @@
         </div>
         <div class="card-body">
             @if (count($deals) === 0)
-            <x-empty icon="gifts" text="No deals found" />
+            <div class="card-body text-center mt-3 mb-3">
+                <x-heroicon-o-gift class="heroicon-4x text-primary mb-2" />
+                <div class="h4">
+                    No deals found
+                </div>
+            </div>
             @endif
             @foreach ($deals as $deal)
                 <div class="d-flex align-items-center {{ $loop->last ? '' : 'mb-5' }}">
@@ -63,13 +68,13 @@
                         @endif
                         @else
                         <div class="mt-2">
-                            <a class="text-black-50" href="{{ route('patron.home') }}">You must be a patron to see coupon code.</a>
+                            <a class="text-secondary" href="{{ route('patron.home') }}">You must be a patron to see coupon code.</a>
                         </div>
                         @endif
                         @endauth
                         @guest
                         <div class="mt-2">
-                            <a class="text-black-50" href="{{ route('login') }}">Login to view coupon code.</a>
+                            <a class="text-secondary" href="{{ route('login') }}">Login to view coupon code.</a>
                         </div>
                         @endguest
                         @auth

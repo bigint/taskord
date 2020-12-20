@@ -22,7 +22,12 @@
                     </div>
                 </form>
                 @if (!$tasks)
-                <x-empty icon="search" text="We couldn’t find any tasks matching '{{ $searchTerm }}'" />
+                <div class="card-body text-center mt-3 mb-3">
+                    <x-heroicon-o-search class="heroicon-4x text-primary mb-2" />
+                    <div class="h4">
+                        We couldn’t find any tasks matching '{{ $searchTerm }}'
+                    </div>
+                </div>
                 @else
                 @foreach ($tasks as $task)
                 <li class="list-group-item p-3">
@@ -46,7 +51,12 @@
                     </div>
                 </form>
                 @if (!$comments)
-                <x-empty icon="search" text="We couldn’t find any comments matching '{{ $searchTerm }}'" />
+                <div class="card-body text-center mt-3 mb-3">
+                    <x-heroicon-o-search class="heroicon-4x text-primary mb-2" />
+                    <div class="h4">
+                        We couldn’t find any comments matching '{{ $searchTerm }}'
+                    </div>
+                </div>
                 @else
                 @foreach ($comments as $comment)
                 @livewire('comment.single-comment', [
@@ -68,7 +78,12 @@
                     </div>
                 </form>
                 @if (!$questions)
-                <x-empty icon="search" text="We couldn’t find any questions matching '{{ $searchTerm }}'" />
+                <div class="card-body text-center mt-3 mb-3">
+                    <x-heroicon-o-search class="heroicon-4x text-primary mb-2" />
+                    <div class="h4">
+                        We couldn’t find any questions matching '{{ $searchTerm }}'
+                    </div>
+                </div>
                 @else
                 @foreach ($questions as $question)
                 @livewire('question.single-question', [
@@ -91,7 +106,12 @@
                     </div>
                 </form>
                 @if (!$answers)
-                <x-empty icon="search" text="We couldn’t find any answers matching '{{ $searchTerm }}'" />
+                <div class="card-body text-center mt-3 mb-3">
+                    <x-heroicon-o-search class="heroicon-4x text-primary mb-2" />
+                    <div class="h4">
+                        We couldn’t find any answers matching '{{ $searchTerm }}'
+                    </div>
+                </div>
                 @else
                 @foreach ($answers as $answer)
                     <div class="card mb-2">
@@ -123,7 +143,12 @@
                     </div>
                 </form>
                 @if (!$products)
-                <x-empty icon="search" text="We couldn’t find any products matching '{{ $searchTerm }}'" />
+                <div class="card-body text-center mt-3 mb-3">
+                    <x-heroicon-o-search class="heroicon-4x text-primary mb-2" />
+                    <div class="h4">
+                        We couldn’t find any products matching '{{ $searchTerm }}'
+                    </div>
+                </div>
                 @else
                 @foreach ($products as $product)
                     <li class="list-group-item pt-3 pb-3">
@@ -141,16 +166,16 @@
                                     @endif
                                     @if ($product->deprecated)
                                         <span class="ms-1 small" title="Deprecated">
-                                            <i class="fa fa-ghost text-danger"></i>
+                                            <x-heroicon-o-shield-exclamation class="heroicon text-danger" />
                                         </span>
                                     @endif
                                 </a>
-                                <div class="text-black-50 mb-2">
+                                <div class="text-secondary mb-2">
                                     {{ "#" . $product->slug }}
                                 </div>
                                 <div>{{ $product->description }}</div>
                                 <div class="small mt-2">
-                                    <i class="fa fa-calendar-alt me-1 text-black-50"></i>
+                                    <x-heroicon-o-calendar class="heroicon text-secondary" />
                                     @if ($product->launched)
                                     <span>Launched at {{ Carbon::parse($product->launched_at)->format("F Y") }}</span>
                                     @else
@@ -184,7 +209,12 @@
                     </div>
                 </form>
                 @if (!$users)
-                <x-empty icon="search" text="We couldn’t find any users matching '{{ $searchTerm }}'" />
+                <div class="card-body text-center mt-3 mb-3">
+                    <x-heroicon-o-search class="heroicon-4x text-primary mb-2" />
+                    <div class="h4">
+                        We couldn’t find any users matching '{{ $searchTerm }}'
+                    </div>
+                </div>
                 @else
                 @foreach ($users as $user)
                     <li class="list-group-item pt-3 pb-3">
@@ -211,30 +241,30 @@
                                     @endif
                                     @auth
                                     @if ($user->isFollowing(Auth::user()))
-                                        <span class="ms-2 badge bg-light text-black-50">Follows you</span>
+                                        <span class="ms-2 badge bg-light text-secondary">Follows you</span>
                                     @endif
                                     @endauth
                                 </a>
-                                <div class="text-black-50 mb-2">
+                                <div class="text-secondary mb-2">
                                     {{ "@" . $user->username }}
                                 </div>
                                 <div>{{ $user->bio }}</div>
                                 <div class="small mt-2">
                                     <span>
-                                        <i class="fa fa-calendar-alt me-1 text-black-50"></i>
+                                        <x-heroicon-o-calendar class="heroicon text-secondary" />
                                         Joined {{ Carbon::parse($user->created_at)->format("F Y") }}
                                     </span>
                                     @if ($user->location)
                                     <span class="ms-3">
                                         <a class="text-dark" href="https://www.google.com/maps/search/{{ urlencode($user->location) }}" target="_blank" rel="noreferrer">
-                                            <i class="fa fa-compass me-1 text-black-50"></i>
+                                            <x-heroicon-o-map class="heroicon text-secondary" />
                                             {{ $user->location }}
                                         </a>
                                     </span>
                                     @endif
                                     @if ($user->company)
                                     <span class="ms-3">
-                                        <i class="fa fa-briefcase me-1 text-black-50"></i>
+                                        <x-heroicon-o-briefcase class="heroicon text-secondary" />
                                         {{ $user->company }}
                                     </span>
                                     @if ($user->isStaff)

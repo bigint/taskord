@@ -1,6 +1,11 @@
 <div>
     @if (count($tasks) === 0)
-    <x-empty icon="check-square" text="No tasks made!" />
+    <div class="card-body text-center mt-3 mb-3">
+        <x-heroicon-o-check-circle class="heroicon-4x text-primary mb-2" />
+        <div class="h4">
+            No tasks made!
+        </div>
+    </div>
     @endif
     @if ($page === 1)
     <ul class="list-group">

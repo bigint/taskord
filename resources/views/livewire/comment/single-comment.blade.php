@@ -16,7 +16,7 @@
                     {{ $comment->user->username }}
                 @endif
                 @if ($comment->user->isVerified)
-                    <i class="verified fa fa-check-circle ms-1 text-primary"></i>
+                    <x-heroicon-s-badge-check class="heroicon ms-1 text-primary verified" />
                 @endif
                 @if ($comment->user->isPatron)
                     <a class="patron ms-1 small" href="{{ route('patron.home') }}">
@@ -26,7 +26,7 @@
             </a>
         </span>
         <a
-            class="align-text-top small float-end ms-auto text-black-50"
+            class="align-text-top small float-end ms-auto text-secondary"
             href="{{ route('comment', ['id' => $comment->task->id, 'comment_id' => $comment->id]) }}"
         >
             {{ Carbon::parse($comment->created_at)->diffForHumans() }}

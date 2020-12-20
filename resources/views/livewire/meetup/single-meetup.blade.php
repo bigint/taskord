@@ -11,7 +11,7 @@
                 {{ Carbon::parse($meetup->date)->format('D, M d, H:i') }}
                 @endauth
                 @if (Carbon::parse($meetup->date)->isToday())
-                <span class="text-black-50">(Happening)</span>
+                <span class="text-secondary">(Happening)</span>
                 @endif
             </div>
             <h5 class="card-title mt-2">

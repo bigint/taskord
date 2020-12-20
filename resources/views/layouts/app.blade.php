@@ -21,15 +21,6 @@
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
     <link href="{{ mix('css/app.css') }}" rel="stylesheet" data-turbolinks-track="true">
-    <script type="text/javascript">
-        (function() {
-            var css = document.createElement('link');
-            css.href = 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css';
-            css.rel = 'stylesheet';
-            css.type = 'text/css';
-            document.getElementsByTagName('head')[0].appendChild(css);
-        })();
-    </script>
     @auth
     @if (Auth::user()->isPatron or Auth::user()->isStaff)
     @if (Auth::user()->darkMode)
@@ -58,7 +49,7 @@
         @if (session()->has('global'))
             <div class="alert alert-success alert-dismissible fade show rounded-0 mb-0">
                 <button type="button" class="btn-close small" data-bs-dismiss="alert"></button>
-                <i class="fa fa-check me-1"></i>
+                <x-heroicon-o-check class="heroicon" />
                 {{ session('global') }}
             </div>
         @endif
@@ -66,7 +57,7 @@
         @if (Auth::user()->isFlagged)
         <div class="alert alert-danger rounded-0" role="alert">
             <div class="fw-bold">
-                <i class="fa fa-flag me-1"></i>
+                <x-heroicon-o-flag class="heroicon" />
                 Your account has been flagged.
             </div>
             <div class="mt-1">
@@ -77,7 +68,7 @@
         @if (!Auth::user()->hasVerifiedEmail())
         <div class="alert alert-warning rounded-0" role="alert">
             <div class="fw-bold">
-                <i class="fa fa-envelope me-1"></i>
+                <x-heroicon-o-mail class="heroicon" />
                 Verify Your Email Address <x-beta background="light" />
             </div>
             <form class="mt-1" method="POST" action="{{ route('verification.resend') }}">

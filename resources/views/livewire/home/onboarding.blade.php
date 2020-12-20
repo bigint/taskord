@@ -1,6 +1,6 @@
 <div>
     @if ($task_count === 0 || $praise_count === 0 || $product_count === 0 || strlen($has_name) === 0)
-    <div class="text-uppercase fw-bold text-black-50 pb-2">
+    <div class="text-uppercase fw-bold text-secondary pb-2">
         👋 Getting Started
     </div>
     <div class="card border-success mb-4">
@@ -22,7 +22,7 @@
                     @endif
                 ></div>
             </div>
-            <div class="mb-3 text-black-50">
+            <div class="mb-3 text-secondary">
                 Welcome to Taskord, here are some onboarding steps!
             </div>
             @if (session()->has('success'))
@@ -32,7 +32,7 @@
                 <div class="mb-1 text-danger fw-bold">{{ session('error') }}</div>
             @endif
             <a class="btn btn-blurple fw-bold mb-3" href="https://discord.gg/9M4Q65b" target="_blank" rel="noreferrer">
-                <i class="fab fa-discord me-1"></i>
+                <img class="brand-icon" src="{{ asset('images/brand/discord.svg') }}" />
                 Join Taskord's Discord
             </a>
             @if (preg_match('/^[a-f0-9]{32}$/', Auth::user()->username))

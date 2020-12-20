@@ -1,5 +1,5 @@
-<div class="text-uppercase fw-bold text-black-50 pb-2">
-    <i class="fa fa-fire text-danger me-1"></i>
+<div class="text-uppercase fw-bold text-secondary pb-2">
+    <x-heroicon-o-fire class="heroicon text-danger" />
     Active Products
 </div>
 <div class="card mb-4">
@@ -21,8 +21,8 @@
                     </a>
                 @endif
             </a>
-            <span class="small text-black-50 ms-3">
-                <i class="fa fa-check text-success me-1"></i>
+            <span class="small text-secondary ms-3">
+                <x-heroicon-o-check class="heroicon text-success" />
                 {{ $product->tasks->count('id') }}
                 {{ $product->tasks->count('id') == 1 ? 'Task' : 'Tasks' }}
             </span>

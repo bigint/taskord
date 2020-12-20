@@ -26,10 +26,6 @@
                             </span>
                         @enderror
                     </div>
-                    <div class="h6 fw-bold mb-3">
-                        <i class="fab fa-markdown me-1"></i>
-                        Markdown is supported
-                    </div>
                     <div class="mb-3">
                         <div class="fw-bold mb-2">Patron only</div>
                         <input id="patronOnly" class="form-check-input" type="checkbox" wire:model.defer="patronOnly">

@@ -1,4 +1,4 @@
-<div class="text-black-50 d-block lh-lg sticky-footer">
+<div class="text-secondary d-block lh-lg sticky-footer">
     <span class="pe-2 fw-bold">
         © Taskord
     </span>

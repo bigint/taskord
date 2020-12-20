@@ -5,7 +5,7 @@
             @error('task')
                 <div class="alert alert-danger alert-dismissible fade show mt-2">
                     <button type="button" class="btn-close small" data-bs-dismiss="alert"></button>
-                    <i class="fa fa-exclamation-triangle me-1"></i>
+                    <x-heroicon-o-exclamation class="heroicon" />
                     {{ $message }}
                 </div>
             @enderror
@@ -34,7 +34,7 @@
                 @endif
                 @endauth
                 <button wire:loading.attr="disabled" wire:offline.attr="disabled" class="btn btn-sm btn-primary" type="submit">
-                    <i class="fa fa-plus me-1"></i>
+                    <x-heroicon-o-plus class="heroicon" />
                     Add Task
                     <span wire:target="submit" wire:loading class="spinner-border spinner-border-mini ms-2" role="status"></span>
                 </button>

@@ -9,7 +9,7 @@
     @section('emoji-picker')
     <script src="{{ asset('js/emoji-picker.js', config('app.env') === 'production' ? true : false) }}" defer data-turbolinks-track="true"></script>
     @stop
-    <div class="text-uppercase fw-bold text-black-50 pb-2">
+    <div class="text-uppercase fw-bold text-secondary pb-2">
         Staus
         <x-beta background="light" />
     </div>
@@ -19,8 +19,8 @@
     @endif
     @endauth
     @if ($user->sponsor)
-    <div class="text-uppercase fw-bold text-black-50 pb-2">
-        <i class="fa fa-heart text-danger me-1"></i>
+    <div class="text-uppercase fw-bold text-secondary pb-2">
+        <x-heroicon-o-heart class="heroicon text-danger" />
         Sponsor
     </div>
     <div class="mb-4">
@@ -31,7 +31,7 @@
     </div>
     @endif
     @if ($user->website or $user->twitter or $user->twitch or $user->telegram or $user->github or $user->youtube)
-    <div class="text-uppercase fw-bold text-black-50 pb-2">
+    <div class="text-uppercase fw-bold text-secondary pb-2">
         Social
     </div>
     <div class="card mb-4">
@@ -44,44 +44,49 @@
             @endif
             @if ($user->twitter)
             <a class="list-group-item link-dark" href="https://twitter.com/{{ $user->twitter }}" target="_blank" rel="noreferrer">
-                <i class="fab fa-twitter me-1"></i>
+                <img class="brand-icon" src="{{ asset('images/brand/twitter.svg') }}" />
                 {{ $user->twitter }}
             </a>
             @endif
             @if ($user->twitch)
             <a class="list-group-item link-dark" href="https://twitch.tv/{{ $user->twitch }}" target="_blank" rel="noreferrer">
-                <i class="fab fa-twitch me-1"></i>
+                <img class="brand-icon" src="{{ asset('images/brand/twitch.svg') }}" />
                 {{ $user->twitch }}
             </a>
             @endif
             @if ($user->telegram)
             <a class="list-group-item link-dark" href="https://t.me/{{ $user->telegram }}" target="_blank" rel="noreferrer">
-                <i class="fab fa-telegram me-1"></i>
+                <img class="brand-icon" src="{{ asset('images/brand/telegram.svg') }}" />
                 {{ $user->telegram }}
             </a>
             @endif
             @if ($user->github)
             <a class="list-group-item link-dark" href="https://github.com/{{ $user->github }}" target="_blank" rel="noreferrer">
-                <i class="fab fa-github me-1"></i>
+                <img class="brand-icon" src="{{ asset('images/brand/github.svg') }}" />
                 {{ $user->github }}
             </a>
             @endif
             @if ($user->youtube)
             <a class="list-group-item link-dark" href="https://youtube.com/{{ $user->youtube }}" target="_blank" rel="noreferrer">
-                <i class="fab fa-youtube me-1"></i>
+                <img class="brand-icon" src="{{ asset('images/brand/youtube.svg') }}" />
                 {{ $user->youtube }}
             </a>
             @endif
         </ul>
     </div>
     @endif
-    <div class="text-uppercase fw-bold text-black-50 pb-2">
+    <div class="text-uppercase fw-bold text-secondary pb-2">
         Products
     </div>
     <div class="card mb-4">
         <div class="pt-2 pb-2">
             @if (count($user->ownedProducts->merge($user->products)) === 0)
-            <x-empty icon="box-open" text="No products made!" />
+            <div class="card-body text-center mt-3 mb-3">
+                <x-heroicon-o-cube class="heroicon-4x text-primary mb-2" />
+                <div class="h4">
+                    No products made
+                </div>
+            </div>
             @endif
             @foreach ($user->ownedProducts->merge($user->products)->take(5) as $product)
             <div class="py-2 px-3">

@@ -17,7 +17,7 @@
                         {{ $answer->user->username }}
                     @endif
                     @if ($answer->user->isVerified)
-                    <i class="verified fa fa-check-circle ms-1 text-primary"></i>
+                    <x-heroicon-s-badge-check class="heroicon ms-1 text-primary verified" />
                     @endif
                     @if ($answer->user->isPatron)
                         <a class="patron ms-1 small" href="{{ route('patron.home') }}">
@@ -28,7 +28,7 @@
                 <div class="small">{{ "@" . $answer->user->username }}</div>
             </span>
             <span class="align-text-top small float-end ms-auto">
-                <a class="text-black-50" href="">
+                <a class="text-secondary" href="">
                     {{ Carbon::parse($answer->created_at)->diffForHumans() }}
                 </a>
             </span>

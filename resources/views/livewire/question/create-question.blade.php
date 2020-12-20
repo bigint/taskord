@@ -26,10 +26,6 @@
                             </span>
                         @enderror
                     </div>
-                    <div class="h6 fw-bold mb-3">
-                        <i class="fab fa-markdown me-1"></i>
-                        Markdown is supported
-                    </div>
                     @auth
                     @if (Auth::user()->isPatron)
                     <div class="mb-3">

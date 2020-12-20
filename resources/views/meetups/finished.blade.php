@@ -12,7 +12,12 @@
             @include('meetups.header')
             <div class="card-body">
                 @if (count($meetups) === 0)
-                    <x-empty icon="handshake" text="No finished meetups found" />
+                <div class="card-body text-center mt-3 mb-3">
+                    <x-heroicon-o-user-group class="heroicon-4x text-primary mb-2" />
+                    <div class="h4">
+                        No finished meetups found
+                    </div>
+                </div>
                 @endif
                 <div class="container-fluid">
                     <div class="row">
