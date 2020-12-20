@@ -140,7 +140,13 @@
             @if ($type !== "question.question")
             <a href="{{ route('question.question', ['id' => $question->id]) }}" class="avatar-stack text-dark">
                 @foreach ($question->answer->groupBy('user_id')->take(5) as $answer)
-                <img loading=lazy class="rounded-circle avatar avatar-30" src="{{ Helper::getCDNImage($answer[0]->user->avatar, 80) }}" alt="{{ $answer[0]->user->username }}'s avatar" />
+                <img
+                    loading=lazy
+                    class="user-popover rounded-circle avatar avatar-30"
+                    data-id="{{ $answer[0]->user->id }}"
+                    src="{{ Helper::getCDNImage($answer[0]->user->avatar, 80) }}"
+                    alt="{{ $answer[0]->user->username }}'s avatar"
+                />
                 @endforeach
                 @if ($question->answer->groupBy('user_id')->count('id') >= 5)
                 <span class="ms-3 ps-1 align-middle fw-bold small">
