@@ -139,7 +139,10 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <h5 class="fw-bold text-danger">Are you sure you want to deploy Taskord?</h5>
+                    <div class="text-center">
+                        <h5 class="fw-bold text-danger mb-3">Are you sure you want to deploy Taskord?</h5>
+                        <img class="img-fluid" src="https://ik.imagekit.io/blbrg3136a/n86_e3PLZfcbP.gif" />
+                    </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
