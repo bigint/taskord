@@ -79,7 +79,7 @@
                 on
                 <img loading=lazy class="rounded mb-1 ms-1 avatar-15" src="{{ Helper::getCDNImage($task->product->avatar) }}" alt="{{ $task->product->slug }}'s avatar" />
                 <a
-                    class="text-black-50 product-hover"
+                    class="text-secondary product-hover"
                     href="{{ route('product.done', ['slug' => $task->product->slug]) }}"
                     data-id="{{ $task->product->id }}"
                 >
@@ -176,7 +176,7 @@
             @endauth
         </div>
     </div>
-    <div class="collapse mt-3 text-black-50" id="taskExpand-{{$task->id}}">
+    <div class="collapse mt-3 text-secondary" id="taskExpand-{{$task->id}}">
         <a class="text-secondary" href="{{ route('task', ['id' => $task->id]) }}">
             <i class="fa fa-calendar-check small me-1"></i>
             @auth

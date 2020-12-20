@@ -45,7 +45,7 @@
                         @endif
                         @endauth
                     </div>
-                    <div class="text-black-50 mb-2">
+                    <div class="text-secondary mb-2">
                         {{ "@" . $user->username }}
                     </div>
                     @livewire('user.follow', [
@@ -58,20 +58,20 @@
                     @endif
                     <div class="small mt-3">
                         <span>
-                            <i class="fa fa-calendar-alt me-1 text-black-50"></i>
+                            <i class="fa fa-calendar-alt me-1 text-secondary"></i>
                             Joined {{ Carbon::parse($user->created_at)->format("F Y") }}
                         </span>
                         @if ($user->location)
                         <span class="ms-3">
                             <a class="text-dark" href="https://www.google.com/maps/search/{{ urlencode($user->location) }}" target="_blank" rel="noreferrer">
-                                <i class="fa fa-compass me-1 text-black-50"></i>
+                                <i class="fa fa-compass me-1 text-secondary"></i>
                                 {{ $user->location }}
                             </a>
                         </span>
                         @endif
                         @if ($user->company)
                         <span class="ms-3">
-                            <i class="fa fa-briefcase me-1 text-black-50"></i>
+                            <i class="fa fa-briefcase me-1 text-secondary"></i>
                             {{ $user->company }}
                         </span>
                         @if ($user->isStaff)
@@ -125,24 +125,24 @@
         )
         <a class="text-dark fw-bold me-4" href="{{ route('user.done', ['username' => $user->username]) }}">
             <span class="@if (Route::currentRouteName() === 'user.done') text-primary @endif">Done</span>
-            <span class="small fw-normal text-black-50">{{ number_format($done_count) }}</span>
+            <span class="small fw-normal text-secondary">{{ number_format($done_count) }}</span>
         </a>
         <a class="text-dark fw-bold me-4" href="{{ route('user.pending', ['username' => $user->username]) }}">
             <span class="@if (Route::currentRouteName() === 'user.pending') text-primary @endif">Pending</span>
-            <span class="small fw-normal text-black-50">{{ number_format($pending_count) }}</span>
+            <span class="small fw-normal text-secondary">{{ number_format($pending_count) }}</span>
         </a>
         @endif
         <a class="text-dark fw-bold me-4" href="{{ route('user.products', ['username' => $user->username]) }}">
             <span class="@if (Route::currentRouteName() === 'user.products') text-primary @endif">Products</span>
-            <span class="small fw-normal text-black-50">{{ number_format($product_count) }}</span>
+            <span class="small fw-normal text-secondary">{{ number_format($product_count) }}</span>
         </a>
         <a class="text-dark fw-bold me-4" href="{{ route('user.questions', ['username' => $user->username]) }}">
             <span class="@if (Route::currentRouteName() === 'user.questions') text-primary @endif">Questions</span>
-            <span class="small fw-normal text-black-50">{{ number_format($question_count) }}</span>
+            <span class="small fw-normal text-secondary">{{ number_format($question_count) }}</span>
         </a>
         <a class="text-dark fw-bold me-4" href="{{ route('user.answers', ['username' => $user->username]) }}">
             <span class="@if (Route::currentRouteName() === 'user.answers') text-primary @endif">Answers</span>
-            <span class="small fw-normal text-black-50">{{ number_format($answer_count) }}</span>
+            <span class="small fw-normal text-secondary">{{ number_format($answer_count) }}</span>
         </a>
     </div>
 </div>

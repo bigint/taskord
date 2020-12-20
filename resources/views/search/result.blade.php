@@ -145,12 +145,12 @@
                                         </span>
                                     @endif
                                 </a>
-                                <div class="text-black-50 mb-2">
+                                <div class="text-secondary mb-2">
                                     {{ "#" . $product->slug }}
                                 </div>
                                 <div>{{ $product->description }}</div>
                                 <div class="small mt-2">
-                                    <i class="fa fa-calendar-alt me-1 text-black-50"></i>
+                                    <i class="fa fa-calendar-alt me-1 text-secondary"></i>
                                     @if ($product->launched)
                                     <span>Launched at {{ Carbon::parse($product->launched_at)->format("F Y") }}</span>
                                     @else
@@ -211,30 +211,30 @@
                                     @endif
                                     @auth
                                     @if ($user->isFollowing(Auth::user()))
-                                        <span class="ms-2 badge bg-light text-black-50">Follows you</span>
+                                        <span class="ms-2 badge bg-light text-secondary">Follows you</span>
                                     @endif
                                     @endauth
                                 </a>
-                                <div class="text-black-50 mb-2">
+                                <div class="text-secondary mb-2">
                                     {{ "@" . $user->username }}
                                 </div>
                                 <div>{{ $user->bio }}</div>
                                 <div class="small mt-2">
                                     <span>
-                                        <i class="fa fa-calendar-alt me-1 text-black-50"></i>
+                                        <i class="fa fa-calendar-alt me-1 text-secondary"></i>
                                         Joined {{ Carbon::parse($user->created_at)->format("F Y") }}
                                     </span>
                                     @if ($user->location)
                                     <span class="ms-3">
                                         <a class="text-dark" href="https://www.google.com/maps/search/{{ urlencode($user->location) }}" target="_blank" rel="noreferrer">
-                                            <i class="fa fa-compass me-1 text-black-50"></i>
+                                            <i class="fa fa-compass me-1 text-secondary"></i>
                                             {{ $user->location }}
                                         </a>
                                     </span>
                                     @endif
                                     @if ($user->company)
                                     <span class="ms-3">
-                                        <i class="fa fa-briefcase me-1 text-black-50"></i>
+                                        <i class="fa fa-briefcase me-1 text-secondary"></i>
                                         {{ $user->company }}
                                     </span>
                                     @if ($user->isStaff)

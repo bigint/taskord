@@ -1,4 +1,4 @@
-<div class="text-uppercase fw-bold text-black-50 pb-2">
+<div class="text-uppercase fw-bold text-secondary pb-2">
     <i class="fa fa-fire text-danger me-1"></i>
     Active Products
 </div>
@@ -21,7 +21,7 @@
                     </a>
                 @endif
             </a>
-            <span class="small text-black-50 ms-3">
+            <span class="small text-secondary ms-3">
                 <i class="fa fa-check text-success me-1"></i>
                 {{ $product->tasks->count('id') }}
                 {{ $product->tasks->count('id') == 1 ? 'Task' : 'Tasks' }}

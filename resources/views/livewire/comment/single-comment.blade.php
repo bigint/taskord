@@ -26,7 +26,7 @@
             </a>
         </span>
         <a
-            class="align-text-top small float-end ms-auto text-black-50"
+            class="align-text-top small float-end ms-auto text-secondary"
             href="{{ route('comment', ['id' => $comment->task->id, 'comment_id' => $comment->id]) }}"
         >
             {{ Carbon::parse($comment->created_at)->diffForHumans() }}

@@ -25,7 +25,7 @@ document.addEventListener("turbolinks:load", () => {
                 : ""
             }
           </span>
-          <span class="d-block text-black-50 fw-normal">
+          <span class="d-block text-secondary fw-normal">
             @${username}
           </span>
         </span>
@@ -56,7 +56,7 @@ document.addEventListener("turbolinks:load", () => {
           <span class="fw-bold">
             ${name}
           </span>
-          <span class="d-block text-black-50 fw-normal">
+          <span class="d-block text-secondary fw-normal">
             #${slug}
           </span>
         </span>

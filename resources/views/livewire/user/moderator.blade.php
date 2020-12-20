@@ -1,12 +1,12 @@
 <span>
-    <div class="text-uppercase fw-bold text-black-50 pb-2">
+    <div class="text-uppercase fw-bold text-secondary pb-2">
         <i class="fa fa-shield-alt text-danger me-1"></i>
         <span class="text-danger">Moderator</span>
     </div>
     <div class="card border-danger mb-4">
         <div class="card-body">
             <div class="mb-1">
-                <i class="fa fa-clock text-black-50 me-1"></i>
+                <i class="fa fa-clock text-secondary me-1"></i>
                 <span class="h6">Last Active:</span>
                 <span class="fw-bold">
                     @if ($user->last_active)
@@ -16,12 +16,12 @@
                     {{ Carbon::parse($user->last_active)->diffForHumans() }}
                     @endif
                     @else
-                    <span class="small fw-bold text-black-50">Not Set</span>
+                    <span class="small fw-bold text-secondary">Not Set</span>
                     @endif
                 </span>
             </div>
             <div class="mb-1">
-                <i class="fa fa-envelope text-black-50 me-1"></i>
+                <i class="fa fa-envelope text-secondary me-1"></i>
                 <span class="h6">User Email:</span>
                 <a class="fw-bold" href="mailto:{{ $user->email }}">
                     {{ $user->email }}
@@ -34,7 +34,7 @@
             </div>
             <div class="mb-1">
                 <span class="h6">
-                    <i class="fa fa-address-card text-black-50 me-1"></i>
+                    <i class="fa fa-address-card text-secondary me-1"></i>
                     Last login IP:
                 </span>
                 @if ($user->lastIP)
@@ -42,7 +42,7 @@
                     {{ $user->lastIP }}
                 </a>
                 @else
-                <span class="fw-bold text-black-50">
+                <span class="fw-bold text-secondary">
                     Not set
                 </span>
                 @endif
@@ -62,7 +62,7 @@
             </div>
             <div class="mb-3">
                 <span class="h6">
-                    <i class="fa fa-user-clock text-black-50 me-1"></i>
+                    <i class="fa fa-user-clock text-secondary me-1"></i>
                     Timezone:
                 </span>
                 @if ($user->timezone)
@@ -73,7 +73,7 @@
                     @endphp
                     {{ $formattedTZ }}
                     •
-                    <span class="text-black-50">
+                    <span class="text-secondary">
                         {{
                             Carbon::now()
                             ->setTimezone($user->timezone)
@@ -93,7 +93,7 @@
                     </span>
                 </span>
                 @else
-                <span class="fw-bold text-black-50">
+                <span class="fw-bold text-secondary">
                     Not set
                 </span>
                 @endif

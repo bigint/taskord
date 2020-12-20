@@ -42,7 +42,7 @@
                                 </td>
                                 <td class="fw-bold">
                                     @if (!$user->firstname and !$user->lastname)
-                                    <span class="small fw-bold text-black-50">Not Set</span>
+                                    <span class="small fw-bold text-secondary">Not Set</span>
                                     @else
                                     {{ $user->firstname.' '.$user->lastname }}
                                     @endif
@@ -95,7 +95,7 @@
                                         {{ Str::limit($user->lastIP, 15, '..') }}
                                     </a>
                                     @else
-                                    <span class="small fw-bold text-black-50">Not logged</span>
+                                    <span class="small fw-bold text-secondary">Not logged</span>
                                     @endif
                                 </td>
                                 <td>
@@ -115,7 +115,7 @@
                                     {{ Carbon::parse($user->last_active)->diffForHumans() }}
                                     @endif
                                     @else
-                                    <span class="small fw-bold text-black-50">Not Set</span>
+                                    <span class="small fw-bold text-secondary">Not Set</span>
                                     @endif
                                 </td>
                                 <td>

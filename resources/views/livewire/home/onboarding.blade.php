@@ -1,6 +1,6 @@
 <div>
     @if ($task_count === 0 || $praise_count === 0 || $product_count === 0 || strlen($has_name) === 0)
-    <div class="text-uppercase fw-bold text-black-50 pb-2">
+    <div class="text-uppercase fw-bold text-secondary pb-2">
         👋 Getting Started
     </div>
     <div class="card border-success mb-4">
@@ -22,7 +22,7 @@
                     @endif
                 ></div>
             </div>
-            <div class="mb-3 text-black-50">
+            <div class="mb-3 text-secondary">
                 Welcome to Taskord, here are some onboarding steps!
             </div>
             @if (session()->has('success'))

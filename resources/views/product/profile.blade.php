@@ -22,7 +22,7 @@
                 @endif
                 @endauth
             </div>
-            <div class="text-black-50 mb-2">
+            <div class="text-secondary mb-2">
                 {{ "#" . $product->slug }}
             </div>
             @livewire('product.subscribe', [
@@ -35,7 +35,7 @@
             @endif
             <div class="small mt-3">
                 <span>
-                    <i class="fa fa-calendar-alt me-1 text-black-50"></i>
+                    <i class="fa fa-calendar-alt me-1 text-secondary"></i>
                     @if ($product->launched)
                     <span>Launched at {{ Carbon::parse($product->launched_at)->format("F Y") }}</span>
                     @else
@@ -56,15 +56,15 @@
     <div class="card-footer text-muted">
         <a class="text-dark fw-bold me-4" href="{{ route('product.done', ['slug' => $product->slug]) }}">
             <span class="@if (Route::currentRouteName() === 'product.done') text-primary @endif">Done</span>
-            <span class="small fw-normal text-black-50">{{ number_format($done_count) }}</span>
+            <span class="small fw-normal text-secondary">{{ number_format($done_count) }}</span>
         </a>
         <a class="text-dark fw-bold me-4" href="{{ route('product.pending', ['slug' => $product->slug]) }}">
             <span class="@if (Route::currentRouteName() === 'product.pending') text-primary @endif">Pending</span>
-            <span class="small fw-normal text-black-50">{{ number_format($pending_count) }}</span>
+            <span class="small fw-normal text-secondary">{{ number_format($pending_count) }}</span>
         </a>
         <a class="text-dark fw-bold me-4"href="{{ route('product.updates', ['slug' => $product->slug]) }}">
             <span class="@if (Route::currentRouteName() === 'product.updates') text-primary @endif">Updates</span>
-            <span class="small fw-normal text-black-50">{{ number_format($updates_count) }}</span>
+            <span class="small fw-normal text-secondary">{{ number_format($updates_count) }}</span>
         </a>
     </div>
 </div>

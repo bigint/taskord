@@ -63,13 +63,13 @@
                         @endif
                         @else
                         <div class="mt-2">
-                            <a class="text-black-50" href="{{ route('patron.home') }}">You must be a patron to see coupon code.</a>
+                            <a class="text-secondary" href="{{ route('patron.home') }}">You must be a patron to see coupon code.</a>
                         </div>
                         @endif
                         @endauth
                         @guest
                         <div class="mt-2">
-                            <a class="text-black-50" href="{{ route('login') }}">Login to view coupon code.</a>
+                            <a class="text-secondary" href="{{ route('login') }}">Login to view coupon code.</a>
                         </div>
                         @endguest
                         @auth

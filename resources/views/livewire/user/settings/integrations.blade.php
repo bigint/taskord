@@ -54,7 +54,7 @@
                     <span class="h5">
                         Here's your webhook for Taskord. Keep it secret.
                     </span>
-                    <div class="small text-black-50">Make sure you save it - you won't be able to access it again.</div>
+                    <div class="small text-secondary">Make sure you save it - you won't be able to access it again.</div>
                     <div class="fw-bold text-primary font-monospace mt-2">
                         https://taskord.com/webhook/web/{{ session('created')->token }}
                     </div>

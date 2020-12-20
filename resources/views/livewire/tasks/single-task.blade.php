@@ -10,10 +10,10 @@
         <label class="ms-1 task-font d-inline">
             {!! Purify::clean(Helper::renderTask($task->task)) !!}
             @if ($task->type === 'product')
-            <span class="small text-black-50">
+            <span class="small text-secondary">
                 on
                 <img loading=lazy class="rounded mb-1 ms-1 avatar-15" src="{{ Helper::getCDNImage($task->product->avatar) }}" alt="{{ $task->product->slug }}'s avatar" />
-                <a class="text-black-50" href="{{ route('product.done', ['slug' => $task->product->slug]) }}">
+                <a class="text-secondary" href="{{ route('product.done', ['slug' => $task->product->slug]) }}">
                     {{ $task->product->name }}
                 </a>
             </span>

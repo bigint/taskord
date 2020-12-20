@@ -9,7 +9,7 @@
     @section('emoji-picker')
     <script src="{{ asset('js/emoji-picker.js', config('app.env') === 'production' ? true : false) }}" defer data-turbolinks-track="true"></script>
     @stop
-    <div class="text-uppercase fw-bold text-black-50 pb-2">
+    <div class="text-uppercase fw-bold text-secondary pb-2">
         Staus
         <x-beta background="light" />
     </div>
@@ -19,7 +19,7 @@
     @endif
     @endauth
     @if ($user->sponsor)
-    <div class="text-uppercase fw-bold text-black-50 pb-2">
+    <div class="text-uppercase fw-bold text-secondary pb-2">
         <i class="fa fa-heart text-danger me-1"></i>
         Sponsor
     </div>
@@ -31,7 +31,7 @@
     </div>
     @endif
     @if ($user->website or $user->twitter or $user->twitch or $user->telegram or $user->github or $user->youtube)
-    <div class="text-uppercase fw-bold text-black-50 pb-2">
+    <div class="text-uppercase fw-bold text-secondary pb-2">
         Social
     </div>
     <div class="card mb-4">
@@ -75,7 +75,7 @@
         </ul>
     </div>
     @endif
-    <div class="text-uppercase fw-bold text-black-50 pb-2">
+    <div class="text-uppercase fw-bold text-secondary pb-2">
         Products
     </div>
     <div class="card mb-4">

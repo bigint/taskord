@@ -1,4 +1,4 @@
-<div class="text-uppercase fw-bold text-black-50 pb-2">
+<div class="text-uppercase fw-bold text-secondary pb-2">
     <i class="fa fa-fire text-danger me-1"></i>
     Trending
 </div>
