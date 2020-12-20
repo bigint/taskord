@@ -190,7 +190,7 @@
                         </td>
                         <td>
                             <button wire:click="deleteWebhook({{ $webhook->id }})" class="btn btn-sm w-100 btn-danger">
-                                <i class="fa fa-trash me-1"></i>
+                                <x-heroicon-o-trash class="heroicon" />
                                 Delete
                             </button>
                         </td>

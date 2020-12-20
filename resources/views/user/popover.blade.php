@@ -27,13 +27,13 @@
         @endif
         @if ($user->location)
         <div class="mt-2 text-dark">
-            <i class="fa fa-compass me-1 text-secondary"></i>
+            <x-heroicon-o-map class="heroicon text-secondary" />
             {{ $user->location }}
         </div>
         @endif
         @if ($user->company)
         <div class="mt-2 text-dark">
-            <i class="fa fa-briefcase me-1 text-secondary"></i>
+            <x-heroicon-o-briefcase class="heroicon text-secondary" />
             {{ $user->company }}
         </div>
         @endif

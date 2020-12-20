@@ -20,7 +20,7 @@
     @endauth
     @if ($user->sponsor)
     <div class="text-uppercase fw-bold text-secondary pb-2">
-        <i class="fa fa-heart text-danger me-1"></i>
+        <x-heroicon-o-heart class="heroicon text-danger" />
         Sponsor
     </div>
     <div class="mb-4">

@@ -33,6 +33,7 @@
                 class="list-group-item text-dark pt-2 pb-2 @if (Route::currentRouteName() === 'search.products') active text-white @endif"
                 href="{{ route('search.products', ['q' => $searchTerm]) }}"
             >
+                <x-heroicon-o-cube class="heroicon" />
                 <i class="fa fa-box-open me-1"></i>
                 Products
             </a>

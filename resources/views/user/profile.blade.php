@@ -26,7 +26,7 @@
                         @auth
                         @endauth
                         @if ($user->isPrivate)
-                            <i class="private ms-2 fa fa-lock text-primary"></i>
+                            <x-heroicon-o-lock-closed class="heroicon text-primary ms-2 private" />
                         @endif
                         @if ($user->isVerified)
                             <x-heroicon-s-badge-check class="heroicon ms-1 text-primary verified" />
@@ -64,14 +64,14 @@
                         @if ($user->location)
                         <span class="ms-3">
                             <a class="text-dark" href="https://www.google.com/maps/search/{{ urlencode($user->location) }}" target="_blank" rel="noreferrer">
-                                <i class="fa fa-compass me-1 text-secondary"></i>
+                                <x-heroicon-o-map class="heroicon text-secondary" />
                                 {{ $user->location }}
                             </a>
                         </span>
                         @endif
                         @if ($user->company)
                         <span class="ms-3">
-                            <i class="fa fa-briefcase me-1 text-secondary"></i>
+                            <x-heroicon-o-briefcase class="heroicon text-secondary" />
                             {{ $user->company }}
                         </span>
                         @if ($user->isStaff)
