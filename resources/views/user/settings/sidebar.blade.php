@@ -54,7 +54,7 @@
                 class="list-group-item text-danger pt-2 pb-2 @if (Route::currentRouteName() === 'user.settings.delete') bg-danger text-white @endif"
                 href="{{ route('user.settings.delete') }}"
             >
-                <i class="fa fa-exclamation-triangle me-1"></i>
+                <x-heroicon-o-exclamation class="heroicon" />
                 Danger Zone
             </a>
         </ul>
