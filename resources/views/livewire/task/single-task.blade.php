@@ -49,6 +49,7 @@
         @else
         <input
             class="form-check-input task-checkbox"
+            id="task-{{ $task->id }}"
             type="checkbox"
             wire:click="checkTask"
             {{ $task->done ? "checked" : "unchecked" }}
@@ -72,7 +73,7 @@
         </span>
         @endif
         @endif
-        <label class="ms-1 task-font d-inline @if ($launched or $bug or $learn) fw-bold @endif @if ($launched) text-success @endif">
+        <label for="task-{{ $task->id }}" class="ms-1 task-font d-inline @if ($launched or $bug or $learn) fw-bold @endif @if ($launched) text-success @endif">
             {!! Purify::clean(Helper::renderTask($task->task)) !!}
             @if ($task->type === 'product')
             <span class="small text-secondary">

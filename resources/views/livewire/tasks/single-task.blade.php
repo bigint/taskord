@@ -3,11 +3,12 @@
     <div>
         <input
             class="form-check-input task-checkbox"
+            id="task-{{ $task->id }}"
             type="checkbox"
             wire:click="checkTask"
             unchecked
         />
-        <label class="ms-1 task-font d-inline">
+        <label for="task-{{ $task->id }}" class="ms-1 task-font d-inline">
             {!! Purify::clean(Helper::renderTask($task->task)) !!}
             @if ($task->type === 'product')
             <span class="small text-secondary">
