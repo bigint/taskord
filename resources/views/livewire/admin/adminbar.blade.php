@@ -7,6 +7,9 @@
                 <span>➜</span>
                 <a class="text-white" href="https://gitlab.com/taskord/taskord/-/commit/{{ $headHASH }}" target="_blank" rel="noreferrer">{{ Str::limit($headHASH, 8, '') }}</a>
             </span>
+            <a class="cursor-pointer ms-3" data-bs-toggle="modal" data-bs-target="#deployModal" title="Deploy Taskord">
+                <x-heroicon-o-cloud-upload class="heroicon text-white" />
+            </a>
             <a class="text-white fw-bold ms-3"
                 href="https://gitlab.com/taskord/taskord/-/releases/v{{ config('app.version') }}" target="_blank" rel="noreferrer">
                 <x-heroicon-o-archive class="heroicon" />
@@ -127,6 +130,26 @@
                 </a>
             </span>
         </span>
+    </div>
+    <div wire:ignore.self class="modal" data-bs-backdrop="static" id="deployModal" tabindex="-1" aria-labelledby="deployModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title text-dark" id="deployModalLabel">Warning!</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <h5 class="fw-bold text-danger">Are you sure you want to deploy Taskord?</h5>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button class="btn btn-primary" wire:click="deploy">
+                        Deploy now
+                        <span wire:target="deploy" wire:loading class="spinner-border spinner-border-mini ms-2" role="status"></span>
+                    </button>
+                </div>
+            </div>
+        </div>
     </div>
     <div wire:ignore.self class="modal" data-bs-backdrop="static" id="cleanModal" tabindex="-1" aria-labelledby="cleanModalLabel" aria-hidden="true">
         <div class="modal-dialog">
