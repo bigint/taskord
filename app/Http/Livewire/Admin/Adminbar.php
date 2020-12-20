@@ -46,14 +46,7 @@ class Adminbar extends Component
 
     public function deploy()
     {
-        $process = new Process(['ls']);
-        $process->run();
-
-        if (! $process->isSuccessful()) {
-            throw new ProcessFailedException($process);
-        }
-
-        dd($process->getOutput());
+        dd(shell_exec('php ' . __DIR__ . 'ls'));
         Deploy::dispatch()->delay(now()->addSeconds(10));
         activity()
             ->withProperties(['type' => 'Admin'])
