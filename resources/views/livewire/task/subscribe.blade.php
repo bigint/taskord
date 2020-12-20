@@ -2,13 +2,13 @@
     @auth
     @if (Auth::user()->hasSubscribed($task))
     <button wire:click="subscribeTask" wire:loading.attr="disabled" class="btn btn-sm btn-danger">
-        <i class="fa fa-bell-slash me-1"></i>
+        <x-heroicon-o-status-offline class="heroicon" />
         Unsubscribe
         <span wire:target="subscribeTask" wire:loading class="spinner-border spinner-border-sm ms-2" role="status"></span>
     </button>
     @else
     <button wire:click="subscribeTask" wire:loading.attr="disabled" class="btn btn-sm btn-primary">
-        <i class="fa fa-bell me-1"></i>
+        <x-heroicon-o-status-online class="heroicon" />
         Subscribe
         <span wire:target="subscribeTask" wire:loading class="spinner-border spinner-border-sm ms-2" role="status"></span>
     </button>

@@ -33,7 +33,7 @@
                 class="list-group-item text-dark pt-2 pb-2 @if (Route::currentRouteName() === 'user.settings.notifications') active text-white @endif"
                 href="{{ route('user.settings.notifications') }}"
             >
-                <i class="fa fa-bell me-1"></i>
+                <x-heroicon-o-bell class="heroicon" />
                 Notifications
             </a>
             <a
