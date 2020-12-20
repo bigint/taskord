@@ -75,13 +75,13 @@
                 <div class="btn-group w-100" role="group">
                     <button class="btn btn-lg btn-primary" name="submit" value="login" type="submit">
                         <span class="small">
-                            <i class="fa fa-lock me-1"></i>
+                            <x-heroicon-o-lock-closed class="heroicon-2x" />
                             Login
                         </span>
                     </button>
                     <button class="btn btn-lg btn-dark" name="submit" value="magic-link" type="submit">
                         <span class="small">
-                            <i class="fa fa-magic me-1"></i>
+                            <x-heroicon-o-mail class="heroicon-2x" />
                             Magic link
                         </span>
                     </button>

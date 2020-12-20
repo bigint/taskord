@@ -85,7 +85,7 @@
                 </div>
                 <button class="btn btn-lg btn-primary w-100" type="submit">
                     <span class="small">
-                        <i class="fa fa-user-plus me-1"></i>
+                        <x-heroicon-o-user-add class="heroicon-2x" />
                         Sign up
                     </span>
                 </button>
