@@ -21,15 +21,6 @@
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
     <link href="{{ mix('css/app.css') }}" rel="stylesheet" data-turbolinks-track="true">
-    <script type="text/javascript">
-        (function() {
-            var css = document.createElement('link');
-            css.href = 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css';
-            css.rel = 'stylesheet';
-            css.type = 'text/css';
-            document.getElementsByTagName('head')[0].appendChild(css);
-        })();
-    </script>
     @auth
     @if (Auth::user()->isPatron or Auth::user()->isStaff)
     @if (Auth::user()->darkMode)
