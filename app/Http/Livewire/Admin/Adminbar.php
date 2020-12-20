@@ -46,7 +46,7 @@ class Adminbar extends Component
 
     public function deploy()
     {
-        $process = new Process(['cd ../; git status']);
+        $process = new Process(['cd ../; pwd']);
         $process->run();
 
         if (! $process->isSuccessful()) {
