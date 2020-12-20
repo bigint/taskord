@@ -43,7 +43,7 @@
                                         @if ($user)
                                         <img loading=lazy class="avatar-20 mb-1 me-1 rounded-circle" src="{{ Helper::getCDNImage($user->avatar, 80) }}" alt="{{ $user->username }}'s avatar" />
                                         <a
-                                            class="user-hover"
+                                            class="user-popover"
                                             data-id="{{ $user->id }}"
                                             href="{{ route('user.done', ['username' => $user->username]) }}"
                                         >

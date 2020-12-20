@@ -47,6 +47,10 @@ body {
     background-color: $input-bg;
 }
 
+.form-check-input {
+    background-color: $border-bg;
+}
+
 .text-secondary {
     color: #c0c0c0 !important;
 }
@@ -83,6 +87,11 @@ body {
     border: 1px solid $border-bg;
 }
 
+.form-control::-webkit-file-upload-button {
+    color: white;
+    background-color: $body-bg;
+}
+
 .input-group-text {
     background-color: $input-bg;
     border: 1px solid $border-bg;
@@ -106,7 +115,7 @@ hr {
 }
 
 .bg-patron {
-    background-color: #fffde857 !important;
+    background-color: #817d5a57 !important;
 
     .text-secondary {
         color: white !important;
@@ -156,4 +165,12 @@ hr {
 .tippy-box {
     background-color: $input-bg !important;
     border: 1px solid $border-bg !important;
+}
+
+.tippy-arrow:before {
+    border-top-color: $input-bg !important;
+}
+
+.tippy-arrow:after {
+    border-top-color: rgb(255 255 255 / 20%) !important;
 }

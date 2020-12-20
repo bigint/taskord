@@ -1,14 +1,14 @@
 <div class="py-2 px-3">
     <a
         href="{{ route('user.done', ['username' => $user->username]) }}"
-        class="user-hover"
+        class="user-popover"
         data-id="{{ $user->id }}"
     >
         <img loading=lazy class="rounded-circle avatar-30" src="{{ Helper::getCDNImage($user->avatar, 80) }}" alt="{{ $user->username }}'s avatar" />
     </a>
     <a
         href="{{ route('user.done', ['username' => $user->username]) }}"
-        class="ms-2 align-middle fw-bold text-dark user-hover"
+        class="ms-2 align-middle fw-bold text-dark user-popover"
         data-id="{{ $user->id }}"
     >
         @if ($user->firstname or $user->lastname)

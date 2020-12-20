@@ -20,7 +20,7 @@
             </div>
             <a
                 href="{{ route('user.done', ['username' => $question->user->username]) }}"
-                class="user-hover"
+                class="user-popover"
                 data-id="{{ $question->user->id }}"
             >
                 <img loading=lazy class="rounded-circle avatar-30 ms-3 float-end" src="{{ Helper::getCDNImage($question->user->avatar, 80) }}" alt="{{ $question->user->username }}'s avatar" />
