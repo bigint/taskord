@@ -44,7 +44,8 @@ class Adminbar extends Component
 
     public function deploy()
     {
-        Deploy::dispatch()->delay(now()->addSeconds(10));
+        //Deploy::dispatch()->delay(now()->addSeconds(10));
+        shell_exec('php '.__DIR__.'cd /var/www/taskord; ./scripts/deploy.sh');
         activity()
             ->withProperties(['type' => 'Admin'])
             ->log('Deployed the Taskord Application 🐿');
