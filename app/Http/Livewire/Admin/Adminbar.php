@@ -43,7 +43,7 @@ class Adminbar extends Component
 
     public function deploy()
     {
-        shell_exec('cd /var/www/taskord && ./scripts/deploy.sh');
+        shell_exec('cd /var/www/taskord && git pull origin main');
         activity()
             ->withProperties(['type' => 'Admin'])
             ->log('Deployed the Taskord Application 🐿');
