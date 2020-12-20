@@ -53,6 +53,13 @@
                         <li><a class="dropdown-item text-dark" href="https://www.notion.so/Roadmap-89c75352cfe14d24b62644daa0f1cba0" target="_blank" rel="noreferrer">🚧 Roadmap</a></li>
                     </ul>
                 </li>
+                @if (Auth::check() and !Auth::user()->staffShip)
+                <li class="nav-item">
+                    <span class="nav-link text-secondary fw-bold">
+                        {{ bcmul((microtime(true) - LARAVEL_START), '1000', 0) }}ms
+                    </span>
+                </li>
+                @endif
             </ul>
             <ul class="navbar-nav ms-auto">
                 @guest
