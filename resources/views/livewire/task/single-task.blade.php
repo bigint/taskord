@@ -94,7 +94,7 @@
         @foreach ($task->images ?? [] as $image)
         <div>
             <a href="{{ asset('storage/' . $image) }}" data-lightbox="{{ $image }}" data-title="Image by {{ '@'.$task->user->username }}">
-                <img loading=lazy class="{{ count($task->images) === 1 ? 'w-50' : 'gallery' }} img-fluid border mt-3 rounded" src="{{ Helper::getCDNImage(asset('storage/' . $image), 300) }}" alt="{{ asset('storage/' . $image) }}" />
+                <img loading=lazy class="{{ count($task->images) === 1 ? 'w-50' : 'gallery' }} img-fluid border mt-3 rounded" src="{{ Helper::getCDNImage(asset('storage/' . $image), 500) }}" alt="{{ asset('storage/' . $image) }}" />
             </a>
         </div>
         @endforeach
