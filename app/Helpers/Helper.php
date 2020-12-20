@@ -20,16 +20,11 @@ use Illuminate\Support\Facades\Auth;
 
 class Helper
 {
-    public static function getCDNImage($url, $resolution)
+    public static function getCDNImage($url, $resolution = 500)
     {
         if (App::environment() === 'production') {
-            if ($resolution) {
-                $res = $resolution;
-            } else {
-                $res = 500;
-            }
             $cleaned_url = str_replace('https://taskord.com/storage/', '', $url);
-            $processed_url = 'https://ik.imagekit.io/blbrg3136a/tr:w-'.$res.'/'.$cleaned_url;
+            $processed_url = 'https://ik.imagekit.io/blbrg3136a/tr:w-'.$resolution.'/'.$cleaned_url;
 
             return $processed_url;
         } else {
