@@ -39,6 +39,15 @@ Test:
   artifacts:
     expire_in: 1 day
 
+Lighthouse:
+  image: cypress/browsers:node14.15.0-chrome86-ff82
+  stage: test
+  script:
+    - npm install
+    - npm run build
+    - npm install -g @lhci/cli@0.6.x
+    - lhci autorun --upload.target=temporary-public-storage --collect.settings.chromeFlags="--no-sandbox" || echo "LHCI failed!"
+
 Housekeeping:
   stage: deploy
   script:
