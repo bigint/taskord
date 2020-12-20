@@ -42,7 +42,7 @@
                         class="user-hover"
                         data-id="{{ $comment->user->id }}"
                     >
-                        <img loading=lazy class="rounded-circle avatar-40 mt-1" src="{{ Helper::getCDNImage($comment->user->avatar) }}" alt="{{ $comment->user->username }}'s avatar" />
+                        <img loading=lazy class="rounded-circle avatar-40 mt-1" src="{{ Helper::getCDNImage($comment->user->avatar, 160) }}" alt="{{ $comment->user->username }}'s avatar" />
                     </a>
                     <span class="ms-3">
                         <a
@@ -74,7 +74,7 @@
                             href="{{ route('user.done', ['username' => $user->username]) }}"
                             class="me-1"
                         >
-                            <img loading=lazy class="rounded-circle avatar-30 mb-2" src="{{ Helper::getCDNImage($user->avatar) }}" alt="{{ $user->username }}'s avatar" />
+                            <img loading=lazy class="rounded-circle avatar-30 mb-2" src="{{ Helper::getCDNImage($user->avatar, 80) }}" alt="{{ $user->username }}'s avatar" />
                         </a>
                     @endforeach
                 </div>

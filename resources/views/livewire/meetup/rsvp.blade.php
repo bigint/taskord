@@ -1,7 +1,7 @@
 <div class="card-footer text-muted">
-    <img loading=lazy class="avatar-20 rounded-circle" src="{{ Helper::getCDNImage($meetup->user->avatar) }}" alt="{{ $meetup->user->username }}'s avatar" />
+    <img loading=lazy class="avatar-20 rounded-circle" src="{{ Helper::getCDNImage($meetup->user->avatar, 80) }}" alt="{{ $meetup->user->username }}'s avatar" />
     @foreach($meetup->subscribers->take(5) as $user)
-    <img loading=lazy class="avatar-20 rounded-circle" src="{{ Helper::getCDNImage($user->avatar) }}" alt="{{ $user->username }}'s avatar" />
+    <img loading=lazy class="avatar-20 rounded-circle" src="{{ Helper::getCDNImage($user->avatar, 80) }}" alt="{{ $user->username }}'s avatar" />
     @endforeach
     @auth
     @if (Auth::user()->hasSubscribed($meetup))

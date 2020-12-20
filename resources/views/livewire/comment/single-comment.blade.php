@@ -49,7 +49,7 @@
                 </span>
                 <span class="avatar-stack ms-1">
                 @foreach($comment->likers->take(5) as $user)
-                <img loading=lazy class="praise-avatar rounded-circle {{ $loop->last ? 'me-0' : '' }}" src="{{ Helper::getCDNImage($user->avatar) }}" alt="{{ $user->username }}'s avatar" />
+                <img loading=lazy class="praise-avatar rounded-circle {{ $loop->last ? 'me-0' : '' }}" src="{{ Helper::getCDNImage($user->avatar, 80) }}" alt="{{ $user->username }}'s avatar" />
                 @endforeach
                 </span>
             </button>
@@ -62,7 +62,7 @@
                 </span>
                 <span class="avatar-stack ms-1">
                 @foreach($comment->likers->take(5) as $user)
-                <img loading=lazy class="praise-avatar rounded-circle {{ $loop->last ? 'me-0' : '' }}" src="{{ Helper::getCDNImage($user->avatar) }}" alt="{{ $user->username }}'s avatar" />
+                <img loading=lazy class="praise-avatar rounded-circle {{ $loop->last ? 'me-0' : '' }}" src="{{ Helper::getCDNImage($user->avatar, 80) }}" alt="{{ $user->username }}'s avatar" />
                 @endforeach
                 </span>
                 @endif
@@ -95,7 +95,7 @@
                 </span>
                 <span class="avatar-stack ms-1">
                 @foreach($comment->likers->take(5) as $user)
-                <img loading=lazy class="praise-avatar rounded-circle {{ $loop->last ? 'me-0' : '' }}" src="{{ Helper::getCDNImage($user->avatar) }}" alt="{{ $user->username }}'s avatar" />
+                <img loading=lazy class="praise-avatar rounded-circle {{ $loop->last ? 'me-0' : '' }}" src="{{ Helper::getCDNImage($user->avatar, 80) }}" alt="{{ $user->username }}'s avatar" />
                 @endforeach
                 </span>
                 @endif
