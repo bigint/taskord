@@ -104,9 +104,13 @@
                                 </td>
                                 <td>
                                     @if ($user->provider === 'google')
-                                        <i class="fab fa-google text-danger"></i>
+                                        <img class="brand-icon" src="{{ asset('images/brand/google.svg') }}" />
                                     @elseif ($user->provider === 'twitter')
-                                        <i class="fab fa-twitter text-info"></i>
+                                        <img class="brand-icon" src="{{ asset('images/brand/twitter.svg') }}" />
+                                    @elseif ($user->provider === 'github')
+                                        <img class="brand-icon" src="{{ asset('images/brand/github.svg') }}" />
+                                    @elseif ($user->provider === 'gitlab')
+                                        <img class="brand-icon" src="{{ asset('images/brand/gitlab.svg') }}" />
                                     @else
                                         <x-heroicon-o-globe-alt class="heroicon text-success" />
                                     @endif
