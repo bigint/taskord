@@ -109,7 +109,7 @@ return [
         'exceptions'      => false,  // Exception displayer
         'log'             => false,  // Logs from Monolog (merged in messages if enabled)
         'db'              => true,  // Show database (PDO) queries and bindings
-        'views'           => true,  // Views with their data
+        'views'           => false,  // Views with their data
         'route'           => false,  // Current route information
         'auth'            => false, // Display Laravel authentication status
         'gate'            => false,  // Display Laravel Gate checks
@@ -142,7 +142,7 @@ return [
         ],
         'db' => [
             'with_params'       => true,   // Render SQL with the parameters substituted
-            'backtrace'         => true,   // Use a backtrace to find the origin of the query in your files.
+            'backtrace'         => false,   // Use a backtrace to find the origin of the query in your files.
             'backtrace_exclude_paths' => [],   // Paths to exclude from backtrace. (in addition to defaults)
             'timeline'          => false,  // Add the queries to the timeline
             'explain' => [                 // Show EXPLAIN output on queries
