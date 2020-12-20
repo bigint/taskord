@@ -5,22 +5,9 @@ require("./tippy");
 import { isInViewport } from "observe-element-in-viewport";
 import lightbox from "lightbox2/dist/js/lightbox";
 import "livewire-turbolinks";
-import { EmojiButton } from '@joeattardi/emoji-button';
 
 var Turbolinks = require("turbolinks");
 Turbolinks.start();
-
-document.addEventListener("turbolinks:load", () => {
-  const trigger = document.querySelector('.trigger');
-  const picker = new EmojiButton({
-    showPreview: false,
-  });
-  picker.on('emoji', selection => {
-    trigger.innerHTML = selection.emoji;
-    document.getElementById("emoji_input").value = selection.emoji;
-  });
-  trigger.addEventListener('click', () => picker.togglePicker(trigger));
-});
 
 document.addEventListener("turbolinks:load", () => {
   window.lightbox = lightbox;

@@ -6,6 +6,9 @@
         ])
     @endif
     @if (Auth::id() === $user->id)
+    @section('emoji-picker')
+    <script src="{{ asset('js/emoji-picker.js', config('app.env') === 'production' ? true : false) }}" defer data-turbolinks-track="true"></script>
+    @stop
     <div class="text-uppercase fw-bold text-black-50 pb-2">
         Staus
         <x-beta background="light" />

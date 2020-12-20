@@ -38,7 +38,9 @@
     @endif
     @endauth
     @livewireStyles
+    @if (config('app.env') === 'production')
     @laravelPWA
+    @endif
 </head>
 <body>
     <div id="app">
@@ -92,5 +94,6 @@
 </body>
 @livewireScripts
 <script src="{{ asset('js/app.js', config('app.env') === 'production' ? true : false) }}" defer data-turbolinks-track="true" data-turbolinks-eval=false></script>
+@yield('emoji-picker')
 <script src="https://static.cloudflareinsights.com/beacon.min.js" defer data-cf-beacon="{'token': '0ebade4d5737444ea409cab9471ddb4d'}" data-turbolinks-track="true" data-turbolinks-eval=false></script>
 </html>
