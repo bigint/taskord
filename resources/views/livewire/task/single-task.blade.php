@@ -2,7 +2,7 @@
     <x-alert />
     <div class="align-items-center d-flex">
         <a href="{{ route('user.done', ['username' => $task->user->username]) }}">
-            <img loading=lazy class="avatar-40 rounded-circle" src="{{ Helper::getCDNImage($task->user->avatar, 100) }}" alt="{{ $task->user->username }}'s avatar" />
+            <img loading=lazy class="avatar-40 rounded-circle" src="{{ Helper::getCDNImage($task->user->avatar, 50) }}" alt="{{ $task->user->username }}'s avatar" />
         </a>
         <span class="ms-2">
             <a
@@ -112,7 +112,7 @@
                 </span>
                 <span class="avatar-stack ms-1">
                 @foreach($task->likers->take(5) as $user)
-                <img loading=lazy class="praise-avatar rounded-circle {{ $loop->last ? 'me-0' : '' }}" src="{{ Helper::getCDNImage($user->avatar, 100) }}" alt="{{ $user->username }}'s avatar" />
+                <img loading=lazy class="praise-avatar rounded-circle {{ $loop->last ? 'me-0' : '' }}" src="{{ Helper::getCDNImage($user->avatar, 50) }}" alt="{{ $user->username }}'s avatar" />
                 @endforeach
                 </span>
             </button>
