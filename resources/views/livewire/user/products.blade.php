@@ -18,8 +18,8 @@
                 <div>{{ $product->description }}</div>
             </span>
             <span class="ms-auto">
-                @if ($product->members()->count() > 1)
-                    <span class="me-2 text-secondary fw-bold">+{{ $product->members()->count() - 1 }} more</span>
+                @if ($product->members()->count('id') > 1)
+                    <span class="me-2 text-secondary fw-bold">+{{ $product->members()->count('id') - 1 }} more</span>
                 @endif
                 @foreach ($product->members()->limit(1)->get() as $user)
                 <a

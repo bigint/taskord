@@ -159,13 +159,13 @@
                                             <li>
                                                 <span class="dropdown-item">
                                                     <x-heroicon-o-cube class="heroicon text-secondary" />
-                                                    <span class="fw-bold">{{ $user->ownedProducts('id')->count() }}</span> Products
+                                                    <span class="fw-bold">{{ $user->ownedProducts('id')->count('id') }}</span> Products
                                                 </span>
                                             </li>
                                             <li>
                                                 <span class="dropdown-item">
                                                     <x-heroicon-o-user-add class="heroicon text-secondary" />
-                                                    <span class="fw-bold">{{ $user->products()->count() }}</span> Membership
+                                                    <span class="fw-bold">{{ $user->products()->count('id') }}</span> Membership
                                                 </span>
                                             </li>
                                             <li>

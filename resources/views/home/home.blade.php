@@ -78,8 +78,8 @@
                                 <div>{{ $product->description }}</div>
                             </span>
                             <span class="ms-auto">
-                                @if ($product->members()->count() > 1)
-                                    <span class="me-2 mt-1 text-secondary fw-bold">+{{ $product->members()->count() - 1 }} more</span>
+                                @if ($product->members()->count('id') > 1)
+                                    <span class="me-2 mt-1 text-secondary fw-bold">+{{ $product->members()->count('id') - 1 }} more</span>
                                 @endif
                                 @foreach ($product->members()->limit(1)->get() as $user)
                                 <a
@@ -157,13 +157,13 @@
                     <div class="card-footer small fw-bold d-flex justify-content-between">
                         <a class="text-dark" href="{{ route('user.following', ['username' => Auth::user()->username]) }}">
                             <x-heroicon-o-user-add class="heroicon text-secondary" />
-                            {{ Auth::user()->followings()->count() }}
+                            {{ Auth::user()->followings()->count('id') }}
                             Following
                         </a>
                         <a class="text-dark" href="{{ route('user.followers', ['username' => Auth::user()->username]) }}">
                             <x-heroicon-o-users class="heroicon text-secondary" />
-                            {{ number_format(Auth::user()->followers()->count()) }}
-                            {{ Auth::user()->followers()->count() === 1 ? "Follower" : "Followers" }}
+                            {{ number_format(Auth::user()->followers()->count('id')) }}
+                            {{ Auth::user()->followers()->count('id') === 1 ? "Follower" : "Followers" }}
                         </a>
                         <span>
                             <x-heroicon-o-fire class="heroicon text-secondary" />

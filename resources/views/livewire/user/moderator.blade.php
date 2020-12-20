@@ -48,7 +48,7 @@
                 @endif
                 @php
                     if ($user->lastIP) {
-                        $usersCount = \App\Models\User::where('lastIP', $user->lastIP)->count();
+                        $usersCount = \App\Models\User::where('lastIP', $user->lastIP)->count('id');
                     } else {
                         $usersCount = 0;
                     }

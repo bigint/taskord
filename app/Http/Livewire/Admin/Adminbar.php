@@ -78,7 +78,7 @@ class Adminbar extends Component
         $answers = Answer::count('id');
         $comments = Comment::count('id');
         $webhooks = Webhook::count('id');
-        $notifications = DB::table('notifications')->count();
+        $notifications = DB::table('notifications')->count('id');
         $praises = DB::table('interactions')->whereRelation('like')->count();
         $jobs = Queue::size();
 
