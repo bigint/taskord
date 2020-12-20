@@ -89,7 +89,6 @@ Start coding in a [ready-to-code development environment](https://www.gitpod.io)
     ```sh
     # Install Composer Dependencies
     composer install
-
     # For Windows
     composer install --ignore-platform-reqs
 
