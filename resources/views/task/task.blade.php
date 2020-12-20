@@ -50,7 +50,7 @@
                         class="user-hover"
                         data-id="{{ $task->user->id }}"
                     >
-                        <img loading=lazy class="rounded-circle avatar-40 mt-1" src="{{ Helper::getCDNImage($task->user->avatar, 50) }}" alt="{{ $task->user->username }}'s avatar" />
+                        <img loading=lazy class="rounded-circle avatar-40 mt-1" src="{{ Helper::getCDNImage($task->user->avatar, 80) }}" alt="{{ $task->user->username }}'s avatar" />
                     </a>
                     <span class="ms-3">
                         <a
@@ -81,7 +81,7 @@
                         class="product-hover"
                         data-id="{{ \App\Models\Product::find($task->product_id)->id }}"
                     >
-                        <img loading=lazy class="rounded avatar-40 mt-1" src="{{ Helper::getCDNImage(\App\Models\Product::find($task->product_id)->avatar, 50) }}" />
+                        <img loading=lazy class="rounded avatar-40 mt-1" src="{{ Helper::getCDNImage(\App\Models\Product::find($task->product_id)->avatar, 80) }}" />
                     </a>
                     <span class="ms-3">
                         <a
@@ -120,7 +120,7 @@
                             class="me-1 user-hover"
                             data-id="{{ $comment[0]->user->id }}"
                         >
-                            <img loading=lazy class="rounded-circle avatar-30 mb-2" src="{{ Helper::getCDNImage($comment[0]->user->avatar, 50) }}" alt="{{ $comment[0]->user->username }}'s avatar" />
+                            <img loading=lazy class="rounded-circle avatar-30 mb-2" src="{{ Helper::getCDNImage($comment[0]->user->avatar, 80) }}" alt="{{ $comment[0]->user->username }}'s avatar" />
                         </a>
                     @endforeach
                 </div>
@@ -138,7 +138,7 @@
                             href="{{ route('user.done', ['username' => $user->username]) }}"
                             class="me-1"
                         >
-                            <img loading=lazy class="rounded-circle avatar-30 mb-2" src="{{ Helper::getCDNImage($user->avatar, 50) }}" alt="{{ $user->username }}'s avatar" />
+                            <img loading=lazy class="rounded-circle avatar-30 mb-2" src="{{ Helper::getCDNImage($user->avatar, 80) }}" alt="{{ $user->username }}'s avatar" />
                         </a>
                     @endforeach
                 </div>

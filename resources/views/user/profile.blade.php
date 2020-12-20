@@ -13,8 +13,8 @@
     <div class="row">
         <div class="col-md-7">
             <div class="card-body d-flex align-items-center">
-                <a href="{{ $user->avatar }}" data-lightbox="{{ $user->avatar }}" data-title="{{ '@'.$user->username }}'s Avatar">
-                    <img loading=lazy class="rounded-circle avatar-120" src="{{ Helper::getCDNImage($user->avatar, 200) }}" alt="{{ $user->username }}'s avatar" />
+                <a href="{{ $user->avatar }}" target="_blank">
+                    <img loading=lazy class="rounded-circle avatar-120" src="{{ Helper::getCDNImage($user->avatar, 240) }}" alt="{{ $user->username }}'s avatar" />
                 </a>
                 <div class="ms-4">
                     <div class="h5 mb-0">

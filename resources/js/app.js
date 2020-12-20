@@ -3,23 +3,10 @@ require("./shortcuts");
 require("./tribute");
 require("./tippy");
 import { isInViewport } from "observe-element-in-viewport";
-import lightbox from "lightbox2/dist/js/lightbox";
 import "livewire-turbolinks";
 
 var Turbolinks = require("turbolinks");
 Turbolinks.start();
-
-document.addEventListener("turbolinks:load", () => {
-  window.lightbox = lightbox;
-  window.lightbox.option({
-    disableScrolling: true,
-    fadeDuration: 100,
-    imageFadeDuration: 100,
-    resizeDuration: 300,
-    fitImagesInViewport: true,
-    maxWidth: 1000,
-  });
-});
 
 document.addEventListener("DOMContentLoaded", () => {
   (async () => {

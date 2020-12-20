@@ -83,7 +83,7 @@
                 @else
                 @if ($user->avatar)
                 <div>
-                    <img loading=lazy class="avatar-100 rounded-circle mt-2 mb-3" src="{{ Helper::getCDNImage($user->avatar, 200) }}" alt="{{ $user->username }}'s avatar" />
+                    <img loading=lazy class="avatar-100 rounded-circle mt-2 mb-3" src="{{ Helper::getCDNImage($user->avatar, 240) }}" alt="{{ $user->username }}'s avatar" />
                 </div>
                 @endif
                 @endif

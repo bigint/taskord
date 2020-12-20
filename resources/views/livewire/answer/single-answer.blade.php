@@ -3,7 +3,7 @@
         <x-alert />
         <div class="d-flex align-items-center">
             <a href="{{ route('user.done', ['username' => $answer->user->username]) }}">
-                <img loading=lazy class="avatar-40 rounded-circle" src="{{ Helper::getCDNImage($answer->user->avatar, 50) }}" alt="{{ $answer->user->username }}'s avatar" />
+                <img loading=lazy class="avatar-40 rounded-circle" src="{{ Helper::getCDNImage($answer->user->avatar, 80) }}" alt="{{ $answer->user->username }}'s avatar" />
             </a>
             <span class="ms-2">
                 <a
@@ -52,7 +52,7 @@
                     </span>
                     <span class="avatar-stack ms-1">
                     @foreach($answer->likers->take(5) as $user)
-                    <img loading=lazy class="praise-avatar rounded-circle {{ $loop->last ? 'me-0' : '' }}" src="{{ Helper::getCDNImage($user->avatar, 50) }}" alt="{{ $user->username }}'s avatar" />
+                    <img loading=lazy class="praise-avatar rounded-circle {{ $loop->last ? 'me-0' : '' }}" src="{{ Helper::getCDNImage($user->avatar, 80) }}" alt="{{ $user->username }}'s avatar" />
                     @endforeach
                     </span>
                 </button>
@@ -65,7 +65,7 @@
                     </span>
                     <span class="avatar-stack ms-1">
                     @foreach($answer->likers->take(5) as $user)
-                    <img loading=lazy class="praise-avatar rounded-circle {{ $loop->last ? 'me-0' : '' }}" src="{{ Helper::getCDNImage($user->avatar, 50) }}" alt="{{ $user->username }}'s avatar" />
+                    <img loading=lazy class="praise-avatar rounded-circle {{ $loop->last ? 'me-0' : '' }}" src="{{ Helper::getCDNImage($user->avatar, 80) }}" alt="{{ $user->username }}'s avatar" />
                     @endforeach
                     </span>
                     @endif
@@ -98,7 +98,7 @@
                     </span>
                     <span class="avatar-stack ms-1">
                     @foreach($answer->likers->take(5) as $user)
-                    <img loading=lazy class="praise-avatar rounded-circle {{ $loop->last ? 'me-0' : '' }}" src="{{ Helper::getCDNImage($user->avatar, 50) }}" alt="{{ $user->username }}'s avatar" />
+                    <img loading=lazy class="praise-avatar rounded-circle {{ $loop->last ? 'me-0' : '' }}" src="{{ Helper::getCDNImage($user->avatar, 80) }}" alt="{{ $user->username }}'s avatar" />
                     @endforeach
                     </span>
                     @endif
