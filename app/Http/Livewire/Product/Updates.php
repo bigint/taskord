@@ -23,7 +23,7 @@ class Updates extends Component
         $updates = ProductUpdate::cacheFor(60 * 60)
             ->where('product_id', $this->product->id)
             ->latest()
-            ->paginate(15);
+            ->paginate(10);
 
         return view('livewire.product.updates', [
             'updates' => $updates,

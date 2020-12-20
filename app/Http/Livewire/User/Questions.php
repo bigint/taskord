@@ -19,7 +19,7 @@ class Questions extends Component
         $questions = Question::cacheFor(60 * 60)
             ->where('user_id', $this->user->id)
             ->latest()
-            ->paginate(15);
+            ->paginate(10);
 
         return view('livewire.user.questions', [
             'questions' => $questions,

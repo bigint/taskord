@@ -33,7 +33,7 @@ class Tasks extends Component
                 ['done', $this->type === 'user.done' ? true : false],
             ])
             ->orderBy('done_at', 'desc')
-            ->paginate(15, null, null, $this->page);
+            ->paginate(10, null, null, $this->page);
 
         return view('livewire.user.tasks', [
             'tasks' => $tasks,
