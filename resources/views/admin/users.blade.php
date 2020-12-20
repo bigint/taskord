@@ -47,7 +47,7 @@
                                     {{ $user->firstname.' '.$user->lastname }}
                                     @endif
                                     @if ($user->isVerified)
-                                        <i class="verified fa fa-check-circle ms-1 text-primary"></i>
+                                        <x-heroicon-s-badge-check class="heroicon text-primary ms-1 verified" />
                                     @endif
                                 </td>
                                 <td>
@@ -68,9 +68,13 @@
                                 <td>
                                     {{ $user->email }}
                                     @if ($user->hasVerifiedEmail())
-                                    <i class="fa fa-check text-success ms-1" title="Email Verified"></i>
+                                    <span title="Email Verified">
+                                        <x-heroicon-o-check class="heroicon ms-1 text-success" />
+                                    </span>
                                     @else
-                                    <i class="fa fa-times text-danger ms-1" title="Email not Verified"></i>
+                                    <span title="Email not Verified">
+                                        <x-heroicon-o-x class="heroicon ms-1 text-danger" />
+                                    </span>
                                     @endif
                                 </td>
                                 <td>
@@ -104,7 +108,7 @@
                                     @elseif ($user->provider === 'twitter')
                                         <i class="fab fa-twitter text-info"></i>
                                     @else
-                                        <i class="fa fa-globe text-success"></i>
+                                        <x-heroicon-o-globe-alt class="heroicon text-success" />
                                     @endif
                                 </td>
                                 <td title="{{ Carbon::parse($user->last_active)->format('M d, Y g:i A') }}">
@@ -126,67 +130,67 @@
                                         <ul class="dropdown-menu">
                                             <li>
                                                 <span class="dropdown-item">
-                                                    <i class="fa fa-check me-1"></i>
+                                                    <x-heroicon-o-check class="heroicon" />
                                                     <span class="fw-bold">{{ $user->tasks()->count('id') }}</span> Tasks
                                                 </span>
                                             </li>
                                             <li>
                                                 <span class="dropdown-item">
-                                                    <i class="fa fa-comment me-1"></i>
+                                                    <x-heroicon-o-chat-alt class="heroicon" />
                                                     <span class="fw-bold">{{ $user->comments()->count('id') }}</span> Comments
                                                 </span>
                                             </li>
                                             <li>
                                                 <span class="dropdown-item">
-                                                    <i class="fa fa-question-circle me-1"></i>
+                                                    <x-heroicon-o-question-mark-circle class="heroicon" />
                                                     <span class="fw-bold">{{ $user->questions()->count('id') }}</span> Questions
                                                 </span>
                                             </li>
                                             <li>
                                                 <span class="dropdown-item">
-                                                    <i class="fa fa-comments me-1"></i>
+                                                    <x-heroicon-o-chat-alt-2 class="heroicon" />
                                                     <span class="fw-bold">{{ $user->answers()->count('id') }}</span> Answers
                                                 </span>
                                             </li>
                                             <li>
                                                 <span class="dropdown-item">
-                                                    <i class="fa fa-box-open me-1"></i>
+                                                    <x-heroicon-o-cube class="heroicon" />
                                                     <span class="fw-bold">{{ $user->ownedProducts('id')->count() }}</span> Products
                                                 </span>
                                             </li>
                                             <li>
                                                 <span class="dropdown-item">
-                                                    <i class="fa fa-handshake me-1"></i>
+                                                    <x-heroicon-o-user-add class="heroicon" />
                                                     <span class="fw-bold">{{ $user->products()->count() }}</span> Membership
                                                 </span>
                                             </li>
                                             <li>
                                                 <span class="dropdown-item">
-                                                    <i class="fa fa-bell me-1"></i>
+                                                    <x-heroicon-o-bell class="heroicon" />
                                                     <span class="fw-bold">{{ $user->notifications()->count('id') }}</span> Notifications
                                                 </span>
                                             </li>
                                             <li>
                                                 <span class="dropdown-item">
-                                                    <i class="fa fa-anchor me-1"></i>
+                                                    <x-heroicon-o-cloud-upload class="heroicon" />
                                                     <span class="fw-bold">{{ $user->webhooks()->count('id') }}</span> Webhooks
                                                 </span>
                                             </li>
                                             <li>
                                                 <span class="dropdown-item">
-                                                    <i class="fa fa-user-clock me-1"></i>
+                                                    <x-heroicon-o-clock class="heroicon" />
                                                     <span class="fw-bold">{{ $user->timezone }}</span>
                                                 </span>
                                             </li>
                                             <li>
                                                 <span class="dropdown-item" title="{{ Carbon::parse($user->updated_at)->format('M d, Y g:i A') }}">
-                                                    <i class="fa fa-calendar me-1"></i>
+                                                    <x-heroicon-o-calendar class="heroicon" />
                                                     <span class="fw-bold">{{ Carbon::parse($user->updated_at)->format('M d, Y') }}</span>
                                                 </span>
                                             </li>
                                             <li>
                                                 <span class="dropdown-item" title="{{ Carbon::parse($user->created_at)->format('M d, Y g:i A') }}">
-                                                    <i class="fa fa-calendar me-1"></i>
+                                                    <x-heroicon-o-calendar class="heroicon" />
                                                     <span class="fw-bold">{{ Carbon::parse($user->created_at)->format('M d, Y') }}</span>
                                                     @if ($user->created_at->diffInDays(Carbon::today()) < 7)
                                                         🆕
