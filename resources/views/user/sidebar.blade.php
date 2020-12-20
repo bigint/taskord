@@ -92,14 +92,14 @@
             <div class="py-2 px-3">
                 <a
                     href="{{ route('product.done', ['slug' => $product->slug]) }}"
-                    class="product-hover"
+                    class="product-popover"
                     data-id="{{ $product->id }}"
                 >
                     <img loading=lazy class="rounded avatar-30 ms-2" src="{{ Helper::getCDNImage($product->avatar, 80) }}" height="50" width="50" alt="{{ $product->slug }}'s avatar" />
                 </a>
                 <a
                     href="{{ route('product.done', ['slug' => $product->slug]) }}"
-                    class="ms-2 me-2 align-text-top fw-bold text-dark product-hover"
+                    class="ms-2 me-2 align-text-top fw-bold text-dark product-popover"
                     data-id="{{ $product->id }}"
                 >
                     {{ $product->name }}

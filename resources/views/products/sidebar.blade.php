@@ -11,7 +11,7 @@
             </a>
             <a
                 href="{{ route('product.done', ['slug' => $product->slug]) }}"
-                class="ms-2 me-2 align-text-top fw-bold text-dark product-hover"
+                class="ms-2 me-2 align-text-top fw-bold text-dark product-popover"
                 data-id="{{ $product->id }}"
             >
                 {{ $product->name }}
@@ -30,7 +30,7 @@
                 @foreach ($product->members()->limit(1)->get() as $user)
                 <a
                     href="{{ route('user.done', ['username' => $user->username]) }}"
-                    class="user-hover"
+                    class="user-popover"
                     data-id="{{ $user->id }}"
                 >
                     <img loading=lazy class="rounded-circle avatar-30 me-1" src="{{ Helper::getCDNImage($user->avatar, 80) }}" alt="{{ $user->username }}'s avatar" />
@@ -38,7 +38,7 @@
                 @endforeach
                 <a
                     href="{{ route('user.done', ['username' => $product->owner->username]) }}"
-                    class="user-hover"
+                    class="user-popover"
                     data-id="{{ $product->owner->id }}"
                 >
                     <img loading=lazy class="rounded-circle avatar-30 me-0" src="{{ Helper::getCDNImage($product->owner->avatar, 80) }}" alt="{{ $product->owner->username }}'s avatar" />

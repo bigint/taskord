@@ -7,7 +7,7 @@
         <span class="ms-2">
             <a
                 href="{{ route('user.done', ['username' => $task->user->username]) }}"
-                class="fw-bold text-dark user-hover"
+                class="fw-bold text-dark user-popover"
                 data-id="{{ $task->user->id }}"
             >
                 @if ($task->user->firstname or $task->user->lastname)
@@ -80,7 +80,7 @@
                 on
                 <img loading=lazy class="rounded mb-1 ms-1 avatar-15" src="{{ Helper::getCDNImage($task->product->avatar, 80) }}" alt="{{ $task->product->slug }}'s avatar" />
                 <a
-                    class="text-secondary product-hover"
+                    class="text-secondary product-popover"
                     href="{{ route('product.done', ['slug' => $task->product->slug]) }}"
                     data-id="{{ $task->product->id }}"
                 >

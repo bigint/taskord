@@ -39,7 +39,7 @@
                 <div class="card-body d-flex align-items-center">
                     <a
                         href="{{ route('user.done', ['username' => $comment->user->username]) }}"
-                        class="user-hover"
+                        class="user-popover"
                         data-id="{{ $comment->user->id }}"
                     >
                         <img loading=lazy class="rounded-circle avatar-40 mt-1" src="{{ Helper::getCDNImage($comment->user->avatar, 160) }}" alt="{{ $comment->user->username }}'s avatar" />
@@ -47,7 +47,7 @@
                     <span class="ms-3">
                         <a
                             href="{{ route('user.done', ['username' => $comment->user->username]) }}"
-                            class="align-text-top text-dark user-hover"
+                            class="align-text-top text-dark user-popover"
                             data-id="{{ $comment->user->id }}"
                         >
                             <span class="fw-bold">

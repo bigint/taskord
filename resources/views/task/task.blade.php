@@ -47,7 +47,7 @@
                 <div class="card-body d-flex align-items-center">
                     <a
                         href="{{ route('user.done', ['username' => $task->user->username]) }}"
-                        class="user-hover"
+                        class="user-popover"
                         data-id="{{ $task->user->id }}"
                     >
                         <img loading=lazy class="rounded-circle avatar-40 mt-1" src="{{ Helper::getCDNImage($task->user->avatar, 80) }}" alt="{{ $task->user->username }}'s avatar" />
@@ -55,7 +55,7 @@
                     <span class="ms-3">
                         <a
                             href="{{ route('user.done', ['username' => $task->user->username]) }}"
-                            class="align-text-top text-dark user-hover"
+                            class="align-text-top text-dark user-popover"
                             data-id="{{ $task->user->id }}"
                         >
                             <span class="fw-bold">
@@ -78,7 +78,7 @@
                 <div class="card-body d-flex align-items-center">
                     <a
                         href="{{ route('product.done', ['slug' => \App\Models\Product::find($task->product_id)->slug]) }}"
-                        class="product-hover"
+                        class="product-popover"
                         data-id="{{ \App\Models\Product::find($task->product_id)->id }}"
                     >
                         <img loading=lazy class="rounded avatar-40 mt-1" src="{{ Helper::getCDNImage(\App\Models\Product::find($task->product_id)->avatar, 80) }}" />
@@ -86,7 +86,7 @@
                     <span class="ms-3">
                         <a
                             href="{{ route('product.done', ['slug' => \App\Models\Product::find($task->product_id)->slug]) }}"
-                            class="align-text-top text-dark product-hover"
+                            class="align-text-top text-dark product-popover"
                             data-id="{{ \App\Models\Product::find($task->product_id)->id }}"
                         >
                             <span class="fw-bold">
@@ -117,7 +117,7 @@
                     @foreach ($task->comments->groupBy('user_id') as $comment)
                         <a
                             href="{{ route('user.done', ['username' => $comment[0]->user->username]) }}"
-                            class="me-1 user-hover"
+                            class="me-1 user-popover"
                             data-id="{{ $comment[0]->user->id }}"
                         >
                             <img loading=lazy class="rounded-circle avatar-30 mb-2" src="{{ Helper::getCDNImage($comment[0]->user->avatar, 80) }}" alt="{{ $comment[0]->user->username }}'s avatar" />

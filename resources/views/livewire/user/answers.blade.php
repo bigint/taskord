@@ -12,7 +12,7 @@
             <div class="card-header h6 pt-3 pb-3">
                 <a
                     href="{{ route('user.done', ['username' => $answer->question->user->username]) }}"
-                    class="user-hover"
+                    class="user-popover"
                     data-id="{{ $answer->question->user->id }}"
                 >
                     <img loading=lazy class="rounded-circle avatar-30" src="{{ Helper::getCDNImage($answer->question->user->avatar, 80) }}" alt="{{ $answer->question->user->username }}'s avatar" />

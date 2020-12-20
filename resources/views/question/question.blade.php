@@ -60,7 +60,7 @@
                 <div class="card-body d-flex align-items-center">
                     <a
                         href="{{ route('user.done', ['username' => $question->user->username]) }}"
-                        class="user-hover"
+                        class="user-popover"
                         data-id="{{ $question->user->id }}"
                     >
                         <img loading=lazy class="rounded-circle avatar-40 mt-1" src="{{ Helper::getCDNImage($question->user->avatar, 80) }}" alt="{{ $question->user->username }}'s avatar" />
@@ -68,7 +68,7 @@
                     <span class="ms-3">
                         <a
                             href="{{ route('user.done', ['username' => $question->user->username]) }}"
-                            class="align-text-top text-dark user-hover"
+                            class="align-text-top text-dark user-popover"
                             data-id="{{ $question->user->id }}"
                         >
                             <span class="fw-bold">
@@ -102,7 +102,7 @@
                     @foreach ($question->answer->groupBy('user_id') as $answer)
                         <a
                             href="{{ route('user.done', ['username' => $answer[0]->user->username]) }}"
-                            class="me-1 user-hover"
+                            class="me-1 user-popover"
                             data-id="{{ $answer[0]->user->id }}"
                         >
                             <img loading=lazy class="rounded-circle avatar-30 mb-2" src="{{ Helper::getCDNImage($answer[0]->user->avatar, 80) }}" alt="{{ $answer[0]->user->username }}'s avatar" />
