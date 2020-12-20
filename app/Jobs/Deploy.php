@@ -31,13 +31,6 @@ class Deploy implements ShouldQueue
      */
     public function handle()
     {
-        $process = new Process(['pwd']);
-        $process->run();
-
-        if (! $process->isSuccessful()) {
-            throw new ProcessFailedException($process);
-        }
-
-        dd($process->getOutput());
+        shell_exec('php '.__DIR__.'cd /var/www/taskord; ./scripts/deploy.sh');
     }
 }

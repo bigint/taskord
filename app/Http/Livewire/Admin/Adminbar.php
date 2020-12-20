@@ -44,7 +44,6 @@ class Adminbar extends Component
 
     public function deploy()
     {
-        dd(shell_exec('php '.__DIR__.'cd /var/www/taskord; git branch'));
         Deploy::dispatch()->delay(now()->addSeconds(10));
         activity()
             ->withProperties(['type' => 'Admin'])
