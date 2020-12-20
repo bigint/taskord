@@ -78,7 +78,7 @@
             @if ($task->type === 'product')
             <span class="small text-secondary">
                 on
-                <img loading=lazy class="rounded mb-1 ms-1 avatar-15" src="{{ Helper::getCDNImage($task->product->avatar) }}" alt="{{ $task->product->slug }}'s avatar" />
+                <img loading=lazy class="rounded mb-1 ms-1 avatar-15" src="{{ Helper::getCDNImage($task->product->avatar, 200) }}" alt="{{ $task->product->slug }}'s avatar" />
                 <a
                     class="text-secondary product-hover"
                     href="{{ route('product.done', ['slug' => $task->product->slug]) }}"
