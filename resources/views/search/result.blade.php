@@ -141,7 +141,7 @@
                                     @endif
                                     @if ($product->deprecated)
                                         <span class="ms-1 small" title="Deprecated">
-                                            <i class="fa fa-ghost text-danger"></i>
+                                            <x-heroicon-o-shield-exclamation class="heroicon text-danger" />
                                         </span>
                                     @endif
                                 </a>
@@ -227,14 +227,14 @@
                                     @if ($user->location)
                                     <span class="ms-3">
                                         <a class="text-dark" href="https://www.google.com/maps/search/{{ urlencode($user->location) }}" target="_blank" rel="noreferrer">
-                                            <i class="fa fa-compass me-1 text-secondary"></i>
+                                            <x-heroicon-o-map class="heroicon text-secondary" />
                                             {{ $user->location }}
                                         </a>
                                     </span>
                                     @endif
                                     @if ($user->company)
                                     <span class="ms-3">
-                                        <i class="fa fa-briefcase me-1 text-secondary"></i>
+                                        <x-heroicon-o-briefcase class="heroicon text-secondary" />
                                         {{ $user->company }}
                                     </span>
                                     @if ($user->isStaff)

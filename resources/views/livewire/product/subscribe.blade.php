@@ -3,7 +3,7 @@
     @if (Auth::id() !== $product->owner->id)
     @if (Auth::user()->hasSubscribed($product))
     <button wire:click="subscribeProduct" wire:loading.attr="disabled" class="btn btn-sm btn-danger mb-2">
-        <i class="fa fa-minus me-1"></i>
+        <x-heroicon-o-minus-circle class="heroicon" />
         Unsubscribe
         <span wire:target="subscribeProduct" wire:loading class="spinner-border spinner-border-sm ms-2" role="status"></span>
     </button>

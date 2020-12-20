@@ -66,7 +66,7 @@
                     <div class="card-header" id="headingOne">
                         <h2 class="mb-0">
                             <a class="text-dark h5" type="button" checked data-bs-toggle="collapse" data-bs-target="#simpleDocs" aria-expanded="true" aria-controls="simpleDocs">
-                                <i class="fa fa-globe me-1"></i>
+                                <x-heroicon-o-globe-alt class="heroicon" />
                                 Simple Webhook
                             </a>
                         </h2>
@@ -170,7 +170,9 @@
                     <tr>
                         <td>
                             @if ($webhook->type === 'web')
-                            <i title="Simple Webhook | ID: {{ $webhook->id }}" class="fa fa-globe me-1"></i>
+                            <span title="Simple Webhook | ID: {{ $webhook->id }}">
+                                <x-heroicon-o-globe-alt class="heroicon text-info" />
+                            </span>
                             @elseif ($webhook->type === 'github')
                             <i title="GitHub | ID: {{ $webhook->id }}" class="fab fa-github me-1"></i>
                             @elseif ($webhook->type === 'gitlab')

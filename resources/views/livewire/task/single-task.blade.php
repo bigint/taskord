@@ -44,7 +44,7 @@
         </span>
         @elseif ($task->source === 'Webhook')
         <span>
-            <i class="fa fa-globe text-info task-font"></i>
+            <x-heroicon-o-globe-alt class="heroicon text-info" />
         </span>
         @else
         <input

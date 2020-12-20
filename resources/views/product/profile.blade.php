@@ -13,7 +13,7 @@
                 @endif
                 @if ($product->deprecated)
                     <span class="ms-1 small" title="Deprecated">
-                        <i class="fa fa-ghost text-danger"></i>
+                        <x-heroicon-o-shield-exclamation class="heroicon text-danger" />
                     </span>
                 @endif
                 @auth

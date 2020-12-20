@@ -1,5 +1,5 @@
 <div class="text-uppercase fw-bold text-secondary pb-2">
-    <i class="fa fa-fire text-danger me-1"></i>
+    <x-heroicon-o-fire class="heroicon text-danger" />
     Active Products
 </div>
 <div class="card mb-4">
