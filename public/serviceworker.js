@@ -19,7 +19,6 @@ var filesToCache = [
     '/images/icons/icon-384x384.png',
     '/images/icons/icon-512x512.png',
 ];
-importScripts("https://runtime.imagekit.io/blbrg3136a/v1/js/network-based-adaption.js?v=" + new Date().getTime());
 
 // Cache on install
 self.addEventListener("install", event => {
