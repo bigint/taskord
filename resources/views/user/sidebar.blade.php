@@ -81,7 +81,12 @@
     <div class="card mb-4">
         <div class="pt-2 pb-2">
             @if (count($user->ownedProducts->merge($user->products)) === 0)
-            <x-empty icon="box-open" text="No products made!" />
+            <div class="card-body text-center mt-3 mb-3">
+                <x-heroicon-o-cube class="heroicon-4x text-primary mb-2" />
+                <div class="h4">
+                    No products made
+                </div>
+            </div>
             @endif
             @foreach ($user->ownedProducts->merge($user->products)->take(5) as $product)
             <div class="py-2 px-3">

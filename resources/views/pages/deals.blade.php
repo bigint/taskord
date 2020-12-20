@@ -27,7 +27,12 @@
         </div>
         <div class="card-body">
             @if (count($deals) === 0)
-            <x-empty icon="gifts" text="No deals found" />
+            <div class="card-body text-center mt-3 mb-3">
+                <x-heroicon-o-gift class="heroicon-4x text-primary mb-2" />
+                <div class="h4">
+                    No deals found
+                </div>
+            </div>
             @endif
             @foreach ($deals as $deal)
                 <div class="d-flex align-items-center {{ $loop->last ? '' : 'mb-5' }}">

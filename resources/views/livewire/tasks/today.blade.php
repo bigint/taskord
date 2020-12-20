@@ -9,7 +9,12 @@
         </div>
         <ul class="list-group list-group-flush">
             @if (count($tasks) === 0)
-            <x-empty icon="check-square" text="Enjoy your day" />
+            <div class="card-body text-center mt-3 mb-3">
+                <x-heroicon-o-check-circle class="heroicon-4x text-primary mb-2" />
+                <div class="h4">
+                    Enjoy your day
+                </div>
+            </div>
             @endif
             @foreach($tasks as $task)
                 @livewire('tasks.single-task', [

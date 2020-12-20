@@ -22,7 +22,12 @@
                     </div>
                 </form>
                 @if (!$tasks)
-                <x-empty icon="search" text="We couldn’t find any tasks matching '{{ $searchTerm }}'" />
+                <div class="card-body text-center mt-3 mb-3">
+                    <x-heroicon-o-search class="heroicon-4x text-primary mb-2" />
+                    <div class="h4">
+                        We couldn’t find any tasks matching '{{ $searchTerm }}'
+                    </div>
+                </div>
                 @else
                 @foreach ($tasks as $task)
                 <li class="list-group-item p-3">
@@ -46,7 +51,12 @@
                     </div>
                 </form>
                 @if (!$comments)
-                <x-empty icon="search" text="We couldn’t find any comments matching '{{ $searchTerm }}'" />
+                <div class="card-body text-center mt-3 mb-3">
+                    <x-heroicon-o-search class="heroicon-4x text-primary mb-2" />
+                    <div class="h4">
+                        We couldn’t find any comments matching '{{ $searchTerm }}'
+                    </div>
+                </div>
                 @else
                 @foreach ($comments as $comment)
                 @livewire('comment.single-comment', [
@@ -68,7 +78,12 @@
                     </div>
                 </form>
                 @if (!$questions)
-                <x-empty icon="search" text="We couldn’t find any questions matching '{{ $searchTerm }}'" />
+                <div class="card-body text-center mt-3 mb-3">
+                    <x-heroicon-o-search class="heroicon-4x text-primary mb-2" />
+                    <div class="h4">
+                        We couldn’t find any questions matching '{{ $searchTerm }}'
+                    </div>
+                </div>
                 @else
                 @foreach ($questions as $question)
                 @livewire('question.single-question', [
@@ -91,7 +106,12 @@
                     </div>
                 </form>
                 @if (!$answers)
-                <x-empty icon="search" text="We couldn’t find any answers matching '{{ $searchTerm }}'" />
+                <div class="card-body text-center mt-3 mb-3">
+                    <x-heroicon-o-search class="heroicon-4x text-primary mb-2" />
+                    <div class="h4">
+                        We couldn’t find any answers matching '{{ $searchTerm }}'
+                    </div>
+                </div>
                 @else
                 @foreach ($answers as $answer)
                     <div class="card mb-2">
@@ -123,7 +143,12 @@
                     </div>
                 </form>
                 @if (!$products)
-                <x-empty icon="search" text="We couldn’t find any products matching '{{ $searchTerm }}'" />
+                <div class="card-body text-center mt-3 mb-3">
+                    <x-heroicon-o-search class="heroicon-4x text-primary mb-2" />
+                    <div class="h4">
+                        We couldn’t find any products matching '{{ $searchTerm }}'
+                    </div>
+                </div>
                 @else
                 @foreach ($products as $product)
                     <li class="list-group-item pt-3 pb-3">
@@ -184,7 +209,12 @@
                     </div>
                 </form>
                 @if (!$users)
-                <x-empty icon="search" text="We couldn’t find any users matching '{{ $searchTerm }}'" />
+                <div class="card-body text-center mt-3 mb-3">
+                    <x-heroicon-o-search class="heroicon-4x text-primary mb-2" />
+                    <div class="h4">
+                        We couldn’t find any users matching '{{ $searchTerm }}'
+                    </div>
+                </div>
                 @else
                 @foreach ($users as $user)
                     <li class="list-group-item pt-3 pb-3">
