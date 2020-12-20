@@ -95,5 +95,5 @@
 @livewireScripts
 <script src="{{ asset('js/app.js', config('app.env') === 'production' ? true : false) }}" defer data-turbolinks-track="true" data-turbolinks-eval=false></script>
 @yield('emoji-picker')
-<script src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "0ebade4d5737444ea409cab9471ddb4d"}' defer data-turbolinks-track="true" data-turbolinks-eval=false></script>
+<script async src="https://cdn.splitbee.io/sb.js" defer data-turbolinks-track="true" data-turbolinks-eval=false></script>
 </html>
