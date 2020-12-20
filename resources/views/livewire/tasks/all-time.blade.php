@@ -15,7 +15,6 @@
                     All done!
                 </div>
             </div>
-            <x-empty icon="check-square" text="All done!" />
             @endif
             @foreach($tasks as $task)
                 @livewire('tasks.single-task', [

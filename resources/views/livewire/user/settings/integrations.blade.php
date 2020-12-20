@@ -159,7 +159,6 @@
                     No webhooks found
                 </div>
             </div>
-            <x-empty icon="globe" text="No webhooks found" />
             @else
             <table class="table table-bordered align-middle text-dark">
                 <thead>
