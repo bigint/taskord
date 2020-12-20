@@ -35,7 +35,7 @@
             @endif
             <div class="small mt-3">
                 <span>
-                    <x-heroicon-o-calendar class="heroicon text-secondary" />
+                    <x-heroicon-o-calendar class="heroicon-small text-secondary" />
                     @if ($product->launched)
                     <span>Launched at {{ Carbon::parse($product->launched_at)->format("F Y") }}</span>
                     @else

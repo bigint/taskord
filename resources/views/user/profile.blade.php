@@ -58,20 +58,20 @@
                     @endif
                     <div class="small mt-3">
                         <span>
-                            <x-heroicon-o-calendar class="heroicon text-secondary" />
+                            <x-heroicon-o-calendar class="heroicon-small text-secondary" />
                             Joined {{ Carbon::parse($user->created_at)->format("F Y") }}
                         </span>
                         @if ($user->location)
                         <span class="ms-3">
                             <a class="text-dark" href="https://www.google.com/maps/search/{{ urlencode($user->location) }}" target="_blank" rel="noreferrer">
-                                <x-heroicon-o-map class="heroicon text-secondary" />
+                                <x-heroicon-o-map class="heroicon-small text-secondary" />
                                 {{ $user->location }}
                             </a>
                         </span>
                         @endif
                         @if ($user->company)
                         <span class="ms-3">
-                            <x-heroicon-o-briefcase class="heroicon text-secondary" />
+                            <x-heroicon-o-briefcase class="heroicon-small text-secondary" />
                             {{ $user->company }}
                         </span>
                         @if ($user->isStaff)
