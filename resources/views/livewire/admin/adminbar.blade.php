@@ -2,128 +2,128 @@
     <div class="ps-2 pe-2">
         <span class="float-start">
             <span class="fw-bold">
-                <i class="fa fa-code-branch me-1"></i>
+                <x-heroicon-o-terminal class="heroicon" />
                 <a class="text-white" href="https://gitlab.com/taskord/taskord/-/tree/{{ $branchname }}" target="_blank" rel="noreferrer">{{ $branchname }}</a>
                 <span>➜</span>
                 <a class="text-white" href="https://gitlab.com/taskord/taskord/-/commit/{{ $headHASH }}" target="_blank" rel="noreferrer">{{ Str::limit($headHASH, 8, '') }}</a>
             </span>
             <a class="text-white fw-bold ms-3"
                 href="https://gitlab.com/taskord/taskord/-/releases/v{{ config('app.version') }}" target="_blank" rel="noreferrer">
-                <i class="fa fa-cube me-1"></i>
+                <x-heroicon-o-archive class="heroicon" />
                 v{{ config('app.version') }}
             </a>
             <a class="text-white fw-bold ms-3"
                 href="https://github.com/laravel/framework/releases/tag/v{{ App::VERSION() }}" target="_blank" rel="noreferrer">
-                <i class="fab fa-laravel me-1"></i>
+                <x-heroicon-o-chip class="heroicon" />
                 Laravel v{{ App::VERSION() }}
             </a>
             <a class="text-white fw-bold ms-3"
                 href="http://git.php.net/?p=php-src.git;a=shortlog;h=refs/heads/PHP-{{ phpversion() }}" target="_blank" rel="noreferrer">
-                <i class="fab fa-php me-1"></i>
+                <x-heroicon-o-code class="heroicon" />
                 PHP v{{ phpversion() }}
             </a>
         </span>
         <span class="float-end">
             <span role="button" class="dropdown">
                 <span class="fw-bold me-3" data-bs-toggle="dropdown">
-                    <i class="fa fa-chart-pie me-1"></i>
+                    <x-heroicon-o-chart-bar class="heroicon" />
                     Stats
                 </span>
                 <ul class="dropdown-menu shadow-sm border mt-2">
                     <li class="dropdown-item">
                         <span class="me-3">
-                            <i class="fa fa-check me-1"></i>
+                            <x-heroicon-o-check class="heroicon" />
                             <span class="fw-bold">{{ $tasks }}</span> Tasks
                         </span>
                     </li>
                     <li class="dropdown-item">
                         <span class="me-3">
-                            <i class="fa fa-users me-1"></i>
+                            <x-heroicon-o-users class="heroicon" />
                             <span class="fw-bold">{{ $users }}</span> Users
                         </span>
                     </li>
                     <li class="dropdown-item">
                         <span class="me-3">
-                            <i class="fa fa-box-open me-1"></i>
+                            <x-heroicon-o-cube class="heroicon" />
                             <span class="fw-bold">{{ $products }}</span> Products
                         </span>
                     </li>
                     <li class="dropdown-item">
                         <span class="me-3">
-                            <i class="fa fa-question-circle me-1"></i>
+                            <x-heroicon-o-question-mark-circle class="heroicon" />
                             <span class="fw-bold">{{ $questions }}</span> Questions
                         </span>
                     </li>
                     <li class="dropdown-item">
                         <span class="me-3">
-                            <i class="fa fa-comments me-1"></i>
+                            <x-heroicon-o-chat-alt-2 class="heroicon" />
                             <span class="fw-bold">{{ $answers }}</span> Answers
                         </span>
                     </li>
                     <li class="dropdown-item">
                         <span class="me-3">
-                            <i class="fa fa-comment me-1"></i>
+                            <x-heroicon-o-chat-alt class="heroicon" />
                             <span class="fw-bold">{{ $comments }}</span> Comments
                         </span>
                     </li>
                     <li class="dropdown-item">
                         <span class="me-3">
-                            <i class="fa fa-fire me-1"></i>
+                            <x-heroicon-o-fire class="heroicon" />
                             <span class="fw-bold">{{ $reputations }}</span> Reputations
                         </span>
                     </li>
                     <li class="dropdown-item">
                         <span class="me-3">
-                            <i class="fa fa-thumbs-up me-1"></i>
+                            <x-heroicon-o-thumb-up class="heroicon" />
                             <span class="fw-bold">{{ $praises }}</span> Praises
                         </span>
                     </li>
                     <li class="dropdown-item">
                         <span class="me-3">
-                            <i class="fa fa-bell me-1"></i>
+                            <x-heroicon-o-bell class="heroicon" />
                             <span class="fw-bold">{{ $notifications }}</span> Notifications
                         </span>
                     </li>
                     <li class="dropdown-item">
                         <span class="me-3">
-                            <i class="fa fa-anchor me-1"></i>
+                            <x-heroicon-o-cloud-upload class="heroicon" />
                             <span class="fw-bold">{{ $webhooks }}</span> Webhooks
                         </span>
                     </li>
                     <div class="dropdown-divider"></div>
                     <li class="dropdown-item" wire:click="refreshStats">
                         <span class="me-3">
-                            <i class="fa fa-sync-alt me-1"></i>
+                            <x-heroicon-o-refresh class="heroicon" />
                             Refresh
                         </span>
                     </li>
                 </ul>
             </span>
             <a class="fw-bold me-3 text-white" href="/admin/horizon" target="_blank" rel="noreferrer">
-                <i class="fa fa-wrench me-1"></i>
+                <x-heroicon-o-collection class="heroicon" />
                 {{ $jobs }}
                 <span class="fw-normal">
                     jobs
                 </span>
             </a>
             <span class="fw-bold me-3">
-                <i class="fa fa-clock me-1"></i>
+                <x-heroicon-o-clock class="heroicon" />
                 {{ bcmul((microtime(true) - LARAVEL_START), '1000', 0) }}ms
                 <span class="fw-normal">response total</span>
             </span>
             <span class="fw-bold me-3">
                 <a class="cursor-pointer" data-bs-toggle="modal" data-bs-target="#cleanModal" title="Clear Cache">
-                    <i class="fa fa-trash-alt text-white"></i>
+                    <x-heroicon-o-trash class="heroicon text-white" />
                 </a>
             </span>
             <span class="fw-bold me-3">
                 <a href="/graphiql" target="_blank" title="GraphiQL" rel="noreferrer">
-                    <i class="fa fa-sitemap text-white"></i>
+                    <x-heroicon-o-cube-transparent class="heroicon text-white" />
                 </a>
             </span>
             <span class="fw-bold">
                 <a href="{{ route('admin.users') }}" title="Admin">
-                    <i class="fa fa-rocket text-white"></i>
+                    <x-heroicon-o-shield-check class="heroicon text-white" />
                 </a>
             </span>
         </span>
