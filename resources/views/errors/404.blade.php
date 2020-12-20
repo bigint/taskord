@@ -3,7 +3,7 @@
 @section('content')
 <div class="container-md">
     <main>
-        <h1>4<span><i class="fas fa-check-circle text-primary"></i></span>4</h1>
+        <h1>404</h1>
         <h2>Page not found</h2>
         <p>This is not the web page you are looking for.</p>
         <p class="mt-3">

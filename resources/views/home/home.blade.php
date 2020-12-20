@@ -140,7 +140,7 @@
                                 <div class="h5">
                                     {{ Auth::user()->firstname }}{{ ' '.Auth::user()->lastname }}
                                     @if (Auth::user()->isVerified)
-                                        <i class="verified fa fa-check-circle ms-1 text-primary"></i>
+                                        <x-heroicon-s-badge-check class="heroicon-2x ms-1 text-primary verified" />
                                     @endif
                                 </div>
                                 @endif
@@ -149,24 +149,24 @@
                                 </div>
                             </a>
                             <a class="btn btn-sm btn-success text-white float-end ms-auto" href="{{ route('user.settings.profile') }}">
-                                <i class="fa fa-cog me-1"></i>
+                                <x-heroicon-o-cog class="heroicon" />
                                 Update
                             </a>
                         </div>
                     </div>
                     <div class="card-footer small fw-bold d-flex justify-content-between">
                         <a class="text-dark" href="{{ route('user.following', ['username' => Auth::user()->username]) }}">
-                            <i class="fa fa-plus me-1 text-secondary"></i>
+                            <x-heroicon-o-user-add class="heroicon text-secondary" />
                             {{ Auth::user()->followings()->count() }}
                             Following
                         </a>
                         <a class="text-dark" href="{{ route('user.followers', ['username' => Auth::user()->username]) }}">
-                            <i class="fa fa-users me-1 text-secondary"></i>
+                            <x-heroicon-o-users class="heroicon text-secondary" />
                             {{ number_format(Auth::user()->followers()->count()) }}
                             {{ Auth::user()->followers()->count() === 1 ? "Follower" : "Followers" }}
                         </a>
                         <span>
-                            <i class="fa fa-fire me-1 text-secondary"></i>
+                            <x-heroicon-o-fire class="heroicon text-secondary" />
                             {{ number_format(Auth::user()->getPoints()) }}
                             {{ Auth::user()->getPoints() < 2 ? 'Reputation' : 'Reputations' }}
                         </span>
@@ -192,7 +192,7 @@
                                     {{ $user->username }}
                                 @endif
                                 @if ($user->isVerified)
-                                    <i class="verified fa fa-check-circle ms-1 text-primary"></i>
+                                    <x-heroicon-s-badge-check class="heroicon ms-1 text-primary verified" />
                                 @endif
                             </span>
                             <div>
@@ -306,7 +306,7 @@
                                 {{ $user->username }}
                             @endif
                             @if ($user->isVerified)
-                                <i class="verified fa fa-check-circle ms-1 text-primary"></i>
+                                <x-heroicon-s-badge-check class="heroicon ms-1 text-primary verified" />
                             @endif
                         </a>
                         <span class="badge rounded-pill bg-warning text-dark align-middle reputation" title="🔥 {{ number_format($user->getPoints()) }}">
