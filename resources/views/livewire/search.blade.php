@@ -55,7 +55,7 @@
                             @endif
                         </span>
                         @if ($user->isVerified)
-                            <i class="verified fa fa-check-circle ms-1 me-1 text-primary"></i>
+                            <x-heroicon-s-badge-check class="heroicon ms-1 text-primary verified" />
                         @endif
                         <span class="small">{{ "@" . $user->username }}</span>
                     </a>
