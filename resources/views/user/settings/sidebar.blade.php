@@ -5,7 +5,7 @@
                 class="list-group-item text-dark pt-2 pb-2 @if (Route::currentRouteName() === 'user.settings.profile') active text-white @endif"
                 href="{{ route('user.settings.profile') }}"
             >
-                <i class="fa fa-user me-1"></i>
+                <x-heroicon-o-user class="heroicon" />
                 Profile
             </a>
             <a
@@ -47,7 +47,7 @@
                 class="list-group-item text-dark pt-2 pb-2 @if (Route::currentRouteName() === 'user.settings.api') active text-white @endif"
                 href="{{ route('user.settings.api') }}"
             >
-                <i class="fa fa-code me-1"></i>
+                <x-heroicon-o-code class="heroicon" />
                 API
             </a>
             <a

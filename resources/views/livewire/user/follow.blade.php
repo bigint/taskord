@@ -3,13 +3,13 @@
     @if (Auth::id() !== $user->id && !$user->isFlagged)
     @if (Auth::user()->isFollowing($user))
     <button wire:click="followUser" wire:loading.attr="disabled" class="btn btn-sm btn-danger mb-2">
-        <i class="fa fa-user-minus me-1"></i>
+        <x-heroicon-o-user-remove class="heroicon" />
         Unfollow
         <span wire:target="followUser" wire:loading class="spinner-border spinner-border-sm ms-2" role="status"></span>
     </button>
     @else
     <button wire:click="followUser" wire:loading.attr="disabled" class="btn btn-sm btn-primary mb-2">
-        <i class="fa fa-user-plus me-1"></i>
+        <x-heroicon-o-user-add class="heroicon" />
         Follow
         <span wire:target="followUser" wire:loading class="spinner-border spinner-border-sm ms-2" role="status"></span>
     </button>

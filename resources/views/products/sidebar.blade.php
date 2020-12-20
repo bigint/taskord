@@ -22,7 +22,7 @@
                 @endif
             </a>
             <span class="small text-secondary ms-3">
-                <i class="fa fa-check text-success me-1"></i>
+                <x-heroicon-o-check class="heroicon text-success" />
                 {{ $product->tasks->count('id') }}
                 {{ $product->tasks->count('id') == 1 ? 'Task' : 'Tasks' }}
             </span>

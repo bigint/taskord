@@ -166,7 +166,7 @@
             <form wire:target="updateSponsor" wire:submit.prevent="updateSponsor">
                 <div class="input-group mb-3">
                     <span class="input-group-text">
-                        <i class="fa fa-hands-helping text-info"></i>
+                        <x-heroicon-o-heart class="heroicon text-danger" />
                     </span>
                     <input type="text" class="form-control @error('sponsor') is-invalid @enderror" placeholder="Sponsor URL" value="{{ $user->sponsor }}" wire:model.defer="sponsor">
                     @error('sponsor')
@@ -198,7 +198,7 @@
             <form wire:target="updateSocial" wire:submit.prevent="updateSocial">
                 <div class="input-group mb-3">
                     <span class="input-group-text">
-                        <i class="fa fa-link"></i>
+                        <x-heroicon-o-link class="heroicon" />
                     </span>
                     <input type="text" class="form-control @error('website') is-invalid @enderror" placeholder="Website" value="{{ $user->website }}" wire:model.defer="website">
                     @error('website')

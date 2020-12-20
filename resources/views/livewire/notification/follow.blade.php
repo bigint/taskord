@@ -1,12 +1,12 @@
 <div>
     @if (Auth::user()->isFollowing($user))
     <button wire:click="followUser" wire:loading.attr="disabled" class="btn btn-sm btn-danger">
-        <i class="fa fa-user-minus me-1"></i>
+        <x-heroicon-o-user-remove class="heroicon" />
         Unfollow <span class="fw-bold">{{ '@'.$user->username }}</span>
     </button>
     @else
     <button wire:click="followUser" wire:loading.attr="disabled" class="btn btn-sm btn-primary">
-        <i class="fa fa-user-plus me-1"></i>
+        <x-heroicon-o-user-add class="heroicon" />
         Follow back <span class="fw-bold">{{ '@'.$user->username }}</span>
     </button>
     @endif

@@ -1,7 +1,7 @@
 <div>
     @if ($notifications->count('id') === 0)
     <div class="card-body text-center mt-5">
-        <i class="fa fa-4x fa-bell mb-3 text-primary"></i>
+        <x-heroicon-o-bell class="heroicon-4x text-primary mb-2" />
         <div class="h4">
             No notifications
         </div>

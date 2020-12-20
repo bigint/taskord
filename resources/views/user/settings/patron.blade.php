@@ -57,7 +57,7 @@
                                 @endif
                                 @if ($user->patron->cancel_url)
                                 <a class="btn btn-danger" href="{{ $user->patron->cancel_url }}" target="_blank" rel="noreferrer">
-                                    <i class="fa fa-times me-1"></i>
+                                    <x-heroicon-o-x class="heroicon" />
                                     Cancel Patron
                                 </a>
                                 @endif

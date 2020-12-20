@@ -26,7 +26,7 @@
             </div>
             @if ($confirming === Auth::id())
             <button wire:click="deleteAccount" class="btn btn-danger">
-                <i class="fa fa-question me-1"></i>
+                <x-heroicon-o-question-mark-circle class="heroicon" />
                 Are you sure?
                 <span wire:loading class="spinner-border spinner-border-sm ms-2" role="status"></span>
             </button>
