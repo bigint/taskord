@@ -46,7 +46,13 @@
                             @endif
                             <span class="avatar-stack ms-1">
                                 @foreach ($question->answer->groupBy('user_id')->take(5) as $answer)
-                                <img loading=lazy class="replies-avatar rounded-circle {{ $loop->last ? 'me-0' : '' }}" src="{{ Helper::getCDNImage($answer[0]->user->avatar, 80) }}" alt="{{ $answer[0]->user->username }}'s avatar" />
+                                <img
+                                    loading=lazy
+                                    class="user-popover replies-avatar rounded-circle {{ $loop->last ? 'me-0' : '' }}"
+                                    data-id="{{ $answer[0]->user->id }}"
+                                    src="{{ Helper::getCDNImage($answer[0]->user->avatar, 80) }}"
+                                    alt="{{ $answer[0]->user->username }}'s avatar"
+                                />
                                 @endforeach
                             </span>
                         </div>
