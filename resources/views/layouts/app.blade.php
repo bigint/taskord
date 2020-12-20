@@ -39,6 +39,7 @@
     @endauth
     @livewireStyles
     @if (config('app.env') === 'production')
+    <script async src="https://cdn.splitbee.io/sb.js" defer data-turbolinks-track="true" data-turbolinks-eval=false></script>
     @laravelPWA
     @endif
 </head>
@@ -95,5 +96,4 @@
 @livewireScripts
 <script src="{{ asset('js/app.js', config('app.env') === 'production' ? true : false) }}" defer data-turbolinks-track="true" data-turbolinks-eval=false></script>
 @yield('emoji-picker')
-<script async src="https://cdn.splitbee.io/sb.js" defer data-turbolinks-track="true" data-turbolinks-eval=false></script>
 </html>
