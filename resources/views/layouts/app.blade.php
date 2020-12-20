@@ -19,7 +19,6 @@
     <title>@yield('pageTitle') Taskord</title>
     <link rel="icon" href="/images/logo.svg" sizes="any" type="image/svg+xml">
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
     <link href="{{ mix('css/app.css') }}" rel="stylesheet" data-turbolinks-track="true">
     @auth
     @if (Auth::user()->isPatron or Auth::user()->isStaff)
