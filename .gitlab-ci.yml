@@ -36,8 +36,6 @@ Test:
     - php artisan horizon:publish
     - php artisan migrate:fresh --seed
     - vendor/bin/phpunit --coverage-text --colors=never
-  artifacts:
-    expire_in: 1 day
 
 Lighthouse:
   image: cypress/browsers:node14.15.0-chrome86-ff82
@@ -54,8 +52,6 @@ Housekeeping:
     - curl --request POST --header "PRIVATE-TOKEN:$ACCESS_TOKEN" https://gitlab.com/api/v4/projects/$CI_PROJECT_ID/housekeeping
   only:
     - main
-  artifacts:
-    expire_in: 1 day
 
 Merged Branches:
   stage: deploy
@@ -63,8 +59,6 @@ Merged Branches:
     - curl --request DELETE --header "PRIVATE-TOKEN:$ACCESS_TOKEN" https://gitlab.com/api/v4/projects/$CI_PROJECT_ID/repository/merged_branches
   only:
     - main
-  artifacts:
-    expire_in: 1 day
 
 Deploy Production:
   stage: deploy
@@ -78,5 +72,3 @@ Deploy Production:
     - ssh -o StrictHostKeyChecking=no -i "taskord.pem" ubuntu@deploy.taskord.com 'cd /var/www/taskord; ./scripts/deploy.sh'
   only:
     - main
-  artifacts:
-    expire_in: 1 day
