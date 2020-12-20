@@ -56,7 +56,11 @@
                     @else
                     @if ($product->avatar)
                     <div>
+<<<<<<< HEAD
                         <img loading=lazy class="avatar-100 rounded mb-3" src="{{ Helper::getCDNImage($product->avatar, 200) }}" alt="{{ $product->slug }}'s avatar" />
+=======
+                        <img loading=lazy class="avatar-100 rounded mb-3" src="{{ Helper::getCDNImage($product->avatar, 240) }}" alt="{{ $product->slug }}'s avatar" />
+>>>>>>> b18e0c01a7a50af04ce03ea488741e1ccafd70c7
                     </div>
                     @endif
                     @endif

@@ -1,7 +1,12 @@
 <div class="card">
     <div class="card-body d-flex align-items-center">
+<<<<<<< HEAD
         <a href="{{ $product->avatar }}" data-lightbox="{{ $product->avatar }}" data-title="{{ $product->name }}'s Logo">
             <img loading=lazy class="rounded avatar-120" src="{{ Helper::getCDNImage($product->avatar, 200) }}" alt="{{ $product->slug }}'s avatar" />
+=======
+        <a href="{{ $product->avatar }}" target="_blank">
+            <img loading=lazy class="rounded avatar-120" src="{{ Helper::getCDNImage($product->avatar, 240) }}" alt="{{ $product->slug }}'s avatar" />
+>>>>>>> b18e0c01a7a50af04ce03ea488741e1ccafd70c7
         </a>
         <div class="ms-4">
             <div class="h5 mb-0">

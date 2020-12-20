@@ -15,7 +15,11 @@
                     class="user-hover"
                     data-id="{{ $answer->question->user->id }}"
                 >
+<<<<<<< HEAD
                     <img loading=lazy class="rounded-circle avatar-30" src="{{ Helper::getCDNImage($answer->question->user->avatar, 50) }}" alt="{{ $answer->question->user->username }}'s avatar" />
+=======
+                    <img loading=lazy class="rounded-circle avatar-30" src="{{ Helper::getCDNImage($answer->question->user->avatar, 80) }}" alt="{{ $answer->question->user->username }}'s avatar" />
+>>>>>>> b18e0c01a7a50af04ce03ea488741e1ccafd70c7
                 </a>
                 <a class="align-middle text-dark ms-2" href="{{ route('question.question', ['id' => $answer->question->id]) }}">
                     {{ $answer->question->title }}

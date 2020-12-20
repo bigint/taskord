@@ -63,7 +63,11 @@
                         class="user-hover"
                         data-id="{{ $question->user->id }}"
                     >
+<<<<<<< HEAD
                         <img loading=lazy class="rounded-circle avatar-40 mt-1" src="{{ Helper::getCDNImage($question->user->avatar, 50) }}" alt="{{ $question->user->username }}'s avatar" />
+=======
+                        <img loading=lazy class="rounded-circle avatar-40 mt-1" src="{{ Helper::getCDNImage($question->user->avatar, 80) }}" alt="{{ $question->user->username }}'s avatar" />
+>>>>>>> b18e0c01a7a50af04ce03ea488741e1ccafd70c7
                     </a>
                     <span class="ms-3">
                         <a
@@ -105,7 +109,11 @@
                             class="me-1 user-hover"
                             data-id="{{ $answer[0]->user->id }}"
                         >
+<<<<<<< HEAD
                             <img loading=lazy class="rounded-circle avatar-30 mb-2" src="{{ Helper::getCDNImage($answer[0]->user->avatar, 50) }}" alt="{{ $answer[0]->user->username }}'s avatar" />
+=======
+                            <img loading=lazy class="rounded-circle avatar-30 mb-2" src="{{ Helper::getCDNImage($answer[0]->user->avatar, 80) }}" alt="{{ $answer[0]->user->username }}'s avatar" />
+>>>>>>> b18e0c01a7a50af04ce03ea488741e1ccafd70c7
                         </a>
                     @endforeach
                 </div>

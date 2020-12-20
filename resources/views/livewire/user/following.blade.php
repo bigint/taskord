@@ -10,7 +10,11 @@
     @foreach ($user->followings as $user)
     <div class="card mb-3">
         <div class="card-body d-flex align-items-center">
+<<<<<<< HEAD
         <img loading=lazy class="rounded-circle avatar-40 mt-1" src="{{ Helper::getCDNImage($user->avatar, 50) }}" alt="{{ $user->username }}'s avatar" />
+=======
+        <img loading=lazy class="rounded-circle avatar-40 mt-1" src="{{ Helper::getCDNImage($user->avatar, 80) }}" alt="{{ $user->username }}'s avatar" />
+>>>>>>> b18e0c01a7a50af04ce03ea488741e1ccafd70c7
             <span class="ms-3">
                 <a href="{{ route('user.done', ['username' => $user->username]) }}" class="align-text-top text-dark">
                     <span class="fw-bold">

@@ -13,7 +13,11 @@
             @if ($task->type === 'product')
             <span class="small text-secondary">
                 on
+<<<<<<< HEAD
                 <img loading=lazy class="rounded mb-1 ms-1 avatar-15" src="{{ Helper::getCDNImage($task->product->avatar, 50) }}" alt="{{ $task->product->slug }}'s avatar" />
+=======
+                <img loading=lazy class="rounded mb-1 ms-1 avatar-15" src="{{ Helper::getCDNImage($task->product->avatar, 80) }}" alt="{{ $task->product->slug }}'s avatar" />
+>>>>>>> b18e0c01a7a50af04ce03ea488741e1ccafd70c7
                 <a class="text-secondary" href="{{ route('product.done', ['slug' => $task->product->slug]) }}">
                     {{ $task->product->name }}
                 </a>
@@ -24,7 +28,11 @@
         <div class="gallery mb-3">
         @foreach ($task->images ?? [] as $image)
         <div>
+<<<<<<< HEAD
             <a href="{{ asset('storage/' . $image) }}" data-lightbox="{{ $image }}" data-title="Image by {{ '@'.$task->user->username }}">
+=======
+            <a href="{{ asset('storage/' . $image) }}" target="_blank">
+>>>>>>> b18e0c01a7a50af04ce03ea488741e1ccafd70c7
                 <img loading=lazy class="{{ count($task->images) === 1 ? 'w-50' : 'gallery' }} img-fluid border mt-3 rounded" src="{{ Helper::getCDNImage(asset('storage/' . $image), 500) }}" alt="{{ asset('storage/' . $image) }}" />
             </a>
         </div>

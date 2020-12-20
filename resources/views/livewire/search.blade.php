@@ -31,7 +31,11 @@
                     </span>
                 </span>
                 <a href="{{ route('user.done', ['username' => $task->user->username]) }}">
+<<<<<<< HEAD
                     <img loading=lazy class="rounded-circle float-end avatar-30" src="{{ Helper::getCDNImage($task->user->avatar, 50) }}" alt="{{ $task->user->username }}'s avatar" />
+=======
+                    <img loading=lazy class="rounded-circle float-end avatar-30" src="{{ Helper::getCDNImage($task->user->avatar, 80) }}" alt="{{ $task->user->username }}'s avatar" />
+>>>>>>> b18e0c01a7a50af04ce03ea488741e1ccafd70c7
                 </a>
             </li>
             @endforeach
@@ -44,7 +48,11 @@
         @if (count($users) > 0)
             @foreach ($users as $user)
             <li class="list-group-item">
+<<<<<<< HEAD
                 <img loading=lazy class="rounded-circle avatar-30" src="{{ Helper::getCDNImage($user->avatar, 50) }}" alt="{{ $user->username }}'s avatar" />
+=======
+                <img loading=lazy class="rounded-circle avatar-30" src="{{ Helper::getCDNImage($user->avatar, 80) }}" alt="{{ $user->username }}'s avatar" />
+>>>>>>> b18e0c01a7a50af04ce03ea488741e1ccafd70c7
                 <span>
                     <a class="ms-2 task-font text-dark align-middle" href="{{ route('user.done', ['username' => $user->username]) }}">
                         <span class="fw-bold">
@@ -71,14 +79,22 @@
         @if (count($products) > 0)
             @foreach ($products as $product)
             <li class="list-group-item">
+<<<<<<< HEAD
                 <img loading=lazy class="rounded avatar-30" src="{{ Helper::getCDNImage($product->avatar, 50) }}" alt="{{ $product->slug }}'s avatar" />
+=======
+                <img loading=lazy class="rounded avatar-30" src="{{ Helper::getCDNImage($product->avatar, 80) }}" alt="{{ $product->slug }}'s avatar" />
+>>>>>>> b18e0c01a7a50af04ce03ea488741e1ccafd70c7
                 <span>
                     <a class="ms-2 task-font text-dark align-middle" href="{{ route('product.done', ['slug' => $product->slug]) }}">
                         <span class="fw-bold">{{ $product->name }}</span>
                     </a>
                 </span>
                 <a href="{{ route('user.done', ['username' => $product->owner->username]) }}">
+<<<<<<< HEAD
                     <img loading=lazy class="rounded-circle float-end avatar-30" src="{{ Helper::getCDNImage($product->owner->avatar, 50) }}" alt="{{ $product->owner->username }}'s avatar" />
+=======
+                    <img loading=lazy class="rounded-circle float-end avatar-30" src="{{ Helper::getCDNImage($product->owner->avatar, 80) }}" alt="{{ $product->owner->username }}'s avatar" />
+>>>>>>> b18e0c01a7a50af04ce03ea488741e1ccafd70c7
                 </a>
             </li>
             @endforeach
@@ -97,7 +113,11 @@
                     </a>
                 </span>
                 <a href="{{ route('user.done', ['username' => $question->user->username]) }}">
+<<<<<<< HEAD
                     <img loading=lazy class="rounded-circle float-end avatar-30" src="{{ Helper::getCDNImage($question->user->avatar, 50) }}" alt="{{ $question->user->username }}'s avatar" />
+=======
+                    <img loading=lazy class="rounded-circle float-end avatar-30" src="{{ Helper::getCDNImage($question->user->avatar, 80) }}" alt="{{ $question->user->username }}'s avatar" />
+>>>>>>> b18e0c01a7a50af04ce03ea488741e1ccafd70c7
                 </a>
             </li>
             @endforeach

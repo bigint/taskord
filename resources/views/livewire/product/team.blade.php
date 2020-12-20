@@ -4,7 +4,11 @@
         class="user-hover"
         data-id="{{ $user->id }}"
     >
+<<<<<<< HEAD
         <img loading=lazy class="rounded-circle avatar-30" src="{{ Helper::getCDNImage($user->avatar, 50) }}" alt="{{ $user->username }}'s avatar" />
+=======
+        <img loading=lazy class="rounded-circle avatar-30" src="{{ Helper::getCDNImage($user->avatar, 80) }}" alt="{{ $user->username }}'s avatar" />
+>>>>>>> b18e0c01a7a50af04ce03ea488741e1ccafd70c7
     </a>
     <a
         href="{{ route('user.done', ['username' => $user->username]) }}"

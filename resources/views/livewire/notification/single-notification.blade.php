@@ -43,7 +43,11 @@
                 @endif
                 @if ($type !== "App\Notifications\Welcome" and $type !== "App\Notifications\VersionReleased")
                 <a href="{{ route('user.done', ['username' => $user->username]) }}">
+<<<<<<< HEAD
                     <img loading=lazy class="rounded-circle avatar-20 ms-2 me-1" src="{{ Helper::getCDNImage($user->avatar, 50) }}" alt="{{ $user->username }}'s avatar" />
+=======
+                    <img loading=lazy class="rounded-circle avatar-20 ms-2 me-1" src="{{ Helper::getCDNImage($user->avatar, 80) }}" alt="{{ $user->username }}'s avatar" />
+>>>>>>> b18e0c01a7a50af04ce03ea488741e1ccafd70c7
                     <span class="align-middle">
                         @if ($user->firstname or $user->lastname)
                             {{ $user->firstname }}{{ ' '.$user->lastname }}
@@ -151,7 +155,11 @@
                 <span class="align-middle">
                     subscribed to your product
                     <a class="fw-bold" href="{{ route('product.done', ['slug' => \App\Models\Product::find($data['product_id'])->slug]) }}">
+<<<<<<< HEAD
                         <img loading=lazy class="rounded avatar-20 ms-1 me-1" src="{{ Helper::getCDNImage(\App\Models\Product::find($data['product_id'])->avatar, 50) }}" />
+=======
+                        <img loading=lazy class="rounded avatar-20 ms-1 me-1" src="{{ Helper::getCDNImage(\App\Models\Product::find($data['product_id'])->avatar, 80) }}" />
+>>>>>>> b18e0c01a7a50af04ce03ea488741e1ccafd70c7
                         {{ \App\Models\Product::find($data['product_id'])->name }}
                     </a>
                 </span>
@@ -159,7 +167,11 @@
                 <span class="align-middle">
                     added you to the product
                     <a class="fw-bold" href="{{ route('product.done', ['slug' => \App\Models\Product::find($data['product_id'])->slug]) }}">
+<<<<<<< HEAD
                         <img loading=lazy class="rounded avatar-20 ms-1 me-1" src="{{ Helper::getCDNImage(\App\Models\Product::find($data['product_id'])->avatar, 50) }}" />
+=======
+                        <img loading=lazy class="rounded avatar-20 ms-1 me-1" src="{{ Helper::getCDNImage(\App\Models\Product::find($data['product_id'])->avatar, 80) }}" />
+>>>>>>> b18e0c01a7a50af04ce03ea488741e1ccafd70c7
                         {{ \App\Models\Product::find($data['product_id'])->name }}
                     </a>
                 </span>
@@ -167,7 +179,11 @@
                 <span class="align-middle">
                     removed you from the product
                     <a class="fw-bold" href="{{ route('product.done', ['slug' => \App\Models\Product::find($data['product_id'])->slug]) }}">
+<<<<<<< HEAD
                         <img loading=lazy class="rounded avatar-20 ms-1 me-1" src="{{ Helper::getCDNImage(\App\Models\Product::find($data['product_id'])->avatar, 50) }}" />
+=======
+                        <img loading=lazy class="rounded avatar-20 ms-1 me-1" src="{{ Helper::getCDNImage(\App\Models\Product::find($data['product_id'])->avatar, 80) }}" />
+>>>>>>> b18e0c01a7a50af04ce03ea488741e1ccafd70c7
                         {{ \App\Models\Product::find($data['product_id'])->name }}
                     </a>
                 </span>
@@ -175,7 +191,11 @@
                 <span class="align-middle">
                     left from the product
                     <a class="fw-bold" href="{{ route('product.done', ['slug' => \App\Models\Product::find($data['product_id'])->slug]) }}">
+<<<<<<< HEAD
                         <img loading=lazy class="rounded avatar-20 ms-1 me-1" src="{{ Helper::getCDNImage(\App\Models\Product::find($data['product_id'])->avatar, 50) }}" />
+=======
+                        <img loading=lazy class="rounded avatar-20 ms-1 me-1" src="{{ Helper::getCDNImage(\App\Models\Product::find($data['product_id'])->avatar, 80) }}" />
+>>>>>>> b18e0c01a7a50af04ce03ea488741e1ccafd70c7
                         {{ \App\Models\Product::find($data['product_id'])->name }}
                     </a>
                 </span>
