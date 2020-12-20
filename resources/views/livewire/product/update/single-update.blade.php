@@ -11,7 +11,7 @@
                     {{ $update->user->username }}
                 @endif
                 @if ($update->user->isVerified)
-                <i class="verified fa fa-check-circle ms-1 text-primary"></i>
+                <x-heroicon-s-badge-check class="heroicon ms-1 text-primary verified" />
                 @endif
                 @if ($update->user->isPatron)
                     <a class="patron ms-1 small" href="{{ route('patron.home') }}">

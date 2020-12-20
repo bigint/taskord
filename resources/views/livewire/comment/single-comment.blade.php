@@ -16,7 +16,7 @@
                     {{ $comment->user->username }}
                 @endif
                 @if ($comment->user->isVerified)
-                    <i class="verified fa fa-check-circle ms-1 text-primary"></i>
+                    <x-heroicon-s-badge-check class="heroicon ms-1 text-primary verified" />
                 @endif
                 @if ($comment->user->isPatron)
                     <a class="patron ms-1 small" href="{{ route('patron.home') }}">

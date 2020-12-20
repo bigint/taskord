@@ -29,7 +29,7 @@
                             <i class="private ms-2 fa fa-lock text-primary"></i>
                         @endif
                         @if ($user->isVerified)
-                            <i class="verified ms-2 fa fa-check-circle text-primary"></i>
+                            <x-heroicon-s-badge-check class="heroicon ms-1 text-primary verified" />
                         @endif
                         @if ($user->isPatron)
                             <a class="patron ms-2 small" href="{{ route('patron.home') }}">

@@ -18,7 +18,7 @@
                 {{ $user->username }}
             @endif
             @if ($user->isVerified)
-                <i class="fa fa-check-circle ms-1 text-primary" title="Verified"></i>
+                <x-heroicon-s-badge-check class="heroicon ms-1 text-primary verified" />
             @endif
         </div>
         <div class="small text-dark">{{ '@'.$user->username }}</div>
