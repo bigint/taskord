@@ -150,7 +150,7 @@
                                 </div>
                                 <div>{{ $product->description }}</div>
                                 <div class="small mt-2">
-                                    <i class="fa fa-calendar-alt me-1 text-secondary"></i>
+                                    <x-heroicon-o-calendar class="heroicon text-secondary" />
                                     @if ($product->launched)
                                     <span>Launched at {{ Carbon::parse($product->launched_at)->format("F Y") }}</span>
                                     @else
@@ -221,7 +221,7 @@
                                 <div>{{ $user->bio }}</div>
                                 <div class="small mt-2">
                                     <span>
-                                        <i class="fa fa-calendar-alt me-1 text-secondary"></i>
+                                        <x-heroicon-o-calendar class="heroicon text-secondary" />
                                         Joined {{ Carbon::parse($user->created_at)->format("F Y") }}
                                     </span>
                                     @if ($user->location)

@@ -58,7 +58,7 @@
                     @endif
                     <div class="small mt-3">
                         <span>
-                            <i class="fa fa-calendar-alt me-1 text-secondary"></i>
+                            <x-heroicon-o-calendar class="heroicon text-secondary" />
                             Joined {{ Carbon::parse($user->created_at)->format("F Y") }}
                         </span>
                         @if ($user->location)

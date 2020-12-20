@@ -13,7 +13,7 @@
                     </span>
                 </a>
                 <div class="text-secondary small mt-1">
-                    <i class="fa fa-eye me-1"></i>
+                    <x-heroicon-o-eye class="heroicon" />
                     <span class="fw-bold">{{ views($question)->remember()->unique()->count('id') }}</span>
                     {{ views($question)->remember()->unique()->count('id') <= 1 ? 'View' : 'Views' }}
                 </div>
