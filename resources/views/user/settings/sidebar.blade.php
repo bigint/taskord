@@ -12,21 +12,21 @@
                 class="list-group-item text-dark pt-2 pb-2 @if (Route::currentRouteName() === 'user.settings.account') active text-white @endif"
                 href="{{ route('user.settings.account') }}"
             >
-                <i class="fa fa-at me-1"></i>
+                <x-heroicon-o-at-symbol class="heroicon" />
                 Account
             </a>
             <a
                 class="list-group-item text-dark pt-2 pb-2 @if (Route::currentRouteName() === 'user.settings.patron') active text-white @endif"
                 href="{{ route('user.settings.patron') }}"
             >
-                <i class="fa fa-heart me-1"></i>
+                <x-heroicon-o-heart class="heroicon" />
                 Patron
             </a>
             <a
                 class="list-group-item text-dark pt-2 pb-2 @if (Route::currentRouteName() === 'user.settings.password') active text-white @endif"
                 href="{{ route('user.settings.password') }}"
             >
-                <i class="fa fa-key me-1"></i>
+                <x-heroicon-o-key class="heroicon" />
                 Password
             </a>
             <a
@@ -40,7 +40,7 @@
                 class="list-group-item text-dark pt-2 pb-2 @if (Route::currentRouteName() === 'user.settings.integrations') active text-white @endif"
                 href="{{ route('user.settings.integrations') }}"
             >
-                <i class="fa fa-anchor me-1"></i>
+                <x-heroicon-o-cloud-upload class="heroicon" />
                 Integrations
             </a>
             <a

@@ -51,7 +51,7 @@
                             <div class="mt-2">
                                 @if ($user->patron->update_url)
                                 <a class="btn btn-success text-white" href="{{ $user->patron->update_url }}" target="_blank" rel="noreferrer">
-                                    <i class="fa fa-pen me-1"></i>
+                                    <x-heroicon-o-pencil class="heroicon" />
                                     Update Payment
                                 </a>
                                 @endif
