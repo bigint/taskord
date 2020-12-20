@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Admin;
 
+use App\Jobs\Clean;
 use App\Models\Answer;
 use App\Models\Comment;
 use App\Models\Product;
@@ -27,6 +28,17 @@ class Adminbar extends Component
             ->log('Adminbar Status Refreshed');
 
         $this->emitSelf('refreshStats');
+    }
+
+    public function clean()
+    {
+        Clean::dispatch()->delay(now()->addSeconds(10));
+        activity()
+            ->withProperties(['type' => 'Admin'])
+            ->log('Cleaned the Taskord Application');
+        session()->flash('global', 'Cleaning process has been initiated successfully 🧼!');
+
+        return redirect()->route('home');
     }
 
     public function render()

@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\Task;
 use App\Models\User;
-use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Auth;
 use Spatie\Activitylog\Models\Activity;
 
@@ -63,15 +62,5 @@ class AdminController extends Controller
 
             return 'enabled';
         }
-    }
-
-    public static function clean()
-    {
-        Artisan::call('app:clean');
-        activity()
-            ->withProperties(['type' => 'Admin'])
-            ->log('Cleaned the Taskord Application');
-
-        return redirect()->route('home');
     }
 }
