@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Admin;
 
 use App\Jobs\Clean;
+use App\Jobs\Deploy;
 use App\Models\Answer;
 use App\Models\Comment;
 use App\Models\Product;
@@ -37,6 +38,17 @@ class Adminbar extends Component
             ->withProperties(['type' => 'Admin'])
             ->log('Cleaned the Taskord Application');
         session()->flash('global', 'Cleaning process has been initiated successfully 🧼');
+
+        return redirect()->route('home');
+    }
+
+    public function deploy()
+    {
+        Deploy::dispatch()->delay(now()->addSeconds(10));
+        activity()
+            ->withProperties(['type' => 'Admin'])
+            ->log('Deployed the Taskord Application 🐿');
+        session()->flash('global', 'Deployment process has been initiated successfully 🐿');
 
         return redirect()->route('home');
     }

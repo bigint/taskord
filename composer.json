@@ -38,6 +38,7 @@
         "spatie/laravel-activitylog": "^3.16",
         "spatie/laravel-backup": "^6.11",
         "stevebauman/purify": "^3.0",
+        "symfony/process": "^5.2",
         "symfony/psr-http-message-bridge": "^2.0",
         "valorin/pwned-validator": "^1.3"
     },
