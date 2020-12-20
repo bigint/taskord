@@ -7,7 +7,12 @@
         $message = 'All Done';
     }
     @endphp
-    <x-empty icon="check-square" :text="$message" />
+    <div class="card-body text-center mt-3 mb-3">
+        <x-heroicon-o-check-circle class="heroicon-4x text-primary mb-2" />
+        <div class="h4">
+            {{ $message }}
+        </div>
+    </div>
     @endif
     @if ($page === 1)
     <ul class="list-group">

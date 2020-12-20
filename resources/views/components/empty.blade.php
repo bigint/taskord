@@ -1,5 +1,5 @@
 <div class="card-body text-center mt-3 mb-3">
-    <i class="fa fa-4x fa-{{ $icon }} mb-3 text-primary"></i>
+    <x-heroicon-o-exclamation class="heroicon-4x text-primary mb-2" />
     <div class="h4">
         {{ $text }}
     </div>
