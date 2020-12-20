@@ -28,10 +28,7 @@
     @endif
     @endauth
     @livewireStyles
-    @if (config('app.env') === 'production')
-    <script async src="https://cdn.splitbee.io/sb.js" defer data-turbolinks-track="true" data-turbolinks-eval=false></script>
-    @laravelPWA
-    @endif
+
 </head>
 <body>
     <div id="app">
