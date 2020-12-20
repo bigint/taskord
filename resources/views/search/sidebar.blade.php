@@ -34,7 +34,6 @@
                 href="{{ route('search.products', ['q' => $searchTerm]) }}"
             >
                 <x-heroicon-o-cube class="heroicon" />
-                <i class="fa fa-box-open me-1"></i>
                 Products
             </a>
             <a
