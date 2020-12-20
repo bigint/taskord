@@ -32,7 +32,7 @@ class Adminbar extends Component
 
     public function clean()
     {
-        Clean::dispatch()->delay(now()->addMinutes(1));
+        Clean::dispatch()->delay(now()->addSeconds(10));
         activity()
             ->withProperties(['type' => 'Admin'])
             ->log('Cleaned the Taskord Application');
