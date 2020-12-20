@@ -95,11 +95,7 @@
                     class="product-hover"
                     data-id="{{ $product->id }}"
                 >
-<<<<<<< HEAD
-                    <img loading=lazy class="rounded avatar-30 ms-2" src="{{ Helper::getCDNImage($product->avatar, 50) }}" height="50" width="50" alt="{{ $product->slug }}'s avatar" />
-=======
                     <img loading=lazy class="rounded avatar-30 ms-2" src="{{ Helper::getCDNImage($product->avatar, 80) }}" height="50" width="50" alt="{{ $product->slug }}'s avatar" />
->>>>>>> b18e0c01a7a50af04ce03ea488741e1ccafd70c7
                 </a>
                 <a
                     href="{{ route('product.done', ['slug' => $product->slug]) }}"

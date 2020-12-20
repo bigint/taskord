@@ -41,11 +41,7 @@
                                         $user = App\Models\User::find($activity->causer_id);
                                         @endphp
                                         @if ($user)
-<<<<<<< HEAD
-                                        <img loading=lazy class="avatar-20 mb-1 me-1 rounded-circle" src="{{ Helper::getCDNImage($user->avatar, 50) }}" alt="{{ $user->username }}'s avatar" />
-=======
                                         <img loading=lazy class="avatar-20 mb-1 me-1 rounded-circle" src="{{ Helper::getCDNImage($user->avatar, 80) }}" alt="{{ $user->username }}'s avatar" />
->>>>>>> b18e0c01a7a50af04ce03ea488741e1ccafd70c7
                                         <a
                                             class="user-hover"
                                             data-id="{{ $user->id }}"

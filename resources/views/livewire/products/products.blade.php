@@ -18,11 +18,7 @@
         <div class="card mb-2">
             <div class="card-body d-flex align-items-center">
                 <a href="{{ route('product.done', ['slug' => $product->slug]) }}">
-<<<<<<< HEAD
-                    <img loading=lazy class="rounded avatar-50 mt-1 ms-2" src="{{ Helper::getCDNImage($product->avatar, 50) }}" height="50" width="50" alt="{{ $product->slug }}'s avatar" />
-=======
                     <img loading=lazy class="rounded avatar-50 mt-1 ms-2" src="{{ Helper::getCDNImage($product->avatar, 80) }}" height="50" width="50" alt="{{ $product->slug }}'s avatar" />
->>>>>>> b18e0c01a7a50af04ce03ea488741e1ccafd70c7
                 </a>
                 <span class="ms-3">
                     <a href="{{ route('product.done', ['slug' => $product->slug]) }}" class="me-2 h5 align-text-top fw-bold text-dark">
@@ -45,11 +41,7 @@
                         class="user-hover"
                         data-id="{{ $user->id }}"
                     >
-<<<<<<< HEAD
-                        <img loading=lazy class="rounded-circle avatar-30 me-1" src="{{ Helper::getCDNImage($user->avatar, 50) }}" alt="{{ $user->username }}'s avatar" />
-=======
                         <img loading=lazy class="rounded-circle avatar-30 me-1" src="{{ Helper::getCDNImage($user->avatar, 80) }}" alt="{{ $user->username }}'s avatar" />
->>>>>>> b18e0c01a7a50af04ce03ea488741e1ccafd70c7
                     </a>
                     @endforeach
                     <a
@@ -57,11 +49,7 @@
                         class="user-hover"
                         data-id="{{ $product->owner->id }}"
                     >
-<<<<<<< HEAD
-                        <img loading=lazy class="rounded-circle avatar-30 me-0" src="{{ Helper::getCDNImage($product->owner->avatar, 50) }}" alt="{{ $product->owner->username }}'s avatar" />
-=======
                         <img loading=lazy class="rounded-circle avatar-30 me-0" src="{{ Helper::getCDNImage($product->owner->avatar, 80) }}" alt="{{ $product->owner->username }}'s avatar" />
->>>>>>> b18e0c01a7a50af04ce03ea488741e1ccafd70c7
                     </a>
                 </span>
             </div>

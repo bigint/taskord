@@ -38,11 +38,7 @@
                             <tr>
                                 <th>{{ $user->id }}</th>
                                 <td>
-<<<<<<< HEAD
-                                    <img loading=lazy class="avatar-30 rounded-circle me-2" src="{{ Helper::getCDNImage($user->avatar, 50) }}" alt="{{ $user->username }}'s avatar" />
-=======
                                     <img loading=lazy class="avatar-30 rounded-circle me-2" src="{{ Helper::getCDNImage($user->avatar, 80) }}" alt="{{ $user->username }}'s avatar" />
->>>>>>> b18e0c01a7a50af04ce03ea488741e1ccafd70c7
                                 </td>
                                 <td class="fw-bold">
                                     @if (!$user->firstname and !$user->lastname)
