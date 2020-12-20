@@ -154,7 +154,7 @@
         <div class="card-body">
             @if (count($user->webhooks) === 0)
             <div class="card-body text-center mt-3 mb-3">
-                <x-heroicon-o-globe class="heroicon-4x text-primary mb-2" />
+                <x-heroicon-o-globe-alt class="heroicon-4x text-primary mb-2" />
                 <div class="h4">
                     No webhooks found
                 </div>

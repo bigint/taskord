@@ -8,7 +8,7 @@
                 <a class="text-white" href="https://gitlab.com/taskord/taskord/-/commit/{{ $headHASH }}" target="_blank" rel="noreferrer">{{ Str::limit($headHASH, 8, '') }}</a>
             </span>
             <a class="cursor-pointer ms-3" data-bs-toggle="modal" data-bs-target="#deployModal" title="Deploy Taskord">
-                <x-heroicon-o-cloud-upload class="heroicon text-white" />
+                <x-heroicon-o-globe class="heroicon text-white" />
             </a>
             <a class="text-white fw-bold ms-3"
                 href="https://gitlab.com/taskord/taskord/-/releases/v{{ config('app.version') }}" target="_blank" rel="noreferrer">
