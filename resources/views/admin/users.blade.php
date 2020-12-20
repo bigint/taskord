@@ -130,67 +130,67 @@
                                         <ul class="dropdown-menu">
                                             <li>
                                                 <span class="dropdown-item">
-                                                    <x-heroicon-o-check class="heroicon" />
+                                                    <x-heroicon-o-check class="heroicon text-secondary" />
                                                     <span class="fw-bold">{{ $user->tasks()->count('id') }}</span> Tasks
                                                 </span>
                                             </li>
                                             <li>
                                                 <span class="dropdown-item">
-                                                    <x-heroicon-o-chat-alt class="heroicon" />
+                                                    <x-heroicon-o-chat-alt class="heroicon text-secondary" />
                                                     <span class="fw-bold">{{ $user->comments()->count('id') }}</span> Comments
                                                 </span>
                                             </li>
                                             <li>
                                                 <span class="dropdown-item">
-                                                    <x-heroicon-o-question-mark-circle class="heroicon" />
+                                                    <x-heroicon-o-question-mark-circle class="heroicon text-secondary" />
                                                     <span class="fw-bold">{{ $user->questions()->count('id') }}</span> Questions
                                                 </span>
                                             </li>
                                             <li>
                                                 <span class="dropdown-item">
-                                                    <x-heroicon-o-chat-alt-2 class="heroicon" />
+                                                    <x-heroicon-o-chat-alt-2 class="heroicon text-secondary" />
                                                     <span class="fw-bold">{{ $user->answers()->count('id') }}</span> Answers
                                                 </span>
                                             </li>
                                             <li>
                                                 <span class="dropdown-item">
-                                                    <x-heroicon-o-cube class="heroicon" />
+                                                    <x-heroicon-o-cube class="heroicon text-secondary" />
                                                     <span class="fw-bold">{{ $user->ownedProducts('id')->count() }}</span> Products
                                                 </span>
                                             </li>
                                             <li>
                                                 <span class="dropdown-item">
-                                                    <x-heroicon-o-user-add class="heroicon" />
+                                                    <x-heroicon-o-user-add class="heroicon text-secondary" />
                                                     <span class="fw-bold">{{ $user->products()->count() }}</span> Membership
                                                 </span>
                                             </li>
                                             <li>
                                                 <span class="dropdown-item">
-                                                    <x-heroicon-o-bell class="heroicon" />
+                                                    <x-heroicon-o-bell class="heroicon text-secondary" />
                                                     <span class="fw-bold">{{ $user->notifications()->count('id') }}</span> Notifications
                                                 </span>
                                             </li>
                                             <li>
                                                 <span class="dropdown-item">
-                                                    <x-heroicon-o-cloud-upload class="heroicon" />
+                                                    <x-heroicon-o-cloud-upload class="heroicon text-secondary" />
                                                     <span class="fw-bold">{{ $user->webhooks()->count('id') }}</span> Webhooks
                                                 </span>
                                             </li>
                                             <li>
                                                 <span class="dropdown-item">
-                                                    <x-heroicon-o-clock class="heroicon" />
+                                                    <x-heroicon-o-clock class="heroicon text-secondary" />
                                                     <span class="fw-bold">{{ $user->timezone }}</span>
                                                 </span>
                                             </li>
                                             <li>
                                                 <span class="dropdown-item" title="{{ Carbon::parse($user->updated_at)->format('M d, Y g:i A') }}">
-                                                    <x-heroicon-o-calendar class="heroicon" />
+                                                    <x-heroicon-o-calendar class="heroicon text-secondary" />
                                                     <span class="fw-bold">{{ Carbon::parse($user->updated_at)->format('M d, Y') }}</span>
                                                 </span>
                                             </li>
                                             <li>
                                                 <span class="dropdown-item" title="{{ Carbon::parse($user->created_at)->format('M d, Y g:i A') }}">
-                                                    <x-heroicon-o-calendar class="heroicon" />
+                                                    <x-heroicon-o-calendar class="heroicon text-secondary" />
                                                     <span class="fw-bold">{{ Carbon::parse($user->created_at)->format('M d, Y') }}</span>
                                                     @if ($user->created_at->diffInDays(Carbon::today()) < 7)
                                                         🆕
