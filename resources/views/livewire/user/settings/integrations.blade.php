@@ -104,7 +104,7 @@
                     <div class="card-header" id="headingTwo">
                         <h2 class="mb-0">
                             <a class="text-dark h5" type="button" data-bs-toggle="collapse" data-bs-target="#githubDocs" aria-expanded="false" aria-controls="githubDocs">
-                                <i class="fab fa-github me-1"></i>
+                                <img class="brand-icon" src="{{ asset('images/brand/github.svg') }}" />
                                 GitHub
                             </a>
                         </h2>
@@ -127,7 +127,7 @@
                     <div class="card-header" id="headingThree">
                         <h2 class="mb-0">
                             <a class="text-dark h5" type="button" data-bs-toggle="collapse" data-bs-target="#gitlabDocs" aria-expanded="false" aria-controls="gitlabDocs">
-                                <i class="fab fa-gitlab me-1"></i>
+                                <img class="brand-icon" src="{{ asset('images/brand/gitlab.svg') }}" />
                                 GitLab
                             </a>
                         </h2>
@@ -179,9 +179,9 @@
                                 <x-heroicon-o-globe-alt class="heroicon text-info" />
                             </span>
                             @elseif ($webhook->type === 'github')
-                            <i title="GitHub | ID: {{ $webhook->id }}" class="fab fa-github me-1"></i>
+                            <img class="brand-icon" src="{{ asset('images/brand/github.svg') }}" />
                             @elseif ($webhook->type === 'gitlab')
-                            <i title="GitLab | ID: {{ $webhook->id }}" class="fab fa-gitlab me-1"></i>
+                            <img class="brand-icon" src="{{ asset('images/brand/gitlab.svg') }}" />
                             @endif
                         </td>
                         <td class="fw-bold">

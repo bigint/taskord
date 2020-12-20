@@ -68,7 +68,7 @@
                     </div>
                     <div class="input-group mb-3">
                         <span class="input-group-text">
-                            <i class="fab fa-twitter"></i>
+                            <img class="brand-icon" src="{{ asset('images/brand/twitter.svg') }}" />
                         </span>
                         <input type="text" class="form-control @error('twitter') is-invalid @enderror" placeholder="Twitter" wire:model.defer="twitter">
                         @error('twitter')
@@ -79,7 +79,7 @@
                     </div>
                     <div class="input-group mb-3">
                         <span class="input-group-text">
-                            <i class="fab fa-product-hunt"></i>
+                            <img class="brand-icon" src="{{ asset('images/brand/producthunt.svg') }}" />
                         </span>
                         <input type="text" class="form-control @error('producthunt') is-invalid @enderror" placeholder="Product Hunt" wire:model.defer="producthunt">
                         @error('producthunt')

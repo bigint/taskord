@@ -26,10 +26,6 @@
                             </span>
                         @enderror
                     </div>
-                    <div class="h6 fw-bold mb-3">
-                        <i class="fab fa-markdown me-1"></i>
-                        Markdown is supported
-                    </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>

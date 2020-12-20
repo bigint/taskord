@@ -42,24 +42,24 @@
             @endif
             @if ($product->producthunt)
             <a class="list-group-item link-dark" href="https://www.producthunt.com/posts/{{ $product->producthunt }}" target="_blank" rel="noreferrer">
-                <i class="fab fa-product-hunt me-1"></i>
+                <img class="brand-icon" src="{{ asset('images/brand/producthunt.svg') }}" />
                 {{ Helper::removeProtocol($product->producthunt) }}
             </a>
             @endif
             @if ($product->twitter)
             <a class="list-group-item link-dark" href="https://twitter.com/{{ $product->twitter }}" target="_blank" rel="noreferrer">
-                <i class="fab fa-twitter me-1"></i>
+                <img class="brand-icon" src="{{ asset('images/brand/twitter.svg') }}" />
                 {{ $product->twitter }}
             </a>
             @endif
             @if ($product->repo and strlen(trim(parse_url($product->repo)['path'], '/')) !== 0)
             <a class="list-group-item link-dark" href="{{ $product->repo }}" target="_blank" rel="noreferrer">
                 @if (parse_url($product->repo)['host'] === 'github.com')
-                <i class="fab fa-github me-1"></i>
+                <img class="brand-icon" src="{{ asset('images/brand/github.svg') }}" />
                 @elseif (parse_url($product->repo)['host'] === 'gitlab.com')
-                <i class="fab fa-gitlab me-1"></i>
+                <img class="brand-icon" src="{{ asset('images/brand/gitlab.svg') }}" />
                 @elseif (parse_url($product->repo)['host'] === 'bitbucket.org')
-                <i class="fab fa-bitbucket me-1"></i>
+                <img class="brand-icon" src="{{ asset('images/brand/bitbucket.svg') }}" />
                 @endif
                 {{ trim(parse_url($product->repo)['path'], '/') }}
             </a>

@@ -36,11 +36,11 @@
         @else
         @if ($task->source === 'GitLab')
         <span>
-            <i class="fab fa-gitlab task-gitlab task-font"></i>
+            <img class="brand-icon" src="{{ asset('images/brand/gitlab.svg') }}" />
         </span>
         @elseif ($task->source === 'GitHub')
         <span>
-            <i class="fab fa-github task-github task-font"></i>
+            <img class="brand-icon" src="{{ asset('images/brand/github.svg') }}" />
         </span>
         @elseif ($task->source === 'Webhook')
         <span>

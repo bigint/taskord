@@ -44,31 +44,31 @@
             @endif
             @if ($user->twitter)
             <a class="list-group-item link-dark" href="https://twitter.com/{{ $user->twitter }}" target="_blank" rel="noreferrer">
-                <i class="fab fa-twitter me-1"></i>
+                <img class="brand-icon" src="{{ asset('images/brand/twitter.svg') }}" />
                 {{ $user->twitter }}
             </a>
             @endif
             @if ($user->twitch)
             <a class="list-group-item link-dark" href="https://twitch.tv/{{ $user->twitch }}" target="_blank" rel="noreferrer">
-                <i class="fab fa-twitch me-1"></i>
+                <img class="brand-icon" src="{{ asset('images/brand/twitch.svg') }}" />
                 {{ $user->twitch }}
             </a>
             @endif
             @if ($user->telegram)
             <a class="list-group-item link-dark" href="https://t.me/{{ $user->telegram }}" target="_blank" rel="noreferrer">
-                <i class="fab fa-telegram me-1"></i>
+                <img class="brand-icon" src="{{ asset('images/brand/telegram.svg') }}" />
                 {{ $user->telegram }}
             </a>
             @endif
             @if ($user->github)
             <a class="list-group-item link-dark" href="https://github.com/{{ $user->github }}" target="_blank" rel="noreferrer">
-                <i class="fab fa-github me-1"></i>
+                <img class="brand-icon" src="{{ asset('images/brand/github.svg') }}" />
                 {{ $user->github }}
             </a>
             @endif
             @if ($user->youtube)
             <a class="list-group-item link-dark" href="https://youtube.com/{{ $user->youtube }}" target="_blank" rel="noreferrer">
-                <i class="fab fa-youtube me-1"></i>
+                <img class="brand-icon" src="{{ asset('images/brand/youtube.svg') }}" />
                 {{ $user->youtube }}
             </a>
             @endif
