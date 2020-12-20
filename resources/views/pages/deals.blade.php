@@ -18,7 +18,7 @@
             @auth
             @if (Auth::user()->staffShip)
             <button type="button" class="mt-2 btn btn-success text-white" data-bs-toggle="modal" data-bs-target="#newQuestionModal">
-                <i class="fa fa-plus me-1"></i>
+                <x-heroicon-o-plus class="heroicon" />
                 Add a Deal
             </button>
             @livewire('pages.create-deal')

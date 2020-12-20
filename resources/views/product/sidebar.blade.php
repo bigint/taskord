@@ -12,7 +12,7 @@
                 Edit Product
             </button>
             <button type="button" class="btn mt-2 btn-success text-white fw-bold" data-bs-toggle="modal" data-bs-target="#addMemberModal">
-                <i class="fa fa-plus me-1"></i>
+                <x-heroicon-o-plus class="heroicon" />
                 Add Member
             </button>
         </div>

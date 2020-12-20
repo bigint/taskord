@@ -13,7 +13,7 @@
             </a>
             @auth
                 <button class="btn btn-success text-white" data-bs-toggle="modal" data-bs-target="#newMeetupModal">
-                    <i class="fa fa-plus me-1"></i>
+                    <x-heroicon-o-plus class="heroicon" />
                     New Meetup
                 </button>
                 @livewire('meetup.new-meetup')

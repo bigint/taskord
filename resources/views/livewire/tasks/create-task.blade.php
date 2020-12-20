@@ -21,7 +21,7 @@
                     <input class="form-control form-control-sm" wire:model.defer="due_at" type="date" placeholder="Due date" min="{{ Carbon::today()->format('Y-m-d') }}" />
                 </div>
                 <button wire:loading.attr="disabled" wire:offline.attr="disabled" class="btn btn-sm btn-primary" type="submit">
-                    <i class="fa fa-plus me-1"></i>
+                    <x-heroicon-o-plus class="heroicon" />
                     Add Task
                     <span wire:target="submit" wire:loading class="spinner-border spinner-border-mini ms-2" role="status"></span>
                 </button>
