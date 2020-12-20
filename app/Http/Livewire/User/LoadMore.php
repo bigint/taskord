@@ -39,7 +39,7 @@ class LoadMore extends Component
                     ['done', $this->type === 'user.done' ? true : false],
                 ])
                 ->orderBy('done_at', 'desc')
-                ->paginate(20, null, null, $this->page);
+                ->paginate(15, null, null, $this->page);
 
             return view('livewire.user.tasks', [
                 'tasks' => $tasks,

@@ -39,7 +39,7 @@ class Tasks extends Component
                 })
                 ->where('done', true)
                 ->orderBy('done_at', 'desc')
-                ->paginate(20, null, null, $this->page);
+                ->paginate(15, null, null, $this->page);
         } else {
             $tasks = Task::cacheFor(60 * 60)
                 ->select('id', 'task', 'done', 'type', 'done_at', 'user_id', 'product_id', 'source', 'images', 'hidden')
@@ -51,7 +51,7 @@ class Tasks extends Component
                 })
                 ->where('done', true)
                 ->orderBy('done_at', 'desc')
-                ->paginate(20, null, null, $this->page);
+                ->paginate(15, null, null, $this->page);
         }
 
         return view('livewire.home.tasks', [

@@ -18,7 +18,7 @@ class Products extends Component
     {
         $products = Product::cacheFor(60 * 60)
             ->where('user_id', $this->user->id)
-            ->paginate(20);
+            ->paginate(15);
 
         return view('livewire.user.products', [
             'products' => $products,
