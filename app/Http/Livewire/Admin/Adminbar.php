@@ -36,7 +36,7 @@ class Adminbar extends Component
         activity()
             ->withProperties(['type' => 'Admin'])
             ->log('Cleaned the Taskord Application');
-        session()->flash('global', 'Cleaning process has been initiated successfully 🧼!');
+        session()->flash('global', 'Cleaning process has been initiated successfully 🧼');
 
         return redirect()->route('home');
     }
