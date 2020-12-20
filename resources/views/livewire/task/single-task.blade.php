@@ -178,7 +178,7 @@
     </div>
     <div class="collapse mt-3 text-secondary" id="taskExpand-{{$task->id}}">
         <a class="text-secondary" href="{{ route('task', ['id' => $task->id]) }}">
-            <x-heroicon-o-calendar class="heroicon" />
+            <x-heroicon-o-calendar class="heroicon-small" />
             @auth
             {{
                 !$task->done_at ?
