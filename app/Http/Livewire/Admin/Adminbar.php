@@ -41,17 +41,6 @@ class Adminbar extends Component
         return redirect()->route('home');
     }
 
-    public function deploy()
-    {
-        shell_exec('cd /var/www/taskord && ./scripts/deploy.sh > /dev/null 2>/dev/null &');
-        activity()
-            ->withProperties(['type' => 'Admin'])
-            ->log('Deployed the Taskord Application 🐿');
-        session()->flash('global', 'Deployment process has been initiated successfully 🐿');
-
-        return redirect()->route('home');
-    }
-
     public function render()
     {
         if (file_exists('../.git/HEAD')) {
