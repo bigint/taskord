@@ -3,7 +3,6 @@
 namespace App\Http\Livewire\Admin;
 
 use App\Jobs\Clean;
-use App\Jobs\Deploy;
 use App\Models\Answer;
 use App\Models\Comment;
 use App\Models\Product;
@@ -44,7 +43,6 @@ class Adminbar extends Component
 
     public function deploy()
     {
-        //Deploy::dispatch()->delay(now()->addSeconds(10));
         shell_exec('php '.__DIR__.'cd /var/www/taskord; ./scripts/deploy.sh');
         activity()
             ->withProperties(['type' => 'Admin'])
