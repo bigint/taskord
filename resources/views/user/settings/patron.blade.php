@@ -22,7 +22,7 @@
                         <div>
                             <div>
                                 <span class="fw-bold">Checkout ID:</span>
-                                <code class="fa-1x">{{ $user->patron->checkout_id }}</code>
+                                <span class="text-danger fw-bold font-monospace">{{ $user->patron->checkout_id }}</span>
                             </div>
                             <div>
                                 <span class="fw-bold">Subscribed to:</span>
