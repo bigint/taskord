@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Queue;
 use Livewire\Component;
+use Illuminate\Support\Facades\Artisan;
 
 class Adminbar extends Component
 {
@@ -27,6 +28,16 @@ class Adminbar extends Component
             ->log('Adminbar Status Refreshed');
 
         $this->emitSelf('refreshStats');
+    }
+
+    public function clean()
+    {
+        Artisan::call('app:clean');
+        activity()
+            ->withProperties(['type' => 'Admin'])
+            ->log('Cleaned the Taskord Application');
+
+        return redirect()->route('home');
     }
 
     public function render()

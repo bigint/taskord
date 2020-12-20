@@ -64,14 +64,4 @@ class AdminController extends Controller
             return 'enabled';
         }
     }
-
-    public static function clean()
-    {
-        Artisan::call('app:clean');
-        activity()
-            ->withProperties(['type' => 'Admin'])
-            ->log('Cleaned the Taskord Application');
-
-        return redirect()->route('home');
-    }
 }
