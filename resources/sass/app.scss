@@ -145,42 +145,6 @@ input[type="color"]:focus,
     color: $primary;
 }
 
-.fa-twitter {
-    color: #38a1f3;
-}
-
-.fa-twitch {
-    color: #9147ff;
-}
-
-.fa-telegram {
-    color: #0088cc;
-}
-
-.fa-github {
-    color: #333;
-}
-
-.fa-gitlab {
-    color: #fc6d27;
-}
-
-.fa-bitbucket {
-    color: #2684ff;
-}
-
-.fa-youtube {
-    color: #ff0000;
-}
-
-.fa-google {
-    color: #DB4437;
-}
-
-.fa-product-hunt {
-    color: #da552f;
-}
-
 .list-group-item {
     padding: 0.4rem 1rem;
 }
@@ -220,12 +184,10 @@ input[type="color"]:focus,
     }
 }
 
-.task-gitlab {
-    color: #fc6d27;
-}
-
-.task-github {
-    color: #333333;
+.task-icon {
+    margin-bottom: 3px;
+    height: 15px;
+    width: 15px;
 }
 
 .admin-bar {
