@@ -64,7 +64,9 @@ class Profile extends Component
                 'avatar' => 'nullable|mimes:jpeg,jpg,png,gif|max:1024',
             ]);
         } else {
-            return session()->flash('error', 'Forbidden!');
+            return $this->alert('error', 'Forbidden!', [
+                'showCancelButton' => true,
+            ]);
         }
     }
 
@@ -106,13 +108,19 @@ class Profile extends Component
                         ->withProperties(['type' => 'User'])
                         ->log('Profile settings was updated');
 
-                    return session()->flash('profile', 'Your profile has been updated!');
+                    return $this->alert('success', 'Your profile has been updated!', [
+                        'showCancelButton' => true,
+                    ]);
                 }
             } else {
-                return session()->flash('error', 'Forbidden!');
+                return $this->alert('error', 'Forbidden!', [
+                    'showCancelButton' => true,
+                ]);
             }
         } else {
-            return session()->flash('error', 'Forbidden!');
+            return $this->alert('error', 'Forbidden!', [
+                'showCancelButton' => true,
+            ]);
         }
     }
 
@@ -130,12 +138,18 @@ class Profile extends Component
                     ->withProperties(['type' => 'User'])
                     ->log('Changed avatar provider to Gravatar');
 
-                return session()->flash('profile', 'Your profile has been updated!');
+                return $this->alert('success', 'Your profile has been updated!', [
+                    'showCancelButton' => true,
+                ]);
             } else {
-                return session()->flash('error', 'Forbidden!');
+                return $this->alert('error', 'Forbidden!', [
+                    'showCancelButton' => true,
+                ]);
             }
         } else {
-            return session()->flash('error', 'Forbidden!');
+            return $this->alert('error', 'Forbidden!', [
+                'showCancelButton' => true,
+            ]);
         }
     }
 
@@ -149,10 +163,14 @@ class Profile extends Component
                     ->withProperties(['type' => 'User'])
                     ->log('Goals for the account was toggled');
             } else {
-                return session()->flash('error', 'Forbidden!');
+                return $this->alert('error', 'Forbidden!', [
+                    'showCancelButton' => true,
+                ]);
             }
         } else {
-            return session()->flash('error', 'Forbidden!');
+            return $this->alert('error', 'Forbidden!', [
+                'showCancelButton' => true,
+            ]);
         }
     }
 
@@ -171,13 +189,19 @@ class Profile extends Component
                         ->withProperties(['type' => 'User'])
                         ->log('Goal was set as '.$this->daily_goal.'/day');
 
-                    return session()->flash('setGoal', 'Your goal has been updated!');
+                    return $this->alert('success', 'Your goal has been updated!', [
+                        'showCancelButton' => true,
+                    ]);
                 }
             } else {
-                return session()->flash('error', 'Forbidden!');
+                return $this->alert('error', 'Forbidden!', [
+                    'showCancelButton' => true,
+                ]);
             }
         } else {
-            return session()->flash('error', 'Forbidden!');
+            return $this->alert('error', 'Forbidden!', [
+                'showCancelButton' => true,
+            ]);
         }
     }
 
@@ -196,13 +220,19 @@ class Profile extends Component
                         ->withProperties(['type' => 'User'])
                         ->log('Sponsor URL was updated');
 
-                    return session()->flash('sponsor', 'Your sponsor link has been updated!');
+                    return $this->alert('success', 'Your sponsor link has been updated!', [
+                        'showCancelButton' => true,
+                    ]);
                 }
             } else {
-                return session()->flash('error', 'Forbidden!');
+                return $this->alert('error', 'Forbidden!', [
+                    'showCancelButton' => true,
+                ]);
             }
         } else {
-            return session()->flash('error', 'Forbidden!');
+            return $this->alert('error', 'Forbidden!', [
+                'showCancelButton' => true,
+            ]);
         }
     }
 
@@ -231,13 +261,19 @@ class Profile extends Component
                         ->withProperties(['type' => 'User'])
                         ->log('Social URLs were updated');
 
-                    return session()->flash('social', 'Your social links has been updated!');
+                    return $this->alert('success', 'Your social links has been updated!', [
+                        'showCancelButton' => true,
+                    ]);
                 }
             } else {
-                return session()->flash('error', 'Forbidden!');
+                return $this->alert('error', 'Forbidden!', [
+                    'showCancelButton' => true,
+                ]);
             }
         } else {
-            return session()->flash('error', 'Forbidden!');
+            return $this->alert('error', 'Forbidden!', [
+                'showCancelButton' => true,
+            ]);
         }
     }
 
@@ -256,10 +292,14 @@ class Profile extends Component
                     ->withProperties(['type' => 'User'])
                     ->log('Toggled only followings tasks in settings');
             } else {
-                return session()->flash('error', 'Forbidden!');
+                return $this->alert('error', 'Forbidden!', [
+                    'showCancelButton' => true,
+                ]);
             }
         } else {
-            return session()->flash('error', 'Forbidden!');
+            return $this->alert('error', 'Forbidden!', [
+                'showCancelButton' => true,
+            ]);
         }
     }
 

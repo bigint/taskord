@@ -30,26 +30,36 @@ class SingleComment extends Component
                 ->withProperties(['type' => 'Throttle'])
                 ->log('Rate limited while praising the comment');
 
-            return session()->flash('error', 'Your are rate limited, try again later!');
+            return $this->alert('warning', 'Your are rate limited, try again later!', [
+                'showCancelButton' => true,
+            ]);
         }
 
         if (Auth::check()) {
             if (! Auth::user()->hasVerifiedEmail()) {
-                return session()->flash('warning', 'Your email is not verified!');
+                return $this->alert('warning', 'Your email is not verified!', [
+                    'showCancelButton' => true,
+                ]);
             }
 
             if (Auth::user()->isFlagged) {
-                return session()->flash('error', 'Your account is flagged!');
+                return $this->alert('error', 'Your account is flagged!', [
+                    'showCancelButton' => true,
+                ]);
             }
             if (Auth::id() === $this->comment->user->id) {
-                return session()->flash('error', 'You can\'t praise your own comment!');
+                return $this->alert('warning', 'You can\'t praise your own comment!', [
+                    'showCancelButton' => true,
+                ]);
             }
             Helper::togglePraise($this->comment, 'COMMENT');
             activity()
                 ->withProperties(['type' => 'Comment'])
                 ->log('Comment praise was toggled C: '.$this->comment->id);
         } else {
-            return session()->flash('error', 'Forbidden!');
+            return $this->alert('error', 'Forbidden!', [
+                'showCancelButton' => true,
+            ]);
         }
     }
 
@@ -62,10 +72,14 @@ class SingleComment extends Component
                     ->withProperties(['type' => 'Admin'])
                     ->log('Comment hide was toggled C: '.$this->comment->id);
             } else {
-                return session()->flash('error', 'Forbidden!');
+                return $this->alert('error', 'Forbidden!', [
+                    'showCancelButton' => true,
+                ]);
             }
         } else {
-            return session()->flash('error', 'Forbidden!');
+            return $this->alert('error', 'Forbidden!', [
+                'showCancelButton' => true,
+            ]);
         }
     }
 
@@ -78,7 +92,9 @@ class SingleComment extends Component
     {
         if (Auth::check()) {
             if (Auth::user()->isFlagged) {
-                return session()->flash('error', 'Your account is flagged!');
+                return $this->alert('error', 'Your account is flagged!', [
+                    'showCancelButton' => true,
+                ]);
             }
             if (Auth::user()->staffShip or Auth::id() === $this->comment->user->id) {
                 activity()
@@ -88,10 +104,14 @@ class SingleComment extends Component
                 $this->emit('commentDeleted');
                 Auth::user()->touch();
             } else {
-                return session()->flash('error', 'Forbidden!');
+                return $this->alert('error', 'Forbidden!', [
+                    'showCancelButton' => true,
+                ]);
             }
         } else {
-            return session()->flash('error', 'Forbidden!');
+            return $this->alert('error', 'Forbidden!', [
+                'showCancelButton' => true,
+            ]);
         }
     }
 

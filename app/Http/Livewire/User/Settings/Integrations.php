@@ -37,7 +37,9 @@ class Integrations extends Component
                 ->withProperties(['type' => 'Throttle'])
                 ->log('Rate limited while creating an API integration');
 
-            return session()->flash('error', 'Your are rate limited, try again later!');
+            return $this->alert('warning', 'Your are rate limited, try again later!', [
+                'showCancelButton' => true,
+            ]);
         }
 
         if (Auth::check()) {
@@ -48,7 +50,9 @@ class Integrations extends Component
                 ]);
 
                 if (Auth::user()->isFlagged) {
-                    return session()->flash('error', 'Your account is flagged!');
+                    return $this->alert('error', 'Your account is flagged!', [
+                        'showCancelButton' => true,
+                    ]);
                 }
 
                 if (Auth::id() === $this->user->id) {
@@ -66,13 +70,19 @@ class Integrations extends Component
                         ->withProperties(['type' => 'User'])
                         ->log('New webhook has been created WH: '.$webhook->id);
                 } else {
-                    return session()->flash('error', 'Forbidden!');
+                    return $this->alert('error', 'Forbidden!', [
+                        'showCancelButton' => true,
+                    ]);
                 }
             } else {
-                return session()->flash('error', 'Forbidden!');
+                return $this->alert('error', 'Forbidden!', [
+                    'showCancelButton' => true,
+                ]);
             }
         } else {
-            return session()->flash('error', 'Forbidden!');
+            return $this->alert('error', 'Forbidden!', [
+                'showCancelButton' => true,
+            ]);
         }
     }
 
@@ -87,10 +97,14 @@ class Integrations extends Component
                 $webhook->delete();
                 $this->emit('webhookDeleted');
             } else {
-                return session()->flash('error', 'Forbidden!');
+                return $this->alert('error', 'Forbidden!', [
+                    'showCancelButton' => true,
+                ]);
             }
         } else {
-            return session()->flash('error', 'Forbidden!');
+            return $this->alert('error', 'Forbidden!', [
+                'showCancelButton' => true,
+            ]);
         }
     }
 

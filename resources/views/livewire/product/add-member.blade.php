@@ -7,15 +7,9 @@
             </div>
             <form wire:target="submit" wire:submit.prevent="submit">
                 <div class="modal-body">
-                    <x-alert />
                     <div class="mb-3">
                         <label class="form-label fw-bold">Username</label>
                         <input type="text" class="form-control @if (session()->has('team-error')) is-invalid @endif" placeholder="Enter the username" wire:model.defer="username">
-                        @if (session()->has('team-error'))
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ session('team-error') }}</strong>
-                            </span>
-                        @endif
                     </div>
                 </div>
                 <div class="modal-footer">

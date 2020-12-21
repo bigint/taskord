@@ -22,13 +22,19 @@ class AddMember extends Component
         if (Auth::check()) {
             $user = User::where('username', $this->username)->first();
             if ($user === null) {
-                return session()->flash('team-error', 'User does not exists');
+                return $this->alert('error', 'User does not exists', [
+                    'showCancelButton' => true,
+                ]);
             }
             if ($user->products->contains($this->product) or $user->id === $this->product->owner->id) {
-                return session()->flash('team-error', 'User already in the team');
+                return $this->alert('error', 'User is already in the team', [
+                    'showCancelButton' => true,
+                ]);
             }
             if (Auth::user()->username === $this->username) {
-                return session()->flash('team-error', 'You can\'t add yourself to the team!');
+                return $this->alert('error', 'You can\'t add yourself to the team!', [
+                    'showCancelButton' => true,
+                ]);
             }
             $user->products()->attach($this->product);
             session()->flash('global', 'User has been added to the team!');

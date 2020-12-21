@@ -34,7 +34,9 @@ class NewProduct extends Component
                 'avatar' => 'nullable|mimes:jpeg,jpg,png,gif|max:1024',
             ]);
         } else {
-            return session()->flash('error', 'Forbidden!');
+            return $this->alert('error', 'Forbidden!', [
+                'showCancelButton' => true,
+            ]);
         }
     }
 
@@ -54,11 +56,15 @@ class NewProduct extends Component
             ]);
 
             if (! Auth::user()->hasVerifiedEmail()) {
-                return session()->flash('warning', 'Your email is not verified!');
+                return $this->alert('warning', 'Your email is not verified!', [
+                    'showCancelButton' => true,
+                ]);
             }
 
             if (Auth::user()->isFlagged) {
-                return session()->flash('error', 'Your account is flagged!');
+                return $this->alert('error', 'Your account is flagged!', [
+                    'showCancelButton' => true,
+                ]);
             }
 
             $launched = ! $this->launched ? false : true;

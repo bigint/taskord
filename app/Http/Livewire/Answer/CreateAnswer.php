@@ -38,11 +38,15 @@ class CreateAnswer extends Component
             ]);
 
             if (! Auth::user()->hasVerifiedEmail()) {
-                return session()->flash('warning', 'Your email is not verified!');
+                return $this->alert('warning', 'Your email is not verified!', [
+                    'showCancelButton' => true,
+                ]);
             }
 
             if (Auth::user()->isFlagged) {
-                return session()->flash('error', 'Your account is flagged!');
+                return $this->alert('error', 'Your account is flagged!', [
+                    'showCancelButton' => true,
+                ]);
             }
 
             $users = Helper::getUserIDFromMention($this->answer);
@@ -70,7 +74,9 @@ class CreateAnswer extends Component
                 ->withProperties(['type' => 'Answer'])
                 ->log('New answer has been created U: @'.$this->question->user->username.' A: '.$answer->id);
 
-            return session()->flash('success', 'Answer has been added!');
+            return $this->alert('success', 'Answer has been added!', [
+                'showCancelButton' => true,
+            ]);
         } else {
             session()->flash('error', 'Forbidden!');
         }

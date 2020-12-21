@@ -31,18 +31,26 @@ class SingleUpdate extends Component
                 ->withProperties(['type' => 'Throttle'])
                 ->log('Rate limited while praising the update');
 
-            return session()->flash('error', 'Your are rate limited, try again later!');
+            return $this->alert('warning', 'Your are rate limited, try again later!', [
+                'showCancelButton' => true,
+            ]);
         }
 
         if (Auth::check()) {
             if (! Auth::user()->hasVerifiedEmail()) {
-                return session()->flash('warning', 'Your email is not verified!');
+                return $this->alert('warning', 'Your email is not verified!', [
+                    'showCancelButton' => true,
+                ]);
             }
             if (Auth::user()->isFlagged) {
-                return session()->flash('error', 'Your account is flagged!');
+                return $this->alert('error', 'Your account is flagged!', [
+                    'showCancelButton' => true,
+                ]);
             }
             if (Auth::id() === $this->update->user->id) {
-                return session()->flash('error', 'You can\'t praise your own update!');
+                return $this->alert('warning', 'You can\'t praise your own update!', [
+                    'showCancelButton' => true,
+                ]);
             }
             if (Auth::user()->hasLiked($this->update)) {
                 Auth::user()->unlike($this->update);
@@ -56,7 +64,9 @@ class SingleUpdate extends Component
                 //$this->update->user->notify(new TaskPraised($this->update, Auth::id()));
             }
         } else {
-            return session()->flash('error', 'Forbidden!');
+            return $this->alert('error', 'Forbidden!', [
+                'showCancelButton' => true,
+            ]);
         }
     }
 
@@ -69,7 +79,9 @@ class SingleUpdate extends Component
     {
         if (Auth::check()) {
             if (Auth::user()->isFlagged) {
-                return session()->flash('error', 'Your account is flagged!');
+                return $this->alert('error', 'Your account is flagged!', [
+                    'showCancelButton' => true,
+                ]);
             }
 
             if (Auth::user()->staffShip or Auth::id() === $this->update->user->id) {
@@ -79,10 +91,14 @@ class SingleUpdate extends Component
                 $this->update->delete();
                 $this->emit('updateDeleted');
             } else {
-                return session()->flash('error', 'Forbidden!');
+                return $this->alert('error', 'Forbidden!', [
+                    'showCancelButton' => true,
+                ]);
             }
         } else {
-            return session()->flash('error', 'Forbidden!');
+            return $this->alert('error', 'Forbidden!', [
+                'showCancelButton' => true,
+            ]);
         }
     }
 

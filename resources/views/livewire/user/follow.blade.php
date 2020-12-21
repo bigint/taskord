@@ -14,9 +14,6 @@
         <span wire:target="followUser" wire:loading class="spinner-border spinner-border-sm ms-2" role="status"></span>
     </button>
     @endif
-    @if (session()->has('error'))
-        <span class="ms-2 text-danger fw-bold">{{ session('error') }}</span>
-    @endif
     @endif
     @endauth
     <div class="small">

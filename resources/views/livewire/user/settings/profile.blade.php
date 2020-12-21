@@ -1,17 +1,10 @@
 <div class="col-lg-8">
-    <x-alert />
     <div class="card mb-4">
         <div class="card-header pt-3 pb-3">
             <span class="h5">Profile</span>
             <div>Update your basic profile details.</div>
         </div>
         <div class="card-body">
-            @if (session()->has('profile'))
-                <div class="alert alert-success alert-dismissible fade show mb-3">
-                    <button type="button" class="btn-close small" data-bs-dismiss="alert"></button>
-                    {{ session('profile') }}
-                </div>
-            @endif
             <form wire:submit.prevent="updateProfile">
                 <div class="mb-3">
                     <label class="form-label">Firstname</label>
@@ -102,12 +95,6 @@
             <div>Complete your goal and earn additional reputations</div>
         </div>
         <div class="card-body">
-            @if (session()->has('setGoal'))
-                <div class="alert alert-success alert-dismissible fade show mb-3">
-                    <button type="button" class="btn-close small" data-bs-dismiss="alert"></button>
-                    {{ session('setGoal') }}
-                </div>
-            @endif
             <form wire:submit.prevent="setGoal">
                 <div>
                     <input wire:click="enableGoal" id="enableGoal" class="form-check-input" type="checkbox" {{ $user->hasGoal ? 'checked' : '' }}>
@@ -139,12 +126,6 @@
             <div>Update your homepage preference.</div>
         </div>
         <div class="card-body">
-            @if (session()->has('showfollowing'))
-                <div class="alert alert-success alert-dismissible fade show mb-3">
-                    <button type="button" class="btn-close small" data-bs-dismiss="alert"></button>
-                    {{ session('showfollowing') }}
-                </div>
-            @endif
             <input wire:click="onlyFollowingsTasks" id="onlyFollowingsTasks" class="form-check-input" type="checkbox" {{ $user->onlyFollowingsTasks ? 'checked' : '' }}>
             <label for="onlyFollowingsTasks" class="ms-1">Show only following user's tasks on homepage</label>
             <span wire:loading wire:target="onlyFollowingsTasks" class="small ms-2 text-success fw-bold">Updating...</span>
@@ -157,12 +138,6 @@
             <div>Add Sponsor URL to show badge in your profile.</div>
         </div>
         <div class="card-body">
-            @if (session()->has('sponsor'))
-                <div class="alert alert-success alert-dismissible fade show mb-3">
-                    <button type="button" class="btn-close small" data-bs-dismiss="alert"></button>
-                    {{ session('sponsor') }}
-                </div>
-            @endif
             <form wire:target="updateSponsor" wire:submit.prevent="updateSponsor">
                 <div class="input-group mb-3">
                     <span class="input-group-text">
@@ -189,12 +164,6 @@
             <div>Update your social media links.</div>
         </div>
         <div class="card-body">
-            @if (session()->has('social'))
-                <div class="alert alert-success alert-dismissible fade show mb-3">
-                    <button type="button" class="btn-close small" data-bs-dismiss="alert"></button>
-                    {{ session('social') }}
-                </div>
-            @endif
             <form wire:target="updateSocial" wire:submit.prevent="updateSocial">
                 <div class="input-group mb-3">
                     <span class="input-group-text">

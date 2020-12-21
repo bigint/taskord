@@ -22,11 +22,15 @@ class CreateQuestion extends Component
             ]);
 
             if (! Auth::user()->hasVerifiedEmail()) {
-                return session()->flash('warning', 'Your email is not verified!');
+                return $this->alert('warning', 'Your email is not verified!', [
+                    'showCancelButton' => true,
+                ]);
             }
 
             if (Auth::user()->isFlagged) {
-                return session()->flash('error', 'Your account is flagged!');
+                return $this->alert('error', 'Your account is flagged!', [
+                    'showCancelButton' => true,
+                ]);
             }
 
             $patronOnly = ! $this->patronOnly ? false : true;

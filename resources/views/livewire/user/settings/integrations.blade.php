@@ -5,7 +5,6 @@
             <div>Just send a POST event from anywhere</div>
         </div>
         <div class="card-body">
-            <x-alert />
             <span class="h5">Create Webhook</span>
             <form wire:submit.prevent="submit">
                 <div class="mb-3 mt-3">

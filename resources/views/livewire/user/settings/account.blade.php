@@ -5,7 +5,6 @@
             <div>Change your username and email.</div>
         </div>
         <div class="card-body">
-            <x-alert />
             <form wire:submit.prevent="updateAccount">
                 <div class="mb-3">
                     <label class="form-label">Username</label>
@@ -41,12 +40,6 @@
             </div>
         </div>
         <div class="card-body">
-            @if (session()->has('isBeta'))
-                <div class="alert alert-success alert-dismissible fade show mb-3">
-                    <button type="button" class="btn-close small" data-bs-dismiss="alert"></button>
-                    {{ session('isBeta') }}
-                </div>
-            @endif
             <input wire:click="enrollBeta" id="enrollBeta" class="form-check-input" type="checkbox" {{ $user->isBeta ? 'checked' : '' }}>
             <label for="enrollBeta" class="ms-1">Enroll to Beta</label>
             <span wire:loading wire:target="enrollBeta" class="small ms-2 text-success fw-bold">Enrolling...</span>
@@ -61,12 +54,6 @@
             </div>
         </div>
         <div class="card-body">
-            @if (session()->has('isPrivate'))
-                <div class="alert alert-success alert-dismissible fade show mb-3">
-                    <button type="button" class="btn-close small" data-bs-dismiss="alert"></button>
-                    {{ session('isPrivate') }}
-                </div>
-            @endif
             @if ($user->isPatron)
             <input wire:click="enrollPrivate" id="enrollPrivate" class="form-check-input" type="checkbox" {{ $user->isPrivate ? 'checked' : '' }}>
             <label for="enrollPrivate" class="ms-1">Hide all tasks from public</label>

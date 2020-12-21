@@ -1,6 +1,5 @@
 <div class="card mb-4">
     <div class="card-body">
-        <x-alert />
         <form wire:submit.prevent="submit(Object.fromEntries(new FormData($event.target)))">
             <div class="input-group">
                 <button class="bg-transparent border px-2 rounded-start trigger" type="button">{{ $user->status_emoji ? $user->status_emoji : '💭' }}</button>

@@ -10,7 +10,4 @@
         Follow back <span class="fw-bold">{{ '@'.$user->username }}</span>
     </button>
     @endif
-    @if (session()->has('error'))
-        <span class="ms-2 text-danger fw-bold">{{ session('error') }}</span>
-    @endif
 </div>

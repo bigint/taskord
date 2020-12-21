@@ -1,6 +1,5 @@
 <div class="card mb-2 {{ $question->patronOnly ? 'bg-patron' : '' }}">
     <div class="card-body">
-        <x-alert />
         <div class="d-flex align-items-center">
             <a href="{{ route('user.done', ['username' => $question->user->username]) }}">
                 <img loading=lazy class="avatar-40 rounded-circle" src="{{ Helper::getCDNImage($question->user->avatar, 80) }}" alt="{{ $question->user->username }}'s avatar" />

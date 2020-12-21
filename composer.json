@@ -20,6 +20,7 @@
         "grosv/laravel-passwordless-login": "^1.2",
         "guzzlehttp/guzzle": "^7.0",
         "intervention/image": "^2.5",
+        "jantinnerezo/livewire-alert": "^2.0",
         "laravel/framework": "^8.0",
         "laravel/horizon": "^5.0",
         "laravel/socialite": "^5.0",

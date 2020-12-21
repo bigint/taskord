@@ -1,7 +1,6 @@
 <div>
     <div class="card mb-3">
         <div class="card-body">
-            <x-alert />
             @error('task')
                 <div class="alert alert-danger alert-dismissible fade show mt-2">
                     <button type="button" class="btn-close small" data-bs-dismiss="alert"></button>

@@ -25,12 +25,6 @@
             <div class="mb-3 text-secondary">
                 Welcome to Taskord, here are some onboarding steps!
             </div>
-            @if (session()->has('success'))
-                <div class="mb-1 text-success fw-bold">{{ session('success') }}</div>
-            @endif
-            @if (session()->has('error'))
-                <div class="mb-1 text-danger fw-bold">{{ session('error') }}</div>
-            @endif
             <a class="btn btn-blurple fw-bold mb-3" href="https://discord.gg/9M4Q65b" target="_blank" rel="noreferrer">
                 <img class="brand-icon" src="{{ asset('images/brand/discord.svg') }}" />
                 Join Taskord's Discord

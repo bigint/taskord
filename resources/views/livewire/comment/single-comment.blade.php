@@ -1,5 +1,4 @@
 <li class="list-group-item p-3">
-    <x-alert />
     <div class="align-items-center d-flex mb-2">
         <a href="{{ route('user.done', ['username' => $comment->user->username]) }}">
             <img loading=lazy class="avatar-30 rounded-circle" src="{{ $comment->user->avatar }}" alt="{{ $comment->user->username }}'s avatar" />

@@ -10,13 +10,6 @@
 <div class="container-md">
     <div class="row justify-content-center">
         <div class="col-lg-8">
-            @if (session()->has('product_deleted'))
-                <div class="alert alert-success alert-dismissible fade show">
-                    <button type="button" class="btn-close small" data-bs-dismiss="alert"></button>
-                    <x-heroicon-o-check class="heroicon" />
-                    {{ session('product_deleted') }}
-                </div>
-            @endif
             @include('products.nav')
             @livewire('products.products', [
                 'type' => 'products.newest',

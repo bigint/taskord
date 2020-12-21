@@ -62,16 +62,16 @@ document.addEventListener("turbolinks:load", () => {
 document.addEventListener("livewire:load", () => {
   window.Livewire.hook("element.updated", () => {
     setTimeout(() => {
-      $(".fade").fadeOut("fast");
+      var element = document.querySelector('.alert');
+      element.classList.add('hide');
+      element.classList.remove('show');
+      element.classList.add('d-none');
     }, 2000);
   });
 });
 
 // Hide search dropdown on clicking the body
 document.body.addEventListener("click", () => {
-  $("ul").remove(".search-dropdown");
-});
-
-document.addEventListener("turbolinks:load", () => {
-  $("[data-bs-toggle='tooltip']").tooltip();
+  // var search = document.getElementsByClassName("search-dropdown")[0];
+  // search.remove();
 });

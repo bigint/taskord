@@ -38,11 +38,15 @@ class CreateComment extends Component
             ]);
 
             if (! Auth::user()->hasVerifiedEmail()) {
-                return session()->flash('warning', 'Your email is not verified!');
+                return $this->alert('warning', 'Your email is not verified!', [
+                    'showCancelButton' => true,
+                ]);
             }
 
             if (Auth::user()->isFlagged) {
-                return session()->flash('error', 'Your account is flagged!');
+                return $this->alert('error', 'Your account is flagged!', [
+                    'showCancelButton' => true,
+                ]);
             }
 
             $users = Helper::getUserIDFromMention($this->comment);
@@ -70,7 +74,9 @@ class CreateComment extends Component
                 ->withProperties(['type' => 'Comment'])
                 ->log('New comment has been created T: '.$this->task->user->id.' C: '.$comment->id);
 
-            return session()->flash('success', 'Comment has been added!');
+            return $this->alert('success', 'Comment has been added!', [
+                'showCancelButton' => true,
+            ]);
         } else {
             session()->flash('error', 'Forbidden!');
         }

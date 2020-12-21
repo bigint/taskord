@@ -52,7 +52,9 @@ class EditProduct extends Component
                 'avatar' => 'nullable|mimes:jpeg,jpg,png,gif|max:1024',
             ]);
         } else {
-            return session()->flash('error', 'Forbidden!');
+            return $this->alert('error', 'Forbidden!', [
+                'showCancelButton' => true,
+            ]);
         }
     }
 
@@ -72,7 +74,9 @@ class EditProduct extends Component
             ]);
 
             if (Auth::user()->isFlagged) {
-                return session()->flash('error', 'Your account is flagged!');
+                return $this->alert('error', 'Your account is flagged!', [
+                    'showCancelButton' => true,
+                ]);
             }
 
             $product = Product::where('id', $this->product->id)->firstOrFail();
@@ -131,11 +135,15 @@ class EditProduct extends Component
     {
         if (Auth::check()) {
             if (! Auth::user()->hasVerifiedEmail()) {
-                return session()->flash('warning', 'Your email is not verified!');
+                return $this->alert('warning', 'Your email is not verified!', [
+                    'showCancelButton' => true,
+                ]);
             }
 
             if (Auth::user()->isFlagged) {
-                return session()->flash('error', 'Your account is flagged!');
+                return $this->alert('error', 'Your account is flagged!', [
+                    'showCancelButton' => true,
+                ]);
             }
 
             if (Auth::user()->staffShip or Auth::id() === $this->product->owner->id) {
@@ -157,7 +165,9 @@ class EditProduct extends Component
                 session()->flash('error', 'Forbidden!');
             }
         } else {
-            return session()->flash('error', 'Forbidden!');
+            return $this->alert('error', 'Forbidden!', [
+                'showCancelButton' => true,
+            ]);
         }
     }
 

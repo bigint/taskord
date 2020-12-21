@@ -32,26 +32,36 @@ class SingleQuestion extends Component
                 ->withProperties(['type' => 'Throttle'])
                 ->log('Rate limited while praising the question');
 
-            return session()->flash('error', 'Your are rate limited, try again later!');
+            return $this->alert('warning', 'Your are rate limited, try again later!', [
+                'showCancelButton' => true,
+            ]);
         }
 
         if (Auth::check()) {
             if (! Auth::user()->hasVerifiedEmail()) {
-                return session()->flash('warning', 'Your email is not verified!');
+                return $this->alert('warning', 'Your email is not verified!', [
+                    'showCancelButton' => true,
+                ]);
             }
 
             if (Auth::user()->isFlagged) {
-                return session()->flash('error', 'Your account is flagged!');
+                return $this->alert('error', 'Your account is flagged!', [
+                    'showCancelButton' => true,
+                ]);
             }
             if (Auth::id() === $this->question->user->id) {
-                return session()->flash('error', 'You can\'t praise your own question!');
+                return $this->alert('warning', 'You can\'t praise your own question!', [
+                    'showCancelButton' => true,
+                ]);
             }
             Helper::togglePraise($this->question, 'QUESTION');
             activity()
                 ->withProperties(['type' => 'Question'])
                 ->log('Question praise was toggled Q: '.$this->question->id);
         } else {
-            return session()->flash('error', 'Forbidden!');
+            return $this->alert('error', 'Forbidden!', [
+                'showCancelButton' => true,
+            ]);
         }
     }
 
@@ -64,10 +74,14 @@ class SingleQuestion extends Component
                     ->withProperties(['type' => 'Admin'])
                     ->log('Question hide was toggled Q: '.$this->question->id);
             } else {
-                return session()->flash('error', 'Forbidden!');
+                return $this->alert('error', 'Forbidden!', [
+                    'showCancelButton' => true,
+                ]);
             }
         } else {
-            return session()->flash('error', 'Forbidden!');
+            return $this->alert('error', 'Forbidden!', [
+                'showCancelButton' => true,
+            ]);
         }
     }
 
@@ -80,7 +94,9 @@ class SingleQuestion extends Component
     {
         if (Auth::check()) {
             if (Auth::user()->isFlagged) {
-                return session()->flash('error', 'Your account is flagged!');
+                return $this->alert('error', 'Your account is flagged!', [
+                    'showCancelButton' => true,
+                ]);
             }
 
             if (Auth::user()->staffShip or Auth::id() === $this->question->user_id) {
@@ -96,7 +112,9 @@ class SingleQuestion extends Component
                 session()->flash('error', 'Forbidden!');
             }
         } else {
-            return session()->flash('error', 'Forbidden!');
+            return $this->alert('error', 'Forbidden!', [
+                'showCancelButton' => true,
+            ]);
         }
     }
 
