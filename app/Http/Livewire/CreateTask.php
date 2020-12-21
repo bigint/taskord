@@ -159,7 +159,9 @@ class CreateTask extends Component
                 ->withProperties(['type' => 'Task'])
                 ->log('New task has been created U: @'.$task->user->username.' T: '.$task->id);
 
-            return session()->flash('success', 'Task has been created!');
+            return $this->alert('success', 'Task has been created!', [
+                'showCancelButton' => true,
+            ]);
         } else {
             return $this->alert('error', 'Forbidden!', [
                 'showCancelButton' => true,

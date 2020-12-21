@@ -29,7 +29,9 @@ class Status extends Component
                 ->withProperties(['type' => 'User'])
                 ->log('User status was cleared');
 
-            return session()->flash('success', 'Status cleared successfully!');
+            return $this->alert('success', 'Status cleared successfully!', [
+                'showCancelButton' => true,
+            ]);
         } else {
             return $this->alert('error', 'Forbidden!', [
                 'showCancelButton' => true,
@@ -41,7 +43,9 @@ class Status extends Component
     {
         if (Auth::check()) {
             if (strlen($event['status_emoji']) === 0) {
-                return session()->flash('warning', 'Select the emoji!');
+                return $this->alert('warning', 'Select the emoji!', [
+                    'showCancelButton' => true,
+                ]);
             }
 
             if (strlen($event['status']) !== 0) {
@@ -53,7 +57,9 @@ class Status extends Component
                     ->withProperties(['type' => 'User'])
                     ->log('User status was updated');
 
-                return session()->flash('success', 'Status set successfully!');
+                return $this->alert('success', 'Status set successfully!', [
+                    'showCancelButton' => true,
+                ]);
             } else {
                 Auth::user()->status = null;
                 Auth::user()->status_emoji = null;
@@ -63,7 +69,9 @@ class Status extends Component
                     ->withProperties(['type' => 'User'])
                     ->log('User status was cleared');
 
-                return session()->flash('success', 'Status cleared successfully!');
+                return $this->alert('success', 'Status cleared successfully!', [
+                    'showCancelButton' => true,
+                ]);
             }
         } else {
             return $this->alert('error', 'Forbidden!', [

@@ -121,7 +121,9 @@ class Account extends Component
                         ->withProperties(['type' => 'User'])
                         ->log('Account settings was updated');
 
-                    return session()->flash('success', 'Your account has been updated!');
+                    return $this->alert('success', 'Your account has been updated!', [
+                        'showCancelButton' => true,
+                    ]);
                 }
             } else {
                 return $this->alert('error', 'Forbidden!', [

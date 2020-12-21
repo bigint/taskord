@@ -30,7 +30,9 @@ class Follow extends Component
                 ->withProperties(['type' => 'Throttle'])
                 ->log('Rate limited while following the user');
 
-            return session()->flash('error', 'Please slow down!');
+                return $this->alert('warning', 'Your are rate limited, try again later!', [
+                    'showCancelButton' => true,
+                ]);
         }
 
         if (Auth::check()) {

@@ -74,7 +74,9 @@ class CreateAnswer extends Component
                 ->withProperties(['type' => 'Answer'])
                 ->log('New answer has been created U: @'.$this->question->user->username.' A: '.$answer->id);
 
-            return session()->flash('success', 'Answer has been added!');
+                return $this->alert('success', 'Answer has been added!', [
+                    'showCancelButton' => true,
+                ]);
         } else {
             session()->flash('error', 'Forbidden!');
         }
