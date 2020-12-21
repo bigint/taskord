@@ -31,7 +31,7 @@ class SingleUpdate extends Component
                 ->withProperties(['type' => 'Throttle'])
                 ->log('Rate limited while praising the update');
 
-            return $this->alert('warning', 'Your are rate limited, try again later!', [
+            return $this->alert('error', 'Your are rate limited, try again later!', [
                 'showCancelButton' => true,
             ]);
         }
