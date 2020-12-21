@@ -39,7 +39,9 @@ class SingleUpdate extends Component
                 return session()->flash('warning', 'Your email is not verified!');
             }
             if (Auth::user()->isFlagged) {
-                return session()->flash('error', 'Your account is flagged!');
+                return $this->alert('error', 'Your account is flagged!', [
+                    'showCancelButton' => true,
+                ]);
             }
             if (Auth::id() === $this->update->user->id) {
                 return session()->flash('error', 'You can\'t praise your own update!');
@@ -69,7 +71,9 @@ class SingleUpdate extends Component
     {
         if (Auth::check()) {
             if (Auth::user()->isFlagged) {
-                return session()->flash('error', 'Your account is flagged!');
+                return $this->alert('error', 'Your account is flagged!', [
+                    'showCancelButton' => true,
+                ]);
             }
 
             if (Auth::user()->staffShip or Auth::id() === $this->update->user->id) {

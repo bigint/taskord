@@ -37,7 +37,9 @@ class Rsvp extends Component
                 return session()->flash('error', 'Your email is not verified!');
             }
             if (Auth::user()->isFlagged) {
-                return session()->flash('error', 'Your account is flagged!');
+                return $this->alert('error', 'Your account is flagged!', [
+                    'showCancelButton' => true,
+                ]);
             }
             if (Auth::id() === $this->meetup->user_id) {
                 return session()->flash('error', 'You can\'t RSVP your own meetup!');

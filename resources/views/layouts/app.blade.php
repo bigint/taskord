@@ -81,6 +81,7 @@
     </div>
 </body>
 @livewireScripts
+<x-livewire-alert::scripts />
 <script src="{{ asset('js/app.js', config('app.env') === 'production' ? true : false) }}" defer data-turbolinks-track="true" data-turbolinks-eval=false></script>
 @yield('emoji-picker')
 <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "0ebade4d5737444ea409cab9471ddb4d"}'></script>

@@ -48,7 +48,9 @@ class Integrations extends Component
                 ]);
 
                 if (Auth::user()->isFlagged) {
-                    return session()->flash('error', 'Your account is flagged!');
+                    return $this->alert('error', 'Your account is flagged!', [
+                        'showCancelButton' => true,
+                    ]);
                 }
 
                 if (Auth::id() === $this->user->id) {

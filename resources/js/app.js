@@ -62,14 +62,16 @@ document.addEventListener("turbolinks:load", () => {
 document.addEventListener("livewire:load", () => {
   window.Livewire.hook("element.updated", () => {
     setTimeout(() => {
-      // var alert = document.getElementsByClassName("fade")[0];
-      // alert.classList.remove('fast');
+      var element = document.querySelector('.alert');
+      element.classList.add('hide');
+      element.classList.remove('show');
+      element.classList.add('d-none');
     }, 2000);
   });
 });
 
 // Hide search dropdown on clicking the body
 document.body.addEventListener("click", () => {
-  var search = document.getElementsByClassName("search-dropdown")[0];
-  search.remove();
+  // var search = document.getElementsByClassName("search-dropdown")[0];
+  // search.remove();
 });

@@ -42,7 +42,9 @@ class CreateAnswer extends Component
             }
 
             if (Auth::user()->isFlagged) {
-                return session()->flash('error', 'Your account is flagged!');
+                return $this->alert('error', 'Your account is flagged!', [
+                    'showCancelButton' => true,
+                ]);
             }
 
             $users = Helper::getUserIDFromMention($this->answer);

@@ -39,7 +39,9 @@ class SingleComment extends Component
             }
 
             if (Auth::user()->isFlagged) {
-                return session()->flash('error', 'Your account is flagged!');
+                return $this->alert('error', 'Your account is flagged!', [
+                    'showCancelButton' => true,
+                ]);
             }
             if (Auth::id() === $this->comment->user->id) {
                 return session()->flash('error', 'You can\'t praise your own comment!');
@@ -78,7 +80,9 @@ class SingleComment extends Component
     {
         if (Auth::check()) {
             if (Auth::user()->isFlagged) {
-                return session()->flash('error', 'Your account is flagged!');
+                return $this->alert('error', 'Your account is flagged!', [
+                    'showCancelButton' => true,
+                ]);
             }
             if (Auth::user()->staffShip or Auth::id() === $this->comment->user->id) {
                 activity()
