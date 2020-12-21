@@ -46,7 +46,9 @@ class Subscribe extends Component
                 ]);
             }
             if (Auth::id() === $this->question->user->id) {
-                return session()->flash('error', 'You can\'t subscribe your own question!');
+                return $this->alert('warning', 'You can\'t subscribe your own question!', [
+                    'showCancelButton' => true,
+                ]);
             } else {
                 Auth::user()->toggleSubscribe($this->question);
                 $this->question->refresh();

@@ -48,7 +48,9 @@ class SingleComment extends Component
                 ]);
             }
             if (Auth::id() === $this->comment->user->id) {
-                return session()->flash('error', 'You can\'t praise your own comment!');
+                return $this->alert('warning', 'You can\'t praise your own comment!', [
+                    'showCancelButton' => true,
+                ]);
             }
             Helper::togglePraise($this->comment, 'COMMENT');
             activity()

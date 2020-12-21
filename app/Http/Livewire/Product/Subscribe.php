@@ -43,7 +43,9 @@ class Subscribe extends Component
                 ]);
             }
             if (Auth::id() === $this->product->owner->id) {
-                return session()->flash('error', 'You can\'t subscribe your own product!');
+                return $this->alert('warning', 'You can\'t subscribe your own product!', [
+                    'showCancelButton' => true,
+                ]);
             } else {
                 Auth::user()->toggleSubscribe($this->product);
                 $this->product->refresh();

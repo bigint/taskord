@@ -40,7 +40,9 @@ class Follow extends Component
                 ]);
             }
             if (Auth::id() === $this->user->id) {
-                return session()->flash('error', 'You can\'t follow yourself!');
+                return $this->alert('warning', 'You can\'t follow yourself!', [
+                    'showCancelButton' => true,
+                ]);
             } else {
                 Auth::user()->toggleFollow($this->user);
                 $this->user->refresh();

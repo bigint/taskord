@@ -47,7 +47,9 @@ class SingleAnswer extends Component
                 ]);
             }
             if (Auth::id() === $this->answer->user->id) {
-                return session()->flash('error', 'You can\'t praise your own answer!');
+                return $this->alert('warning', 'You can\'t praise your own answer!', [
+                    'showCancelButton' => true,
+                ]);
             }
             Helper::togglePraise($this->answer, 'ANSWER');
             activity()

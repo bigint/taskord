@@ -48,7 +48,9 @@ class SingleUpdate extends Component
                 ]);
             }
             if (Auth::id() === $this->update->user->id) {
-                return session()->flash('error', 'You can\'t praise your own update!');
+                return $this->alert('warning', 'You can\'t praise your own update!', [
+                    'showCancelButton' => true,
+                ]);
             }
             if (Auth::user()->hasLiked($this->update)) {
                 Auth::user()->unlike($this->update);

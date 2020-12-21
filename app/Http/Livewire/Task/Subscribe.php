@@ -46,7 +46,9 @@ class Subscribe extends Component
                 ]);
             }
             if (Auth::id() === $this->task->user->id) {
-                return session()->flash('error', 'You can\'t subscribe your own task!');
+                return $this->alert('warning', 'You can\'t subscribe your own task!', [
+                    'showCancelButton' => true,
+                ]);
             } else {
                 Auth::user()->toggleSubscribe($this->task);
                 $this->task->refresh();

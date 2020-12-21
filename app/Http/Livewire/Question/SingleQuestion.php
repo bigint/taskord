@@ -50,7 +50,9 @@ class SingleQuestion extends Component
                 ]);
             }
             if (Auth::id() === $this->question->user->id) {
-                return session()->flash('error', 'You can\'t praise your own question!');
+                return $this->alert('warning', 'You can\'t praise your own question!', [
+                    'showCancelButton' => true,
+                ]);
             }
             Helper::togglePraise($this->question, 'QUESTION');
             activity()
