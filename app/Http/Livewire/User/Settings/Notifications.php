@@ -25,8 +25,8 @@ class Notifications extends Component
                     ->log('mentionsEmail was toggled in notification settings');
             } else {
                 return $this->alert('error', 'Forbidden!', [
-                'showCancelButton' => true,
-            ]);
+                    'showCancelButton' => true,
+                ]);
             }
         } else {
             return $this->alert('error', 'Forbidden!', [
@@ -46,8 +46,8 @@ class Notifications extends Component
                     ->log('mentionsWeb was toggled in notification settings');
             } else {
                 return $this->alert('error', 'Forbidden!', [
-                'showCancelButton' => true,
-            ]);
+                    'showCancelButton' => true,
+                ]);
             }
         } else {
             return $this->alert('error', 'Forbidden!', [
@@ -67,8 +67,8 @@ class Notifications extends Component
                     ->log('taskPraisedEmail was toggled in notification settings');
             } else {
                 return $this->alert('error', 'Forbidden!', [
-                'showCancelButton' => true,
-            ]);
+                    'showCancelButton' => true,
+                ]);
             }
         } else {
             return $this->alert('error', 'Forbidden!', [
@@ -88,8 +88,8 @@ class Notifications extends Component
                     ->log('taskPraisedWeb was toggled in notification settings');
             } else {
                 return $this->alert('error', 'Forbidden!', [
-                'showCancelButton' => true,
-            ]);
+                    'showCancelButton' => true,
+                ]);
             }
         } else {
             return $this->alert('error', 'Forbidden!', [
@@ -109,8 +109,8 @@ class Notifications extends Component
                     ->log('commentPraisedEmail was toggled in notification settings');
             } else {
                 return $this->alert('error', 'Forbidden!', [
-                'showCancelButton' => true,
-            ]);
+                    'showCancelButton' => true,
+                ]);
             }
         } else {
             return $this->alert('error', 'Forbidden!', [
@@ -130,8 +130,8 @@ class Notifications extends Component
                     ->log('commentPraisedWeb was toggled in notification settings');
             } else {
                 return $this->alert('error', 'Forbidden!', [
-                'showCancelButton' => true,
-            ]);
+                    'showCancelButton' => true,
+                ]);
             }
         } else {
             return $this->alert('error', 'Forbidden!', [
@@ -151,8 +151,8 @@ class Notifications extends Component
                     ->log('questionPraisedEmail was toggled in notification settings');
             } else {
                 return $this->alert('error', 'Forbidden!', [
-                'showCancelButton' => true,
-            ]);
+                    'showCancelButton' => true,
+                ]);
             }
         } else {
             return $this->alert('error', 'Forbidden!', [
@@ -172,8 +172,8 @@ class Notifications extends Component
                     ->log('questionPraisedWeb was toggled in notification settings');
             } else {
                 return $this->alert('error', 'Forbidden!', [
-                'showCancelButton' => true,
-            ]);
+                    'showCancelButton' => true,
+                ]);
             }
         } else {
             return $this->alert('error', 'Forbidden!', [
@@ -193,8 +193,8 @@ class Notifications extends Component
                     ->log('answerPraisedEmail was toggled in notification settings');
             } else {
                 return $this->alert('error', 'Forbidden!', [
-                'showCancelButton' => true,
-            ]);
+                    'showCancelButton' => true,
+                ]);
             }
         } else {
             return $this->alert('error', 'Forbidden!', [
@@ -214,8 +214,8 @@ class Notifications extends Component
                     ->log('answerPraisedWeb was toggled in notification settings');
             } else {
                 return $this->alert('error', 'Forbidden!', [
-                'showCancelButton' => true,
-            ]);
+                    'showCancelButton' => true,
+                ]);
             }
         } else {
             return $this->alert('error', 'Forbidden!', [
@@ -235,8 +235,8 @@ class Notifications extends Component
                     ->log('commentAddedEmail was toggled in notification settings');
             } else {
                 return $this->alert('error', 'Forbidden!', [
-                'showCancelButton' => true,
-            ]);
+                    'showCancelButton' => true,
+                ]);
             }
         } else {
             return $this->alert('error', 'Forbidden!', [
@@ -256,8 +256,8 @@ class Notifications extends Component
                     ->log('commentAddedWeb was toggled in notification settings');
             } else {
                 return $this->alert('error', 'Forbidden!', [
-                'showCancelButton' => true,
-            ]);
+                    'showCancelButton' => true,
+                ]);
             }
         } else {
             return $this->alert('error', 'Forbidden!', [
@@ -277,8 +277,8 @@ class Notifications extends Component
                     ->log('answerAddedEmail was toggled in notification settings');
             } else {
                 return $this->alert('error', 'Forbidden!', [
-                'showCancelButton' => true,
-            ]);
+                    'showCancelButton' => true,
+                ]);
             }
         } else {
             return $this->alert('error', 'Forbidden!', [
@@ -298,8 +298,8 @@ class Notifications extends Component
                     ->log('answerAddedWeb was toggled in notification settings');
             } else {
                 return $this->alert('error', 'Forbidden!', [
-                'showCancelButton' => true,
-            ]);
+                    'showCancelButton' => true,
+                ]);
             }
         } else {
             return $this->alert('error', 'Forbidden!', [
@@ -319,8 +319,8 @@ class Notifications extends Component
                     ->log('userFollowedEmail was toggled in notification settings');
             } else {
                 return $this->alert('error', 'Forbidden!', [
-                'showCancelButton' => true,
-            ]);
+                    'showCancelButton' => true,
+                ]);
             }
         } else {
             return $this->alert('error', 'Forbidden!', [
@@ -340,8 +340,8 @@ class Notifications extends Component
                     ->log('userFollowedWeb was toggled in notification settings');
             } else {
                 return $this->alert('error', 'Forbidden!', [
-                'showCancelButton' => true,
-            ]);
+                    'showCancelButton' => true,
+                ]);
             }
         } else {
             return $this->alert('error', 'Forbidden!', [
@@ -361,8 +361,8 @@ class Notifications extends Component
                     ->log('productSubscribedWeb was toggled in notification settings');
             } else {
                 return $this->alert('error', 'Forbidden!', [
-                'showCancelButton' => true,
-            ]);
+                    'showCancelButton' => true,
+                ]);
             }
         } else {
             return $this->alert('error', 'Forbidden!', [
@@ -382,8 +382,8 @@ class Notifications extends Component
                     ->log('productSubscribedEmail was toggled in notification settings');
             } else {
                 return $this->alert('error', 'Forbidden!', [
-                'showCancelButton' => true,
-            ]);
+                    'showCancelButton' => true,
+                ]);
             }
         } else {
             return $this->alert('error', 'Forbidden!', [
@@ -403,8 +403,8 @@ class Notifications extends Component
                     ->log('productUpdatesWeb was toggled in notification settings');
             } else {
                 return $this->alert('error', 'Forbidden!', [
-                'showCancelButton' => true,
-            ]);
+                    'showCancelButton' => true,
+                ]);
             }
         } else {
             return $this->alert('error', 'Forbidden!', [
@@ -424,8 +424,8 @@ class Notifications extends Component
                     ->log('productUpdatesEmail was toggled in notification settings');
             } else {
                 return $this->alert('error', 'Forbidden!', [
-                'showCancelButton' => true,
-            ]);
+                    'showCancelButton' => true,
+                ]);
             }
         } else {
             return $this->alert('error', 'Forbidden!', [

@@ -73,8 +73,8 @@ class SingleComment extends Component
                     ->log('Comment hide was toggled C: '.$this->comment->id);
             } else {
                 return $this->alert('error', 'Forbidden!', [
-                'showCancelButton' => true,
-            ]);
+                    'showCancelButton' => true,
+                ]);
             }
         } else {
             return $this->alert('error', 'Forbidden!', [
@@ -105,8 +105,8 @@ class SingleComment extends Component
                 Auth::user()->touch();
             } else {
                 return $this->alert('error', 'Forbidden!', [
-                'showCancelButton' => true,
-            ]);
+                    'showCancelButton' => true,
+                ]);
             }
         } else {
             return $this->alert('error', 'Forbidden!', [

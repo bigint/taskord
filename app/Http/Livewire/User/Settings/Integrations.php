@@ -71,13 +71,13 @@ class Integrations extends Component
                         ->log('New webhook has been created WH: '.$webhook->id);
                 } else {
                     return $this->alert('error', 'Forbidden!', [
-                'showCancelButton' => true,
-            ]);
+                        'showCancelButton' => true,
+                    ]);
                 }
             } else {
                 return $this->alert('error', 'Forbidden!', [
-                'showCancelButton' => true,
-            ]);
+                    'showCancelButton' => true,
+                ]);
             }
         } else {
             return $this->alert('error', 'Forbidden!', [
@@ -98,8 +98,8 @@ class Integrations extends Component
                 $this->emit('webhookDeleted');
             } else {
                 return $this->alert('error', 'Forbidden!', [
-                'showCancelButton' => true,
-            ]);
+                    'showCancelButton' => true,
+                ]);
             }
         } else {
             return $this->alert('error', 'Forbidden!', [

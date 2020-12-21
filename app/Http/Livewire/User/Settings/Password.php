@@ -64,8 +64,8 @@ class Password extends Component
                 ]);
             } else {
                 return $this->alert('error', 'Forbidden!', [
-                'showCancelButton' => true,
-            ]);
+                    'showCancelButton' => true,
+                ]);
             }
         } else {
             return $this->alert('error', 'Forbidden!', [

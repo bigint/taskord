@@ -71,8 +71,8 @@ class SingleTask extends Component
                 return true;
             } else {
                 return $this->alert('error', 'Forbidden!', [
-                'showCancelButton' => true,
-            ]);
+                    'showCancelButton' => true,
+                ]);
             }
         } else {
             return $this->alert('error', 'Forbidden!', [
@@ -136,8 +136,8 @@ class SingleTask extends Component
                     ->log('Task hide was toggled T: '.$this->task->id);
             } else {
                 return $this->alert('error', 'Forbidden!', [
-                'showCancelButton' => true,
-            ]);
+                    'showCancelButton' => true,
+                ]);
             }
         } else {
             return $this->alert('error', 'Forbidden!', [
@@ -172,8 +172,8 @@ class SingleTask extends Component
                 Auth::user()->touch();
             } else {
                 return $this->alert('error', 'Forbidden!', [
-                'showCancelButton' => true,
-            ]);
+                    'showCancelButton' => true,
+                ]);
             }
         } else {
             return $this->alert('error', 'Forbidden!', [

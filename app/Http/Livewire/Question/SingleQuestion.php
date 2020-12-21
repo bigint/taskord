@@ -75,8 +75,8 @@ class SingleQuestion extends Component
                     ->log('Question hide was toggled Q: '.$this->question->id);
             } else {
                 return $this->alert('error', 'Forbidden!', [
-                'showCancelButton' => true,
-            ]);
+                    'showCancelButton' => true,
+                ]);
             }
         } else {
             return $this->alert('error', 'Forbidden!', [

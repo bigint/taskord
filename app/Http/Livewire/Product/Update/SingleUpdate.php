@@ -92,8 +92,8 @@ class SingleUpdate extends Component
                 $this->emit('updateDeleted');
             } else {
                 return $this->alert('error', 'Forbidden!', [
-                'showCancelButton' => true,
-            ]);
+                    'showCancelButton' => true,
+                ]);
             }
         } else {
             return $this->alert('error', 'Forbidden!', [
