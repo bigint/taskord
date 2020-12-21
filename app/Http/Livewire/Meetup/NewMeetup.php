@@ -29,7 +29,9 @@ class NewMeetup extends Component
                 'cover' => 'nullable|mimes:jpeg,jpg,png,gif|max:1024',
             ]);
         } else {
-            return session()->flash('error', 'Forbidden!');
+            return $this->alert('error', 'Forbidden!', [
+                'showCancelButton' => true,
+            ]);
         }
     }
 

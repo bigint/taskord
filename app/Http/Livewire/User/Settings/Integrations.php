@@ -68,13 +68,19 @@ class Integrations extends Component
                         ->withProperties(['type' => 'User'])
                         ->log('New webhook has been created WH: '.$webhook->id);
                 } else {
-                    return session()->flash('error', 'Forbidden!');
+                    return $this->alert('error', 'Forbidden!', [
+                'showCancelButton' => true,
+            ]);
                 }
             } else {
-                return session()->flash('error', 'Forbidden!');
+                return $this->alert('error', 'Forbidden!', [
+                'showCancelButton' => true,
+            ]);
             }
         } else {
-            return session()->flash('error', 'Forbidden!');
+            return $this->alert('error', 'Forbidden!', [
+                'showCancelButton' => true,
+            ]);
         }
     }
 
@@ -89,10 +95,14 @@ class Integrations extends Component
                 $webhook->delete();
                 $this->emit('webhookDeleted');
             } else {
-                return session()->flash('error', 'Forbidden!');
+                return $this->alert('error', 'Forbidden!', [
+                'showCancelButton' => true,
+            ]);
             }
         } else {
-            return session()->flash('error', 'Forbidden!');
+            return $this->alert('error', 'Forbidden!', [
+                'showCancelButton' => true,
+            ]);
         }
     }
 

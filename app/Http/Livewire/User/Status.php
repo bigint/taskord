@@ -31,7 +31,9 @@ class Status extends Component
 
             return session()->flash('success', 'Status cleared successfully!');
         } else {
-            return session()->flash('error', 'Forbidden!');
+            return $this->alert('error', 'Forbidden!', [
+                'showCancelButton' => true,
+            ]);
         }
     }
 
@@ -64,7 +66,9 @@ class Status extends Component
                 return session()->flash('success', 'Status cleared successfully!');
             }
         } else {
-            return session()->flash('error', 'Forbidden!');
+            return $this->alert('error', 'Forbidden!', [
+                'showCancelButton' => true,
+            ]);
         }
     }
 

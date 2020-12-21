@@ -59,10 +59,14 @@ class Password extends Component
 
                 return session()->flash('success', 'Your password has been changed!');
             } else {
-                return session()->flash('error', 'Forbidden!');
+                return $this->alert('error', 'Forbidden!', [
+                'showCancelButton' => true,
+            ]);
             }
         } else {
-            return session()->flash('error', 'Forbidden!');
+            return $this->alert('error', 'Forbidden!', [
+                'showCancelButton' => true,
+            ]);
         }
     }
 

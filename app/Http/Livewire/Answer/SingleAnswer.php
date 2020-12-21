@@ -50,7 +50,9 @@ class SingleAnswer extends Component
                 ->withProperties(['type' => 'Answer'])
                 ->log('Answer praise was toggled A: '.$this->answer->id);
         } else {
-            return session()->flash('error', 'Forbidden!');
+            return $this->alert('error', 'Forbidden!', [
+                'showCancelButton' => true,
+            ]);
         }
     }
 
@@ -63,10 +65,14 @@ class SingleAnswer extends Component
                     ->withProperties(['type' => 'Admin'])
                     ->log('Answer hide was toggled A: '.$this->answer->id);
             } else {
-                return session()->flash('error', 'Forbidden!');
+                return $this->alert('error', 'Forbidden!', [
+                'showCancelButton' => true,
+            ]);
             }
         } else {
-            return session()->flash('error', 'Forbidden!');
+            return $this->alert('error', 'Forbidden!', [
+                'showCancelButton' => true,
+            ]);
         }
     }
 
@@ -95,7 +101,9 @@ class SingleAnswer extends Component
                 session()->flash('error', 'Forbidden!');
             }
         } else {
-            return session()->flash('error', 'Forbidden!');
+            return $this->alert('error', 'Forbidden!', [
+                'showCancelButton' => true,
+            ]);
         }
     }
 

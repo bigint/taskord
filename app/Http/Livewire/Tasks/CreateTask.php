@@ -33,7 +33,9 @@ class CreateTask extends Component
                 'images.max' => 'Only 5 Images are allowed!',
             ]);
         } else {
-            return session()->flash('error', 'Forbidden!');
+            return $this->alert('error', 'Forbidden!', [
+                'showCancelButton' => true,
+            ]);
         }
     }
 
@@ -108,7 +110,9 @@ class CreateTask extends Component
                 ->withProperties(['type' => 'Task'])
                 ->log('New task has been created U: @'.$task->user->username.' T: '.$task->id);
         } else {
-            return session()->flash('error', 'Forbidden!');
+            return $this->alert('error', 'Forbidden!', [
+                'showCancelButton' => true,
+            ]);
         }
     }
 

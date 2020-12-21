@@ -38,10 +38,14 @@ class Account extends Component
                     return session()->flash('isBeta', 'Your are no longer a beta member!');
                 }
             } else {
-                return session()->flash('error', 'Forbidden!');
+                return $this->alert('error', 'Forbidden!', [
+                'showCancelButton' => true,
+            ]);
             }
         } else {
-            return session()->flash('error', 'Forbidden!');
+            return $this->alert('error', 'Forbidden!', [
+                'showCancelButton' => true,
+            ]);
         }
     }
 
@@ -50,7 +54,9 @@ class Account extends Component
         if (Auth::check()) {
             if (Auth::id() === $this->user->id) {
                 if (! $this->user->isPatron) {
-                    return session()->flash('error', 'Forbidden!');
+                    return $this->alert('error', 'Forbidden!', [
+                'showCancelButton' => true,
+            ]);
                 }
                 $this->user->isPrivate = ! $this->user->isPrivate;
                 $this->user->save();
@@ -68,10 +74,14 @@ class Account extends Component
                     return session()->flash('isPrivate', 'All your tasks are now public');
                 }
             } else {
-                return session()->flash('error', 'Forbidden!');
+                return $this->alert('error', 'Forbidden!', [
+                'showCancelButton' => true,
+            ]);
             }
         } else {
-            return session()->flash('error', 'Forbidden!');
+            return $this->alert('error', 'Forbidden!', [
+                'showCancelButton' => true,
+            ]);
         }
     }
 
@@ -83,7 +93,9 @@ class Account extends Component
                 'email' => 'required|email|max:255|indisposable|unique:users,email,'.$this->user->id,
             ]);
         } else {
-            return session()->flash('error', 'Forbidden!');
+            return $this->alert('error', 'Forbidden!', [
+                'showCancelButton' => true,
+            ]);
         }
     }
 
@@ -112,10 +124,14 @@ class Account extends Component
                     return session()->flash('success', 'Your account has been updated!');
                 }
             } else {
-                return session()->flash('error', 'Forbidden!');
+                return $this->alert('error', 'Forbidden!', [
+                'showCancelButton' => true,
+            ]);
             }
         } else {
-            return session()->flash('error', 'Forbidden!');
+            return $this->alert('error', 'Forbidden!', [
+                'showCancelButton' => true,
+            ]);
         }
     }
 

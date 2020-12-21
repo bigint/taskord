@@ -172,7 +172,9 @@ class UserController extends Controller
 
             return $response;
         } else {
-            return session()->flash('error', 'Forbidden!');
+            return $this->alert('error', 'Forbidden!', [
+                'showCancelButton' => true,
+            ]);
         }
     }
 

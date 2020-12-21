@@ -17,7 +17,9 @@ class OnlyFollowing extends Component
                     ->withProperties(['type' => 'User'])
                     ->log('Toggled only followings tasks in homepage');
         } else {
-            return session()->flash('error', 'Forbidden!');
+            return $this->alert('error', 'Forbidden!', [
+                'showCancelButton' => true,
+            ]);
         }
     }
 

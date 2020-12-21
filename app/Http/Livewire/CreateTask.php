@@ -42,7 +42,9 @@ class CreateTask extends Component
             Auth::user()->checkState = ! Auth::user()->checkState;
             Auth::user()->save();
         } else {
-            return session()->flash('error', 'Forbidden!');
+            return $this->alert('error', 'Forbidden!', [
+                'showCancelButton' => true,
+            ]);
         }
     }
 
@@ -57,7 +59,9 @@ class CreateTask extends Component
                 'images.max' => 'Only 5 Images are allowed!',
             ]);
         } else {
-            return session()->flash('error', 'Forbidden!');
+            return $this->alert('error', 'Forbidden!', [
+                'showCancelButton' => true,
+            ]);
         }
     }
 
@@ -153,7 +157,9 @@ class CreateTask extends Component
 
             return session()->flash('success', 'Task has been created!');
         } else {
-            return session()->flash('error', 'Forbidden!');
+            return $this->alert('error', 'Forbidden!', [
+                'showCancelButton' => true,
+            ]);
         }
     }
 

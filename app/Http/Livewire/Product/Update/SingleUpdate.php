@@ -58,7 +58,9 @@ class SingleUpdate extends Component
                 //$this->update->user->notify(new TaskPraised($this->update, Auth::id()));
             }
         } else {
-            return session()->flash('error', 'Forbidden!');
+            return $this->alert('error', 'Forbidden!', [
+                'showCancelButton' => true,
+            ]);
         }
     }
 
@@ -83,10 +85,14 @@ class SingleUpdate extends Component
                 $this->update->delete();
                 $this->emit('updateDeleted');
             } else {
-                return session()->flash('error', 'Forbidden!');
+                return $this->alert('error', 'Forbidden!', [
+                'showCancelButton' => true,
+            ]);
             }
         } else {
-            return session()->flash('error', 'Forbidden!');
+            return $this->alert('error', 'Forbidden!', [
+                'showCancelButton' => true,
+            ]);
         }
     }
 

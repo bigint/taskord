@@ -56,7 +56,9 @@ class Subscribe extends Component
                     ->log('Product subscribe was toggled P: #'.$this->product->slug);
             }
         } else {
-            return session()->flash('error', 'Forbidden!');
+            return $this->alert('error', 'Forbidden!', [
+                'showCancelButton' => true,
+            ]);
         }
     }
 

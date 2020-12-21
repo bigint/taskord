@@ -56,7 +56,9 @@ class Subscribe extends Component
                     ->log('Question subscribe was toggled Q: '.$this->question->id);
             }
         } else {
-            return session()->flash('error', 'Forbidden!');
+            return $this->alert('error', 'Forbidden!', [
+                'showCancelButton' => true,
+            ]);
         }
     }
 

@@ -51,7 +51,9 @@ class SingleComment extends Component
                 ->withProperties(['type' => 'Comment'])
                 ->log('Comment praise was toggled C: '.$this->comment->id);
         } else {
-            return session()->flash('error', 'Forbidden!');
+            return $this->alert('error', 'Forbidden!', [
+                'showCancelButton' => true,
+            ]);
         }
     }
 
@@ -64,10 +66,14 @@ class SingleComment extends Component
                     ->withProperties(['type' => 'Admin'])
                     ->log('Comment hide was toggled C: '.$this->comment->id);
             } else {
-                return session()->flash('error', 'Forbidden!');
+                return $this->alert('error', 'Forbidden!', [
+                'showCancelButton' => true,
+            ]);
             }
         } else {
-            return session()->flash('error', 'Forbidden!');
+            return $this->alert('error', 'Forbidden!', [
+                'showCancelButton' => true,
+            ]);
         }
     }
 
@@ -92,10 +98,14 @@ class SingleComment extends Component
                 $this->emit('commentDeleted');
                 Auth::user()->touch();
             } else {
-                return session()->flash('error', 'Forbidden!');
+                return $this->alert('error', 'Forbidden!', [
+                'showCancelButton' => true,
+            ]);
             }
         } else {
-            return session()->flash('error', 'Forbidden!');
+            return $this->alert('error', 'Forbidden!', [
+                'showCancelButton' => true,
+            ]);
         }
     }
 

@@ -53,7 +53,9 @@ class Follow extends Component
                     ->log('@'.Auth::user()->username.' toggle follow @'.$this->user->username);
             }
         } else {
-            return session()->flash('error', 'Forbidden!');
+            return $this->alert('error', 'Forbidden!', [
+                'showCancelButton' => true,
+            ]);
         }
     }
 

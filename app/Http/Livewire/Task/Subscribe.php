@@ -56,7 +56,9 @@ class Subscribe extends Component
                     ->log('Task subscribe was toggled T: '.$this->task->id);
             }
         } else {
-            return session()->flash('error', 'Forbidden!');
+            return $this->alert('error', 'Forbidden!', [
+                'showCancelButton' => true,
+            ]);
         }
     }
 

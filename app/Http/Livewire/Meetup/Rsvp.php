@@ -49,7 +49,9 @@ class Rsvp extends Component
                 Auth::user()->touch();
             }
         } else {
-            return session()->flash('error', 'Forbidden!');
+            return $this->alert('error', 'Forbidden!', [
+                'showCancelButton' => true,
+            ]);
         }
     }
 
