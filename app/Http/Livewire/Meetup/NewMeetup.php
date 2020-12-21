@@ -84,11 +84,15 @@ class NewMeetup extends Component
             ]);
             Auth::user()->touch();
 
-            session()->flash('global', 'Meetup has been created!');
+            $this->alert('success', 'Meetup has been created!', [
+                'showCancelButton' => true,
+            ]);
 
             return redirect()->route('meetups.home');
         } else {
-            session()->flash('error', 'Forbidden!');
+            $this->alert('error', 'Forbidden!', [
+                'showCancelButton' => true,
+            ]);
         }
     }
 

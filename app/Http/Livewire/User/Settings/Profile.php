@@ -284,9 +284,13 @@ class Profile extends Component
                 $this->user->onlyFollowingsTasks = ! $this->user->onlyFollowingsTasks;
                 $this->user->save();
                 if ($this->user->onlyFollowingsTasks) {
-                    session()->flash('showfollowing', 'Only following user\'s task will be show on homepage');
+                    $this->alert('success', 'Only following user\'s task will be show on homepage', [
+                        'showCancelButton' => true,
+                    ]);
                 } else {
-                    session()->flash('showfollowing', 'All user\'s task will be show on homepage');
+                    $this->alert('success', 'All user\'s task will be show on homepage', [
+                        'showCancelButton' => true,
+                    ]);
                 }
                 activity()
                     ->withProperties(['type' => 'User'])

@@ -21,7 +21,9 @@ class Team extends Component
     {
         if (Auth::check()) {
             $this->user->products()->detach($this->product);
-            session()->flash('global', 'User has been removed from the team!');
+            $this->alert('success', 'User has been removed from the team!', [
+                'showCancelButton' => true,
+            ]);
             $this->user->notify(new MemberRemoved($this->product, Auth::id()));
             activity()
                 ->withProperties(['type' => 'Product'])

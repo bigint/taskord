@@ -43,7 +43,9 @@ class CreateQuestion extends Component
             ]);
             Auth::user()->touch();
 
-            session()->flash('question_created', 'Question has been created!');
+            $this->alert('success', 'Question has been created!', [
+                'showCancelButton' => true,
+            ]);
             givePoint(new QuestionCreated($question));
             activity()
                 ->withProperties(['type' => 'Question'])
@@ -51,7 +53,9 @@ class CreateQuestion extends Component
 
             return redirect()->route('question.question', ['id' => $question->id]);
         } else {
-            session()->flash('error', 'Forbidden!');
+            $this->alert('error', 'Forbidden!', [
+                'showCancelButton' => true,
+            ]);
         }
     }
 

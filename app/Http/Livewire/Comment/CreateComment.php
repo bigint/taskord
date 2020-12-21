@@ -26,7 +26,9 @@ class CreateComment extends Component
                 'comment' => 'required',
             ]);
         } else {
-            session()->flash('error', 'Forbidden!');
+            $this->alert('error', 'Forbidden!', [
+                'showCancelButton' => true,
+            ]);
         }
     }
 
@@ -78,7 +80,9 @@ class CreateComment extends Component
                 'showCancelButton' => true,
             ]);
         } else {
-            session()->flash('error', 'Forbidden!');
+            $this->alert('error', 'Forbidden!', [
+                'showCancelButton' => true,
+            ]);
         }
     }
 

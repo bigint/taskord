@@ -29,7 +29,9 @@ class EditQuestion extends Component
                 'body' => 'required|min:3|max:10000',
             ]);
         } else {
-            session()->flash('error', 'Forbidden!');
+            $this->alert('error', 'Forbidden!', [
+                'showCancelButton' => true,
+            ]);
         }
     }
 
@@ -64,17 +66,23 @@ class EditQuestion extends Component
                 $question->save();
                 Auth::user()->touch();
 
-                session()->flash('question_edited', 'Question has been edited!');
+                $this->alert('success', 'Question has been edited!', [
+                    'showCancelButton' => true,
+                ]);
                 activity()
                     ->withProperties(['type' => 'Question'])
                     ->log('Question has been edited Q: '.$question->id);
 
                 return redirect()->route('question.question', ['id' => $question->id]);
             } else {
-                session()->flash('error', 'Forbidden!');
+                $this->alert('error', 'Forbidden!', [
+                'showCancelButton' => true,
+            ]);
             }
         } else {
-            session()->flash('error', 'Forbidden!');
+            $this->alert('error', 'Forbidden!', [
+                'showCancelButton' => true,
+            ]);
         }
     }
 

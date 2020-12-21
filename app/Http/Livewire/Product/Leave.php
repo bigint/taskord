@@ -19,7 +19,9 @@ class Leave extends Component
     {
         if (Auth::check()) {
             Auth::user()->products()->detach($this->product);
-            session()->flash('global', 'You are no longer member of the team!');
+            $this->alert('success', 'You are no longer member of the team!', [
+                'showCancelButton' => true,
+            ]);
             $this->product->owner->notify(new MemberLeft($this->product, Auth::id()));
             Auth::user()->touch();
             activity()

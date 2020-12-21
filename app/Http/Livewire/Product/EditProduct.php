@@ -112,17 +112,23 @@ class EditProduct extends Component
                 $product->save();
                 Auth::user()->touch();
 
-                session()->flash('global', 'Product has been updated!');
+                $this->alert('success', 'Product has been updated!', [
+                    'showCancelButton' => true,
+                ]);
                 activity()
                     ->withProperties(['type' => 'Product'])
                     ->log('Product has been updated P: #'.$this->product->slug);
 
                 return redirect()->route('product.done', ['slug' => $product->slug]);
             } else {
-                session()->flash('error', 'Forbidden!');
+                $this->alert('error', 'Forbidden!', [
+                'showCancelButton' => true,
+            ]);
             }
         } else {
-            session()->flash('error', 'Forbidden!');
+            $this->alert('error', 'Forbidden!', [
+                'showCancelButton' => true,
+            ]);
         }
     }
 
@@ -158,11 +164,15 @@ class EditProduct extends Component
                 $this->product->webhooks()->delete();
                 $this->product->delete();
                 Auth::user()->touch();
-                session()->flash('product_deleted', 'Product has been deleted!');
+                $this->alert('success', 'Product has been deleted!', [
+                    'showCancelButton' => true,
+                ]);
 
                 return redirect()->route('products.newest');
             } else {
-                session()->flash('error', 'Forbidden!');
+                $this->alert('error', 'Forbidden!', [
+                'showCancelButton' => true,
+            ]);
             }
         } else {
             return $this->alert('error', 'Forbidden!', [

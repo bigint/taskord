@@ -104,7 +104,9 @@ class SingleAnswer extends Component
                 $this->emit('answerDeleted');
                 Auth::user()->touch();
             } else {
-                session()->flash('error', 'Forbidden!');
+                $this->alert('error', 'Forbidden!', [
+                'showCancelButton' => true,
+            ]);
             }
         } else {
             return $this->alert('error', 'Forbidden!', [

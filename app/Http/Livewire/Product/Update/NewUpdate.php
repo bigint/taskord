@@ -47,7 +47,9 @@ class NewUpdate extends Component
             ]);
             Auth::user()->touch();
 
-            session()->flash('global', 'Update has been created!');
+            $this->alert('success', 'New Update has been created!', [
+                'showCancelButton' => true,
+            ]);
             $users = Product::find($this->product->id)->subscribers()->get();
             foreach ($users as $user) {
                 $user->notify(new NewProductUpdate($update));
@@ -58,7 +60,9 @@ class NewUpdate extends Component
 
             return redirect()->route('product.updates', ['slug' => $update->product->slug]);
         } else {
-            session()->flash('error', 'Forbidden!');
+            $this->alert('error', 'Forbidden!', [
+                'showCancelButton' => true,
+            ]);
         }
     }
 

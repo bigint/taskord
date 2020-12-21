@@ -105,11 +105,15 @@ class SingleQuestion extends Component
                     ->log('Question was deleted Q: '.$this->question->id);
                 $this->question->delete();
                 Auth::user()->touch();
-                session()->flash('question_deleted', 'Question has been deleted!');
+                $this->alert('success', 'Question has been deleted!', [
+                    'showCancelButton' => true,
+                ]);
 
                 return redirect()->route('questions.newest');
             } else {
-                session()->flash('error', 'Forbidden!');
+                $this->alert('error', 'Forbidden!', [
+                'showCancelButton' => true,
+            ]);
             }
         } else {
             return $this->alert('error', 'Forbidden!', [

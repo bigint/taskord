@@ -17,7 +17,9 @@ class MarkAsRead extends Component
                 ->withProperties(['type' => 'Notification'])
                 ->log('Notifications mark as read');
         } else {
-            return session()->flash('global', 'Forbidden!');
+            return $this->alert('error', 'Forbidden!', [
+                'showCancelButton' => true,
+            ]);
         }
     }
 

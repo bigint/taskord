@@ -37,7 +37,9 @@ class AddMember extends Component
                 ]);
             }
             $user->products()->attach($this->product);
-            session()->flash('global', 'User has been added to the team!');
+            $this->alert('success', 'User has been added to the team!', [
+                'showCancelButton' => true,
+            ]);
             $user->notify(new MemberAdded($this->product, Auth::id()));
             activity()
                 ->withProperties(['type' => 'Product'])
