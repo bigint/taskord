@@ -72,8 +72,8 @@ class SingleAnswer extends Component
                     ->log('Answer hide was toggled A: '.$this->answer->id);
             } else {
                 return $this->alert('error', 'Forbidden!', [
-                'showCancelButton' => true,
-            ]);
+                    'showCancelButton' => true,
+                ]);
             }
         } else {
             return $this->alert('error', 'Forbidden!', [

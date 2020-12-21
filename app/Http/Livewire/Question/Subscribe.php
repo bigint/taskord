@@ -33,9 +33,9 @@ class Subscribe extends Component
                 ->withProperties(['type' => 'Throttle'])
                 ->log('Rate limited while subscribing to the question');
 
-                return $this->alert('warning', 'Your are rate limited, try again later!', [
-                    'showCancelButton' => true,
-                ]);
+            return $this->alert('warning', 'Your are rate limited, try again later!', [
+                'showCancelButton' => true,
+            ]);
         }
 
         if (Auth::check()) {
