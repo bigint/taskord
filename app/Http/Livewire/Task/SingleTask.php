@@ -111,7 +111,7 @@ class SingleTask extends Component
                 ]);
             }
             if (Auth::id() === $this->task->user->id) {
-                return $this->alert('error', 'You can\'t praise your own task!', [
+                return $this->alert('warning', 'You can\'t praise your own task!', [
                     'showCancelButton' => true,
                 ]);
             }
