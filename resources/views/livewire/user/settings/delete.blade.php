@@ -5,7 +5,6 @@
             <div>Export and delete your account.</div>
         </div>
         <div class="card-body">
-            <x-alert />
             <div class="h5 mb-3">Download your data</div>
             <div class="mb-3">
                 Most of the personal data that Taskord has about you is accessible through the Taskord app (e.g. tasks, comments, questions, answers, patron details, and user account). If you would like to get a consolidated copy of this data, you can download it by clicking the "Export Now" button.

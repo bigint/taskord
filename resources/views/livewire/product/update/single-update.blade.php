@@ -22,7 +22,6 @@
         </span>
     </div>
     <div class="card-body">
-        <x-alert />
         <div>@markdown($update->body)</div>
         <div class="mt-2">
             @auth

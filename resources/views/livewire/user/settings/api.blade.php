@@ -5,7 +5,6 @@
             <div>API Token generated that can be used to access the Taskord API.</div>
         </div>
         <div class="card-body">
-            <x-alert />
             <form wire:submit.prevent="regenerateToken">
                 <div class="mb-3">
                     <label class="form-label">Personal Access Token</label>

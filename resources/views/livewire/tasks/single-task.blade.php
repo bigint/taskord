@@ -1,5 +1,4 @@
 <li class="list-group-item pt-2 pb-2">
-    <x-alert />
     <div>
         <input
             class="form-check-input task-checkbox"

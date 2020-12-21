@@ -29,13 +29,17 @@ class Account extends Component
                         ->withProperties(['type' => 'User'])
                         ->log('Enrolled to beta');
 
-                    return session()->flash('isBeta', 'Your are now beta member!');
+                    return $this->alert('success', 'Your are now beta member!', [
+                        'showCancelButton' => true,
+                    ]);
                 } else {
                     activity()
                         ->withProperties(['type' => 'User'])
                         ->log('Opt out from beta');
 
-                    return session()->flash('isBeta', 'Your are no longer a beta member!');
+                    return $this->alert('success', 'Your are no longer a beta member!', [
+                        'showCancelButton' => true,
+                    ]);
                 }
             } else {
                 return $this->alert('error', 'Forbidden!', [
@@ -65,13 +69,17 @@ class Account extends Component
                         ->withProperties(['type' => 'User'])
                         ->log('Enrolled as a private user');
 
-                    return session()->flash('isPrivate', 'All your tasks are now private');
+                    return $this->alert('success', 'All your tasks are now private', [
+                        'showCancelButton' => true,
+                    ]);
                 } else {
                     activity()
                         ->withProperties(['type' => 'User'])
                         ->log('Enrolled as a public user');
 
-                    return session()->flash('isPrivate', 'All your tasks are now public');
+                    return $this->alert('success', 'All your tasks are now public', [
+                        'showCancelButton' => true,
+                    ]);
                 }
             } else {
                 return $this->alert('error', 'Forbidden!', [

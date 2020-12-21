@@ -51,11 +51,6 @@
                         autocomplete="current-password"
                     >
                     <label for="password">Password</label>
-                    @if (session()->has('error'))
-                        <span class="invalid-feedback" role="alert">
-                            <strong>{{ session('error') }}</strong>
-                        </span>
-                    @endif
                 </div>
                 <div class="checkbox mb-3">
                     <label>

@@ -7,7 +7,6 @@
             </div>
             <form wire:target="submit" wire:submit.prevent="submit">
                 <div class="modal-body">
-                    <x-alert />
                     <div class="mb-3">
                         <label class="form-label fw-bold">Name of the product</label>
                         <input type="text" value="{{ $name }}" class="form-control @error('name') is-invalid @enderror" placeholder="Simply the name of the product" wire:model.defer="name">
