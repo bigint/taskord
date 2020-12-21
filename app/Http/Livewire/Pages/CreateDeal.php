@@ -49,8 +49,8 @@ class CreateDeal extends Component
                 return redirect()->route('deals');
             } else {
                 $this->alert('error', 'Forbidden!', [
-                'showCancelButton' => true,
-            ]);
+                    'showCancelButton' => true,
+                ]);
             }
         } else {
             $this->alert('error', 'Forbidden!', [
