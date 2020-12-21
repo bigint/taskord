@@ -71,6 +71,10 @@ class SingleComment extends Component
                 activity()
                     ->withProperties(['type' => 'Admin'])
                     ->log('Comment hide was toggled C: '.$this->comment->id);
+
+                return $this->alert('success', 'Comment is hidden from public!', [
+                    'showCancelButton' => true,
+                ]);
             } else {
                 return $this->alert('error', 'Forbidden!', [
                     'showCancelButton' => true,
@@ -103,6 +107,10 @@ class SingleComment extends Component
                 $this->comment->delete();
                 $this->emit('commentDeleted');
                 Auth::user()->touch();
+
+                return $this->alert('success', 'Comment has been deleted successfully!', [
+                    'showCancelButton' => true,
+                ]);
             } else {
                 return $this->alert('error', 'Forbidden!', [
                     'showCancelButton' => true,

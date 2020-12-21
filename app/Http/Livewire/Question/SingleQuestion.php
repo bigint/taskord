@@ -73,6 +73,10 @@ class SingleQuestion extends Component
                 activity()
                     ->withProperties(['type' => 'Admin'])
                     ->log('Question hide was toggled Q: '.$this->question->id);
+
+                return $this->alert('success', 'Question is hidden from public!', [
+                    'showCancelButton' => true,
+                ]);
             } else {
                 return $this->alert('error', 'Forbidden!', [
                     'showCancelButton' => true,
@@ -105,7 +109,7 @@ class SingleQuestion extends Component
                     ->log('Question was deleted Q: '.$this->question->id);
                 $this->question->delete();
                 Auth::user()->touch();
-                $this->alert('success', 'Question has been deleted!', [
+                $this->alert('success', 'Question has been deleted successfully!', [
                     'showCancelButton' => true,
                 ]);
 

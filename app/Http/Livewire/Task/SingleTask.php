@@ -134,6 +134,10 @@ class SingleTask extends Component
                 activity()
                     ->withProperties(['type' => 'Admin'])
                     ->log('Task hide was toggled T: '.$this->task->id);
+
+                return $this->alert('success', 'Task is hidden from public!', [
+                    'showCancelButton' => true,
+                ]);
             } else {
                 return $this->alert('error', 'Forbidden!', [
                     'showCancelButton' => true,
@@ -170,6 +174,10 @@ class SingleTask extends Component
                 $this->task->delete();
                 $this->emitUp('taskDeleted');
                 Auth::user()->touch();
+
+                return $this->alert('success', 'Task has been deleted successfully!', [
+                    'showCancelButton' => true,
+                ]);
             } else {
                 return $this->alert('error', 'Forbidden!', [
                     'showCancelButton' => true,

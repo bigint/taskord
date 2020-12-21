@@ -70,6 +70,10 @@ class SingleAnswer extends Component
                 activity()
                     ->withProperties(['type' => 'Admin'])
                     ->log('Answer hide was toggled A: '.$this->answer->id);
+
+                return $this->alert('success', 'Answer is hidden from public!', [
+                    'showCancelButton' => true,
+                ]);
             } else {
                 return $this->alert('error', 'Forbidden!', [
                     'showCancelButton' => true,
@@ -103,6 +107,10 @@ class SingleAnswer extends Component
                 $this->answer->delete();
                 $this->emit('answerDeleted');
                 Auth::user()->touch();
+
+                return $this->alert('success', 'Answer has been deleted successfully!', [
+                    'showCancelButton' => true,
+                ]);
             } else {
                 $this->alert('error', 'Forbidden!', [
                     'showCancelButton' => true,
