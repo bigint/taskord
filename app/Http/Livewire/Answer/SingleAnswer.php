@@ -105,8 +105,8 @@ class SingleAnswer extends Component
                 Auth::user()->touch();
             } else {
                 $this->alert('error', 'Forbidden!', [
-                'showCancelButton' => true,
-            ]);
+                    'showCancelButton' => true,
+                ]);
             }
         } else {
             return $this->alert('error', 'Forbidden!', [

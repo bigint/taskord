@@ -122,8 +122,8 @@ class EditProduct extends Component
                 return redirect()->route('product.done', ['slug' => $product->slug]);
             } else {
                 $this->alert('error', 'Forbidden!', [
-                'showCancelButton' => true,
-            ]);
+                    'showCancelButton' => true,
+                ]);
             }
         } else {
             $this->alert('error', 'Forbidden!', [
@@ -171,8 +171,8 @@ class EditProduct extends Component
                 return redirect()->route('products.newest');
             } else {
                 $this->alert('error', 'Forbidden!', [
-                'showCancelButton' => true,
-            ]);
+                    'showCancelButton' => true,
+                ]);
             }
         } else {
             return $this->alert('error', 'Forbidden!', [

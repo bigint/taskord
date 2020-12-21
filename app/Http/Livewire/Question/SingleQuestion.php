@@ -112,8 +112,8 @@ class SingleQuestion extends Component
                 return redirect()->route('questions.newest');
             } else {
                 $this->alert('error', 'Forbidden!', [
-                'showCancelButton' => true,
-            ]);
+                    'showCancelButton' => true,
+                ]);
             }
         } else {
             return $this->alert('error', 'Forbidden!', [

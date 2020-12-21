@@ -76,8 +76,8 @@ class EditQuestion extends Component
                 return redirect()->route('question.question', ['id' => $question->id]);
             } else {
                 $this->alert('error', 'Forbidden!', [
-                'showCancelButton' => true,
-            ]);
+                    'showCancelButton' => true,
+                ]);
             }
         } else {
             $this->alert('error', 'Forbidden!', [
