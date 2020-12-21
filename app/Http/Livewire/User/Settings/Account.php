@@ -43,8 +43,8 @@ class Account extends Component
                 }
             } else {
                 return $this->alert('error', 'Forbidden!', [
-                'showCancelButton' => true,
-            ]);
+                    'showCancelButton' => true,
+                ]);
             }
         } else {
             return $this->alert('error', 'Forbidden!', [
@@ -59,8 +59,8 @@ class Account extends Component
             if (Auth::id() === $this->user->id) {
                 if (! $this->user->isPatron) {
                     return $this->alert('error', 'Forbidden!', [
-                'showCancelButton' => true,
-            ]);
+                        'showCancelButton' => true,
+                    ]);
                 }
                 $this->user->isPrivate = ! $this->user->isPrivate;
                 $this->user->save();
@@ -83,8 +83,8 @@ class Account extends Component
                 }
             } else {
                 return $this->alert('error', 'Forbidden!', [
-                'showCancelButton' => true,
-            ]);
+                    'showCancelButton' => true,
+                ]);
             }
         } else {
             return $this->alert('error', 'Forbidden!', [
@@ -135,8 +135,8 @@ class Account extends Component
                 }
             } else {
                 return $this->alert('error', 'Forbidden!', [
-                'showCancelButton' => true,
-            ]);
+                    'showCancelButton' => true,
+                ]);
             }
         } else {
             return $this->alert('error', 'Forbidden!', [
