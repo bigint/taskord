@@ -13,7 +13,7 @@ return [
      *
      * @see https://github.com/erusev/parsedown/wiki/Usage
      */
-    'inline' => false,
+    'inline' => true,
 
     /**
      * Tells **Parsedown** if it should escape **HTML** in trusted input. This method isn't safe from XSS!
