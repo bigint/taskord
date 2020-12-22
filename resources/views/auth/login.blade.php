@@ -14,7 +14,6 @@
                 @csrf
                 <div class="text-center mb-3">
                     <img
-                        loading=lazy
                         class="mb-4"
                         src="/images/logo.svg"
                         alt=""

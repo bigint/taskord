@@ -11,7 +11,6 @@
                 <input type="hidden" name="token" value="{{ $token }}">
                 <div class="text-center mb-4">
                     <img
-                        loading=lazy
                         class="mb-4"
                         src="/images/logo.svg"
                         alt=""
