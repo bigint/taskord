@@ -38,6 +38,7 @@
         "silviolleite/laravelpwa": "^2.0",
         "spatie/laravel-activitylog": "^3.16",
         "spatie/laravel-backup": "^6.11",
+        "spatie/laravel-varnish": "^2.8",
         "stevebauman/purify": "^3.0",
         "symfony/psr-http-message-bridge": "^2.0",
         "valorin/pwned-validator": "^1.3"
