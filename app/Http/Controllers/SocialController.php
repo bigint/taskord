@@ -73,6 +73,11 @@ class SocialController extends Controller
                 $user->save();
             }
 
+            if ($provider === 'github') {
+                $user->github = $userSocial->getNickname();
+                $user->save();
+            }
+
             Auth::login($user);
 
             $user->notify(
