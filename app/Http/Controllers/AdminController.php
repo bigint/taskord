@@ -53,7 +53,7 @@ class AdminController extends Controller
                 ->log('Disabled StaffShip');
 
             return response()->json([
-                'status' => 'disabled'
+                'status' => 'disabled',
             ]);
         } else {
             $user->staffShip = true;
@@ -63,7 +63,7 @@ class AdminController extends Controller
                 ->log('Enabled StaffShip');
 
             return response()->json([
-                'status' => 'enabled'
+                'status' => 'enabled',
             ]);
         }
     }

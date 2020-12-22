@@ -249,7 +249,7 @@ class UserController extends Controller
                 ->log('Disabled Dark mode');
 
             return response()->json([
-                'status' => 'disabled'
+                'status' => 'disabled',
             ]);
         } else {
             $user->darkMode = true;
@@ -259,7 +259,7 @@ class UserController extends Controller
                 ->log('Enabled Dark mode');
 
             return response()->json([
-                'status' => 'enabled'
+                'status' => 'enabled',
             ]);
         }
     }
