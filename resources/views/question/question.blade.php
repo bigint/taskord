@@ -91,7 +91,7 @@
                             class="me-1 user-popover"
                             data-id="{{ $answer[0]->user->id }}"
                         >
-                            <img loading=lazy class="rounded-circle avatar-30 mb-2" src="{{ Helper::getCDNImage($answer[0]->user->avatar, 80) }}" alt="{{ $answer[0]->user->username }}'s avatar" />
+                            <img loading=lazy class="rounded-circle avatar-30 mb-2" src="{{ Helper::getCDNImage($answer[0]->user->avatar, 80) }}" height="30" width="30" alt="{{ $answer[0]->user->username }}'s avatar" />
                         </a>
                     @endforeach
                 </div>

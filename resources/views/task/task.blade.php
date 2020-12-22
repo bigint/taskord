@@ -120,7 +120,7 @@
                             class="me-1 user-popover"
                             data-id="{{ $comment[0]->user->id }}"
                         >
-                            <img loading=lazy class="rounded-circle avatar-30 mb-2" src="{{ Helper::getCDNImage($comment[0]->user->avatar, 80) }}" alt="{{ $comment[0]->user->username }}'s avatar" />
+                            <img loading=lazy class="rounded-circle avatar-30 mb-2" src="{{ Helper::getCDNImage($comment[0]->user->avatar, 80) }}" height="30" width="30" alt="{{ $comment[0]->user->username }}'s avatar" />
                         </a>
                     @endforeach
                 </div>
@@ -138,7 +138,7 @@
                             href="{{ route('user.done', ['username' => $user->username]) }}"
                             class="me-1"
                         >
-                            <img loading=lazy class="rounded-circle avatar-30 mb-2" src="{{ Helper::getCDNImage($user->avatar, 80) }}" alt="{{ $user->username }}'s avatar" />
+                            <img loading=lazy class="rounded-circle avatar-30 mb-2" src="{{ Helper::getCDNImage($user->avatar, 80) }}" height="30" width="30" alt="{{ $user->username }}'s avatar" />
                         </a>
                     @endforeach
                 </div>

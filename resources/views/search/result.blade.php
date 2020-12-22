@@ -117,7 +117,7 @@
                     <div class="card mb-2">
                         <div class="card-header h6 pt-3 pb-3">
                             <a href="{{ route('user.done', ['username' => $answer->question->user->username]) }}">
-                                <img loading=lazy class="rounded-circle avatar-30" src="{{ Helper::getCDNImage($answer->question->user->avatar, 80) }}" alt="{{ $answer->question->user->username }}'s avatar" />
+                                <img loading=lazy class="rounded-circle avatar-30" src="{{ Helper::getCDNImage($answer->question->user->avatar, 80) }}" height="30" width="30" alt="{{ $answer->question->user->username }}'s avatar" />
                             </a>
                             <a class="align-middle text-dark ms-2" href="{{ route('question.question', ['id' => $answer->question->id]) }}">
                                 {{ $answer->question->title }}
@@ -189,7 +189,7 @@
                                 </div>
                             </span>
                             <a class="ms-auto" href="{{ route('user.done', ['username' => $product->owner->username]) }}">
-                                <img loading=lazy class="rounded-circle float-end avatar-30 mt-1 ms-2" src="{{ Helper::getCDNImage($product->owner->avatar, 80) }}" height="50" width="50" alt="{{ $product->owner->username }}'s avatar" />
+                                <img loading=lazy class="rounded-circle float-end avatar-30 mt-1 ms-2" src="{{ Helper::getCDNImage($product->owner->avatar, 80) }}" height="30" width="30" alt="{{ $product->owner->username }}'s avatar" />
                             </a>
                         </div>
                     </li>
