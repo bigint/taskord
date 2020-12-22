@@ -1,25 +1,19 @@
 import hotkeys from "hotkeys-js";
 
 // Admin Bar
-hotkeys("`, p+b", () => {
-  $.get("/admin/adminbar", (data, status) => {
-    if (data === "enabled" || data === "disabled") {
-      if (status === "success") {
-        location.reload();
-      }
-    }
-  });
+hotkeys("`, p+b", async () => {
+  const res = await window.fetch(`/admin/adminbar`);
+  if (res.status === 200) {
+    location.reload();
+  }
 });
 
 // Dark Mode
-hotkeys("d+m", () => {
-  $.get("/darkmode", (data, status) => {
-    if (data === "enabled" || data === "disabled") {
-      if (status === "success") {
-        location.reload();
-      }
-    }
-  });
+hotkeys("d+m", async () => {
+  const res = await window.fetch(`/darkmode`);
+  if (res.status === 200) {
+    location.reload();
+  }
 });
 
 // Go to home

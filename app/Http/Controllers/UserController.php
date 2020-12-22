@@ -248,7 +248,9 @@ class UserController extends Controller
                 ->withProperties(['type' => 'User'])
                 ->log('Disabled Dark mode');
 
-            return 'disabled';
+            return response()->json([
+                'status' => 'disabled'
+            ]);
         } else {
             $user->darkMode = true;
             $user->save();
@@ -256,7 +258,9 @@ class UserController extends Controller
                 ->withProperties(['type' => 'User'])
                 ->log('Enabled Dark mode');
 
-            return 'enabled';
+            return response()->json([
+                'status' => 'enabled'
+            ]);
         }
     }
 

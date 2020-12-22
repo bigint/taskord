@@ -52,7 +52,9 @@ class AdminController extends Controller
                 ->withProperties(['type' => 'Admin'])
                 ->log('Disabled StaffShip');
 
-            return 'disabled';
+            return response()->json([
+                'status' => 'disabled'
+            ]);
         } else {
             $user->staffShip = true;
             $user->save();
@@ -60,7 +62,9 @@ class AdminController extends Controller
                 ->withProperties(['type' => 'Admin'])
                 ->log('Enabled StaffShip');
 
-            return 'enabled';
+            return response()->json([
+                'status' => 'enabled'
+            ]);
         }
     }
 }
