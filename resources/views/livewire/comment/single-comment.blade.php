@@ -35,7 +35,7 @@
     <span class="body-font fst-italic text-secondary">Comment was hidden by moderator</span>
     @else
     <span class="body-font">
-        {!! nl2br(Purify::clean(Helper::renderTask($comment->comment))) !!}
+        @parsedown($comment->comment)
     </span>
     @endif
     <div class="mt-2">
