@@ -72,7 +72,7 @@
                     @else
                     @if ($cover)
                     <div>
-                        <img loading=lazy class="avatar-100 rounded mb-3" src="{{ $cover->temporaryUrl() }}">
+                        <img loading=lazy class="avatar-100 rounded mb-3" src="{{ $cover->temporaryUrl() }}" height="100" width="100" />
                     </div>
                     @endif
                     @enderror

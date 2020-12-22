@@ -1,7 +1,7 @@
 <div class="card">
     <div class="card-body d-flex align-items-center">
         <a href="{{ $product->avatar }}" target="_blank">
-            <img loading=lazy class="rounded avatar-120" src="{{ Helper::getCDNImage($product->avatar, 240) }}" alt="{{ $product->slug }}'s avatar" />
+            <img loading=lazy class="rounded avatar-120" src="{{ Helper::getCDNImage($product->avatar, 240) }}" height="120" width="120" alt="{{ $product->slug }}'s avatar" />
         </a>
         <div class="ms-4">
             <div class="h5 mb-0">

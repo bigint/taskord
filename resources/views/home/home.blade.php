@@ -80,7 +80,7 @@
                     <li class="list-group-item">
                         <div class="d-flex align-items-center">
                             <a href="{{ route('product.done', ['slug' => $product->slug]) }}">
-                                <img loading=lazy class="rounded avatar-50 mt-1 ms-2" src="{{ Helper::getCDNImage($product->avatar, 160) }}" alt="{{ $product->slug }}'s avatar" height="50" width="50" />
+                                <img loading=lazy class="rounded avatar-50 mt-1 ms-2" src="{{ Helper::getCDNImage($product->avatar, 160) }}" height="50" width="50" alt="{{ $product->slug }}'s avatar" height="50" width="50" />
                             </a>
                             <span class="ms-3">
                                 <a href="{{ route('product.done', ['slug' => $product->slug]) }}" class="me-2 h5 align-text-top fw-bold text-dark">
@@ -150,7 +150,7 @@
                     <div class="card-body">
                         <div class="d-flex align-items-center">
                             <a href="{{ route('user.done', ['username' => Auth::user()->username]) }}">
-                                <img loading=lazy class="rounded-circle avatar-50 mt-1" src="{{ Helper::getCDNImage(Auth::user()->avatar, 160) }}" alt="{{ Auth::user()->username }}'s avatar" />
+                                <img loading=lazy class="rounded-circle avatar-50 mt-1" src="{{ Helper::getCDNImage(Auth::user()->avatar, 160) }}" height="50" width="50" alt="{{ Auth::user()->username }}'s avatar" />
                             </a>
                             <a class="ms-3 text-dark" href="{{ route('user.done', ['username' => Auth::user()->username]) }}">
                                 @if (Auth::user()->firstname or Auth::user()->lastname)

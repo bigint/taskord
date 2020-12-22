@@ -71,12 +71,12 @@
                 @else
                 @if ($avatar)
                 <div>
-                    <img loading=lazy class="avatar-100 rounded-circle mt-2 mb-3" src="{{ $avatar->temporaryUrl() }}">
+                    <img loading=lazy class="avatar-100 rounded-circle mt-2 mb-3" src="{{ $avatar->temporaryUrl() }}" height="100" width="100" />
                 </div>
                 @else
                 @if ($user->avatar)
                 <div>
-                    <img loading=lazy class="avatar-100 rounded-circle mt-2 mb-3" src="{{ Helper::getCDNImage($user->avatar, 240) }}" alt="{{ $user->username }}'s avatar" />
+                    <img loading=lazy class="avatar-100 rounded-circle mt-2 mb-3" src="{{ Helper::getCDNImage($user->avatar, 240) }}" height="100" width="100" alt="{{ $user->username }}'s avatar" />
                 </div>
                 @endif
                 @endif
