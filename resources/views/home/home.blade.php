@@ -19,10 +19,11 @@
                 </a>
             </div>
             @endguest
+            <div class="pb-2 h5">
+                <x-heroicon-o-chat-alt-2 class="heroicon-2x ms-1 text-secondary" />
+                Recent questions
+            </div>
             <div class="card mb-4">
-                <div class="card-header">
-                    💬 Recent questions
-                </div>
                 <div class="card-body">
                     @foreach ($recent_questions as $question)
                         <div class="{{ $loop->index === count($recent_questions) - 1 ? '' : 'mb-2' }} {{ $question->patronOnly ? 'bg-patron recent-questions' : '' }}">
@@ -60,11 +61,11 @@
                 </div>
             </div>
             @if (count($launched_today) > 0)
+            <div class="pb-2 h5">
+                <x-heroicon-o-lightning-bolt class="heroicon-2x ms-1 text-secondary" />
+                Launched Today
+            </div>
             <div class="card mb-4">
-                <div class="card-header">
-                    🚀 Launched Today
-                    <x-beta background="light" />
-                </div>
                 <ul class="list-group list-group-flush">
                     @foreach ($launched_today->take(5) as $product)
                     <li class="list-group-item">
@@ -120,8 +121,9 @@
                 @livewire('create-task')
                 @endif
             @endauth
-            <div class="mb-3">
+            <div class="pb-3">
                 <span class="h5">
+                    <x-heroicon-o-check-circle class="heroicon-2x ms-1 text-secondary" />
                     Tasks
                 </span>
                 @auth
