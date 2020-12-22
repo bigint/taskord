@@ -44,5 +44,5 @@ return [
     |
     */
 
-    'send_logs_as_events' => true,
+    'send_logs_as_events' => false,
 ];
