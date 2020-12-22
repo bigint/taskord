@@ -59,6 +59,7 @@
                                             class="user-popover replies-avatar rounded-circle {{ $loop->last ? 'me-0' : '' }}"
                                             data-id="{{ $answer[0]->user->id }}"
                                             src="{{ Helper::getCDNImage($answer[0]->user->avatar, 80) }}"
+                                            height="18" width="18"
                                             alt="{{ $answer[0]->user->username }}'s avatar"
                                         />
                                         @endforeach
