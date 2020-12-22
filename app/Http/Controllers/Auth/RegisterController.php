@@ -74,7 +74,7 @@ class RegisterController extends Controller
         $user = User::create([
             'username' => $data['username'],
             'email' => $data['email'],
-            'avatar' => 'https://secure.gravatar.com/avatar/'.md5($data['email']).'?s=500&d=retro',
+            'avatar' => 'https://avatar.tobi.sh/'.md5($data['email']).'.svg?text='.strtoupper(substr("yoginth", 0, 2)),
             'password' => Hash::make($data['password']),
             'lastIP' => request()->ip(),
             'api_token' => Str::random(60),
