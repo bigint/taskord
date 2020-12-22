@@ -10,10 +10,16 @@
         <div class="mb-2">
             <textarea placeholder="Add a comment" class="form-control mentionInput" rows="3" wire:model.lazy="comment"></textarea>
         </div>
-        <button class="btn btn-sm btn-primary float-end" type="submit" wire:click="submit">
-            <x-heroicon-o-plus class="heroicon" />
-            Add Comment
-            <span wire:target="submit" wire:loading class="spinner-border spinner-border-mini ms-2" role="status"></span>
-        </button>
+        <div class="d-flex justify-content-between align-items-center">
+            <div class="small fw-bold text-secondary">
+                <x-heroicon-o-pencil-alt class="heroicon" />
+                Markdown is supported
+            </div>
+            <button class="btn btn-sm btn-primary" type="submit" wire:click="submit">
+                <x-heroicon-o-plus class="heroicon" />
+                Add Comment
+                <span wire:target="submit" wire:loading class="spinner-border spinner-border-mini ms-2" role="status"></span>
+            </button>
+        </div>
     </div>
 </div>
