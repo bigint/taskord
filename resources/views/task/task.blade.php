@@ -50,7 +50,7 @@
                         class="user-popover"
                         data-id="{{ $task->user->id }}"
                     >
-                        <img loading=lazy class="rounded-circle avatar-40 mt-1" src="{{ Helper::getCDNImage($task->user->avatar, 80) }}" alt="{{ $task->user->username }}'s avatar" />
+                        <img loading=lazy class="rounded-circle avatar-40 mt-1" src="{{ Helper::getCDNImage($task->user->avatar, 80) }}" height="40" width="40" alt="{{ $task->user->username }}'s avatar" />
                     </a>
                     <span class="ms-3">
                         <a
@@ -81,7 +81,7 @@
                         class="product-popover"
                         data-id="{{ \App\Models\Product::find($task->product_id)->id }}"
                     >
-                        <img loading=lazy class="rounded avatar-40 mt-1" src="{{ Helper::getCDNImage(\App\Models\Product::find($task->product_id)->avatar, 80) }}" />
+                        <img loading=lazy class="rounded avatar-40 mt-1" src="{{ Helper::getCDNImage(\App\Models\Product::find($task->product_id)->avatar, 80) }}" height="40" width="40" />
                     </a>
                     <span class="ms-3">
                         <a

@@ -198,7 +198,7 @@
                 @foreach ($recently_joined as $user)
                 <div class="d-flex align-items-center py-1 px-3">
                     <a href="{{ route('user.done', ['username' => $user->username]) }}">
-                        <img loading=lazy class="rounded-circle avatar-40 mt-1" src="{{ Helper::getCDNImage($user->avatar, 160) }}" alt="{{ $user->username }}'s avatar" />
+                        <img loading=lazy class="rounded-circle avatar-40 mt-1" src="{{ Helper::getCDNImage($user->avatar, 160) }}" height="40" width="40" alt="{{ $user->username }}'s avatar" />
                     </a>
                     <span class="ms-3">
                         <a href="{{ route('user.done', ['username' => $user->username]) }}" class="align-text-top text-dark">

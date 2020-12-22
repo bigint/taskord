@@ -2,7 +2,7 @@
     <div class="card-body">
         <div class="d-flex align-items-center">
             <a href="{{ route('user.done', ['username' => $answer->user->username]) }}">
-                <img loading=lazy class="avatar-40 rounded-circle" src="{{ Helper::getCDNImage($answer->user->avatar, 80) }}" alt="{{ $answer->user->username }}'s avatar" />
+                <img loading=lazy class="avatar-40 rounded-circle" src="{{ Helper::getCDNImage($answer->user->avatar, 80) }}" height="40" width="40" alt="{{ $answer->user->username }}'s avatar" />
             </a>
             <span class="ms-2">
                 <a

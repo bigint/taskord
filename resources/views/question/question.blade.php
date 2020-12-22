@@ -49,7 +49,7 @@
                         class="user-popover"
                         data-id="{{ $question->user->id }}"
                     >
-                        <img loading=lazy class="rounded-circle avatar-40 mt-1" src="{{ Helper::getCDNImage($question->user->avatar, 80) }}" alt="{{ $question->user->username }}'s avatar" />
+                        <img loading=lazy class="rounded-circle avatar-40 mt-1" src="{{ Helper::getCDNImage($question->user->avatar, 80) }}" height="40" width="40" alt="{{ $question->user->username }}'s avatar" />
                     </a>
                     <span class="ms-3">
                         <a
