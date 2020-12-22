@@ -68,5 +68,6 @@ class Kernel extends HttpKernel
         'beta' => \App\Http\Middleware\IsBeta::class,
         'patron' => \App\Http\Middleware\IsPatron::class,
         'feature' => \App\Http\Middleware\Feature::class,
+        'cacheable' => \Spatie\Varnish\Middleware\CacheWithVarnish::class,
     ];
 }
