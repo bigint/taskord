@@ -146,6 +146,8 @@ server {
     # Your Domain Name
     server_name localhost;
 
+    large_client_header_buffers 4 32k;
+
     location / {
         try_files $uri $uri/ /index.php?$query_string;
     }
