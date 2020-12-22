@@ -96,7 +96,7 @@ class EditProduct extends Component
             }
 
             if (Auth::user()->staffShip or Auth::id() === $product->owner->id) {
-                if ($this->launched and !$product->launched) {
+                if ($this->launched and ! $product->launched) {
                     $product->launched_at = Carbon::now();
                 }
                 $product->name = $this->name;
