@@ -48,7 +48,7 @@ class SocialController extends Controller
                     $username = $userSocial->getNickname().'_'.Str::random(5);
                 }
             } else {
-                $username = $userSocial->getId();
+                $username = Str::random(10);
             }
 
             if ($provider === 'gitlab' or $provider === 'github') {
