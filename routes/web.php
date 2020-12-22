@@ -35,7 +35,7 @@ Auth::routes(['verify' => true]);
 Route::get('login/{provider}', [SocialController::class, 'redirect']);
 Route::get('login/{provider}/callback', [SocialController::class, 'Callback']);
 
-Route::group(['middleware' => ['throttle:30,1', 'cacheable']], function () {
+Route::group(['middleware' => ['throttle:30,1']], function () {
     // Home
     Route::get('/', [HomeController::class, 'index'])->name('home');
 

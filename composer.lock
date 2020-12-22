@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "cc6d5499720d0ff7da8902f40b13146b",
+    "content-hash": "ea32ab9d011385d4acbe07d6b88c5850",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -5609,72 +5609,6 @@
                 }
             ],
             "time": "2020-12-16T07:40:24+00:00"
-        },
-        {
-            "name": "spatie/laravel-varnish",
-            "version": "2.8.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/spatie/laravel-varnish.git",
-                "reference": "082b56e2dc40a520e99d423fde9bccc06dc24247"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/spatie/laravel-varnish/zipball/082b56e2dc40a520e99d423fde9bccc06dc24247",
-                "reference": "082b56e2dc40a520e99d423fde9bccc06dc24247",
-                "shasum": ""
-            },
-            "require": {
-                "illuminate/console": "~5.8.0|^6.0|^7.0|^8.0",
-                "illuminate/http": "~5.8.0|^6.0|^7.0|^8.0",
-                "php": "^7.2"
-            },
-            "require-dev": {
-                "orchestra/testbench": "~3.8.0|^4.0|^5.0|^6.0",
-                "phpunit/phpunit": "^8.0|^9.0"
-            },
-            "type": "library",
-            "extra": {
-                "laravel": {
-                    "providers": [
-                        "Spatie\\Varnish\\VarnishServiceProvider"
-                    ]
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Spatie\\Varnish\\": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Freek Van der Herten",
-                    "email": "freek@spatie.be",
-                    "homepage": "https://spatie.be",
-                    "role": "Developer"
-                }
-            ],
-            "description": "Making Varnish and Laravel play nice together",
-            "homepage": "https://github.com/spatie/laravel-varnish",
-            "keywords": [
-                "laravel-varnish",
-                "spatie"
-            ],
-            "support": {
-                "issues": "https://github.com/spatie/laravel-varnish/issues",
-                "source": "https://github.com/spatie/laravel-varnish/tree/master"
-            },
-            "funding": [
-                {
-                    "url": "https://spatie.be/open-source/support-us",
-                    "type": "custom"
-                }
-            ],
-            "time": "2020-09-09T09:58:58+00:00"
         },
         {
             "name": "spatie/temporary-directory",
