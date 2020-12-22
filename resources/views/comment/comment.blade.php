@@ -74,7 +74,7 @@
                             href="{{ route('user.done', ['username' => $user->username]) }}"
                             class="me-1"
                         >
-                            <img loading=lazy class="rounded-circle avatar-30 mb-2" src="{{ Helper::getCDNImage($user->avatar, 80) }}" alt="{{ $user->username }}'s avatar" />
+                            <img loading=lazy class="rounded-circle avatar-30 mb-2" src="{{ Helper::getCDNImage($user->avatar, 80) }}" height="30" width="30" alt="{{ $user->username }}'s avatar" />
                         </a>
                     @endforeach
                 </div>
