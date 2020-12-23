@@ -561,9 +561,4 @@ class Moderator extends Component
             return false;
         }
     }
-
-    public function render()
-    {
-        return view('livewire.user.moderator');
-    }
 }

@@ -54,9 +54,4 @@ class Follow extends Component
             return $this->alert('error', 'Forbidden!');
         }
     }
-
-    public function render()
-    {
-        return view('livewire.user.follow');
-    }
 }

@@ -12,9 +12,4 @@ class Followers extends Component
     {
         $this->user = $user;
     }
-
-    public function render()
-    {
-        return view('livewire.user.followers');
-    }
 }
