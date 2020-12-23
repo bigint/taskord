@@ -7,10 +7,11 @@ use Helper;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Request;
 use Livewire\Component;
+use App\Models\Answer;
 
 class SingleAnswer extends Component
 {
-    public $answer;
+    public Answer $answer;
     public $confirming;
 
     public function mount($answer)

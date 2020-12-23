@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Comment;
 
 use App\Models\Comment;
+use App\Models\Task;
 use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Collection;
@@ -15,7 +16,7 @@ class Comments extends Component
         'commentDeleted' => 'render',
     ];
 
-    public $task;
+    public Task $task;
     public $page;
     public $perPage;
 
