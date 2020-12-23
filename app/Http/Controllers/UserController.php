@@ -172,9 +172,7 @@ class UserController extends Controller
 
             return $response;
         } else {
-            return $this->alert('error', 'Forbidden!', [
-                'showCancelButton' => true,
-            ]);
+            return $this->alert('error', 'Forbidden!');
         }
     }
 

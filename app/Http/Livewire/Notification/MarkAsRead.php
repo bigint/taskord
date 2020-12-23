@@ -17,9 +17,7 @@ class MarkAsRead extends Component
                 ->withProperties(['type' => 'Notification'])
                 ->log('Notifications mark as read');
         } else {
-            return $this->alert('error', 'Forbidden!', [
-                'showCancelButton' => true,
-            ]);
+            return $this->alert('error', 'Forbidden!');
         }
     }
 

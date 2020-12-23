@@ -29,13 +29,9 @@ class Status extends Component
                 ->withProperties(['type' => 'User'])
                 ->log('User status was cleared');
 
-            return $this->alert('success', 'Status cleared successfully!', [
-                'showCancelButton' => true,
-            ]);
+            return $this->alert('success', 'Status cleared successfully!');
         } else {
-            return $this->alert('error', 'Forbidden!', [
-                'showCancelButton' => true,
-            ]);
+            return $this->alert('error', 'Forbidden!');
         }
     }
 
@@ -43,9 +39,7 @@ class Status extends Component
     {
         if (Auth::check()) {
             if (strlen($event['status_emoji']) === 0) {
-                return $this->alert('warning', 'Select the emoji!', [
-                    'showCancelButton' => true,
-                ]);
+                return $this->alert('warning', 'Select the emoji!');
             }
 
             if (strlen($event['status']) !== 0) {
@@ -57,9 +51,7 @@ class Status extends Component
                     ->withProperties(['type' => 'User'])
                     ->log('User status was updated');
 
-                return $this->alert('success', 'Status set successfully!', [
-                    'showCancelButton' => true,
-                ]);
+                return $this->alert('success', 'Status set successfully!');
             } else {
                 Auth::user()->status = null;
                 Auth::user()->status_emoji = null;
@@ -69,14 +61,10 @@ class Status extends Component
                     ->withProperties(['type' => 'User'])
                     ->log('User status was cleared');
 
-                return $this->alert('success', 'Status cleared successfully!', [
-                    'showCancelButton' => true,
-                ]);
+                return $this->alert('success', 'Status cleared successfully!');
             }
         } else {
-            return $this->alert('error', 'Forbidden!', [
-                'showCancelButton' => true,
-            ]);
+            return $this->alert('error', 'Forbidden!');
         }
     }
 

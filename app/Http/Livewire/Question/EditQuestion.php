@@ -29,9 +29,7 @@ class EditQuestion extends Component
                 'body' => 'required|min:3|max:10000',
             ]);
         } else {
-            $this->alert('error', 'Forbidden!', [
-                'showCancelButton' => true,
-            ]);
+            $this->alert('error', 'Forbidden!');
         }
     }
 
@@ -44,15 +42,11 @@ class EditQuestion extends Component
             ]);
 
             if (! Auth::user()->hasVerifiedEmail()) {
-                return $this->alert('warning', 'Your email is not verified!', [
-                    'showCancelButton' => true,
-                ]);
+                return $this->alert('warning', 'Your email is not verified!');
             }
 
             if (Auth::user()->isFlagged) {
-                return $this->alert('error', 'Your account is flagged!', [
-                    'showCancelButton' => true,
-                ]);
+                return $this->alert('error', 'Your account is flagged!');
             }
 
             $question = Question::where('id', $this->question->id)->firstOrFail();
@@ -66,23 +60,17 @@ class EditQuestion extends Component
                 $question->save();
                 Auth::user()->touch();
 
-                $this->alert('success', 'Question has been edited!', [
-                    'showCancelButton' => true,
-                ]);
+                $this->alert('success', 'Question has been edited!');
                 activity()
                     ->withProperties(['type' => 'Question'])
                     ->log('Question has been edited Q: '.$question->id);
 
                 return redirect()->route('question.question', ['id' => $question->id]);
             } else {
-                $this->alert('error', 'Forbidden!', [
-                    'showCancelButton' => true,
-                ]);
+                $this->alert('error', 'Forbidden!');
             }
         } else {
-            $this->alert('error', 'Forbidden!', [
-                'showCancelButton' => true,
-            ]);
+            $this->alert('error', 'Forbidden!');
         }
     }
 

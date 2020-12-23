@@ -22,9 +22,7 @@ class Delete extends Component
         if (Auth::check()) {
             $this->confirming = $this->user->id;
         } else {
-            return $this->alert('error', 'Forbidden!', [
-                'showCancelButton' => true,
-            ]);
+            return $this->alert('error', 'Forbidden!');
         }
     }
 
@@ -62,14 +60,10 @@ class Delete extends Component
 
                 return redirect()->route('home');
             } else {
-                return $this->alert('error', 'Forbidden!', [
-                    'showCancelButton' => true,
-                ]);
+                return $this->alert('error', 'Forbidden!');
             }
         } else {
-            return $this->alert('error', 'Forbidden!', [
-                'showCancelButton' => true,
-            ]);
+            return $this->alert('error', 'Forbidden!');
         }
     }
 

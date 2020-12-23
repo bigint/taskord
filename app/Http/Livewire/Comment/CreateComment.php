@@ -26,9 +26,7 @@ class CreateComment extends Component
                 'comment' => 'required',
             ]);
         } else {
-            $this->alert('error', 'Forbidden!', [
-                'showCancelButton' => true,
-            ]);
+            $this->alert('error', 'Forbidden!');
         }
     }
 
@@ -40,15 +38,11 @@ class CreateComment extends Component
             ]);
 
             if (! Auth::user()->hasVerifiedEmail()) {
-                return $this->alert('warning', 'Your email is not verified!', [
-                    'showCancelButton' => true,
-                ]);
+                return $this->alert('warning', 'Your email is not verified!');
             }
 
             if (Auth::user()->isFlagged) {
-                return $this->alert('error', 'Your account is flagged!', [
-                    'showCancelButton' => true,
-                ]);
+                return $this->alert('error', 'Your account is flagged!');
             }
 
             $users = Helper::getUserIDFromMention($this->comment);
@@ -76,13 +70,9 @@ class CreateComment extends Component
                 ->withProperties(['type' => 'Comment'])
                 ->log('New comment has been created T: '.$this->task->user->id.' C: '.$comment->id);
 
-            return $this->alert('success', 'Comment has been added!', [
-                'showCancelButton' => true,
-            ]);
+            return $this->alert('success', 'Comment has been added!');
         } else {
-            $this->alert('error', 'Forbidden!', [
-                'showCancelButton' => true,
-            ]);
+            $this->alert('error', 'Forbidden!');
         }
     }
 

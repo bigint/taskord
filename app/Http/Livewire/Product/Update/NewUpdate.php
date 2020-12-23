@@ -28,15 +28,11 @@ class NewUpdate extends Component
             ]);
 
             if (! Auth::user()->hasVerifiedEmail()) {
-                return $this->alert('warning', 'Your email is not verified!', [
-                    'showCancelButton' => true,
-                ]);
+                return $this->alert('warning', 'Your email is not verified!');
             }
 
             if (Auth::user()->isFlagged) {
-                return $this->alert('error', 'Your account is flagged!', [
-                    'showCancelButton' => true,
-                ]);
+                return $this->alert('error', 'Your account is flagged!');
             }
 
             $update = ProductUpdate::create([
@@ -47,9 +43,7 @@ class NewUpdate extends Component
             ]);
             Auth::user()->touch();
 
-            $this->alert('success', 'New Update has been created!', [
-                'showCancelButton' => true,
-            ]);
+            $this->alert('success', 'New Update has been created!');
             $users = Product::find($this->product->id)->subscribers()->get();
             foreach ($users as $user) {
                 $user->notify(new NewProductUpdate($update));
@@ -60,9 +54,7 @@ class NewUpdate extends Component
 
             return redirect()->route('product.updates', ['slug' => $update->product->slug]);
         } else {
-            $this->alert('error', 'Forbidden!', [
-                'showCancelButton' => true,
-            ]);
+            $this->alert('error', 'Forbidden!');
         }
     }
 

@@ -37,9 +37,7 @@ class Integrations extends Component
                 ->withProperties(['type' => 'Throttle'])
                 ->log('Rate limited while creating an API integration');
 
-            return $this->alert('error', 'Your are rate limited, try again later!', [
-                'showCancelButton' => true,
-            ]);
+            return $this->alert('error', 'Your are rate limited, try again later!');
         }
 
         if (Auth::check()) {
@@ -50,9 +48,7 @@ class Integrations extends Component
                 ]);
 
                 if (Auth::user()->isFlagged) {
-                    return $this->alert('error', 'Your account is flagged!', [
-                        'showCancelButton' => true,
-                    ]);
+                    return $this->alert('error', 'Your account is flagged!');
                 }
 
                 if (Auth::id() === $this->user->id) {
@@ -70,19 +66,13 @@ class Integrations extends Component
                         ->withProperties(['type' => 'User'])
                         ->log('New webhook has been created WH: '.$webhook->id);
                 } else {
-                    return $this->alert('error', 'Forbidden!', [
-                        'showCancelButton' => true,
-                    ]);
+                    return $this->alert('error', 'Forbidden!');
                 }
             } else {
-                return $this->alert('error', 'Forbidden!', [
-                    'showCancelButton' => true,
-                ]);
+                return $this->alert('error', 'Forbidden!');
             }
         } else {
-            return $this->alert('error', 'Forbidden!', [
-                'showCancelButton' => true,
-            ]);
+            return $this->alert('error', 'Forbidden!');
         }
     }
 
@@ -97,14 +87,10 @@ class Integrations extends Component
                 $webhook->delete();
                 $this->emit('webhookDeleted');
             } else {
-                return $this->alert('error', 'Forbidden!', [
-                    'showCancelButton' => true,
-                ]);
+                return $this->alert('error', 'Forbidden!');
             }
         } else {
-            return $this->alert('error', 'Forbidden!', [
-                'showCancelButton' => true,
-            ]);
+            return $this->alert('error', 'Forbidden!');
         }
     }
 

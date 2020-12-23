@@ -33,9 +33,7 @@ class CreateTask extends Component
                 'images.max' => 'Only 5 Images are allowed!',
             ]);
         } else {
-            return $this->alert('error', 'Forbidden!', [
-                'showCancelButton' => true,
-            ]);
+            return $this->alert('error', 'Forbidden!');
         }
     }
 
@@ -51,9 +49,7 @@ class CreateTask extends Component
                 ->withProperties(['type' => 'Throttle'])
                 ->log('Rate limited while creating a task');
 
-            return $this->alert('error', 'Your are rate limited, try again later!', [
-                'showCancelButton' => true,
-            ]);
+            return $this->alert('error', 'Your are rate limited, try again later!');
         }
 
         if (Auth::check()) {
@@ -67,15 +63,11 @@ class CreateTask extends Component
             ]);
 
             if (! Auth::user()->hasVerifiedEmail()) {
-                return $this->alert('warning', 'Your email is not verified!', [
-                    'showCancelButton' => true,
-                ]);
+                return $this->alert('warning', 'Your email is not verified!');
             }
 
             if (Auth::user()->isFlagged) {
-                return $this->alert('error', 'Your account is flagged!', [
-                    'showCancelButton' => true,
-                ]);
+                return $this->alert('error', 'Your account is flagged!');
             }
 
             $users = Helper::getUserIDFromMention($this->task);
@@ -114,9 +106,7 @@ class CreateTask extends Component
                 ->withProperties(['type' => 'Task'])
                 ->log('New task has been created U: @'.$task->user->username.' T: '.$task->id);
         } else {
-            return $this->alert('error', 'Forbidden!', [
-                'showCancelButton' => true,
-            ]);
+            return $this->alert('error', 'Forbidden!');
         }
     }
 

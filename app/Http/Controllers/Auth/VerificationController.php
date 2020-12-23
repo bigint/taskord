@@ -45,16 +45,12 @@ class VerificationController extends Controller
     public function resend(Request $request)
     {
         if ($request->user()->hasVerifiedEmail()) {
-            $this->alert('warning', 'Your email is already verified!', [
-                'showCancelButton' => true,
-            ]);
+            $this->alert('warning', 'Your email is already verified!');
 
             return redirect()->route('home');
         } else {
             $request->user()->sendEmailVerificationNotification();
-            $this->alert('success', 'Verification link has been sent to your email!', [
-                'showCancelButton' => true,
-            ]);
+            $this->alert('success', 'Verification link has been sent to your email!');
 
             return redirect()->route('home');
         }
