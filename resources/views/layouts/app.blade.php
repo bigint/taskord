@@ -28,7 +28,7 @@
     @endif
     @endauth
     @livewireStyles
-    @laravelPWA
+    {{-- @laravelPWA --}}
     <script async src="https://cdn.splitbee.io/sb.js"></script>
 </head>
 <body>
