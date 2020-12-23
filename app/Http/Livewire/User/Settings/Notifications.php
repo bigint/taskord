@@ -23,6 +23,7 @@ class Notifications extends Component
                 activity()
                     ->withProperties(['type' => 'User'])
                     ->log('mentionsEmail was toggled in notification settings');
+
                 return $this->alert('success', 'Notification settings has been updated');
             } else {
                 return $this->alert('error', 'Forbidden!');
@@ -41,7 +42,8 @@ class Notifications extends Component
                 activity()
                     ->withProperties(['type' => 'User'])
                     ->log('mentionsWeb was toggled in notification settings');
-                    return $this->alert('success', 'Notification settings has been updated');
+
+                return $this->alert('success', 'Notification settings has been updated');
             } else {
                 return $this->alert('error', 'Forbidden!');
             }
@@ -59,7 +61,8 @@ class Notifications extends Component
                 activity()
                     ->withProperties(['type' => 'User'])
                     ->log('taskPraisedEmail was toggled in notification settings');
-                    return $this->alert('success', 'Notification settings has been updated');
+
+                return $this->alert('success', 'Notification settings has been updated');
             } else {
                 return $this->alert('error', 'Forbidden!');
             }
@@ -77,7 +80,8 @@ class Notifications extends Component
                 activity()
                     ->withProperties(['type' => 'User'])
                     ->log('taskPraisedWeb was toggled in notification settings');
-                    return $this->alert('success', 'Notification settings has been updated');
+
+                return $this->alert('success', 'Notification settings has been updated');
             } else {
                 return $this->alert('error', 'Forbidden!');
             }
@@ -95,7 +99,8 @@ class Notifications extends Component
                 activity()
                     ->withProperties(['type' => 'User'])
                     ->log('commentPraisedEmail was toggled in notification settings');
-                    return $this->alert('success', 'Notification settings has been updated');
+
+                return $this->alert('success', 'Notification settings has been updated');
             } else {
                 return $this->alert('error', 'Forbidden!');
             }
@@ -113,7 +118,8 @@ class Notifications extends Component
                 activity()
                     ->withProperties(['type' => 'User'])
                     ->log('commentPraisedWeb was toggled in notification settings');
-                    return $this->alert('success', 'Notification settings has been updated');
+
+                return $this->alert('success', 'Notification settings has been updated');
             } else {
                 return $this->alert('error', 'Forbidden!');
             }
@@ -131,7 +137,8 @@ class Notifications extends Component
                 activity()
                     ->withProperties(['type' => 'User'])
                     ->log('questionPraisedEmail was toggled in notification settings');
-                    return $this->alert('success', 'Notification settings has been updated');
+
+                return $this->alert('success', 'Notification settings has been updated');
             } else {
                 return $this->alert('error', 'Forbidden!');
             }
@@ -149,7 +156,8 @@ class Notifications extends Component
                 activity()
                     ->withProperties(['type' => 'User'])
                     ->log('questionPraisedWeb was toggled in notification settings');
-                    return $this->alert('success', 'Notification settings has been updated');
+
+                return $this->alert('success', 'Notification settings has been updated');
             } else {
                 return $this->alert('error', 'Forbidden!');
             }
@@ -167,7 +175,8 @@ class Notifications extends Component
                 activity()
                     ->withProperties(['type' => 'User'])
                     ->log('answerPraisedEmail was toggled in notification settings');
-                    return $this->alert('success', 'Notification settings has been updated');
+
+                return $this->alert('success', 'Notification settings has been updated');
             } else {
                 return $this->alert('error', 'Forbidden!');
             }
@@ -185,7 +194,8 @@ class Notifications extends Component
                 activity()
                     ->withProperties(['type' => 'User'])
                     ->log('answerPraisedWeb was toggled in notification settings');
-                    return $this->alert('success', 'Notification settings has been updated');
+
+                return $this->alert('success', 'Notification settings has been updated');
             } else {
                 return $this->alert('error', 'Forbidden!');
             }
@@ -203,7 +213,8 @@ class Notifications extends Component
                 activity()
                     ->withProperties(['type' => 'User'])
                     ->log('commentAddedEmail was toggled in notification settings');
-                    return $this->alert('success', 'Notification settings has been updated');
+
+                return $this->alert('success', 'Notification settings has been updated');
             } else {
                 return $this->alert('error', 'Forbidden!');
             }
@@ -221,7 +232,8 @@ class Notifications extends Component
                 activity()
                     ->withProperties(['type' => 'User'])
                     ->log('commentAddedWeb was toggled in notification settings');
-                    return $this->alert('success', 'Notification settings has been updated');
+
+                return $this->alert('success', 'Notification settings has been updated');
             } else {
                 return $this->alert('error', 'Forbidden!');
             }
@@ -239,7 +251,8 @@ class Notifications extends Component
                 activity()
                     ->withProperties(['type' => 'User'])
                     ->log('answerAddedEmail was toggled in notification settings');
-                    return $this->alert('success', 'Notification settings has been updated');
+
+                return $this->alert('success', 'Notification settings has been updated');
             } else {
                 return $this->alert('error', 'Forbidden!');
             }
@@ -257,7 +270,8 @@ class Notifications extends Component
                 activity()
                     ->withProperties(['type' => 'User'])
                     ->log('answerAddedWeb was toggled in notification settings');
-                    return $this->alert('success', 'Notification settings has been updated');
+
+                return $this->alert('success', 'Notification settings has been updated');
             } else {
                 return $this->alert('error', 'Forbidden!');
             }
@@ -275,7 +289,8 @@ class Notifications extends Component
                 activity()
                     ->withProperties(['type' => 'User'])
                     ->log('userFollowedEmail was toggled in notification settings');
-                    return $this->alert('success', 'Notification settings has been updated');
+
+                return $this->alert('success', 'Notification settings has been updated');
             } else {
                 return $this->alert('error', 'Forbidden!');
             }
@@ -293,7 +308,8 @@ class Notifications extends Component
                 activity()
                     ->withProperties(['type' => 'User'])
                     ->log('userFollowedWeb was toggled in notification settings');
-                    return $this->alert('success', 'Notification settings has been updated');
+
+                return $this->alert('success', 'Notification settings has been updated');
             } else {
                 return $this->alert('error', 'Forbidden!');
             }
@@ -311,7 +327,8 @@ class Notifications extends Component
                 activity()
                     ->withProperties(['type' => 'User'])
                     ->log('productSubscribedWeb was toggled in notification settings');
-                    return $this->alert('success', 'Notification settings has been updated');
+
+                return $this->alert('success', 'Notification settings has been updated');
             } else {
                 return $this->alert('error', 'Forbidden!');
             }
@@ -329,7 +346,8 @@ class Notifications extends Component
                 activity()
                     ->withProperties(['type' => 'User'])
                     ->log('productSubscribedEmail was toggled in notification settings');
-                    return $this->alert('success', 'Notification settings has been updated');
+
+                return $this->alert('success', 'Notification settings has been updated');
             } else {
                 return $this->alert('error', 'Forbidden!');
             }
@@ -347,7 +365,8 @@ class Notifications extends Component
                 activity()
                     ->withProperties(['type' => 'User'])
                     ->log('productUpdatesWeb was toggled in notification settings');
-                    return $this->alert('success', 'Notification settings has been updated');
+
+                return $this->alert('success', 'Notification settings has been updated');
             } else {
                 return $this->alert('error', 'Forbidden!');
             }
@@ -365,7 +384,8 @@ class Notifications extends Component
                 activity()
                     ->withProperties(['type' => 'User'])
                     ->log('productUpdatesEmail was toggled in notification settings');
-                    return $this->alert('success', 'Notification settings has been updated');
+
+                return $this->alert('success', 'Notification settings has been updated');
             } else {
                 return $this->alert('error', 'Forbidden!');
             }
