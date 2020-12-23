@@ -5,9 +5,13 @@ namespace App\Http\Livewire\User;
 use App\Models\Answer;
 use App\Models\User;
 use Livewire\Component;
+use Livewire\WithPagination;
 
 class Answers extends Component
 {
+    use WithPagination;
+    protected $paginationTheme = 'bootstrap';
+
     public User $user;
 
     public function mount($user)
