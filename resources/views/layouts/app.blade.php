@@ -83,7 +83,7 @@
 </body>
 @livewireScripts
 <x-livewire-alert::scripts />
-<script src="{{ asset('js/app.js', config('app.env') === 'production' ? true : false) }}" defer data-turbolinks-track="true" data-turbolinks-eval=false></script>
-<script src="{{ asset('js/bootstrap.js', config('app.env') === 'production' ? true : false) }}" defer data-turbolinks-track="true" data-turbolinks-eval=false></script>
+<script src="{{ mix('js/app.js') }}" defer data-turbolinks-track="true" data-turbolinks-eval=false></script>
+<script src="{{ mix('js/bootstrap.js') }}" defer data-turbolinks-track="true" data-turbolinks-eval=false></script>
 @yield('emoji-picker')
 </html>
