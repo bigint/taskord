@@ -12,9 +12,4 @@ class Subscribers extends Component
     {
         $this->product = $product;
     }
-
-    public function render()
-    {
-        return view('livewire.product.subscribers');
-    }
 }

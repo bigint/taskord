@@ -30,9 +30,4 @@ class Team extends Component
             return redirect()->route('product.done', ['slug' => $this->product->slug]);
         }
     }
-
-    public function render()
-    {
-        return view('livewire.product.team');
-    }
 }
