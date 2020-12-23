@@ -4,6 +4,7 @@ namespace App\Http\Livewire\Comment;
 
 use App\Gamify\Points\CommentCreated;
 use App\Models\Comment;
+use App\Models\Task;
 use App\Notifications\Commented;
 use Helper;
 use Illuminate\Support\Facades\Auth;
@@ -12,7 +13,7 @@ use Livewire\Component;
 class CreateComment extends Component
 {
     public $comment;
-    public $task;
+    public Task $task;
 
     public function mount($task)
     {

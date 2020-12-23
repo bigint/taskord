@@ -7,10 +7,11 @@ use Helper;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Request;
 use Livewire\Component;
+use App\Models\Comment;
 
 class SingleComment extends Component
 {
-    public $comment;
+    public Comment $comment;
     public $confirming;
 
     public function mount($comment)

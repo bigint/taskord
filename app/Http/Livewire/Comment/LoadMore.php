@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Comment;
 
 use App\Models\Comment;
+use App\Models\Task;
 use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Collection;
@@ -10,7 +11,7 @@ use Livewire\Component;
 
 class LoadMore extends Component
 {
-    public $task;
+    public Task $task;
     public $page;
     public $perPage;
     public $loadMore;
