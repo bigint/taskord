@@ -138,7 +138,7 @@ class Profile extends Component
                     ->withProperties(['type' => 'User'])
                     ->log('Reset avatar to default');
 
-                return $this->alert('success', 'Your profile has been updated!', [
+                return $this->alert('success', 'Your avatar has been resetted!', [
                     'showCancelButton' => true,
                 ]);
             } else {
@@ -167,7 +167,7 @@ class Profile extends Component
                     ->withProperties(['type' => 'User'])
                     ->log('Changed avatar provider to Gravatar');
 
-                return $this->alert('success', 'Your profile has been updated!', [
+                return $this->alert('success', 'Your avatar has been switched to Gravatar!', [
                     'showCancelButton' => true,
                 ]);
             } else {

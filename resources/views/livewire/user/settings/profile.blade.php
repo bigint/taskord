@@ -59,7 +59,7 @@
                             Use Gravatar
                             <span wire:target="useGravatar" wire:loading class="spinner-border spinner-border-sm ms-2" role="status"></span>
                         </button>
-                        <button wire:click="resetAvatar" class="btn btn-success text-danger mt-3">
+                        <button wire:click="resetAvatar" class="btn btn-danger text-white mt-3">
                             Reset
                             <span wire:target="resetAvatar" wire:loading class="spinner-border spinner-border-sm ms-2" role="status"></span>
                         </button>
