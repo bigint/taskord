@@ -10,7 +10,8 @@ use Livewire\Component;
 class Delete extends Component
 {
     public User $user;
-    public $confirming;
+    public $reset_confirming;
+    public $delete_confirming;
 
     public function mount($user)
     {
@@ -20,7 +21,7 @@ class Delete extends Component
     public function confirmReset()
     {
         if (Auth::check()) {
-            $this->confirming = $this->user->id;
+            $this->reset_confirming = $this->user->id;
         } else {
             return $this->alert('error', 'Forbidden!');
         }
@@ -54,10 +55,15 @@ class Delete extends Component
                 if (array_key_exists(1, $avatar)) {
                     Storage::delete($avatar[1]);
                 }
-                $user->likes()->delete();
+                $user->tasks()->delete();
+                $user->comments()->delete();
+                $user->questions()->delete();
+                $user->answers()->delete();
+                $user->ownedProducts()->delete();
                 $user->notifications()->delete();
+                $user->likes()->delete();
 
-                return redirect()->route('home');
+                return $this->alert('success', 'Your account has been resetted!');
             } else {
                 return $this->alert('error', 'Forbidden!');
             }
@@ -69,7 +75,7 @@ class Delete extends Component
     public function confirmDelete()
     {
         if (Auth::check()) {
-            $this->confirming = $this->user->id;
+            $this->delete_confirming = $this->user->id;
         } else {
             return $this->alert('error', 'Forbidden!');
         }
@@ -103,8 +109,13 @@ class Delete extends Component
                 if (array_key_exists(1, $avatar)) {
                     Storage::delete($avatar[1]);
                 }
-                $user->likes()->delete();
+                $user->tasks()->delete();
+                $user->comments()->delete();
+                $user->questions()->delete();
+                $user->answers()->delete();
+                $user->ownedProducts()->delete();
                 $user->notifications()->delete();
+                $user->likes()->delete();
                 $user->delete();
 
                 return redirect()->route('home');

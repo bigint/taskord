@@ -11,7 +11,7 @@
             <div class="mb-3">
                 Resetting your account is will be wiped out all your data immediately and you won't be able to get it back.
             </div>
-            @if ($confirming === Auth::id())
+            @if ($reset_confirming === Auth::id())
             <button wire:loading.attr="disabled" wire:click="resetAccount" class="btn btn-danger">
                 <x-heroicon-o-question-mark-circle class="heroicon" />
                 Are you sure?
@@ -26,7 +26,7 @@
             <div class="mb-3">
                 Deleting your account is permanent. All your data will be wiped out immediately and you won't be able to get it back.
             </div>
-            @if ($confirming === Auth::id())
+            @if ($delete_confirming === Auth::id())
             <button wire:loading.attr="disabled" wire:click="deleteAccount" class="btn btn-danger">
                 <x-heroicon-o-question-mark-circle class="heroicon" />
                 Are you sure?
