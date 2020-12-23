@@ -35,7 +35,6 @@
         "qcod/laravel-gamify": "^1.0",
         "rennokki/laravel-eloquent-query-cache": "^2.4",
         "sentry/sentry-laravel": "2.3.1",
-        "silviolleite/laravelpwa": "^2.0",
         "spatie/laravel-activitylog": "^3.16",
         "spatie/laravel-backup": "^6.11",
         "stevebauman/purify": "^3.0",
