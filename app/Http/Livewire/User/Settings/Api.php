@@ -8,10 +8,11 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Str;
 use Livewire\Component;
+use App\Models\User;
 
 class Api extends Component
 {
-    public $user;
+    public User $user;
 
     public $listeners = [
         'tokenRegenerated' => 'render',

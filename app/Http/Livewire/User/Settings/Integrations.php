@@ -8,10 +8,11 @@ use Helper;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Request;
 use Livewire\Component;
+use App\Models\User;
 
 class Integrations extends Component
 {
-    public $user;
+    public User $user;
     public $name;
     public $product;
     public $type = 'web';

@@ -4,6 +4,7 @@ namespace App\Http\Livewire\User;
 
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
+use App\Models\User;
 
 class Status extends Component
 {
@@ -11,7 +12,7 @@ class Status extends Component
         'statusUpdated'  => 'render',
     ];
 
-    public $user;
+    public User $user;
 
     public function mount($user)
     {

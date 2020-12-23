@@ -4,10 +4,11 @@ namespace App\Http\Livewire\User;
 
 use App\Models\Product;
 use Livewire\Component;
+use App\Models\User;
 
 class Products extends Component
 {
-    public $user;
+    public User $user;
 
     public function mount($user)
     {

@@ -8,12 +8,13 @@ use Illuminate\Support\Str;
 use Intervention\Image\Facades\Image;
 use Livewire\Component;
 use Livewire\WithFileUploads;
+use App\Models\User;
 
 class Profile extends Component
 {
     use WithFileUploads;
 
-    public $user;
+    public User $user;
     // Profile
     public $firstname;
     public $lastname;

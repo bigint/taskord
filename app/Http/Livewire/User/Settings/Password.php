@@ -5,10 +5,11 @@ namespace App\Http\Livewire\User\Settings;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Livewire\Component;
+use App\Models\User;
 
 class Password extends Component
 {
-    public $user;
+    public User $user;
     public $currentPassword;
     public $newPassword;
     public $confirmPassword;

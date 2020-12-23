@@ -13,7 +13,7 @@ use Livewire\Component;
 
 class Moderator extends Component
 {
-    public $user;
+    public User $user;
 
     public function mount($user)
     {

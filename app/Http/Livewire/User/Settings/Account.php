@@ -4,10 +4,11 @@ namespace App\Http\Livewire\User\Settings;
 
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
+use App\Models\User;
 
 class Account extends Component
 {
-    public $user;
+    public User $user;
     public $username;
     public $email;
 

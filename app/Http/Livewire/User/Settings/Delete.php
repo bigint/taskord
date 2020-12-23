@@ -6,10 +6,11 @@ use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Livewire\Component;
+use App\Models\User;
 
 class Delete extends Component
 {
-    public $user;
+    public User $user;
     public $confirming;
 
     public function mount($user)

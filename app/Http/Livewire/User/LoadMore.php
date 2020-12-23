@@ -4,6 +4,7 @@ namespace App\Http\Livewire\User;
 
 use App\Models\Task;
 use Livewire\Component;
+use App\Models\User;
 
 class LoadMore extends Component
 {
@@ -11,7 +12,7 @@ class LoadMore extends Component
         'taskAdded' => 'render',
     ];
 
-    public $user;
+    public User $user;
     public $type;
     public $page;
     public $loadMore;
