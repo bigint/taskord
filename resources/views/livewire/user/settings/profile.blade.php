@@ -57,11 +57,9 @@
                         <input class="form-control form-control-sm" wire:model="avatar" type="file">
                         <button wire:click="useGravatar" class="btn btn-success text-white mt-3">
                             Use Gravatar
-                            <span wire:target="useGravatar" wire:loading class="spinner-border spinner-border-sm ms-2" role="status"></span>
                         </button>
                         <button wire:click="resetAvatar" class="btn btn-danger text-white mt-3">
                             Reset
-                            <span wire:target="resetAvatar" wire:loading class="spinner-border spinner-border-sm ms-2" role="status"></span>
                         </button>
                     </div>
                 </div>
@@ -87,7 +85,6 @@
                 @enderror
                 <button type="submit" class="btn btn-primary">
                     Save
-                    <span wire:target="updateProfile" wire:loading class="spinner-border spinner-border-sm ms-2" role="status"></span>
                 </button>
             </form>
         </div>
@@ -117,7 +114,6 @@
                 </div>
                 <button type="submit" class="btn btn-primary">
                     Set Goal
-                    <span wire:target="setGoal" wire:loading class="spinner-border spinner-border-sm ms-2" role="status"></span>
                 </button>
                 @endif
             </form>
@@ -156,7 +152,6 @@
                 </div>
                 <button type="submit" class="btn btn-primary">
                     Save
-                    <span wire:target="updateSponsor" wire:loading class="spinner-border spinner-border-sm ms-2" role="status"></span>
                 </button>
             </form>
         </div>
@@ -237,7 +232,6 @@
                 </div>
                 <button type="submit" class="btn btn-primary">
                     Save
-                    <span wire:target="updateSocial" wire:loading class="spinner-border spinner-border-sm ms-2" role="status"></span>
                 </button>
             </form>
         </div>

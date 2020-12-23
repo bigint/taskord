@@ -130,7 +130,6 @@
                     @if ($confirming === $product->id)
                     <button type="button" wire:click="deleteProduct" class="btn btn-danger">
                         <span class="fw-bold">Are you sure?</span>
-                        <span wire:target="deleteProduct" wire:loading class="spinner-border spinner-border-sm ms-2" role="status"></span>
                     </button>
                     @else
                     <button type="button" wire:click="confirmDelete" class="btn btn-danger">
@@ -140,7 +139,6 @@
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                     <button type="submit" class="btn btn-primary">
                         Update
-                        <span wire:target="submit" wire:loading class="spinner-border spinner-border-sm ms-2" role="status"></span>
                     </button>
                 </div>
             </form>

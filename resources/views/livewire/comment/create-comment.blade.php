@@ -18,7 +18,6 @@
             <button class="btn btn-sm btn-primary" type="submit" wire:click="submit">
                 <x-heroicon-o-plus class="heroicon" />
                 Add Comment
-                <span wire:target="submit" wire:loading class="spinner-border spinner-border-mini ms-2" role="status"></span>
             </button>
         </div>
     </div>

@@ -26,7 +26,6 @@
                 </div>
                 <button type="submit" class="btn btn-primary">
                     Save
-                    <span wire:target="updateAccount" wire:loading class="spinner-border spinner-border-sm ms-2" role="status"></span>
                 </button>
             </form>
         </div>

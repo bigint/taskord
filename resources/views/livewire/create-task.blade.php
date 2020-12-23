@@ -35,7 +35,6 @@
                 <button wire:loading.attr="disabled" wire:offline.attr="disabled" class="btn btn-sm btn-primary" type="submit">
                     <x-heroicon-o-plus class="heroicon" />
                     Add Task
-                    <span wire:target="submit" wire:loading class="spinner-border spinner-border-mini ms-2" role="status"></span>
                 </button>
                 </div>
                 <div wire:loading wire:target="images">

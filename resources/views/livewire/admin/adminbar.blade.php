@@ -149,7 +149,6 @@
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                     <button class="btn btn-primary" wire:click="clean" data-bs-dismiss="modal">
                         Clean Cache
-                        <span wire:target="clean" wire:loading class="spinner-border spinner-border-mini ms-2" role="status"></span>
                     </button>
                 </div>
             </div>

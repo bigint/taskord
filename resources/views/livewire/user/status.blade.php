@@ -11,12 +11,10 @@
                 @if ($user->status)
                 <button type="button" wire:click="clearStatus" class="btn btn-sm btn-danger text-white float-end w-100 me-1">
                     Clear Status
-                    <span wire:target="clearStatus" wire:loading class="spinner-border spinner-border-sm ms-2"></span>
                 </button>
                 @endif
                 <button type="submit" class="btn btn-sm btn-success text-white float-end w-100 ms-1">
                     Set Status
-                    <span wire:target="submit" wire:loading class="spinner-border spinner-border-sm ms-2"></span>
                 </button>
             </div>
         </form>

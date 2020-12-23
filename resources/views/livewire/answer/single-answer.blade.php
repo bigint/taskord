@@ -74,7 +74,6 @@
                 @if ($confirming === $answer->id)
                 <button type="button" class="btn btn-task btn-danger me-1" wire:click="deleteAnswer" wire:loading.attr="disabled" wire:offline.attr="disabled">
                     Are you sure?
-                    <span wire:target="deleteAnswer" wire:loading class="spinner-border spinner-border-mini ms-2" role="status"></span>
                 </button>
                 @else
                 <button type="button" class="btn btn-task btn-outline-danger me-1" wire:click="confirmDelete" wire:loading.attr="disabled" wire:offline.attr="disabled">
