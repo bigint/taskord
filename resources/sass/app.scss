@@ -101,7 +101,7 @@ a {
 
 .btn-danger {
     color: white;
-    &:hover {
+    &:hover, &:focus, &:active {
         color: white;
     }
 }

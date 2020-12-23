@@ -17,6 +17,55 @@ class Delete extends Component
         $this->user = $user;
     }
 
+    public function confirmReset()
+    {
+        if (Auth::check()) {
+            $this->confirming = $this->user->id;
+        } else {
+            return $this->alert('error', 'Forbidden!');
+        }
+    }
+
+    public function resetAccount()
+    {
+        if (Auth::check()) {
+            if (Auth::id() === $this->user->id) {
+                activity()
+                    ->withProperties(['type' => 'User'])
+                    ->log('User account was resetted');
+                $user = User::find($this->user->id);
+                // Delete Task Images
+                foreach ($user->tasks as $task) {
+                    foreach ($task->images ?? [] as $image) {
+                        Storage::delete($image);
+                    }
+                }
+                // Delete Product Logos
+                foreach ($user->ownedProducts as $product) {
+                    $product->task()->delete();
+                    $product->webhooks()->delete();
+                    $avatar = explode('storage/', $product->avatar);
+                    if (array_key_exists(1, $avatar)) {
+                        Storage::delete($avatar[1]);
+                    }
+                }
+                // Delete User Avatar
+                $avatar = explode('storage/', $user->avatar);
+                if (array_key_exists(1, $avatar)) {
+                    Storage::delete($avatar[1]);
+                }
+                $user->likes()->delete();
+                $user->notifications()->delete();
+
+                return redirect()->route('home');
+            } else {
+                return $this->alert('error', 'Forbidden!');
+            }
+        } else {
+            return $this->alert('error', 'Forbidden!');
+        }
+    }
+
     public function confirmDelete()
     {
         if (Auth::check()) {

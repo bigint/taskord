@@ -12,12 +12,12 @@
                 Resetting your account is will be wiped out all your data immediately and you won't be able to get it back.
             </div>
             @if ($confirming === Auth::id())
-            <button wire:click="deleteAccount" class="btn btn-danger">
+            <button wire:loading.attr="disabled" wire:click="resetAccount" class="btn btn-danger">
                 <x-heroicon-o-question-mark-circle class="heroicon" />
                 Are you sure?
             </button>
             @else
-            <button wire:click="confirmDelete" class="btn btn-danger">
+            <button wire:loading.attr="disabled" wire:click="confirmReset" class="btn btn-danger">
                 <x-heroicon-o-trash class="heroicon" />
                 Reset now
             </button>
@@ -27,12 +27,12 @@
                 Deleting your account is permanent. All your data will be wiped out immediately and you won't be able to get it back.
             </div>
             @if ($confirming === Auth::id())
-            <button wire:click="deleteAccount" class="btn btn-danger">
+            <button wire:loading.attr="disabled" wire:click="deleteAccount" class="btn btn-danger">
                 <x-heroicon-o-question-mark-circle class="heroicon" />
                 Are you sure?
             </button>
             @else
-            <button wire:click="confirmDelete" class="btn btn-danger">
+            <button wire:loading.attr="disabled" wire:click="confirmDelete" class="btn btn-danger">
                 <x-heroicon-o-trash class="heroicon" />
                 Delete now
             </button>
