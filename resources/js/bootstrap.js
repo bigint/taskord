@@ -1,3 +1,1 @@
-try {
-  require("bootstrap");
-} catch (e) {}
+require("bootstrap");

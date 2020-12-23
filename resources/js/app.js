@@ -1,4 +1,3 @@
-require("./bootstrap");
 require("./shortcuts");
 require("./tribute");
 require("./tippy");
