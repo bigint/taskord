@@ -101,9 +101,4 @@ class SingleQuestion extends Component
             return $this->alert('error', 'Forbidden!');
         }
     }
-
-    public function render()
-    {
-        return view('livewire.question.single-question');
-    }
 }

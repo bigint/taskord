@@ -73,9 +73,4 @@ class EditQuestion extends Component
             $this->alert('error', 'Forbidden!');
         }
     }
-
-    public function render()
-    {
-        return view('livewire.question.edit-question');
-    }
 }
