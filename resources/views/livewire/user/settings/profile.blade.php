@@ -100,7 +100,6 @@
                 <div>
                     <input wire:click="enableGoal" id="enableGoal" class="form-check-input" type="checkbox" {{ $user->hasGoal ? 'checked' : '' }}>
                     <label for="enableGoal" class="ms-1">Enable Goal</label>
-                    <span wire:loading wire:target="enableGoal" class="small ms-2 text-success fw-bold">Updating...</span>
                 </div>
                 @if ($user->hasGoal)
                 <div class="mt-2 mb-3">
@@ -128,7 +127,6 @@
         <div class="card-body">
             <input wire:click="onlyFollowingsTasks" id="onlyFollowingsTasks" class="form-check-input" type="checkbox" {{ $user->onlyFollowingsTasks ? 'checked' : '' }}>
             <label for="onlyFollowingsTasks" class="ms-1">Show only following user's tasks on homepage</label>
-            <span wire:loading wire:target="onlyFollowingsTasks" class="small ms-2 text-success fw-bold">Updating...</span>
         </div>
     </div>
 
