@@ -1,7 +1,7 @@
 <?php
 
-it('has home page', function () {
-    $response = $this->get('/');
+it('has comment page - response test', function () {
+    $response = $this->get('/task/1/1');
 
     $response->assertStatus(200);
 });
