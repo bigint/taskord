@@ -124,6 +124,35 @@ class Profile extends Component
         }
     }
 
+    public function resetAvatar()
+    {
+        if (Auth::check()) {
+            if (Auth::id() === $this->user->id) {
+                $old_avatar = explode('storage/', $this->user->avatar);
+                if (array_key_exists(1, $old_avatar)) {
+                    Storage::delete($old_avatar[1]);
+                }
+                $this->user->avatar = 'https://avatar.tobi.sh/'.md5($this->user->email).'.svg?text='.strtoupper(substr($this->user->username, 0, 2));
+                $this->user->save();
+                activity()
+                    ->withProperties(['type' => 'User'])
+                    ->log('Reset avatar to default');
+
+                return $this->alert('success', 'Your profile has been updated!', [
+                    'showCancelButton' => true,
+                ]);
+            } else {
+                return $this->alert('error', 'Forbidden!', [
+                    'showCancelButton' => true,
+                ]);
+            }
+        } else {
+            return $this->alert('error', 'Forbidden!', [
+                'showCancelButton' => true,
+            ]);
+        }
+    }
+
     public function useGravatar()
     {
         if (Auth::check()) {
