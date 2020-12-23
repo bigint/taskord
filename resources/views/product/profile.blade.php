@@ -66,5 +66,11 @@
             <span class="@if (Route::currentRouteName() === 'product.updates') text-primary @endif">Updates</span>
             <span class="small fw-normal text-secondary">{{ number_format($updates_count) }}</span>
         </a>
+        <a class="text-dark fw-bold me-4" href="{{ route('feed.product', ['slug' => $product->slug]) }}" target="_blank">
+            <span>
+                <x-heroicon-o-rss class="heroicon text-secondary" />
+                Feed
+            </span>
+        </a>
     </div>
 </div>
