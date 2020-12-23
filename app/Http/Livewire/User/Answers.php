@@ -3,8 +3,8 @@
 namespace App\Http\Livewire\User;
 
 use App\Models\Answer;
-use Livewire\Component;
 use App\Models\User;
+use Livewire\Component;
 
 class Answers extends Component
 {

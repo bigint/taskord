@@ -2,12 +2,12 @@
 
 namespace App\Http\Livewire\Question;
 
+use App\Models\Question;
 use GrahamCampbell\Throttle\Facades\Throttle;
 use Helper;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Request;
 use Livewire\Component;
-use App\Models\Question;
 
 class Subscribe extends Component
 {

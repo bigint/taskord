@@ -2,13 +2,13 @@
 
 namespace App\Http\Livewire\User\Settings;
 
+use App\Models\User;
 use App\Models\Webhook;
 use GrahamCampbell\Throttle\Facades\Throttle;
 use Helper;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Request;
 use Livewire\Component;
-use App\Models\User;
 
 class Integrations extends Component
 {

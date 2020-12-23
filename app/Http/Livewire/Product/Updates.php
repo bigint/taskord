@@ -2,9 +2,9 @@
 
 namespace App\Http\Livewire\Product;
 
+use App\Models\Product;
 use App\Models\ProductUpdate;
 use Livewire\Component;
-use App\Models\Product;
 
 class Updates extends Component
 {

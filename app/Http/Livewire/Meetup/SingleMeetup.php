@@ -2,8 +2,8 @@
 
 namespace App\Http\Livewire\Meetup;
 
-use Livewire\Component;
 use App\Models\Meetup;
+use Livewire\Component;
 
 class SingleMeetup extends Component
 {

@@ -3,8 +3,8 @@
 namespace App\Http\Livewire\User;
 
 use App\Models\Task;
-use Livewire\Component;
 use App\Models\User;
+use Livewire\Component;
 
 class LoadMore extends Component
 {

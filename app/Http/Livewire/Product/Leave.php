@@ -2,10 +2,10 @@
 
 namespace App\Http\Livewire\Product;
 
+use App\Models\Product;
 use App\Notifications\Product\MemberLeft;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
-use App\Models\Product;
 
 class Leave extends Component
 {
