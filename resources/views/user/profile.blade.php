@@ -144,5 +144,11 @@
             <span class="@if (Route::currentRouteName() === 'user.answers') text-primary @endif">Answers</span>
             <span class="small fw-normal text-secondary">{{ number_format($answer_count) }}</span>
         </a>
+        <a class="text-dark fw-bold me-4" href="{{ route('feed.user', ['username' => $user->username]) }}" target="_blank">
+            <span>
+                <x-heroicon-o-rss class="heroicon text-secondary" />
+                Feed
+            </span>
+        </a>
     </div>
 </div>
