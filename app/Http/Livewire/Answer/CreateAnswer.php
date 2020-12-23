@@ -75,9 +75,4 @@ class CreateAnswer extends Component
             $this->alert('error', 'Forbidden!');
         }
     }
-
-    public function render()
-    {
-        return view('livewire.answer.create-answer');
-    }
 }
