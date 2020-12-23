@@ -14,6 +14,7 @@ use App\Http\Controllers\StatusController;
 use App\Http\Controllers\TaskController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\WebhookController;
+use App\Http\Controllers\FeedController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -182,6 +183,11 @@ Route::group(['middleware' => ['throttle:30,1']], function () {
         Route::get('ping', [StatusController::class, 'ping']);
         Route::get('redis', [StatusController::class, 'redis']);
         Route::get('memcached', [StatusController::class, 'memcached']);
+    });
+
+    // Feed
+    Route::group(['prefix' => 'feed', 'as' => 'feed.'], function () {
+        Route::get('{username}', [FeedController::class, 'user'])->name('user');
     });
 });
 
