@@ -75,9 +75,4 @@ class CreateComment extends Component
             $this->alert('error', 'Forbidden!');
         }
     }
-
-    public function render()
-    {
-        return view('livewire.comment.create-comment');
-    }
 }
