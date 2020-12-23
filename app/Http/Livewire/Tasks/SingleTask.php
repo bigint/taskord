@@ -11,10 +11,11 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\Storage;
 use Livewire\Component;
+use App\Models\Task;
 
 class SingleTask extends Component
 {
-    public $task;
+    public Task $task;
     public $confirming;
 
     public function mount($task)

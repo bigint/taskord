@@ -7,6 +7,7 @@ use Helper;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Request;
 use Livewire\Component;
+use App\Models\Task;
 
 class Subscribe extends Component
 {
@@ -14,7 +15,7 @@ class Subscribe extends Component
         'taskSubscribed' => 'render',
     ];
 
-    public $task;
+    public Task $task;
 
     public function mount($task)
     {

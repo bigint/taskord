@@ -4,20 +4,21 @@ namespace App\Http\Livewire\User;
 
 use App\Models\Answer;
 use Livewire\Component;
+use App\Models\User;
 
 class Answers extends Component
 {
-    public $user_id;
+    public User $user;
 
     public function mount($user)
     {
-        $this->user_id = $user->id;
+        $this->user = $user;
     }
 
     public function render()
     {
         $answers = Answer::cacheFor(60 * 60)
-            ->where('user_id', $this->user_id)
+            ->where('user_id', $this->user->id)
             ->latest()
             ->paginate(10);
 
