@@ -105,37 +105,37 @@
             <div class="mb-2 mt-3">
                 <input wire:click="enrollBeta" id="enrollBeta" class="form-check-input" type="checkbox" {{ $user->isBeta ? 'checked' : '' }}>
                 <label for="enrollBeta" class="ms-1">Enroll to Beta</label >
-                <span wire:loading wire:target="enrollBeta" class="small ms-2 text-success fw-bold">Enrolling...</span>
+                <span wire:target="enrollBeta" wire:loading class="ms-2 spinner-border spinner-border-mini" role="status"></span>
             </div>
             <div class="mb-2">
                 <input wire:click="enrollStaff" id="enrollStaff" class="form-check-input" type="checkbox" {{ $user->isStaff ? 'checked' : '' }}>
                 <label for="enrollStaff" class="ms-1">Enroll to Staff</label>
-                <span wire:loading wire:target="enrollStaff" class="small ms-2 text-success fw-bold">Enrolling...</span>
+                <span wire:target="enrollStaff" wire:loading class="ms-2 spinner-border spinner-border-mini" role="status"></span>
             </div>
             <div class="mb-2">
                 <input wire:click="enrollPatron" id="enrollPatron" class="form-check-input" type="checkbox" {{ $user->isPatron ? 'checked' : '' }}>
                 <label for="enrollPatron" class="ms-1">Enroll to Patron</label>
-                <span wire:loading wire:target="enrollPatron" class="small ms-2 text-success fw-bold">Enrolling...</span>
+                <span wire:target="enrollPatron" wire:loading class="ms-2 spinner-border spinner-border-mini" role="status"></span>
             </div>
             <div class="mb-2">
                 <input wire:click="enrollDarkMode" id="enrollDarkMode" class="form-check-input" type="checkbox" {{ $user->darkMode ? 'checked' : '' }}>
                 <label for="enrollDarkMode" class="ms-1">Enable Dark Mode</label>
-                <span wire:loading wire:target="enrollDarkMode" class="small ms-2 text-success fw-bold">Enrolling...</span>
+                <span wire:target="enrollDarkMode" wire:loading class="ms-2 spinner-border spinner-border-mini" role="status"></span>
             </div>
             <div class="mb-2">
                 <input wire:click="enrollDeveloper" id="enrollDeveloper" class="form-check-input" type="checkbox" {{ $user->isDeveloper ? 'checked' : '' }}>
                 <label for="enrollDeveloper" class="ms-1">Enroll to Contributor</label>
-                <span wire:loading wire:target="enrollDeveloper" class="small ms-2 text-success fw-bold">Enrolling...</span>
+                <span wire:target="enrollDeveloper" wire:loading class="ms-2 spinner-border spinner-border-mini" role="status"></span>
             </div>
             <div class="mb-2">
                 <input wire:click="privateUser" id="privateUser" class="form-check-input" type="checkbox" {{ $user->isPrivate ? 'checked' : '' }}>
                 <label for="privateUser" class="ms-1 text-danger fw-bold">Make user Private</label>
-                <span wire:loading wire:target="privateUser" class="small ms-2 text-danger fw-bold">Enrolling...</span>
+                <span wire:target="privateUser" wire:loading class="ms-2 spinner-border spinner-border-mini" role="status"></span>
             </div>
             <div>
                 <input wire:click="verifyUser" id="verifyUser" class="form-check-input" type="checkbox" {{ $user->isVerified ? 'checked' : '' }}>
                 <label for="verifyUser" class="ms-1 text-success fw-bold">Verify this user</label>
-                <span wire:loading wire:target="verifyUser" class="small ms-2 text-success fw-bold">Verifying...</span>
+                <span wire:target="verifyUser" wire:loading class="ms-2 spinner-border spinner-border-mini" role="status"></span>
             </div>
             @if (!$user->isStaff)
             <div class="mt-3">
@@ -143,7 +143,7 @@
                     <x-heroicon-o-eye class="heroicon" />
                     Masquerade
                 </button>
-                <span wire:loading wire:target="Masquerade" class="small ms-2 text-danger fw-bold">masquerading...</span>
+                <span wire:target="Masquerade" wire:loading class="ms-2 spinner-border spinner-border-mini" role="status"></span>
             </div>
             @endif
             @if (!$user->isStaff)
@@ -155,12 +155,12 @@
             <div class="mt-2">
                 <input wire:click="flagUser" id="flagUser" class="form-check-input" type="checkbox" {{ $user->isFlagged ? 'checked' : '' }}>
                 <label for="flagUser" class="ms-1 text-danger fw-bold">Flag this user</label>
-                <span wire:loading wire:target="flagUser" class="small ms-2 text-danger fw-bold">Flagging...</span>
+                <span wire:target="flagUser" wire:loading class="ms-2 spinner-border spinner-border-mini" role="status"></span>
             </div>
             <div class="mt-2">
                 <input wire:click="suspendUser" id="suspendUser" class="form-check-input" type="checkbox" {{ $user->isSuspended ? 'checked' : '' }}>
                 <label for="suspendUser" class="ms-1 text-danger fw-bold">Suspend this user</label>
-                <span wire:loading wire:target="suspendUser" class="small ms-2 text-danger fw-bold">Suspending...</span>
+                <span wire:target="suspendUser" wire:loading class="ms-2 spinner-border spinner-border-mini" role="status"></span>
             </div>
             <div class="mt-3">
                 <button wire:click="deleteTasks" class="btn btn-sm btn-danger fw-bold">
@@ -168,7 +168,7 @@
                     <x-heroicon-o-check class="heroicon" />
                     Delete all tasks
                 </button>
-                <span wire:loading wire:target="deleteTasks" class="small ms-2 text-danger fw-bold">Deleting...</span>
+                <span wire:target="deleteTasks" wire:loading class="ms-2 spinner-border spinner-border-mini" role="status"></span>
             </div>
             <div class="mt-2">
                 <button wire:click="deleteComments" class="btn btn-sm btn-danger fw-bold">
@@ -176,7 +176,7 @@
                     <x-heroicon-o-chat-alt class="heroicon" />
                     Delete all comments
                 </button>
-                <span wire:loading wire:target="deleteComments" class="small ms-2 text-danger fw-bold">Deleting...</span>
+                <span wire:target="deleteComments" wire:loading class="ms-2 spinner-border spinner-border-mini" role="status"></span>
             </div>
             <div class="mt-2">
                 <button wire:click="deleteQuestions" class="btn btn-sm btn-danger fw-bold">
@@ -184,7 +184,7 @@
                     <x-heroicon-o-question-mark-circle class="heroicon" />
                     Delete all questions
                 </button>
-                <span wire:loading wire:target="deleteQuestions" class="small ms-2 text-danger fw-bold">Deleting...</span>
+                <span wire:target="deleteQuestions" wire:loading class="ms-2 spinner-border spinner-border-mini" role="status"></span>
             </div>
             <div class="mt-2">
                 <button wire:click="deleteAnswers" class="btn btn-sm btn-danger fw-bold">
@@ -192,7 +192,7 @@
                     <x-heroicon-o-chat-alt-2 class="heroicon" />
                     Delete all answers
                 </button>
-                <span wire:loading wire:target="deleteAnswers" class="small ms-2 text-danger fw-bold">Deleting...</span>
+                <span wire:target="deleteAnswers" wire:loading class="ms-2 spinner-border spinner-border-mini" role="status"></span>
             </div>
             <div class="mt-2">
                 <button wire:click="deleteProducts" class="btn btn-sm btn-danger fw-bold">
@@ -200,7 +200,7 @@
                     <x-heroicon-o-cube class="heroicon" />
                     Delete all products
                 </button>
-                <span wire:loading wire:target="deleteProducts" class="small ms-2 text-danger fw-bold">Deleting...</span>
+                <span wire:target="deleteProducts" wire:loading class="ms-2 spinner-border spinner-border-mini" role="status"></span>
             </div>
             <div class="mt-2">
                 <button wire:click="deleteUser" class="btn btn-sm btn-danger fw-bold">
@@ -208,7 +208,7 @@
                     <x-heroicon-o-user class="heroicon" />
                     Delete this user
                 </button>
-                <span wire:loading wire:target="deleteUser" class="small ms-2 text-danger fw-bold">Deleting...</span>
+                <span wire:target="deleteUser" wire:loading class="ms-2 spinner-border spinner-border-mini" role="status"></span>
             </div>
             @endif
         </div>
