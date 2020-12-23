@@ -160,6 +160,7 @@
                             </a>
                             @endif
                             <a class="dropdown-item text-dark" href="{{ route('logout') }}"
+                                data-prefetch="false"
                                 onclick="event.preventDefault();
                                                 document.getElementById('logout-form').submit();">
                                 🚪 Logout
