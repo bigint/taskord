@@ -93,9 +93,4 @@ class Integrations extends Component
             return $this->alert('error', 'Forbidden!');
         }
     }
-
-    public function render()
-    {
-        return view('livewire.user.settings.integrations');
-    }
 }

@@ -88,9 +88,4 @@ class SingleTask extends Component
             return $this->alert('error', 'Forbidden!');
         }
     }
-
-    public function render()
-    {
-        return view('livewire.tasks.single-task');
-    }
 }
