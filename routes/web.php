@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\FeedController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MeetupController;
 use App\Http\Controllers\PagesController;
@@ -182,6 +183,11 @@ Route::group(['middleware' => ['throttle:30,1']], function () {
         Route::get('ping', [StatusController::class, 'ping']);
         Route::get('redis', [StatusController::class, 'redis']);
         Route::get('memcached', [StatusController::class, 'memcached']);
+    });
+
+    // Feed
+    Route::group(['prefix' => 'feed', 'as' => 'feed.'], function () {
+        Route::get('{username}', [FeedController::class, 'user'])->name('user');
     });
 });
 
