@@ -4,6 +4,7 @@ namespace App\Http\Livewire\Product;
 
 use App\Models\Task;
 use Livewire\Component;
+use App\Models\Product;
 
 class Tasks extends Component
 {
@@ -13,7 +14,7 @@ class Tasks extends Component
         'taskChecked' => 'render',
     ];
 
-    public $product;
+    public Product $product;
     public $type;
     public $page;
 

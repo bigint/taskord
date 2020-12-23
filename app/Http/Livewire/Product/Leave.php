@@ -5,10 +5,11 @@ namespace App\Http\Livewire\Product;
 use App\Notifications\Product\MemberLeft;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
+use App\Models\Product;
 
 class Leave extends Component
 {
-    public $product;
+    public Product $product;
 
     public function mount($product)
     {

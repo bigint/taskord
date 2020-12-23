@@ -16,7 +16,7 @@ class EditProduct extends Component
 {
     use WithFileUploads;
 
-    public $product;
+    public Product $product;
     public $name;
     public $slug;
     public $description;

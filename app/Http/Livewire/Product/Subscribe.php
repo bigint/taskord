@@ -8,10 +8,11 @@ use Helper;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Request;
 use Livewire\Component;
+use App\Models\Product;
 
 class Subscribe extends Component
 {
-    public $product;
+    public Product $product;
 
     public function mount($product)
     {

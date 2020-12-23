@@ -3,10 +3,11 @@
 namespace App\Http\Livewire\Meetup;
 
 use Livewire\Component;
+use App\Models\Meetup;
 
 class SingleMeetup extends Component
 {
-    public $meetup;
+    public Meetup $meetup;
 
     public function mount($meetup)
     {

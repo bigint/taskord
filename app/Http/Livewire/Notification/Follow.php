@@ -8,10 +8,11 @@ use Helper;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Request;
 use Livewire\Component;
+use App\Models\User;
 
 class Follow extends Component
 {
-    public $user;
+    public User $user;
 
     public function mount($user)
     {

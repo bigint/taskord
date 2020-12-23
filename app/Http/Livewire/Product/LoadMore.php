@@ -4,6 +4,7 @@ namespace App\Http\Livewire\Product;
 
 use App\Models\Task;
 use Livewire\Component;
+use App\Models\Product;
 
 class LoadMore extends Component
 {
@@ -11,7 +12,7 @@ class LoadMore extends Component
         'taskAdded' => 'render',
     ];
 
-    public $product;
+    public Product $product;
     public $type;
     public $page;
     public $perPage;

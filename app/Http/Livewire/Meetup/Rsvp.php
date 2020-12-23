@@ -7,10 +7,11 @@ use Helper;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Request;
 use Livewire\Component;
+use App\Models\Meetup;
 
 class Rsvp extends Component
 {
-    public $meetup;
+    public Meetup $meetup;
 
     public function mount($meetup)
     {
