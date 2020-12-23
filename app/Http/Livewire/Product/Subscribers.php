@@ -2,8 +2,8 @@
 
 namespace App\Http\Livewire\Product;
 
-use Livewire\Component;
 use App\Models\Product;
+use Livewire\Component;
 
 class Subscribers extends Component
 {

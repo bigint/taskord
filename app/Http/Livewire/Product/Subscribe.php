@@ -2,13 +2,13 @@
 
 namespace App\Http\Livewire\Product;
 
+use App\Models\Product;
 use App\Notifications\Subscribed;
 use GrahamCampbell\Throttle\Facades\Throttle;
 use Helper;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Request;
 use Livewire\Component;
-use App\Models\Product;
 
 class Subscribe extends Component
 {

@@ -2,12 +2,12 @@
 
 namespace App\Http\Livewire\Comment;
 
+use App\Models\Comment;
 use GrahamCampbell\Throttle\Facades\Throttle;
 use Helper;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Request;
 use Livewire\Component;
-use App\Models\Comment;
 
 class SingleComment extends Component
 {

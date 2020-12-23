@@ -4,6 +4,7 @@ namespace App\Http\Livewire\Task;
 
 use App\Gamify\Points\TaskCompleted;
 use App\Jobs\CheckGoal;
+use App\Models\Task;
 use Carbon\Carbon;
 use GrahamCampbell\Throttle\Facades\Throttle;
 use Helper;
@@ -12,7 +13,6 @@ use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use Livewire\Component;
-use App\Models\Task;
 
 class SingleTask extends Component
 {
