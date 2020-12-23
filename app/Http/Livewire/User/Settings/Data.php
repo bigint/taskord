@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Livewire\Component;
 
-class Delete extends Component
+class Data extends Component
 {
     public User $user;
     public $confirming;

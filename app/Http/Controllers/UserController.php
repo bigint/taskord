@@ -198,7 +198,7 @@ class UserController extends Controller
     {
         $user = Auth::user();
 
-        return view('user.settings.api', [
+        return view('user.settings.data', [
             'user' => $user,
         ]);
     }
