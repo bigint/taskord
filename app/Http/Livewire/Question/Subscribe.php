@@ -7,6 +7,7 @@ use Helper;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Request;
 use Livewire\Component;
+use App\Models\Question;
 
 class Subscribe extends Component
 {
@@ -14,7 +15,7 @@ class Subscribe extends Component
         'questionSubscribed' => 'render',
     ];
 
-    public $question;
+    public Question $question;
 
     public function mount($question)
     {

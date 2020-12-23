@@ -12,7 +12,7 @@ class NewUpdate extends Component
 {
     public $title;
     public $body;
-    public $product;
+    public Product $product;
 
     public function mount($product)
     {

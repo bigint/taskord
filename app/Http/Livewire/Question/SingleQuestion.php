@@ -7,10 +7,11 @@ use Helper;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Request;
 use Livewire\Component;
+use App\Models\Question;
 
 class SingleQuestion extends Component
 {
-    public $question;
+    public Question $question;
     public $type;
     public $confirming;
 

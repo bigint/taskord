@@ -8,7 +8,7 @@ use Livewire\Component;
 
 class EditQuestion extends Component
 {
-    public $question;
+    public Question $question;
     public $title;
     public $body;
     public $patronOnly;

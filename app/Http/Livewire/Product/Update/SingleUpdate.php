@@ -7,10 +7,11 @@ use Helper;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Request;
 use Livewire\Component;
+use App\Models\ProductUpdate;
 
 class SingleUpdate extends Component
 {
-    public $update;
+    public ProductUpdate $update;
     public $confirming;
 
     public function mount($update)

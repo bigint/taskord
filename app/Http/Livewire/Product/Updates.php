@@ -4,10 +4,11 @@ namespace App\Http\Livewire\Product;
 
 use App\Models\ProductUpdate;
 use Livewire\Component;
+use App\Models\Product;
 
 class Updates extends Component
 {
-    public $product;
+    public Product $product;
 
     public $listeners = [
         'updateDeleted' => 'render',

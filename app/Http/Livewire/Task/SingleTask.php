@@ -12,10 +12,11 @@ use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use Livewire\Component;
+use App\Models\Task;
 
 class SingleTask extends Component
 {
-    public $task;
+    public Task $task;
     public $confirming;
     public $launched;
     public $bug;
