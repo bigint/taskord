@@ -6607,6 +6607,11 @@ tty-browserify@0.0.0:
   resolved "https://registry.yarnpkg.com/tty-browserify/-/tty-browserify-0.0.0.tgz#a157ba402da24e9bf957f9aa69d524eed42901a6"
   integrity sha1-oVe6QC2iTpv5V/mqadUk7tQpAaY=
 
+turbolinks-prefetch@^1.0.3:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/turbolinks-prefetch/-/turbolinks-prefetch-1.0.3.tgz#9818c6ceab6ef36e5fd2d095235389f71485a6dc"
+  integrity sha512-mFQhpFqol2mtmaoHtSFlkEoCbKpAKpCkadb6seKWVAxJWqf8y9aver0+YD/FeHtsHRz4j47+//Om/AEU0OZnLw==
+
 turbolinks@^5.2.0:
   version "5.2.0"
   resolved "https://registry.yarnpkg.com/turbolinks/-/turbolinks-5.2.0.tgz#e6877a55ea5c1cb3bb225f0a4ae303d6d32ff77c"
