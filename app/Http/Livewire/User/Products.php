@@ -5,9 +5,13 @@ namespace App\Http\Livewire\User;
 use App\Models\Product;
 use App\Models\User;
 use Livewire\Component;
+use Livewire\WithPagination;
 
 class Products extends Component
 {
+    use WithPagination;
+    protected $paginationTheme = 'bootstrap';
+
     public User $user;
 
     public function mount($user)
