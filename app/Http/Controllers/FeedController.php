@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Task;
 use App\Models\User;
+use App\Models\Product;
 
 class FeedController extends Controller
 {
@@ -19,6 +20,25 @@ class FeedController extends Controller
 
         $content = view('feed.user', [
             'user' => $user,
+            'tasks' => $tasks,
+        ]);
+
+        return response($content, 200)
+            ->header('Content-Type', 'text/xml');
+    }
+
+    public function product($slug, $page = 1)
+    {
+        $product = Product::where('slug', $slug)
+            ->firstOrFail();
+        $tasks = Task::where('product_id', $product->id)
+            ->latest()
+            ->offset($page - 1)
+            ->limit(50)
+            ->get();
+
+        $content = view('feed.product', [
+            'product' => $product,
             'tasks' => $tasks,
         ]);
 
