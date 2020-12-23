@@ -15,7 +15,7 @@
                 <x-heroicon-o-pencil-alt class="heroicon" />
                 Markdown is supported
             </div>
-            <button class="btn btn-sm btn-primary" type="submit" wire:click="submit">
+            <button wire:loading.attr="disabled" class="btn btn-sm btn-primary" type="submit" wire:click="submit">
                 <x-heroicon-o-plus class="heroicon" />
                 Add Comment
             </button>

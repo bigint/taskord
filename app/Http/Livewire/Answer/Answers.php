@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Answer;
 
 use App\Models\Answer;
+use App\Models\Question;
 use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Collection;
@@ -15,7 +16,7 @@ class Answers extends Component
         'answerDeleted' => 'render',
     ];
 
-    public $question;
+    public Question $question;
     public $page;
     public $perPage;
 

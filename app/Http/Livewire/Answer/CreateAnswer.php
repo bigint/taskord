@@ -4,6 +4,7 @@ namespace App\Http\Livewire\Answer;
 
 use App\Gamify\Points\CommentCreated;
 use App\Models\Answer;
+use App\Models\Question;
 use App\Notifications\Answered;
 use Helper;
 use Illuminate\Support\Facades\Auth;
@@ -12,7 +13,7 @@ use Livewire\Component;
 class CreateAnswer extends Component
 {
     public $answer;
-    public $question;
+    public Question $question;
 
     public function mount($question)
     {
