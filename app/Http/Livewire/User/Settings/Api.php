@@ -45,6 +45,7 @@ class Api extends Component
                 activity()
                     ->withProperties(['type' => 'User'])
                     ->log('New API key was generated');
+                    return $this->alert('success', 'New API key been generated successfully');
             } else {
                 return $this->alert('error', 'Forbidden!');
             }
