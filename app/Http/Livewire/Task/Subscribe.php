@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Task;
 
+use App\Models\Task;
 use GrahamCampbell\Throttle\Facades\Throttle;
 use Helper;
 use Illuminate\Support\Facades\Auth;
@@ -14,7 +15,7 @@ class Subscribe extends Component
         'taskSubscribed' => 'render',
     ];
 
-    public $task;
+    public Task $task;
 
     public function mount($task)
     {
@@ -56,10 +57,5 @@ class Subscribe extends Component
         } else {
             return $this->alert('error', 'Forbidden!');
         }
-    }
-
-    public function render()
-    {
-        return view('livewire.task.subscribe');
     }
 }

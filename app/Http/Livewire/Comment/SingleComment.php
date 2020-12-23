@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Comment;
 
+use App\Models\Comment;
 use GrahamCampbell\Throttle\Facades\Throttle;
 use Helper;
 use Illuminate\Support\Facades\Auth;
@@ -10,7 +11,7 @@ use Livewire\Component;
 
 class SingleComment extends Component
 {
-    public $comment;
+    public Comment $comment;
     public $confirming;
 
     public function mount($comment)
@@ -97,10 +98,5 @@ class SingleComment extends Component
         } else {
             return $this->alert('error', 'Forbidden!');
         }
-    }
-
-    public function render()
-    {
-        return view('livewire.comment.single-comment');
     }
 }

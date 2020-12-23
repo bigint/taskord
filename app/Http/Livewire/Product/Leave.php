@@ -2,13 +2,14 @@
 
 namespace App\Http\Livewire\Product;
 
+use App\Models\Product;
 use App\Notifications\Product\MemberLeft;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 
 class Leave extends Component
 {
-    public $product;
+    public Product $product;
 
     public function mount($product)
     {
@@ -28,10 +29,5 @@ class Leave extends Component
 
             return redirect()->route('product.done', ['slug' => $this->product->slug]);
         }
-    }
-
-    public function render()
-    {
-        return view('livewire.product.leave');
     }
 }

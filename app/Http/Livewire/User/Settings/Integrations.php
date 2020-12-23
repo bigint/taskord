@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\User\Settings;
 
+use App\Models\User;
 use App\Models\Webhook;
 use GrahamCampbell\Throttle\Facades\Throttle;
 use Helper;
@@ -11,7 +12,7 @@ use Livewire\Component;
 
 class Integrations extends Component
 {
-    public $user;
+    public User $user;
     public $name;
     public $product;
     public $type = 'web';
@@ -92,10 +93,5 @@ class Integrations extends Component
         } else {
             return $this->alert('error', 'Forbidden!');
         }
-    }
-
-    public function render()
-    {
-        return view('livewire.user.settings.integrations');
     }
 }

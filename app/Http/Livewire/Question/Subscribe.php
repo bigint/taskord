@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Question;
 
+use App\Models\Question;
 use GrahamCampbell\Throttle\Facades\Throttle;
 use Helper;
 use Illuminate\Support\Facades\Auth;
@@ -14,7 +15,7 @@ class Subscribe extends Component
         'questionSubscribed' => 'render',
     ];
 
-    public $question;
+    public Question $question;
 
     public function mount($question)
     {
@@ -56,10 +57,5 @@ class Subscribe extends Component
         } else {
             return $this->alert('error', 'Forbidden!');
         }
-    }
-
-    public function render()
-    {
-        return view('livewire.question.subscribe');
     }
 }

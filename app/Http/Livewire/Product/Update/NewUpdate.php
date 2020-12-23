@@ -12,7 +12,7 @@ class NewUpdate extends Component
 {
     public $title;
     public $body;
-    public $product;
+    public Product $product;
 
     public function mount($product)
     {
@@ -56,10 +56,5 @@ class NewUpdate extends Component
         } else {
             $this->alert('error', 'Forbidden!');
         }
-    }
-
-    public function render()
-    {
-        return view('livewire.product.update.new-update');
     }
 }

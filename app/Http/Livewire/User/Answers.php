@@ -3,21 +3,26 @@
 namespace App\Http\Livewire\User;
 
 use App\Models\Answer;
+use App\Models\User;
 use Livewire\Component;
+use Livewire\WithPagination;
 
 class Answers extends Component
 {
-    public $user_id;
+    use WithPagination;
+    protected $paginationTheme = 'bootstrap';
+
+    public User $user;
 
     public function mount($user)
     {
-        $this->user_id = $user->id;
+        $this->user = $user;
     }
 
     public function render()
     {
         $answers = Answer::cacheFor(60 * 60)
-            ->where('user_id', $this->user_id)
+            ->where('user_id', $this->user->id)
             ->latest()
             ->paginate(10);
 

@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Notification;
 
+use App\Models\User;
 use App\Notifications\Followed;
 use GrahamCampbell\Throttle\Facades\Throttle;
 use Helper;
@@ -11,7 +12,7 @@ use Livewire\Component;
 
 class Follow extends Component
 {
-    public $user;
+    public User $user;
 
     public function mount($user)
     {
@@ -52,10 +53,5 @@ class Follow extends Component
         } else {
             return $this->alert('error', 'Forbidden!');
         }
-    }
-
-    public function render()
-    {
-        return view('livewire.notification.follow');
     }
 }

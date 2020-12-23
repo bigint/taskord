@@ -13,7 +13,7 @@ use Livewire\Component;
 
 class Moderator extends Component
 {
-    public $user;
+    public User $user;
 
     public function mount($user)
     {
@@ -560,10 +560,5 @@ class Moderator extends Component
         } else {
             return false;
         }
-    }
-
-    public function render()
-    {
-        return view('livewire.user.moderator');
     }
 }

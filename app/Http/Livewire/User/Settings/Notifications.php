@@ -2,12 +2,13 @@
 
 namespace App\Http\Livewire\User\Settings;
 
+use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 
 class Notifications extends Component
 {
-    public $user;
+    public User $user;
 
     public function mount($user)
     {
@@ -392,10 +393,5 @@ class Notifications extends Component
         } else {
             return $this->alert('error', 'Forbidden!');
         }
-    }
-
-    public function render()
-    {
-        return view('livewire.user.settings.notifications');
     }
 }

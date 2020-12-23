@@ -2,14 +2,16 @@
 
 namespace App\Http\Livewire\Product;
 
+use App\Models\Product;
+use App\Models\User;
 use App\Notifications\Product\MemberRemoved;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 
 class Team extends Component
 {
-    public $product;
-    public $user;
+    public Product $product;
+    public User $user;
 
     public function mount($product, $user)
     {
@@ -29,10 +31,5 @@ class Team extends Component
 
             return redirect()->route('product.done', ['slug' => $this->product->slug]);
         }
-    }
-
-    public function render()
-    {
-        return view('livewire.product.team');
     }
 }

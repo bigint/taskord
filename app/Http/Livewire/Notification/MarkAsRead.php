@@ -22,9 +22,4 @@ class MarkAsRead extends Component
             return $this->alert('error', 'Forbidden!');
         }
     }
-
-    public function render()
-    {
-        return view('livewire.notification.mark-as-read');
-    }
 }

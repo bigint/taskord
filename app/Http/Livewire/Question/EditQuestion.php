@@ -8,7 +8,7 @@ use Livewire\Component;
 
 class EditQuestion extends Component
 {
-    public $question;
+    public Question $question;
     public $title;
     public $body;
     public $patronOnly;
@@ -72,10 +72,5 @@ class EditQuestion extends Component
         } else {
             $this->alert('error', 'Forbidden!');
         }
-    }
-
-    public function render()
-    {
-        return view('livewire.question.edit-question');
     }
 }

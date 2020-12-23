@@ -2,12 +2,13 @@
 
 namespace App\Http\Livewire\User\Settings;
 
+use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 
 class Account extends Component
 {
-    public $user;
+    public User $user;
     public $username;
     public $email;
 
@@ -117,10 +118,5 @@ class Account extends Component
         } else {
             return $this->alert('error', 'Forbidden!');
         }
-    }
-
-    public function render()
-    {
-        return view('livewire.user.settings.account');
     }
 }

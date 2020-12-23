@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\User\Settings;
 
+use App\Models\User;
 use GrahamCampbell\Throttle\Facades\Throttle;
 use Helper;
 use Illuminate\Support\Facades\Auth;
@@ -11,7 +12,7 @@ use Livewire\Component;
 
 class Api extends Component
 {
-    public $user;
+    public User $user;
 
     public $listeners = [
         'tokenRegenerated' => 'render',
@@ -53,10 +54,5 @@ class Api extends Component
         } else {
             return $this->alert('error', 'Forbidden!');
         }
-    }
-
-    public function render()
-    {
-        return view('livewire.user.settings.api');
     }
 }

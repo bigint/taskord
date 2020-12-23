@@ -26,9 +26,4 @@ class OnlyFollowing extends Component
             return $this->alert('error', 'Forbidden!');
         }
     }
-
-    public function render()
-    {
-        return view('livewire.home.only-following');
-    }
 }

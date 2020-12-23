@@ -16,9 +16,4 @@ class SingleNotification extends Component
         $this->data = $data;
         $this->created_at = strval($created_at);
     }
-
-    public function render()
-    {
-        return view('livewire.notification.single-notification');
-    }
 }

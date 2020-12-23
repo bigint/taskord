@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Product\Update;
 
+use App\Models\ProductUpdate;
 use GrahamCampbell\Throttle\Facades\Throttle;
 use Helper;
 use Illuminate\Support\Facades\Auth;
@@ -10,7 +11,7 @@ use Livewire\Component;
 
 class SingleUpdate extends Component
 {
-    public $update;
+    public ProductUpdate $update;
     public $confirming;
 
     public function mount($update)
@@ -84,10 +85,5 @@ class SingleUpdate extends Component
         } else {
             return $this->alert('error', 'Forbidden!');
         }
-    }
-
-    public function render()
-    {
-        return view('livewire.product.update.single-update');
     }
 }

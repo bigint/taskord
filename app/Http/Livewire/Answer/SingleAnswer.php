@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Answer;
 
+use App\Models\Answer;
 use GrahamCampbell\Throttle\Facades\Throttle;
 use Helper;
 use Illuminate\Support\Facades\Auth;
@@ -10,7 +11,7 @@ use Livewire\Component;
 
 class SingleAnswer extends Component
 {
-    public $answer;
+    public Answer $answer;
     public $confirming;
 
     public function mount($answer)
@@ -97,10 +98,5 @@ class SingleAnswer extends Component
         } else {
             return $this->alert('error', 'Forbidden!');
         }
-    }
-
-    public function render()
-    {
-        return view('livewire.answer.single-answer');
     }
 }

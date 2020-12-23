@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Product;
 
+use App\Models\Product;
 use App\Notifications\Subscribed;
 use GrahamCampbell\Throttle\Facades\Throttle;
 use Helper;
@@ -11,7 +12,7 @@ use Livewire\Component;
 
 class Subscribe extends Component
 {
-    public $product;
+    public Product $product;
 
     public function mount($product)
     {
@@ -56,10 +57,5 @@ class Subscribe extends Component
         } else {
             return $this->alert('error', 'Forbidden!');
         }
-    }
-
-    public function render()
-    {
-        return view('livewire.product.subscribe');
     }
 }

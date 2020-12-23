@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\User;
 
+use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 
@@ -11,7 +12,7 @@ class Status extends Component
         'statusUpdated'  => 'render',
     ];
 
-    public $user;
+    public User $user;
 
     public function mount($user)
     {
@@ -66,10 +67,5 @@ class Status extends Component
         } else {
             return $this->alert('error', 'Forbidden!');
         }
-    }
-
-    public function render()
-    {
-        return view('livewire.user.status');
     }
 }

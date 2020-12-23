@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Meetup;
 
+use App\Models\Meetup;
 use GrahamCampbell\Throttle\Facades\Throttle;
 use Helper;
 use Illuminate\Support\Facades\Auth;
@@ -10,7 +11,7 @@ use Livewire\Component;
 
 class Rsvp extends Component
 {
-    public $meetup;
+    public Meetup $meetup;
 
     public function mount($meetup)
     {
@@ -49,10 +50,5 @@ class Rsvp extends Component
         } else {
             return $this->alert('error', 'Forbidden!');
         }
-    }
-
-    public function render()
-    {
-        return view('livewire.meetup.rsvp');
     }
 }

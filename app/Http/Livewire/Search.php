@@ -64,9 +64,4 @@ class Search extends Component
             ->take(3)
             ->get();
     }
-
-    public function render()
-    {
-        return view('livewire.search');
-    }
 }

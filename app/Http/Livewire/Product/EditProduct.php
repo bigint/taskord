@@ -16,7 +16,7 @@ class EditProduct extends Component
 {
     use WithFileUploads;
 
-    public $product;
+    public Product $product;
     public $name;
     public $slug;
     public $description;
@@ -159,10 +159,5 @@ class EditProduct extends Component
         } else {
             return $this->alert('error', 'Forbidden!');
         }
-    }
-
-    public function render()
-    {
-        return view('livewire.product.edit-product');
     }
 }

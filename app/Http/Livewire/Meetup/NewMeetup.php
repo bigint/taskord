@@ -85,9 +85,4 @@ class NewMeetup extends Component
             $this->alert('error', 'Forbidden!');
         }
     }
-
-    public function render()
-    {
-        return view('livewire.meetup.new-meetup');
-    }
 }

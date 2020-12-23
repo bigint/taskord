@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\User;
 
 use App\Models\Task;
+use App\Models\User;
 use Livewire\Component;
 
 class Tasks extends Component
@@ -13,7 +14,7 @@ class Tasks extends Component
         'taskChecked' => 'render',
     ];
 
-    public $user;
+    public User $user;
     public $type;
     public $page;
 

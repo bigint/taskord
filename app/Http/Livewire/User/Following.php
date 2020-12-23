@@ -2,19 +2,17 @@
 
 namespace App\Http\Livewire\User;
 
+use App\Models\User;
 use Livewire\Component;
 
 class Following extends Component
 {
-    public $user;
+    public User $user;
+    public $followings;
 
     public function mount($user)
     {
         $this->user = $user;
-    }
-
-    public function render()
-    {
-        return view('livewire.user.following');
+        $this->followings = $user->followings;
     }
 }

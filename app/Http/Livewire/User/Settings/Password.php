@@ -2,13 +2,14 @@
 
 namespace App\Http\Livewire\User\Settings;
 
+use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Livewire\Component;
 
 class Password extends Component
 {
-    public $user;
+    public User $user;
     public $currentPassword;
     public $newPassword;
     public $confirmPassword;
@@ -64,10 +65,5 @@ class Password extends Component
         } else {
             return $this->alert('error', 'Forbidden!');
         }
-    }
-
-    public function render()
-    {
-        return view('livewire.user.settings.password');
     }
 }

@@ -4,6 +4,7 @@ namespace App\Http\Livewire\Tasks;
 
 use App\Gamify\Points\TaskCompleted;
 use App\Jobs\CheckGoal;
+use App\Models\Task;
 use Carbon\Carbon;
 use GrahamCampbell\Throttle\Facades\Throttle;
 use Helper;
@@ -14,7 +15,7 @@ use Livewire\Component;
 
 class SingleTask extends Component
 {
-    public $task;
+    public Task $task;
     public $confirming;
 
     public function mount($task)
@@ -87,10 +88,5 @@ class SingleTask extends Component
         } else {
             return $this->alert('error', 'Forbidden!');
         }
-    }
-
-    public function render()
-    {
-        return view('livewire.tasks.single-task');
     }
 }

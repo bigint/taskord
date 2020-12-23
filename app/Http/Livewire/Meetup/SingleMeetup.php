@@ -2,19 +2,15 @@
 
 namespace App\Http\Livewire\Meetup;
 
+use App\Models\Meetup;
 use Livewire\Component;
 
 class SingleMeetup extends Component
 {
-    public $meetup;
+    public Meetup $meetup;
 
     public function mount($meetup)
     {
         $this->meetup = $meetup;
-    }
-
-    public function render()
-    {
-        return view('livewire.meetup.single-meetup');
     }
 }

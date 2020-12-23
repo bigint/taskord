@@ -7,7 +7,7 @@
         </div>
     </div>
     @endif
-    @foreach ($user->followings as $user)
+    @foreach ($followings as $user)
     <div class="card mb-3">
         <div class="card-body d-flex align-items-center">
         <img loading=lazy class="rounded-circle avatar-40 mt-1" src="{{ Helper::getCDNImage($user->avatar, 80) }}" height="40" width="40" alt="{{ $user->username }}'s avatar" />

@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Question;
 
+use App\Models\Question;
 use GrahamCampbell\Throttle\Facades\Throttle;
 use Helper;
 use Illuminate\Support\Facades\Auth;
@@ -10,7 +11,7 @@ use Livewire\Component;
 
 class SingleQuestion extends Component
 {
-    public $question;
+    public Question $question;
     public $type;
     public $confirming;
 
@@ -100,10 +101,5 @@ class SingleQuestion extends Component
         } else {
             return $this->alert('error', 'Forbidden!');
         }
-    }
-
-    public function render()
-    {
-        return view('livewire.question.single-question');
     }
 }

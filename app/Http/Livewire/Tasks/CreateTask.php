@@ -109,9 +109,4 @@ class CreateTask extends Component
             return $this->alert('error', 'Forbidden!');
         }
     }
-
-    public function render()
-    {
-        return view('livewire.tasks.create-task');
-    }
 }
