@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Product;
 use App\Models\Task;
 use App\Models\User;
-use App\Models\Product;
 
 class FeedController extends Controller
 {
