@@ -11,7 +11,7 @@
         <id>https://taskord.com/task/{{ $task->id }}</id>
         <author>
             <username>{{ $user->username }}</username>
-            <name>{{ $user->firstname . $user->lastname }}</name>
+            <name>{{ $user->firstname .' '. $user->lastname }}</name>
             <email>{{ $user->email }}</email>
         </author>
         <created>{{ $task->created_at->format('D, d M Y H:i:s') }}</created>
