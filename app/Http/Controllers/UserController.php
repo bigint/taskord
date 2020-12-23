@@ -194,6 +194,15 @@ class UserController extends Controller
         ]);
     }
 
+    public function dataSettings()
+    {
+        $user = Auth::user();
+
+        return view('user.settings.api', [
+            'user' => $user,
+        ]);
+    }
+
     public function deleteSettings()
     {
         $user = Auth::user();
