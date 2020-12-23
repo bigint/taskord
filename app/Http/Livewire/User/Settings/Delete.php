@@ -42,7 +42,7 @@ class Delete extends Component
                 }
                 // Delete Product Logos
                 foreach ($user->ownedProducts as $product) {
-                    $product->task()->delete();
+                    $product->tasks()->delete();
                     $product->webhooks()->delete();
                     $avatar = explode('storage/', $product->avatar);
                     if (array_key_exists(1, $avatar)) {
@@ -91,7 +91,7 @@ class Delete extends Component
                 }
                 // Delete Product Logos
                 foreach ($user->ownedProducts as $product) {
-                    $product->task()->delete();
+                    $product->tasks()->delete();
                     $product->webhooks()->delete();
                     $avatar = explode('storage/', $product->avatar);
                     if (array_key_exists(1, $avatar)) {
