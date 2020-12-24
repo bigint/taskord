@@ -64,9 +64,7 @@
                     </div>
                 </div>
                 <div wire:loading wire:target="avatar">
-                    <div class="spinner-border spinner-border-sm" role="status">
-                      <span class="sr-only">Loading...</span>
-                    </div>
+                    <div class="spinner-border spinner-border-sm" role="status"></div>
                 </div>
                 @error('avatar')
                 <div class="text-danger fw-bold mt-3">{{ $message }}</div>

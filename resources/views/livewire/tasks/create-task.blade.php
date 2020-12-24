@@ -25,9 +25,7 @@
                 </button>
                 </div>
                 <div wire:loading wire:target="images">
-                    <div class="spinner-border spinner-border-sm mt-4" role="status">
-                      <span class="sr-only">Loading...</span>
-                    </div>
+                    <div class="spinner-border spinner-border-sm mt-4" role="status"></div>
                 </div>
                 @if ($images)
                     <div class="gallery">

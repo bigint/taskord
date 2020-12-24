@@ -63,9 +63,7 @@
                         </div>
                     </div>
                     <div wire:loading wire:target="cover">
-                        <div class="spinner-border spinner-border-sm mb-3" role="status">
-                          <span class="sr-only">Loading...</span>
-                        </div>
+                        <div class="spinner-border spinner-border-sm mb-3" role="status"></div>
                     </div>
                     @error('cover')
                     <div class="text-danger fw-bold mt-3">{{ $message }}</div>
