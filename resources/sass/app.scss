@@ -107,7 +107,8 @@ a {
 }
 
 .btn-outline-danger,
-.btn-outline-success {
+.btn-outline-success,
+.btn-outline-info {
     &:hover, &:focus {
         color: white;
     }

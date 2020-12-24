@@ -85,7 +85,7 @@
             @endif
             @if (Auth::user()->staffShip or Auth::id() === $question->user->id)
             @if ($type === "question.question")
-            <button role="button" class="btn btn-task btn-outline-info text-white me-1" data-bs-toggle="modal" data-bs-target="#editQuestionModal">
+            <button role="button" class="btn btn-task btn-outline-info me-1" data-bs-toggle="modal" data-bs-target="#editQuestionModal">
                 <x-heroicon-o-pencil-alt class="heroicon-small me-0" />
                 <span class="small text-dark fw-bold">
                     Edit
