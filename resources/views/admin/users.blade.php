@@ -86,7 +86,7 @@
                                     <span>
                                         💰
                                         @if ($user->patron)
-                                        🤝
+                                        ⭐
                                         @else
                                         🎁
                                         @endif

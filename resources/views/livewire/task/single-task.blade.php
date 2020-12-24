@@ -18,8 +18,8 @@
                     <x-heroicon-s-badge-check class="heroicon ms-1 text-primary verified" />
                 @endif
                 @if ($task->user->isPatron)
-                    <a class="patron ms-1 small" href="{{ route('patron.home') }}">
-                        🤝
+                    <a class="patron" href="{{ route('patron.home') }}" data-turbolinks="false">
+                        <x-heroicon-s-star class="heroicon text-gold" />
                     </a>
                 @endif
                 <div class="small text-secondary fw-normal">{{ "@" . $task->user->username }}</div>

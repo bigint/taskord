@@ -11,11 +11,11 @@
                     {{ $update->user->username }}
                 @endif
                 @if ($update->user->isVerified)
-                <x-heroicon-s-badge-check class="heroicon ms-1 text-primary verified" />
+                    <x-heroicon-s-badge-check class="heroicon ms-1 text-primary verified" />
                 @endif
                 @if ($update->user->isPatron)
-                    <a class="patron ms-1 small" href="{{ route('patron.home') }}">
-                        🤝
+                    <a class="patron" href="{{ route('patron.home') }}" data-turbolinks="false">
+                        <x-heroicon-s-star class="heroicon text-gold" />
                     </a>
                 @endif
             </a>

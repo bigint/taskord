@@ -26,14 +26,14 @@
                         @auth
                         @endauth
                         @if ($user->isPrivate)
-                            <x-heroicon-o-lock-closed class="heroicon text-primary ms-2 private" />
+                            <x-heroicon-o-lock-closed class="heroicon-2x text-primary ms-2 me-0 private" />
                         @endif
                         @if ($user->isVerified)
-                            <x-heroicon-s-badge-check class="heroicon ms-1 text-primary verified" />
+                            <x-heroicon-s-badge-check class="heroicon-2x text-primary ms-2 me-0 verified" />
                         @endif
                         @if ($user->isPatron)
-                            <a class="patron ms-2 small" href="{{ route('patron.home') }}">
-                                🤝
+                            <a class="patron" href="{{ route('patron.home') }}">
+                                <x-heroicon-s-star class="heroicon-2x ms-2 me-0 text-gold" />
                             </a>
                         @endif
                         @auth

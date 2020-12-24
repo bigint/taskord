@@ -223,7 +223,7 @@
                                 <img loading=lazy class="rounded-circle avatar-50 mt-1 ms-2" src="{{ Helper::getCDNImage($user->avatar, 80) }}" height="50" width="50" alt="{{ $user->username }}'s avatar" />
                             </a>
                             <span class="ms-3">
-                                <a href="{{ route('user.done', ['username' => $user->username]) }}" class="me-2 h5 align-text-top fw-bold text-dark">
+                                <a href="{{ route('user.done', ['username' => $user->username]) }}" class="h5 align-text-top fw-bold text-dark">
                                     @if ($user->firstname or $user->lastname)
                                         {{ $user->firstname }}{{ ' '.$user->lastname }}
                                     @else
@@ -234,9 +234,15 @@
                                         <span class="ms-2 text-secondary small">#{{ $user->id }}</span>
                                     @endif
                                     @endauth
+                                    @if ($user->isPrivate)
+                                        <x-heroicon-o-lock-closed class="heroicon-2x text-primary ms-2 me-0 private" />
+                                    @endif
+                                    @if ($user->isVerified)
+                                        <x-heroicon-s-badge-check class="heroicon-2x text-primary ms-2 me-0 verified" />
+                                    @endif
                                     @if ($user->isPatron)
-                                        <a class="ms-2 small" href="{{ route('patron.home') }}" title="Patron">
-                                            🤝
+                                        <a class="patron" href="{{ route('patron.home') }}" data-turbolinks="false">
+                                            <x-heroicon-s-star class="heroicon-2x ms-2 me-0 text-gold" />
                                         </a>
                                     @endif
                                     @auth
