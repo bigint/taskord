@@ -9,6 +9,9 @@
                 <div class="d-flex w-100 justify-content-between">
                     <h6 class="mb-1">
                         {{ '@'.$user->username }} –
+                        @if ($activity->getExtraProperty('type') === 'Admin')
+                            Admin 🛡
+                        @endif
                         @if ($activity->getExtraProperty('type') === 'Auth')
                             Auth 🚪
                         @endif
