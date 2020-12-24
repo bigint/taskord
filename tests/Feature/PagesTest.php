@@ -42,10 +42,10 @@ it('has privacy page - response test', function () {
     $response->assertStatus(200);
 });
 
-it('has reputation page - response test', function () {
+it('has reputation page - unauth - response test', function () {
     $response = $this->get('/reputation');
 
-    $response->assertStatus(200);
+    $response->assertStatus(302);
 });
 
 it('has security page - response test', function () {

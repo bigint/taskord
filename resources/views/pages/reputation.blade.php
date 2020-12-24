@@ -8,13 +8,21 @@
 
 @section('content')
 <div class="container-md">
-    <div class="card">
-        <div class="card-header pt-3 pb-3">
-            <span class="h5">Heading</span>
-            <div>Sub-heading</div>
+    <div class="row justify-content-center mt-4">
+        <div class="col-sm">
+            <div class="card mb-4">
+            <div class="card-header pt-3 pb-3">
+                <span class="h5 text-success">Badges</span>
+            </div>
+            <div class="card-body">
+                WIP
+            </div>
+            </div>
         </div>
-        <div class="card-body">
-            Soon
+        <div class="col-lg-8">
+        <div class="card mb-4">
+            <div class="card-body">
+            </div>
         </div>
     </div>
 </div>
