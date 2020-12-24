@@ -21,7 +21,7 @@ class Logs extends Component
 
     public function render()
     {
-        $activities = Activity::where('causer_id', $this->user->id)
+        $activities = Activity::causedBy($this->user)
             ->paginate(10);
 
         return view('livewire.user.settings.logs', [
