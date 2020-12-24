@@ -87,9 +87,23 @@ hotkeys("n+i", () => {
   if ((ix = fullVersion.indexOf(" ")) != -1)
     fullVersion = fullVersion.substring(0, ix);
 
-  const description = "\n\n```\n" +
-    "Browser name: " + browserName + "\n" +
-    "Full version: " + fullVersion
-    + "\n```";
+  const description = `
+**Describe the bug**\n\n
+**To Reproduce**\n\n
+**Expected behaviour**\n\n
+**Screenshots**\n\n
+**Additional context**\n\n
+**Browser Details**\n
+${"```"}
+Base URL: ${window.location.origin}
+Taskord Version: ${document.getElementById("taskord-version").innerHTML.trim()}
+Browser name: ${browserName}
+Full version: ${fullVersion}
+Platform: ${window.navigator.platform}
+Language: ${window.navigator.language}
+Cookie Enabled: ${window.navigator.cookieEnabled}
+Online: ${window.navigator.onLine}
+Network Strength: ${window.navigator.connection.effectiveType.toUpperCase()}
+${"```"}`
   window.open("https://gitlab.com/taskord/taskord/-/issues/new?issue[description]=" + encodeURI(description));
 });

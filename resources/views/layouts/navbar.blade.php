@@ -182,7 +182,7 @@
                             </form>
                             <div class="dropdown-divider"></div>
                             <div class="dropdown-header text-dark-50 fw-bold">
-                                v{{ config('app.version') }} • <a href="https://headwayapp.co/taskord-changelog" target="_blank" rel="noreferrer">Changelog</a>
+                                <span id="taskord-version">v{{ config('app.version') }}</span> • <a href="https://headwayapp.co/taskord-changelog" target="_blank" rel="noreferrer">Changelog</a>
                             </div>
                         </div>
                     </li>
