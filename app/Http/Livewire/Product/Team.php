@@ -13,6 +13,10 @@ class Team extends Component
     public Product $product;
     public User $user;
 
+    public $listeners = [
+        'memberRemoved' => 'render',
+    ];
+
     public function mount($product, $user)
     {
         $this->product = $product;
@@ -28,8 +32,14 @@ class Team extends Component
             activity()
                 ->withProperties(['type' => 'Product'])
                 ->log('Product member was removed from the team P: #'.$this->product->slug.' U: @'.$this->user->username);
+            $this->emit('memberRemoved');
 
-            return redirect()->route('product.done', ['slug' => $this->product->slug]);
+            return $this->alert('success', 'User has been removed from the team!');
         }
+    }
+
+    public function render()
+    {
+        return view('livewire.product.team');
     }
 }

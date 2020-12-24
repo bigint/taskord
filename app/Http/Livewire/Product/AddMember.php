@@ -36,8 +36,9 @@ class AddMember extends Component
             activity()
                 ->withProperties(['type' => 'Product'])
                 ->log('New member was added to the team P: #'.$this->product->slug.' U: @'.$user->username);
+            $this->username = '';
 
-            return redirect()->route('product.done', ['slug' => $this->product->slug]);
+            return $this->alert('success', 'User has been added to the team!');
         }
     }
 }
