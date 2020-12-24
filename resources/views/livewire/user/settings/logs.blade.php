@@ -8,7 +8,13 @@
             @foreach ($activities as $activity)
                 <div class="d-flex w-100 justify-content-between">
                     <h6 class="mb-1">{{ '@'.$user->username }} – {{ $activity->getExtraProperty('type') }}</h6>
-                    <small class="text-secondary">{{ Carbon::parse($activity->created_at)->format('l, d M Y H:i:s') }} UTC</small>
+                    <small class="text-secondary">
+                    {{
+                        Carbon::parse($activity->created_at)
+                            ->setTimezone(Auth::user()->timezone)
+                            ->format('g:i A · M d, Y')
+                    }}
+                    </small>
                 </div>
                 <p class="mb-1">
                     {{ $activity->description }}
