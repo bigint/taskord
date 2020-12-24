@@ -85,7 +85,8 @@
                                         bg-info
                                     @endif"
                             >
-                                🎯 {{ Auth::user()->daily_goal_reached }}/{{ Auth::user()->daily_goal }}
+                                <x-heroicon-s-check-circle class="heroicon-small" />
+                                {{ Auth::user()->daily_goal_reached }}/{{ Auth::user()->daily_goal }}
                             </a>
                         </div>
                     </li>
