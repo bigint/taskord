@@ -1,5 +1,7 @@
 <?php
 
+use function Tests\actingAs;
+
 it('has products page - response test', function () {
     $this->get('/products')->assertStatus(200);
     actingAs(1)->get('/products')->assertStatus(200);

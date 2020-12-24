@@ -1,5 +1,7 @@
 <?php
 
+use function Tests\actingAs;
+
 it('has profile page - done - response test', function () {
     $this->get('/@test')->assertStatus(200);
     actingAs(1)->get('/@test')->assertStatus(200);

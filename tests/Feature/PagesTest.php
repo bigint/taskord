@@ -1,6 +1,5 @@
 <?php
 
-use App\Models\User;
 use function Tests\actingAs;
 
 it('has deals page - response test', function () {
