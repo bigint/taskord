@@ -1,8 +1,8 @@
 <div class="col-lg-8">
     <div class="card mb-4">
         <div class="card-header pt-3 pb-3">
-            <span class="h5">Logs</span>
-            <div>WIP</div>
+            <span class="h5">Security logs</span>
+            <div>Recent events that happend on your account</div>
         </div>
         <div class="card-body">
             @foreach ($activities as $activity)
