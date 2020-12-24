@@ -105,7 +105,7 @@
             @if (!$task->user->isPrivate and !$task->hidden)
             @if (Auth::user()->hasLiked($task))
             <button type="button" class="btn btn-task btn-success text-white me-1" wire:click="togglePraise" wire:loading.attr="disabled" wire:offline.attr="disabled" wire:key="{{ $task->id }}">
-                👏
+                <x-heroicon-s-thumb-up class="heroicon-small me-0" />
                 <span class="small text-white fw-bold">
                     {{ number_format($task->likerscount()) }}
                 </span>
@@ -117,7 +117,7 @@
             </button>
             @else
             <button type="button" class="btn btn-task btn-outline-success me-1" wire:click="togglePraise" wire:loading.attr="disabled" wire:offline.attr="disabled" wire:key="{{ $task->id }}">
-                👏
+                <x-heroicon-o-thumb-up class="heroicon-small me-0" />
                 @if ($task->likerscount() !== 0)
                 <span class="small text-dark fw-bold">
                     {{ number_format($task->likerscount()) }}
@@ -134,7 +134,7 @@
             @endauth
             @guest
                 <a href="/login" class="btn btn-task btn-outline-success me-1">
-                    👏
+                    <x-heroicon-o-thumb-up class="heroicon-small me-0 text-secondary" />
                     @if ($task->likerscount() !== 0)
                     <span class="small text-dark fw-bold">
                         {{ number_format($task->likerscount()) }}
@@ -148,7 +148,7 @@
                 </a>
             @endguest
             <a href="{{ route('task', ['id' => $task->id]) }}" class="btn btn-task btn-outline-primary me-1">
-                💬
+                <x-heroicon-o-chat-alt class="heroicon-small me-0" />
                 @if ($task->comments->count('id') !== 0)
                 <span class="small text-dark fw-bold">
                     {{ number_format($task->comments->count('id')) }}
@@ -163,13 +163,13 @@
                 </button>
                 @else
                 <button type="button" class="btn btn-task btn-outline-danger" wire:click="confirmDelete" wire:loading.attr="disabled" wire:offline.attr="disabled">
-                    🗑
+                    <x-heroicon-o-trash class="heroicon-small me-0" />
                 </button>
                 @endif
             @endif
             @if (Auth::user()->staffShip)
-            <button type="button" class="btn btn-task {{ $task->hidden ? 'btn-danger' : 'btn-outline-danger' }} text-white ms-1" wire:click="hide" wire:loading.attr="disabled" wire:offline.attr="disabled" wire:key="{{ $task->id }}" title="Flag to admins">
-                🤢
+            <button type="button" class="btn btn-task {{ $task->hidden ? 'btn-danger' : 'btn-outline-danger' }} ms-1" wire:click="hide" wire:loading.attr="disabled" wire:offline.attr="disabled" wire:key="{{ $task->id }}" title="Flag to admins">
+                <x-heroicon-o-eye-off class="heroicon-small me-0" /> Hide
             </button>
             @endif
             @endauth

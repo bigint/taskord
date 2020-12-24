@@ -106,6 +106,13 @@ a {
     }
 }
 
+.btn-outline-danger,
+.btn-outline-success {
+    &:hover, &:focus {
+        color: white;
+    }
+}
+
 // Remove Bootstrap Glow on Input and Button
 textarea:focus,
 input[type="text"]:focus,
