@@ -19,4 +19,9 @@ class PagesController extends Controller
     {
         return view('pages.open');
     }
+
+    public function reputation()
+    {
+        return view('pages.reputation');
+    }
 }

@@ -151,12 +151,12 @@ Route::group(['middleware' => ['throttle:30,1']], function () {
 
     // Pages
     Route::view('about', 'pages.about')->name('about');
-    Route::view('reputation', 'pages.reputation')->name('reputation')->middleware('auth');
     Route::view('terms', 'pages.terms')->name('terms');
     Route::view('privacy', 'pages.privacy')->name('privacy');
     Route::view('security', 'pages.security')->name('security');
     Route::view('sponsors', 'pages.sponsors')->name('sponsors');
     Route::view('contact', 'pages.contact')->name('contact');
+    Route::get('reputation', [PagesController::class, 'reputation'])->name('reputation')->middleware('auth');
     Route::get('open', [PagesController::class, 'open'])->name('open');
     Route::get('deals', [PagesController::class, 'deals'])->name('deals');
 
