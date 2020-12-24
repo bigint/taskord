@@ -15,6 +15,5 @@ function assertExample(): void
 
 function actingAs($user = 1, string $driver = null)
 {
-    define('LARAVEL_START', microtime(true));
     return test()->actingAs(User::find($user)->first(), $driver);
 }
