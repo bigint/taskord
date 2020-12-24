@@ -194,6 +194,15 @@ class UserController extends Controller
         ]);
     }
 
+    public function logsSettings()
+    {
+        $user = Auth::user();
+
+        return view('user.settings.logs', [
+            'user' => $user,
+        ]);
+    }
+
     public function dataSettings()
     {
         $user = Auth::user();

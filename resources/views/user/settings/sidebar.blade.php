@@ -51,6 +51,13 @@
                 API
             </a>
             <a
+                class="list-group-item text-dark pt-2 pb-2 @if (Route::currentRouteName() === 'user.settings.logs') active text-white @endif"
+                href="{{ route('user.settings.logs') }}"
+            >
+                <x-heroicon-o-collection class="heroicon" />
+                Logs
+            </a>
+            <a
                 class="list-group-item text-dark pt-2 pb-2 @if (Route::currentRouteName() === 'user.settings.data') active text-white @endif"
                 href="{{ route('user.settings.data') }}"
             >
