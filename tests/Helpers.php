@@ -3,6 +3,7 @@
 namespace Tests;
 
 use Illuminate\Contracts\Auth\Authenticatable;
+use App\Models\User;
 
 /**
  * A basic assert example.
@@ -12,7 +13,8 @@ function assertExample(): void
     test()->assertTrue(true);
 }
 
-function actingAs(Authenticatable $user, string $driver = null)
+function actingAs($user = 1, string $driver = null)
 {
-    return test()->actingAs($user, $driver);
+    define('LARAVEL_START', microtime(true));
+    return test()->actingAs(User::find($user)->first(), $driver);
 }
