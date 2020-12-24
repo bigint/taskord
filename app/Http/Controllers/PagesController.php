@@ -26,6 +26,7 @@ class PagesController extends Controller
     {
         $points = DB::table('reputations')
             ->where('payee_id', Auth::id())
+            ->latest()
             ->paginate(50);
 
         return view('pages.reputation', [
