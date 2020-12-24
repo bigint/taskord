@@ -3,11 +3,9 @@
 namespace App\Http\Livewire\User\Settings;
 
 use App\Models\User;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Storage;
 use Livewire\Component;
-use Spatie\Activitylog\Models\Activity;
 use Livewire\WithPagination;
+use Spatie\Activitylog\Models\Activity;
 
 class Logs extends Component
 {
@@ -27,7 +25,7 @@ class Logs extends Component
             ->paginate(10);
 
         return view('livewire.user.settings.logs', [
-            'activities' => $activities
+            'activities' => $activities,
         ]);
     }
 }
