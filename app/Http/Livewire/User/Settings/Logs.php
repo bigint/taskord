@@ -6,9 +6,14 @@ use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Livewire\Component;
+use Spatie\Activitylog\Models\Activity;
+use Livewire\WithPagination;
 
 class Logs extends Component
 {
+    use WithPagination;
+    protected $paginationTheme = 'bootstrap';
+
     public User $user;
 
     public function mount($user)
@@ -18,6 +23,11 @@ class Logs extends Component
 
     public function render()
     {
-        return view('livewire.user.settings.logs');
+        $activities = Activity::where('causer_id', $this->user->id)
+            ->paginate(10);
+
+        return view('livewire.user.settings.logs', [
+            'activities' => $activities
+        ]);
     }
 }

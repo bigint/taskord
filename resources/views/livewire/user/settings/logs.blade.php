@@ -5,7 +5,9 @@
             <div>WIP</div>
         </div>
         <div class="card-body">
-            WIP
+            @foreach ($activities as $activity)
+                {{ $activity }}
+            @endforeach
         </div>
     </div>
 </div>
