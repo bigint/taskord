@@ -103,7 +103,6 @@ Platform: ${window.navigator.platform}
 Language: ${window.navigator.language}
 Cookie Enabled: ${window.navigator.cookieEnabled}
 Online: ${window.navigator.onLine}
-Network Strength: ${window.navigator.connection.effectiveType.toUpperCase()}
 ${"```"}`
   window.open("https://gitlab.com/taskord/taskord/-/issues/new?issue[description]=" + encodeURI(description));
 });
