@@ -91,11 +91,11 @@
                     </li>
                     @endif
                     <li class="nav-item me-2">
-                        <div class="nav-link">
+                        <a class="nav-link" href="{{ route('reputation') }}">
                             <span class="badge rounded-pill text-secondary score bg-warning">
                                 🔥 {{ number_format(Auth::user()->getPoints()) }}
                             </span>
-                        </div>
+                        </a>
                     </li>
                     <li class="nav-item dropdown">
                         <a href="#" role="button" data-bs-toggle="dropdown" v-pre>
