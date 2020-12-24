@@ -17,7 +17,9 @@
                 <hr/>
                 @endif
             @endforeach
-            {{ $activities->links() }}
+            <div class="mt-5">
+                {{ $activities->links() }}
+            <div>
         </div>
     </div>
 </div>
