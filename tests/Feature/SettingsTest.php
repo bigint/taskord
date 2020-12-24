@@ -42,6 +42,12 @@ it('has settings page - api - unauth - response test', function () {
     $response->assertStatus(302);
 });
 
+it('has settings page - logs - unauth - response test', function () {
+    $response = $this->get('/settings/logs');
+
+    $response->assertStatus(302);
+});
+
 it('has settings page - data - unauth - response test', function () {
     $response = $this->get('/settings/data');
 
