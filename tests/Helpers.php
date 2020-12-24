@@ -2,7 +2,6 @@
 
 namespace Tests;
 
-use Illuminate\Contracts\Auth\Authenticatable;
 use App\Models\User;
 
 /**
