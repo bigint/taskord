@@ -30,7 +30,7 @@ class PagesController extends Controller
             ->paginate(50);
 
         return view('pages.reputation', [
-            'points' => $points
+            'points' => $points,
         ]);
     }
 }
