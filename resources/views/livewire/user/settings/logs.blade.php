@@ -7,7 +7,39 @@
         <div class="card-body">
             @foreach ($activities as $activity)
                 <div class="d-flex w-100 justify-content-between">
-                    <h6 class="mb-1">{{ '@'.$user->username }} – {{ $activity->getExtraProperty('type') }}</h6>
+                    <h6 class="mb-1">
+                        {{ '@'.$user->username }} –
+                        @if ($activity->getExtraProperty('type') === 'Auth')
+                            Auth 🚪
+                        @endif
+                        @if ($activity->getExtraProperty('type') === 'Task')
+                            Task ✅
+                        @endif
+                        @if ($activity->getExtraProperty('type') === 'Answer')
+                            Answer 💬
+                        @endif
+                        @if ($activity->getExtraProperty('type') === 'Comment')
+                            Comment 💬
+                        @endif
+                        @if ($activity->getExtraProperty('type') === 'Question')
+                            Question ❓
+                        @endif
+                        @if ($activity->getExtraProperty('type') === 'User')
+                            User 👤
+                        @endif
+                        @if ($activity->getExtraProperty('type') === 'Product')
+                            Product 📦
+                        @endif
+                        @if ($activity->getExtraProperty('type') === 'Notification')
+                            Notification 🔔
+                        @endif
+                        @if ($activity->getExtraProperty('type') === 'Search')
+                            Search 🔍
+                        @endif
+                        @if ($activity->getExtraProperty('type') === 'Throttle')
+                            Throttled 🛑
+                        @endif
+                    </h6>
                     <small class="text-secondary">{{ Carbon::parse($activity->created_at)->diffForHumans() }}</small>
                 </div>
                 <p class="mb-1">
