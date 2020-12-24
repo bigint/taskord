@@ -29,7 +29,7 @@
             @if (Auth::user()->hasLiked($update))
             <span>
                 <button type="button" class="btn btn-task btn-success text-white me-1" wire:click="togglePraise" wire:loading.attr="disabled" wire:offline.attr="disabled" wire:key="{{ $update->id }}">
-                    👏
+                    <x-heroicon-s-thumb-up class="heroicon-small me-0" />
                     <span class="small text-white fw-bold">
                         {{ number_format($update->likerscount()) }}
                     </span>
@@ -43,7 +43,7 @@
             @else
             <span>
                 <button type="button" class="btn btn-task btn-outline-success me-1" wire:click="togglePraise" wire:loading.attr="disabled" wire:offline.attr="disabled" wire:key="{{ $update->id }}">
-                    👏
+                    <x-heroicon-o-thumb-up class="heroicon-small me-0" />
                     @if ($update->likerscount() !== 0)
                     <span class="small text-dark fw-bold">
                         {{ number_format($update->likerscount()) }}
@@ -61,7 +61,7 @@
             @endauth
             @guest
                 <a href="/login" class="btn btn-task btn-outline-success me-1">
-                    👏
+                    <x-heroicon-o-thumb-up class="heroicon-small me-0" />
                     @if ($update->likerscount() !== 0)
                     <span class="small text-dark fw-bold">
                         {{ number_format($update->likerscount()) }}
@@ -82,7 +82,7 @@
                 </button>
                 @else
                 <button type="button" class="btn btn-task btn-outline-danger" wire:click="confirmDelete" wire:loading.attr="disabled" wire:offline.attr="disabled">
-                    🗑
+                    <x-heroicon-o-trash class="heroicon-small me-0" />
                 </button>
                 @endif
             @endif

@@ -168,7 +168,7 @@
                 @endif
             @endif
             @if (Auth::user()->staffShip)
-            <button type="button" class="btn btn-task {{ $task->hidden ? 'btn-danger' : 'btn-outline-danger' }} ms-1" wire:click="hide" wire:loading.attr="disabled" wire:offline.attr="disabled" wire:key="{{ $task->id }}" title="Flag to admins">
+            <button type="button" class="btn btn-task {{ $task->hidden ? 'btn-dark' : 'btn-outline-dark' }} ms-1" wire:click="hide" wire:loading.attr="disabled" wire:offline.attr="disabled" wire:key="{{ $task->id }}" title="Flag to admins">
                 <x-heroicon-o-eye-off class="heroicon-small me-0" /> Hide
             </button>
             @endif

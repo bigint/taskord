@@ -43,7 +43,7 @@ class Answered extends Notification implements ShouldQueue
         return (new MailMessage)
                     ->subject('@'.$user->username.' answered your question')
                     ->greeting('Hello @'.$notifiable->username.' 👋')
-                    ->line('👏 Your question has new answer by @'.$user->username)
+                    ->line('💬 Your question has new answer by @'.$user->username)
                     ->line('Question: '.$this->answer->question->title)
                     ->line('Answer: '.$this->answer->answer)
                     ->action('Go to Question', url('/question/'.$this->answer->question->id))

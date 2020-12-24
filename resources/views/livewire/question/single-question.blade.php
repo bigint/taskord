@@ -106,7 +106,7 @@
             @endif
             @endif
             @if (Auth::user()->staffShip)
-            <button type="button" class="btn btn-task {{ $question->hidden ? 'btn-danger' : 'btn-outline-danger' }}" wire:click="hide" wire:loading.attr="disabled" wire:offline.attr="disabled" wire:key="{{ $question->id }}" title="Flag to admins">
+            <button type="button" class="btn btn-task {{ $question->hidden ? 'btn-dark' : 'btn-outline-dark' }}" wire:click="hide" wire:loading.attr="disabled" wire:offline.attr="disabled" wire:key="{{ $question->id }}" title="Flag to admins">
                 <x-heroicon-o-eye-off class="heroicon-small me-0" />
             </button>
             @endif

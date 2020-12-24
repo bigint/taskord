@@ -75,13 +75,13 @@
                     @endif
                     @if ($point->name === 'PraiseCreated')
                         @if ($point->subject_type === 'App\Models\Task')
-                            points earned for getting a praise for your Task 👏
+                            points earned for getting a praise for your Task 👍
                         @endif
                         @if ($point->subject_type === 'App\Models\Comment')
-                            points earned for getting a praise for your Comment 👏
+                            points earned for getting a praise for your Comment 👍
                         @endif
                         @if ($point->subject_type === 'App\Models\Question')
-                            points earned for getting a praise for your Question 👏
+                            points earned for getting a praise for your Question 👍
                         @endif
                     @endif
                 </div>

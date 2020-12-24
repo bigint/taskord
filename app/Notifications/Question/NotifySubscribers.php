@@ -33,7 +33,7 @@ class NotifySubscribers extends Notification implements ShouldQueue
         return (new MailMessage)
                     ->subject('@'.$user->username.' answered to the question')
                     ->greeting('Hello @'.$notifiable->username.' 👋')
-                    ->line('👏 The question you subscribed has new answer by @'.$user->username)
+                    ->line('💬 The question you subscribed has new answer by @'.$user->username)
                     ->line('Question: '.$this->answer->question->title)
                     ->line('Answer: '.$this->answer->answer)
                     ->action('Go to Question', url('/question/'.$this->answer->question->id))

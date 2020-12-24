@@ -14,7 +14,7 @@
                     $type === "App\Notifications\AnswerPraised" or
                     $type === "App\Notifications\CommentPraised"
                 )
-                    👏
+                    👍
                 @elseif ($type === "App\Notifications\Mentioned")
                     🙌
                 @elseif (
