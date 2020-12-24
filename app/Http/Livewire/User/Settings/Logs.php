@@ -22,6 +22,7 @@ class Logs extends Component
     public function render()
     {
         $activities = Activity::causedBy($this->user)
+            ->latest()
             ->paginate(10);
 
         return view('livewire.user.settings.logs', [

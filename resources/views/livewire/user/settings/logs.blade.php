@@ -17,6 +17,7 @@
                 <hr/>
                 @endif
             @endforeach
+            {{ $activities->links() }}
         </div>
     </div>
 </div>
