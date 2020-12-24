@@ -1,8 +1,5 @@
 <?php
 
-use function Tests\actingAs;
-use Illuminate\Foundation\Testing\WithoutMiddleware;
-
 it('has admin/users page - response test', function () {
     $this->get('/admin/users')->assertStatus(302);
 });
