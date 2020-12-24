@@ -124,24 +124,30 @@
                             </div>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item text-dark" href="{{ route('user.done', ['username' => Auth::user()->username]) }}">
-                                👤 Profile
+                                <x-heroicon-o-user class="heroicon-1x text-secondary" />
+                                Profile
                             </a>
                             <a class="dropdown-item text-dark" href="{{ route('user.pending', ['username' => Auth::user()->username]) }}">
-                                ⏳ Pending Tasks
+                                <x-heroicon-o-clock class="heroicon-1x text-secondary" />
+                                Pending Tasks
                             </a>
                             <a class="dropdown-item text-dark" href="{{ route('user.settings.profile') }}">
-                                ⚙ Settings
+                                <x-heroicon-o-cog class="heroicon-1x text-secondary" />
+                                Settings
                             </a>
                             <a class="dropdown-item text-dark" href="{{ route('patron.home') }}" data-turbolinks="false">
-                                🤝 Patron
+                                <x-heroicon-o-star class="heroicon-1x text-secondary" />
+                                Patron
                             </a>
                             <div class="dropdown-divider"></div>
                             @if (Auth::user()->isStaff)
                             <a class="dropdown-item text-dark" id="admin-bar-click" role="button">
                                 @if (Auth::user()->staffShip)
-                                🙈 Hide Admin Bar
+                                <x-heroicon-o-eye-off class="heroicon-1x text-secondary" />
+                                Hide Admin Bar
                                 @else
-                                👀 Show Admin Bar
+                                <x-heroicon-o-eye class="heroicon-1x text-secondary" />
+                                Show Admin Bar
                                 @endif
                             </a>
                             <div class="dropdown-divider"></div>
@@ -149,22 +155,26 @@
                             @if (Auth::user()->isPatron)
                             <a class="dropdown-item text-dark" id="dark-mode" role="button">
                                 @if (Auth::user()->darkMode)
-                                🌞 Light Mode
+                                <x-heroicon-o-sun class="heroicon-1x text-secondary" />
+                                Light Mode
                                 @else
-                                🌚 Dark Mode
+                                <x-heroicon-o-moon class="heroicon-1x text-secondary" />
+                                Dark Mode
                                 @endif
                             </a>
                             @endif
                             @if (Auth::user()->isDeveloper)
                             <a class="dropdown-item text-dark" href="https://gitlab.com/taskord/taskord" target="_blank" rel="noreferrer">
-                                🦊 GitLab
+                                <x-heroicon-o-code class="heroicon-1x text-secondary" />
+                                GitLab
                             </a>
                             @endif
                             <a class="dropdown-item text-dark" href="{{ route('logout') }}"
                                 data-prefetch="false"
                                 onclick="event.preventDefault();
                                                 document.getElementById('logout-form').submit();">
-                                🚪 Logout
+                                <x-heroicon-o-logout class="heroicon-1x text-secondary" />
+                                Logout
                             </a>
                             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                 @csrf
