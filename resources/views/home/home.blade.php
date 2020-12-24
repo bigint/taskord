@@ -328,7 +328,8 @@
                             @endif
                         </a>
                         <span class="badge rounded-pill bg-warning text-dark align-middle reputation" title="🔥 {{ number_format($user->getPoints()) }}">
-                            🔥 {{ $user->getPoints(true) }}
+                            <x-heroicon-o-fire class="heroicon-small me-0 text-danger" />
+                            {{ $user->getPoints(true) }}
                         </span>
                     </div>
                     @endforeach

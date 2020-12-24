@@ -93,7 +93,8 @@
                     <li class="nav-item me-2">
                         <a class="nav-link" href="{{ route('reputation') }}">
                             <span class="badge rounded-pill text-secondary score bg-warning">
-                                🔥 {{ number_format(Auth::user()->getPoints()) }}
+                                <x-heroicon-o-fire class="heroicon-small me-0 text-danger" />
+                                {{ number_format(Auth::user()->getPoints()) }}
                             </span>
                         </a>
                     </li>

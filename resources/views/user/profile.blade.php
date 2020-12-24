@@ -87,30 +87,45 @@
                 <div class="h5">Highlights</div>
                 <div class="mt-3">
                     <div>
-                        <span class="fw-bold">🔥 {{ number_format($user->getPoints()) }}</span>
+                        <span class="fw-bold">
+                            <x-heroicon-o-fire class="heroicon-1x text-danger" />
+                            {{ number_format($user->getPoints()) }}
+                        </span>
                         {{ $user->getPoints(true) < 2 ? 'Reputation' : 'Reputations' }}
                     </div>
                     @if (Auth::check() && Auth::id() === $user->id)
                     <div class="mt-2">
-                        <span>🌸 You are a</span>
+                        <span>
+                            <x-heroicon-o-sparkles class="heroicon-1x text-success" />
+                            You are a
+                        </span>
                         <span class="fw-bold">{{ count($level) === 0 ? 'Beginner' : $level->last()->name }}</span>
                         <x-beta background="light" />
                     </div>
                     @else
                     <div class="mt-2">
-                        <span>🌸 {{ $user->username }} is a</span>
+                        <span>
+                            <x-heroicon-o-sparkles class="heroicon-1x text-success" />
+                            {{ $user->username }} is a
+                        </span>
                         <span class="fw-bold">{{ count($level) === 0 ? 'Beginner' : $level->last()->name }}</span>
                         <x-beta background="light" />
                     </div>
                     @endif
                     @if ($user->isBeta)
                     <div class="mt-2">
-                        <span class="fw-bold">🧪 Beta Program Member</span>
+                        <span class="fw-bold">
+                            <x-heroicon-o-beaker class="heroicon-1x text-info" />
+                            Beta Program Member
+                        </span>
                     </div>
                     @endif
                     @if ($user->isDeveloper)
                     <div class="mt-2">
-                        <span class="fw-bold">✅ Taskord Contributor</span>
+                        <span class="fw-bold">
+                            <x-heroicon-o-chip class="heroicon-1x text-dark" />
+                            Taskord Contributor
+                        </span>
                     </div>
                     @endif
                 </div>
