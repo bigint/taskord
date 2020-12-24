@@ -2,12 +2,7 @@
 
 use function Tests\actingAs;
 
-it('has tasks page - unauth - response test', function () {
-    $response = $this->get('/tasks');
-
-    $response->assertStatus(302);
-});
-
-it('has tasks page - auth - response test', function () {
+it('has tasks page - response test', function () {
+    $this->get('/tasks')->assertStatus(302);
     actingAs(1)->get('/tasks')->assertStatus(200);
 });

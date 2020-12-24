@@ -1,7 +1,6 @@
 <?php
 
 it('has home page - response test', function () {
-    $response = $this->get('/');
-
-    $response->assertStatus(200);
+    $this->get('/')->assertStatus(200);
+    actingAs(1)->get('/')->assertStatus(200);
 });
