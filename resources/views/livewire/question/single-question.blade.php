@@ -58,7 +58,7 @@
             @auth
             @if (Auth::user()->hasLiked($question))
                 <button role="button" class="btn btn-task btn-success text-white me-1" wire:click="togglePraise" wire:loading.attr="disabled" wire:offline.attr="disabled">
-                    👏
+                    <x-heroicon-s-thumb-up class="heroicon-small me-0" />
                     <span class="small text-white fw-bold">
                         {{ number_format($question->likerscount()) }}
                     </span>
@@ -70,7 +70,7 @@
                 </button>
             @else
                 <button role="button" class="btn btn-task btn-outline-success me-1" wire:click="togglePraise" wire:loading.attr="disabled" wire:offline.attr="disabled">
-                    👏
+                    <x-heroicon-o-thumb-up class="heroicon-small me-0" />
                     @if ($question->likerscount() !== 0)
                     <span class="small text-dark fw-bold">
                         {{ number_format($question->likerscount()) }}
@@ -86,7 +86,7 @@
             @if (Auth::user()->staffShip or Auth::id() === $question->user->id)
             @if ($type === "question.question")
             <button role="button" class="btn btn-task btn-outline-info text-white me-1" data-bs-toggle="modal" data-bs-target="#editQuestionModal">
-                ✍
+                <x-heroicon-o-pencil-alt class="heroicon-small me-0" />
                 <span class="small text-dark fw-bold">
                     Edit
                 </span>
@@ -101,19 +101,19 @@
             </button>
             @else
             <button role="button" class="btn btn-task btn-outline-danger me-1" wire:click="confirmDelete" wire:loading.attr="disabled" wire:offline.attr="disabled">
-                🗑
+                <x-heroicon-o-trash class="heroicon-small me-0" />
             </button>
             @endif
             @endif
             @if (Auth::user()->staffShip)
-            <button type="button" class="btn btn-task {{ $question->hidden ? 'btn-danger' : 'btn-outline-danger' }} text-white" wire:click="hide" wire:loading.attr="disabled" wire:offline.attr="disabled" wire:key="{{ $question->id }}" title="Flag to admins">
-                🤢
+            <button type="button" class="btn btn-task {{ $question->hidden ? 'btn-danger' : 'btn-outline-danger' }}" wire:click="hide" wire:loading.attr="disabled" wire:offline.attr="disabled" wire:key="{{ $question->id }}" title="Flag to admins">
+                <x-heroicon-o-eye-off class="heroicon-small me-0" />
             </button>
             @endif
             @endauth
             @guest
                 <a href="/login" class="btn btn-task btn-outline-success me-1">
-                    👏
+                    <x-heroicon-o-thumb-up class="heroicon-small me-0" />
                     @if ($question->likerscount() !== 0)
                     <span class="small text-dark fw-bold">
                         {{ number_format($question->likerscount()) }}
