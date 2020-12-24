@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Deal;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class PagesController extends Controller
 {
@@ -22,6 +24,12 @@ class PagesController extends Controller
 
     public function reputation()
     {
-        return view('pages.reputation');
+        $points = DB::table('reputations')
+            ->where('payee_id', Auth::id())
+            ->paginate(50);
+
+        return view('pages.reputation', [
+            'points' => $points
+        ]);
     }
 }

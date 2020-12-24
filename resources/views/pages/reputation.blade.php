@@ -22,6 +22,11 @@
         <div class="col-lg-8">
         <div class="card mb-4">
             <div class="card-body">
+            @foreach($points as $point)
+            <div>
+                {{ $point->name }}
+            </div>
+            @endforeach
             </div>
         </div>
     </div>
