@@ -107,7 +107,7 @@
                         <div class="dropdown-menu shadow-sm border dropdown-menu-end mt-2">
                             <a href="{{ route('user.done', ['username' => Auth::user()->username]) }}" class="dropdown-item">
                                 Signed in as
-                                <div class="fw-bold">
+                                <div class="fw-bold" id="taskord-username">
                                     {{ Auth::user()->username }}
                                 </div>
                             </a>

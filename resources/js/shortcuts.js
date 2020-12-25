@@ -21,6 +21,12 @@ hotkeys("g+h", () => {
   window.location.href = "/";
 });
 
+// Go to user profile
+hotkeys("g+u", () => {
+  const username = document.getElementById("taskord-username").innerHTML.trim()
+  window.location.href = "/@" + username;
+});
+
 // Go to products
 hotkeys("g+p", () => {
   window.location.href = "/products";
