@@ -55,10 +55,10 @@
                     <label class="form-label">Avatar</label>
                     <div class="form-file w-25">
                         <input class="form-control form-control-sm" wire:model="avatar" type="file">
-                        <button wire:click="useGravatar" class="btn btn-success text-white mt-3">
+                        <button wire:loading.attr="disabled" wire:click="useGravatar" class="btn btn-success text-white mt-3">
                             Use Gravatar
                         </button>
-                        <button wire:click="resetAvatar" class="btn btn-danger text-white mt-3">
+                        <button wire:loading.attr="disabled" wire:click="resetAvatar" class="btn btn-danger text-white mt-3">
                             Reset
                         </button>
                     </div>

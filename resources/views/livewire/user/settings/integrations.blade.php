@@ -192,7 +192,7 @@
                             {{ Carbon::parse($webhook->created_at)->format('M d, Y') }}
                         </td>
                         <td>
-                            <button wire:click="deleteWebhook({{ $webhook->id }})" class="btn btn-sm w-100 btn-danger">
+                            <button wire:loading.attr="disabled" wire:click="deleteWebhook({{ $webhook->id }})" class="btn btn-sm w-100 btn-danger">
                                 <x-heroicon-o-trash class="heroicon" />
                                 Delete
                             </button>

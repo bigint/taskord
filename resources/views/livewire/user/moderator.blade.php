@@ -132,7 +132,7 @@
             </div>
             @if (!$user->isStaff)
             <div class="mt-3">
-                <button wire:click="masquerade" class="btn btn-sm btn-warning fw-bold">
+                <button wire:loading.attr="disabled" wire:click="masquerade" class="btn btn-sm btn-warning fw-bold">
                     <x-heroicon-o-eye class="heroicon" />
                     Masquerade
                 </button>
@@ -153,42 +153,42 @@
                 <label for="suspendUser" class="ms-1 text-danger fw-bold">Suspend this user</label>
             </div>
             <div class="mt-3">
-                <button wire:click="deleteTasks" class="btn btn-sm btn-danger fw-bold">
+                <button wire:loading.attr="disabled" wire:click="deleteTasks" class="btn btn-sm btn-danger fw-bold">
                     <x-heroicon-o-trash class="heroicon" />
                     <x-heroicon-o-check class="heroicon" />
                     Delete all tasks
                 </button>
             </div>
             <div class="mt-2">
-                <button wire:click="deleteComments" class="btn btn-sm btn-danger fw-bold">
+                <button wire:loading.attr="disabled" wire:click="deleteComments" class="btn btn-sm btn-danger fw-bold">
                     <x-heroicon-o-trash class="heroicon" />
                     <x-heroicon-o-chat-alt class="heroicon" />
                     Delete all comments
                 </button>
             </div>
             <div class="mt-2">
-                <button wire:click="deleteQuestions" class="btn btn-sm btn-danger fw-bold">
+                <button wire:loading.attr="disabled" wire:click="deleteQuestions" class="btn btn-sm btn-danger fw-bold">
                     <x-heroicon-o-trash class="heroicon" />
                     <x-heroicon-o-question-mark-circle class="heroicon" />
                     Delete all questions
                 </button>
             </div>
             <div class="mt-2">
-                <button wire:click="deleteAnswers" class="btn btn-sm btn-danger fw-bold">
+                <button wire:loading.attr="disabled" wire:click="deleteAnswers" class="btn btn-sm btn-danger fw-bold">
                     <x-heroicon-o-trash class="heroicon" />
                     <x-heroicon-o-chat-alt-2 class="heroicon" />
                     Delete all answers
                 </button>
             </div>
             <div class="mt-2">
-                <button wire:click="deleteProducts" class="btn btn-sm btn-danger fw-bold">
+                <button wire:loading.attr="disabled" wire:click="deleteProducts" class="btn btn-sm btn-danger fw-bold">
                     <x-heroicon-o-trash class="heroicon" />
                     <x-heroicon-o-cube class="heroicon" />
                     Delete all products
                 </button>
             </div>
             <div class="mt-2">
-                <button wire:click="deleteUser" class="btn btn-sm btn-danger fw-bold">
+                <button wire:loading.attr="disabled" wire:click="deleteUser" class="btn btn-sm btn-danger fw-bold">
                     <x-heroicon-o-trash class="heroicon" />
                     <x-heroicon-o-user class="heroicon" />
                     Delete this user

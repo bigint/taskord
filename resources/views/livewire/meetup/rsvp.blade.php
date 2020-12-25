@@ -5,11 +5,11 @@
     @endforeach
     @auth
     @if (Auth::user()->hasSubscribed($meetup))
-    <button class="btn btn-task btn-danger text-white float-end fw-bold" wire:click="toggleRSVP">
+    <button class="btn btn-task btn-danger text-white float-end fw-bold" wire:click="toggleRSVP" wire:loading.attr="disabled">
         ❌ Can't attend
     </button>
     @else
-    <button class="btn btn-task btn-outline-success text-dark float-end" wire:click="toggleRSVP">
+    <button class="btn btn-task btn-outline-success text-dark float-end" wire:click="toggleRSVP" wire:loading.attr="disabled">
         ✅ RSVP
     </button>
     @endif

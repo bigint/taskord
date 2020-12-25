@@ -15,6 +15,7 @@
                             class="form-check-input task-checkbox"
                             type="checkbox"
                             wire:click="checkState"
+                            wire:loading.attr="disabled"
                             wire:offline.attr="disabled"
                             {{ Auth::check() && Auth::user()->checkState ? 'checked' : 'unchecked' }}
                         >

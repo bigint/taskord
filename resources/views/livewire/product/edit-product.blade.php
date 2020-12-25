@@ -126,11 +126,11 @@
                 </div>
                 <div class="modal-footer">
                     @if ($confirming === $product->id)
-                    <button type="button" wire:click="deleteProduct" class="btn btn-danger">
+                    <button type="button" wire:loading.attr="disabled" wire:click="deleteProduct" class="btn btn-danger">
                         <span class="fw-bold">Are you sure?</span>
                     </button>
                     @else
-                    <button type="button" wire:click="confirmDelete" class="btn btn-danger">
+                    <button type="button" wire:loading.attr="disabled" wire:click="confirmDelete" class="btn btn-danger">
                         <span class="fw-bold">Delete</span> {{ $slug }}
                     </button>
                     @endif
