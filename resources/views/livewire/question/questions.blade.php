@@ -5,13 +5,11 @@
             'question' => $question,
         ], key($question->id))
     @endforeach
-    <div class="mt-4">
-        @if ($questions->hasMorePages())
-            @livewire('question.load-more', [
-                'type' => $type,
-                'page' => $page,
-                'perPage' => $perPage
-            ])
-        @endif
-    </div>
+    @if ($questions->hasMorePages())
+        @livewire('question.load-more', [
+            'type' => $type,
+            'page' => $page,
+            'perPage' => $perPage
+        ])
+    @endif
 </div>
