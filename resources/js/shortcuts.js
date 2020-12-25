@@ -26,6 +26,11 @@ hotkeys("g+p", () => {
   window.location.href = "/products";
 });
 
+// Go to questions
+hotkeys("g+q", () => {
+  window.location.href = "/questions";
+});
+
 // Go to settings
 hotkeys("g+s", () => {
   window.location.href = "/settings";
@@ -103,6 +108,8 @@ Platform: ${window.navigator.platform}
 Language: ${window.navigator.language}
 Cookie Enabled: ${window.navigator.cookieEnabled}
 Online: ${window.navigator.onLine}
-${"```"}`
+${"```"}
+
+<sub>**Created via Taskord.com**</sub>`
   window.open("https://gitlab.com/taskord/taskord/-/issues/new?issue[description]=" + encodeURI(description));
 });
