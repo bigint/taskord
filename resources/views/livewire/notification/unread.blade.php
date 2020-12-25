@@ -3,7 +3,7 @@
     <div class="card-body text-center mt-5">
         <x-heroicon-o-bell class="heroicon-4x text-primary mb-2" />
         <div class="h4">
-            No new notifications
+            All caught up!
         </div>
     </div>
     @endif
