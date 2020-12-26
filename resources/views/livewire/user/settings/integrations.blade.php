@@ -60,7 +60,7 @@
             @endif
         </div>
     </div>
-    <div class="card mb-5">
+    <div class="card mb-4">
         <div class="card-header pt-3 pb-3">
             <span class="h5">Webhook Docs</span>
             <div>Available webhook options</div>
