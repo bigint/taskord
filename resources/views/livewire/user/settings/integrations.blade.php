@@ -58,7 +58,14 @@
                     </div>
                 </div>
             @endif
-            <div class="h5 mt-4 mb-3">Webhook Docs</div>
+        </div>
+    </div>
+    <div class="card mb-5">
+        <div class="card-header pt-3 pb-3">
+            <span class="h5">Webhook Docs</span>
+            <div>Available webhook options</div>
+        </div>
+        <div class="card-body">
             <div class="accordion" id="webhookDocs">
                 <div class="card">
                     <div class="card-header" id="headingOne">
@@ -144,6 +151,7 @@
             </div>
         </div>
     </div>
+
     <div class="card mb-4">
         <div class="card-header pt-3 pb-3">
             <span class="h5">Active webhooks</span>
