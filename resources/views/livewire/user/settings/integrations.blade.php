@@ -65,20 +65,20 @@
             <span class="h5">Webhook Docs</span>
             <div>Available webhook options</div>
         </div>
-        <div class="card-body">
-            <div class="accordion" id="webhookDocs">
-                <div class="card">
-                    <div class="card-header" id="headingOne">
-                        <h2 class="mb-0">
-                            <a class="text-dark h5" type="button" checked data-bs-toggle="collapse" data-bs-target="#simpleDocs" aria-expanded="true" aria-controls="simpleDocs">
-                                <x-heroicon-o-globe-alt class="heroicon" />
-                                Simple Webhook
-                            </a>
-                        </h2>
-                    </div>
-                    <div id="simpleDocs" class="collapse show" aria-labelledby="headingOne" data-parent="#webhookDocs">
-                        <div class="card-body pb-0">
-                            <table class="table table-bordered align-middle text-dark">
+        <div class="card-body-flush">
+            <div class="accordion accordion-flush" id="webhookDocs">
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="simple-webhook">
+                        <button class="accordion-button bg-light" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapse-simple-webhook" aria-expanded="true" aria-controls="collapse-simple-webhook">
+                            <x-heroicon-o-globe-alt class="heroicon" />
+                            Simple Webhook
+                        </button>
+                    </h2>
+                    <div id="collapse-simple-webhook" class="accordion-collapse collapse show"
+                        aria-labelledby="simple-webhook" data-bs-parent="#webhookDocs">
+                        <div class="accordion-body">
+                            <table class="table table-bordered mb-0 align-middle text-dark">
                                 <thead>
                                     <tr>
                                         <th scope="col">Parameter</th>
@@ -105,18 +105,18 @@
                         </div>
                     </div>
                 </div>
-                <div class="card">
-                    <div class="card-header" id="headingTwo">
-                        <h2 class="mb-0">
-                            <a class="text-dark h5" type="button" data-bs-toggle="collapse" data-bs-target="#githubDocs" aria-expanded="false" aria-controls="githubDocs">
-                                <img class="brand-icon" src="{{ asset('images/brand/github.svg') }}" />
-                                GitHub
-                            </a>
-                        </h2>
-                    </div>
-                    <div id="githubDocs" class="collapse" aria-labelledby="headingTwo" data-parent="#webhookDocs">
-                        <div class="card-body pb-0">
-                            <ol>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="github-webhook">
+                        <button class="accordion-button collapsed bg-light" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapse-github-webhook" aria-expanded="false" aria-controls="collapse-github-webhook">
+                            <img class="brand-icon" src="{{ asset('images/brand/github.svg') }}" />
+                            GitHub
+                        </button>
+                    </h2>
+                    <div id="collapse-github-webhook" class="accordion-collapse collapse" aria-labelledby="github-webhook"
+                        data-bs-parent="#webhookDocs">
+                        <div class="accordion-body">
+                            <ol class="mb-0">
                                 <li>Go to repository settings</li>
                                 <li>Click "Add webhook" button</li>
                                 <li>In "Payload URL" paste the URL generated below</li>
@@ -128,18 +128,19 @@
                         </div>
                     </div>
                 </div>
-                <div class="card">
-                    <div class="card-header" id="headingThree">
-                        <h2 class="mb-0">
-                            <a class="text-dark h5" type="button" data-bs-toggle="collapse" data-bs-target="#gitlabDocs" aria-expanded="false" aria-controls="gitlabDocs">
-                                <img class="brand-icon" src="{{ asset('images/brand/gitlab.svg') }}" />
-                                GitLab
-                            </a>
-                        </h2>
-                    </div>
-                    <div id="gitlabDocs" class="collapse" aria-labelledby="headingThree" data-parent="#webhookDocs">
-                        <div class="card-body pb-0">
-                            <ol>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="gitlab-webhook">
+                        <button class="accordion-button collapsed bg-light" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapse-gitlab-webhook" aria-expanded="false"
+                            aria-controls="collapse-gitlab-webhook">
+                            <img class="brand-icon" src="{{ asset('images/brand/gitlab.svg') }}" />
+                            GitLab
+                        </button>
+                    </h2>
+                    <div id="collapse-gitlab-webhook" class="accordion-collapse collapse"
+                        aria-labelledby="gitlab-webhook" data-bs-parent="#webhookDocs">
+                        <div class="accordion-body">
+                            <ol class="mb-0">
                                 <li>Go to Settings ➜ Webhooks</li>
                                 <li>In "URL" paste the URL generated below</li>
                                 <li>Click "Add webhook" button to save</li>
@@ -200,7 +201,8 @@
                             {{ Carbon::parse($webhook->created_at)->format('M d, Y') }}
                         </td>
                         <td>
-                            <button wire:loading.attr="disabled" wire:click="deleteWebhook({{ $webhook->id }})" class="btn btn-sm w-100 btn-danger">
+                            <button wire:loading.attr="disabled" wire:click="deleteWebhook({{ $webhook->id }})"
+                                class="btn btn-sm w-100 btn-danger">
                                 <x-heroicon-o-trash class="heroicon" />
                                 Delete
                             </button>
