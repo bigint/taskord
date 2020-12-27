@@ -49,7 +49,7 @@ hotkeys('g+s', () => {
 });
 
 // Show shortcuts modal
-hotkeys('?', () => {
+hotkeys('shift+/', () => {
   let myModal = new Modal(document.getElementById("shortcutsModal"));
   myModal.show();
 });
