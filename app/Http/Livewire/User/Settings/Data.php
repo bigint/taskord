@@ -16,15 +16,4 @@ class Data extends Component
     {
         $this->user = $user;
     }
-
-    public function exportAccount()
-    {
-        if (Auth::check()) {
-            $this->confirming = $this->user->id;
-        } else {
-            return $this->alert('error', 'Forbidden!', [
-                'showCancelButton' =>  false,
-            ]);
-        }
-    }
 }
