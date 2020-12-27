@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Product;
 
+use App\Actions\CreateNewTask;
 use App\Models\Product;
 use App\Rules\Repo;
 use Carbon\Carbon;
@@ -102,6 +103,11 @@ class NewProduct extends Component
                 'launched' => $launched_status,
                 'launched_at' => $launched_at,
             ]);
+
+            if ($launched_status) {
+                (new CreateNewTask)->fromProductLaunch($product);
+            }
+
             Auth::user()->touch();
 
             activity()

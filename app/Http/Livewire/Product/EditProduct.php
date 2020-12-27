@@ -11,6 +11,7 @@ use Illuminate\Support\Str;
 use Intervention\Image\Facades\Image;
 use Livewire\Component;
 use Livewire\WithFileUploads;
+use App\Actions\CreateNewTask;
 
 class EditProduct extends Component
 {
@@ -98,7 +99,9 @@ class EditProduct extends Component
             if (Auth::user()->staffShip or Auth::id() === $product->owner->id) {
                 if ($this->launched and ! $product->launched) {
                     $product->launched_at = Carbon::now();
+                    $newelyLaunched = true;
                 }
+
                 $product->name = $this->name;
                 $product->slug = $this->slug;
                 $product->description = $this->description;
@@ -110,6 +113,11 @@ class EditProduct extends Component
                 $product->launched = $this->launched;
                 $product->deprecated = $this->deprecated;
                 $product->save();
+
+                if ($newelyLaunched) {
+                    (new CreateNewTask)->fromProductLaunch($product);
+                }
+
                 Auth::user()->touch();
 
                 $this->flash('success', 'Product has been updated!', [
