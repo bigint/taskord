@@ -134,7 +134,7 @@ class Helper
         }
 
         foreach ($mention as $user) {
-            $markdown = str_replace($user, sprintf("[%s](https://taskord.com/%s)", $user, $user), $markdown);
+            $markdown = str_replace($user, sprintf("[%s](/%s)", $user, $user), $markdown);
         }
 
         return $markdown;
