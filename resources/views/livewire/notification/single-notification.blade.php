@@ -88,7 +88,7 @@
                 </span>
                 @endif
                 <div class="mt-2 body-font">
-                    {!! Purify::clean(Helper::renderTask($data['body'])) !!}
+                    {!! Markdown::parse($data['body']) !!}
                 </div>
             @elseif ($type === "App\Notifications\CommentPraised")
                 <span class="align-middle">
@@ -98,7 +98,7 @@
                     </a>
                 </span>
                 <div class="mt-2 body-font">
-                    {!! nl2br(Purify::clean(Helper::renderTask($data['comment']))) !!}
+                    {!! Markdown::parse($data['comment']) !!}
                 </div>
             @elseif ($type === "App\Notifications\QuestionPraised")
                 <span class="align-middle">
@@ -118,7 +118,7 @@
                     </a>
                 </span>
                 <div class="mt-2 body-font">
-                    {!! nl2br(Purify::clean(Helper::renderTask($data['answer']))) !!}
+                    {!! Markdown::parse($data['answer']) !!}
                 </div>
             @elseif ($type === "App\Notifications\Commented")
                 <span class="align-middle">
@@ -128,7 +128,7 @@
                     </a>
                 </span>
                 <div class="mt-2 body-font">
-                    {!! nl2br(Purify::clean(Helper::renderTask($data['comment']))) !!}
+                    {!! Markdown::parse($data['comment']) !!}
                 </div>
             @elseif ($type === "App\Notifications\Answered")
                 <span class="align-middle">
@@ -138,7 +138,7 @@
                     </a>
                 </span>
                 <div class="mt-2 body-font">
-                    {!! nl2br(Purify::clean(Helper::renderTask($data['answer']))) !!}
+                    {!! Markdown::parse($data['answer']) !!}
                 </div>
             @elseif ($type === "App\Notifications\Followed")
                 <span class="align-middle">followed you</span>
@@ -212,7 +212,7 @@
                     </a>
                     you subscribed
                     <div class="mt-2 body-font">
-                        {!! nl2br(Purify::clean(Helper::renderTask($data['answer']))) !!}
+                        {!! Markdown::parse($data['answer']) !!}
                     </div>
                 </span>
             @endif
