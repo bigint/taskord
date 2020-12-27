@@ -22,9 +22,7 @@ it('has product page - updates - response test', function () {
     actingAs(1)->get('/product/taskord/updates')->assertStatus(200);
 });
 
-// FIX This
-// it('has product page - rss', function () {
-//     $this->get('/feed/product/taskord');
-
-//     $response->assertStatus(200);
-// });
+it('has product popover - response test', function () {
+    $this->get('/popover/product/1')->assertStatus(200);
+    actingAs(1)->get('/popover/product/1')->assertStatus(200);
+});

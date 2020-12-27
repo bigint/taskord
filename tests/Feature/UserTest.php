@@ -27,7 +27,7 @@ it('has profile page - answers - response test', function () {
     actingAs(1)->get('/@test/answers')->assertStatus(200);
 });
 
-it('has user profile popover - response test', function () {
+it('has user popover - response test', function () {
     $this->get('/popover/user/1')->assertStatus(200);
     actingAs(1)->get('/popover/user/1')->assertStatus(200);
 });
