@@ -41,7 +41,7 @@ class Commented extends Notification implements ShouldQueue
         $user = User::find($this->user_id);
 
         return (new MailMessage)
-                    ->subject('@'.$user->username.' commented your task')
+                    ->subject('@'.$user->username.' commented on your task')
                     ->greeting('Hello @'.$notifiable->username.' 👋')
                     ->line('💬 Your task has new comment by @'.$user->username)
                     ->line('Task: '.$this->comment->task->task)
