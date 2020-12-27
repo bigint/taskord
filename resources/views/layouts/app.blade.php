@@ -81,6 +81,7 @@
     </div>
 </body>
 @livewireScripts
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10" defer data-turbolinks-track="true" data-turbolinks-eval=false></script>
 <x-livewire-alert::scripts />
 <script src="{{ mix('js/app.js') }}" defer data-turbolinks-track="true" data-turbolinks-eval=false></script>
 <script src="{{ mix('js/bootstrap.js') }}" defer data-turbolinks-track="true" data-turbolinks-eval=false></script>
