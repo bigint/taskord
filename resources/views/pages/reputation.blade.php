@@ -53,6 +53,14 @@
         <div class="col-lg-8">
         <div class="card mb-4">
             <div class="card-body">
+            @if (count($points) === 0)
+            <div class="card-body text-center mt-3 mb-3">
+                <x-heroicon-o-sparkles class="heroicon-4x text-primary mb-2" />
+                <div class="h4">
+                    No points awarded!
+                </div>
+            </div>
+            @endif
             @foreach($points as $point)
             <div class="d-flex w-100 justify-content-between">
                 <div class="mb-1">
