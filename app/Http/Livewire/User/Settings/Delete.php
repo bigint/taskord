@@ -23,7 +23,9 @@ class Delete extends Component
         if (Auth::check()) {
             $this->reset_confirming = $this->user->id;
         } else {
-            return $this->alert('error', 'Forbidden!');
+            return $this->alert('error', 'Forbidden!', [
+                'showCancelButton' =>  false,
+          ]);
         }
     }
 
@@ -63,12 +65,18 @@ class Delete extends Component
                 $user->notifications()->delete();
                 $user->likes()->delete();
 
-                return $this->alert('success', 'Your account has been resetted!');
+                return $this->alert('success', 'Your account has been resetted!', [
+                    'showCancelButton' =>  false,
+              ]);
             } else {
-                return $this->alert('error', 'Forbidden!');
+                return $this->alert('error', 'Forbidden!', [
+                    'showCancelButton' =>  false,
+              ]);
             }
         } else {
-            return $this->alert('error', 'Forbidden!');
+            return $this->alert('error', 'Forbidden!', [
+                'showCancelButton' =>  false,
+          ]);
         }
     }
 
@@ -77,7 +85,9 @@ class Delete extends Component
         if (Auth::check()) {
             $this->delete_confirming = $this->user->id;
         } else {
-            return $this->alert('error', 'Forbidden!');
+            return $this->alert('error', 'Forbidden!', [
+                'showCancelButton' =>  false,
+          ]);
         }
     }
 
@@ -120,10 +130,14 @@ class Delete extends Component
 
                 return redirect()->route('home');
             } else {
-                return $this->alert('error', 'Forbidden!');
+                return $this->alert('error', 'Forbidden!', [
+                    'showCancelButton' =>  false,
+              ]);
             }
         } else {
-            return $this->alert('error', 'Forbidden!');
+            return $this->alert('error', 'Forbidden!', [
+                'showCancelButton' =>  false,
+          ]);
         }
     }
 }
