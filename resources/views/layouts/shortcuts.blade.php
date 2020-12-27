@@ -47,7 +47,7 @@
     </span>
 </div>
 <div class="d-flex justify-content-between mt-2">
-    <span>Show this dialog</span>
+    <span>Bring up this help dialog</span>
     <span>
         <kbd>?</kbd>
     </span>
