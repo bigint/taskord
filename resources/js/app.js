@@ -31,31 +31,21 @@ window.addEventListener('scroll', () => {
 
 // Admin Bar toggle in dropdown
 document.addEventListener("turbolinks:load", () => {
-  document.getElementById("admin-bar-click").addEventListener("click", () => {
-    window.fetch("/admin/adminbar")
-      .then(async r => {
-        const data = await r.text();
-        if (data === "enabled" || data === "disabled") {
-          if (r.status === 200) {
-            window.location.reload();
-          }
-        }
-      });
+  document.getElementById("admin-bar-click").addEventListener("click", async () => {
+    const res = await window.fetch(`/admin/adminbar`);
+    if (res.status === 200) {
+      location.reload();
+    }
   });
 });
 
 // Dark mode toggle in dropdown
 document.addEventListener("turbolinks:load", () => {
-  document.getElementById("dark-mode").addEventListener("click", () => {
-    window.fetch("/darkmode")
-      .then(async r => {
-        const data = await r.text();
-        if (data === "enabled" || data === "disabled") {
-          if (r.status === 200) {
-            window.location.reload();
-          }
-        }
-      });
+  document.getElementById("dark-mode").addEventListener("click", async () => {
+    const res = await window.fetch(`/darkmode`);
+    if (res.status === 200) {
+      location.reload();
+    }
   });
 });
 
