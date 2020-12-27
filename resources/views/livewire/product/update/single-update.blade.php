@@ -60,7 +60,7 @@
             @endif
             @endauth
             @guest
-                <a href="/login" class="btn btn-task btn-outline-success me-1">
+                <a href="/login" class="btn btn-task btn-outline-success me-1" aria-label="Praises">
                     <x-heroicon-o-thumb-up class="heroicon-small me-0" />
                     @if ($update->likerscount() !== 0)
                     <span class="small text-dark fw-bold">

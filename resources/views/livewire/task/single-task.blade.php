@@ -116,7 +116,7 @@
                 </span>
             </button>
             @else
-            <button type="button" class="btn btn-task btn-outline-success me-1" wire:click="togglePraise" wire:loading.attr="disabled" wire:offline.attr="disabled" wire:key="{{ $task->id }}">
+            <button type="button" class="btn btn-task btn-outline-success me-1" wire:click="togglePraise" wire:loading.attr="disabled" wire:offline.attr="disabled" wire:key="{{ $task->id }}" aria-label="Praises">
                 <x-heroicon-o-thumb-up class="heroicon-small me-0" />
                 @if ($task->likerscount() !== 0)
                 <span class="small text-dark fw-bold">
@@ -133,7 +133,7 @@
             @endif
             @endauth
             @guest
-                <a href="/login" class="btn btn-task btn-outline-success me-1">
+                <a href="/login" class="btn btn-task btn-outline-success me-1" aria-label="Praises">
                     <x-heroicon-o-thumb-up class="heroicon-small me-0 text-secondary" />
                     @if ($task->likerscount() !== 0)
                     <span class="small text-dark fw-bold">
@@ -147,7 +147,7 @@
                     @endif
                 </a>
             @endguest
-            <a href="{{ route('task', ['id' => $task->id]) }}" class="btn btn-task btn-outline-primary me-1">
+            <a href="{{ route('task', ['id' => $task->id]) }}" class="btn btn-task btn-outline-primary me-1" aria-label="Comments">
                 <x-heroicon-o-chat-alt class="heroicon-small me-0" />
                 @if ($task->comments->count('id') !== 0)
                 <span class="small text-dark fw-bold">

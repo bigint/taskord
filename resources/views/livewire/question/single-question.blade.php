@@ -69,7 +69,7 @@
                     </span>
                 </button>
             @else
-                <button role="button" class="btn btn-task btn-outline-success me-1" wire:click="togglePraise" wire:loading.attr="disabled" wire:offline.attr="disabled">
+                <button role="button" class="btn btn-task btn-outline-success me-1" wire:click="togglePraise" wire:loading.attr="disabled" wire:offline.attr="disabled" aria-label="Praises">
                     <x-heroicon-o-thumb-up class="heroicon-small me-0" />
                     @if ($question->likerscount() !== 0)
                     <span class="small text-dark fw-bold">
@@ -112,7 +112,7 @@
             @endif
             @endauth
             @guest
-                <a href="/login" class="btn btn-task btn-outline-success me-1">
+                <a href="/login" class="btn btn-task btn-outline-success me-1" aria-label="Praises">
                     <x-heroicon-o-thumb-up class="heroicon-small me-0" />
                     @if ($question->likerscount() !== 0)
                     <span class="small text-dark fw-bold">
