@@ -1,4 +1,3 @@
-import { Modal } from "bootstrap";
 import hotkeys from "hotkeys-js";
 
 // Admin Bar
@@ -50,8 +49,8 @@ hotkeys("g+s", () => {
 
 // Show shortcuts modal
 hotkeys("shift+/", () => {
-  let myModal = new Modal(document.getElementById("shortcutsModal"));
-  myModal.show();
+  // let myModal = new Modal(document.getElementById("shortcutsModal"));
+  // myModal.show();
 });
 
 // Create new issue in GitLab
