@@ -1,8 +1,8 @@
 import { Modal } from "bootstrap";
-var Mousetrap = require("mousetrap");
+import hotkeys from 'hotkeys-js';
 
 // Admin Bar
-Mousetrap.bind(["p b", "`"], async () => {
+hotkeys('p+b, `', async () => {
   const res = await window.fetch(`/admin/adminbar`);
   if (res.status === 200) {
     location.reload();
@@ -10,7 +10,7 @@ Mousetrap.bind(["p b", "`"], async () => {
 });
 
 // Dark Mode
-Mousetrap.bind("d m", async () => {
+hotkeys('d+m', async () => {
   const res = await window.fetch(`/darkmode`);
   if (res.status === 200) {
     location.reload();
@@ -18,44 +18,44 @@ Mousetrap.bind("d m", async () => {
 });
 
 // Go to home
-Mousetrap.bind("g h", () => {
+hotkeys('g+h', () => {
   window.location.href = "/";
 });
 
 // Go to user profile
-Mousetrap.bind("g u", () => {
+hotkeys('g+u', () => {
   const username = document.getElementById("taskord-username").innerHTML.trim()
   window.location.href = "/@" + username;
 });
 
 // Go to products
-Mousetrap.bind("g p", () => {
+hotkeys('g+p', () => {
   window.location.href = "/products";
 });
 
 // Go to questions
-Mousetrap.bind("g q", () => {
+hotkeys('g+q', () => {
   window.location.href = "/questions";
 });
 
 // Go to notifications
-Mousetrap.bind("g n", () => {
+hotkeys('g+n', () => {
   window.location.href = "/notifications";
 });
 
 // Go to settings
-Mousetrap.bind("g s", () => {
+hotkeys('g+s', () => {
   window.location.href = "/settings";
 });
 
 // Show shortcuts modal
-Mousetrap.bind("?", () => {
+hotkeys('?', () => {
   let myModal = new Modal(document.getElementById("shortcutsModal"));
   myModal.show();
 });
 
 // Create new issue in GitLab
-Mousetrap.bind("n i", () => {
+hotkeys('n+i', () => {
   var nAgt = navigator.userAgent;
   var browserName = navigator.appName;
   var fullVersion = "" + parseFloat(navigator.appVersion);
