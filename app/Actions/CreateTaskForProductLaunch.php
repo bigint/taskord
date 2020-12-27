@@ -8,7 +8,7 @@ use Illuminate\Support\Arr;
 use App\Models\Product;
 use App\Models\Task;
 
-class CreateNewTask
+class CreateTaskForProductLaunch
 {
     private array $tasks = [
         'I just launched a new product! Check out #%s',
@@ -16,7 +16,7 @@ class CreateNewTask
         'Welcome into the world #%s!',
     ];
 
-    public function fromProductLaunch(Product $product): void
+    public function execute(Product $product): void
     {
         $task = sprintf(Arr::random($this->tasks), $product->name);
 
