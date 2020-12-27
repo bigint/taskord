@@ -55,7 +55,7 @@ class CreateComment extends Component
             $users = Helper::getUserIDFromMention($this->comment);
 
             if ($users) {
-                $this->comment = Helper::addMentionLinksToMarkdown($this->comment);
+                $this->comment = Helper::parseUserMentionsToMarkdownLinks($this->comment, $users);
             }
 
             $comment = Comment::create([
