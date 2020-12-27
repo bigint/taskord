@@ -5,6 +5,7 @@
             type="text"
             id="search-input"
             name="q"
+            aria-label="Search Taskord"
             class="form-control border-0 bg-secondary text-white"
             placeholder="Search Taskord..."
             wire:model="query"
