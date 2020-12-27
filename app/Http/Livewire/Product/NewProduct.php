@@ -34,7 +34,9 @@ class NewProduct extends Component
                 'avatar' => 'nullable|mimes:jpeg,jpg,png,gif|max:1024',
             ]);
         } else {
-            return $this->alert('error', 'Forbidden!');
+            return $this->alert('error', 'Forbidden!', [
+                'showCancelButton' =>  false,
+          ]);
         }
     }
 
@@ -54,11 +56,15 @@ class NewProduct extends Component
             ]);
 
             if (! Auth::user()->hasVerifiedEmail()) {
-                return $this->alert('warning', 'Your email is not verified!');
+                return $this->alert('warning', 'Your email is not verified!', [
+                    'showCancelButton' =>  false,
+              ]);
             }
 
             if (Auth::user()->isFlagged) {
-                return $this->alert('error', 'Your account is flagged!');
+                return $this->alert('error', 'Your account is flagged!', [
+                    'showCancelButton' =>  false,
+              ]);
             }
 
             $launched = ! $this->launched ? false : true;
@@ -98,14 +104,19 @@ class NewProduct extends Component
             ]);
             Auth::user()->touch();
 
-            $this->alert('success', 'Product has been created!');
             activity()
                 ->withProperties(['type' => 'Product'])
                 ->log('New product has been created P: #'.$product->slug);
 
+                $this->flash('success', 'Product has been created!', [
+                    'showCancelButton' =>  false,
+              ]);
+
             return redirect()->route('product.done', ['slug' => $product->slug]);
         } else {
-            $this->alert('error', 'Forbidden!');
+            $this->alert('error', 'Forbidden!', [
+                'showCancelButton' =>  false,
+          ]);
         }
     }
 }
