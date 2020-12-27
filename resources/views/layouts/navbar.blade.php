@@ -169,6 +169,10 @@
                                 <x-heroicon-o-code class="heroicon-1x text-secondary" />
                                 GitLab
                             </a>
+                            <a class="dropdown-item text-dark cursor-pointer" data-bs-toggle="modal" data-bs-target="#shortcutsModal">
+                                <x-heroicon-o-code class="heroicon-1x text-secondary" />
+                                Shortcuts
+                            </a>
                             @endif
                             <a class="dropdown-item text-dark" href="{{ route('logout') }}"
                                 data-prefetch="false"
@@ -191,3 +195,20 @@
         </div>
     </div>
 </nav>
+
+<div class="modal fade" id="shortcutsModal" tabindex="-1" aria-labelledby="shortcutsModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="shortcutsModalLabel">Keyboard shortcuts</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                ...
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
