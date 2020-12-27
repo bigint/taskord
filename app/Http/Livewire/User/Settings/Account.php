@@ -30,19 +30,27 @@ class Account extends Component
                         ->withProperties(['type' => 'User'])
                         ->log('Enrolled to beta');
 
-                    return $this->alert('success', 'Your are now beta member!');
+                    return $this->alert('success', 'Your are now beta member!', [
+                        'showCancelButton' =>  false,
+                  ]);
                 } else {
                     activity()
                         ->withProperties(['type' => 'User'])
                         ->log('Opt out from beta');
 
-                    return $this->alert('success', 'Your are no longer a beta member!');
+                    return $this->alert('success', 'Your are no longer a beta member!', [
+                        'showCancelButton' =>  false,
+                  ]);
                 }
             } else {
-                return $this->alert('error', 'Forbidden!');
+                return $this->alert('error', 'Forbidden!', [
+                    'showCancelButton' =>  false,
+              ]);
             }
         } else {
-            return $this->alert('error', 'Forbidden!');
+            return $this->alert('error', 'Forbidden!', [
+                'showCancelButton' =>  false,
+          ]);
         }
     }
 
@@ -51,7 +59,9 @@ class Account extends Component
         if (Auth::check()) {
             if (Auth::id() === $this->user->id) {
                 if (! $this->user->isPatron) {
-                    return $this->alert('error', 'Forbidden!');
+                    return $this->alert('error', 'Forbidden!', [
+                        'showCancelButton' =>  false,
+                  ]);
                 }
                 $this->user->isPrivate = ! $this->user->isPrivate;
                 $this->user->save();
@@ -60,19 +70,27 @@ class Account extends Component
                         ->withProperties(['type' => 'User'])
                         ->log('Enrolled as a private user');
 
-                    return $this->alert('success', 'All your tasks are now private');
+                    return $this->alert('success', 'All your tasks are now private', [
+                        'showCancelButton' =>  false,
+                  ]);
                 } else {
                     activity()
                         ->withProperties(['type' => 'User'])
                         ->log('Enrolled as a public user');
 
-                    return $this->alert('success', 'All your tasks are now public');
+                    return $this->alert('success', 'All your tasks are now public', [
+                        'showCancelButton' =>  false,
+                  ]);
                 }
             } else {
-                return $this->alert('error', 'Forbidden!');
+                return $this->alert('error', 'Forbidden!', [
+                    'showCancelButton' =>  false,
+              ]);
             }
         } else {
-            return $this->alert('error', 'Forbidden!');
+            return $this->alert('error', 'Forbidden!', [
+                'showCancelButton' =>  false,
+          ]);
         }
     }
 
@@ -84,7 +102,9 @@ class Account extends Component
                 'email' => 'required|email|max:255|indisposable|unique:users,email,'.$this->user->id,
             ]);
         } else {
-            return $this->alert('error', 'Forbidden!');
+            return $this->alert('error', 'Forbidden!', [
+                'showCancelButton' =>  false,
+          ]);
         }
     }
 
@@ -110,13 +130,19 @@ class Account extends Component
                         ->withProperties(['type' => 'User'])
                         ->log('Account settings was updated');
 
-                    return $this->alert('success', 'Your account has been updated!');
+                    return $this->alert('success', 'Your account has been updated!', [
+                        'showCancelButton' =>  false,
+                  ]);
                 }
             } else {
-                return $this->alert('error', 'Forbidden!');
+                return $this->alert('error', 'Forbidden!', [
+                    'showCancelButton' =>  false,
+              ]);
             }
         } else {
-            return $this->alert('error', 'Forbidden!');
+            return $this->alert('error', 'Forbidden!', [
+                'showCancelButton' =>  false,
+          ]);
         }
     }
 }
