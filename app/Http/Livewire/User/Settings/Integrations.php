@@ -101,6 +101,10 @@ class Integrations extends Component
                 $webhook = Webhook::find($id);
                 $webhook->delete();
                 $this->emit('webhookDeleted');
+
+                return $this->alert('success', 'Webhook has been deleted!', [
+                    'showCancelButton' =>  false,
+                ]);
             } else {
                 return $this->alert('error', 'Forbidden!', [
                     'showCancelButton' =>  false,
