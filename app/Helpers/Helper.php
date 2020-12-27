@@ -124,6 +124,15 @@ class Helper
         return $usernames;
     }
 
+    public static function parseUserMentionsToMarkdownLinks($markdown, $mentions)
+    {
+        foreach ($mentions as $user) {
+            $markdown = str_replace("@$user", sprintf("[@%s](/@%s)", $user, $user), $markdown);
+        }
+
+        return $markdown;
+    }
+
     public static function getProductIDFromMention($string)
     {
         $mention = false;
