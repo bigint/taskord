@@ -108,7 +108,7 @@
                     </a>
                 </span>
                 <div class="mt-2 body-font">
-                    @parsedown($data['question'])
+                    {!! Markdown::parse($data['question']) !!}
                 </div>
             @elseif ($type === "App\Notifications\AnswerPraised")
                 <span class="align-middle">
@@ -190,7 +190,7 @@
                 <div class="mt-2">
                     <span class="fw-bold">Changelog</span>
                     <div class="mt-1">
-                        @parsedown($data['description'])
+                        {!! Markdown::parse($data['description']) !!}
                     </div>
                 </div>
             @elseif ($type === "App\Notifications\Task\NotifySubscribers")
