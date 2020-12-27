@@ -11,18 +11,17 @@
             <form wire:submit.prevent="submit">
                 <div class="input-group mb-3">
                     <div class="input-group-text">
-                        <label for="checkState" class="form-label d-none">Check State</label>
                         <input
                             class="form-check-input task-checkbox"
-                            id="checkState"
                             type="checkbox"
+                            aria-label="Checkbox"
                             wire:click="checkState"
                             wire:loading.attr="disabled"
                             wire:offline.attr="disabled"
                             {{ Auth::check() && Auth::user()->checkState ? 'checked' : 'unchecked' }}
                         >
                     </div>
-                    <input type="text" class="form-control mentionInput" placeholder="Add a Task" wire:model.lazy="task" autocomplete="off">
+                    <input type="text" class="form-control mentionInput" placeholder="Add a Task" wire:model.lazy="task" autocomplete="off" aria-label="Task Input">
                 </div>
                 <div class="d-flex justify-content-between">
                 <div class="form-file form-file-sm col-6 col-lg-3">
