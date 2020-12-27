@@ -29,7 +29,7 @@ class CreateAnswer extends Component
         } else {
             $this->alert('error', 'Forbidden!', [
                 'showCancelButton' =>  false,
-          ]);
+            ]);
         }
     }
 
@@ -43,13 +43,13 @@ class CreateAnswer extends Component
             if (! Auth::user()->hasVerifiedEmail()) {
                 return $this->alert('warning', 'Your email is not verified!', [
                     'showCancelButton' =>  false,
-              ]);
+                ]);
             }
 
             if (Auth::user()->isFlagged) {
                 return $this->alert('error', 'Your account is flagged!', [
                     'showCancelButton' =>  false,
-              ]);
+                ]);
             }
 
             $users = Helper::getUserIDFromMention($this->answer);
@@ -79,11 +79,11 @@ class CreateAnswer extends Component
 
             return $this->alert('success', 'Answer has been added!', [
                 'showCancelButton' =>  false,
-          ]);
+            ]);
         } else {
             $this->alert('error', 'Forbidden!', [
                 'showCancelButton' =>  false,
-          ]);
+            ]);
         }
     }
 

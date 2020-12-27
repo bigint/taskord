@@ -31,7 +31,7 @@ class EditQuestion extends Component
         } else {
             $this->alert('error', 'Forbidden!', [
                 'showCancelButton' =>  false,
-          ]);
+            ]);
         }
     }
 
@@ -46,13 +46,13 @@ class EditQuestion extends Component
             if (! Auth::user()->hasVerifiedEmail()) {
                 return $this->alert('warning', 'Your email is not verified!', [
                     'showCancelButton' =>  false,
-              ]);
+                ]);
             }
 
             if (Auth::user()->isFlagged) {
                 return $this->alert('error', 'Your account is flagged!', [
                     'showCancelButton' =>  false,
-              ]);
+                ]);
             }
 
             $question = Question::where('id', $this->question->id)->firstOrFail();
@@ -69,20 +69,20 @@ class EditQuestion extends Component
                 activity()
                     ->withProperties(['type' => 'Question'])
                     ->log('Question has been edited Q: '.$question->id);
-                    $this->flash('success', 'Question has been edited!', [
-                        'showCancelButton' =>  false,
-                  ]);
+                $this->flash('success', 'Question has been edited!', [
+                    'showCancelButton' =>  false,
+                ]);
 
                 return redirect()->route('question.question', ['id' => $question->id]);
             } else {
                 $this->alert('error', 'Forbidden!', [
                     'showCancelButton' =>  false,
-              ]);
+                ]);
             }
         } else {
             $this->alert('error', 'Forbidden!', [
                 'showCancelButton' =>  false,
-          ]);
+            ]);
         }
     }
 }

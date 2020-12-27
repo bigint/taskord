@@ -19,11 +19,11 @@ class MarkAsRead extends Component
 
             return $this->alert('success', 'Notifications has been marked as read!', [
                 'showCancelButton' =>  false,
-          ]);
+            ]);
         } else {
             return $this->alert('error', 'Forbidden!', [
                 'showCancelButton' =>  false,
-          ]);
+            ]);
         }
     }
 }

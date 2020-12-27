@@ -31,7 +31,7 @@ class NewMeetup extends Component
         } else {
             return $this->alert('error', 'Forbidden!', [
                 'showCancelButton' =>  false,
-          ]);
+            ]);
         }
     }
 
@@ -51,13 +51,13 @@ class NewMeetup extends Component
             if (! Auth::user()->hasVerifiedEmail()) {
                 return $this->alert('warning', 'Your email is not verified!', [
                     'showCancelButton' =>  false,
-              ]);
+                ]);
             }
 
             if (Auth::user()->isFlagged) {
                 return $this->alert('error', 'Your account is flagged!', [
                     'showCancelButton' =>  false,
-              ]);
+                ]);
             }
 
             if ($this->cover) {
@@ -86,13 +86,13 @@ class NewMeetup extends Component
 
             $this->flash('success', 'Meetup has been created!', [
                 'showCancelButton' =>  false,
-          ]);
+            ]);
 
             return redirect()->route('meetups.home');
         } else {
             $this->alert('error', 'Forbidden!', [
                 'showCancelButton' =>  false,
-          ]);
+            ]);
         }
     }
 }

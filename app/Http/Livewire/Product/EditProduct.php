@@ -54,7 +54,7 @@ class EditProduct extends Component
         } else {
             return $this->alert('error', 'Forbidden!', [
                 'showCancelButton' =>  false,
-          ]);
+            ]);
         }
     }
 
@@ -76,7 +76,7 @@ class EditProduct extends Component
             if (Auth::user()->isFlagged) {
                 return $this->alert('error', 'Your account is flagged!', [
                     'showCancelButton' =>  false,
-              ]);
+                ]);
             }
 
             $product = Product::where('id', $this->product->id)->firstOrFail();
@@ -114,7 +114,7 @@ class EditProduct extends Component
 
                 $this->flash('success', 'Product has been updated!', [
                     'showCancelButton' =>  false,
-              ]);
+                ]);
                 activity()
                     ->withProperties(['type' => 'Product'])
                     ->log('Product has been updated P: #'.$this->product->slug);
@@ -123,12 +123,12 @@ class EditProduct extends Component
             } else {
                 $this->alert('error', 'Forbidden!', [
                     'showCancelButton' =>  false,
-              ]);
+                ]);
             }
         } else {
             $this->alert('error', 'Forbidden!', [
                 'showCancelButton' =>  false,
-          ]);
+            ]);
         }
     }
 
@@ -143,13 +143,13 @@ class EditProduct extends Component
             if (! Auth::user()->hasVerifiedEmail()) {
                 return $this->alert('warning', 'Your email is not verified!', [
                     'showCancelButton' =>  false,
-              ]);
+                ]);
             }
 
             if (Auth::user()->isFlagged) {
                 return $this->alert('error', 'Your account is flagged!', [
                     'showCancelButton' =>  false,
-              ]);
+                ]);
             }
 
             if (Auth::user()->staffShip or Auth::id() === $this->product->owner->id) {
@@ -166,18 +166,18 @@ class EditProduct extends Component
                 Auth::user()->touch();
                 $this->flash('success', 'Product has been deleted!', [
                     'showCancelButton' =>  false,
-              ]);
+                ]);
 
                 return redirect()->route('products.newest');
             } else {
                 $this->alert('error', 'Forbidden!', [
                     'showCancelButton' =>  false,
-              ]);
+                ]);
             }
         } else {
             return $this->alert('error', 'Forbidden!', [
                 'showCancelButton' =>  false,
-          ]);
+            ]);
         }
     }
 }

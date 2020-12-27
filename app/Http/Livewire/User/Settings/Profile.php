@@ -67,7 +67,7 @@ class Profile extends Component
         } else {
             return $this->alert('error', 'Forbidden!', [
                 'showCancelButton' =>  false,
-          ]);
+            ]);
         }
     }
 
@@ -111,17 +111,17 @@ class Profile extends Component
 
                     return $this->alert('success', 'Your profile has been updated!', [
                         'showCancelButton' =>  false,
-                  ]);
+                    ]);
                 }
             } else {
                 return $this->alert('error', 'Forbidden!', [
                     'showCancelButton' =>  false,
-              ]);
+                ]);
             }
         } else {
             return $this->alert('error', 'Forbidden!', [
                 'showCancelButton' =>  false,
-          ]);
+            ]);
         }
     }
 
@@ -141,16 +141,16 @@ class Profile extends Component
 
                 return $this->alert('success', 'Your avatar has been resetted!', [
                     'showCancelButton' =>  false,
-              ]);
+                ]);
             } else {
                 return $this->alert('error', 'Forbidden!', [
                     'showCancelButton' =>  false,
-              ]);
+                ]);
             }
         } else {
             return $this->alert('error', 'Forbidden!', [
                 'showCancelButton' =>  false,
-          ]);
+            ]);
         }
     }
 
@@ -170,16 +170,16 @@ class Profile extends Component
 
                 return $this->alert('success', 'Your avatar has been switched to Gravatar!', [
                     'showCancelButton' =>  false,
-              ]);
+                ]);
             } else {
                 return $this->alert('error', 'Forbidden!', [
                     'showCancelButton' =>  false,
-              ]);
+                ]);
             }
         } else {
             return $this->alert('error', 'Forbidden!', [
                 'showCancelButton' =>  false,
-          ]);
+            ]);
         }
     }
 
@@ -195,12 +195,12 @@ class Profile extends Component
             } else {
                 return $this->alert('error', 'Forbidden!', [
                     'showCancelButton' =>  false,
-              ]);
+                ]);
             }
         } else {
             return $this->alert('error', 'Forbidden!', [
                 'showCancelButton' =>  false,
-          ]);
+            ]);
         }
     }
 
@@ -221,17 +221,17 @@ class Profile extends Component
 
                     return $this->alert('success', 'Your goal has been updated!', [
                         'showCancelButton' =>  false,
-                  ]);
+                    ]);
                 }
             } else {
                 return $this->alert('error', 'Forbidden!', [
                     'showCancelButton' =>  false,
-              ]);
+                ]);
             }
         } else {
             return $this->alert('error', 'Forbidden!', [
                 'showCancelButton' =>  false,
-          ]);
+            ]);
         }
     }
 
@@ -252,17 +252,17 @@ class Profile extends Component
 
                     return $this->alert('success', 'Your sponsor link has been updated!', [
                         'showCancelButton' =>  false,
-                  ]);
+                    ]);
                 }
             } else {
                 return $this->alert('error', 'Forbidden!', [
                     'showCancelButton' =>  false,
-              ]);
+                ]);
             }
         } else {
             return $this->alert('error', 'Forbidden!', [
                 'showCancelButton' =>  false,
-          ]);
+            ]);
         }
     }
 
@@ -293,17 +293,17 @@ class Profile extends Component
 
                     return $this->alert('success', 'Your social links has been updated!', [
                         'showCancelButton' =>  false,
-                  ]);
+                    ]);
                 }
             } else {
                 return $this->alert('error', 'Forbidden!', [
                     'showCancelButton' =>  false,
-              ]);
+                ]);
             }
         } else {
             return $this->alert('error', 'Forbidden!', [
                 'showCancelButton' =>  false,
-          ]);
+            ]);
         }
     }
 
@@ -316,11 +316,11 @@ class Profile extends Component
                 if ($this->user->onlyFollowingsTasks) {
                     $this->alert('success', 'Only following user\'s task will be show on homepage', [
                         'showCancelButton' =>  false,
-                  ]);
+                    ]);
                 } else {
                     $this->alert('success', 'All user\'s task will be show on homepage', [
                         'showCancelButton' =>  false,
-                  ]);
+                    ]);
                 }
                 activity()
                     ->withProperties(['type' => 'User'])
@@ -328,12 +328,12 @@ class Profile extends Component
             } else {
                 return $this->alert('error', 'Forbidden!', [
                     'showCancelButton' =>  false,
-              ]);
+                ]);
             }
         } else {
             return $this->alert('error', 'Forbidden!', [
                 'showCancelButton' =>  false,
-          ]);
+            ]);
         }
     }
 }

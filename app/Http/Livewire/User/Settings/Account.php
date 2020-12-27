@@ -32,7 +32,7 @@ class Account extends Component
 
                     return $this->alert('success', 'Your are now beta member!', [
                         'showCancelButton' =>  false,
-                  ]);
+                    ]);
                 } else {
                     activity()
                         ->withProperties(['type' => 'User'])
@@ -40,17 +40,17 @@ class Account extends Component
 
                     return $this->alert('success', 'Your are no longer a beta member!', [
                         'showCancelButton' =>  false,
-                  ]);
+                    ]);
                 }
             } else {
                 return $this->alert('error', 'Forbidden!', [
                     'showCancelButton' =>  false,
-              ]);
+                ]);
             }
         } else {
             return $this->alert('error', 'Forbidden!', [
                 'showCancelButton' =>  false,
-          ]);
+            ]);
         }
     }
 
@@ -61,7 +61,7 @@ class Account extends Component
                 if (! $this->user->isPatron) {
                     return $this->alert('error', 'Forbidden!', [
                         'showCancelButton' =>  false,
-                  ]);
+                    ]);
                 }
                 $this->user->isPrivate = ! $this->user->isPrivate;
                 $this->user->save();
@@ -72,7 +72,7 @@ class Account extends Component
 
                     return $this->alert('success', 'All your tasks are now private', [
                         'showCancelButton' =>  false,
-                  ]);
+                    ]);
                 } else {
                     activity()
                         ->withProperties(['type' => 'User'])
@@ -80,17 +80,17 @@ class Account extends Component
 
                     return $this->alert('success', 'All your tasks are now public', [
                         'showCancelButton' =>  false,
-                  ]);
+                    ]);
                 }
             } else {
                 return $this->alert('error', 'Forbidden!', [
                     'showCancelButton' =>  false,
-              ]);
+                ]);
             }
         } else {
             return $this->alert('error', 'Forbidden!', [
                 'showCancelButton' =>  false,
-          ]);
+            ]);
         }
     }
 
@@ -104,7 +104,7 @@ class Account extends Component
         } else {
             return $this->alert('error', 'Forbidden!', [
                 'showCancelButton' =>  false,
-          ]);
+            ]);
         }
     }
 
@@ -132,17 +132,17 @@ class Account extends Component
 
                     return $this->alert('success', 'Your account has been updated!', [
                         'showCancelButton' =>  false,
-                  ]);
+                    ]);
                 }
             } else {
                 return $this->alert('error', 'Forbidden!', [
                     'showCancelButton' =>  false,
-              ]);
+                ]);
             }
         } else {
             return $this->alert('error', 'Forbidden!', [
                 'showCancelButton' =>  false,
-          ]);
+            ]);
         }
     }
 }

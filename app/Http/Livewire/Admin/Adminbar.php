@@ -39,7 +39,7 @@ class Adminbar extends Component
 
         return $this->alert('success', 'Cleaning process has been initiated successfully 🧼', [
             'showCancelButton' =>  false,
-      ]);
+        ]);
     }
 
     public function render()
