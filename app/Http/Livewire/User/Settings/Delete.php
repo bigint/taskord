@@ -25,7 +25,7 @@ class Delete extends Component
         } else {
             return $this->alert('error', 'Forbidden!', [
                 'showCancelButton' =>  false,
-          ]);
+            ]);
         }
     }
 
@@ -67,16 +67,16 @@ class Delete extends Component
 
                 return $this->alert('success', 'Your account has been resetted!', [
                     'showCancelButton' =>  false,
-              ]);
+                ]);
             } else {
                 return $this->alert('error', 'Forbidden!', [
                     'showCancelButton' =>  false,
-              ]);
+                ]);
             }
         } else {
             return $this->alert('error', 'Forbidden!', [
                 'showCancelButton' =>  false,
-          ]);
+            ]);
         }
     }
 
@@ -87,7 +87,7 @@ class Delete extends Component
         } else {
             return $this->alert('error', 'Forbidden!', [
                 'showCancelButton' =>  false,
-          ]);
+            ]);
         }
     }
 
@@ -132,12 +132,12 @@ class Delete extends Component
             } else {
                 return $this->alert('error', 'Forbidden!', [
                     'showCancelButton' =>  false,
-              ]);
+                ]);
             }
         } else {
             return $this->alert('error', 'Forbidden!', [
                 'showCancelButton' =>  false,
-          ]);
+            ]);
         }
     }
 }

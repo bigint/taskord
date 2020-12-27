@@ -32,24 +32,24 @@ class Rsvp extends Component
 
             return $this->alert('error', 'Your are rate limited, try again later!', [
                 'showCancelButton' =>  false,
-          ]);
+            ]);
         }
 
         if (Auth::check()) {
             if (! Auth::user()->hasVerifiedEmail()) {
                 return $this->alert('warning', 'Your email is not verified!', [
                     'showCancelButton' =>  false,
-              ]);
+                ]);
             }
             if (Auth::user()->isFlagged) {
                 return $this->alert('error', 'Your account is flagged!', [
                     'showCancelButton' =>  false,
-              ]);
+                ]);
             }
             if (Auth::id() === $this->meetup->user_id) {
                 return $this->alert('warning', 'You can\'t RSVP your own meetup!', [
                     'showCancelButton' =>  false,
-              ]);
+                ]);
             } else {
                 Auth::user()->toggleSubscribe($this->meetup);
                 $this->meetup->refresh();
@@ -58,7 +58,7 @@ class Rsvp extends Component
         } else {
             return $this->alert('error', 'Forbidden!', [
                 'showCancelButton' =>  false,
-          ]);
+            ]);
         }
     }
 }

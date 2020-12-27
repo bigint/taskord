@@ -36,7 +36,7 @@ class NewProduct extends Component
         } else {
             return $this->alert('error', 'Forbidden!', [
                 'showCancelButton' =>  false,
-          ]);
+            ]);
         }
     }
 
@@ -58,13 +58,13 @@ class NewProduct extends Component
             if (! Auth::user()->hasVerifiedEmail()) {
                 return $this->alert('warning', 'Your email is not verified!', [
                     'showCancelButton' =>  false,
-              ]);
+                ]);
             }
 
             if (Auth::user()->isFlagged) {
                 return $this->alert('error', 'Your account is flagged!', [
                     'showCancelButton' =>  false,
-              ]);
+                ]);
             }
 
             $launched = ! $this->launched ? false : true;
@@ -108,15 +108,15 @@ class NewProduct extends Component
                 ->withProperties(['type' => 'Product'])
                 ->log('New product has been created P: #'.$product->slug);
 
-                $this->flash('success', 'Product has been created!', [
-                    'showCancelButton' =>  false,
-              ]);
+            $this->flash('success', 'Product has been created!', [
+                'showCancelButton' =>  false,
+            ]);
 
             return redirect()->route('product.done', ['slug' => $product->slug]);
         } else {
             $this->alert('error', 'Forbidden!', [
                 'showCancelButton' =>  false,
-          ]);
+            ]);
         }
     }
 }

@@ -37,7 +37,7 @@ class SingleTask extends Component
 
             return $this->alert('error', 'Your are rate limited, try again later!', [
                 'showCancelButton' =>  false,
-          ]);
+            ]);
         }
 
         if (Auth::check()) {
@@ -60,7 +60,7 @@ class SingleTask extends Component
         } else {
             return $this->alert('error', 'Forbidden!', [
                 'showCancelButton' =>  false,
-          ]);
+            ]);
         }
     }
 
@@ -75,7 +75,7 @@ class SingleTask extends Component
             if (Auth::user()->isFlagged) {
                 return $this->alert('error', 'Your account is flagged!', [
                     'showCancelButton' =>  false,
-              ]);
+                ]);
             }
 
             if (Auth::user()->staffShip or Auth::id() === $this->task->user->id) {
@@ -91,12 +91,12 @@ class SingleTask extends Component
             } else {
                 return $this->alert('error', 'Forbidden!', [
                     'showCancelButton' =>  false,
-              ]);
+                ]);
             }
         } else {
             return $this->alert('error', 'Forbidden!', [
                 'showCancelButton' =>  false,
-          ]);
+            ]);
         }
     }
 }

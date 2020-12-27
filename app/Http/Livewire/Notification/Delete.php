@@ -19,11 +19,11 @@ class Delete extends Component
 
             return $this->alert('success', 'All notifications has been deleted!', [
                 'showCancelButton' =>  false,
-          ]);
+            ]);
         } else {
             return $this->alert('error', 'Forbidden!', [
                 'showCancelButton' =>  false,
-          ]);
+            ]);
         }
     }
 }

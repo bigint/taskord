@@ -41,7 +41,7 @@ class CreateDeal extends Component
                 Auth::user()->touch();
                 $this->flash('success', 'Deal has been created!', [
                     'showCancelButton' =>  false,
-              ]);
+                ]);
                 activity()
                     ->withProperties(['type' => 'Admin'])
                     ->log('New deal has been created D: '.$deal->id);
@@ -50,12 +50,12 @@ class CreateDeal extends Component
             } else {
                 $this->alert('error', 'Forbidden!', [
                     'showCancelButton' =>  false,
-              ]);
+                ]);
             }
         } else {
             $this->alert('error', 'Forbidden!', [
                 'showCancelButton' =>  false,
-          ]);
+            ]);
         }
     }
 }

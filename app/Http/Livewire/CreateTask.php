@@ -44,7 +44,7 @@ class CreateTask extends Component
         } else {
             return $this->alert('error', 'Forbidden!', [
                 'showCancelButton' =>  false,
-          ]);
+            ]);
         }
     }
 
@@ -61,7 +61,7 @@ class CreateTask extends Component
         } else {
             return $this->alert('error', 'Forbidden!', [
                 'showCancelButton' =>  false,
-          ]);
+            ]);
         }
     }
 
@@ -79,7 +79,7 @@ class CreateTask extends Component
 
             return $this->alert('error', 'Your are rate limited, try again later!', [
                 'showCancelButton' =>  false,
-          ]);
+            ]);
         }
 
         if (Auth::check()) {
@@ -95,13 +95,13 @@ class CreateTask extends Component
             if (! Auth::user()->hasVerifiedEmail()) {
                 return $this->alert('warning', 'Your email is not verified!', [
                     'showCancelButton' =>  false,
-              ]);
+                ]);
             }
 
             if (Auth::user()->isFlagged) {
                 return $this->alert('error', 'Your account is flagged!', [
                     'showCancelButton' =>  false,
-              ]);
+                ]);
             }
 
             $users = Helper::getUserIDFromMention($this->task);
@@ -161,11 +161,11 @@ class CreateTask extends Component
 
             return $this->alert('success', 'Task has been created!', [
                 'showCancelButton' =>  false,
-          ]);
+            ]);
         } else {
             return $this->alert('error', 'Forbidden!', [
                 'showCancelButton' =>  false,
-          ]);
+            ]);
         }
     }
 }
