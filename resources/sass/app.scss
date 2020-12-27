@@ -265,6 +265,10 @@ input[type="color"]:focus,
 
 .dropdown-item:active {
     color: white !important;
+
+    & > [class^='heroicon-'] {
+        color: inherit !important;
+    }
 }
 
 .bg-patron {
