@@ -1,8 +1,8 @@
 import { Modal } from "bootstrap";
-import hotkeys from 'hotkeys-js';
+import hotkeys from "hotkeys-js";
 
 // Admin Bar
-hotkeys('p+b, `', async () => {
+hotkeys("p+b, `", async () => {
   const res = await window.fetch(`/admin/adminbar`);
   if (res.status === 200) {
     location.reload();
@@ -10,7 +10,7 @@ hotkeys('p+b, `', async () => {
 });
 
 // Dark Mode
-hotkeys('d+m', async () => {
+hotkeys("d+m", async () => {
   const res = await window.fetch(`/darkmode`);
   if (res.status === 200) {
     location.reload();
@@ -18,44 +18,44 @@ hotkeys('d+m', async () => {
 });
 
 // Go to home
-hotkeys('g+h', () => {
+hotkeys("g+h", () => {
   window.location.href = "/";
 });
 
 // Go to user profile
-hotkeys('g+u', () => {
+hotkeys("g+u", () => {
   const username = document.getElementById("taskord-username").innerHTML.trim()
   window.location.href = "/@" + username;
 });
 
 // Go to products
-hotkeys('g+p', () => {
+hotkeys("g+p", () => {
   window.location.href = "/products";
 });
 
 // Go to questions
-hotkeys('g+q', () => {
+hotkeys("g+q", () => {
   window.location.href = "/questions";
 });
 
 // Go to notifications
-hotkeys('g+n', () => {
+hotkeys("g+n", () => {
   window.location.href = "/notifications";
 });
 
 // Go to settings
-hotkeys('g+s', () => {
+hotkeys("g+s", () => {
   window.location.href = "/settings";
 });
 
 // Show shortcuts modal
-hotkeys('shift+/', () => {
+hotkeys("shift+/", () => {
   let myModal = new Modal(document.getElementById("shortcutsModal"));
   myModal.show();
 });
 
 // Create new issue in GitLab
-hotkeys('n+i', () => {
+hotkeys("n+i", () => {
   var nAgt = navigator.userAgent;
   var browserName = navigator.appName;
   var fullVersion = "" + parseFloat(navigator.appVersion);
