@@ -18,12 +18,18 @@ class OnlyFollowing extends Component
                     ->log('Toggled only followings tasks in homepage');
 
             if (Auth::user()->onlyFollowingsTasks) {
-                return $this->alert('success', 'Only following users tasks will be vissible!');
+                return $this->alert('success', 'Only following users tasks will be vissible!', [
+                    'showCancelButton' =>  false,
+                ]);
             } else {
-                return $this->alert('success', 'All users tasks will be vissible!');
+                return $this->alert('success', 'All users tasks will be vissible!', [
+                    'showCancelButton' =>  false,
+                ]);
             }
         } else {
-            return $this->alert('error', 'Forbidden!');
+            return $this->alert('error', 'Forbidden!', [
+                'showCancelButton' =>  false,
+            ]);
         }
     }
 }

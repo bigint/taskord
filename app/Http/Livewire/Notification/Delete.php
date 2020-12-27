@@ -17,9 +17,13 @@ class Delete extends Component
                 ->withProperties(['type' => 'Notification'])
                 ->log('Deleted all notifications');
 
-            return $this->alert('success', 'All notifications has been deleted!');
+            return $this->alert('success', 'All notifications has been deleted!', [
+                'showCancelButton' =>  false,
+            ]);
         } else {
-            return $this->alert('error', 'Forbidden!');
+            return $this->alert('error', 'Forbidden!', [
+                'showCancelButton' =>  false,
+            ]);
         }
     }
 }

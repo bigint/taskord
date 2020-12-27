@@ -30,9 +30,13 @@ class Status extends Component
                 ->withProperties(['type' => 'User'])
                 ->log('User status was cleared');
 
-            return $this->alert('success', 'Status cleared successfully!');
+            return $this->alert('success', 'Status cleared successfully!', [
+                'showCancelButton' =>  false,
+            ]);
         } else {
-            return $this->alert('error', 'Forbidden!');
+            return $this->alert('error', 'Forbidden!', [
+                'showCancelButton' =>  false,
+            ]);
         }
     }
 
@@ -40,7 +44,9 @@ class Status extends Component
     {
         if (Auth::check()) {
             if (strlen($event['status_emoji']) === 0) {
-                return $this->alert('warning', 'Select the emoji!');
+                return $this->alert('warning', 'Select the emoji!', [
+                    'showCancelButton' =>  false,
+                ]);
             }
 
             if (strlen($event['status']) !== 0) {
@@ -52,7 +58,9 @@ class Status extends Component
                     ->withProperties(['type' => 'User'])
                     ->log('User status was updated');
 
-                return $this->alert('success', 'Status set successfully!');
+                return $this->alert('success', 'Status set successfully!', [
+                    'showCancelButton' =>  false,
+                ]);
             } else {
                 Auth::user()->status = null;
                 Auth::user()->status_emoji = null;
@@ -62,10 +70,14 @@ class Status extends Component
                     ->withProperties(['type' => 'User'])
                     ->log('User status was cleared');
 
-                return $this->alert('success', 'Status cleared successfully!');
+                return $this->alert('success', 'Status cleared successfully!', [
+                    'showCancelButton' =>  false,
+                ]);
             }
         } else {
-            return $this->alert('error', 'Forbidden!');
+            return $this->alert('error', 'Forbidden!', [
+                'showCancelButton' =>  false,
+            ]);
         }
     }
 

@@ -49,7 +49,9 @@ class Password extends Component
                 $user = Auth::user();
 
                 if (! Hash::check($this->currentPassword, $user->password)) {
-                    return $this->alert('error', 'Current password does not match!');
+                    return $this->alert('error', 'Current password does not match!', [
+                        'showCancelButton' =>  false,
+                    ]);
                 }
 
                 $user->password = Hash::make($this->newPassword);
@@ -58,12 +60,18 @@ class Password extends Component
                     ->withProperties(['type' => 'User'])
                     ->log('Account password was changed');
 
-                return $this->alert('success', 'Your password has been changed!');
+                return $this->alert('success', 'Your password has been changed!', [
+                    'showCancelButton' =>  false,
+                ]);
             } else {
-                return $this->alert('error', 'Forbidden!');
+                return $this->alert('error', 'Forbidden!', [
+                    'showCancelButton' =>  false,
+                ]);
             }
         } else {
-            return $this->alert('error', 'Forbidden!');
+            return $this->alert('error', 'Forbidden!', [
+                'showCancelButton' =>  false,
+            ]);
         }
     }
 }

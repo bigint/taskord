@@ -31,18 +31,26 @@ class Subscribe extends Component
                 ->withProperties(['type' => 'Throttle'])
                 ->log('Rate limited while subscribing to a product');
 
-            return $this->alert('error', 'Your are rate limited, try again later!');
+            return $this->alert('error', 'Your are rate limited, try again later!', [
+                'showCancelButton' =>  false,
+            ]);
         }
 
         if (Auth::check()) {
             if (! Auth::user()->hasVerifiedEmail()) {
-                return $this->alert('warning', 'Your email is not verified!');
+                return $this->alert('warning', 'Your email is not verified!', [
+                    'showCancelButton' =>  false,
+                ]);
             }
             if (Auth::user()->isFlagged) {
-                return $this->alert('error', 'Your account is flagged!');
+                return $this->alert('error', 'Your account is flagged!', [
+                    'showCancelButton' =>  false,
+                ]);
             }
             if (Auth::id() === $this->product->owner->id) {
-                return $this->alert('warning', 'You can\'t subscribe your own product!');
+                return $this->alert('warning', 'You can\'t subscribe your own product!', [
+                    'showCancelButton' =>  false,
+                ]);
             } else {
                 Auth::user()->toggleSubscribe($this->product);
                 $this->product->refresh();
@@ -55,7 +63,9 @@ class Subscribe extends Component
                     ->log('Product subscribe was toggled P: #'.$this->product->slug);
             }
         } else {
-            return $this->alert('error', 'Forbidden!');
+            return $this->alert('error', 'Forbidden!', [
+                'showCancelButton' =>  false,
+            ]);
         }
     }
 
