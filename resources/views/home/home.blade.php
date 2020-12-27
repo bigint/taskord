@@ -147,6 +147,19 @@
         <div class="col-sm">
             @auth
                 @livewire('home.onboarding')
+                <div class="h5 text-muted pb-2">
+                    @php
+                        $hour = Carbon::now()->setTimezone(Auth::user()->timezone)->format('H');
+                    @endphp
+                    Good
+                    <span>
+                        @if ($hour < 12) morning 🌄
+                        @elseif ($hour < 17) afternoon ☀️
+                        @elseif ($hour < 20) evening 🌇
+                        @else night 🌚
+                        @endif
+                    </span>
+                </div>
                 <div class="card mb-4">
                     <div class="card-body">
                         <div class="d-flex align-items-center">
