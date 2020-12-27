@@ -42,9 +42,7 @@ class SearchController extends Controller
                 ->where('task', 'LIKE', '%'.$searchTerm.'%')
                 ->paginate(10)
                 ->onEachSide(1);
-            activity()
-                ->withProperties(['type' => 'Search'])
-                ->log('Searched "'.$searchTerm.'" in tasks');
+
             if (count($tasks) === 0) {
                 $tasks = null;
             }
@@ -74,9 +72,7 @@ class SearchController extends Controller
                 ->where('comment', 'LIKE', '%'.$searchTerm.'%')
                 ->paginate(10)
                 ->onEachSide(1);
-            activity()
-                ->withProperties(['type' => 'Search'])
-                ->log('Searched "'.$searchTerm.'" in comments');
+
             if (count($comments) === 0) {
                 $comments = null;
             }
@@ -105,9 +101,7 @@ class SearchController extends Controller
                 ->where('title', 'LIKE', '%'.$searchTerm.'%')
                 ->paginate(10)
                 ->onEachSide(1);
-            activity()
-                ->withProperties(['type' => 'Search'])
-                ->log('Searched "'.$searchTerm.'" in questions');
+
             if (count($questions) === 0) {
                 $questions = null;
             }
@@ -136,9 +130,7 @@ class SearchController extends Controller
                 ->where('answer', 'LIKE', '%'.$searchTerm.'%')
                 ->paginate(10)
                 ->onEachSide(1);
-            activity()
-                ->withProperties(['type' => 'Search'])
-                ->log('Searched "'.$searchTerm.'" in answers');
+
             if (count($answers) === 0) {
                 $answers = null;
             }
@@ -167,9 +159,7 @@ class SearchController extends Controller
                 ->orWhere('name', 'LIKE', '%'.$searchTerm.'%')
                 ->paginate(10)
                 ->onEachSide(1);
-            activity()
-                ->withProperties(['type' => 'Search'])
-                ->log('Searched "'.$searchTerm.'" in products');
+
             if (count($products) === 0) {
                 $products = null;
             }
@@ -194,9 +184,7 @@ class SearchController extends Controller
                 ->orWhere('lastname', 'LIKE', '%'.$searchTerm.'%')
                 ->paginate(10)
                 ->onEachSide(1);
-            activity()
-                ->withProperties(['type' => 'Search'])
-                ->log('Searched "'.$searchTerm.'" in users');
+
             if (count($users) === 0) {
                 $users = null;
             }
