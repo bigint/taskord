@@ -124,7 +124,7 @@ class Helper
         return $usernames;
     }
 
-    public static function addMentionLinksToMarkdown($markdown, $mentions)
+    public static function parseUserMentionsToMarkdownLinks($markdown, $mentions)
     {
         foreach ($mentions as $user) {
             $markdown = str_replace("@$user", sprintf("[@%s](/@%s)", $user, $user), $markdown);
