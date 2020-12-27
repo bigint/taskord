@@ -96,11 +96,11 @@
             ])
             @endif
             @if ($confirming === $question->id)
-            <button role="button" class="btn btn-task btn-danger me-1" wire:click="deleteQuestion" wire:loading.attr="disabled" wire:offline.attr="disabled">
+            <button role="button" class="btn btn-task btn-danger me-1" wire:click="deleteQuestion" wire:loading.attr="disabled" wire:offline.attr="disabled" aria-label="Confirm Delete">
                 Are you sure?
             </button>
             @else
-            <button role="button" class="btn btn-task btn-outline-danger me-1" wire:click="confirmDelete" wire:loading.attr="disabled" wire:offline.attr="disabled">
+            <button role="button" class="btn btn-task btn-outline-danger me-1" wire:click="confirmDelete" wire:loading.attr="disabled" wire:offline.attr="disabled" aria-label="Delete">
                 <x-heroicon-o-trash class="heroicon-small me-0" />
             </button>
             @endif

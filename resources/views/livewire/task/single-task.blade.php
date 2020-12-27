@@ -158,11 +158,11 @@
             @auth
             @if (Auth::user()->staffShip or Auth::id() === $task->user->id)
                 @if ($confirming === $task->id)
-                <button type="button" class="btn btn-task btn-danger" wire:click="deleteTask" wire:loading.attr="disabled" wire:offline.attr="disabled">
+                <button type="button" class="btn btn-task btn-danger" wire:click="deleteTask" wire:loading.attr="disabled" wire:offline.attr="disabled" aria-label="Confirm Delete">
                     Are you sure?
                 </button>
                 @else
-                <button type="button" class="btn btn-task btn-outline-danger" wire:click="confirmDelete" wire:loading.attr="disabled" wire:offline.attr="disabled">
+                <button type="button" class="btn btn-task btn-outline-danger" wire:click="confirmDelete" wire:loading.attr="disabled" wire:offline.attr="disabled" aria-label="Delete">
                     <x-heroicon-o-trash class="heroicon-small me-0" />
                 </button>
                 @endif
