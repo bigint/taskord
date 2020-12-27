@@ -184,7 +184,6 @@ return [
         CyrildeWit\EloquentViewable\EloquentViewableServiceProvider::class,
         Intervention\Image\ImageServiceProvider::class,
         Propaganistas\LaravelDisposableEmail\DisposableEmailServiceProvider::class,
-        Parsedown\Providers\ParsedownServiceProvider::class,
 
     ],
 

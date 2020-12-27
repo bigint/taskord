@@ -22,7 +22,7 @@
         </span>
     </div>
     <div class="card-body">
-        <div>@parsedown($update->body)</div>
+        <div>{!! Markdown::parse($update->body) !!}</div>
         <div class="mt-2">
             @auth
             @if (!$update->user->isPrivate)
