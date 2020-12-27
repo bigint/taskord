@@ -1,7 +1,8 @@
-import hotkeys from "hotkeys-js";
+import { Modal } from "bootstrap";
+var Mousetrap = require("mousetrap");
 
 // Admin Bar
-hotkeys("`, p+b", async () => {
+Mousetrap.bind(["p b", "`"], async () => {
   const res = await window.fetch(`/admin/adminbar`);
   if (res.status === 200) {
     location.reload();
@@ -9,7 +10,7 @@ hotkeys("`, p+b", async () => {
 });
 
 // Dark Mode
-hotkeys("d+m", async () => {
+Mousetrap.bind("d m", async () => {
   const res = await window.fetch(`/darkmode`);
   if (res.status === 200) {
     location.reload();
@@ -17,36 +18,42 @@ hotkeys("d+m", async () => {
 });
 
 // Go to home
-hotkeys("g+h", () => {
+Mousetrap.bind("g h", () => {
   window.location.href = "/";
 });
 
 // Go to user profile
-hotkeys("g+u", () => {
+Mousetrap.bind("g u", () => {
   const username = document.getElementById("taskord-username").innerHTML.trim()
   window.location.href = "/@" + username;
 });
 
 // Go to products
-hotkeys("g+p", () => {
+Mousetrap.bind("g p", () => {
   window.location.href = "/products";
 });
 
 // Go to questions
-hotkeys("g+q", () => {
+Mousetrap.bind("g q", () => {
   window.location.href = "/questions";
 });
 
 // Go to settings
-hotkeys("g+s", () => {
+Mousetrap.bind("g s", () => {
   window.location.href = "/settings";
+});
+
+// Show shortcuts modal
+Mousetrap.bind("?", () => {
+  let myModal = new Modal(document.getElementById("shortcutsModal"));
+  myModal.show();
 });
 
 // Create new issue in GitLab
 hotkeys("n+i", () => {
   var nAgt = navigator.userAgent;
   var browserName = navigator.appName;
-  var fullVersion = '' + parseFloat(navigator.appVersion);
+  var fullVersion = "" + parseFloat(navigator.appVersion);
   var nameOffset, verOffset, ix;
 
   // In Opera 15+, the true version is after "OPR/"
@@ -84,8 +91,8 @@ hotkeys("n+i", () => {
     fullVersion = nAgt.substring(verOffset + 8);
   }
   // In most other browsers, "name/version" is at the end of userAgent
-  else if ((nameOffset = nAgt.lastIndexOf(' ') + 1) <
-    (verOffset = nAgt.lastIndexOf('/'))) {
+  else if ((nameOffset = nAgt.lastIndexOf(" ") + 1) <
+    (verOffset = nAgt.lastIndexOf("/"))) {
     browserName = nAgt.substring(nameOffset, verOffset);
     fullVersion = nAgt.substring(verOffset + 1);
     if (browserName.toLowerCase() == browserName.toUpperCase()) {
