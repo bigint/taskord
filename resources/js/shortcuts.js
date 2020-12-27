@@ -50,7 +50,7 @@ Mousetrap.bind("?", () => {
 });
 
 // Create new issue in GitLab
-hotkeys("n+i", () => {
+Mousetrap.bind("n i", () => {
   var nAgt = navigator.userAgent;
   var browserName = navigator.appName;
   var fullVersion = "" + parseFloat(navigator.appVersion);
