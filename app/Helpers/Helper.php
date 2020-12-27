@@ -124,17 +124,10 @@ class Helper
         return $usernames;
     }
 
-    public static function addMentionLinksToMarkdown($markdown)
+    public static function addMentionLinksToMarkdown($markdown, $mentions)
     {
-        $mention = false;
-        preg_match_all("/(@\w+)/u", $markdown, $matches);
-        if ($matches) {
-            $mentionsArray = array_count_values($matches[0]);
-            $mention = array_keys($mentionsArray);
-        }
-
-        foreach ($mention as $user) {
-            $markdown = str_replace($user, sprintf("[%s](/%s)", $user, $user), $markdown);
+        foreach ($mentions as $user) {
+            $markdown = str_replace("@$user", sprintf("[@%s](/@%s)", $user, $user), $markdown);
         }
 
         return $markdown;
