@@ -169,11 +169,11 @@
                                 <x-heroicon-o-code class="heroicon-1x text-secondary" />
                                 GitLab
                             </a>
+                            @endif
                             <a class="dropdown-item text-dark cursor-pointer" data-bs-toggle="modal" data-bs-target="#shortcutsModal">
                                 <x-heroicon-o-view-grid class="heroicon-1x text-secondary" />
                                 Shortcuts
                             </a>
-                            @endif
                             <a class="dropdown-item text-dark" href="{{ route('logout') }}"
                                 data-prefetch="false"
                                 onclick="event.preventDefault();
