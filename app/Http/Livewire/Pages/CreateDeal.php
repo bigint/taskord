@@ -39,17 +39,23 @@ class CreateDeal extends Component
                     'logo' => $this->logo,
                 ]);
                 Auth::user()->touch();
-                $this->alert('success', 'Deal has been created!');
+                $this->flash('success', 'Deal has been created!', [
+                    'showCancelButton' =>  false,
+              ]);
                 activity()
                     ->withProperties(['type' => 'Admin'])
                     ->log('New deal has been created D: '.$deal->id);
 
                 return redirect()->route('deals');
             } else {
-                $this->alert('error', 'Forbidden!');
+                $this->alert('error', 'Forbidden!', [
+                    'showCancelButton' =>  false,
+              ]);
             }
         } else {
-            $this->alert('error', 'Forbidden!');
+            $this->alert('error', 'Forbidden!', [
+                'showCancelButton' =>  false,
+          ]);
         }
     }
 }
