@@ -52,9 +52,7 @@ class EditProduct extends Component
                 'avatar' => 'nullable|mimes:jpeg,jpg,png,gif|max:1024',
             ]);
         } else {
-            return $this->alert('error', 'Forbidden!', [
-                'showCancelButton' =>  false,
-            ]);
+            return $this->alert('error', 'Forbidden!');
         }
     }
 
@@ -74,9 +72,7 @@ class EditProduct extends Component
             ]);
 
             if (Auth::user()->isFlagged) {
-                return $this->alert('error', 'Your account is flagged!', [
-                    'showCancelButton' =>  false,
-                ]);
+                return $this->alert('error', 'Your account is flagged!');
             }
 
             $product = Product::where('id', $this->product->id)->firstOrFail();
@@ -112,23 +108,17 @@ class EditProduct extends Component
                 $product->save();
                 Auth::user()->touch();
 
-                $this->flash('success', 'Product has been updated!', [
-                    'showCancelButton' =>  false,
-                ]);
+                $this->flash('success', 'Product has been updated!');
                 activity()
                     ->withProperties(['type' => 'Product'])
                     ->log('Product has been updated P: #'.$this->product->slug);
 
                 return redirect()->route('product.done', ['slug' => $product->slug]);
             } else {
-                $this->alert('error', 'Forbidden!', [
-                    'showCancelButton' =>  false,
-                ]);
+                $this->alert('error', 'Forbidden!');
             }
         } else {
-            $this->alert('error', 'Forbidden!', [
-                'showCancelButton' =>  false,
-            ]);
+            $this->alert('error', 'Forbidden!');
         }
     }
 
@@ -141,15 +131,11 @@ class EditProduct extends Component
     {
         if (Auth::check()) {
             if (! Auth::user()->hasVerifiedEmail()) {
-                return $this->alert('warning', 'Your email is not verified!', [
-                    'showCancelButton' =>  false,
-                ]);
+                return $this->alert('warning', 'Your email is not verified!');
             }
 
             if (Auth::user()->isFlagged) {
-                return $this->alert('error', 'Your account is flagged!', [
-                    'showCancelButton' =>  false,
-                ]);
+                return $this->alert('error', 'Your account is flagged!');
             }
 
             if (Auth::user()->staffShip or Auth::id() === $this->product->owner->id) {
@@ -164,20 +150,14 @@ class EditProduct extends Component
                 $this->product->webhooks()->delete();
                 $this->product->delete();
                 Auth::user()->touch();
-                $this->flash('success', 'Product has been deleted!', [
-                    'showCancelButton' =>  false,
-                ]);
+                $this->flash('success', 'Product has been deleted!');
 
                 return redirect()->route('products.newest');
             } else {
-                $this->alert('error', 'Forbidden!', [
-                    'showCancelButton' =>  false,
-                ]);
+                $this->alert('error', 'Forbidden!');
             }
         } else {
-            return $this->alert('error', 'Forbidden!', [
-                'showCancelButton' =>  false,
-            ]);
+            return $this->alert('error', 'Forbidden!');
         }
     }
 }

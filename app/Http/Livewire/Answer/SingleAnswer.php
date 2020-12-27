@@ -31,35 +31,25 @@ class SingleAnswer extends Component
                 ->withProperties(['type' => 'Throttle'])
                 ->log('Rate limited while praising the answer');
 
-            return $this->alert('error', 'Your are rate limited, try again later!', [
-                'showCancelButton' =>  false,
-            ]);
+            return $this->alert('error', 'Your are rate limited, try again later!');
         }
 
         if (Auth::check()) {
             if (! Auth::user()->hasVerifiedEmail()) {
-                return $this->alert('warning', 'Your email is not verified!', [
-                    'showCancelButton' =>  false,
-                ]);
+                return $this->alert('warning', 'Your email is not verified!');
             }
             if (Auth::user()->isFlagged) {
-                return $this->alert('error', 'Your account is flagged!', [
-                    'showCancelButton' =>  false,
-                ]);
+                return $this->alert('error', 'Your account is flagged!');
             }
             if (Auth::id() === $this->answer->user->id) {
-                return $this->alert('warning', 'You can\'t praise your own answer!', [
-                    'showCancelButton' =>  false,
-                ]);
+                return $this->alert('warning', 'You can\'t praise your own answer!');
             }
             Helper::togglePraise($this->answer, 'ANSWER');
             activity()
                 ->withProperties(['type' => 'Answer'])
                 ->log('Answer praise was toggled A: '.$this->answer->id);
         } else {
-            return $this->alert('error', 'Forbidden!', [
-                'showCancelButton' =>  false,
-            ]);
+            return $this->alert('error', 'Forbidden!');
         }
     }
 
@@ -72,18 +62,12 @@ class SingleAnswer extends Component
                     ->withProperties(['type' => 'Admin'])
                     ->log('Answer hide was toggled A: '.$this->answer->id);
 
-                return $this->alert('success', 'Answer is hidden from public!', [
-                    'showCancelButton' =>  false,
-                ]);
+                return $this->alert('success', 'Answer is hidden from public!');
             } else {
-                return $this->alert('error', 'Forbidden!', [
-                    'showCancelButton' =>  false,
-                ]);
+                return $this->alert('error', 'Forbidden!');
             }
         } else {
-            return $this->alert('error', 'Forbidden!', [
-                'showCancelButton' =>  false,
-            ]);
+            return $this->alert('error', 'Forbidden!');
         }
     }
 
@@ -96,9 +80,7 @@ class SingleAnswer extends Component
     {
         if (Auth::check()) {
             if (Auth::user()->isFlagged) {
-                return $this->alert('error', 'Your account is flagged!', [
-                    'showCancelButton' =>  false,
-                ]);
+                return $this->alert('error', 'Your account is flagged!');
             }
 
             if (Auth::user()->staffShip or Auth::id() === $this->answer->user->id) {
@@ -109,18 +91,12 @@ class SingleAnswer extends Component
                 $this->emit('answerDeleted');
                 Auth::user()->touch();
 
-                return $this->alert('success', 'Answer has been deleted successfully!', [
-                    'showCancelButton' =>  false,
-                ]);
+                return $this->alert('success', 'Answer has been deleted successfully!');
             } else {
-                $this->alert('error', 'Forbidden!', [
-                    'showCancelButton' =>  false,
-                ]);
+                $this->alert('error', 'Forbidden!');
             }
         } else {
-            return $this->alert('error', 'Forbidden!', [
-                'showCancelButton' =>  false,
-            ]);
+            return $this->alert('error', 'Forbidden!');
         }
     }
 }

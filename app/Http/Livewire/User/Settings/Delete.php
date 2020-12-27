@@ -23,9 +23,7 @@ class Delete extends Component
         if (Auth::check()) {
             $this->reset_confirming = $this->user->id;
         } else {
-            return $this->alert('error', 'Forbidden!', [
-                'showCancelButton' =>  false,
-            ]);
+            return $this->alert('error', 'Forbidden!');
         }
     }
 
@@ -65,18 +63,12 @@ class Delete extends Component
                 $user->notifications()->delete();
                 $user->likes()->delete();
 
-                return $this->alert('success', 'Your account has been resetted!', [
-                    'showCancelButton' =>  false,
-                ]);
+                return $this->alert('success', 'Your account has been resetted!');
             } else {
-                return $this->alert('error', 'Forbidden!', [
-                    'showCancelButton' =>  false,
-                ]);
+                return $this->alert('error', 'Forbidden!');
             }
         } else {
-            return $this->alert('error', 'Forbidden!', [
-                'showCancelButton' =>  false,
-            ]);
+            return $this->alert('error', 'Forbidden!');
         }
     }
 
@@ -85,9 +77,7 @@ class Delete extends Component
         if (Auth::check()) {
             $this->delete_confirming = $this->user->id;
         } else {
-            return $this->alert('error', 'Forbidden!', [
-                'showCancelButton' =>  false,
-            ]);
+            return $this->alert('error', 'Forbidden!');
         }
     }
 
@@ -130,14 +120,10 @@ class Delete extends Component
 
                 return redirect()->route('home');
             } else {
-                return $this->alert('error', 'Forbidden!', [
-                    'showCancelButton' =>  false,
-                ]);
+                return $this->alert('error', 'Forbidden!');
             }
         } else {
-            return $this->alert('error', 'Forbidden!', [
-                'showCancelButton' =>  false,
-            ]);
+            return $this->alert('error', 'Forbidden!');
         }
     }
 }

@@ -26,9 +26,7 @@ class Leave extends Component
                 ->withProperties(['type' => 'Product'])
                 ->log('Product member left the team P: #'.$this->product->slug.'U: @'.Auth::user()->username);
 
-            $this->flash('success', 'You are no longer member of the team!', [
-                'showCancelButton' =>  false,
-            ]);
+            $this->flash('success', 'You are no longer member of the team!');
 
             return redirect()->route('product.done', ['slug' => $this->product->slug]);
         }

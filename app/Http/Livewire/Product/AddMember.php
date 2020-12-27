@@ -22,33 +22,23 @@ class AddMember extends Component
         if (Auth::check()) {
             $user = User::where('username', $this->username)->first();
             if ($user === null) {
-                return $this->alert('error', 'User does not exists', [
-                    'showCancelButton' =>  false,
-                ]);
+                return $this->alert('error', 'User does not exists');
             }
             if ($user->products->contains($this->product) or $user->id === $this->product->owner->id) {
-                return $this->alert('error', 'User is already in the team', [
-                    'showCancelButton' =>  false,
-                ]);
+                return $this->alert('error', 'User is already in the team');
             }
             if (Auth::user()->username === $this->username) {
-                return $this->alert('error', 'You can\'t add yourself to the team!', [
-                    'showCancelButton' =>  false,
-                ]);
+                return $this->alert('error', 'You can\'t add yourself to the team!');
             }
             $user->products()->attach($this->product);
-            $this->alert('success', 'User has been added to the team!', [
-                'showCancelButton' =>  false,
-            ]);
+            $this->alert('success', 'User has been added to the team!');
             $user->notify(new MemberAdded($this->product, Auth::id()));
             activity()
                 ->withProperties(['type' => 'Product'])
                 ->log('New member was added to the team P: #'.$this->product->slug.' U: @'.$user->username);
             $this->username = '';
 
-            return $this->alert('success', 'User has been added to the team!', [
-                'showCancelButton' =>  false,
-            ]);
+            return $this->alert('success', 'User has been added to the team!');
         }
     }
 }

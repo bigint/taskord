@@ -28,15 +28,11 @@ class NewUpdate extends Component
             ]);
 
             if (! Auth::user()->hasVerifiedEmail()) {
-                return $this->alert('warning', 'Your email is not verified!', [
-                    'showCancelButton' =>  false,
-                ]);
+                return $this->alert('warning', 'Your email is not verified!');
             }
 
             if (Auth::user()->isFlagged) {
-                return $this->alert('error', 'Your account is flagged!', [
-                    'showCancelButton' =>  false,
-                ]);
+                return $this->alert('error', 'Your account is flagged!');
             }
 
             $update = ProductUpdate::create([
@@ -54,15 +50,11 @@ class NewUpdate extends Component
                 ->withProperties(['type' => 'Product'])
                 ->log('New product update has been created P: '.$this->product->id.' PU: '.$update->id);
 
-            $this->flash('success', 'New Update has been created!', [
-                'showCancelButton' =>  false,
-            ]);
+            $this->flash('success', 'New Update has been created!');
 
             return redirect()->route('product.updates', ['slug' => $update->product->slug]);
         } else {
-            $this->alert('error', 'Forbidden!', [
-                'showCancelButton' =>  false,
-            ]);
+            $this->alert('error', 'Forbidden!');
         }
     }
 }

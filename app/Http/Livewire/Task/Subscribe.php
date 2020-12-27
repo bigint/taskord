@@ -34,26 +34,18 @@ class Subscribe extends Component
                 ->withProperties(['type' => 'Throttle'])
                 ->log('Rate limited while subscribing to the task');
 
-            return $this->alert('error', 'Your are rate limited, try again later!', [
-                'showCancelButton' =>  false,
-            ]);
+            return $this->alert('error', 'Your are rate limited, try again later!');
         }
 
         if (Auth::check()) {
             if (! Auth::user()->hasVerifiedEmail()) {
-                return $this->alert('warning', 'Your email is not verified!', [
-                    'showCancelButton' =>  false,
-                ]);
+                return $this->alert('warning', 'Your email is not verified!');
             }
             if (Auth::user()->isFlagged) {
-                return $this->alert('error', 'Your account is flagged!', [
-                    'showCancelButton' =>  false,
-                ]);
+                return $this->alert('error', 'Your account is flagged!');
             }
             if (Auth::id() === $this->task->user->id) {
-                return $this->alert('warning', 'You can\'t subscribe your own task!', [
-                    'showCancelButton' =>  false,
-                ]);
+                return $this->alert('warning', 'You can\'t subscribe your own task!');
             } else {
                 Auth::user()->toggleSubscribe($this->task);
                 $this->task->refresh();
@@ -63,9 +55,7 @@ class Subscribe extends Component
                     ->log('Task subscribe was toggled T: '.$this->task->id);
             }
         } else {
-            return $this->alert('error', 'Forbidden!', [
-                'showCancelButton' =>  false,
-            ]);
+            return $this->alert('error', 'Forbidden!');
         }
     }
 

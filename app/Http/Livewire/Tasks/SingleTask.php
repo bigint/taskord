@@ -35,9 +35,7 @@ class SingleTask extends Component
                 ->withProperties(['type' => 'Throttle'])
                 ->log('Rate limited while praising the task');
 
-            return $this->alert('error', 'Your are rate limited, try again later!', [
-                'showCancelButton' =>  false,
-            ]);
+            return $this->alert('error', 'Your are rate limited, try again later!');
         }
 
         if (Auth::check()) {
@@ -58,9 +56,7 @@ class SingleTask extends Component
 
             return true;
         } else {
-            return $this->alert('error', 'Forbidden!', [
-                'showCancelButton' =>  false,
-            ]);
+            return $this->alert('error', 'Forbidden!');
         }
     }
 
@@ -73,9 +69,7 @@ class SingleTask extends Component
     {
         if (Auth::check()) {
             if (Auth::user()->isFlagged) {
-                return $this->alert('error', 'Your account is flagged!', [
-                    'showCancelButton' =>  false,
-                ]);
+                return $this->alert('error', 'Your account is flagged!');
             }
 
             if (Auth::user()->staffShip or Auth::id() === $this->task->user->id) {
@@ -89,14 +83,10 @@ class SingleTask extends Component
                 $this->emitUp('taskDeleted');
                 Auth::user()->touch();
             } else {
-                return $this->alert('error', 'Forbidden!', [
-                    'showCancelButton' =>  false,
-                ]);
+                return $this->alert('error', 'Forbidden!');
             }
         } else {
-            return $this->alert('error', 'Forbidden!', [
-                'showCancelButton' =>  false,
-            ]);
+            return $this->alert('error', 'Forbidden!');
         }
     }
 }

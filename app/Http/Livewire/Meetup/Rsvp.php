@@ -30,35 +30,25 @@ class Rsvp extends Component
                 ->withProperties(['type' => 'Throttle'])
                 ->log('Rate limited while toggling RSVP');
 
-            return $this->alert('error', 'Your are rate limited, try again later!', [
-                'showCancelButton' =>  false,
-            ]);
+            return $this->alert('error', 'Your are rate limited, try again later!');
         }
 
         if (Auth::check()) {
             if (! Auth::user()->hasVerifiedEmail()) {
-                return $this->alert('warning', 'Your email is not verified!', [
-                    'showCancelButton' =>  false,
-                ]);
+                return $this->alert('warning', 'Your email is not verified!');
             }
             if (Auth::user()->isFlagged) {
-                return $this->alert('error', 'Your account is flagged!', [
-                    'showCancelButton' =>  false,
-                ]);
+                return $this->alert('error', 'Your account is flagged!');
             }
             if (Auth::id() === $this->meetup->user_id) {
-                return $this->alert('warning', 'You can\'t RSVP your own meetup!', [
-                    'showCancelButton' =>  false,
-                ]);
+                return $this->alert('warning', 'You can\'t RSVP your own meetup!');
             } else {
                 Auth::user()->toggleSubscribe($this->meetup);
                 $this->meetup->refresh();
                 Auth::user()->touch();
             }
         } else {
-            return $this->alert('error', 'Forbidden!', [
-                'showCancelButton' =>  false,
-            ]);
+            return $this->alert('error', 'Forbidden!');
         }
     }
 }

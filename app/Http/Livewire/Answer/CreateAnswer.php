@@ -27,9 +27,7 @@ class CreateAnswer extends Component
                 'answer' => 'required',
             ]);
         } else {
-            $this->alert('error', 'Forbidden!', [
-                'showCancelButton' =>  false,
-            ]);
+            $this->alert('error', 'Forbidden!');
         }
     }
 
@@ -41,15 +39,11 @@ class CreateAnswer extends Component
             ]);
 
             if (! Auth::user()->hasVerifiedEmail()) {
-                return $this->alert('warning', 'Your email is not verified!', [
-                    'showCancelButton' =>  false,
-                ]);
+                return $this->alert('warning', 'Your email is not verified!');
             }
 
             if (Auth::user()->isFlagged) {
-                return $this->alert('error', 'Your account is flagged!', [
-                    'showCancelButton' =>  false,
-                ]);
+                return $this->alert('error', 'Your account is flagged!');
             }
 
             $users = Helper::getUserIDFromMention($this->answer);
@@ -81,13 +75,9 @@ class CreateAnswer extends Component
                 ->withProperties(['type' => 'Answer'])
                 ->log('New answer has been created U: @'.$this->question->user->username.' A: '.$answer->id);
 
-            return $this->alert('success', 'Answer has been added!', [
-                'showCancelButton' =>  false,
-            ]);
+            return $this->alert('success', 'Answer has been added!');
         } else {
-            $this->alert('error', 'Forbidden!', [
-                'showCancelButton' =>  false,
-            ]);
+            $this->alert('error', 'Forbidden!');
         }
     }
 

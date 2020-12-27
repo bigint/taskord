@@ -22,15 +22,11 @@ class CreateQuestion extends Component
             ]);
 
             if (! Auth::user()->hasVerifiedEmail()) {
-                return $this->alert('warning', 'Your email is not verified!', [
-                    'showCancelButton' =>  false,
-                ]);
+                return $this->alert('warning', 'Your email is not verified!');
             }
 
             if (Auth::user()->isFlagged) {
-                return $this->alert('error', 'Your account is flagged!', [
-                    'showCancelButton' =>  false,
-                ]);
+                return $this->alert('error', 'Your account is flagged!');
             }
 
             $patronOnly = ! $this->patronOnly ? false : true;
@@ -47,15 +43,11 @@ class CreateQuestion extends Component
             activity()
                 ->withProperties(['type' => 'Question'])
                 ->log('New question has been created Q: '.$question->id);
-            $this->flash('success', 'Question has been created!', [
-                'showCancelButton' =>  false,
-            ]);
+            $this->flash('success', 'Question has been created!');
 
             return redirect()->route('question.question', ['id' => $question->id]);
         } else {
-            $this->alert('error', 'Forbidden!', [
-                'showCancelButton' =>  false,
-            ]);
+            $this->alert('error', 'Forbidden!');
         }
     }
 }
