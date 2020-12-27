@@ -13,6 +13,8 @@
 .phpunit.result.cache
 Homestead.json
 Homestead.yaml
+package-lock.json
+yarn.lock
 npm-debug.log
 yarn-error.log
 /public/phpminiadmin.php
