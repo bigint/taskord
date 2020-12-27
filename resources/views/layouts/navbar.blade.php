@@ -197,7 +197,7 @@
 </nav>
 
 <div class="modal fade" id="shortcutsModal" tabindex="-1" aria-labelledby="shortcutsModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
+    <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="shortcutsModalLabel">Keyboard shortcuts</h5>
@@ -206,7 +206,8 @@
             <div class="modal-body" id="shortcutsModalBody">
                 <div class="spinner-border text-primary" role="status"></div>
             </div>
-            <div class="modal-footer">
+            <div class="d-flex justify-content-between modal-footer">
+                <x-beta background="light" />
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
             </div>
         </div>
