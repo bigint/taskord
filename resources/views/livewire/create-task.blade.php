@@ -11,8 +11,10 @@
             <form wire:submit.prevent="submit">
                 <div class="input-group mb-3">
                     <div class="input-group-text">
+                        <label for="checkState" class="form-label d-none">Upload Images</label>
                         <input
                             class="form-check-input task-checkbox"
+                            id="checkState"
                             type="checkbox"
                             wire:click="checkState"
                             wire:loading.attr="disabled"
