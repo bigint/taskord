@@ -57,7 +57,7 @@
         <div class="mt-3">
             @auth
             @if (Auth::user()->hasLiked($question))
-                <button role="button" class="btn btn-task btn-success text-white me-1" wire:click="togglePraise" wire:loading.attr="disabled" wire:offline.attr="disabled">
+                <button role="button" class="btn btn-task btn-success text-white me-1" wire:click="togglePraise" wire:loading.attr="disabled" wire:offline.attr="disabled" aria-label="Praises">
                     <x-heroicon-s-thumb-up class="heroicon-small me-0" />
                     <span class="small text-white fw-bold">
                         {{ number_format($question->likerscount()) }}
