@@ -62,8 +62,9 @@ Route::group(['middleware' => ['throttle:30,1']], function () {
         Route::get('api', [UserController::class, 'apiSettings'])->name('api');
         Route::get('logs', [UserController::class, 'logsSettings'])->name('logs');
         Route::get('data', [UserController::class, 'dataSettings'])->name('data');
-        Route::get('export', [UserController::class, 'exportAccount'])->name('export');
         Route::get('delete', [UserController::class, 'deleteSettings'])->name('delete');
+        Route::get('export/account', [UserController::class, 'exportAccount'])->name('export.account');
+        Route::get('export/logs', [UserController::class, 'exportLogs'])->name('export.logs');
     });
 
     // Notifications

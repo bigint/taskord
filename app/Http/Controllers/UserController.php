@@ -14,6 +14,7 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use Spatie\Activitylog\Models\Activity;
 
 class UserController extends Controller
 {
@@ -169,6 +170,31 @@ class UserController extends Controller
             activity()
                 ->withProperties(['type' => 'User'])
                 ->log('Exported the account data');
+
+            return $response;
+        } else {
+            return $this->alert('error', 'Forbidden!', [
+                'showCancelButton' =>  false,
+            ]);
+        }
+    }
+
+    public function exportLogs()
+    {
+        if (Auth::check()) {
+            $logs = Activity::causedBy(Auth::user());
+            $data = collect([
+                'logs' => $logs,
+            ])->toJson(JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
+
+            $file_name = Carbon::now()->format('d_m_Y_h_i_s').'_'.Auth::user()->username.'_logs.json';
+            $response = response($data, 200, [
+                'Content-Type' => 'application/json',
+                'Content-Disposition' => 'attachment; filename="'.$file_name.'"',
+            ]);
+            activity()
+                ->withProperties(['type' => 'User'])
+                ->log('Exported the account logs');
 
             return $response;
         } else {
