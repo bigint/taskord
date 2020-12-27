@@ -34,24 +34,24 @@ class SingleUpdate extends Component
 
             return $this->alert('error', 'Your are rate limited, try again later!', [
                 'showCancelButton' =>  false,
-          ]);
+            ]);
         }
 
         if (Auth::check()) {
             if (! Auth::user()->hasVerifiedEmail()) {
                 return $this->alert('warning', 'Your email is not verified!', [
                     'showCancelButton' =>  false,
-              ]);
+                ]);
             }
             if (Auth::user()->isFlagged) {
                 return $this->alert('error', 'Your account is flagged!', [
                     'showCancelButton' =>  false,
-              ]);
+                ]);
             }
             if (Auth::id() === $this->update->user->id) {
                 return $this->alert('warning', 'You can\'t praise your own update!', [
                     'showCancelButton' =>  false,
-              ]);
+                ]);
             }
             if (Auth::user()->hasLiked($this->update)) {
                 Auth::user()->unlike($this->update);
@@ -67,7 +67,7 @@ class SingleUpdate extends Component
         } else {
             return $this->alert('error', 'Forbidden!', [
                 'showCancelButton' =>  false,
-          ]);
+            ]);
         }
     }
 
@@ -82,7 +82,7 @@ class SingleUpdate extends Component
             if (Auth::user()->isFlagged) {
                 return $this->alert('error', 'Your account is flagged!', [
                     'showCancelButton' =>  false,
-              ]);
+                ]);
             }
 
             if (Auth::user()->staffShip or Auth::id() === $this->update->user->id) {
@@ -94,12 +94,12 @@ class SingleUpdate extends Component
             } else {
                 return $this->alert('error', 'Forbidden!', [
                     'showCancelButton' =>  false,
-              ]);
+                ]);
             }
         } else {
             return $this->alert('error', 'Forbidden!', [
                 'showCancelButton' =>  false,
-          ]);
+            ]);
         }
     }
 }

@@ -33,24 +33,24 @@ class Subscribe extends Component
 
             return $this->alert('error', 'Your are rate limited, try again later!', [
                 'showCancelButton' =>  false,
-          ]);
+            ]);
         }
 
         if (Auth::check()) {
             if (! Auth::user()->hasVerifiedEmail()) {
                 return $this->alert('warning', 'Your email is not verified!', [
                     'showCancelButton' =>  false,
-              ]);
+                ]);
             }
             if (Auth::user()->isFlagged) {
                 return $this->alert('error', 'Your account is flagged!', [
                     'showCancelButton' =>  false,
-              ]);
+                ]);
             }
             if (Auth::id() === $this->product->owner->id) {
                 return $this->alert('warning', 'You can\'t subscribe your own product!', [
                     'showCancelButton' =>  false,
-              ]);
+                ]);
             } else {
                 Auth::user()->toggleSubscribe($this->product);
                 $this->product->refresh();
@@ -65,7 +65,7 @@ class Subscribe extends Component
         } else {
             return $this->alert('error', 'Forbidden!', [
                 'showCancelButton' =>  false,
-          ]);
+            ]);
         }
     }
 

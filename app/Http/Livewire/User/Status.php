@@ -32,11 +32,11 @@ class Status extends Component
 
             return $this->alert('success', 'Status cleared successfully!', [
                 'showCancelButton' =>  false,
-          ]);
+            ]);
         } else {
             return $this->alert('error', 'Forbidden!', [
                 'showCancelButton' =>  false,
-          ]);
+            ]);
         }
     }
 
@@ -46,7 +46,7 @@ class Status extends Component
             if (strlen($event['status_emoji']) === 0) {
                 return $this->alert('warning', 'Select the emoji!', [
                     'showCancelButton' =>  false,
-              ]);
+                ]);
             }
 
             if (strlen($event['status']) !== 0) {
@@ -60,7 +60,7 @@ class Status extends Component
 
                 return $this->alert('success', 'Status set successfully!', [
                     'showCancelButton' =>  false,
-              ]);
+                ]);
             } else {
                 Auth::user()->status = null;
                 Auth::user()->status_emoji = null;
@@ -72,12 +72,12 @@ class Status extends Component
 
                 return $this->alert('success', 'Status cleared successfully!', [
                     'showCancelButton' =>  false,
-              ]);
+                ]);
             }
         } else {
             return $this->alert('error', 'Forbidden!', [
                 'showCancelButton' =>  false,
-          ]);
+            ]);
         }
     }
 

@@ -33,25 +33,25 @@ class SingleComment extends Component
 
             return $this->alert('error', 'Your are rate limited, try again later!', [
                 'showCancelButton' =>  false,
-          ]);
+            ]);
         }
 
         if (Auth::check()) {
             if (! Auth::user()->hasVerifiedEmail()) {
                 return $this->alert('warning', 'Your email is not verified!', [
                     'showCancelButton' =>  false,
-              ]);
+                ]);
             }
 
             if (Auth::user()->isFlagged) {
                 return $this->alert('error', 'Your account is flagged!', [
                     'showCancelButton' =>  false,
-              ]);
+                ]);
             }
             if (Auth::id() === $this->comment->user->id) {
                 return $this->alert('warning', 'You can\'t praise your own comment!', [
                     'showCancelButton' =>  false,
-              ]);
+                ]);
             }
             Helper::togglePraise($this->comment, 'COMMENT');
             activity()
@@ -60,7 +60,7 @@ class SingleComment extends Component
         } else {
             return $this->alert('error', 'Forbidden!', [
                 'showCancelButton' =>  false,
-          ]);
+            ]);
         }
     }
 
@@ -75,16 +75,16 @@ class SingleComment extends Component
 
                 return $this->alert('success', 'Comment is hidden from public!', [
                     'showCancelButton' =>  false,
-              ]);
+                ]);
             } else {
                 return $this->alert('error', 'Forbidden!', [
                     'showCancelButton' =>  false,
-              ]);
+                ]);
             }
         } else {
             return $this->alert('error', 'Forbidden!', [
                 'showCancelButton' =>  false,
-          ]);
+            ]);
         }
     }
 
@@ -99,7 +99,7 @@ class SingleComment extends Component
             if (Auth::user()->isFlagged) {
                 return $this->alert('error', 'Your account is flagged!', [
                     'showCancelButton' =>  false,
-              ]);
+                ]);
             }
             if (Auth::user()->staffShip or Auth::id() === $this->comment->user->id) {
                 activity()
@@ -111,16 +111,16 @@ class SingleComment extends Component
 
                 return $this->alert('success', 'Comment has been deleted successfully!', [
                     'showCancelButton' =>  false,
-              ]);
+                ]);
             } else {
                 return $this->alert('error', 'Forbidden!', [
                     'showCancelButton' =>  false,
-              ]);
+                ]);
             }
         } else {
             return $this->alert('error', 'Forbidden!', [
                 'showCancelButton' =>  false,
-          ]);
+            ]);
         }
     }
 }

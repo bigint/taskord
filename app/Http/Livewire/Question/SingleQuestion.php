@@ -35,25 +35,25 @@ class SingleQuestion extends Component
 
             return $this->alert('error', 'Your are rate limited, try again later!', [
                 'showCancelButton' =>  false,
-          ]);
+            ]);
         }
 
         if (Auth::check()) {
             if (! Auth::user()->hasVerifiedEmail()) {
                 return $this->alert('warning', 'Your email is not verified!', [
                     'showCancelButton' =>  false,
-              ]);
+                ]);
             }
 
             if (Auth::user()->isFlagged) {
                 return $this->alert('error', 'Your account is flagged!', [
                     'showCancelButton' =>  false,
-              ]);
+                ]);
             }
             if (Auth::id() === $this->question->user->id) {
                 return $this->alert('warning', 'You can\'t praise your own question!', [
                     'showCancelButton' =>  false,
-              ]);
+                ]);
             }
             Helper::togglePraise($this->question, 'QUESTION');
             activity()
@@ -62,7 +62,7 @@ class SingleQuestion extends Component
         } else {
             return $this->alert('error', 'Forbidden!', [
                 'showCancelButton' =>  false,
-          ]);
+            ]);
         }
     }
 
@@ -77,16 +77,16 @@ class SingleQuestion extends Component
 
                 return $this->alert('success', 'Question is hidden from public!', [
                     'showCancelButton' =>  false,
-              ]);
+                ]);
             } else {
                 return $this->alert('error', 'Forbidden!', [
                     'showCancelButton' =>  false,
-              ]);
+                ]);
             }
         } else {
             return $this->alert('error', 'Forbidden!', [
                 'showCancelButton' =>  false,
-          ]);
+            ]);
         }
     }
 
@@ -101,7 +101,7 @@ class SingleQuestion extends Component
             if (Auth::user()->isFlagged) {
                 return $this->alert('error', 'Your account is flagged!', [
                     'showCancelButton' =>  false,
-              ]);
+                ]);
             }
 
             if (Auth::user()->staffShip or Auth::id() === $this->question->user_id) {
@@ -112,18 +112,18 @@ class SingleQuestion extends Component
                 Auth::user()->touch();
                 $this->flash('success', 'Question has been deleted successfully!', [
                     'showCancelButton' =>  false,
-              ]);
+                ]);
 
                 return redirect()->route('questions.newest');
             } else {
                 $this->alert('error', 'Forbidden!', [
                     'showCancelButton' =>  false,
-              ]);
+                ]);
             }
         } else {
             return $this->alert('error', 'Forbidden!', [
                 'showCancelButton' =>  false,
-          ]);
+            ]);
         }
     }
 }

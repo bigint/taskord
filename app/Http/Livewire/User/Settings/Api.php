@@ -37,7 +37,7 @@ class Api extends Component
 
             return $this->alert('error', 'Your are rate limited, try again later!', [
                 'showCancelButton' =>  false,
-          ]);
+            ]);
         }
 
         if (Auth::check()) {
@@ -51,16 +51,16 @@ class Api extends Component
 
                 return $this->alert('success', 'New API key been generated successfully', [
                     'showCancelButton' =>  false,
-              ]);
+                ]);
             } else {
                 return $this->alert('error', 'Forbidden!', [
                     'showCancelButton' =>  false,
-              ]);
+                ]);
             }
         } else {
             return $this->alert('error', 'Forbidden!', [
                 'showCancelButton' =>  false,
-          ]);
+            ]);
         }
     }
 
