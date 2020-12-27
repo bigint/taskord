@@ -22,7 +22,6 @@
         "@joeattardi/emoji-button": "^4.6.0",
         "bootstrap": "^5.0.0-beta1",
         "livewire-turbolinks": "^0.1.1",
-        "mousetrap": "^1.6.5",
         "observe-element-in-viewport": "0.0.15",
         "tippy.js": "^6.2.7",
         "tributejs": "^5.1.3",
