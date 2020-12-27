@@ -54,6 +54,10 @@ class CreateAnswer extends Component
 
             $users = Helper::getUserIDFromMention($this->answer);
 
+            if ($users) {
+                $this->answer = Helper::addMentionLinksToMarkdown($this->answer);
+            }
+
             $answer = Answer::create([
                 'user_id' =>  Auth::id(),
                 'question_id' =>  $this->question->id,
