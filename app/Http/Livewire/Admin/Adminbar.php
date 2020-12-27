@@ -37,7 +37,9 @@ class Adminbar extends Component
             ->withProperties(['type' => 'Admin'])
             ->log('Cleaned the Taskord Application');
 
-        return $this->alert('success', 'Cleaning process has been initiated successfully 🧼');
+        return $this->alert('success', 'Cleaning process has been initiated successfully 🧼', [
+            'showCancelButton' =>  false,
+        ]);
     }
 
     public function render()

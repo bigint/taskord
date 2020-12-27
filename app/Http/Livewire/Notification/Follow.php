@@ -31,15 +31,21 @@ class Follow extends Component
                 ->withProperties(['type' => 'Throttle'])
                 ->log('Rate limited while following the user');
 
-            return $this->alert('error', 'Your are rate limited, try again later!');
+            return $this->alert('error', 'Your are rate limited, try again later!', [
+                'showCancelButton' =>  false,
+            ]);
         }
 
         if (Auth::check()) {
             if (Auth::user()->isFlagged) {
-                return $this->alert('error', 'Your account is flagged!');
+                return $this->alert('error', 'Your account is flagged!', [
+                    'showCancelButton' =>  false,
+                ]);
             }
             if (Auth::id() === $this->user->id) {
-                return $this->alert('warning', 'You can\'t follow yourself!');
+                return $this->alert('warning', 'You can\'t follow yourself!', [
+                    'showCancelButton' =>  false,
+                ]);
             } else {
                 Auth::user()->toggleFollow($this->user);
                 Auth::user()->touch();
@@ -51,7 +57,9 @@ class Follow extends Component
                     ->log('User toggle follow from notification U: @'.$this->user->username);
             }
         } else {
-            return $this->alert('error', 'Forbidden!');
+            return $this->alert('error', 'Forbidden!', [
+                'showCancelButton' =>  false,
+            ]);
         }
     }
 }

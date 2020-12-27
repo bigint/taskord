@@ -65,7 +65,9 @@ class Profile extends Component
                 'avatar' => 'nullable|mimes:jpeg,jpg,png,gif|max:1024',
             ]);
         } else {
-            return $this->alert('error', 'Forbidden!');
+            return $this->alert('error', 'Forbidden!', [
+                'showCancelButton' =>  false,
+            ]);
         }
     }
 
@@ -107,13 +109,19 @@ class Profile extends Component
                         ->withProperties(['type' => 'User'])
                         ->log('Profile settings was updated');
 
-                    return $this->alert('success', 'Your profile has been updated!');
+                    return $this->alert('success', 'Your profile has been updated!', [
+                        'showCancelButton' =>  false,
+                    ]);
                 }
             } else {
-                return $this->alert('error', 'Forbidden!');
+                return $this->alert('error', 'Forbidden!', [
+                    'showCancelButton' =>  false,
+                ]);
             }
         } else {
-            return $this->alert('error', 'Forbidden!');
+            return $this->alert('error', 'Forbidden!', [
+                'showCancelButton' =>  false,
+            ]);
         }
     }
 
@@ -131,12 +139,18 @@ class Profile extends Component
                     ->withProperties(['type' => 'User'])
                     ->log('Reset avatar to default');
 
-                return $this->alert('success', 'Your avatar has been resetted!');
+                return $this->alert('success', 'Your avatar has been resetted!', [
+                    'showCancelButton' =>  false,
+                ]);
             } else {
-                return $this->alert('error', 'Forbidden!');
+                return $this->alert('error', 'Forbidden!', [
+                    'showCancelButton' =>  false,
+                ]);
             }
         } else {
-            return $this->alert('error', 'Forbidden!');
+            return $this->alert('error', 'Forbidden!', [
+                'showCancelButton' =>  false,
+            ]);
         }
     }
 
@@ -154,12 +168,18 @@ class Profile extends Component
                     ->withProperties(['type' => 'User'])
                     ->log('Changed avatar provider to Gravatar');
 
-                return $this->alert('success', 'Your avatar has been switched to Gravatar!');
+                return $this->alert('success', 'Your avatar has been switched to Gravatar!', [
+                    'showCancelButton' =>  false,
+                ]);
             } else {
-                return $this->alert('error', 'Forbidden!');
+                return $this->alert('error', 'Forbidden!', [
+                    'showCancelButton' =>  false,
+                ]);
             }
         } else {
-            return $this->alert('error', 'Forbidden!');
+            return $this->alert('error', 'Forbidden!', [
+                'showCancelButton' =>  false,
+            ]);
         }
     }
 
@@ -173,10 +193,14 @@ class Profile extends Component
                     ->withProperties(['type' => 'User'])
                     ->log('Goals for the account was toggled');
             } else {
-                return $this->alert('error', 'Forbidden!');
+                return $this->alert('error', 'Forbidden!', [
+                    'showCancelButton' =>  false,
+                ]);
             }
         } else {
-            return $this->alert('error', 'Forbidden!');
+            return $this->alert('error', 'Forbidden!', [
+                'showCancelButton' =>  false,
+            ]);
         }
     }
 
@@ -195,13 +219,19 @@ class Profile extends Component
                         ->withProperties(['type' => 'User'])
                         ->log('Goal was set as '.$this->daily_goal.'/day');
 
-                    return $this->alert('success', 'Your goal has been updated!');
+                    return $this->alert('success', 'Your goal has been updated!', [
+                        'showCancelButton' =>  false,
+                    ]);
                 }
             } else {
-                return $this->alert('error', 'Forbidden!');
+                return $this->alert('error', 'Forbidden!', [
+                    'showCancelButton' =>  false,
+                ]);
             }
         } else {
-            return $this->alert('error', 'Forbidden!');
+            return $this->alert('error', 'Forbidden!', [
+                'showCancelButton' =>  false,
+            ]);
         }
     }
 
@@ -220,13 +250,19 @@ class Profile extends Component
                         ->withProperties(['type' => 'User'])
                         ->log('Sponsor URL was updated');
 
-                    return $this->alert('success', 'Your sponsor link has been updated!');
+                    return $this->alert('success', 'Your sponsor link has been updated!', [
+                        'showCancelButton' =>  false,
+                    ]);
                 }
             } else {
-                return $this->alert('error', 'Forbidden!');
+                return $this->alert('error', 'Forbidden!', [
+                    'showCancelButton' =>  false,
+                ]);
             }
         } else {
-            return $this->alert('error', 'Forbidden!');
+            return $this->alert('error', 'Forbidden!', [
+                'showCancelButton' =>  false,
+            ]);
         }
     }
 
@@ -255,13 +291,19 @@ class Profile extends Component
                         ->withProperties(['type' => 'User'])
                         ->log('Social URLs were updated');
 
-                    return $this->alert('success', 'Your social links has been updated!');
+                    return $this->alert('success', 'Your social links has been updated!', [
+                        'showCancelButton' =>  false,
+                    ]);
                 }
             } else {
-                return $this->alert('error', 'Forbidden!');
+                return $this->alert('error', 'Forbidden!', [
+                    'showCancelButton' =>  false,
+                ]);
             }
         } else {
-            return $this->alert('error', 'Forbidden!');
+            return $this->alert('error', 'Forbidden!', [
+                'showCancelButton' =>  false,
+            ]);
         }
     }
 
@@ -272,18 +314,26 @@ class Profile extends Component
                 $this->user->onlyFollowingsTasks = ! $this->user->onlyFollowingsTasks;
                 $this->user->save();
                 if ($this->user->onlyFollowingsTasks) {
-                    $this->alert('success', 'Only following user\'s task will be show on homepage');
+                    $this->alert('success', 'Only following user\'s task will be show on homepage', [
+                        'showCancelButton' =>  false,
+                    ]);
                 } else {
-                    $this->alert('success', 'All user\'s task will be show on homepage');
+                    $this->alert('success', 'All user\'s task will be show on homepage', [
+                        'showCancelButton' =>  false,
+                    ]);
                 }
                 activity()
                     ->withProperties(['type' => 'User'])
                     ->log('Toggled only followings tasks in settings');
             } else {
-                return $this->alert('error', 'Forbidden!');
+                return $this->alert('error', 'Forbidden!', [
+                    'showCancelButton' =>  false,
+                ]);
             }
         } else {
-            return $this->alert('error', 'Forbidden!');
+            return $this->alert('error', 'Forbidden!', [
+                'showCancelButton' =>  false,
+            ]);
         }
     }
 }

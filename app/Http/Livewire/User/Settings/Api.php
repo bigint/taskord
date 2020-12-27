@@ -35,7 +35,9 @@ class Api extends Component
                 ->withProperties(['type' => 'Throttle'])
                 ->log('Rate limited while generating a token');
 
-            return $this->alert('error', 'Your are rate limited, try again later!');
+            return $this->alert('error', 'Your are rate limited, try again later!', [
+                'showCancelButton' =>  false,
+            ]);
         }
 
         if (Auth::check()) {
@@ -47,12 +49,18 @@ class Api extends Component
                     ->withProperties(['type' => 'User'])
                     ->log('New API key was generated');
 
-                return $this->alert('success', 'New API key been generated successfully');
+                return $this->alert('success', 'New API key been generated successfully', [
+                    'showCancelButton' =>  false,
+                ]);
             } else {
-                return $this->alert('error', 'Forbidden!');
+                return $this->alert('error', 'Forbidden!', [
+                    'showCancelButton' =>  false,
+                ]);
             }
         } else {
-            return $this->alert('error', 'Forbidden!');
+            return $this->alert('error', 'Forbidden!', [
+                'showCancelButton' =>  false,
+            ]);
         }
     }
 

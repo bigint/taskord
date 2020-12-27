@@ -20,12 +20,15 @@ class Leave extends Component
     {
         if (Auth::check()) {
             Auth::user()->products()->detach($this->product);
-            $this->alert('success', 'You are no longer member of the team!');
             $this->product->owner->notify(new MemberLeft($this->product, Auth::id()));
             Auth::user()->touch();
             activity()
                 ->withProperties(['type' => 'Product'])
                 ->log('Product member left the team P: #'.$this->product->slug.'U: @'.Auth::user()->username);
+
+            $this->flash('success', 'You are no longer member of the team!', [
+                'showCancelButton' =>  false,
+            ]);
 
             return redirect()->route('product.done', ['slug' => $this->product->slug]);
         }
