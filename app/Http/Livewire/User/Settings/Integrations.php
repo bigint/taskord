@@ -70,6 +70,10 @@ class Integrations extends Component
                     activity()
                         ->withProperties(['type' => 'User'])
                         ->log('New webhook has been created WH: '.$webhook->id);
+
+                    return $this->alert('success', 'New webhook has been created!', [
+                        'showCancelButton' =>  false,
+                    ]);
                 } else {
                     return $this->alert('error', 'Forbidden!', [
                         'showCancelButton' =>  false,
