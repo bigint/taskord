@@ -18,6 +18,6 @@ return [
         'toast' => false,
         'timer' => null,
         'showConfirmButton' => true,
-        'cancelButtonText' => 'No'
-    ]
+        'cancelButtonText' => 'No',
+    ],
 ];
