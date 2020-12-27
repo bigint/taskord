@@ -11,7 +11,7 @@
             <form wire:submit.prevent="submit">
                 <div class="input-group mb-3">
                     <div class="input-group-text">
-                        <label for="checkState" class="form-label d-none">Upload Images</label>
+                        <label for="checkState" class="form-label d-none">Check State</label>
                         <input
                             class="form-check-input task-checkbox"
                             id="checkState"
