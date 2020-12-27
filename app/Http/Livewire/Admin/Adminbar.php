@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Queue;
 use Livewire\Component;
+use Spatie\Activitylog\Models\Activity;
 
 class Adminbar extends Component
 {
@@ -69,6 +70,8 @@ class Adminbar extends Component
         $comments = Comment::count('id');
         $webhooks = Webhook::count('id');
         $notifications = DB::table('notifications')->count('id');
+        $logs = Activity::count('id');
+        $interactions = DB::table('interactions')->count();
         $praises = DB::table('interactions')->whereRelation('like')->count();
         $jobs = Queue::size();
 
@@ -83,6 +86,8 @@ class Adminbar extends Component
             'answers' => number_format($answers),
             'comments' => number_format($comments),
             'notifications' => number_format($notifications),
+            'interactions' => number_format($interactions),
+            'logs' => number_format($logs),
             'praises' => number_format($praises),
             'jobs' => number_format($jobs),
             'webhooks' => number_format($webhooks),

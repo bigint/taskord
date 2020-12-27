@@ -93,13 +93,13 @@
                     <li class="dropdown-item">
                         <span class="me-3">
                             <x-heroicon-o-switch-horizontal class="heroicon text-secondary" />
-                            <span class="fw-bold">{{ $webhooks }}</span> Interactions
+                            <span class="fw-bold">{{ $interactions }}</span> Interactions
                         </span>
                     </li>
                     <li class="dropdown-item">
                         <span class="me-3">
                             <x-heroicon-o-collection class="heroicon text-secondary" />
-                            <span class="fw-bold">{{ $webhooks }}</span> Logs
+                            <span class="fw-bold">{{ $logs }}</span> Logs
                         </span>
                     </li>
                     <div class="dropdown-divider"></div>
