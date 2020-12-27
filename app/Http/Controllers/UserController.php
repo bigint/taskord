@@ -182,7 +182,8 @@ class UserController extends Controller
     public function exportLogs()
     {
         if (Auth::check()) {
-            $logs = Activity::causedBy(Auth::user());
+            $logs = Activity::causedBy(Auth::user())
+                ->get();
             $data = collect([
                 'logs' => $logs,
             ])->toJson(JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
