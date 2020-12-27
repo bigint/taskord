@@ -39,7 +39,7 @@ class HomeController extends Controller
             ->take(5)
             ->get();
         $recent_users = User::cacheFor(60 * 60)
-            ->select('username', 'firstname', 'lastname', 'avatar', 'bio', 'isVerified', 'created_at')
+            ->select('id', 'username', 'firstname', 'lastname', 'avatar', 'bio', 'isVerified', 'created_at')
             ->where([
                 ['created_at', '>=', Carbon::now()->subdays(7)],
                 ['isFlagged', false],
