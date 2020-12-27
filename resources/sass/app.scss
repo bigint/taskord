@@ -365,7 +365,8 @@ input[type="date"]:valid:before {
     border-top-right-radius: 6px;
 }
 
-.list-group-item:last-child {
+.list-group-item:last-child,
+.accordion-flush .accordion-item:last-of-type .accordion-button.collapsed {
     border-bottom-right-radius: 6px;
     border-bottom-left-radius: 6px;
 }
