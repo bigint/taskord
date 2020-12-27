@@ -14,7 +14,8 @@
                 </div>
                 <div class="d-flex justify-content-between">
                 <div class="form-file form-file-sm col-6 col-lg-3">
-                    <input class="form-control form-control-sm" wire:model="images" accept="image/*" type="file" multiple>
+                    <label for="uploadTaskImages" class="form-label d-none">Upload Images</label>
+                    <input class="form-control form-control-sm" id="uploadTaskImages" wire:model="images" accept="image/*" type="file" multiple>
                 </div>
                 <div class="ms-auto me-2 d-none d-sm-block">
                     <input class="form-control form-control-sm" wire:model.defer="due_at" type="date" placeholder="Due date" min="{{ Carbon::today()->format('Y-m-d') }}" />
