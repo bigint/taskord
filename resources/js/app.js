@@ -54,3 +54,10 @@ document.body.addEventListener("click", () => {
   // var search = document.getElementsByClassName("search-dropdown")[0];
   // search.remove();
 });
+
+var shortcutsModal = document.getElementById('shortcutsModal')
+shortcutsModal.addEventListener('shown.bs.modal', async () => {
+  var shortcutsModalBody = document.getElementById('shortcutsModalBody')
+  const res = await window.fetch(`/site/shortcuts`);
+  shortcutsModalBody.innerHTML = await res.text();
+})

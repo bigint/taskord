@@ -170,7 +170,7 @@
                                 GitLab
                             </a>
                             <a class="dropdown-item text-dark cursor-pointer" data-bs-toggle="modal" data-bs-target="#shortcutsModal">
-                                <x-heroicon-o-light-bulb class="heroicon-1x text-secondary" />
+                                <x-heroicon-o-view-grid class="heroicon-1x text-secondary" />
                                 Shortcuts
                             </a>
                             @endif
@@ -203,8 +203,8 @@
                 <h5 class="modal-title" id="shortcutsModalLabel">Keyboard shortcuts</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="modal-body">
-                ...
+            <div class="modal-body" id="shortcutsModalBody">
+                <div class="spinner-border text-primary" role="status"></div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
