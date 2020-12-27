@@ -38,7 +38,7 @@
         <span class="body-font fst-italic text-secondary">Answer was hidden by moderator</span>
         @else
         <div class="body-font">
-            @parsedown($answer->answer)
+            {!! Markdown::parse($answer->answer) !!}
         </div>
         @endif
         <div class="mt-2">

@@ -47,10 +47,10 @@
         <div class="mt-2 body-font">
             @if ($type !== "question.question")
                 @if (!$question->patronOnly)
-                    @parsedown(Str::words($question->body, '30'))
+                    {!! Markdown::parse(Str::words($question->body, '30')) !!}
                 @endif
             @else
-                @parsedown($question->body)
+                {!! Markdown::parse($question->body) !!}
             @endif
         </div>
         @endif

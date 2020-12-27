@@ -9,6 +9,7 @@
     "license": "MIT",
     "require": {
         "php": "^7.3",
+        "alfredo-ramos/parsedown-extra-laravel": "^3.0",
         "awssat/discord-notification-channel": "^1.4",
         "blade-ui-kit/blade-heroicons": "^0.3.1",
         "cyrildewit/eloquent-viewable": "^5.2",
@@ -30,7 +31,6 @@
         "multicaret/laravel-acquaintances": "^3.3",
         "nesbot/carbon": "^2.36",
         "nuwave/lighthouse": "v5.0-beta.2",
-        "parsedown/laravel": "^1.2",
         "propaganistas/laravel-disposable-email": "^2.0",
         "qcod/laravel-gamify": "^1.0",
         "rennokki/laravel-eloquent-query-cache": "^2.4",
