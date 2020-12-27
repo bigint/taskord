@@ -47,12 +47,6 @@ hotkeys("g+s", () => {
   window.location.href = "/settings";
 });
 
-// Show shortcuts modal
-hotkeys("shift+/", () => {
-  // let myModal = new Modal(document.getElementById("shortcutsModal"));
-  // myModal.show();
-});
-
 // Create new issue in GitLab
 hotkeys("n+i", () => {
   var nAgt = navigator.userAgent;
