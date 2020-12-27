@@ -39,25 +39,25 @@ class Mentioned extends Notification implements ShouldQueue
     {
         if ($this->type === 'task') {
             return (new MailMessage)
-                    ->subject('@'.$this->body->user->username.' mentioned your in a task')
+                    ->subject('@'.$this->body->user->username.' mentioned you in a task')
                     ->greeting('Hello @'.$notifiable->username.' 👋')
-                    ->line('@'.$this->body->user->username.' mentioned your in a task.')
+                    ->line('@'.$this->body->user->username.' mentioned you in a task.')
                     ->line($this->body->task)
                     ->action('Go to Task', url('/task/'.$this->body->id))
                     ->line('Thank you for using Taskord!');
         } elseif ($this->type === 'comment') {
             return (new MailMessage)
-                    ->subject('@'.$this->body->user->username.' mentioned your in a comment')
+                    ->subject('@'.$this->body->user->username.' mentioned you in a comment')
                     ->greeting('Hello @'.$notifiable->username.' 👋')
-                    ->line('@'.$this->body->user->username.' mentioned your in a comment.')
+                    ->line('@'.$this->body->user->username.' mentioned you in a comment.')
                     ->line($this->body->comment)
                     ->action('Go to Task', url('/task/'.$this->body->task->id))
                     ->line('Thank you for using Taskord!');
         } elseif ($this->type === 'answer') {
             return (new MailMessage)
-                    ->subject('@'.$this->body->user->username.' mentioned your in an answer')
+                    ->subject('@'.$this->body->user->username.' mentioned you in an answer')
                     ->greeting('Hello @'.$notifiable->username.' 👋')
-                    ->line('@'.$this->body->user->username.' mentioned your in an answer.')
+                    ->line('@'.$this->body->user->username.' mentioned you in an answer.')
                     ->line($this->body->answer)
                     ->action('Go to Question', url('/question/'.$this->body->question->id))
                     ->line('Thank you for using Taskord!');

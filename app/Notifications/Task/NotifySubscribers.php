@@ -31,9 +31,9 @@ class NotifySubscribers extends Notification implements ShouldQueue
         $user = User::find($this->user_id);
 
         return (new MailMessage)
-                    ->subject('@'.$user->username.' commented on the task')
+                    ->subject('@'.$user->username.' commented on a subscribed task')
                     ->greeting('Hello @'.$notifiable->username.' 👋')
-                    ->line('💬 The task you subscribed has new comment by @'.$user->username)
+                    ->line('💬 The task you subscribe to has a new comment by @'.$user->username)
                     ->line('Task: '.$this->comment->task->task)
                     ->line('Comment: '.$this->comment->comment)
                     ->action('Go to Task', url('/task/'.$this->comment->task->id))
