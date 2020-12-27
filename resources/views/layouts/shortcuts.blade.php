@@ -23,6 +23,12 @@
     </span>
 </div>
 <div class="d-flex justify-content-between mt-2">
+    <span>Go to notifications</span>
+    <span>
+        <kbd class="me-1">g</kbd><kbd>n</kbd>
+    </span>
+</div>
+<div class="d-flex justify-content-between mt-2">
     <span>Go to settings</span>
     <span>
         <kbd class="me-1">g</kbd><kbd>s</kbd>
@@ -38,6 +44,12 @@
     <span>Create new GitLab Issue</span>
     <span>
         <kbd class="me-1">n</kbd><kbd>i</kbd>
+    </span>
+</div>
+<div class="d-flex justify-content-between mt-2">
+    <span>Show this dialog</span>
+    <span>
+        <kbd>?</kbd>
     </span>
 </div>
 @if (Auth::user()->isStaff)

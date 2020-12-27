@@ -38,6 +38,11 @@ Mousetrap.bind("g q", () => {
   window.location.href = "/questions";
 });
 
+// Go to notifications
+Mousetrap.bind("g n", () => {
+  window.location.href = "/notifications";
+});
+
 // Go to settings
 Mousetrap.bind("g s", () => {
   window.location.href = "/settings";
