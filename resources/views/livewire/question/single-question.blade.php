@@ -19,7 +19,7 @@
                         <x-heroicon-s-badge-check class="heroicon ms-1 text-primary verified" />
                     @endif
                     @if ($question->user->isPatron)
-                        <a class="patron" href="{{ route('patron.home') }}" data-turbolinks="false">
+                        <a class="patron" href="{{ route('patron.home') }}" data-turbolinks="false" aria-label="Patron">
                             <x-heroicon-s-star class="heroicon text-gold" />
                         </a>
                     @endif
