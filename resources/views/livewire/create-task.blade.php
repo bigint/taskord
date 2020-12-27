@@ -25,8 +25,7 @@
                 </div>
                 <div class="d-flex justify-content-between">
                 <div class="form-file form-file-sm col-6 col-lg-3">
-                    <label for="uploadTaskImages" class="form-label d-none">Upload Images</label>
-                    <input class="form-control form-control-sm" id="uploadTaskImages" wire:model="images" accept="image/*" type="file" multiple>
+                    <input class="form-control form-control-sm" wire:model="images" accept="image/*" type="file" aria-label="Upload Images" multiple>
                 </div>
                 @auth
                 @if (!Auth::user()->checkState)

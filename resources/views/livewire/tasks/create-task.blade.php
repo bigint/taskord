@@ -10,12 +10,11 @@
             @enderror
             <form wire:submit.prevent="submit">
                 <div class="mb-3">
-                    <input type="text" class="form-control mentionInput" placeholder="Add a Task" wire:model.lazy="task" autocomplete="off">
+                    <input type="text" class="form-control mentionInput" placeholder="Add a Task" wire:model.lazy="task" autocomplete="off" aria-label="Task Input">
                 </div>
                 <div class="d-flex justify-content-between">
                 <div class="form-file form-file-sm col-6 col-lg-3">
-                    <label for="uploadTaskImages" class="form-label d-none">Upload Images</label>
-                    <input class="form-control form-control-sm" id="uploadTaskImages" wire:model="images" accept="image/*" type="file" multiple>
+                    <input class="form-control form-control-sm" wire:model="images" accept="image/*" type="file" aria-label="Upload Images" multiple>
                 </div>
                 <div class="ms-auto me-2 d-none d-sm-block">
                     <input class="form-control form-control-sm" wire:model.defer="due_at" type="date" placeholder="Due date" min="{{ Carbon::today()->format('Y-m-d') }}" />
