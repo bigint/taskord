@@ -29,7 +29,9 @@ class EditQuestion extends Component
                 'body' => 'required|min:3|max:10000',
             ]);
         } else {
-            $this->alert('error', 'Forbidden!');
+            $this->alert('error', 'Forbidden!', [
+                'showCancelButton' =>  false,
+          ]);
         }
     }
 
@@ -42,11 +44,15 @@ class EditQuestion extends Component
             ]);
 
             if (! Auth::user()->hasVerifiedEmail()) {
-                return $this->alert('warning', 'Your email is not verified!');
+                return $this->alert('warning', 'Your email is not verified!', [
+                    'showCancelButton' =>  false,
+              ]);
             }
 
             if (Auth::user()->isFlagged) {
-                return $this->alert('error', 'Your account is flagged!');
+                return $this->alert('error', 'Your account is flagged!', [
+                    'showCancelButton' =>  false,
+              ]);
             }
 
             $question = Question::where('id', $this->question->id)->firstOrFail();
@@ -60,17 +66,23 @@ class EditQuestion extends Component
                 $question->save();
                 Auth::user()->touch();
 
-                $this->alert('success', 'Question has been edited!');
                 activity()
                     ->withProperties(['type' => 'Question'])
                     ->log('Question has been edited Q: '.$question->id);
+                    $this->flash('success', 'Question has been edited!', [
+                        'showCancelButton' =>  false,
+                  ]);
 
                 return redirect()->route('question.question', ['id' => $question->id]);
             } else {
-                $this->alert('error', 'Forbidden!');
+                $this->alert('error', 'Forbidden!', [
+                    'showCancelButton' =>  false,
+              ]);
             }
         } else {
-            $this->alert('error', 'Forbidden!');
+            $this->alert('error', 'Forbidden!', [
+                'showCancelButton' =>  false,
+          ]);
         }
     }
 }
