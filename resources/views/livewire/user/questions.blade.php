@@ -14,5 +14,5 @@
         ], key($question->id))
     @endforeach
 
-    {{ $questions->links('pagination-links') }}
+    {{ $questions->links() }}
 </div>

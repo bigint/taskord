@@ -61,7 +61,7 @@
                 @endif
             @endforeach
             <div class="mt-4">
-                {{ $activities->links('pagination-links') }}
+                {{ $activities->links() }}
             <div>
         </div>
     </div>
