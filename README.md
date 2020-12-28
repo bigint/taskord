@@ -37,9 +37,9 @@
     <br>
     <a href="https://taskord.com"><b>taskord.com »</b></a>
     <br><br>
-    <a href="https://gitlab.com/taskord/taskord/issues/new"><b>Report Bug</b></a>
+    <a href="https://gitlab.com/taskord/taskord/-/issues/new"><b>Report Bug</b></a>
     •
-    <a href="https://gitlab.com/taskord/taskord/issues/new"><b>Request Feature</b></a>
+    <a href="https://gitlab.com/taskord/taskord/-/issues/new"><b>Request Feature</b></a>
 </div>
 
 ## About Taskord
