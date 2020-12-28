@@ -136,7 +136,7 @@ class Helper
     public static function getProductIDFromMention($string)
     {
         $mention = false;
-        preg_match_all("/(#\w+)/u", $string, $matches);
+        preg_match_all("/(#[\w-]+)/u", $string, $matches);
         if ($matches) {
             $mentionsArray = array_count_values($matches[0]);
             $mention = array_keys($mentionsArray);
