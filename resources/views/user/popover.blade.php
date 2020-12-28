@@ -5,13 +5,15 @@
 @endif
 <div class="d-flex p-3">
     <div>
-        <img loading=lazy class="avatar-50 rounded-circle" src="{{ Helper::getCDNImage($user->avatar, 80) }}" height="50" width="50" alt="{{ $user->username }}'s avatar" />
+        <a href="{{ route('user.done', ['username' => $user->username]) }}">
+            <img loading=lazy class="avatar-50 rounded-circle" src="{{ Helper::getCDNImage($user->avatar, 80) }}" height="50" width="50" alt="{{ $user->username }}'s avatar" />
+        </a>
         @if ($user->isPatron)
             <div class="border border-2 border-success mt-2 ps-1 pe-1 rounded-pill small text-center text-dark">Patron</div>
         @endif
     </div>
     <div class="ms-3">
-        <div class="fw-bold text-dark">
+        <a class="fw-bold text-dark" href="{{ route('user.done', ['username' => $user->username]) }}">
             @if ($user->firstname or $user->lastname)
                 {{ $user->firstname }}{{ ' '.$user->lastname }}
             @else
@@ -20,8 +22,10 @@
             @if ($user->isVerified)
                 <x-heroicon-s-badge-check class="heroicon ms-1 text-primary verified" />
             @endif
+        </a>
+        <div>
+            <a class="small text-dark" href="{{ route('user.done', ['username' => $user->username]) }}">{{ '@'.$user->username }}</a>
         </div>
-        <div class="small text-dark">{{ '@'.$user->username }}</div>
         @if ($user->bio)
         <div class="mt-2 text-dark">{{ $user->bio }}</div>
         @endif
