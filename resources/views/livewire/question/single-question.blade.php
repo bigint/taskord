@@ -83,6 +83,14 @@
                     @endif
                 </button>
             @endif
+            <a href="{{ route('question.question', ['id' => $question->id]) }}" class="btn btn-task btn-outline-primary me-1" aria-label="Questions">
+                <x-heroicon-o-chat-alt class="heroicon-small me-0" />
+                @if ($question->answer->count('id') !== 0)
+                <span class="small text-dark fw-bold">
+                    {{ number_format($question->answer->count('id')) }}
+                </span>
+                @endif
+            </a>
             @if (Auth::user()->staffShip or Auth::id() === $question->user->id)
             @if ($type === "question.question")
             <button role="button" class="btn btn-task btn-outline-info me-1" data-bs-toggle="modal" data-bs-target="#editQuestionModal">
