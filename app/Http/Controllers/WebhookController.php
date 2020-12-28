@@ -79,7 +79,7 @@ class WebhookController extends Controller
         $request_body = $request->json()->all();
 
         if ($request->header('X-GitHub-Event') === 'push') {
-            if (Str::contains($request_body['pusher']['name'], '[bot]')) {
+            if ($request_body['sender']['type'] === 'Bot') {
                 return response('Bot cannot log tasks', 200);
             }
         } else {
