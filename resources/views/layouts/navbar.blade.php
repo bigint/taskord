@@ -50,7 +50,7 @@
                         @endif
                         <li><a class="dropdown-item text-dark" href="{{ route('user.settings.integrations') }}">⚓ Integration</a></li>
                         @endauth
-                        <li><a class="dropdown-item text-dark" href="https://www.notion.so/Roadmap-89c75352cfe14d24b62644daa0f1cba0" target="_blank" rel="noreferrer">🚧 Roadmap</a></li>
+                        <li><a class="dropdown-item text-dark" href="https://gitlab.com/taskord/taskord/-/milestones" target="_blank" rel="noreferrer">🚧 Roadmap</a></li>
                     </ul>
                 </li>
                 @if (Auth::check() and Auth::user()->isStaff and !Auth::user()->staffShip)
