@@ -116,9 +116,14 @@ a {
 
 .btn-outline-danger,
 .btn-outline-success,
+.btn-outline-primary,
 .btn-outline-info {
     &:hover, &:focus {
         color: white;
+
+        & > [class*='text-'] {
+            color: inherit !important;
+        }
     }
 }
 
