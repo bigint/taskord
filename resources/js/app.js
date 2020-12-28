@@ -45,6 +45,7 @@ document.addEventListener("turbolinks:load", async () => {
     }
   });
 
+  // Load shortcuts
   var shortcutsModal = document.getElementById('shortcutsModal')
   shortcutsModal.addEventListener('shown.bs.modal', async () => {
     var shortcutsModalBody = document.getElementById('shortcutsModalBody');
