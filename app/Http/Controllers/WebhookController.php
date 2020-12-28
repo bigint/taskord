@@ -87,7 +87,7 @@ class WebhookController extends Controller
         }
 
         if ($request_body['repository']['default_branch'] !== str_replace('refs/heads/', '', $request_body['ref'])) {
-            return response('Only default branch is allowed', 200);
+            return response('Only commits from default branch is allowed', 200);
         }
 
         if ($request_body['head_commit']) {
