@@ -27,11 +27,12 @@ sudo systemctl enable php8.0-fpm
 sudo apt install composer -y
 ```
 
-### Node.js and NPM
+### Node.js and Yarn
 
 ```sh
 curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash -
 sudo apt-get install -y nodejs
+npm install -g yarn
 ```
 
 ### MySQL
@@ -81,11 +82,11 @@ cp .env.example .env
 php artisan key:generate
 ```
 
-## NPM Install
+## Yarn Install
 
 ```sh
-npm install
-npm run production
+yarn install
+yarn production
 ```
 
 ### Setup MySQL
