@@ -57,6 +57,7 @@
 - [PHP](https://www.php.net): please refer to their [installation guide](https://www.php.net/manual/en/install.php).
 - [Node](https://nodejs.org): we recommend using [nvm](https://github.com/nvm-sh/nvm) to install the Node version listed on the badge.
 - [MySQL](http://www.mysql.com) 8.0 or higher.
+- [Redis](https://redis.io) (optional) 4.0 or higher.
 
 ## Contributing
 
