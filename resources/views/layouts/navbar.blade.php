@@ -170,7 +170,7 @@
                                 GitLab
                             </a>
                             @endif
-                            <a class="dropdown-item text-dark cursor-pointer" data-bs-toggle="modal" data-bs-target="#shortcutsModal">
+                            <a class="dropdown-item text-dark cursor-pointer d-sm-none d-md-block" data-bs-toggle="modal" data-bs-target="#shortcutsModal">
                                 <x-heroicon-o-view-grid class="heroicon-1x text-secondary" />
                                 Shortcuts
                             </a>
