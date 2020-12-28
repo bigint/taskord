@@ -27,7 +27,7 @@
     @endif
     @endif
     @endauth
-    @livewireStyles
+    <livewire:styles />
     <script async src="https://cdn.splitbee.io/sb.js"></script>
 </head>
 <body>
@@ -80,7 +80,7 @@
         </main>
     </div>
 </body>
-@livewireScripts
+<livewire:scripts />
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10" defer data-turbolinks-track="true" data-turbolinks-eval=false></script>
 <x-livewire-alert::scripts />
 <script src="{{ mix('js/bootstrap.js') }}" defer data-turbolinks-track="true" data-turbolinks-eval=false></script>
