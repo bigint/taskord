@@ -52,7 +52,7 @@ class SocialController extends Controller
                     $username = $userSocial->getNickname().'_'.Str::random(5);
                 }
             } else {
-                $username = Str::random(10);
+                $username = Str::random(6);
             }
 
             if ($provider === 'gitlab' or $provider === 'github') {
@@ -68,6 +68,7 @@ class SocialController extends Controller
                 'avatar' => $avatar,
                 'provider_id' => $userSocial->getId(),
                 'provider' => $provider,
+                'api_token' => Str::random(60),
                 'email_verified_at' => date('Y-m-d H:i:s'),
             ]);
             AuthGetIP::dispatch($user, $request->ip());
