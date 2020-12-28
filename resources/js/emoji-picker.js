@@ -1,4 +1,4 @@
-import { EmojiButton } from '@joeattardi/emoji-button';
+import { EmojiButton } from "@joeattardi/emoji-button";
 
 const trigger = document.querySelector(".trigger");
 const picker = new EmojiButton({
