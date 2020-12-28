@@ -78,7 +78,7 @@ class WebhookController extends Controller
         }
         $request_body = $request->json()->all();
 
-        if (!$request->header('X-GitHub-Event') === 'push') {
+        if (! $request->header('X-GitHub-Event') === 'push') {
             return response('Only push event is allowed', 200);
         }
 
