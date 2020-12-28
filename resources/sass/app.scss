@@ -16,7 +16,7 @@ a {
 }
 
 .btn-primary {
-    color: #fff;
+    color: white;
     background-color: $primary;
     &:hover,
     &:active,
@@ -26,18 +26,18 @@ a {
 }
 
 .btn-blurple {
-    color: #fff;
+    color: white;
     background-color: #7289da;
     &:hover,
     &:active,
     &:focus {
         background-color: #657ac3;
-        color: #fff;
+        color: white;
     }
 }
 
 .text-gold {
-    color: #dfc328;
+    color: $yellow-600;
 }
 
 .navbar {
@@ -45,10 +45,10 @@ a {
         padding: 5px 7px;
     }
     .bg-secondary {
-        background-color: #515a63 !important;
+        background-color: $gray-700 !important;
     }
      ::placeholder {
-        color: #fff;
+        color: white;
         opacity: 1;
     }
 }
@@ -98,7 +98,7 @@ a {
 .avatar-120 {
     height: 120px !important;
     width: 120px !important;
-    border: 2px solid #dedede;
+    border: 2px solid $gray-400;
 }
 
 .btn-task {
@@ -210,7 +210,7 @@ input[type="color"]:focus,
 }
 
 .welcome-card {
-    background: linear-gradient(90deg, #6a63ec 0%, #6a63ecba 90%);
+    background: linear-gradient(90deg, $primary 0%, #6a63ecba 90%);
     background-size: contain;
 }
 
@@ -273,7 +273,7 @@ input[type="color"]:focus,
 }
 
 .bg-patron {
-    background-color: #fffde8 !important;
+    background-color: $yellow-100 !important;
 }
 
 .recent-questions {
@@ -282,7 +282,7 @@ input[type="color"]:focus,
 
 input[type="date"]:before {
     content: attr(placeholder) !important;
-    color: #aaa;
+    color: $gray-600;
     margin-right: 0.5em;
 }
 
