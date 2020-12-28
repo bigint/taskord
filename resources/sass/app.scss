@@ -187,10 +187,11 @@ input[type="color"]:focus,
 }
 
 .body-font {
+    color: $gray-700;
     img {
         width: 100%;
         border-radius: 5px;
-        border: 1px solid #dee2e6;
+        border: 1px solid $gray-300;
     }
 }
 
