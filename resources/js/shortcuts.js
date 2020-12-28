@@ -1,7 +1,7 @@
 import hotkeys from "hotkeys-js";
 
 // Shortcut Modal
-hotkeys("s+c", async () => {
+hotkeys("ctrl+7, control+7", async () => {
     (new bootstrap.Modal(document.getElementById("shortcutsModal"))).show();
 });
 

@@ -43,7 +43,7 @@
 <div class="d-flex justify-content-between mt-2">
     <span>Open Keyboard Shortcuts</span>
     <span>
-        <kbd class="me-1">s</kbd><kbd>c</kbd>
+        <kbd class="me-1">ctrl</kbd><kbd>/</kbd>
     </span>
 </div>
 <div class="d-flex justify-content-between mt-2">
