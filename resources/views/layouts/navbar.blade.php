@@ -186,7 +186,7 @@
                             </form>
                             <div class="dropdown-divider"></div>
                             <div class="dropdown-header text-dark-50 fw-bold">
-                                <span id="taskord-version">v{{ config('app.version') }}</span> • <a href="https://headwayapp.co/taskord-changelog" target="_blank" rel="noreferrer">Changelog</a>
+                                <span id="taskord-version">v{{ config('app.version') }}</span> • <a href="https://gitlab.com/taskord/taskord/-/blob/main/CHANGELOG.md" target="_blank" rel="noreferrer">Changelog</a>
                             </div>
                         </div>
                     </li>
