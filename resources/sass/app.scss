@@ -409,20 +409,20 @@ input[type="date"]:valid:before {
 
 .btn-social {
     &.btn-google {
-        color: #DB4437;
-        border-color: #DB4437;
+        color: $google;
+        border-color: $google;
     }
     &.btn-twitter {
-        color: #38a1f3;
-        border-color: #38a1f3;
+        color: $twitter;
+        border-color: $twitter;
     }
     &.btn-github {
-        color: #24292e;
-        border-color: #24292e;
+        color: $github;
+        border-color: $github;
     }
     &.btn-gitlab {
-        color: #FC6D27;
-        border-color: #FC6D27;
+        color: $gitlab;
+        border-color: $gitlab;
     }
 }
 
