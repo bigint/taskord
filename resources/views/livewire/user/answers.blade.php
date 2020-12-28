@@ -27,5 +27,5 @@
         </div>
     @endforeach
 
-    {{ $answers->links() }}
+    {{ $answers->links('pagination-links') }}
 </div>

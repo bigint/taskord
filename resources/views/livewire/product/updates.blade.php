@@ -12,5 +12,5 @@
             'update' => $update,
         ])
     @endforeach
-    {{ $updates->links() }}
+    {{ $updates->links('pagination-links') }}
 </div>
