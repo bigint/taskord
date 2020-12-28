@@ -3,7 +3,7 @@ require("./tribute");
 require("./tippy");
 import { isInViewport } from "observe-element-in-viewport";
 import "livewire-turbolinks";
-import TurbolinksPrefetch from 'turbolinks-prefetch';
+import TurbolinksPrefetch from "turbolinks-prefetch";
 
 var Turbolinks = require("turbolinks");
 Turbolinks.start();
@@ -19,7 +19,7 @@ document.addEventListener("turbolinks:load", async () => {
   }
 
   // Pagination
-  window.addEventListener('scroll', () => {
+  window.addEventListener("scroll", () => {
     var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
     if (scrollTop + window.innerHeight > document.documentElement.scrollHeight - 100) {
       document.getElementById("load-more").click();
@@ -45,9 +45,9 @@ document.addEventListener("turbolinks:load", async () => {
   });
 
   // Load shortcuts
-  var shortcutsModal = document.getElementById('shortcutsModal')
-  shortcutsModal.addEventListener('shown.bs.modal', async () => {
-    var shortcutsModalBody = document.getElementById('shortcutsModalBody');
+  var shortcutsModal = document.getElementById("shortcutsModal")
+  shortcutsModal.addEventListener("shown.bs.modal", async () => {
+    var shortcutsModalBody = document.getElementById("shortcutsModalBody");
     const res = await window.fetch(`/site/shortcuts`);
     shortcutsModalBody.innerHTML = await res.text();
   });
