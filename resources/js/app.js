@@ -9,17 +9,16 @@ var Turbolinks = require("turbolinks");
 Turbolinks.start();
 TurbolinksPrefetch.start();
 
-// Initial Pagination
-document.addEventListener("DOMContentLoaded", async () => {
+document.addEventListener("turbolinks:load", async () => {
+  // Initial Pagination
   const target = document.querySelector("#load-more");
   if (await isInViewport(target)) {
+    console.log('in viw')
     document.getElementById("load-more").click();
     document.getElementById("load-more").innerHTML = `<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>`;
     document.getElementById("load-more").disabled = true;
   }
-}, false);
 
-document.addEventListener("turbolinks:load", () => {
   // Pagination
   window.addEventListener('scroll', () => {
     var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
