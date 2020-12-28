@@ -4,7 +4,7 @@ namespace Tests\Unit;
 
 use App\Helpers\Helper;
 
-test('can get correct usernames from mentions', function($text, $expected) {
+test('can get correct usernames from mentions', function ($text, $expected) {
     $usernames = Helper::getUserIDFromMention($text);
 
     expect($usernames)->toMatchArray($expected);
@@ -17,9 +17,9 @@ test('can get correct usernames from mentions', function($text, $expected) {
     ['@test', ['test']],
 ]);
 
-test('can parse mentions to markdown', function(
+test('can parse mentions to markdown', function (
     string $markdown,
-    array  $mentions,
+    array $mentions,
     string $expected
 ) {
     $parsed = Helper::parseUserMentionsToMarkdownLinks($markdown, $mentions);
