@@ -5,6 +5,19 @@ namespace Tests\Unit;
 use App\Helpers\Helper;
 use Illuminate\Mail\Markdown;
 
+test('can get correct usernames from mentions', function($text, $expected) {
+    $usernames = Helper::getUserIDFromMention($text);
+
+    expect($usernames)->toMatchArray($expected);
+})->with([
+    ['Hello @test and @admin', ['test', 'admin']],
+    ['@test @adm_in', ['test', 'adm_in']],
+    ['@test @admin', ['test', 'admin']],
+    ['Hello @te-st', ['te-st']],
+    ['@te-st', ['te-st']],
+    ['@test', ['test']],
+]);
+
 test('can parse mentions to markdown', function(
     string $markdown,
     array  $mentions,
