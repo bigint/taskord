@@ -49,6 +49,7 @@
 - **😀 Makers:** Community of peoples who ships constantly.
 - **📦 Products:** Ship your products to Taskord and make regular updates about the product and even add tasks to them.
 - **💬 Q&A:** Get your questions answered and use this feature as discussion too.
+- **🤝 Meetups:** Find or create your own meetup and meet people near you who share your interests.
 - **🎁 Deals:** Discounts and special deals for Taskord members. Only available to patrons.
 
 ## Prerequisites
