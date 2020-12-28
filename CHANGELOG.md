@@ -2,13 +2,13 @@
 
 ## Unreleased
 
-### v1.0.4
+### **v1.0.4**
 
 -
 
 ## Released
 
-### v1.0.3 (Dec 27, 2020)
+### **v1.0.3** (Dec 27, 2020)
 
 - Added **Sweetalert 2** for alerts ✅
 - Add **Links Prefetch** so the platform feels faster 🚀
@@ -22,7 +22,7 @@
 - Added **RSS feed** support for users and products 🔊
 - **JQuery** is no more on Taskord 😊
 
-### v1.0.2 (Dec 20, 2020)
+### **v1.0.2** (Dec 20, 2020)
 
 - User can now set **profile status** (still in beta) 💭
 - Add Product avatar on the popover 🖼
@@ -32,7 +32,7 @@
 - Switched Icon system to **Heroicons** from Font Awesome 👀
 - Upgraded to **Bootstrap v5.0.0** 🚀
 
-### v1.0.1 (Nov 29, 2020)
+### **v1.0.1** (Nov 29, 2020)
 
 - **Dependencies** are now up to date 📅
 - Bumped **Laravel** version to **v8.16.1** 📦
@@ -40,7 +40,7 @@
 - Logging into Taskord is now faster than before (we switched our session handler to Redis) 💨
 - Major **Security** Improvements 🛡
 
-### v1.0.0 (Oct 21, 2020)
+### **v1.0.0** (Oct 21, 2020)
 
 - Added user **profile popover** 💬
 - Added product **profile popover** 💬
