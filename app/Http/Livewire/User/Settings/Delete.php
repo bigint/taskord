@@ -10,21 +10,10 @@ use Livewire\Component;
 class Delete extends Component
 {
     public User $user;
-    public $reset_confirming;
-    public $delete_confirming;
 
     public function mount($user)
     {
         $this->user = $user;
-    }
-
-    public function confirmReset()
-    {
-        if (Auth::check()) {
-            $this->reset_confirming = $this->user->id;
-        } else {
-            return $this->alert('error', 'Forbidden!');
-        }
     }
 
     public function resetAccount()
@@ -62,20 +51,12 @@ class Delete extends Component
                 $user->ownedProducts()->delete();
                 $user->notifications()->delete();
                 $user->likes()->delete();
+                $this->flash('success', 'Your account has been resetted!');
 
-                return $this->alert('success', 'Your account has been resetted!');
+                return redirect()->route('home');
             } else {
                 return $this->alert('error', 'Forbidden!');
             }
-        } else {
-            return $this->alert('error', 'Forbidden!');
-        }
-    }
-
-    public function confirmDelete()
-    {
-        if (Auth::check()) {
-            $this->delete_confirming = $this->user->id;
         } else {
             return $this->alert('error', 'Forbidden!');
         }
