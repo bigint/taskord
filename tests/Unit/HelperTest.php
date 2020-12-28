@@ -3,7 +3,6 @@
 namespace Tests\Unit;
 
 use App\Helpers\Helper;
-use Illuminate\Mail\Markdown;
 
 test('can get correct usernames from mentions', function($text, $expected) {
     $usernames = Helper::getUserIDFromMention($text);
@@ -34,13 +33,4 @@ test('can parse mentions to markdown', function(
     ['@ad_min', ['ad_min'], '[@ad_min](/@ad_min)'],
     ['@te-st', ['te-st'], '[@te-st](/@te-st)'],
     ['@test', ['test'], '[@test](/@test)'],
-]);
-
-test('parsedown parses links correctly', function ($markdown, $expected) {
-    expect(trim(Markdown::parse($markdown)))->toEqual($expected);
-})->with([
-    ['[@te-st](/@te-st) [@ad_min](/@ad_min)', '<p><a href="/@te-st">@te-st</a> <a href="/@ad_min">@ad_min</a></p>'],
-    ['[@test](/@test) [@ad_min](/@ad_min)', '<p><a href="/@test">@test</a> <a href="/@ad_min">@ad_min</a></p>'],
-    ['[@test](/@test) @ad_min', '<p><a href="/@test">@test</a> @ad_min</p>'],
-    ['[@te-st](/@te-st)', '<p><a href="/@te-st">@te-st</a></p>']
 ]);
