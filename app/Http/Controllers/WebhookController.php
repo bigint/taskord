@@ -78,13 +78,14 @@ class WebhookController extends Controller
         }
         $request_body = $request->json()->all();
 
-        if ($request->header('X-GitHub-Event') === 'push') {
-            if (Str::contains($request_body['pusher']['name'], '[bot]')) {
-                return response('Bot cannot log tasks', 200);
-            }
-        } else {
+        if (!$request->header('X-GitHub-Event') === 'push') {
             return response('Only push event is allowed', 200);
         }
+
+        if (mb_strtolower($request_body['sender']['type'], 'UTF-8') == 'bot') {
+            return response('Bot cannot log tasks', 200);
+        }
+
         if ($request_body['repository']['default_branch'] !== str_replace('refs/heads/', '', $request_body['ref'])) {
             return response('Only default branch is allowed', 200);
         }
