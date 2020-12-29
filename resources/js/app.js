@@ -3,8 +3,8 @@ require("./tribute");
 // require("./tippy");
 import { isInViewport } from "observe-element-in-viewport";
 
-// Pagination
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", async () => {
+  // Pagination
   Livewire.hook('component.initialized', () => {
     window.addEventListener("scroll", () => {
       var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
@@ -15,15 +15,15 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   })
-});
 
-// Initial Pagination
-const target = document.querySelector("#load-more");
-if (await isInViewport(target)) {
-  document.getElementById("load-more").click();
-  document.getElementById("load-more").innerHTML = `<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>`;
-  document.getElementById("load-more").disabled = true;
-}
+  // Initial Pagination
+  const target = document.querySelector("#load-more");
+  if (await isInViewport(target)) {
+    document.getElementById("load-more").click();
+    document.getElementById("load-more").innerHTML = `<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>`;
+    document.getElementById("load-more").disabled = true;
+  }
+});
 
 // Admin Bar toggle in dropdown
 document.getElementById("admin-bar-click").addEventListener("click", async () => {
