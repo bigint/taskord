@@ -35,6 +35,12 @@ test('can get correct usernames from mentions', function ($text, $expected) {
     ['@test', ['test']],
 ]);
 
+test('can return empty array if no user mentions are found', function () {
+    $usernames = Helper::getUserIDFromMention('no users found');
+
+    expect($usernames)->toBeEmpty();
+});
+
 test('can parse mentions to markdown', function (
     string $markdown,
     array $mentions,
@@ -52,3 +58,9 @@ test('can parse mentions to markdown', function (
     ['@te-st', ['te-st'], '[@te-st](/@te-st)'],
     ['@test', ['test'], '[@test](/@test)'],
 ]);
+
+test('can return empty array if no product mentions are found', function () {
+    $products = Helper::getProductIDFromMention('no users found');
+
+    expect($products)->toBeEmpty();
+});
