@@ -23,7 +23,7 @@ test('can convert to CDN url in production enviroment without arguments', functi
 });
 
 test('can get correct usernames from mentions', function ($text, $expected) {
-    $usernames = Helper::getUserIDFromMention($text);
+    $usernames = Helper::getUsernamesFromMentions($text);
 
     expect($usernames)->toMatchArray($expected);
 })->with([
@@ -36,7 +36,7 @@ test('can get correct usernames from mentions', function ($text, $expected) {
 ]);
 
 test('can return empty array if no user mentions are found', function () {
-    $usernames = Helper::getUserIDFromMention('no users found');
+    $usernames = Helper::getUsernamesFromMentions('no users found');
 
     expect($usernames)->toBeEmpty();
 });

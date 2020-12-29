@@ -110,7 +110,7 @@ class Helper
         }
     }
 
-    public static function getUserIDFromMention($text)
+    public static function getUsernamesFromMentions($text)
     {
         preg_match_all("/(@[\w-]+)/u", $text, $matches);
 

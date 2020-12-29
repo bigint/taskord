@@ -46,7 +46,7 @@ class CreateAnswer extends Component
                 return $this->alert('error', 'Your account is flagged!');
             }
 
-            $users = Helper::getUserIDFromMention($this->answer);
+            $users = Helper::getUsernamesFromMentions($this->answer);
 
             if ($users) {
                 $this->answer = Helper::parseUserMentionsToMarkdownLinks($this->answer, $users);

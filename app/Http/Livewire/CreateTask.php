@@ -94,7 +94,7 @@ class CreateTask extends Component
                 return $this->alert('error', 'Your account is flagged!');
             }
 
-            $users = Helper::getUserIDFromMention($this->task);
+            $users = Helper::getUsernamesFromMentions($this->task);
 
             if ($this->images) {
                 $images = [];
