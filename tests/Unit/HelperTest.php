@@ -3,6 +3,7 @@
 namespace Tests\Unit;
 
 use App\Helpers\Helper;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\App;
 
 test('can convert to CDN url in production enviroment with arguments', function($url, $resolution, $expected) {
@@ -95,4 +96,19 @@ test('can render task with both user and product mentions correctly', function (
     ['#te_st @te_st', '<a href="/product/te_st">#te_st</a> <a href="/@te_st">@te_st</a>'],
     ['#te-st @te-st', '<a href="/product/te-st">#te-st</a> <a href="/@te-st">@te-st</a>'],
     ['#test @test', '<a href="/product/test">#test</a> <a href="/@test">@test</a>'],
+]);
+
+test('can render due date correctly' , function ($days, $expected) {
+    $date = Carbon::now()->addDays($days);
+    $expect = str_replace('-format-', $date->format('M d, Y'), $expected);
+
+    expect(Helper::dueDate($date))->toEqual($expect);
+})->with([
+    [0, "<span title='-format-' class='me-2 text-danger'>Due today</span>"],
+    [1, "<span title='-format-' class='me-2 text-info'>Due tomorrow</span>"],
+    [2, "<span title='-format-' class='me-2 text-success'>Due in 2 days</span>"],
+    [3, "<span title='-format-' class='me-2 text-success'>Due in 3 days</span>"],
+    [-2, "<span title='-format-' class='me-2 text-danger'>Overdue by 1 day</span>"],
+    [-3, "<span title='-format-' class='me-2 text-danger'>Overdue by 2 days</span>"],
+    [-4, "<span title='-format-' class='me-2 text-danger'>Overdue by 3 days</span>"],
 ]);
