@@ -1,6 +1,6 @@
 require("./shortcuts");
 require("./tribute");
-// require("./tippy");
+require("./tippy");
 import { isInViewport } from "observe-element-in-viewport";
 
 document.addEventListener("DOMContentLoaded", async () => {
