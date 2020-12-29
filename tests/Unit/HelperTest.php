@@ -100,15 +100,15 @@ test('can render task with both user and product mentions correctly', function (
 
 test('can render due date correctly' , function ($days, $expected) {
     $date = Carbon::now()->addDays($days);
-    $expect = str_replace('-format-', $date->format('M d, Y'), $expected);
+    $expect = str_replace('-format-', $date->format('Y-m-d'), $expected);
 
     expect(Helper::renderDueDate($date))->toEqual($expect);
 })->with([
-    [0, "<span title='-format-' class='me-2 text-danger'>Due today</span>"],
-    [1, "<span title='-format-' class='me-2 text-info'>Due tomorrow</span>"],
-    [2, "<span title='-format-' class='me-2 text-success'>Due in 2 days</span>"],
-    [3, "<span title='-format-' class='me-2 text-success'>Due in 3 days</span>"],
-    [-2, "<span title='-format-' class='me-2 text-danger'>Overdue by 1 day</span>"],
-    [-3, "<span title='-format-' class='me-2 text-danger'>Overdue by 2 days</span>"],
-    [-4, "<span title='-format-' class='me-2 text-danger'>Overdue by 3 days</span>"],
+    [0, "<time datetime='-format-' class='me-2 text-danger'>Due today</time>"],
+    [1, "<time datetime='-format-' class='me-2 text-info'>Due tomorrow</time>"],
+    [2, "<time datetime='-format-' class='me-2 text-success'>Due in 2 days</time>"],
+    [3, "<time datetime='-format-' class='me-2 text-success'>Due in 3 days</time>"],
+    [-2, "<time datetime='-format-' class='me-2 text-danger'>Overdue by 1 day</time>"],
+    [-3, "<time datetime='-format-' class='me-2 text-danger'>Overdue by 2 days</time>"],
+    [-4, "<time datetime='-format-' class='me-2 text-danger'>Overdue by 3 days</time>"],
 ]);
