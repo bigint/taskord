@@ -484,3 +484,8 @@ input[type="date"]:valid:before {
     width: 60px;
     vertical-align: sub;
 }
+
+.taskord-spinner {
+    border: 3px solid $gray-500;
+    border-right-color: black;
+}

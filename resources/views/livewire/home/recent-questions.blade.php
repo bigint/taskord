@@ -7,7 +7,7 @@
         <div class="card-body">
             @if (!$readyToLoad)
             <div class="card-body text-center">
-                <div class="spinner-border spinner-border-sm text-secondary" role="status"></div>
+                <div class="spinner-border spinner-border-sm taskord-spinner text-secondary" role="status"></div>
             </div>
             @endif
             @foreach ($recent_questions as $question)

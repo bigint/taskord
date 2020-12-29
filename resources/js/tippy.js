@@ -12,7 +12,7 @@ document.addEventListener("livewire:load", () => {
     theme: "light-border",
     delay: [200, 50],
     classList: "popover",
-    content: `<div class="p-3"><div class="spinner-border spinner-border-sm text-dark"></div></div>`,
+    content: `<div class="p-3"><div class="spinner-border spinner-border-sm taskord-spinner text-dark"></div></div>`,
   };
   // User Popover
   tippy(".user-popover", {

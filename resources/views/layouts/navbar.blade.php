@@ -205,7 +205,7 @@
             </div>
             <div class="modal-body" id="shortcutsModalBody">
                 <div class="d-flex justify-content-center">
-                    <div class="spinner-border text-secondary" role="status"></div>
+                    <div class="spinner-border taskord-spinner text-secondary" role="status"></div>
                 </div>
             </div>
             <div class="d-flex justify-content-between modal-footer">

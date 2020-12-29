@@ -6,7 +6,7 @@
         <div class="pt-2 pb-2">
         @if (!$readyToLoad)
         <div class="card-body text-center">
-            <div class="spinner-border spinner-border-sm text-secondary" role="status"></div>
+            <div class="spinner-border spinner-border-sm taskord-spinner text-secondary" role="status"></div>
         </div>
         @endif
         @foreach ($recently_joined as $user)
