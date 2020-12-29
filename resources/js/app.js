@@ -9,6 +9,21 @@ var Turbolinks = require("turbolinks");
 Turbolinks.start();
 TurbolinksPrefetch.start();
 
+// Pagination
+document.addEventListener("DOMContentLoaded", () => {
+  Livewire.hook('component.initialized', () => {
+    window.addEventListener("scroll", () => {
+      var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+      console.log(scrollTop);
+      if (scrollTop + window.innerHeight > document.documentElement.scrollHeight - 100) {
+        document.getElementById("load-more").click();
+        document.getElementById("load-more").innerHTML = `<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>`;
+        document.getElementById("load-more").disabled = true;
+      }
+    });
+  })
+});
+
 document.addEventListener("turbolinks:load", async () => {
   // Initial Pagination
   const target = document.querySelector("#load-more");
@@ -17,16 +32,6 @@ document.addEventListener("turbolinks:load", async () => {
     document.getElementById("load-more").innerHTML = `<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>`;
     document.getElementById("load-more").disabled = true;
   }
-
-  // Pagination
-  window.addEventListener("scroll", () => {
-    var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
-    if (scrollTop + window.innerHeight > document.documentElement.scrollHeight - 100) {
-      document.getElementById("load-more").click();
-      document.getElementById("load-more").innerHTML = `<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>`;
-      document.getElementById("load-more").disabled = true;
-    }
-  });
 
   // Admin Bar toggle in dropdown
   document.getElementById("admin-bar-click").addEventListener("click", async () => {
