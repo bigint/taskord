@@ -3,6 +3,15 @@
 namespace Tests\Unit;
 
 use App\Helpers\Helper;
+use Illuminate\Support\Facades\App;
+
+test('can convert to CDN url in production enviroment', function($url, $resolution, $expected) {
+    App::shouldReceive('environment')->once()->withNoArgs()->andReturn('production');
+
+    expect(Helper::getCDNImage($url, $resolution))->toEqual($expected);
+})->with([
+    ['https://taskord.com/storage/test.png', 500, 'https://ik.imagekit.io/blbrg3136a/tr:w-500/test.png']
+]);
 
 test('can get correct usernames from mentions', function ($text, $expected) {
     $usernames = Helper::getUserIDFromMention($text);
