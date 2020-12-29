@@ -6602,11 +6602,6 @@ tty-browserify@0.0.0:
   resolved "https://registry.yarnpkg.com/tty-browserify/-/tty-browserify-0.0.0.tgz#a157ba402da24e9bf957f9aa69d524eed42901a6"
   integrity sha1-oVe6QC2iTpv5V/mqadUk7tQpAaY=
 
-turbolinks@^5.2.0:
-  version "5.2.0"
-  resolved "https://registry.yarnpkg.com/turbolinks/-/turbolinks-5.2.0.tgz#e6877a55ea5c1cb3bb225f0a4ae303d6d32ff77c"
-  integrity sha512-pMiez3tyBo6uRHFNNZoYMmrES/IaGgMhQQM+VFF36keryjb5ms0XkVpmKHkfW/4Vy96qiGW3K9bz0tF5sK9bBw==
-
 twemoji-parser@13.0.0:
   version "13.0.0"
   resolved "https://registry.yarnpkg.com/twemoji-parser/-/twemoji-parser-13.0.0.tgz#bd9d1b98474f1651dc174696b45cabefdfa405af"
