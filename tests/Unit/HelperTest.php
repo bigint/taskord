@@ -98,6 +98,17 @@ test('can render task with both user and product mentions correctly', function (
     ['#test @test', '<a href="/product/test">#test</a> <a href="/@test">@test</a>'],
 ]);
 
+test('can render task with links correctly', function ($task, $expected) {
+    expect(Helper::renderTask($task))->toEqual($expected);
+})->with([
+    ['ftp://example.com/loremipsumtest', "<a class='link' href='ftp://example.com/loremipsumtest'>ftp://example.com/loremipsumte...</a>"],
+    ['http://example.com/test Lorem', "<a class='link' href='http://example.com/test'>http://example.com/test</a> Lorem"],
+    ['https://example.com/test', "<a class='link' href='https://example.com/test'>https://example.com/test</a>"],
+    ['http://example.com/test', "<a class='link' href='http://example.com/test'>http://example.com/test</a>"],
+    ['ftps://example.com/test', "<a class='link' href='ftps://example.com/test'>ftps://example.com/test</a>"],
+    ['ftp://example.com/test', "<a class='link' href='ftp://example.com/test'>ftp://example.com/test</a>"],
+]);
+
 test('can render due date correctly' , function ($days, $expected) {
     $date = Carbon::now()->addDays($days);
     $expect = str_replace('-format-', $date->format('Y-m-d'), $expected);
