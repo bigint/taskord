@@ -4191,11 +4191,6 @@ last-call-webpack-plugin@^3.0.0:
     lodash "^4.17.5"
     webpack-sources "^1.1.0"
 
-livewire-turbolinks@^0.1.1:
-  version "0.1.1"
-  resolved "https://registry.yarnpkg.com/livewire-turbolinks/-/livewire-turbolinks-0.1.1.tgz#95d80b40cd7c672d3daebea56c16fbbf4c113ccd"
-  integrity sha512-XQaH+HreLse5/6Ad6Rz2jC5PmV7Pa/Q3r46sGcmTkQHlh3w25KK7FF6TsRU8Pu9SMJWXRgoHh2Gb0b8xQPFD0Q==
-
 loader-runner@^2.4.0:
   version "2.4.0"
   resolved "https://registry.yarnpkg.com/loader-runner/-/loader-runner-2.4.0.tgz#ed47066bfe534d7e84c4c7b9998c2a75607d9357"
@@ -6606,16 +6601,6 @@ tty-browserify@0.0.0:
   version "0.0.0"
   resolved "https://registry.yarnpkg.com/tty-browserify/-/tty-browserify-0.0.0.tgz#a157ba402da24e9bf957f9aa69d524eed42901a6"
   integrity sha1-oVe6QC2iTpv5V/mqadUk7tQpAaY=
-
-turbolinks-prefetch@^1.0.3:
-  version "1.0.3"
-  resolved "https://registry.yarnpkg.com/turbolinks-prefetch/-/turbolinks-prefetch-1.0.3.tgz#9818c6ceab6ef36e5fd2d095235389f71485a6dc"
-  integrity sha512-mFQhpFqol2mtmaoHtSFlkEoCbKpAKpCkadb6seKWVAxJWqf8y9aver0+YD/FeHtsHRz4j47+//Om/AEU0OZnLw==
-
-turbolinks@^5.2.0:
-  version "5.2.0"
-  resolved "https://registry.yarnpkg.com/turbolinks/-/turbolinks-5.2.0.tgz#e6877a55ea5c1cb3bb225f0a4ae303d6d32ff77c"
-  integrity sha512-pMiez3tyBo6uRHFNNZoYMmrES/IaGgMhQQM+VFF36keryjb5ms0XkVpmKHkfW/4Vy96qiGW3K9bz0tF5sK9bBw==
 
 twemoji-parser@13.0.0:
   version "13.0.0"

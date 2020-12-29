@@ -22,11 +22,8 @@
         "@joeattardi/emoji-button": "^4.6.0",
         "bootstrap": "^5.0.0-beta1",
         "hotkeys-js": "^3.8.1",
-        "livewire-turbolinks": "^0.1.1",
         "observe-element-in-viewport": "0.0.15",
         "tippy.js": "^6.2.7",
-        "tributejs": "^5.1.3",
-        "turbolinks": "^5.2.0",
-        "turbolinks-prefetch": "^1.0.3"
+        "tributejs": "^5.1.3"
     }
 }
