@@ -110,17 +110,15 @@ class Helper
         }
     }
 
-    public static function getUserIDFromMention($string)
+    public static function getUserIDFromMention($text)
     {
-        $mention = false;
-        preg_match_all("/(@[\w-]+)/u", $string, $matches);
-        if ($matches) {
-            $mentionsArray = array_count_values($matches[0]);
-            $mention = array_keys($mentionsArray);
-        }
-        $usernames = str_replace('@', '', $mention);
+        preg_match_all("/(@[\w-]+)/u", $text, $matches);
 
-        return $usernames;
+        if ($matches) {
+            $usernames = collect($matches[0])->values()->all();
+        }
+
+        return str_replace('@', '', $usernames);
     }
 
     public static function parseUserMentionsToMarkdownLinks($markdown, $mentions)
