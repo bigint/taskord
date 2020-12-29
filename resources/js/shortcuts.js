@@ -109,11 +109,11 @@ hotkeys("n+i", () => {
     fullVersion = fullVersion.substring(0, ix);
 
   const description = `
-**Describe the bug**\n\n
-**To Reproduce**\n\n
-**Expected behaviour**\n\n
-**Screenshots**\n\n
-**Additional context**\n\n
+**Describe the bug**\n\n\n
+**To Reproduce**\n\n\n
+**Expected behaviour**\n\n\n
+**Screenshots**\n\n\n
+**Additional context**\n\n\n
 **Browser Details**\n
 ${"```"}
 Base URL: ${window.location.origin}
