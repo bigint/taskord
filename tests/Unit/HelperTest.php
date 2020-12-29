@@ -102,7 +102,7 @@ test('can render due date correctly' , function ($days, $expected) {
     $date = Carbon::now()->addDays($days);
     $expect = str_replace('-format-', $date->format('M d, Y'), $expected);
 
-    expect(Helper::dueDate($date))->toEqual($expect);
+    expect(Helper::renderDueDate($date))->toEqual($expect);
 })->with([
     [0, "<span title='-format-' class='me-2 text-danger'>Due today</span>"],
     [1, "<span title='-format-' class='me-2 text-info'>Due tomorrow</span>"],

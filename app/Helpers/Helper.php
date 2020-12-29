@@ -181,7 +181,7 @@ class Helper
         }
     }
 
-    public static function dueDate($date)
+    public static function renderDueDate($date)
     {
         $diff = Carbon::today()->diffInDays(Carbon::parse($date), false);
         $days = abs($diff);
