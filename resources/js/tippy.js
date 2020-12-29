@@ -3,7 +3,7 @@ import "tippy.js/dist/tippy.css";
 import "tippy.js/animations/shift-away-subtle.css";
 import "tippy.js/themes/light-border.css";
 
-document.addEventListener("livewire:load", () => {
+document.addEventListener('DOMContentLoaded', (event) => {
   const config = {
     allowHTML: true,
     maxWidth: 350,
