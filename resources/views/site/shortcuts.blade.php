@@ -41,9 +41,9 @@
     </span>
 </div>
 <div class="d-flex justify-content-between mt-2">
-    <span>Open Keyboard Shortcuts</span>
+    <span>Bring up this help dialog</span>
     <span>
-        <kbd class="me-1">ctrl</kbd><kbd>/</kbd>
+        <kbd>?</kbd>
     </span>
 </div>
 <div class="d-flex justify-content-between mt-2">

@@ -1,10 +1,5 @@
 import hotkeys from "hotkeys-js";
 
-// Shortcut Modal
-hotkeys("ctrl+7, control+7", async () => {
-    (new bootstrap.Modal(document.getElementById("shortcutsModal"))).show();
-});
-
 // Admin Bar
 hotkeys("p+b, `", async () => {
   const res = await window.fetch(`/admin/adminbar`);
@@ -50,6 +45,11 @@ hotkeys("g+n", () => {
 // Go to settings
 hotkeys("g+s", () => {
   window.location.href = "/settings";
+});
+
+// Shortcut Modal
+hotkeys("shift+/", async () => {
+  (new bootstrap.Modal(document.getElementById("shortcutsModal"))).show();
 });
 
 // Create new issue in GitLab
