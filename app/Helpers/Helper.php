@@ -132,34 +132,18 @@ class Helper
 
     public static function getProductIDFromMention($string)
     {
-        $mention = false;
         preg_match_all("/(#[\w-]+)/u", $string, $matches);
+
         if ($matches) {
-            $mentionsArray = array_count_values($matches[0]);
-            $mention = array_keys($mentionsArray);
-        }
-        $products = str_replace('#', '', $mention);
-
-        if ($products) {
-            $product = Product::where('slug', $products[0])->first();
-            if ($product) {
-                if ($product->user_id === Auth::id() or Auth::user()->products->contains($product)) {
-                    $product_id = $product->id;
-                    $type = 'product';
-                } else {
-                    $product_id = null;
-                    $type = 'user';
-                }
-            } else {
-                $product_id = null;
-                $type = 'user';
-            }
-        } else {
-            $product_id = null;
-            $type = 'user';
+            $mentions = collect($matches[0])->values()->all();
         }
 
-        return $product_id;
+        $products = collect(str_replace('#', '', $mentions));
+
+        return $products
+            ->map(fn ($product) => Product::where('slug', $product)->first())->whereNotNull('id')
+            ->filter(fn ($product) => $product->user_id === Auth::id() OR Auth::user()->products->contains($product))
+            ->pluck('id')->first();
     }
 
     public static function removeProtocol($url)
