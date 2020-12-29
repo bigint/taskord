@@ -2,8 +2,8 @@
 
 namespace App\Http\Livewire\Home;
 
-use Livewire\Component;
 use App\Models\User;
+use Livewire\Component;
 
 class TopReputations extends Component
 {
