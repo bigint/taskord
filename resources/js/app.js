@@ -14,7 +14,6 @@ document.addEventListener("DOMContentLoaded", () => {
   Livewire.hook('component.initialized', () => {
     window.addEventListener("scroll", () => {
       var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
-      console.log(scrollTop);
       if (scrollTop + window.innerHeight > document.documentElement.scrollHeight - 100) {
         document.getElementById("load-more").click();
         document.getElementById("load-more").innerHTML = `<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>`;
