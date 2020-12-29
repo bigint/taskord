@@ -7,6 +7,8 @@ use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\URL;
 use Illuminate\Support\ServiceProvider;
 
+use Exception;
+
 class AppServiceProvider extends ServiceProvider
 {
     /**
@@ -29,14 +31,17 @@ class AppServiceProvider extends ServiceProvider
         if ($this->app->environment('production')) {
             URL::forceScheme('https');
         }
+
         Paginator::useBootstrap();
 
-        if (file_exists('../VERSION')) {
-            $version = File::get('../VERSION');
-            config(['app.version' => $version]);
-        } else {
-            $version = '0.0.0';
-            config(['app.version' => $version]);
+        try {
+            if (file_get_contents('../VERSION')) {
+                $version = File::get('../VERSION');
+                config(['app.version' => $version]);
+            }
+        } catch (Exception $exception) {
+            // Sometimes an exception is thrown even though the file exists,
+            // So instead of logging that exception, we let it disappear.
         }
     }
 }
