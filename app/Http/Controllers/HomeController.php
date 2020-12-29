@@ -38,16 +38,6 @@ class HomeController extends Controller
             ->orderBy('created_at', 'DESC')
             ->take(5)
             ->get();
-        $recent_users = User::cacheFor(60 * 60)
-            ->select('id', 'username', 'firstname', 'lastname', 'avatar', 'bio', 'isVerified', 'created_at')
-            ->where([
-                ['created_at', '>=', Carbon::now()->subdays(7)],
-                ['isFlagged', false],
-            ])
-            ->orderBy('created_at', 'DESC');
-        $recently_joined = $recent_users->take(5)
-            ->get();
-        $recently_joined_count = $recent_users->count('id');
         $products = Product::cacheFor(60 * 60)
             ->select('id', 'slug', 'name', 'launched', 'avatar', 'user_id')
             ->where('launched', true)
@@ -67,8 +57,6 @@ class HomeController extends Controller
         return view('home/home', [
             'recent_questions' => $recent_questions,
             'launched_today' => $launched_today,
-            'recently_joined' => $recently_joined,
-            'recently_joined_count' => $recently_joined_count,
             'products' => $products,
             'reputations' => $reputations,
         ]);
