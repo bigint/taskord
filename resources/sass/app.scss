@@ -381,6 +381,20 @@ input[type="date"]:valid:before {
     border-bottom-left-radius: 6px;
 }
 
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 6px 6px 6px 6px transparent;
+    border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 6px;
+    -webkit-box-shadow: inset 6px 6px 6px 6px $gray-500;
+}
+
 .gallery {
     display: flex;
     img {
