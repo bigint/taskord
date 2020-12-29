@@ -64,3 +64,14 @@ test('can return empty array if no product mentions are found', function () {
 
     expect($products)->toBeEmpty();
 });
+
+test('can render task with user mentions correctly', function ($task, $expected) {
+    expect(Helper::renderTask($task))->toEqual($expected);
+})->with([
+    ['@test @admin', '<a href="/@test">@test</a> <a href="/@admin">@admin</a>'],
+    ['@test admin', '<a href="/@test">@test</a> admin'],
+    ['Hello @test', 'Hello <a href="/@test">@test</a>'],
+    ['@te_st', '<a href="/@te_st">@te_st</a>'],
+    ['@te-st', '<a href="/@te-st">@te-st</a>'],
+    ['@test', '<a href="/@test">@test</a>'],
+]);
