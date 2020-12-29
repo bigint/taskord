@@ -4,6 +4,14 @@ require("./tribute");
 import { isInViewport } from "observe-element-in-viewport";
 
 document.addEventListener("DOMContentLoaded", async () => {
+  // Initial Pagination
+  const target = document.querySelector("#load-more");
+  if (await isInViewport(target)) {
+    document.getElementById("load-more").click();
+    document.getElementById("load-more").innerHTML = `<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>`;
+    document.getElementById("load-more").disabled = true;
+  }
+
   // Pagination
   Livewire.hook('component.initialized', () => {
     window.addEventListener("scroll", () => {
@@ -15,14 +23,6 @@ document.addEventListener("DOMContentLoaded", async () => {
       }
     });
   })
-
-  // Initial Pagination
-  const target = document.querySelector("#load-more");
-  if (await isInViewport(target)) {
-    document.getElementById("load-more").click();
-    document.getElementById("load-more").innerHTML = `<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>`;
-    document.getElementById("load-more").disabled = true;
-  }
 });
 
 // Admin Bar toggle in dropdown
