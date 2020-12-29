@@ -47,8 +47,10 @@ document.addEventListener("turbolinks:load", async () => {
       location.reload();
     }
   });
+});
 
-  // Load shortcuts
+// Load shortcuts
+document.addEventListener("turbolinks:load", async () => {
   var shortcutsModal = document.getElementById("shortcutsModal")
   shortcutsModal.addEventListener("shown.bs.modal", async () => {
     var shortcutsModalBody = document.getElementById("shortcutsModalBody");
