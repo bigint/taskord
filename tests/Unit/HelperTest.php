@@ -109,6 +109,11 @@ test('can render task with links correctly', function ($task, $expected) {
     ['ftp://example.com/test', "<a class='link' href='ftp://example.com/test'>ftp://example.com/test</a>"],
 ]);
 
+test('can render task with plain text correctly', function () {
+    expect(Helper::renderTask('Jean shorts scenester fingerstache gentrify.'))
+        ->toEqual('Jean shorts scenester fingerstache gentrify.');
+});
+
 test('can render due date correctly' , function ($days, $expected) {
     $date = Carbon::now()->addDays($days);
     $expect = str_replace('-format-', $date->format('Y-m-d'), $expected);
