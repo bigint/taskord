@@ -38,12 +38,6 @@ class HomeController extends Controller
             ->orderBy('created_at', 'DESC')
             ->take(5)
             ->get();
-        $products = Product::cacheFor(60 * 60)
-            ->select('id', 'slug', 'name', 'launched', 'avatar', 'user_id')
-            ->where('launched', true)
-            ->orderBy('created_at', 'DESC')
-            ->take(5)
-            ->get();
         $reputations = User::cacheFor(60 * 60)
             ->select('id', 'username', 'firstname', 'lastname', 'avatar', 'reputation', 'isVerified')
             ->where([
@@ -57,7 +51,6 @@ class HomeController extends Controller
         return view('home/home', [
             'recent_questions' => $recent_questions,
             'launched_today' => $launched_today,
-            'products' => $products,
             'reputations' => $reputations,
         ]);
     }
