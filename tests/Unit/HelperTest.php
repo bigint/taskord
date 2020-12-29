@@ -5,13 +5,22 @@ namespace Tests\Unit;
 use App\Helpers\Helper;
 use Illuminate\Support\Facades\App;
 
-test('can convert to CDN url in production enviroment', function($url, $resolution, $expected) {
+test('can convert to CDN url in production enviroment with arguments', function($url, $resolution, $expected) {
     App::shouldReceive('environment')->once()->withNoArgs()->andReturn('production');
 
     expect(Helper::getCDNImage($url, $resolution))->toEqual($expected);
 })->with([
-    ['https://taskord.com/storage/test.png', 500, 'https://ik.imagekit.io/blbrg3136a/tr:w-500/test.png']
+    ['https://taskord.com/storage/test.png', 500, 'https://ik.imagekit.io/blbrg3136a/tr:w-500/test.png'],
+    ['https://taskord.com/storage/test.png', 501, 'https://ik.imagekit.io/blbrg3136a/tr:w-501/test.png'],
 ]);
+
+test('can convert to CDN url in production enviroment without arguments', function() {
+    App::shouldReceive('environment')->once()->withNoArgs()->andReturn('production');
+
+    $urlFromHelper = Helper::getCDNImage('https://taskord.com/storage/test.png');
+
+    expect($urlFromHelper)->toEqual('https://ik.imagekit.io/blbrg3136a/tr:w-500/test.png');
+});
 
 test('can get correct usernames from mentions', function ($text, $expected) {
     $usernames = Helper::getUserIDFromMention($text);
