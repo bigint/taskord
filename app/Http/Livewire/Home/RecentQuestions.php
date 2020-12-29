@@ -2,8 +2,8 @@
 
 namespace App\Http\Livewire\Home;
 
-use Livewire\Component;
 use App\Models\Question;
+use Livewire\Component;
 
 class RecentQuestions extends Component
 {
