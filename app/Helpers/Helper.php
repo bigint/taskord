@@ -185,25 +185,25 @@ class Helper
     {
         $diff = Carbon::today()->diffInDays(Carbon::parse($date), false);
         $days = abs($diff);
-        $format = Carbon::parse($date)->format('M d, Y');
+        $format = Carbon::parse($date)->format('Y-m-d');
 
         if ($diff > 1) {
-            return "<span title='$format' class='me-2 text-success'>Due in $days days</span>";
+            return "<time datetime='$format' class='me-2 text-success'>Due in $days days</time>";
         }
 
         if ($diff === 1) {
-            return "<span title='$format' class='me-2 text-info'>Due tomorrow</span>";
+            return "<time datetime='$format' class='me-2 text-info'>Due tomorrow</time>";
         }
 
         if ($diff === 0) {
-            return "<span title='$format' class='me-2 text-danger'>Due today</span>";
+            return "<time datetime='$format' class='me-2 text-danger'>Due today</time>";
         }
 
         if ($diff < 0) {
             if ($days > 1) {
-                return "<span title='$format' class='me-2 text-danger'>Overdue by $days days</span>";
+                return "<time datetime='$format' class='me-2 text-danger'>Overdue by $days days</time>";
             } else {
-                return "<span title='$format' class='me-2 text-danger'>Overdue by $days day</span>";
+                return "<time datetime='$format' class='me-2 text-danger'>Overdue by $days day</time>";
             }
         }
     }
