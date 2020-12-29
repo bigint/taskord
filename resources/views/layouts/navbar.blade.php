@@ -136,7 +136,7 @@
                                 <x-heroicon-o-cog class="heroicon-1x text-secondary" />
                                 Settings
                             </a>
-                            <a class="dropdown-item text-dark" href="{{ route('patron.home') }}" data-turbolinks="false">
+                            <a class="dropdown-item text-dark" href="{{ route('patron.home') }}">
                                 <x-heroicon-o-star class="heroicon-1x text-secondary" />
                                 Patron
                             </a>

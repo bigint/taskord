@@ -19,11 +19,11 @@
     <title>@yield('pageTitle') Taskord</title>
     <link rel="icon" href="/images/logo.svg" sizes="any" type="image/svg+xml">
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link href="{{ mix('css/app.css') }}" rel="stylesheet" data-turbolinks-track="true">
+    <link href="{{ mix('css/app.css') }}" rel="stylesheet">
     @auth
     @if (Auth::user()->isPatron or Auth::user()->isStaff)
     @if (Auth::user()->darkMode)
-    <link href="{{ mix('css/darkmode.css') }}" rel="stylesheet" data-turbolinks-track="true">
+    <link href="{{ mix('css/darkmode.css') }}" rel="stylesheet">
     @endif
     @endif
     @endauth
@@ -81,9 +81,9 @@
     </div>
 </body>
 <livewire:scripts />
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10" defer data-turbolinks-track="true" data-turbolinks-eval=false></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10" defer></script>
 <x-livewire-alert::scripts />
-<script src="{{ mix('js/bootstrap.js') }}" defer data-turbolinks-track="true" data-turbolinks-eval=false></script>
-<script src="{{ mix('js/app.js') }}" defer data-turbolinks-track="true" data-turbolinks-eval=false></script>
+<script src="{{ mix('js/bootstrap.js') }}" defer></script>
+<script src="{{ mix('js/app.js') }}" defer></script>
 @yield('emoji-picker')
 </html>
