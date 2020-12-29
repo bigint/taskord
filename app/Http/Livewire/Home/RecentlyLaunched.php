@@ -2,8 +2,8 @@
 
 namespace App\Http\Livewire\Home;
 
-use Livewire\Component;
 use App\Models\Product;
+use Livewire\Component;
 
 class RecentlyLaunched extends Component
 {
