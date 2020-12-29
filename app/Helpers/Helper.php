@@ -181,30 +181,31 @@ class Helper
         }
     }
 
-    public static function renderDueDate($date)
+    public static function renderDueDate(Carbon $date)
     {
-        $diff = Carbon::today()->diffInDays(Carbon::parse($date), false);
-        $days = abs($diff);
-        $format = Carbon::parse($date)->format('Y-m-d');
+        $difference = Carbon::today()->diffInDays($date, false);
+        $days = abs($difference);
 
-        if ($diff > 1) {
-            return "<time datetime='$format' class='me-2 text-success'>Due in $days days</time>";
+        if ($difference > 1) {
+            $due = ['class' => 'text-success', 'text' => "Due in {$days} days"];
         }
 
-        if ($diff === 1) {
-            return "<time datetime='$format' class='me-2 text-info'>Due tomorrow</time>";
+        if ($difference === 1) {
+            $due = ['class' => 'text-info', 'text' => 'Due tomorrow'];
         }
 
-        if ($diff === 0) {
-            return "<time datetime='$format' class='me-2 text-danger'>Due today</time>";
+        if ($difference === 0) {
+            $due = ['class' => 'text-danger', 'text' => 'Due today'];
         }
 
-        if ($diff < 0) {
+        if ($difference < 0) {
+            $due = ['class' => 'text-danger', 'text' => "Overdue by {$days} day"];
+
             if ($days > 1) {
-                return "<time datetime='$format' class='me-2 text-danger'>Overdue by $days days</time>";
-            } else {
-                return "<time datetime='$format' class='me-2 text-danger'>Overdue by $days day</time>";
+                $due = ['class' => 'text-danger', 'text' => "Overdue by {$days} days"];
             }
         }
+
+        return "<time datetime='{$date->format('Y-m-d')}' class='me-2 {$due['class']}'>{$due['text']}</time>";
     }
 }
