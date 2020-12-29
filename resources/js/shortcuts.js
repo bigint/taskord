@@ -118,7 +118,7 @@ hotkeys("n+i", () => {
 ${"```"}
 Base URL: ${window.location.origin}
 Taskord Version: ${document.getElementById("taskord-version").innerHTML.trim()}
-Taskord Username: @${document.getElementById("taskord-username").innerHTML.trim()}
+Username: @${document.getElementById("taskord-username").innerHTML.trim()}
 Browser name: ${browserName}
 Full version: ${fullVersion}
 Platform: ${window.navigator.platform}
