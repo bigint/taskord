@@ -1,5 +1,10 @@
 import hotkeys from "hotkeys-js";
 
+// Shortcut Modal
+hotkeys("ctrl+7, control+7", async () => {
+    (new bootstrap.Modal(document.getElementById("shortcutsModal"))).show();
+});
+
 // Admin Bar
 hotkeys("p+b, `", async () => {
   const res = await window.fetch(`/admin/adminbar`);
