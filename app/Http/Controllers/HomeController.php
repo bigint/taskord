@@ -38,20 +38,10 @@ class HomeController extends Controller
             ->orderBy('created_at', 'DESC')
             ->take(5)
             ->get();
-        $reputations = User::cacheFor(60 * 60)
-            ->select('id', 'username', 'firstname', 'lastname', 'avatar', 'reputation', 'isVerified')
-            ->where([
-                ['isFlagged', false],
-                ['id', '!=', 1],
-            ])
-            ->orderBy('reputation', 'DESC')
-            ->take(10)
-            ->get();
 
         return view('home/home', [
             'recent_questions' => $recent_questions,
             'launched_today' => $launched_today,
-            'reputations' => $reputations,
         ]);
     }
 }
