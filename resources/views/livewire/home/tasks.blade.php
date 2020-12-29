@@ -1,5 +1,13 @@
-<div>
-    @if (count($tasks) === 0)
+<div wire:init="loadTasks">
+    @if (!$readyToLoad)
+    <div class="card-body text-center mt-3 mb-3">
+        <div class="spinner-border text-primary mb-3" role="status"></div>
+        <div class="h4">
+            Loading Tasks
+        </div>
+    </div>
+    @endif
+    @if ($readyToLoad and count($tasks) === 0)
     <div class="card-body text-center mt-3 mb-3">
         <x-heroicon-o-check-circle class="heroicon-4x text-primary mb-2" />
         <div class="h4">
@@ -17,7 +25,7 @@
         ], key($task->id))
     </li>
     @endforeach
-    @if ($tasks->hasMorePages())
+    @if ($readyToLoad and $tasks->hasMorePages())
         @livewire('home.load-more', [
             'page' => $page
         ])
