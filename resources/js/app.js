@@ -2,12 +2,6 @@ require("./shortcuts");
 require("./tribute");
 // require("./tippy");
 import { isInViewport } from "observe-element-in-viewport";
-import "livewire-turbolinks";
-import TurbolinksPrefetch from "turbolinks-prefetch";
-
-var Turbolinks = require("turbolinks");
-Turbolinks.start();
-TurbolinksPrefetch.start();
 
 // Pagination
 document.addEventListener("DOMContentLoaded", () => {
