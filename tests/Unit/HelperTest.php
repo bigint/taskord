@@ -86,3 +86,13 @@ test('can render task with product mentions correctly', function ($task, $expect
     ['#te-st', '<a href="/product/te-st">#te-st</a>'],
     ['#test', '<a href="/product/test">#test</a>'],
 ]);
+
+test('can render task with both user and product mentions correctly', function ($task, $expected) {
+    expect(Helper::renderTask($task))->toEqual($expected);
+})->with([
+    ['#test admin @te-st', '<a href="/product/test">#test</a> admin <a href="/@te-st">@te-st</a>'],
+    ['Hello #test @te-st', 'Hello <a href="/product/test">#test</a> <a href="/@te-st">@te-st</a>'],
+    ['#te_st @te_st', '<a href="/product/te_st">#te_st</a> <a href="/@te_st">@te_st</a>'],
+    ['#te-st @te-st', '<a href="/product/te-st">#te-st</a> <a href="/@te-st">@te-st</a>'],
+    ['#test @test', '<a href="/product/test">#test</a> <a href="/@test">@test</a>'],
+]);
