@@ -152,13 +152,13 @@
                 <input wire:click="suspendUser" id="suspendUser" class="form-check-input" type="checkbox" {{ $user->isSuspended ? 'checked' : '' }}>
                 <label for="suspendUser" class="ms-1 text-danger fw-bold">Suspend this user</label>
             </div>
-            <div class="mt-2">
+            <div class="mt-3">
                 <button wire:loading.attr="disabled" wire:click="resetAvatar" class="btn btn-sm btn-danger fw-bold">
                     <x-heroicon-o-refresh class="heroicon" />
                     Reset avatar
                 </button>
             </div>
-            <div class="mt-3">
+            <div class="mt-2">
                 <button wire:loading.attr="disabled" wire:click="deleteTasks" class="btn btn-sm btn-danger fw-bold">
                     <x-heroicon-o-trash class="heroicon" />
                     <x-heroicon-o-check class="heroicon" />
