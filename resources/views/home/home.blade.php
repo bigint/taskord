@@ -42,7 +42,7 @@
         <div class="col-sm">
             @auth
                 @livewire('home.onboarding')
-                <div class="h5 text-muted pb-2">
+                <div class="h5 text-secondary pb-2">
                     @php
                         $hour = Carbon::now()->setTimezone(Auth::user()->timezone)->format('H');
                     @endphp
