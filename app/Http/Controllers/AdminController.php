@@ -50,7 +50,7 @@ class AdminController extends Controller
             $user->save();
             activity()
                 ->withProperties(['type' => 'Admin'])
-                ->log('Disabled StaffShip');
+                ->log('Disabled Staff Ship');
 
             return response()->json([
                 'status' => 'disabled',
@@ -60,7 +60,7 @@ class AdminController extends Controller
             $user->save();
             activity()
                 ->withProperties(['type' => 'Admin'])
-                ->log('Enabled StaffShip');
+                ->log('Enabled Staff Ship');
 
             return response()->json([
                 'status' => 'enabled',

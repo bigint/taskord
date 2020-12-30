@@ -94,7 +94,7 @@ class LoginController extends Controller
             );
             activity()
                 ->withProperties(['type' => 'Auth'])
-                ->log('User logged in via Taskord auth from '.$request->ip());
+                ->log('Logged in via Taskord auth with '.auth()->user()->email.' from '.$request->ip());
 
             return redirect()->route('home');
         } else {
