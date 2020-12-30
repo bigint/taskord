@@ -88,7 +88,7 @@
             </span>
             @endif
         </label>
-        {{ dump($task->source === 'GitHub' or $task->source === 'GitLab' or $task->source === 'Webhook') }}
+        {{ dump($launched) }}
         @if ($task->images)
         <div class="gallery">
         @foreach ($task->images ?? [] as $image)
