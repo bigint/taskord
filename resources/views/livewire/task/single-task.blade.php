@@ -88,7 +88,6 @@
             </span>
             @endif
         </label>
-        {{ dump($launched) }}
         @if ($task->images)
         <div class="gallery">
         @foreach ($task->images ?? [] as $image)
