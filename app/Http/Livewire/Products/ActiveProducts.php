@@ -2,8 +2,8 @@
 
 namespace App\Http\Livewire\Products;
 
-use Livewire\Component;
 use App\Models\Product;
+use Livewire\Component;
 
 class ActiveProducts extends Component
 {
