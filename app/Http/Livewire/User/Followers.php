@@ -4,12 +4,9 @@ namespace App\Http\Livewire\User;
 
 use App\Models\User;
 use Livewire\Component;
-use Livewire\WithPagination;
 
 class Followers extends Component
 {
-    use WithPagination;
-    protected $paginationTheme = 'bootstrap';
     public User $user;
     public $readyToLoad = false;
 
