@@ -1,5 +1,13 @@
-<div>
-    @if (count($answers) === 0)
+<div wire:init="loadAnswers">
+    @if (!$readyToLoad)
+    <div class="card-body text-center mt-3 mb-3">
+        <div class="spinner-border taskord-spinner text-secondary mb-3" role="status"></div>
+        <div class="h6">
+            Loading Answers...
+        </div>
+    </div>
+    @endif
+    @if ($readyToLoad and count($answers) === 0)
     <div class="card-body text-center mt-3 mb-3">
         <x-heroicon-o-chat-alt-2 class="heroicon-4x text-primary mb-2" />
         <div class="h4">
@@ -27,5 +35,5 @@
         </div>
     @endforeach
 
-    {{ $answers->links() }}
+    {{ $readyToLoad ? $answers->links() : '' }}
 </div>
