@@ -78,23 +78,25 @@
                         <div class="nav-link">
                             <a
                                 href="{{ route('user.settings.profile') }}"
+                            >
+                                <span
                                 class="badge rounded-pill score text-white
                                     @if(Auth::user()->daily_goal_reached >= Auth::user()->daily_goal)
                                         bg-success
                                     @else
                                         bg-info
-                                    @endif"
-                            >
-                                <x-heroicon-s-check-circle class="heroicon-small" />
-                                {{ Auth::user()->daily_goal_reached }}/{{ Auth::user()->daily_goal }}
+                                    @endif">
+                                    <x-heroicon-s-check-circle class="heroicon-small" />
+                                    {{ Auth::user()->daily_goal_reached }}/{{ Auth::user()->daily_goal }}
+                                </span>
                             </a>
                         </div>
                     </li>
                     @endif
                     <li class="nav-item me-2">
                         <a class="nav-link" href="{{ route('reputation') }}">
-                            <span class="badge rounded-pill text-secondary score bg-warning">
-                                <x-heroicon-o-fire class="heroicon-small me-0 text-danger" />
+                            <span class="badge rounded-pill text-reputation score bg-warning">
+                                <x-heroicon-o-fire class="heroicon-small text-danger" />
                                 {{ number_format(Auth::user()->getPoints()) }}
                             </span>
                         </a>
