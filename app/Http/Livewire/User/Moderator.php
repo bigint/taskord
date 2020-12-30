@@ -389,6 +389,31 @@ class Moderator extends Component
         }
     }
 
+    public function resetAvatar()
+    {
+        if (Auth::check() && Auth::user()->isStaff) {
+            activity()
+                ->withProperties(['type' => 'Admin'])
+                ->log('Resetted avatar | Username: @'.$this->user->username);
+            $user = User::find($this->user->id);
+            $user->timestamps = false;
+            $user->avatar = 'https://avatar.tobi.sh/'.md5($user->email).'.svg?text='.strtoupper(substr($user->username, 0, 2));
+            $user->save();
+            $this->user->notify(
+                new Logger(
+                    'MOD',
+                    Auth::user(),
+                    $this->user,
+                    'Resetted avatar'
+                )
+            );
+
+            return redirect()->route('user.done', ['username' => $this->user->username]);
+        } else {
+            return false;
+        }
+    }
+
     public function deleteTasks()
     {
         if (Auth::check() && Auth::user()->isStaff) {
