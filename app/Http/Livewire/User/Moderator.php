@@ -10,6 +10,7 @@ use App\Notifications\UserVerified;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Livewire\Component;
+use Illuminate\Support\Str;
 
 class Moderator extends Component
 {
@@ -409,6 +410,31 @@ class Moderator extends Component
             );
 
             return redirect()->route('user.done', ['username' => $this->user->username]);
+        } else {
+            return false;
+        }
+    }
+
+    public function releaseUsername()
+    {
+        if (Auth::check() && Auth::user()->isStaff) {
+            $user = User::find($this->user->id);
+            $user->timestamps = false;
+            $user->username = strtolower(Str::random(6));
+            $user->save();
+            activity()
+                ->withProperties(['type' => 'Admin'])
+                ->log('Released the username | Username: @'.$user->username);
+            $this->user->notify(
+                new Logger(
+                    'MOD',
+                    Auth::user(),
+                    $this->user,
+                    'Released the username'
+                )
+            );
+
+            return redirect()->route('user.done', ['username' => $user->username]);
         } else {
             return false;
         }

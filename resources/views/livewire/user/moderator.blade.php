@@ -159,6 +159,12 @@
                 </button>
             </div>
             <div class="mt-2">
+                <button wire:loading.attr="disabled" wire:click="releaseUsername" class="btn btn-sm btn-danger fw-bold">
+                    <x-heroicon-o-switch-horizontal class="heroicon" />
+                    Release username
+                </button>
+            </div>
+            <div class="mt-2">
                 <button wire:loading.attr="disabled" wire:click="deleteTasks" class="btn btn-sm btn-danger fw-bold">
                     <x-heroicon-o-trash class="heroicon" />
                     <x-heroicon-o-check class="heroicon" />

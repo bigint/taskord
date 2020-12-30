@@ -49,10 +49,10 @@ class SocialController extends Controller
                 if (! $user) {
                     $username = $userSocial->getNickname();
                 } else {
-                    $username = $userSocial->getNickname().'_'.Str::random(5);
+                    $username = $userSocial->getNickname().'_'.strtolower(Str::random(5));
                 }
             } else {
-                $username = Str::random(6);
+                $username = strtolower(Str::random(6));
             }
 
             if ($provider === 'gitlab' or $provider === 'github') {
