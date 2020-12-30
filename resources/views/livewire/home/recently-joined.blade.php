@@ -53,10 +53,5 @@
         </div>
         @endforeach
         </div>
-        @if ($readyToLoad and $recently_joined_count > 5)
-        <div class="card-footer">
-            <span class="fw-bold">{{ $recently_joined_count - 5 }} more...</span>
-        </div>
-        @endif
     </div>
 </div>
