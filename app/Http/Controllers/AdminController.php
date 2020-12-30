@@ -21,13 +21,7 @@ class AdminController extends Controller
 
     public function activities()
     {
-        $activities = Activity::latest()->paginate('50');
-        $count = Activity::all()->count('id');
-
-        return view('admin.activities', [
-            'activities' => $activities,
-            'count' => number_format($count),
-        ]);
+        return view('admin.activities');
     }
 
     public static function toggle()
