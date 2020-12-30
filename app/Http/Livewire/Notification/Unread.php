@@ -17,12 +17,18 @@ class Unread extends Component
     public $type;
     public $page;
     public $perPage;
+    public $readyToLoad = false;
 
     public function mount($type, $page, $perPage)
     {
         $this->type = $type;
         $this->page = $page ? $page : 1;
         $this->perPage = $perPage ? $perPage : 1;
+    }
+
+    public function loadUnreadNotifications()
+    {
+        $this->readyToLoad = true;
     }
 
     public function paginate($items, $options = [])
@@ -36,7 +42,7 @@ class Unread extends Component
     public function render()
     {
         return view('livewire.notification.unread', [
-            'notifications' => $this->paginate(Auth::user()->unreadNotifications),
+            'notifications' => $this->readyToLoad ? $this->paginate(Auth::user()->unreadNotifications) : [],
         ]);
     }
 }
