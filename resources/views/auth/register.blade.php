@@ -108,7 +108,7 @@
                     <div class="col-6 mt-2">
                         <a href="/login/github" class="btn btn-social btn-github w-100">
                             <span class="small">
-                                <img class="brand-icon" src="{{ asset('images/brand/github.svg') }}" />
+                                <img class="brand-icon github-logo" src="{{ asset('images/brand/github.svg') }}" />
                                 GitHub
                             </span>
                         </a>

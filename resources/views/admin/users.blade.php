@@ -108,7 +108,7 @@
                                     @elseif ($user->provider === 'twitter')
                                         <img class="brand-icon" src="{{ asset('images/brand/twitter.svg') }}" />
                                     @elseif ($user->provider === 'github')
-                                        <img class="brand-icon" src="{{ asset('images/brand/github.svg') }}" />
+                                        <img class="brand-icon github-logo" src="{{ asset('images/brand/github.svg') }}" />
                                     @elseif ($user->provider === 'gitlab')
                                         <img class="brand-icon" src="{{ asset('images/brand/gitlab.svg') }}" />
                                     @else

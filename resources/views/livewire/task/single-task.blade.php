@@ -39,7 +39,7 @@
         </span>
         @elseif ($task->source === 'GitHub')
         <span>
-            <img class="task-icon" src="{{ asset('images/brand/github.svg') }}" alt="GitLab Icon" />
+            <img class="task-icon github-logo" src="{{ asset('images/brand/github.svg') }}" alt="GitLab Icon" />
         </span>
         @elseif ($task->source === 'Webhook')
         <span>

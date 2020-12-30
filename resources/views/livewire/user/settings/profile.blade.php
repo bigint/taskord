@@ -206,7 +206,7 @@
                 </div>
                 <div class="input-group mb-3">
                     <span class="input-group-text">
-                        <img src="{{ asset('images/brand/github.svg') }}" height="15" width="15" />
+                        <img class="github-logo" src="{{ asset('images/brand/github.svg') }}" height="15" width="15" />
                     </span>
                     <input type="text" class="form-control @error('github') is-invalid @enderror" placeholder="GitHub" value="{{ $user->github }}" wire:model.defer="github">
                     @error('github')

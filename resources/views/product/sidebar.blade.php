@@ -55,7 +55,7 @@
             @if ($product->repo and strlen(trim(parse_url($product->repo)['path'], '/')) !== 0)
             <a class="list-group-item link-dark" href="{{ $product->repo }}" target="_blank" rel="noreferrer">
                 @if (parse_url($product->repo)['host'] === 'github.com')
-                <img class="brand-icon" src="{{ asset('images/brand/github.svg') }}" />
+                <img class="brand-icon github-logo" src="{{ asset('images/brand/github.svg') }}" />
                 @elseif (parse_url($product->repo)['host'] === 'gitlab.com')
                 <img class="brand-icon" src="{{ asset('images/brand/gitlab.svg') }}" />
                 @elseif (parse_url($product->repo)['host'] === 'bitbucket.org')

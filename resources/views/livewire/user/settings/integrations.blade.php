@@ -109,7 +109,7 @@
                     <h2 class="accordion-header" id="github-webhook">
                         <button class="accordion-button collapsed bg-light" type="button" data-bs-toggle="collapse"
                             data-bs-target="#collapse-github-webhook" aria-expanded="false" aria-controls="collapse-github-webhook">
-                            <img class="me-2" src="{{ asset('images/brand/github.svg') }}" height="15" width="15" />
+                            <img class="me-2 github-logo" src="{{ asset('images/brand/github.svg') }}" height="15" width="15" />
                             GitHub
                         </button>
                     </h2>
@@ -186,7 +186,7 @@
                                 <x-heroicon-o-globe-alt class="heroicon text-info" />
                             </span>
                             @elseif ($webhook->type === 'github')
-                            <img src="{{ asset('images/brand/github.svg') }}" height="15" width="15" />
+                            <img class="github-logo" src="{{ asset('images/brand/github.svg') }}" height="15" width="15" />
                             @elseif ($webhook->type === 'gitlab')
                             <img src="{{ asset('images/brand/gitlab.svg') }}" height="15" width="15" />
                             @endif
