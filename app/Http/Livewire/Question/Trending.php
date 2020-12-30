@@ -2,8 +2,8 @@
 
 namespace App\Http\Livewire\Question;
 
-use Livewire\Component;
 use App\Models\Question;
+use Livewire\Component;
 
 class Trending extends Component
 {
