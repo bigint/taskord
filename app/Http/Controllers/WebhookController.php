@@ -36,7 +36,7 @@ class WebhookController extends Controller
             ]);
             activity()
                 ->withProperties(['type' => 'Task'])
-                ->log('Created new task via '.$type.' Task ID: '.$task->id);
+                ->log('Created a new task via '.$type.' Task ID: '.$task->id);
         }
     }
 

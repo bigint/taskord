@@ -147,7 +147,7 @@ class CreateTask extends Component
             }
             activity()
                 ->withProperties(['type' => 'Task'])
-                ->log('New task has been created U: @'.$task->user->username.' T: '.$task->id);
+                ->log('Created a new task | Task ID: '.$task->id);
 
             return $this->alert('success', 'Task has been created!');
         } else {
