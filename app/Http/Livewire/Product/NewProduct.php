@@ -44,7 +44,7 @@ class NewProduct extends Component
             $this->validate([
                 'name' => 'required|max:30',
                 'slug' => 'required|min:3|max:20|unique:products|alpha_dash',
-                'description' => 'nullable|max:280',
+                'description' => 'nullable|max:160',
                 'website' => 'nullable|active_url',
                 'twitter' => 'nullable|alpha_dash|max:30',
                 'repo' => ['nullable', 'active_url', new Repo],
