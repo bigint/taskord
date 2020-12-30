@@ -34,7 +34,7 @@ class Account extends Component
                 } else {
                     activity()
                         ->withProperties(['type' => 'User'])
-                        ->log('Opt out from beta');
+                        ->log('Opted out from beta');
 
                     return $this->alert('success', 'Your are no longer a beta member!');
                 }
@@ -108,7 +108,7 @@ class Account extends Component
                     $this->user->sendEmailVerificationNotification();
                     activity()
                         ->withProperties(['type' => 'User'])
-                        ->log('Account settings was updated');
+                        ->log('Updated account settings');
 
                     return $this->alert('success', 'Your account has been updated!');
                 }

@@ -100,7 +100,7 @@ class NewProduct extends Component
 
             activity()
                 ->withProperties(['type' => 'Product'])
-                ->log('New product has been created P: #'.$product->slug);
+                ->log('Created a new product | Product Slug: #'.$product->slug);
 
             $this->flash('success', 'Product has been created!');
 

@@ -36,7 +36,7 @@ class WebhookController extends Controller
             ]);
             activity()
                 ->withProperties(['type' => 'Task'])
-                ->log('New Task created via '.$type);
+                ->log('Created a new task via '.$type.' Task ID: '.$task->id);
         }
     }
 
@@ -63,9 +63,6 @@ class WebhookController extends Controller
             $webhook->product_id,
             'Webhook'
         );
-        activity()
-            ->withProperties(['type' => 'Task'])
-            ->log('New Task created via Webhook');
 
         return response('success', 200);
     }
