@@ -29,7 +29,7 @@ class Task extends Model
 
     protected $casts = [
         'images' => 'array',
-        'due_at' => 'datetime'
+        'due_at' => 'datetime',
     ];
 
     public function user()

@@ -142,7 +142,7 @@ class Helper
 
         return $products
             ->map(fn ($product) => Product::where('slug', $product)->first())->whereNotNull('id')
-            ->filter(fn ($product) => $product->user_id === Auth::id() OR Auth::user()->products->contains($product))
+            ->filter(fn ($product) => $product->user_id === Auth::id() or Auth::user()->products->contains($product))
             ->pluck('id')->first();
     }
 

@@ -6,7 +6,7 @@ use App\Helpers\Helper;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\App;
 
-test('can convert to CDN url in production enviroment with arguments', function($url, $resolution, $expected) {
+test('can convert to CDN url in production enviroment with arguments', function ($url, $resolution, $expected) {
     App::shouldReceive('environment')->once()->withNoArgs()->andReturn('production');
 
     expect(Helper::getCDNImage($url, $resolution))->toEqual($expected);
@@ -15,7 +15,7 @@ test('can convert to CDN url in production enviroment with arguments', function(
     ['https://taskord.com/storage/test.png', 501, 'https://ik.imagekit.io/blbrg3136a/tr:w-501/test.png'],
 ]);
 
-test('can convert to CDN url in production enviroment without arguments', function() {
+test('can convert to CDN url in production enviroment without arguments', function () {
     App::shouldReceive('environment')->once()->withNoArgs()->andReturn('production');
 
     $urlFromHelper = Helper::getCDNImage('https://taskord.com/storage/test.png');
@@ -114,7 +114,7 @@ test('can render task with plain text correctly', function () {
         ->toEqual('Jean shorts scenester fingerstache gentrify.');
 });
 
-test('can render due date correctly' , function ($days, $expected) {
+test('can render due date correctly', function ($days, $expected) {
     $date = Carbon::now()->addDays($days);
     $expect = str_replace('-format-', $date->format('Y-m-d'), $expected);
 
