@@ -14,27 +14,27 @@
                     $type === "App\Notifications\AnswerPraised" or
                     $type === "App\Notifications\CommentPraised"
                 )
-                    👍
+                    <x-heroicon-o-thumb-up class="heroicon-1x text-secondary me-0" />
                 @elseif ($type === "App\Notifications\Mentioned")
-                    🙌
+                    <x-heroicon-o-at-symbol class="heroicon-1x text-secondary me-0" />
                 @elseif (
                     $type === "App\Notifications\Followed" or
                     $type === "App\Notifications\Subscribed" or
                     $type === "App\Notifications\Product\MemberAdded"
                 )
-                    ➕
+                    <x-heroicon-o-user-add class="heroicon-1x text-secondary me-0" />
                 @elseif (
                     $type === "App\Notifications\Commented" or
                     $type === "App\Notifications\Answered" or
                     $type === "App\Notifications\Task\NotifySubscribers" or
                     $type === "App\Notifications\Question\NotifySubscribers"
                 )
-                    💬
+                    <x-heroicon-o-chat-alt class="heroicon-1x text-secondary me-0" />
                 @elseif (
                     $type === "App\Notifications\Product\MemberRemoved" or
                     $type === "App\Notifications\Product\MemberLeft"
                 )
-                    🚪
+                    <x-heroicon-o-logout class="heroicon-1x text-secondary me-0" />
                 @elseif (
                     $type === "App\Notifications\Welcome" or
                     $type === "App\Notifications\VersionReleased"
