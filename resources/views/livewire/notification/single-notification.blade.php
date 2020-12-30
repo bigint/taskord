@@ -188,10 +188,8 @@
                     Version {{ $data['tagName'] }} has been released!
                 </span>
                 <div class="mt-2">
-                    <span class="fw-bold">Changelog</span>
-                    <div class="mt-2">
-                        {!! Markdown::parse($data['description']) !!}
-                    </div>
+                    <span class="fw-bold mt-1 mb-2">Changelog</span>
+                    {!! Markdown::parse($data['description']) !!}
                 </div>
             @elseif ($type === "App\Notifications\Task\NotifySubscribers")
                 <span class="align-middle">
