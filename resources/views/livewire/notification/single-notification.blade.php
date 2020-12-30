@@ -189,7 +189,7 @@
                 </span>
                 <div class="mt-2">
                     <span class="fw-bold">Changelog</span>
-                    <div class="mt-1">
+                    <div class="mt-2">
                         {!! Markdown::parse($data['description']) !!}
                     </div>
                 </div>
