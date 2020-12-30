@@ -185,7 +185,10 @@ class SingleTask extends Component
             'fixed',
             'fixes',
         ];
-        if (Str::contains(strtolower($this->task->task), $bugList) and (bool) $this->task->done) {
+        if (
+            (Str::contains(strtolower($this->task->task), $bugList) and (bool) $this->task->done) and
+            ! ($this->task->source === 'GitHub' or $this->task->source === 'GitLab' or $this->task->source === 'Webhook')
+        ) {
             $this->bug = true;
         }
 
@@ -194,7 +197,10 @@ class SingleTask extends Component
             'learning',
             'learn',
         ];
-        if (Str::contains(strtolower($this->task->task), $learnList) and (bool) $this->task->done) {
+        if (
+            (Str::contains(strtolower($this->task->task), $learnList) and (bool) $this->task->done) and
+            ! ($this->task->source === 'GitHub' or $this->task->source === 'GitLab' or $this->task->source === 'Webhook')
+        ) {
             $this->learn = true;
         }
 
