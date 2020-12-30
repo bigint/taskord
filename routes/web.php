@@ -2,7 +2,6 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\FeedController;
-use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MeetupController;
 use App\Http\Controllers\PagesController;
 use App\Http\Controllers\PatronController;
@@ -148,7 +147,7 @@ Route::group(['middleware' => ['throttle:60,1']], function () {
     });
 
     // Zen mode tasks
-    Route::get('tasks', [TaskController::class, 'tasks'])->name('tasks')->middleware('auth');
+    Route::view('tasks', 'tasks.tasks')->name('tasks')->middleware('auth');
 
     // Pages
     Route::view('about', 'pages.about')->name('about');

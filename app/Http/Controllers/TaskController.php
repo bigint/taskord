@@ -52,9 +52,4 @@ class TaskController extends Controller
 
         return view('comment/comment', $response);
     }
-
-    public function tasks()
-    {
-        return view('tasks/tasks');
-    }
 }
