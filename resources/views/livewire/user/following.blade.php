@@ -41,4 +41,5 @@
         </div>
     </div>
     @endforeach
+    {{ $readyToLoad ? $followings->links() : '' }}
 </div>
