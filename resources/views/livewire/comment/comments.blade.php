@@ -1,5 +1,13 @@
-<div>
-    @if ($comments->count('id') === 0)
+<div wire:init="loadComments">
+    @if (!$readyToLoad)
+    <div class="card-body text-center mt-3">
+        <div class="spinner-border taskord-spinner text-secondary mb-3" role="status"></div>
+        <div class="h6">
+            Loading Comments...
+        </div>
+    </div>
+    @endif
+    @if ($readyToLoad and count($comments) === 0)
     <div class="card-body text-center mt-3 mb-3">
         <x-heroicon-o-chat-alt-2 class="heroicon-4x text-primary mb-2" />
         <div class="h4">
@@ -15,7 +23,7 @@
     @endforeach
     </ul>
     <div class="mt-4">
-        @if ($comments->hasMorePages())
+        @if ($readyToLoad and $comments->hasMorePages())
             @livewire('comment.load-more', [
                 'task' => $task,
                 'page' => $page,
