@@ -7,10 +7,6 @@ a {
     text-decoration: none;
 }
 
-.text-reputation {
-    color: #752506;
-}
-
 .btn {
     box-shadow: 0 1px 2px 0 rgba(0, 0, 0, .1) !important;
 }
@@ -42,6 +38,10 @@ a {
 
 .text-gold {
     color: $yellow-600;
+}
+
+.text-reputation {
+    color: black;
 }
 
 .score {
