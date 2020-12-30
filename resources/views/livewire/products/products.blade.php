@@ -45,7 +45,7 @@
                             </a>
                         @endif
                     </a>
-                    <div>{{ $product->description }}</div>
+                    <div class="pe-5">{{ $product->description }}</div>
                 </span>
                 <span class="ms-auto">
                     @if ($product->members()->count() > 1)

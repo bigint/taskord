@@ -173,7 +173,7 @@
                                 <div class="text-secondary mb-2">
                                     {{ "#" . $product->slug }}
                                 </div>
-                                <div>{{ $product->description }}</div>
+                                <div class="pe-5">{{ $product->description }}</div>
                                 <div class="small mt-2">
                                     <x-heroicon-o-calendar class="heroicon text-secondary" />
                                     @if ($product->launched)

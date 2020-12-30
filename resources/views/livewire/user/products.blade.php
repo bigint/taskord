@@ -23,7 +23,7 @@
                 <a href="{{ route('product.done', ['slug' => $product->slug]) }}" class="me-2 h5 align-text-top fw-bold text-dark">
                     {{ $product->name }}
                 </a>
-                <div>{{ $product->description }}</div>
+                <div class="pe-5">{{ $product->description }}</div>
             </span>
             <span class="ms-auto">
                 @if ($product->members()->count() > 1)
