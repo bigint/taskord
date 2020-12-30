@@ -2,9 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Product;
-use Carbon\Carbon;
-
 class HomeController extends Controller
 {
     public function __construct()
