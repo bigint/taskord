@@ -3,8 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Deal;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\DB;
 
 class PagesController extends Controller
 {
