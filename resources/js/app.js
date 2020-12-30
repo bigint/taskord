@@ -4,7 +4,6 @@ require("./tippy");
 import { isInViewport } from "observe-element-in-viewport";
 
 document.addEventListener("DOMContentLoaded", async () => {
-
   // Pagination
   Livewire.hook('component.initialized', () => {
     window.addEventListener("scroll", () => {
@@ -43,9 +42,16 @@ document.getElementById("dark-mode").addEventListener("click", async () => {
 });
 
 // Load shortcuts
-var shortcutsModal = document.getElementById("shortcutsModal")
+var shortcutsModal = document.getElementById("shortcutsModal");
 shortcutsModal.addEventListener("shown.bs.modal", async () => {
   var shortcutsModalBody = document.getElementById("shortcutsModalBody");
   const res = await window.fetch(`/site/shortcuts`);
   shortcutsModalBody.innerHTML = await res.text();
 });
+
+var menuDropdown = document.getElementById("taskord-menu");
+menuDropdown.addEventListener("mouseover", async () => {
+  var menuContent = document.getElementById("taskord-menu-content");
+  const res = await window.fetch(`/site/menu`);
+  menuContent.innerHTML = await res.text();
+}, false);
