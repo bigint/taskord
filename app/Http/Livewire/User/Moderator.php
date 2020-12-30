@@ -9,8 +9,8 @@ use App\Notifications\PatronGifted;
 use App\Notifications\UserVerified;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
-use Livewire\Component;
 use Illuminate\Support\Str;
+use Livewire\Component;
 
 class Moderator extends Component
 {
