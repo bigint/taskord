@@ -11,13 +11,7 @@ class AdminController extends Controller
 {
     public function users()
     {
-        $users = User::latest('last_active')->paginate(50);
-        $count = User::all()->count('id');
-
-        return view('admin.users', [
-            'users' => $users,
-            'count' => number_format($count),
-        ]);
+        return view('admin.users');
     }
 
     public function tasks()
