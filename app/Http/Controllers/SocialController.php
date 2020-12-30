@@ -96,7 +96,7 @@ class SocialController extends Controller
             $user->notify(new Welcome(true));
             activity()
                 ->withProperties(['type' => 'Auth'])
-                ->log('Created account with the email '.$user->email.' from '.request()->ip());
+                ->log('Created account with '.$provider.' '.$user->email.' from '.request()->ip());
 
             return redirect()->route('home');
         }
