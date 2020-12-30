@@ -14,14 +14,4 @@ class PagesController extends Controller
             'deals' => $deals,
         ]);
     }
-
-    public function open()
-    {
-        return view('pages.open');
-    }
-
-    public function reputation()
-    {
-        return view('pages.reputation');
-    }
 }

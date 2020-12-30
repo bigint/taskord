@@ -94,9 +94,4 @@ class PatronController extends Controller
             return 'No user';
         }
     }
-
-    public function patron()
-    {
-        return view('pages.patron');
-    }
 }

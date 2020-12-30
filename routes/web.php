@@ -132,7 +132,7 @@ Route::group(['middleware' => ['throttle:60,1']], function () {
 
     // Patron
     Route::group(['prefix' => 'patron', 'as' => 'patron.'], function () {
-        Route::get('', [PatronController::class, 'patron'])->name('home');
+        Route::view('', 'pages.patron')->name('home');
     });
 
     // Paddle Integration
@@ -157,8 +157,8 @@ Route::group(['middleware' => ['throttle:60,1']], function () {
     Route::view('security', 'pages.security')->name('security');
     Route::view('sponsors', 'pages.sponsors')->name('sponsors');
     Route::view('contact', 'pages.contact')->name('contact');
-    Route::get('reputation', [PagesController::class, 'reputation'])->name('reputation')->middleware('auth');
-    Route::get('open', [PagesController::class, 'open'])->name('open');
+    Route::view('reputation', 'pages.reputation')->name('reputation')->middleware('auth');
+    Route::view('open', 'pages.open')->name('open');
     Route::get('deals', [PagesController::class, 'deals'])->name('deals');
 
     // Meetups
