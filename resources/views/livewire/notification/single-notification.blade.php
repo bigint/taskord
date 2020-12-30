@@ -187,7 +187,7 @@
                 <span class="ms-1 fw-bold">
                     Version {{ $data['tagName'] }} has been released!
                 </span>
-                <div class="mt-2">
+                <div class="mt-3">
                     <span class="fw-bold">Changelog</span>
                     <div class="mt-2">
                         {!! Markdown::parse($data['description']) !!}
