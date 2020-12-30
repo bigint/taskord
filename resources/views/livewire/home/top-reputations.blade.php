@@ -45,8 +45,8 @@
                         <x-heroicon-s-badge-check class="heroicon ms-1 text-primary verified" />
                     @endif
                 </a>
-                <span class="badge rounded-pill bg-warning text-dark align-middle reputation" title="🔥 {{ number_format($user->getPoints()) }}">
-                    <x-heroicon-o-fire class="heroicon-small me-0 text-danger" />
+                <span class="badge rounded-pill score bg-warning text-reputation align-middle" title="🔥 {{ number_format($user->getPoints()) }}">
+                    <x-heroicon-o-fire class="heroicon-small text-danger" />
                     {{ $user->getPoints(true) }}
                 </span>
             </div>
