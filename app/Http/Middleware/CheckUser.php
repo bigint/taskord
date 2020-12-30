@@ -2,10 +2,9 @@
 
 namespace App\Http\Middleware;
 
-use Illuminate\Contracts\Auth\Factory as Auth;
 use Carbon\CarbonImmutable;
-
 use Closure;
+use Illuminate\Contracts\Auth\Factory as Auth;
 
 class CheckUser
 {
