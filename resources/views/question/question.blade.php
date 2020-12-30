@@ -39,10 +39,10 @@
             ])
         </div>
         <div class="col-sm">
+            <div class="fw-bold text-secondary pb-2">
+                Asked by
+            </div>
             <div class="card mb-4">
-                <div class="card-header">
-                    Asked by
-                </div>
                 <div class="card-body d-flex align-items-center">
                     <a
                         href="{{ route('user.done', ['username' => $question->user->username]) }}"
@@ -70,20 +70,20 @@
                 </div>
             </div>
             @auth
+            <div class="fw-bold text-secondary pb-2">
+                Subscribe to this question
+            </div>
             <div class="card mb-4">
-                <div class="card-header">
-                    Subscribe to this question
-                </div>
                 <div class="card-body d-flex align-items-center">
                     @livewire('question.subscribe', ['question' => $question])
                 </div>
             </div>
             @endauth
             @if ($question->answer->count('id') > 0)
+            <div class="fw-bold text-secondary pb-2">
+                Users Involved
+            </div>
             <div class="card mb-4">
-                <div class="card-header">
-                    Users Involved
-                </div>
                 <div class="card-body align-items-center pb-2">
                     @foreach ($question->answer->groupBy('user_id') as $answer)
                         <a
