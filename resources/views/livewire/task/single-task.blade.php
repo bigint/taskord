@@ -88,6 +88,7 @@
             </span>
             @endif
         </label>
+        {{ true and ($task->source !== 'GitHub' or $task->source !== 'GitLab' or $task->source !== 'Webhook') }}
         @if ($task->images)
         <div class="gallery">
         @foreach ($task->images ?? [] as $image)
