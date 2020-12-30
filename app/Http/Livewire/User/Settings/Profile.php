@@ -129,7 +129,7 @@ class Profile extends Component
                 $this->user->save();
                 activity()
                     ->withProperties(['type' => 'User'])
-                    ->log('Reseted avatar to default');
+                    ->log('Resetted avatar to default');
 
                 return $this->alert('success', 'Your avatar has been resetted!');
             } else {
