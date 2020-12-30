@@ -7,21 +7,6 @@ use Spatie\Activitylog\Models\Activity;
 
 class AdminController extends Controller
 {
-    public function users()
-    {
-        return view('admin.users');
-    }
-
-    public function tasks()
-    {
-        return view('admin.tasks');
-    }
-
-    public function activities()
-    {
-        return view('admin.activities');
-    }
-
     public static function toggle()
     {
         $user = Auth::user();
