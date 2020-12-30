@@ -22,7 +22,7 @@
             ], key($answer->id))
         </div>
     @endforeach
-    <div class="mt-4">
+    <div class="mt-3">
     @if ($readyToLoad and $answers->hasMorePages())
         @livewire('answer.load-more', [
             'question' => $answer->question,
