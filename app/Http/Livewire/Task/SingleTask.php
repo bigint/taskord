@@ -105,7 +105,7 @@ class SingleTask extends Component
             Helper::togglePraise($this->task, 'TASK');
             activity()
                 ->withProperties(['type' => 'Task'])
-                ->log('Task praise was toggled T: '.$this->task->id);
+                ->log('Toggled task praise | Task ID: '.$this->task->id);
         } else {
             return $this->alert('error', 'Forbidden!');
         }
@@ -118,7 +118,7 @@ class SingleTask extends Component
                 Helper::hide($this->task);
                 activity()
                     ->withProperties(['type' => 'Admin'])
-                    ->log('Task hide was toggled T: '.$this->task->id);
+                    ->log('Toggled task hide | Task ID: '.$this->task->id);
 
                 return $this->alert('success', 'Task is hidden from public!');
             } else {
@@ -144,7 +144,7 @@ class SingleTask extends Component
             if (Auth::user()->staffShip or Auth::id() === $this->task->user->id) {
                 activity()
                     ->withProperties(['type' => 'Task'])
-                    ->log('Task was deleted T: '.$this->task->id);
+                    ->log('Deleted a task | Task ID: '.$this->task->id);
                 foreach ($this->task->images ?? [] as $image) {
                     Storage::delete($image);
                 }
