@@ -23,7 +23,7 @@ class Notifications extends Component
                 $this->user->save();
                 activity()
                     ->withProperties(['type' => 'User'])
-                    ->log('mentionsEmail was toggled in notification settings');
+                    ->log('Toggled "mentionsEmail" in notification settings');
 
                 return $this->alert('success', 'Notification settings has been updated');
             } else {
@@ -42,7 +42,7 @@ class Notifications extends Component
                 $this->user->save();
                 activity()
                     ->withProperties(['type' => 'User'])
-                    ->log('mentionsWeb was toggled in notification settings');
+                    ->log('Toggled "mentionsWeb" in notification settings');
 
                 return $this->alert('success', 'Notification settings has been updated');
             } else {
@@ -61,7 +61,7 @@ class Notifications extends Component
                 $this->user->save();
                 activity()
                     ->withProperties(['type' => 'User'])
-                    ->log('taskPraisedEmail was toggled in notification settings');
+                    ->log('Toggled "taskPraisedEmail" in notification settings');
 
                 return $this->alert('success', 'Notification settings has been updated');
             } else {
@@ -80,7 +80,7 @@ class Notifications extends Component
                 $this->user->save();
                 activity()
                     ->withProperties(['type' => 'User'])
-                    ->log('taskPraisedWeb was toggled in notification settings');
+                    ->log('Toggled "taskPraisedWeb" in notification settings');
 
                 return $this->alert('success', 'Notification settings has been updated');
             } else {
@@ -99,7 +99,7 @@ class Notifications extends Component
                 $this->user->save();
                 activity()
                     ->withProperties(['type' => 'User'])
-                    ->log('commentPraisedEmail was toggled in notification settings');
+                    ->log('Toggled "commentPraisedEmail" in notification settings');
 
                 return $this->alert('success', 'Notification settings has been updated');
             } else {
@@ -118,7 +118,7 @@ class Notifications extends Component
                 $this->user->save();
                 activity()
                     ->withProperties(['type' => 'User'])
-                    ->log('commentPraisedWeb was toggled in notification settings');
+                    ->log('Toggled "commentPraisedWeb" in notification settings');
 
                 return $this->alert('success', 'Notification settings has been updated');
             } else {
@@ -137,7 +137,7 @@ class Notifications extends Component
                 $this->user->save();
                 activity()
                     ->withProperties(['type' => 'User'])
-                    ->log('questionPraisedEmail was toggled in notification settings');
+                    ->log('Toggled "questionPraisedEmail" in notification settings');
 
                 return $this->alert('success', 'Notification settings has been updated');
             } else {
@@ -156,7 +156,7 @@ class Notifications extends Component
                 $this->user->save();
                 activity()
                     ->withProperties(['type' => 'User'])
-                    ->log('questionPraisedWeb was toggled in notification settings');
+                    ->log('Toggled "questionPraisedWeb" in notification settings');
 
                 return $this->alert('success', 'Notification settings has been updated');
             } else {
@@ -175,7 +175,7 @@ class Notifications extends Component
                 $this->user->save();
                 activity()
                     ->withProperties(['type' => 'User'])
-                    ->log('answerPraisedEmail was toggled in notification settings');
+                    ->log('Toggled "answerPraisedEmail" in notification settings');
 
                 return $this->alert('success', 'Notification settings has been updated');
             } else {
@@ -194,7 +194,7 @@ class Notifications extends Component
                 $this->user->save();
                 activity()
                     ->withProperties(['type' => 'User'])
-                    ->log('answerPraisedWeb was toggled in notification settings');
+                    ->log('Toggled "answerPraisedWeb" in notification settings');
 
                 return $this->alert('success', 'Notification settings has been updated');
             } else {
@@ -213,7 +213,7 @@ class Notifications extends Component
                 $this->user->save();
                 activity()
                     ->withProperties(['type' => 'User'])
-                    ->log('commentAddedEmail was toggled in notification settings');
+                    ->log('Toggled "commentAddedEmail" in notification settings');
 
                 return $this->alert('success', 'Notification settings has been updated');
             } else {
@@ -232,7 +232,7 @@ class Notifications extends Component
                 $this->user->save();
                 activity()
                     ->withProperties(['type' => 'User'])
-                    ->log('commentAddedWeb was toggled in notification settings');
+                    ->log('Toggled "commentAddedWeb" in notification settings');
 
                 return $this->alert('success', 'Notification settings has been updated');
             } else {
@@ -251,7 +251,7 @@ class Notifications extends Component
                 $this->user->save();
                 activity()
                     ->withProperties(['type' => 'User'])
-                    ->log('answerAddedEmail was toggled in notification settings');
+                    ->log('Toggled "answerAddedEmail" in notification settings');
 
                 return $this->alert('success', 'Notification settings has been updated');
             } else {
@@ -270,7 +270,7 @@ class Notifications extends Component
                 $this->user->save();
                 activity()
                     ->withProperties(['type' => 'User'])
-                    ->log('answerAddedWeb was toggled in notification settings');
+                    ->log('Toggled "answerAddedWeb" in notification settings');
 
                 return $this->alert('success', 'Notification settings has been updated');
             } else {
@@ -289,7 +289,7 @@ class Notifications extends Component
                 $this->user->save();
                 activity()
                     ->withProperties(['type' => 'User'])
-                    ->log('userFollowedEmail was toggled in notification settings');
+                    ->log('Toggled "userFollowedEmail" in notification settings');
 
                 return $this->alert('success', 'Notification settings has been updated');
             } else {
@@ -308,7 +308,7 @@ class Notifications extends Component
                 $this->user->save();
                 activity()
                     ->withProperties(['type' => 'User'])
-                    ->log('userFollowedWeb was toggled in notification settings');
+                    ->log('Toggled "userFollowedWeb" in notification settings');
 
                 return $this->alert('success', 'Notification settings has been updated');
             } else {
@@ -327,7 +327,7 @@ class Notifications extends Component
                 $this->user->save();
                 activity()
                     ->withProperties(['type' => 'User'])
-                    ->log('productSubscribedWeb was toggled in notification settings');
+                    ->log('Toggled "productSubscribedWeb" in notification settings');
 
                 return $this->alert('success', 'Notification settings has been updated');
             } else {
