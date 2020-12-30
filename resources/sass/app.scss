@@ -7,6 +7,10 @@ a {
     text-decoration: none;
 }
 
+.text-reputation {
+    color: #752506;
+}
+
 .btn {
     box-shadow: 0 1px 2px 0 rgba(0, 0, 0, .1) !important;
 }
@@ -40,10 +44,18 @@ a {
     color: $yellow-600;
 }
 
-.navbar {
-    .score {
-        padding: 5px 7px;
+.score {
+    display: inline-flex;
+    align-items: center;
+    padding: 4px 8px;
+    line-height: 1px;
+
+    & > [class^="heroicon"] {
+        margin-right: 2px;
     }
+}
+
+.navbar {
     .bg-secondary {
         background-color: $gray-700 !important;
     }
