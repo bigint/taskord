@@ -34,7 +34,7 @@
                 @if (Auth::id() !== $user->id && !$user->isFlagged)
                     @livewire('user.follow', [
                         'user' => $user
-                    ])
+                    ], key($user->id))
                 @endif
                 @endauth
             </span>
