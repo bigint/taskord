@@ -162,7 +162,7 @@
             <form wire:target="updateSocial" wire:submit.prevent="updateSocial">
                 <div class="input-group mb-3">
                     <span class="input-group-text">
-                        <x-heroicon-o-link class="heroicon" />
+                        <x-heroicon-o-link class="heroicon-small" />
                     </span>
                     <input type="text" class="form-control @error('website') is-invalid @enderror" placeholder="Website" value="{{ $user->website }}" wire:model.defer="website">
                     @error('website')
