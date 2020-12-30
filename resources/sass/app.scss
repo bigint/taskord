@@ -272,7 +272,8 @@ input[type="color"]:focus,
 .dropdown-item:active {
     color: white !important;
 
-    & > [class^='heroicon-'] {
+    & > [class^='heroicon-'],
+    & > [class^='heroicon'] {
         color: inherit !important;
     }
 }

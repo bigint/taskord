@@ -31,83 +31,57 @@
                 </span>
                 <ul class="dropdown-menu shadow-sm border mt-2">
                     <li class="dropdown-item">
-                        <span class="me-3">
-                            <x-heroicon-o-check class="heroicon text-secondary" />
-                            <span class="fw-bold">{{ $tasks }}</span> Tasks
-                        </span>
+                        <x-heroicon-o-check class="heroicon text-secondary" />
+                        <span class="fw-bold">{{ $tasks }}</span> Tasks
                     </li>
                     <li class="dropdown-item">
-                        <span class="me-3">
-                            <x-heroicon-o-users class="heroicon text-secondary" />
-                            <span class="fw-bold">{{ $users }}</span> Users
-                        </span>
+                        <x-heroicon-o-users class="heroicon text-secondary" />
+                        <span class="fw-bold">{{ $users }}</span> Users
                     </li>
                     <li class="dropdown-item">
-                        <span class="me-3">
-                            <x-heroicon-o-cube class="heroicon text-secondary" />
-                            <span class="fw-bold">{{ $products }}</span> Products
-                        </span>
+                        <x-heroicon-o-cube class="heroicon text-secondary" />
+                        <span class="fw-bold">{{ $products }}</span> Products
                     </li>
                     <li class="dropdown-item">
-                        <span class="me-3">
-                            <x-heroicon-o-question-mark-circle class="heroicon text-secondary" />
-                            <span class="fw-bold">{{ $questions }}</span> Questions
-                        </span>
+                        <x-heroicon-o-question-mark-circle class="heroicon text-secondary" />
+                        <span class="fw-bold">{{ $questions }}</span> Questions
                     </li>
                     <li class="dropdown-item">
-                        <span class="me-3">
-                            <x-heroicon-o-chat-alt-2 class="heroicon text-secondary" />
-                            <span class="fw-bold">{{ $answers }}</span> Answers
-                        </span>
+                        <x-heroicon-o-chat-alt-2 class="heroicon text-secondary" />
+                        <span class="fw-bold">{{ $answers }}</span> Answers
                     </li>
                     <li class="dropdown-item">
-                        <span class="me-3">
-                            <x-heroicon-o-chat-alt class="heroicon text-secondary" />
-                            <span class="fw-bold">{{ $comments }}</span> Comments
-                        </span>
+                        <x-heroicon-o-chat-alt class="heroicon text-secondary" />
+                        <span class="fw-bold">{{ $comments }}</span> Comments
                     </li>
                     <li class="dropdown-item">
-                        <span class="me-3">
-                            <x-heroicon-o-fire class="heroicon text-secondary" />
-                            <span class="fw-bold">{{ $reputations }}</span> Reputations
-                        </span>
+                        <x-heroicon-o-fire class="heroicon text-secondary" />
+                        <span class="fw-bold">{{ $reputations }}</span> Reputations
                     </li>
                     <li class="dropdown-item">
-                        <span class="me-3">
-                            <x-heroicon-o-thumb-up class="heroicon text-secondary" />
-                            <span class="fw-bold">{{ $praises }}</span> Praises
-                        </span>
+                        <x-heroicon-o-thumb-up class="heroicon text-secondary" />
+                        <span class="fw-bold">{{ $praises }}</span> Praises
                     </li>
                     <li class="dropdown-item">
-                        <span class="me-3">
-                            <x-heroicon-o-bell class="heroicon text-secondary" />
-                            <span class="fw-bold">{{ $notifications }}</span> Notifications
-                        </span>
+                        <x-heroicon-o-bell class="heroicon text-secondary" />
+                        <span class="fw-bold">{{ $notifications }}</span> Notifications
                     </li>
                     <li class="dropdown-item">
-                        <span class="me-3">
-                            <x-heroicon-o-cloud-upload class="heroicon text-secondary" />
-                            <span class="fw-bold">{{ $webhooks }}</span> Webhooks
-                        </span>
+                        <x-heroicon-o-cloud-upload class="heroicon text-secondary" />
+                        <span class="fw-bold">{{ $webhooks }}</span> Webhooks
                     </li>
                     <li class="dropdown-item">
-                        <span class="me-3">
-                            <x-heroicon-o-switch-horizontal class="heroicon text-secondary" />
-                            <span class="fw-bold">{{ $interactions }}</span> Interactions
-                        </span>
+                        <x-heroicon-o-switch-horizontal class="heroicon text-secondary" />
+                        <span class="fw-bold">{{ $interactions }}</span> Interactions
                     </li>
                     <li class="dropdown-item">
-                        <span class="me-3">
-                            <x-heroicon-o-collection class="heroicon text-secondary" />
-                            <span class="fw-bold">{{ $logs }}</span> Logs
-                        </span>
+                        <x-heroicon-o-collection class="heroicon text-secondary" />
+                        <span class="fw-bold">{{ $logs }}</span> Logs
                     </li>
                     <div class="dropdown-divider"></div>
                     <li class="dropdown-item" wire:click="refreshStats">
-                        <span class="me-3">
-                            <x-heroicon-o-refresh class="heroicon text-secondary" />
-                            Refresh
-                        </span>
+                        <x-heroicon-o-refresh class="heroicon text-secondary" />
+                        Refresh
                     </li>
                 </ul>
             </span>
