@@ -209,5 +209,4 @@ Route::group(['prefix' => 'popover'], function () {
 // Site
 Route::group(['prefix' => 'site'], function () {
     Route::view('shortcuts', 'site.shortcuts')->name('shortcuts')->middleware('auth');
-    Route::view('menu', 'site.menu')->name('menu')->middleware('auth');
 });

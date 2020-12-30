@@ -48,10 +48,3 @@ shortcutsModal.addEventListener("shown.bs.modal", async () => {
   const res = await window.fetch(`/site/shortcuts`);
   shortcutsModalBody.innerHTML = await res.text();
 });
-
-var menuDropdown = document.getElementById("taskord-menu");
-menuDropdown.addEventListener("mouseover", async () => {
-  var menuContent = document.getElementById("taskord-menu-content");
-  const res = await window.fetch(`/site/menu`);
-  menuContent.innerHTML = await res.text();
-}, false);
