@@ -16,13 +16,7 @@ class AdminController extends Controller
 
     public function tasks()
     {
-        $tasks = Task::latest()->paginate(50);
-        $count = Task::all()->count('id');
-
-        return view('admin.tasks', [
-            'tasks' => $tasks,
-            'count' => number_format($count),
-        ]);
+        return view('admin.tasks');
     }
 
     public function activities()
