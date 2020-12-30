@@ -111,7 +111,7 @@ class EditProduct extends Component
                 $this->flash('success', 'Product has been updated!');
                 activity()
                     ->withProperties(['type' => 'Product'])
-                    ->log('Product has been updated P: #'.$this->product->slug);
+                    ->log('Updated a product | Product Slug: #'.$this->product->slug);
 
                 return redirect()->route('product.done', ['slug' => $product->slug]);
             } else {
@@ -141,7 +141,7 @@ class EditProduct extends Component
             if (Auth::user()->staffShip or Auth::id() === $this->product->owner->id) {
                 activity()
                     ->withProperties(['type' => 'Product'])
-                    ->log('Product was deleted P: #'.$this->product->slug);
+                    ->log('Deleted a product | Product Slug: #'.$this->product->slug);
                 $avatar = explode('storage/', $this->product->avatar);
                 if (array_key_exists(1, $avatar)) {
                     Storage::delete($avatar[1]);
