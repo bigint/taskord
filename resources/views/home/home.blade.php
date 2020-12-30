@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('description', 'Get things done socially with Taskord.')
-@section('image', 'https://i.imgur.com/AcK2WpZ.png')
+@section('image', 'https://ik.imagekit.io/taskordimg/cover_i8r6XmiSW.png')
 @section('url', url()->current())
 
 @section('content')

@@ -109,7 +109,7 @@ Start coding in a [ready-to-code development environment](https://www.gitpod.io)
 <br>
 
 <div align="center">
-    <img width="250px" src="https://i.imgur.com/yVtUpZa.gif">
+    <img width="250px" src="https://ik.imagekit.io/taskordimg/yVtUpZa_5v_VIfhN4.gif">
     <br>
     <strong>Happy Shipping</strong> 🚀
 </div>
