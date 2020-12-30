@@ -2,12 +2,11 @@
 
 namespace App\Providers;
 
+use Exception;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\URL;
 use Illuminate\Support\ServiceProvider;
-
-use Exception;
 
 class AppServiceProvider extends ServiceProvider
 {
