@@ -24,13 +24,6 @@ class PagesController extends Controller
 
     public function reputation()
     {
-        $points = DB::table('reputations')
-            ->where('payee_id', Auth::id())
-            ->latest()
-            ->paginate(50);
-
-        return view('pages.reputation', [
-            'points' => $points,
-        ]);
+        return view('pages.reputation');
     }
 }
