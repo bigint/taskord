@@ -7,7 +7,7 @@
     <div class="card mb-4">
         <ul class="list-group list-group-flush">
             @foreach ($launched_today->take(5) as $product)
-            <li class="list-group-item">
+            <li class="list-group-item p-3">
                 <div class="d-flex align-items-center">
                     <a href="{{ route('product.done', ['slug' => $product->slug]) }}">
                         <img loading=lazy class="rounded avatar-50" src="{{ Helper::getCDNImage($product->avatar, 160) }}" height="50" width="50" alt="{{ $product->slug }}'s avatar" height="50" width="50" />
