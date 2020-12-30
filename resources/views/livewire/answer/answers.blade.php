@@ -16,7 +16,7 @@
     </div>
     @endif
     @foreach ($answers as $answer)
-        <div class="card mt-4">
+        <div class="card mt-3">
             @livewire('answer.single-answer', [
                 'answer' => $answer
             ], key($answer->id))
