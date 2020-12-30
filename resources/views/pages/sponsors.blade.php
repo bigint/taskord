@@ -39,6 +39,17 @@
                 </div>
                 <div class="text-center mb-5 pt-2">
                     <div>
+                        <img loading=lazy height="50" src="https://ik.imagekit.io/taskordimg/imagekit_DV-5WKkcE.svg" />
+                    </div>
+                    <div class="task-font h6 mt-4 lh-base">
+                        A global network of servers for real-time image optimization, resizing, image upload, and a fast Image CDN. A faster & lighter experience for your users.
+                    </div>
+                    <div class="mt-2">
+                        <a href="https://imagekit.io/registration?code=8spz5288" target="_blank" rel="noreferrer">➜ Go to Imagekit</a>
+                    </div>
+                </div>
+                <div class="text-center mb-5 pt-2">
+                    <div>
                         <img loading=lazy height="50" src="https://i.imgur.com/dg2XwnG.png" />
                     </div>
                     <div class="task-font h6 mt-5 lh-base">
