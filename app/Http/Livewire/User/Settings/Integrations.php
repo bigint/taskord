@@ -65,7 +65,7 @@ class Integrations extends Component
                     session()->flash('created', $webhook);
                     activity()
                         ->withProperties(['type' => 'User'])
-                        ->log('New webhook has been created WH: '.$webhook->id);
+                        ->log('Created a new webhook | Webhook ID: '.$webhook->id);
 
                     return $this->alert('success', 'New webhook has been created!');
                 } else {
@@ -85,7 +85,7 @@ class Integrations extends Component
             if (Auth::id() === $this->user->id) {
                 activity()
                     ->withProperties(['type' => 'User'])
-                    ->log('Webhook was deleted WH: '.$id);
+                    ->log('Deleted a webhook | Webhook ID: '.$id);
                 $webhook = Webhook::find($id);
                 $webhook->delete();
                 $this->emit('webhookDeleted');
