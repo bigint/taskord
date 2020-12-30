@@ -46,7 +46,7 @@ class CreateComment extends Component
                 return $this->alert('error', 'Your account is flagged!');
             }
 
-            $users = Helper::getUserIDFromMention($this->comment);
+            $users = Helper::getUsernamesFromMentions($this->comment);
 
             if ($users) {
                 $this->comment = Helper::parseUserMentionsToMarkdownLinks($this->comment, $users);
