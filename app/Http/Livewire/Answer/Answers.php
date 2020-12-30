@@ -19,12 +19,18 @@ class Answers extends Component
     public Question $question;
     public $page;
     public $perPage;
+    public $readyToLoad = false;
 
     public function mount($question, $page, $perPage)
     {
         $this->question = $question;
         $this->page = $page ? $page : 1;
         $this->perPage = $perPage ? $perPage : 1;
+    }
+
+    public function loadAnswers()
+    {
+        $this->readyToLoad = true;
     }
 
     public function paginate($items, $options = [])
@@ -48,7 +54,7 @@ class Answers extends Component
             ->get();
 
         return view('livewire.answer.answers', [
-            'answers' => $this->paginate($answers),
+            'answers' => $this->readyToLoad ? $this->paginate($answers) : [],
             'page' => $this->page,
         ]);
     }
