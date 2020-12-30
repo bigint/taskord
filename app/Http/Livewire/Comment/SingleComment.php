@@ -48,7 +48,7 @@ class SingleComment extends Component
             Helper::togglePraise($this->comment, 'COMMENT');
             activity()
                 ->withProperties(['type' => 'Comment'])
-                ->log('Comment praise was toggled C: '.$this->comment->id);
+                ->log('Toggled comment praise | Comment ID: '.$this->comment->id);
         } else {
             return $this->alert('error', 'Forbidden!');
         }
@@ -61,7 +61,7 @@ class SingleComment extends Component
                 Helper::hide($this->comment);
                 activity()
                     ->withProperties(['type' => 'Admin'])
-                    ->log('Comment hide was toggled C: '.$this->comment->id);
+                    ->log('Toggled hide comment | Comment ID: '.$this->comment->id);
 
                 return $this->alert('success', 'Comment is hidden from public!');
             } else {
@@ -86,7 +86,7 @@ class SingleComment extends Component
             if (Auth::user()->staffShip or Auth::id() === $this->comment->user->id) {
                 activity()
                     ->withProperties(['type' => 'Comment'])
-                    ->log('Comment was deleted C: '.$this->comment->id);
+                    ->log('Deleted a comment | Comment ID: '.$this->comment->id);
                 $this->comment->delete();
                 $this->emit('commentDeleted');
                 Auth::user()->touch();
