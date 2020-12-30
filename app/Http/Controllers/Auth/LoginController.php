@@ -100,7 +100,7 @@ class LoginController extends Controller
         } else {
             activity()
                 ->withProperties(['type' => 'Auth'])
-                ->log('User login failed');
+                ->log('Failed to login from '.$request->ip());
             $request->session()->flash('error', 'Invalid login credentials');
 
             return redirect()->back();
