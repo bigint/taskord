@@ -38,7 +38,7 @@ Route::get('login/{provider}/callback', [SocialController::class, 'Callback']);
 
 Route::group(['middleware' => ['throttle:60,1']], function () {
     // Home
-    Route::get('/', [HomeController::class, 'index'])->name('home');
+    Route::view('/', 'home.home')->name('home');
 
     // User
     Route::group(['prefix' => '@{username}', 'as' => 'user.'], function () {
