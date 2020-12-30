@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "2229489400df37d356af42a5a0530bdb",
+    "content-hash": "220f341cca21fc67a2338cf1d545c941",
     "packages": [
         {
             "name": "alfredo-ramos/parsedown-extra-laravel",
@@ -1199,16 +1199,16 @@
         },
         {
             "name": "egulias/email-validator",
-            "version": "2.1.24",
+            "version": "2.1.25",
             "source": {
                 "type": "git",
                 "url": "https://github.com/egulias/EmailValidator.git",
-                "reference": "ca90a3291eee1538cd48ff25163240695bd95448"
+                "reference": "0dbf5d78455d4d6a41d186da50adc1122ec066f4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/egulias/EmailValidator/zipball/ca90a3291eee1538cd48ff25163240695bd95448",
-                "reference": "ca90a3291eee1538cd48ff25163240695bd95448",
+                "url": "https://api.github.com/repos/egulias/EmailValidator/zipball/0dbf5d78455d4d6a41d186da50adc1122ec066f4",
+                "reference": "0dbf5d78455d4d6a41d186da50adc1122ec066f4",
                 "shasum": ""
             },
             "require": {
@@ -1255,7 +1255,7 @@
             ],
             "support": {
                 "issues": "https://github.com/egulias/EmailValidator/issues",
-                "source": "https://github.com/egulias/EmailValidator/tree/2.1.24"
+                "source": "https://github.com/egulias/EmailValidator/tree/2.1.25"
             },
             "funding": [
                 {
@@ -1263,7 +1263,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2020-11-14T15:56:27+00:00"
+            "time": "2020-12-29T14:50:06+00:00"
         },
         {
             "name": "erusev/parsedown",
@@ -2326,16 +2326,16 @@
         },
         {
             "name": "laragraph/utils",
-            "version": "dev-master",
+            "version": "v1.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laragraph/utils.git",
-                "reference": "fd66ca5fe890d0b273b61441357cf69838bce7c3"
+                "reference": "36b489f37b0688a0c806c839dd0e27cbb0cb4dca"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laragraph/utils/zipball/fd66ca5fe890d0b273b61441357cf69838bce7c3",
-                "reference": "fd66ca5fe890d0b273b61441357cf69838bce7c3",
+                "url": "https://api.github.com/repos/laragraph/utils/zipball/36b489f37b0688a0c806c839dd0e27cbb0cb4dca",
+                "reference": "36b489f37b0688a0c806c839dd0e27cbb0cb4dca",
                 "shasum": ""
             },
             "require": {
@@ -2357,7 +2357,6 @@
                 "phpunit/phpunit": "^7.5 || ^8.5",
                 "thecodingmachine/phpstan-safe-rule": "^1.0"
             },
-            "default-branch": true,
             "type": "library",
             "autoload": {
                 "psr-4": {
@@ -2380,7 +2379,7 @@
                 "issues": "https://github.com/laragraph/utils/issues",
                 "source": "https://github.com/laragraph/utils"
             },
-            "time": "2020-12-13T15:46:32+00:00"
+            "time": "2020-12-30T13:17:17+00:00"
         },
         {
             "name": "laravel/framework",
@@ -3656,16 +3655,16 @@
         },
         {
             "name": "nuwave/lighthouse",
-            "version": "v5.0-beta.2",
+            "version": "v5.0-beta.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nuwave/lighthouse.git",
-                "reference": "a21518c39648a52f9f196c4e9e825b58922d48bb"
+                "reference": "4e7c8c752a899ea7852aa2c0321dd1ecb0c3fabb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nuwave/lighthouse/zipball/a21518c39648a52f9f196c4e9e825b58922d48bb",
-                "reference": "a21518c39648a52f9f196c4e9e825b58922d48bb",
+                "url": "https://api.github.com/repos/nuwave/lighthouse/zipball/4e7c8c752a899ea7852aa2c0321dd1ecb0c3fabb",
+                "reference": "4e7c8c752a899ea7852aa2c0321dd1ecb0c3fabb",
                 "shasum": ""
             },
             "require": {
@@ -3680,10 +3679,9 @@
                 "illuminate/routing": "5.6.* || 5.7.* || 5.8.* || ^6 || ^7 || ^8",
                 "illuminate/support": "5.6.* || 5.7.* || 5.8.* || ^6 || ^7 || ^8",
                 "illuminate/validation": "5.6.* || 5.7.* || 5.8.* || ^6 || ^7 || ^8",
-                "laragraph/utils": "dev-master",
-                "nesbot/carbon": "^1.26 || ^2.0",
+                "laragraph/utils": "^1",
                 "php": ">= 7.2",
-                "thecodingmachine/safe": "^1.0",
+                "thecodingmachine/safe": "^1",
                 "webonyx/graphql-php": "^14.2"
             },
             "require-dev": {
@@ -3700,6 +3698,7 @@
                 "phpbench/phpbench": "^0.17",
                 "phpstan/phpstan-mockery": "^0.12.5",
                 "phpunit/phpunit": "^7.5 || ^8.4",
+                "predis/predis": "^1.1",
                 "pusher/pusher-php-server": "^3.2",
                 "rector/rector": "^0.7.64",
                 "thecodingmachine/phpstan-safe-rule": "^1.0"
@@ -3713,6 +3712,9 @@
             "type": "library",
             "extra": {
                 "laravel": {
+                    "aliases": {
+                        "graphql": "Nuwave\\Lighthouse\\GraphQL"
+                    },
                     "providers": [
                         "Nuwave\\Lighthouse\\LighthouseServiceProvider",
                         "Nuwave\\Lighthouse\\GlobalId\\GlobalIdServiceProvider",
@@ -3720,10 +3722,7 @@
                         "Nuwave\\Lighthouse\\Pagination\\PaginationServiceProvider",
                         "Nuwave\\Lighthouse\\SoftDeletes\\SoftDeletesServiceProvider",
                         "Nuwave\\Lighthouse\\Validation\\ValidationServiceProvider"
-                    ],
-                    "aliases": {
-                        "graphql": "Nuwave\\Lighthouse\\GraphQL"
-                    }
+                    ]
                 }
             },
             "autoload": {
@@ -3776,7 +3775,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2020-12-15T20:21:25+00:00"
+            "time": "2020-12-30T13:37:18+00:00"
         },
         {
             "name": "opis/closure",
