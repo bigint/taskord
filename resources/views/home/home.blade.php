@@ -50,8 +50,7 @@
                     <span>
                         @if ($hour < 12) morning 🌄
                         @elseif ($hour < 17) afternoon ☀️
-                        @elseif ($hour < 20) evening 🌇
-                        @else night 🌚
+                        @else evening 🌇
                         @endif
                     </span>
                 </div>
