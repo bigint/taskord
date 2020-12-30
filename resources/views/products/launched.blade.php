@@ -18,7 +18,7 @@
             ])
         </div>
         <div class="col-sm">
-            @include('products.sidebar')
+            @livewire('products.active-products')
             <x-footer />
         </div>
     </div>

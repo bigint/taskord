@@ -9,52 +9,22 @@ class QuestionController extends Controller
 {
     public function newest()
     {
-        $trending = Question::cacheFor(60 * 60)
-            ->orderByViews()
-            ->has('answer')
-            ->take(5)
-            ->get()
-            ->sortByDesc(function ($question) {
-                return $question->answer->count('id');
-            });
-
         return view('question.newest', [
             'type' => 'questions.newest',
-            'trending' => $trending,
         ]);
     }
 
     public function unanswered()
     {
-        $trending = Question::cacheFor(60 * 60)
-            ->orderByViews()
-            ->has('answer')
-            ->take(5)
-            ->get()
-            ->sortByDesc(function ($question) {
-                return $question->answer->count('id');
-            });
-
         return view('question.unanswered', [
             'type' => 'questions.unanswered',
-            'trending' => $trending,
         ]);
     }
 
     public function popular()
     {
-        $trending = Question::cacheFor(60 * 60)
-            ->orderByViews()
-            ->has('answer')
-            ->take(5)
-            ->get()
-            ->sortByDesc(function ($question) {
-                return $question->answer->count('id');
-            });
-
         return view('question.popular', [
             'type' => 'questions.popular',
-            'trending' => $trending,
         ]);
     }
 
