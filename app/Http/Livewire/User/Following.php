@@ -8,11 +8,24 @@ use Livewire\Component;
 class Following extends Component
 {
     public User $user;
-    public $followings;
+    public $readyToLoad = false;
+
+    public function loadFollowing()
+    {
+        $this->readyToLoad = true;
+    }
 
     public function mount($user)
     {
         $this->user = $user;
-        $this->followings = $user->followings;
+    }
+
+    public function render()
+    {
+        $followings = $this->user->followings;
+
+        return view('livewire.user.following', [
+            'followings' => $this->readyToLoad ? $followings : [],
+        ]);
     }
 }

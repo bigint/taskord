@@ -1,5 +1,13 @@
-<div>
-    @if (count($user->followings) === 0)
+<div wire:init="loadFollowing">
+    @if (!$readyToLoad)
+    <div class="card-body text-center mt-3 mb-3">
+        <div class="spinner-border taskord-spinner text-secondary mb-3" role="status"></div>
+        <div class="h6">
+            Loading Followings...
+        </div>
+    </div>
+    @endif
+    @if ($readyToLoad and count($followings) === 0)
     <div class="card-body text-center mt-3 mb-3">
         <x-heroicon-o-users class="heroicon-4x text-primary mb-2" />
         <div class="h4">
