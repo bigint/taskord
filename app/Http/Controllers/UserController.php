@@ -304,9 +304,4 @@ class UserController extends Controller
             ]);
         }
     }
-
-    public function suspended()
-    {
-        return view('auth.suspended');
-    }
 }

@@ -73,7 +73,7 @@ Route::group(['middleware' => ['throttle:60,1']], function () {
     });
 
     // Suspended
-    Route::get('suspended', [UserController::class, 'suspended'])->name('suspended');
+    Route::view('suspended', 'auth.suspended')->name('suspended');
 
     // Avatar
     Route::get('avatar/{username}.png', [UserController::class, 'avatar'])->name('avatar');
