@@ -2,8 +2,8 @@
 
 namespace App\Http\Livewire\Admin;
 
-use Livewire\Component;
 use App\Models\Task;
+use Livewire\Component;
 use Livewire\WithPagination;
 
 class Tasks extends Component

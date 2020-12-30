@@ -3,8 +3,8 @@
 namespace App\Http\Livewire\Admin;
 
 use Livewire\Component;
-use Spatie\Activitylog\Models\Activity;
 use Livewire\WithPagination;
+use Spatie\Activitylog\Models\Activity;
 
 class Activities extends Component
 {
