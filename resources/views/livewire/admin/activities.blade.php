@@ -1,4 +1,4 @@
-<div class="card" wire:init="loadActivities">
+<div class="card" wire:init="loadActivities" wire:poll.1s>
     <div class="card-header h6 pt-3 pb-3">
         <div class="h5">Activities</div>
         <span class="fw-bold">{{ $readyToLoad ? $count : '···' }}</span>
