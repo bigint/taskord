@@ -62,7 +62,7 @@ class EditQuestion extends Component
 
                 activity()
                     ->withProperties(['type' => 'Question'])
-                    ->log('Question has been edited Q: '.$question->id);
+                    ->log('Updated a question | Question ID: '.$question->id);
                 $this->flash('success', 'Question has been edited!');
 
                 return redirect()->route('question.question', ['id' => $question->id]);

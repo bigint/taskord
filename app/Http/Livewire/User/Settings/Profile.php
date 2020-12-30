@@ -105,7 +105,7 @@ class Profile extends Component
                     $this->user->save();
                     activity()
                         ->withProperties(['type' => 'User'])
-                        ->log('Profile settings was updated');
+                        ->log('Updated the profile settings');
 
                     return $this->alert('success', 'Your profile has been updated!');
                 }
@@ -129,7 +129,7 @@ class Profile extends Component
                 $this->user->save();
                 activity()
                     ->withProperties(['type' => 'User'])
-                    ->log('Reset avatar to default');
+                    ->log('Resetted avatar to default');
 
                 return $this->alert('success', 'Your avatar has been resetted!');
             } else {
@@ -152,7 +152,7 @@ class Profile extends Component
                 $this->user->save();
                 activity()
                     ->withProperties(['type' => 'User'])
-                    ->log('Changed avatar provider to Gravatar');
+                    ->log('Updated avatar provider to Gravatar');
 
                 return $this->alert('success', 'Your avatar has been switched to Gravatar!');
             } else {
@@ -171,7 +171,7 @@ class Profile extends Component
                 $this->user->save();
                 activity()
                     ->withProperties(['type' => 'User'])
-                    ->log('Goals for the account was toggled');
+                    ->log('Toggled goals settings');
             } else {
                 return $this->alert('error', 'Forbidden!');
             }
@@ -193,7 +193,7 @@ class Profile extends Component
                     $this->user->save();
                     activity()
                         ->withProperties(['type' => 'User'])
-                        ->log('Goal was set as '.$this->daily_goal.'/day');
+                        ->log('Updated the goal '.$this->daily_goal.'/day');
 
                     return $this->alert('success', 'Your goal has been updated!');
                 }
@@ -218,7 +218,7 @@ class Profile extends Component
                     $this->user->save();
                     activity()
                         ->withProperties(['type' => 'User'])
-                        ->log('Sponsor URL was updated');
+                        ->log('Updated the sponsor URL');
 
                     return $this->alert('success', 'Your sponsor link has been updated!');
                 }
@@ -253,7 +253,7 @@ class Profile extends Component
                     $this->user->save();
                     activity()
                         ->withProperties(['type' => 'User'])
-                        ->log('Social URLs were updated');
+                        ->log('Updated the social URLs');
 
                     return $this->alert('success', 'Your social links has been updated!');
                 }
@@ -278,7 +278,7 @@ class Profile extends Component
                 }
                 activity()
                     ->withProperties(['type' => 'User'])
-                    ->log('Toggled only followings tasks in settings');
+                    ->log('Toggled only following users tasks in settings');
             } else {
                 return $this->alert('error', 'Forbidden!');
             }

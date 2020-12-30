@@ -52,7 +52,7 @@ class Subscribe extends Component
                 }
                 activity()
                     ->withProperties(['type' => 'Product'])
-                    ->log('Product subscribe was toggled P: #'.$this->product->slug);
+                    ->log('Toggled product subscribe | Product ID: #'.$this->product->slug);
             }
         } else {
             return $this->alert('error', 'Forbidden!');

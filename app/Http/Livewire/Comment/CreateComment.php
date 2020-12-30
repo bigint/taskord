@@ -73,7 +73,7 @@ class CreateComment extends Component
             }
             activity()
                 ->withProperties(['type' => 'Comment'])
-                ->log('New comment has been created T: '.$this->task->user->id.' C: '.$comment->id);
+                ->log('Created a new comment | Comment ID: '.$comment->id);
 
             return $this->alert('success', 'Comment has been added!');
         } else {

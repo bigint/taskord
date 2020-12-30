@@ -15,7 +15,7 @@ class OnlyFollowing extends Component
             $this->emit('onlyFollowings');
             activity()
                     ->withProperties(['type' => 'User'])
-                    ->log('Toggled only followings tasks in homepage');
+                    ->log('Toggled only followings tasks');
 
             if (Auth::user()->onlyFollowingsTasks) {
                 return $this->alert('success', 'Only following users tasks will be vissible!');

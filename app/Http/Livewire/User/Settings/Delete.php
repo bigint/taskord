@@ -22,7 +22,7 @@ class Delete extends Component
             if (Auth::id() === $this->user->id) {
                 activity()
                     ->withProperties(['type' => 'User'])
-                    ->log('User account was resetted');
+                    ->log('Resetted the user account');
                 $user = User::find($this->user->id);
                 // Delete Task Images
                 foreach ($user->tasks as $task) {
@@ -68,7 +68,7 @@ class Delete extends Component
             if (Auth::id() === $this->user->id) {
                 activity()
                     ->withProperties(['type' => 'User'])
-                    ->log('User account was deleted');
+                    ->log('Deleted the user account');
                 $user = User::find($this->user->id);
                 // Delete Task Images
                 foreach ($user->tasks as $task) {

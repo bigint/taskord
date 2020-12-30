@@ -24,7 +24,7 @@ class Leave extends Component
             Auth::user()->touch();
             activity()
                 ->withProperties(['type' => 'Product'])
-                ->log('Product member left the team P: #'.$this->product->slug.'U: @'.Auth::user()->username);
+                ->log('Left the team #'.$this->product->slug);
 
             $this->flash('success', 'You are no longer member of the team!');
 

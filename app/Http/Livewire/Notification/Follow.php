@@ -48,7 +48,7 @@ class Follow extends Component
                 }
                 activity()
                     ->withProperties(['type' => 'Notification'])
-                    ->log('User toggle follow from notification U: @'.$this->user->username);
+                    ->log('Toggled user follow | Username: @'.$this->user->username);
             }
         } else {
             return $this->alert('error', 'Forbidden!');

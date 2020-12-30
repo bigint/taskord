@@ -26,7 +26,7 @@ class Adminbar extends Component
     {
         activity()
             ->withProperties(['type' => 'Admin'])
-            ->log('Adminbar Status Refreshed');
+            ->log('Refreshed Adminbar Status');
 
         $this->emitSelf('refreshStats');
     }
@@ -36,7 +36,7 @@ class Adminbar extends Component
         Clean::dispatch()->delay(now()->addSeconds(10));
         activity()
             ->withProperties(['type' => 'Admin'])
-            ->log('Cleaned the Taskord Application');
+            ->log('Cleaned the Application');
 
         return $this->alert('success', 'Cleaning process has been initiated successfully 🧼');
     }

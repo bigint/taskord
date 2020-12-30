@@ -45,7 +45,7 @@ class Api extends Component
                 $this->emit('tokenRegenerated');
                 activity()
                     ->withProperties(['type' => 'User'])
-                    ->log('New API key was generated');
+                    ->log('Created a new API key');
 
                 return $this->alert('success', 'New API key been generated successfully');
             } else {

@@ -28,7 +28,7 @@ class Status extends Component
             $this->emit('statusUpdated');
             activity()
                 ->withProperties(['type' => 'User'])
-                ->log('User status was cleared');
+                ->log('Cleared the account status');
 
             return $this->alert('success', 'Status cleared successfully!');
         } else {
@@ -50,7 +50,7 @@ class Status extends Component
                 $this->emit('statusUpdated');
                 activity()
                     ->withProperties(['type' => 'User'])
-                    ->log('User status was updated');
+                    ->log('Updated the account status');
 
                 return $this->alert('success', 'Status set successfully!');
             } else {
@@ -60,7 +60,7 @@ class Status extends Component
                 $this->emit('statusUpdated');
                 activity()
                     ->withProperties(['type' => 'User'])
-                    ->log('User status was cleared');
+                    ->log('Deleted the account status');
 
                 return $this->alert('success', 'Status cleared successfully!');
             }

@@ -50,7 +50,7 @@ class SingleQuestion extends Component
             Helper::togglePraise($this->question, 'QUESTION');
             activity()
                 ->withProperties(['type' => 'Question'])
-                ->log('Question praise was toggled Q: '.$this->question->id);
+                ->log('Toggled question praise | Question ID: '.$this->question->id);
         } else {
             return $this->alert('error', 'Forbidden!');
         }
@@ -63,7 +63,7 @@ class SingleQuestion extends Component
                 Helper::hide($this->question);
                 activity()
                     ->withProperties(['type' => 'Admin'])
-                    ->log('Question hide was toggled Q: '.$this->question->id);
+                    ->log('Toggled hide question | Question ID: '.$this->question->id);
 
                 return $this->alert('success', 'Question is hidden from public!');
             } else {
@@ -89,7 +89,7 @@ class SingleQuestion extends Component
             if (Auth::user()->staffShip or Auth::id() === $this->question->user_id) {
                 activity()
                     ->withProperties(['type' => 'Question'])
-                    ->log('Question was deleted Q: '.$this->question->id);
+                    ->log('Deleted a question | Question ID: '.$this->question->id);
                 $this->question->delete();
                 Auth::user()->touch();
                 $this->flash('success', 'Question has been deleted successfully!');

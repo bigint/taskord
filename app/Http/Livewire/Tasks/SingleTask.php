@@ -52,7 +52,7 @@ class SingleTask extends Component
             }
             activity()
                 ->withProperties(['type' => 'Task'])
-                ->log('Task was marked as done T: '.$this->task->id);
+                ->log('Updated a task as done | Task ID: '.$this->task->id);
 
             return true;
         } else {
@@ -75,7 +75,7 @@ class SingleTask extends Component
             if (Auth::user()->staffShip or Auth::id() === $this->task->user->id) {
                 activity()
                     ->withProperties(['type' => 'Task'])
-                    ->log('Task was deleted T: '.$this->task->id);
+                    ->log('Deleted a task | Task ID: '.$this->task->id);
                 foreach ($this->task->images ?? [] as $image) {
                     Storage::delete($image);
                 }

@@ -42,7 +42,7 @@ class CreateQuestion extends Component
             givePoint(new QuestionCreated($question));
             activity()
                 ->withProperties(['type' => 'Question'])
-                ->log('New question has been created Q: '.$question->id);
+                ->log('Created a new question | Question ID: '.$question->id);
             $this->flash('success', 'Question has been created!');
 
             return redirect()->route('question.question', ['id' => $question->id]);

@@ -37,7 +37,7 @@ class Moderator extends Component
                 );
                 activity()
                     ->withProperties(['type' => 'Admin'])
-                    ->log('Enrolled to Beta U: @'.$this->user->username);
+                    ->log('Enrolled to Beta | Username: @'.$this->user->username);
             } else {
                 $this->user->notify(
                     new Logger(
@@ -49,7 +49,7 @@ class Moderator extends Component
                 );
                 activity()
                     ->withProperties(['type' => 'Admin'])
-                    ->log('Un-enrolled from Beta U: @'.$this->user->username);
+                    ->log('Un-enrolled from Beta | Username: @'.$this->user->username);
             }
         } else {
             return false;
@@ -76,7 +76,7 @@ class Moderator extends Component
                 );
                 activity()
                     ->withProperties(['type' => 'Admin'])
-                    ->log('Enrolled as Staff U: @'.$this->user->username);
+                    ->log('Enrolled as Staff | Username: @'.$this->user->username);
             } else {
                 $this->user->notify(
                     new Logger(
@@ -88,7 +88,7 @@ class Moderator extends Component
                 );
                 activity()
                     ->withProperties(['type' => 'Admin'])
-                    ->log('Un-enrolled from Staff U: @'.$this->user->username);
+                    ->log('Un-enrolled from Staff | Username: @'.$this->user->username);
             }
         } else {
             return false;
@@ -113,7 +113,7 @@ class Moderator extends Component
                 );
                 activity()
                     ->withProperties(['type' => 'Admin'])
-                    ->log('Enrolled as Contributor U: @'.$this->user->username);
+                    ->log('Enrolled as Contributor | Username: @'.$this->user->username);
             } else {
                 $this->user->notify(
                     new Logger(
@@ -125,7 +125,7 @@ class Moderator extends Component
                 );
                 activity()
                     ->withProperties(['type' => 'Admin'])
-                    ->log('Un-enrolled from Contributor U: @'.$this->user->username);
+                    ->log('Un-enrolled from Contributor | Username: @'.$this->user->username);
             }
         } else {
             return false;
@@ -152,7 +152,7 @@ class Moderator extends Component
                 );
                 activity()
                     ->withProperties(['type' => 'Admin'])
-                    ->log('Enrolled as private user U: @'.$this->user->username);
+                    ->log('Enrolled as private user | Username: @'.$this->user->username);
             } else {
                 $this->user->notify(
                     new Logger(
@@ -164,7 +164,7 @@ class Moderator extends Component
                 );
                 activity()
                     ->withProperties(['type' => 'Admin'])
-                    ->log('Un-enrolled from private user U: @'.$this->user->username);
+                    ->log('Un-enrolled from private user | Username: @'.$this->user->username);
             }
         } else {
             return false;
@@ -191,7 +191,7 @@ class Moderator extends Component
                 );
                 activity()
                     ->withProperties(['type' => 'Admin'])
-                    ->log('User was flagged U: @'.$this->user->username);
+                    ->log('Flagged the user | Username: @'.$this->user->username);
             } else {
                 $this->user->notify(
                     new Logger(
@@ -203,7 +203,7 @@ class Moderator extends Component
                 );
                 activity()
                     ->withProperties(['type' => 'Admin'])
-                    ->log('User was un-flagged U: @'.$this->user->username);
+                    ->log('Un-flagged the user | Username: @'.$this->user->username);
             }
         } else {
             return false;
@@ -235,7 +235,7 @@ class Moderator extends Component
                 );
                 activity()
                     ->withProperties(['type' => 'Admin'])
-                    ->log('User was suspended U: @'.$this->user->username);
+                    ->log('Suspended the user | Username: @'.$this->user->username);
             } else {
                 $this->user->notify(
                     new Logger(
@@ -247,7 +247,7 @@ class Moderator extends Component
                 );
                 activity()
                     ->withProperties(['type' => 'Admin'])
-                    ->log('User was un-suspended U: @'.$this->user->username);
+                    ->log('Un-suspended the user | Username: @'.$this->user->username);
             }
         } else {
             return false;
@@ -272,7 +272,7 @@ class Moderator extends Component
                 );
                 activity()
                     ->withProperties(['type' => 'Admin'])
-                    ->log('Enrolled as Patron U: @'.$this->user->username);
+                    ->log('Enrolled as Patron | Username: @'.$this->user->username);
             } else {
                 $this->user->notify(
                     new Logger(
@@ -284,7 +284,7 @@ class Moderator extends Component
                 );
                 activity()
                     ->withProperties(['type' => 'Admin'])
-                    ->log('Un-enrolled from Patron U: @'.$this->user->username);
+                    ->log('Un-enrolled from Patron | Username: @'.$this->user->username);
             }
         } else {
             return false;
@@ -309,7 +309,7 @@ class Moderator extends Component
                 );
                 activity()
                     ->withProperties(['type' => 'Admin'])
-                    ->log('Verified the user U: @'.$this->user->username);
+                    ->log('Verified the user | Username: @'.$this->user->username);
             } else {
                 $this->user->notify(
                     new Logger(
@@ -321,7 +321,7 @@ class Moderator extends Component
                 );
                 activity()
                     ->withProperties(['type' => 'Admin'])
-                    ->log('Un-verified the user U: @'.$this->user->username);
+                    ->log('Un-verified the user | Username: @'.$this->user->username);
             }
         } else {
             return false;
@@ -345,7 +345,7 @@ class Moderator extends Component
                 );
                 activity()
                     ->withProperties(['type' => 'Admin'])
-                    ->log('Enrolled to Dark mode U: @'.$this->user->username);
+                    ->log('Enrolled to Dark mode | Username: @'.$this->user->username);
             } else {
                 $this->user->notify(
                     new Logger(
@@ -357,7 +357,7 @@ class Moderator extends Component
                 );
                 activity()
                     ->withProperties(['type' => 'Admin'])
-                    ->log('Un-enrolled from Dark mode U: @'.$this->user->username);
+                    ->log('Un-enrolled from Dark mode | Username: @'.$this->user->username);
             }
         } else {
             return false;
@@ -380,7 +380,7 @@ class Moderator extends Component
             );
             activity()
                 ->withProperties(['type' => 'Admin'])
-                ->log('Masqueraded into the user  U: @'.$this->user->username);
+                ->log('Masqueraded | Username: @'.$this->user->username);
             Auth::loginUsingId($this->user->id);
 
             return redirect()->route('home');
@@ -394,7 +394,7 @@ class Moderator extends Component
         if (Auth::check() && Auth::user()->isStaff) {
             activity()
                 ->withProperties(['type' => 'Admin'])
-                ->log('Deleted all tasks of the user  U: @'.$this->user->username);
+                ->log('Deleted all tasks | Username: @'.$this->user->username);
             $user = User::find($this->user->id);
             $user->timestamps = false;
             foreach ($user->tasks as $task) {
@@ -423,7 +423,7 @@ class Moderator extends Component
         if (Auth::check() && Auth::user()->isStaff) {
             activity()
                 ->withProperties(['type' => 'Admin'])
-                ->log('Deleted all comments of the user  U: @'.$this->user->username);
+                ->log('Deleted all comments | Username: @'.$this->user->username);
             $user = User::find($this->user->id);
             $user->timestamps = false;
             $user->comments()->delete();
@@ -447,7 +447,7 @@ class Moderator extends Component
         if (Auth::check() && Auth::user()->isStaff) {
             activity()
                 ->withProperties(['type' => 'Admin'])
-                ->log('Deleted all questions of the user  U: @'.$this->user->username);
+                ->log('Deleted all questions | Username: @'.$this->user->username);
             $user = User::find($this->user->id);
             $user->timestamps = false;
             $user->questions()->delete();
@@ -471,7 +471,7 @@ class Moderator extends Component
         if (Auth::check() && Auth::user()->isStaff) {
             activity()
                 ->withProperties(['type' => 'Admin'])
-                ->log('Deleted all answers of the user  U: @'.$this->user->username);
+                ->log('Deleted all answers | Username: @'.$this->user->username);
             $user = User::find($this->user->id);
             $user->timestamps = false;
             $user->answers()->delete();
@@ -495,7 +495,7 @@ class Moderator extends Component
         if (Auth::check() && Auth::user()->isStaff) {
             activity()
                 ->withProperties(['type' => 'Admin'])
-                ->log('Deleted all products of the user  U: @'.$this->user->username);
+                ->log('Deleted all products | Username: @'.$this->user->username);
             $user = User::find($this->user->id);
             $user->timestamps = false;
             foreach ($user->ownedProducts as $product) {
@@ -527,7 +527,7 @@ class Moderator extends Component
         if (Auth::check() && Auth::user()->isStaff) {
             activity()
                 ->withProperties(['type' => 'Admin'])
-                ->log('Deleted the user  U: @'.$this->user->username);
+                ->log('Deleted the user | Username: @'.$this->user->username);
             if ($this->user->id === 1) {
                 return false;
             }

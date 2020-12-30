@@ -56,7 +56,7 @@ class Password extends Component
                 $user->save();
                 activity()
                     ->withProperties(['type' => 'User'])
-                    ->log('Account password was changed');
+                    ->log('Changed account password');
 
                 return $this->alert('success', 'Your password has been changed!');
             } else {
