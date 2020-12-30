@@ -13,6 +13,12 @@ class AllTime extends Component
         'taskAdded' => 'render',
         'taskDeleted' => 'render',
     ];
+    public $readyToLoad = false;
+
+    public function loadAllTimeTasks()
+    {
+        $this->readyToLoad = true;
+    }
 
     public function render()
     {
@@ -24,7 +30,7 @@ class AllTime extends Component
             ->get();
 
         return view('livewire.tasks.all-time', [
-            'tasks' => $tasks,
+            'tasks' => $this->readyToLoad ? $tasks : [],
         ]);
     }
 }

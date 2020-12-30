@@ -14,6 +14,12 @@ class Today extends Component
         'taskAdded' => 'render',
         'taskDeleted' => 'render',
     ];
+    public $readyToLoad = false;
+
+    public function loadTodayTasks()
+    {
+        $this->readyToLoad = true;
+    }
 
     public function render()
     {
@@ -26,7 +32,7 @@ class Today extends Component
             ->get();
 
         return view('livewire.tasks.today', [
-            'tasks' => $tasks,
+            'tasks' => $this->readyToLoad ? $tasks : [],
         ]);
     }
 }
