@@ -2,9 +2,9 @@
 
 namespace App\Http\Livewire\Home;
 
-use Livewire\Component;
 use App\Models\Product;
 use Carbon\Carbon;
+use Livewire\Component;
 
 class LaunchedToday extends Component
 {
