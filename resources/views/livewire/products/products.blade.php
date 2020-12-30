@@ -1,4 +1,20 @@
-<div>
+<div wire:init="loadProducts">
+    @if (!$readyToLoad)
+    <div class="card-body text-center mt-3 mb-3">
+        <div class="spinner-border taskord-spinner text-secondary mb-3" role="status"></div>
+        <div class="h6">
+            Loading Products...
+        </div>
+    </div>
+    @endif
+    @if ($readyToLoad and count($products) === 0)
+    <div class="card-body text-center mt-3 mb-3">
+        <x-heroicon-o-cube class="heroicon-4x text-primary mb-2" />
+        <div class="h4">
+            No products found!
+        </div>
+    </div>
+    @endif
     @foreach ($products as $key => $groupedProducts)
         <div class="h5 mb-3 mt-4">
             @if (Carbon::parse($groupedProducts[$loop->index]->created_at)->weekNumberInMonth === 1)
@@ -56,7 +72,7 @@
         </div>
         @endforeach
     @endforeach
-    @if ($products->hasMorePages())
+    @if ($readyToLoad and $products->hasMorePages())
         @livewire('products.load-more', [
             'type' => $type,
             'page' => $page,
