@@ -172,7 +172,13 @@ class SingleTask extends Component
             'shipped',
             'ship',
         ];
-        if (Str::contains(strtolower($this->task->task), $launchList) and (bool) $this->task->done) {
+        if (
+            Str::contains(strtolower($this->task->task), $launchList) and
+            (bool) $this->task->done and
+            $this->task->source !== 'GitHub' and
+            $this->task->source !== 'GitLab' and
+            $this->task->source !== 'Webhook'
+        ) {
             $this->launched = true;
         }
 
