@@ -48,7 +48,7 @@ class NewUpdate extends Component
             }
             activity()
                 ->withProperties(['type' => 'Product'])
-                ->log('New product update has been created P: '.$this->product->id.' PU: '.$update->id);
+                ->log('Created a new product update on #'.$this->product->slug.' | Update ID: '.$update->id);
 
             $this->flash('success', 'New Update has been created!');
 

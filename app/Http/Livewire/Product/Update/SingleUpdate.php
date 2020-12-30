@@ -76,7 +76,7 @@ class SingleUpdate extends Component
             if (Auth::user()->staffShip or Auth::id() === $this->update->user->id) {
                 activity()
                     ->withProperties(['type' => 'Product'])
-                    ->log('Product update was deleted PU: '.$this->update->id);
+                    ->log('Deleted a product update on #'.$this->update->product->slug.' | Update ID: '.$this->update->id);
                 $this->update->delete();
                 $this->emit('updateDeleted');
             } else {
