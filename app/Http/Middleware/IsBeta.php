@@ -3,7 +3,6 @@
 namespace App\Http\Middleware;
 
 use Closure;
-use Illuminate\Support\Facades\Auth;
 
 class IsBeta
 {
@@ -16,7 +15,7 @@ class IsBeta
      */
     public function handle($request, Closure $next)
     {
-        if (Auth::user() && Auth::user()->isBeta) {
+        if ($request->user() && $request->user()->isBeta) {
             return $next($request);
         }
 
