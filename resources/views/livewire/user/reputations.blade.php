@@ -47,6 +47,9 @@
                         @if ($point->subject_type === 'App\Models\Question')
                             points earned for getting a praise for your Question 👍
                         @endif
+                        @if ($point->subject_type === 'App\Models\Answer')
+                            points earned for getting a praise for your Answer 👍
+                        @endif
                     @endif
                 </div>
                 <small class="text-secondary">{{ Carbon::parse($point->created_at)->diffForHumans() }}</small>
