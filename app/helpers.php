@@ -15,6 +15,8 @@ if (! function_exists('git')) {
 
     /**
      * Execute git command
+     * Should be used safetly
+     * No direct end-user access
      *
      * @param string $args arguments
      *
