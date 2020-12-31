@@ -33,38 +33,43 @@ class Helper
 
     public static function togglePraise($entity, $type)
     {
-        if (Auth::user()->hasLiked($entity)) {
-            Auth::user()->unlike($entity);
-            $entity->refresh();
-            if (
-                $type === 'TASK' or
-                $entity->source !== 'GitHub' and
-                $entity->source !== 'GitLab'
-            ) {
-                undoPoint(new PraiseCreated($entity));
-            }
-            Auth::user()->touch();
-        } else {
-            Auth::user()->like($entity);
-            $entity->refresh();
-            if ($type === 'TASK') {
-                $entity->user->notify(new TaskPraised($entity, Auth::id()));
-            } elseif ($type === 'COMMENT') {
-                $entity->user->notify(new CommentPraised($entity, Auth::id()));
-            } elseif ($type === 'QUESTION') {
-                $entity->user->notify(new QuestionPraised($entity, Auth::id()));
-            } elseif ($type === 'ANSWER') {
-                $entity->user->notify(new AnswerPraised($entity, Auth::id()));
-            }
-            if (
-                $type === 'TASK' or
-                $entity->source !== 'GitHub' and
-                $entity->source !== 'GitLab'
-            ) {
-                givePoint(new PraiseCreated($entity));
-            }
-            Auth::user()->touch();
+        $user = Auth::user();
+        $hasLiked = $user->hasLiked($entity);
+
+        ($hasLiked)
+            ? $user->unlike($entity)
+            : $user->like($entity);
+
+        if ($type === 'TASK'
+            || $entity->source !== 'GitHub'
+            && $entity->source !== 'Gitlab'
+        ) {
+            ($hasLiked)
+                ? undoPoint(new PraiseCreated($entity))
+                : givePoint(new PraiseCreated($entity));
         }
+
+        if (!$hasLiked) {
+            switch ($type) {
+                case 'TASK':
+                    $entity->user->notify(new TaskPraised($entity, $user->id));
+                    break;
+                case 'COMMENT':
+                    $entity->user->notify(new CommentPraised($entity, $user->id));
+                    break;
+                case 'QUESTION':
+                    $entity->user->notify(new QuestionPraised($entity, $user->id));
+                    break;
+                case 'ANSWER':
+                    $entity->user->notify(new AnswerPraised($entity, $user->id));
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        $entity->refresh();
+        $user->touch();
     }
 
     public static function hide($entity)
