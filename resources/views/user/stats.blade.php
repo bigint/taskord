@@ -22,7 +22,11 @@ if ($user->lastname and $user->lastname) {
     @include('user.profile')
     <div class="row justify-content-center mt-4">
         <div class="col-lg-8">
-            @livewire('user.stats', ['user' => $user])
+            <div class="card">
+                <div class="card-body">
+                    @livewire('user.stats', ['user' => $user])
+                </div>
+            </div>
         </div>
         @include('user.sidebar')
     </div>
