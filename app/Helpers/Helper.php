@@ -15,9 +15,9 @@ use App\Notifications\QuestionPraised;
 use App\Notifications\Task\NotifySubscribers as TaskSubscribers;
 use App\Notifications\TaskPraised;
 use Carbon\Carbon;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Database\Eloquent\Model;
 
 class Helper
 {
@@ -33,7 +33,7 @@ class Helper
     }
 
     /**
-     * Toggle praise on a model
+     * Toggle praise on a model.
      *
      * @param \Illuminate\Database\Eloquent\Model $entity
      * @param string                              $type
@@ -57,7 +57,7 @@ class Helper
                 : givePoint(new PraiseCreated($entity));
         }
 
-        if (!$hasLiked) {
+        if (! $hasLiked) {
             switch ($type) {
                 case 'TASK':
                     $entity->user->notify(new TaskPraised($entity, $user->id));
