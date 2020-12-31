@@ -26,29 +26,29 @@
                         earned for creating a new task 🆕
                     @endif
                     @if ($point->name === 'TaskCompleted')
-                        point earned for completing a task ✅
+                        earned for completing a task ✅
                     @endif
                     @if ($point->name === 'QuestionCreated')
-                        points earned for creating a new question ❓
+                        earned for creating a new question ❓
                     @endif
                     @if ($point->name === 'CommentCreated')
-                        points earned for creating a new comment 💬
+                        earned for creating a new comment 💬
                     @endif
                     @if ($point->name === 'GoalReached')
-                        points earned for reaching the daily goal 🎯
+                        earned for reaching the daily goal 🎯
                     @endif
                     @if ($point->name === 'PraiseCreated')
                         @if ($point->subject_type === 'App\Models\Task')
-                            points earned for getting a praise for your Task 👍
+                            earned for getting a praise for your Task 👍
                         @endif
                         @if ($point->subject_type === 'App\Models\Comment')
-                            points earned for getting a praise for your Comment 👍
+                            earned for getting a praise for your Comment 👍
                         @endif
                         @if ($point->subject_type === 'App\Models\Question')
-                            points earned for getting a praise for your Question 👍
+                            earned for getting a praise for your Question 👍
                         @endif
                         @if ($point->subject_type === 'App\Models\Answer')
-                            points earned for getting a praise for your Answer 👍
+                            earned for getting a praise for your Answer 👍
                         @endif
                     @endif
                 </div>
