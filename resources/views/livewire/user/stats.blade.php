@@ -7,5 +7,4 @@
         </div>
     </div>
     @endif
-    WIP
 </div>
