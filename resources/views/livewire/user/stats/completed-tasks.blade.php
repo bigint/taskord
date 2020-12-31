@@ -17,8 +17,8 @@
     @if ($readyToLoad)
     <script>
     var options = {
-        chart: { type: 'bar' },
-        series: [{ data: <?php echo $completed_tasks ?> }],
+        chart: { type: 'bar', height: 350 },
+        series: [{name: 'Tasks', data: <?php echo $completed_tasks ?> }],
         xaxis: { categories: <?php echo $week_dates ?> }
     }
 
