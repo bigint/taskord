@@ -34,6 +34,7 @@ class CompletedTasks extends Component
             array_push($week_dates, Carbon::parse($date)->format('Y-m-d'));
             $count = Task::cacheFor(60 * 60)
                 ->select('id')
+                ->where('user_id', $this->user->id)
                 ->whereBetween('done_at', [Carbon::parse($date), Carbon::parse($date)->addDays(10)])
                 ->count();
             array_push($completed_tasks, $count);
