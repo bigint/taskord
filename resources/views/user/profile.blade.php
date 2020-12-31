@@ -157,10 +157,12 @@
             <span class="@if (Route::currentRouteName() === 'user.answers') text-primary @endif">Answers</span>
             <span class="small fw-normal text-secondary">{{ number_format($answer_count) }}</span>
         </a>
+        @if (Auth::check() && Auth::user()->staffShip)
         <a class="text-dark fw-bold me-4" href="{{ route('user.stats', ['username' => $user->username]) }}">
             <span class="@if (Route::currentRouteName() === 'user.stats') text-primary @endif">Stats</span>
             <x-beta background="light" />
         </a>
+        @endif
         <a class="text-dark fw-bold me-4" href="{{ route('feed.user', ['username' => $user->username]) }}" target="_blank">
             <span>
                 <x-heroicon-o-rss class="heroicon text-secondary" />
