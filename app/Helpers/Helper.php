@@ -17,6 +17,7 @@ use App\Notifications\TaskPraised;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Database\Eloquent\Model;
 
 class Helper
 {
@@ -31,7 +32,14 @@ class Helper
         return $url;
     }
 
-    public static function togglePraise($entity, $type)
+    /**
+     * Toggle praise on a model
+     *
+     * @param \Illuminate\Database\Eloquent\Model $entity
+     * @param string                              $type
+     * @return void
+     */
+    public static function togglePraise(Model $entity, string $type)
     {
         $user = Auth::user();
         $hasLiked = $user->hasLiked($entity);
