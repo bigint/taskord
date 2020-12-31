@@ -23,7 +23,7 @@ class Activities extends Component
         $count = Activity::all()->count('id');
 
         return view('livewire.admin.activities', [
-            'activities' => $activities,
+            'activities' => $this->readyToLoad ? $activities : [],
             'count' => number_format($count),
         ]);
     }
