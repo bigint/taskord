@@ -24,7 +24,7 @@ class Stats extends Component
             array_push($week_dates, Carbon::parse($date)->format('Y-m-d'));
         }
         return view('livewire.user.stats', [
-            'week_dates' => $week_dates
+            'week_dates' => json_encode($week_dates, JSON_NUMERIC_CHECK)
         ]);
     }
 }
