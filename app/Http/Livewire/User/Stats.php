@@ -2,15 +2,16 @@
 
 namespace App\Http\Livewire\User;
 
-use Livewire\Component;
-use Carbon\CarbonPeriod;
 use Carbon\Carbon;
+use Carbon\CarbonPeriod;
+use Livewire\Component;
 
 class Stats extends Component
 {
     public $user;
 
-    public function mount($user) {
+    public function mount($user)
+    {
         $this->user = $user;
     }
 
@@ -23,8 +24,9 @@ class Stats extends Component
         foreach ($period->toArray() as $date) {
             array_push($week_dates, Carbon::parse($date)->format('Y-m-d'));
         }
+
         return view('livewire.user.stats', [
-            'week_dates' => $week_dates
+            'week_dates' => $week_dates,
         ]);
     }
 }
