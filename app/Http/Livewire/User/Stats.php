@@ -23,6 +23,7 @@ class Stats extends Component
         foreach ($period->toArray() as $date) {
             array_push($week_dates, Carbon::parse($date)->format('Y-m-d'));
         }
+
         return view('livewire.user.stats', [
             'week_dates' => json_encode($week_dates, JSON_NUMERIC_CHECK)
         ]);

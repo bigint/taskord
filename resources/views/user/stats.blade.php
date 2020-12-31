@@ -18,6 +18,7 @@ if ($user->lastname and $user->lastname) {
 @section('url', url()->current())
 
 @section('content')
+<script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
 <div class="container-md">
     @include('user.profile')
     <div class="row justify-content-center mt-4">
