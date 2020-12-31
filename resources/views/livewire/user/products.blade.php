@@ -25,7 +25,7 @@
                 </a>
                 <div class="pe-5">{{ $product->description }}</div>
             </span>
-            <span class="ms-auto">
+            <span class="d-flex ms-auto">
                 @if ($product->members()->count() > 1)
                     <span class="me-2 text-secondary fw-bold">+{{ $product->members()->count() - 1 }} more</span>
                 @endif
