@@ -16,6 +16,8 @@ use Intervention\Image\Facades\Image;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 
+use App\Actions\CreateNewTask;
+
 class CreateTask extends Component
 {
     use WithFileUploads;
@@ -124,8 +126,7 @@ class CreateTask extends Component
                 $product_id = $this->product->id;
             }
 
-            $task = Task::create([
-                'user_id' =>  Auth::id(),
+            $task = (new CreateNewTask(auth()->user(), [
                 'product_id' =>  $product_id,
                 'task' => $this->task,
                 'done' => $state,
@@ -133,8 +134,7 @@ class CreateTask extends Component
                 'images' => $images,
                 'due_at' => $this->due_at,
                 'type' => $product_id ? 'product' : 'user',
-                'source' => 'Taskord for Web',
-            ]);
+            ]))();
 
             $this->emit('taskAdded');
             $this->resetInputFields();
