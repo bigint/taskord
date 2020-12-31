@@ -1,10 +1,22 @@
-<div wire:init="loadStats">
-    @if (!$readyToLoad)
-    <div class="card-body text-center mt-3 mb-3">
-        <div class="spinner-border taskord-spinner text-secondary mb-3" role="status"></div>
-        <div class="h6">
-            Loading Stats...
+<div>
+    <h5>Completed Tasks</h5>
+    <div class="card mt-3">
+        <div class="card-body">
+        {{ implode("','", $week_dates) }}
+            <div id="completedTasks"></div>
         </div>
     </div>
-    @endif
+
+
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <script>
+    var options = {
+        chart: { type: 'bar' },
+        series: [{ data: [30,40,45,50,49,60,70,91,125] }],
+        xaxis: { categories: [{{ implode("\n,", $week_dates) }}] }
+    }
+
+    var completedTasks = new ApexCharts(document.querySelector("#completedTasks"), options);
+    completedTasks.render();
+    </script>
 </div>

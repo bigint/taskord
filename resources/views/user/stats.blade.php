@@ -24,7 +24,9 @@ if ($user->lastname and $user->lastname) {
         <div class="col-lg-8">
             <div class="card">
                 <div class="card-body">
-                    @livewire('user.stats', ['user' => $user])
+                    @livewire('user.stats', [
+                        'user' => $user
+                    ])
                 </div>
             </div>
         </div>

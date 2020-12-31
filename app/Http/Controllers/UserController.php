@@ -21,41 +21,6 @@ class UserController extends Controller
     public function profile($username)
     {
         $user = User::cacheFor(60 * 60)
-            ->select(
-                'id',
-                'email',
-                'username',
-                'firstname',
-                'lastname',
-                'avatar',
-                'bio',
-                'location',
-                'company',
-                'status',
-                'status_emoji',
-                'sponsor',
-                'website',
-                'twitter',
-                'twitch',
-                'github',
-                'telegram',
-                'youtube',
-                'isStaff',
-                'isDeveloper',
-                'isBeta',
-                'isPatron',
-                'darkMode',
-                'reputation',
-                'isPrivate',
-                'isVerified',
-                'isFlagged',
-                'isSuspended',
-                'lastIP',
-                'timezone',
-                'updated_at',
-                'last_active',
-                'email_verified_at',
-            )
             ->where('username', $username)->firstOrFail();
         $type = Route::current()->getName();
 
