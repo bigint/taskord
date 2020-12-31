@@ -2,17 +2,18 @@
 
 namespace App\Http\Livewire\User\Stats;
 
-use Livewire\Component;
-use Carbon\CarbonPeriod;
-use Carbon\Carbon;
 use App\Models\Task;
+use Carbon\Carbon;
+use Carbon\CarbonPeriod;
+use Livewire\Component;
 
 class CompletedTasks extends Component
 {
     public $user;
     public $readyToLoad = false;
 
-    public function mount($user) {
+    public function mount($user)
+    {
         $this->user = $user;
     }
 
