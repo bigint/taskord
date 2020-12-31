@@ -25,7 +25,7 @@ if ($user->lastname and $user->lastname) {
         <div class="col-lg-8">
             <div class="card">
                 <div class="card-body">
-                    @livewire('user.stats', [
+                    @livewire('user.stats.completed-tasks', [
                         'user' => $user
                     ])
                 </div>

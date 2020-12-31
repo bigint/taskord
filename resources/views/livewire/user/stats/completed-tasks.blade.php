@@ -10,7 +10,7 @@
     var options = {
         chart: { type: 'bar' },
         series: [{ data: [30,40,45,50,49,60,70,91,125] }],
-        xaxis: { categories: <?php echo $week_dates; ?> }
+        xaxis: { categories: <?php echo $week_dates ?> }
     }
 
     var completedTasks = new ApexCharts(document.querySelector("#completedTasks"), options);

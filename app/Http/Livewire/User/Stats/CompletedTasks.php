@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Livewire\User;
+namespace App\Http\Livewire\User\Stats;
 
 use Livewire\Component;
 use Carbon\CarbonPeriod;
 use Carbon\Carbon;
 
-class Stats extends Component
+class CompletedTasks extends Component
 {
     public $user;
 
@@ -24,7 +24,7 @@ class Stats extends Component
             array_push($week_dates, Carbon::parse($date)->format('Y-m-d'));
         }
 
-        return view('livewire.user.stats', [
+        return view('livewire.user.stats.completed-tasks', [
             'week_dates' => json_encode($week_dates, JSON_NUMERIC_CHECK)
         ]);
     }
