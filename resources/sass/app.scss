@@ -497,3 +497,8 @@ input[type="date"]:valid:before {
     border: 3px solid $gray-500;
     border-right-color: black;
 }
+
+.badge-font {
+    font-size: 11px;
+    padding: 2px;
+}
