@@ -46,14 +46,12 @@ class Password extends Component
                     'newPassword.pwned' => 'This password has been pwned before',
                 ]);
 
-                $user = user();
-
-                if (! Hash::check($this->currentPassword, $user->password)) {
+                if (! Hash::check($this->currentPassword, user()->password)) {
                     return $this->alert('error', 'Current password does not match!');
                 }
 
-                $user->password = Hash::make($this->newPassword);
-                $user->save();
+                user()->password = Hash::make($this->newPassword);
+                user()->save();
                 activity()
                     ->withProperties(['type' => 'User'])
                     ->log('Changed account password');

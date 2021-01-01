@@ -57,46 +57,36 @@ class UserController extends Controller
 
     public function profileSettings()
     {
-        $user = user();
-
         return view('user.settings.profile', [
-            'user' => $user,
+            'user' => user(),
         ]);
     }
 
     public function accountSettings()
     {
-        $user = user();
-
         return view('user.settings.account', [
-            'user' => $user,
+            'user' => user(),
         ]);
     }
 
     public function patronSettings()
     {
-        $user = user();
-
         return view('user.settings.patron', [
-            'user' => $user,
+            'user' => user(),
         ]);
     }
 
     public function passwordSettings()
     {
-        $user = user();
-
         return view('user.settings.password', [
-            'user' => $user,
+            'user' => user(),
         ]);
     }
 
     public function notificationsSettings()
     {
-        $user = user();
-
         return view('user.settings.notifications', [
-            'user' => $user,
+            'user' => user(),
         ]);
     }
 
@@ -167,46 +157,36 @@ class UserController extends Controller
 
     public function integrationsSettings()
     {
-        $user = user();
-
         return view('user.settings.integrations', [
-            'user' => $user,
+            'user' => user(),
         ]);
     }
 
     public function apiSettings()
     {
-        $user = user();
-
         return view('user.settings.api', [
-            'user' => $user,
+            'user' => user(),
         ]);
     }
 
     public function logsSettings()
     {
-        $user = user();
-
         return view('user.settings.logs', [
-            'user' => $user,
+            'user' => user(),
         ]);
     }
 
     public function dataSettings()
     {
-        $user = user();
-
         return view('user.settings.data', [
-            'user' => $user,
+            'user' => user(),
         ]);
     }
 
     public function deleteSettings()
     {
-        $user = user();
-
         return view('user.settings.delete', [
-            'user' => $user,
+            'user' => user(),
         ]);
     }
 
@@ -245,10 +225,9 @@ class UserController extends Controller
 
     public function darkMode()
     {
-        $user = user();
-        if ($user->darkMode) {
-            $user->darkMode = false;
-            $user->save();
+        if (user()->darkMode) {
+            user()->darkMode = false;
+            user()->save();
             activity()
                 ->withProperties(['type' => 'User'])
                 ->log('Disabled Dark mode');
@@ -257,8 +236,8 @@ class UserController extends Controller
                 'status' => 'disabled',
             ]);
         } else {
-            $user->darkMode = true;
-            $user->save();
+            user()->darkMode = true;
+            user()->save();
             activity()
                 ->withProperties(['type' => 'User'])
                 ->log('Enabled Dark mode');
