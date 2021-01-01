@@ -2,9 +2,9 @@
 
 namespace App\Http\Livewire;
 
+use App\Actions\CreateNewTask;
 use App\Gamify\Points\TaskCreated;
 use App\Jobs\CheckGoal;
-use App\Models\Task;
 use Carbon\Carbon;
 use GrahamCampbell\Throttle\Facades\Throttle;
 use Helper;
@@ -15,8 +15,6 @@ use Illuminate\Support\Str;
 use Intervention\Image\Facades\Image;
 use Livewire\Component;
 use Livewire\WithFileUploads;
-
-use App\Actions\CreateNewTask;
 
 class CreateTask extends Component
 {

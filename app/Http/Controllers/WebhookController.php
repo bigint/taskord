@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Task;
+use App\Actions\CreateNewTask;
 use App\Models\User;
 use App\Models\Webhook;
 use App\Notifications\VersionReleased;
@@ -13,7 +13,6 @@ use Helper;
 use Illuminate\Http\Request as WebhookRequest;
 use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Str;
-use App\Actions\CreateNewTask;
 
 class WebhookController extends Controller
 {
