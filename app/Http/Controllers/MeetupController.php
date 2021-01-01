@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Meetup;
-use Illuminate\Support\Facades\Auth;
 
 class MeetupController extends Controller
 {

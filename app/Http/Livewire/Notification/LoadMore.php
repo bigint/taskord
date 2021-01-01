@@ -5,7 +5,6 @@ namespace App\Http\Livewire\Notification;
 use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Collection;
-use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 
 class LoadMore extends Component
