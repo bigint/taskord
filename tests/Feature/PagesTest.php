@@ -97,6 +97,6 @@ it('has reputation page', function ($url, $expected, $auth) {
         $this->get($url)->assertStatus($expected);
     }
 })->with([
-    ['/reputation', 200, false],
-    ['/reputation', 302, true],
+    ['/reputation', 302, false],
+    ['/reputation', 200, true],
 ]);
