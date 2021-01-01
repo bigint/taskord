@@ -24,6 +24,11 @@
                                 <strong>{{ $message }}</strong>
                             </span>
                         @enderror
+                        <div class="small fw-bold text-secondary mt-3">
+                            <x-heroicon-o-pencil-alt class="heroicon" />
+                            Markdown is supported
+                            <x-beta background="light" />
+                        </div>
                     </div>
                     @auth
                     @if (user()->isPatron)
