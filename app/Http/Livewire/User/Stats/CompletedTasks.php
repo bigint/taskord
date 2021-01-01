@@ -27,6 +27,13 @@ class CompletedTasks extends Component
         $created_at = Carbon::parse($this->user->created_at)->format('Y-m-d');
         $current_date = Carbon::now()->format('Y-m-d');
         $period = CarbonPeriod::create($created_at, '10 days', $current_date);
+        $completed_tasks_count = Task::cacheFor(60 * 60)
+            ->select('id')
+            ->where([
+                ['user_id', $this->user->id],
+                ['done', true],
+            ])
+            ->count();
 
         $week_dates = [];
         $completed_tasks = [];
@@ -45,8 +52,9 @@ class CompletedTasks extends Component
         }
 
         return view('livewire.user.stats.completed-tasks', [
-            'week_dates' => json_encode($week_dates, JSON_NUMERIC_CHECK),
+            'week_dates' => $this->readyToLoad ? json_encode($week_dates, JSON_NUMERIC_CHECK) : [],
             'completed_tasks' => $this->readyToLoad ? json_encode($completed_tasks, JSON_NUMERIC_CHECK) : [],
+            'completed_tasks_count' => $this->readyToLoad ? $completed_tasks_count : '···'
         ]);
     }
 }

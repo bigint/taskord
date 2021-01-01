@@ -1,5 +1,5 @@
 <div wire:init="loadAllTasks">
-    <h5>All Tasks</h5>
+    <h5>{{ $all_tasks_count }} All Tasks</h5>
     <div class="card mt-3">
         <div class="card-body">
             @if (!$readyToLoad)

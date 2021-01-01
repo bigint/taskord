@@ -31,6 +31,9 @@ if ($user->lastname and $user->lastname) {
                     @livewire('user.stats.completed-tasks', [
                         'user' => $user
                     ])
+                    @livewire('user.stats.comments', [
+                        'user' => $user
+                    ])
                 </div>
             </div>
         </div>
