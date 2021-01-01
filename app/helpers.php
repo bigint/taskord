@@ -3,6 +3,7 @@
 declare(strict_types=1);
 
 use Illuminate\Foundation\Application;
+use Illuminate\Support\Str;
 
 /**
  * This file contains helper functions for Taskord.
@@ -73,5 +74,20 @@ if (! function_exists('memory_usage')) {
         }
 
         return $format;
+    }
+}
+
+if (! function_exists('str_plural')) {
+    /**
+     * Get the plural form of an English word.
+     *
+     * @param string $word  Word
+     * @param int    $count Count
+     *
+     * @return string
+     */
+    function str_plural($word, $count): string
+    {
+        return Str::plural($word, $count);
     }
 }
