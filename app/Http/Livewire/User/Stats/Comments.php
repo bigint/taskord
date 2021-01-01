@@ -48,7 +48,7 @@ class Comments extends Component
         return view('livewire.user.stats.comments', [
             'week_dates' => $this->readyToLoad ? json_encode($week_dates, JSON_NUMERIC_CHECK) : [],
             'comments' => $this->readyToLoad ? json_encode($comments, JSON_NUMERIC_CHECK) : [],
-            'comments_count' => $this->readyToLoad ? $comments_count : '···'
+            'comments_count' => $this->readyToLoad ? $comments_count : '···',
         ]);
     }
 }
