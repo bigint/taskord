@@ -18,9 +18,9 @@ class OnlyFollowing extends Component
                     ->log('Toggled only followings tasks');
 
             if (user()->onlyFollowingsTasks) {
-                return $this->alert('success', 'Only following users tasks will be vissible!');
+                return $this->alert('success', 'Only following users tasks will be visible!');
             } else {
-                return $this->alert('success', 'All users tasks will be vissible!');
+                return $this->alert('success', 'All users tasks will be visible!');
             }
         } else {
             return $this->alert('error', 'Forbidden!');
