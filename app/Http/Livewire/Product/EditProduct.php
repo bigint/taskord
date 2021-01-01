@@ -93,12 +93,8 @@ class EditProduct extends Component
 
             if (user()->staffShip or user()->id === $product->owner->id) {
                 if ($this->launched and ! $product->launched) {
-<<<<<<< app/Http/Livewire/Product/EditProduct.php
-                    $product->launched_at = Carbon::now();
-                    $newelyLaunched = true;
-=======
                     $product->launched_at = carbon();
->>>>>>> app/Http/Livewire/Product/EditProduct.php
+                    $newelyLaunched = true;
                 }
 
                 $product->name = $this->name;
