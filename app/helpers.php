@@ -94,21 +94,6 @@ if (! function_exists('str_plural')) {
     }
 }
 
-if (! function_exists('get_name')) {
-    /**
-     * Get user full name from firstname and lastname.
-     *
-     * @param string $firstname String
-     * @param string $lastname String
-     *
-     * @return string
-     */
-    function get_name($firstname, $lastname): string
-    {
-        return Str::plural($firstname, $lastname);
-    }
-}
-
 if (! function_exists('carbon')) {
 
     /**
