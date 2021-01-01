@@ -10,7 +10,6 @@ use Illuminate\Foundation\Application;
  *
  * @category Helpers
  */
-
 if (! function_exists('git')) {
     /**
      * Execute git command
@@ -42,7 +41,7 @@ if (! function_exists('git')) {
 
 if (! function_exists('laravel_version')) {
     /**
-     * Return current Laravel version
+     * Return current Laravel version.
      *
      * @return string
      */
@@ -54,7 +53,7 @@ if (! function_exists('laravel_version')) {
 
 if (! function_exists('memory_usage')) {
     /**
-     * Get formatted memory usage
+     * Get formatted memory usage.
      *
      * @author Jeff Peck <jeff.peck@snet.net>
      * @link   https://www.php.net/manual/en/function.memory-get-usage.php#93012
