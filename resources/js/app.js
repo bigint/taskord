@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   // Initial Pagination
   const target = document.querySelector("#load-more");
-  if (await isInViewport(target)) {
+  if (target && await isInViewport(target)) {
     document.getElementById("load-more").click();
     document.getElementById("load-more").innerHTML = `<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>`;
     document.getElementById("load-more").disabled = true;
