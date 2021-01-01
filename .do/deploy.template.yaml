@@ -1,0 +1,27 @@
+spec:
+  name: taskord
+  services:
+  - name: web
+    git:
+      branch: main
+      repo_clone_url: https://gitlab.com/taskord/taskord.git
+    run_command: php artisan migrate --force ; heroku-php-apache2 public/
+    envs:
+    - key: APP_NAME
+      scope: RUN_AND_BUILD_TIME
+      value:  Taskord
+    - key: APP_KEY
+      scope: RUN_AND_BUILD_TIME
+      value: "base64:UdAH2B63rlotjrkSSsj3Hppy4gbfr+OeHvtSdF9r9q8="
+    - key: APP_URL
+      scope: RUN_AND_BUILD_TIME
+      value: ${APP_URL}
+    - key: APP_DEBUG
+      scope: RUN_AND_BUILD_TIME
+      value: "false"
+    - key: DB_CONNECTION
+      scope: RUN_AND_BUILD_TIME
+      value: "sqlite"
+    - key: DB_DATABASE
+      scope: RUN_AND_BUILD_TIME
+      value: "/workspace/database/database.sqlite"

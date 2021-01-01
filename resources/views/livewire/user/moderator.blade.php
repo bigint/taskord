@@ -20,7 +20,7 @@
                     @endif
                 </span>
             </div>
-            <div class="mb-1">
+            <div class="mb-1 overflow-hidden">
                 <x-heroicon-o-mail class="heroicon text-secondary" />
                 <span class="h6">User Email:</span>
                 <a class="fw-bold" href="mailto:{{ $user->email }}">

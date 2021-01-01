@@ -20,7 +20,9 @@ class WebhookController extends Controller
     public function createTask($webhook, $task, $done, $done_at, $product_id, $type)
     {
         $ignoreList = [
-            'styleci', 'merge pull request',
+            'styleci',
+            'merge pull request',
+            'merge branch',
         ];
 
         if (! Str::contains(strtolower($task), $ignoreList)) {
@@ -167,7 +169,7 @@ class WebhookController extends Controller
 
     public function newVersion($appkey)
     {
-        if (env('APP_VERSION_KEY') === $appkey) {
+        if (config('taskord.app.version_key') === $appkey) {
             $client = new Client();
             $res = $client->request('POST', 'https://gitlab.com/api/graphql', [
                 'form_params' => [

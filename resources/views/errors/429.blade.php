@@ -2,7 +2,6 @@
 <html lang="en" >
     <head>
         <meta http-equiv="Content-type" content="text/html; charset=utf-8">
-        <meta http-equiv="Content-Security-Policy" content="default-src 'none'; base-uri 'self'; connect-src 'self'; form-action 'self'; img-src 'self' data:; script-src 'self'; style-src 'unsafe-inline'">
         <meta content="origin" name="referrer">
         <title>Rate limit · Taskord</title>
         <meta name="viewport" content="width=device-width">
@@ -52,7 +51,7 @@
     </head>
     <body>
         <div class="container">
-            <img loading=lazy src="/images/pride.svg" />
+            <img loading=lazy src="https://ik.imagekit.io/taskordimg/pride_vocaCTHn-.svg" />
             <h1>Whoa there!</h1>
             <p>You have triggered an abuse detection mechanism.</p>
             <p>Please wait a few minutes before you try again!</p>

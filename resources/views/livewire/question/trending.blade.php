@@ -20,8 +20,8 @@
                     </a>
                     <div class="text-secondary small mt-1">
                         <x-heroicon-o-eye class="heroicon" />
-                        <span class="fw-bold">{{ views($question)->remember()->unique()->count('id') }}</span>
-                        {{ views($question)->remember()->unique()->count('id') <= 1 ? 'View' : 'Views' }}
+                        <span class="fw-bold">{{ views($question)->remember(now()->addHours(6))->unique()->count('id') }}</span>
+                        {{ views($question)->remember(now()->addHours(6))->unique()->count('id') <= 1 ? 'View' : 'Views' }}
                     </div>
                 </div>
                 <a

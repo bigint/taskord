@@ -85,5 +85,5 @@
 <x-livewire-alert::scripts />
 <script src="{{ mix('js/bootstrap.js') }}" defer></script>
 <script src="{{ mix('js/app.js') }}" defer></script>
-@yield('emoji-picker')
+@yield('scripts')
 </html>
