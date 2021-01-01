@@ -4,7 +4,6 @@ namespace App\Http\Livewire\Product;
 
 use App\Models\Product;
 use App\Rules\Repo;
-use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;

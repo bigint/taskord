@@ -4,7 +4,6 @@ namespace App\GraphQL\Mutations;
 
 use App\Gamify\Points\TaskCreated;
 use App\Models\Task;
-use Carbon\Carbon;
 use GrahamCampbell\Throttle\Facades\Throttle;
 use Helper;
 use Illuminate\Support\Facades\Auth;

@@ -6,7 +6,6 @@ use App\Actions\CreateNewTask;
 use App\Models\User;
 use App\Models\Webhook;
 use App\Notifications\VersionReleased;
-use Carbon\Carbon;
 use GrahamCampbell\Throttle\Facades\Throttle;
 use GuzzleHttp\Client;
 use Helper;

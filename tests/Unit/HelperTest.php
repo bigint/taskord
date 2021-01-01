@@ -3,7 +3,6 @@
 namespace Tests\Unit;
 
 use App\Helpers\Helper;
-use Carbon\Carbon;
 use Illuminate\Support\Facades\App;
 
 test('can convert to CDN url in production enviroment with arguments', function ($url, $resolution, $expected) {

@@ -3,7 +3,6 @@
 namespace App\Http\Livewire\User\Stats;
 
 use App\Models\Comment;
-use Carbon\Carbon;
 use Carbon\CarbonPeriod;
 use Livewire\Component;
 

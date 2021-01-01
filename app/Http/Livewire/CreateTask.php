@@ -5,7 +5,6 @@ namespace App\Http\Livewire;
 use App\Actions\CreateNewTask;
 use App\Gamify\Points\TaskCreated;
 use App\Jobs\CheckGoal;
-use Carbon\Carbon;
 use GrahamCampbell\Throttle\Facades\Throttle;
 use Helper;
 use Illuminate\Support\Facades\Auth;
