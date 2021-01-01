@@ -4,9 +4,9 @@ use function Tests\actingAs;
 
 it('has deals page', function ($url, $expected, $auth) {
     if ($auth) {
-        $this->get($url)->assertStatus($expected);
-    } else {
         actingAs(1)->get($url)->assertStatus($expected);
+    } else {
+        $this->get($url)->assertStatus($expected);
     }
 })->with([
     ['/deals', 200, false],
@@ -15,9 +15,9 @@ it('has deals page', function ($url, $expected, $auth) {
 
 it('has sponsors page', function ($url, $expected, $auth) {
     if ($auth) {
-        $this->get($url)->assertStatus($expected);
-    } else {
         actingAs(1)->get($url)->assertStatus($expected);
+    } else {
+        $this->get($url)->assertStatus($expected);
     }
 })->with([
     ['/sponsors', 200, false],
@@ -26,9 +26,9 @@ it('has sponsors page', function ($url, $expected, $auth) {
 
 it('has about page', function ($url, $expected, $auth) {
     if ($auth) {
-        $this->get($url)->assertStatus($expected);
-    } else {
         actingAs(1)->get($url)->assertStatus($expected);
+    } else {
+        $this->get($url)->assertStatus($expected);
     }
 })->with([
     ['/about', 200, false],
@@ -37,9 +37,9 @@ it('has about page', function ($url, $expected, $auth) {
 
 it('has contact page', function ($url, $expected, $auth) {
     if ($auth) {
-        $this->get($url)->assertStatus($expected);
-    } else {
         actingAs(1)->get($url)->assertStatus($expected);
+    } else {
+        $this->get($url)->assertStatus($expected);
     }
 })->with([
     ['/contact', 200, false],
@@ -48,9 +48,9 @@ it('has contact page', function ($url, $expected, $auth) {
 
 it('has open page', function ($url, $expected, $auth) {
     if ($auth) {
-        $this->get($url)->assertStatus($expected);
-    } else {
         actingAs(1)->get($url)->assertStatus($expected);
+    } else {
+        $this->get($url)->assertStatus($expected);
     }
 })->with([
     ['/open', 200, false],
@@ -59,9 +59,9 @@ it('has open page', function ($url, $expected, $auth) {
 
 it('has patron page', function ($url, $expected, $auth) {
     if ($auth) {
-        $this->get($url)->assertStatus($expected);
-    } else {
         actingAs(1)->get($url)->assertStatus($expected);
+    } else {
+        $this->get($url)->assertStatus($expected);
     }
 })->with([
     ['/patron', 200, false],
@@ -70,9 +70,9 @@ it('has patron page', function ($url, $expected, $auth) {
 
 it('has privacy page', function ($url, $expected, $auth) {
     if ($auth) {
-        $this->get($url)->assertStatus($expected);
-    } else {
         actingAs(1)->get($url)->assertStatus($expected);
+    } else {
+        $this->get($url)->assertStatus($expected);
     }
 })->with([
     ['/privacy', 200, false],
@@ -81,9 +81,9 @@ it('has privacy page', function ($url, $expected, $auth) {
 
 it('has security page', function ($url, $expected, $auth) {
     if ($auth) {
-        $this->get($url)->assertStatus($expected);
-    } else {
         actingAs(1)->get($url)->assertStatus($expected);
+    } else {
+        $this->get($url)->assertStatus($expected);
     }
 })->with([
     ['/security', 200, false],
@@ -92,11 +92,11 @@ it('has security page', function ($url, $expected, $auth) {
 
 it('has reputation page', function ($url, $expected, $auth) {
     if ($auth) {
-        $this->get($url)->assertStatus($expected);
-    } else {
         actingAs(1)->get($url)->assertStatus($expected);
+    } else {
+        $this->get($url)->assertStatus($expected);
     }
 })->with([
-    ['/reputation', 302, false],
-    ['/reputation', 200, true],
+    ['/reputation', 200, false],
+    ['/reputation', 302, true],
 ]);
