@@ -41,5 +41,12 @@
         <a href="https://gitlab.com/taskord/taskord" target="_blank" rel="noreferrer">
             GitLab
         </a>
+        @auth
+        @if (user()->staffShip)
+        <span class="text-danger">
+            Admin mode on
+        </span>
+        @endif
+        @endauth
     </div>
 </div>
