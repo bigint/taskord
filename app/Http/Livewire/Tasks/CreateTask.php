@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Tasks;
 
+use App\Actions\CreateNewTask;
 use App\Gamify\Points\TaskCreated;
 use GrahamCampbell\Throttle\Facades\Throttle;
 use Helper;
@@ -12,7 +13,6 @@ use Illuminate\Support\Str;
 use Intervention\Image\Facades\Image;
 use Livewire\Component;
 use Livewire\WithFileUploads;
-use App\Actions\CreateNewTask;
 
 class CreateTask extends Component
 {
