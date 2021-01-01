@@ -32,7 +32,7 @@ class CompletedTasks extends Component
         $completed_tasks = [];
         $tasks = [];
         foreach ($period->toArray() as $date) {
-            array_push($week_dates, Carbon::parse($date)->format('Y-m-d'));
+            array_push($week_dates, Carbon::parse($date)->format('d M Y'));
             $count = Task::cacheFor(60 * 60)
                 ->select('id')
                 ->where('user_id', $this->user->id)
