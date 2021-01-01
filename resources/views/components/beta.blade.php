@@ -1,9 +1,9 @@
 @if ($background === 'dark')
-<span class="ms-1 badge beta-badge text-white">
+<span class="badge border border-success ms-1 rounded-pill text-white">
     Beta
 </span>
 @else
-<span class="ms-1 badge beta-badge text-dark">
+<span class="badge border border-success ms-1 rounded-pill text-dark">
     Beta
 </span>
 @endif
