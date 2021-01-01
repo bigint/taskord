@@ -27,10 +27,16 @@ if (! function_exists('git')) {
         $approved_args = ['rev-parse'];
         $arguments = explode(" ", $args);
 
-        if (!in_array($arguments[0], $approved_args, true)) {
+        if (! in_array($arguments[0], $approved_args, true)) {
             return null;
         }
 
-        return trim(shell_exec(escapeshellcmd("git $args")));
+        $output = shell_exec(escapeshellcmd("git $args"));
+
+        if (is_null($output) || str_contains('fatal', $output)) {
+            return null;
+        }
+
+        return trim($output);
     }
 }
