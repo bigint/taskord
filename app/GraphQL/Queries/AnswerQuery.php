@@ -16,4 +16,13 @@ class AnswerQuery
 
         return $answer->answer;
     }
+
+    public function hasPraised($answer, array $args)
+    {
+        if (Auth::check()) {
+            return user()->hasLiked($answer);
+        } else {
+            return null;
+        }
+    }
 }
