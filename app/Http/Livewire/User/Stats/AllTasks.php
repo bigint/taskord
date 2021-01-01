@@ -48,7 +48,7 @@ class AllTasks extends Component
         return view('livewire.user.stats.all-tasks', [
             'week_dates' => json_encode($week_dates, JSON_NUMERIC_CHECK),
             'all_tasks' => $this->readyToLoad ? json_encode($all_tasks, JSON_NUMERIC_CHECK) : [],
-            'all_tasks_count' => $this->readyToLoad ? $all_tasks_count : '···'
+            'all_tasks_count' => $this->readyToLoad ? $all_tasks_count : '···',
         ]);
     }
 }
