@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
+use App\Models\User;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Str;
-use App\Models\User;
 
 /**
  * This file contains helper functions for Taskord.
@@ -129,7 +129,7 @@ if (! function_exists('carbon')) {
 
 if (! function_exists('user')) {
     /**
-     * Returns current authenticated user
+     * Returns current authenticated user.
      *
      * @param string|null $guard Auth guard
      *
