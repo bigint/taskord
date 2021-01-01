@@ -579,9 +579,11 @@ class Moderator extends Component
             activity()
                 ->withProperties(['type' => 'Admin'])
                 ->log('Deleted the user | Username: @'.$this->user->username);
+
             if ($this->user->id === 1) {
                 return false;
             }
+
             $user = User::find($this->user->id);
             // Delete Task Images
             foreach ($user->tasks as $task) {
@@ -591,7 +593,7 @@ class Moderator extends Component
             }
             // Delete Product Logos
             foreach ($user->ownedProducts as $product) {
-                $product->task()->delete();
+                $product->tasks()->delete();
                 $product->webhooks()->delete();
                 $avatar = explode('storage/', $product->avatar);
                 if (array_key_exists(1, $avatar)) {
