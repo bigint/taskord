@@ -2,8 +2,8 @@
 
 namespace App\Actions;
 
-use App\Models\User;
 use App\Models\Task;
+use App\Models\User;
 
 class CreateNewTask
 {
@@ -37,11 +37,11 @@ class CreateNewTask
     {
         $message = ($task->source !== CreateNewTask::DEFAULT_SOURCE)
             ? "Created a new task via {$task->source}"
-            : "Created a new task";
+            : 'Created a new task';
 
         activity()
                 ->withProperties(['type' => 'Task'])
-                ->log(\sprintf("%s | Task ID: %d", $message, $task->id));
+                ->log(\sprintf('%s | Task ID: %d', $message, $task->id));
     }
 
     public function createTaskModel(): Task
@@ -49,7 +49,7 @@ class CreateNewTask
         return Task::create(
             \array_merge([
                 'user_id' => $this->user->id,
-                'source' => CreateNewTask::DEFAULT_SOURCE
+                'source' => CreateNewTask::DEFAULT_SOURCE,
             ], $this->data)
         );
     }

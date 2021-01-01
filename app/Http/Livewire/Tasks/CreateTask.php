@@ -3,7 +3,6 @@
 namespace App\Http\Livewire\Tasks;
 
 use App\Gamify\Points\TaskCreated;
-use App\Models\Task;
 use GrahamCampbell\Throttle\Facades\Throttle;
 use Helper;
 use Illuminate\Support\Facades\Auth;
@@ -94,7 +93,7 @@ class CreateTask extends Component
                 'done' => false,
                 'images' => $images,
                 'due_at' => $this->due_at,
-                'type' => $product_id ? 'product' : 'user'
+                'type' => $product_id ? 'product' : 'user',
             ]))();
 
             Helper::mentionUsers($users, $task, 'task');
