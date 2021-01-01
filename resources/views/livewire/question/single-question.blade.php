@@ -138,8 +138,11 @@
             <span class="align-middle ms-2 me-2">
                 <x-heroicon-o-eye class="heroicon" />
                 <span class="text-secondary">
-                    <span class="fw-bold">{{ number_format(views($question)->remember(now()->addHours(6))->unique()->count('id')) }}</span>
-                    {{ views($question)->remember(now()->addHours(6))->unique()->count('id') <= 1 ? 'View' : 'Views' }}
+                    @php
+                    $views = views($question)->remember(now()->addHours(6))->unique()->count('id')
+                    @endphp
+                    <span class="fw-bold">{{ number_format($views) }}</span>
+                    {{ str_plural('View', $views) }}
                 </span>
             </span>
             @endif

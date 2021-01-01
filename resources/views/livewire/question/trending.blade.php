@@ -19,9 +19,12 @@
                         </span>
                     </a>
                     <div class="text-secondary small mt-1">
+                        @php
+                        $views = views($question)->remember(now()->addHours(6))->unique()->count('id')
+                        @endphp
                         <x-heroicon-o-eye class="heroicon" />
-                        <span class="fw-bold">{{ views($question)->remember(now()->addHours(6))->unique()->count('id') }}</span>
-                        {{ views($question)->remember(now()->addHours(6))->unique()->count('id') <= 1 ? 'View' : 'Views' }}
+                        <span class="fw-bold">{{ number_format($views) }}</span>
+                        {{ str_plural('View', $views) }}
                     </div>
                 </div>
                 <a
