@@ -29,4 +29,13 @@ class QuestionQuery
 
         return $question->body;
     }
+
+    public function hasPraised($question, array $args)
+    {
+        if (Auth::check()) {
+            return user()->hasLiked($question);
+        } else {
+            return null;
+        }
+    }
 }

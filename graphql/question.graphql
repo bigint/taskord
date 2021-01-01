@@ -5,6 +5,7 @@ type Question {
     body: String @field(resolver: "App\\GraphQL\\Queries\\QuestionQuery@getBody")
     patronOnly: Boolean!
     user: User @belongsTo
+    hasPraised: Boolean @field(resolver: "App\\GraphQL\\Queries\\QuestionQuery@hasPraised")
     praises: [User!]! @hasMany(relation: "likers", type: "connection")
     answers: [Answer!]! @hasMany(relation: "answer", type: "connection")
     created_at: DateTime! @cache(maxAge: 3600)

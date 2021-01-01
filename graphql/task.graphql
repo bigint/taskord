@@ -25,9 +25,9 @@ type Task {
     done_at: DateTime
     user: User @belongsTo
     product: Product @belongsTo
+    hasPraised: Boolean @field(resolver: "App\\GraphQL\\Queries\\TaskQuery@hasPraised")
     comments: [Comment!]! @hasMany(type: "connection")
     praises: [User!]! @hasMany(relation: "likers", type: "connection")
-    hasPraised: Boolean @field(resolver: "App\\GraphQL\\Queries\\TaskQuery@hasPraised")
     created_at: DateTime! @cache(maxAge: 3600)
     updated_at: DateTime! @cache(maxAge: 3600)
 }
