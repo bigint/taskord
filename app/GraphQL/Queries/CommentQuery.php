@@ -2,6 +2,8 @@
 
 namespace App\GraphQL\Queries;
 
+use Illuminate\Support\Facades\Auth;
+
 class CommentQuery
 {
     public function getComment($comment, array $args)
@@ -14,5 +16,14 @@ class CommentQuery
         }
 
         return $comment->comment;
+    }
+
+    public function hasPraised($comment, array $args)
+    {
+        if (Auth::check()) {
+            return user()->hasLiked($comment);
+        } else {
+            return null;
+        }
     }
 }

@@ -3,6 +3,7 @@ type Answer {
     id: ID!
     answer: String  @field(resolver: "App\\GraphQL\\Queries\\AnswerQuery@getAnswer")
     user: User @belongsTo
+    hasPraised: Boolean @field(resolver: "App\\GraphQL\\Queries\\AnswerQuery@hasPraised")
     praises: [User!]! @hasMany(relation: "likers", type: "connection")
     question: Question @belongsTo
     created_at: DateTime! @cache(maxAge: 3600)
