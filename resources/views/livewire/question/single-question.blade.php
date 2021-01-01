@@ -28,7 +28,7 @@
             </span>
             <span class="align-text-top small float-end ms-auto">
                 <a class="text-secondary" href="{{ route('question.question', ['id' => $question->id]) }}">
-                    {{ Carbon::parse($question->created_at)->diffForHumans() }}
+                    {{ $question->created_at->diffForHumans() }}
                 </a>
             </span>
         </div>

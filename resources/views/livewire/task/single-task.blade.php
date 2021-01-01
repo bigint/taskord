@@ -26,7 +26,7 @@
             </a>
         </span>
         <span class="align-text-top small float-end ms-auto text-secondary cursor-pointer" data-bs-toggle="collapse" data-bs-target="#taskExpand-{{$task->id}}" aria-expanded="false">
-            {{ !$task->done_at ? Carbon::parse($task->created_at)->diffForHumans() : Carbon::parse($task->done_at)->diffForHumans() }}
+            {{ !$task->done_at ? $task->created_at->diffForHumans() : carbon($task->done_at)->diffForHumans() }}
         </span>
     </div>
     <div class="pt-3">
@@ -172,18 +172,18 @@
             @auth
             {{
                 !$task->done_at ?
-                    Carbon::parse($task->created_at)
+                    carbon($task->created_at)
                         ->setTimezone(Auth::user()->timezone)
                         ->format('g:i A · M d, Y') :
-                    Carbon::parse($task->done_at)
+                    carbon($task->done_at)
                         ->setTimezone(Auth::user()->timezone)
                         ->format('g:i A · M d, Y')
             }}
             @else
             {{
                 !$task->done_at ?
-                    Carbon::parse($task->created_at)->format('g:i A · M d, Y') :
-                    Carbon::parse($task->done_at)->format('g:i A · M d, Y')
+                    $task->created_at->format('g:i A · M d, Y') :
+                    carbon($task->done_at)->format('g:i A · M d, Y')
             }}
             @endauth
             · via

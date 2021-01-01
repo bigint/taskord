@@ -51,7 +51,7 @@
                             Throttled 🛑
                         @endif
                     </h6>
-                    <small class="text-secondary">{{ Carbon::parse($activity->created_at)->diffForHumans() }}</small>
+                    <small class="text-secondary">{{ $activity->created_at->diffForHumans() }}</small>
                 </div>
                 <p class="mb-1">
                     {{ $activity->description }}

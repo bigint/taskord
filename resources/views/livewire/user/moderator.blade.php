@@ -13,7 +13,7 @@
                     @if (strtotime(Carbon::now()) - strtotime($user->last_active) <= 5)
                     <span class="fw-bold text-success">active</span>
                     @else
-                    {{ Carbon::parse($user->last_active)->diffForHumans() }}
+                    {{ carbon($user->last_active)->diffForHumans() }}
                     @endif
                     @else
                     <span class="small fw-bold text-secondary">Not Set</span>

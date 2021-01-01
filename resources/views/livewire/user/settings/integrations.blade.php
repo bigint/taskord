@@ -198,7 +198,7 @@
                             {{ Str::limit($webhook->token, '4', '****************') }}
                         </td>
                         <td>
-                            {{ Carbon::parse($webhook->created_at)->format('M d, Y') }}
+                            {{ $webhook->created_at->format('M d, Y') }}
                         </td>
                         <td>
                             <button wire:loading.attr="disabled" wire:click="deleteWebhook({{ $webhook->id }})"

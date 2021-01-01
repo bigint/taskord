@@ -41,7 +41,7 @@ class TaskMutator
                 'product_id' =>  null,
                 'task' => $args['task'],
                 'done' => $args['done'],
-                'done_at' => $args['done'] ? Carbon::now() : null,
+                'done_at' => $args['done'] ? carbon() : null,
                 'image' => null,
                 'due_at' => null,
                 'type' => 'user',

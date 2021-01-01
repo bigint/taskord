@@ -52,7 +52,7 @@
                         @endif
                     @endif
                 </div>
-                <small class="text-secondary">{{ Carbon::parse($point->created_at)->diffForHumans() }}</small>
+                <small class="text-secondary">{{ carbon($point->created_at)->diffForHumans() }}</small>
             </div>
             @if (! $loop->last)
             <hr/>

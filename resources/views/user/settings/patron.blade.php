@@ -38,15 +38,15 @@
                             </div>
                             <div>
                                 <span class="fw-bold">Subscribed at:</span>
-                                <span>{{ Carbon::parse($user->patron->created_at)->format('d M Y') }}</span>
+                                <span>{{ carbon($user->patron->created_at)->format('d M Y') }}</span>
                             </div>
                             <div>
                                 <span class="fw-bold">Last transaction:</span>
-                                <span>{{ Carbon::parse($user->patron->event_time)->format('d M Y') }}</span>
+                                <span>{{ carbon($user->patron->event_time)->format('d M Y') }}</span>
                             </div>
                             <div>
                                 <span class="fw-bold">Next bill date:</span>
-                                <span>{{ Carbon::parse($user->patron->next_bill_date)->format('d M Y') }}</span>
+                                <span>{{ carbon($user->patron->next_bill_date)->format('d M Y') }}</span>
                             </div>
                             <div class="mt-2">
                                 @if ($user->patron->update_url)

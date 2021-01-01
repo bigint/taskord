@@ -177,9 +177,9 @@
                                 <div class="small mt-2">
                                     <x-heroicon-o-calendar class="heroicon text-secondary" />
                                     @if ($product->launched)
-                                    <span>Launched at {{ Carbon::parse($product->launched_at)->format("F Y") }}</span>
+                                    <span>Launched at {{ carbon($product->launched_at)->format("F Y") }}</span>
                                     @else
-                                    <span>Created at {{ Carbon::parse($product->created_at)->format("F Y") }}</span>
+                                    <span>Created at {{ $product->created_at->format("F Y") }}</span>
                                     @endif
                                 </div>
                                 <div class="mt-3">
@@ -258,7 +258,7 @@
                                 <div class="small mt-2">
                                     <span>
                                         <x-heroicon-o-calendar class="heroicon text-secondary" />
-                                        Joined {{ Carbon::parse($user->created_at)->format("F Y") }}
+                                        Joined {{ $user->created_at->format("F Y") }}
                                     </span>
                                     @if ($user->location)
                                     <span class="ms-3">
