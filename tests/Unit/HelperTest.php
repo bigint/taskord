@@ -127,3 +127,11 @@ it('can render due date correctly', function ($days, $expected) {
     [-3, "<time datetime='-format-' class='me-2 text-danger'>Overdue by 2 days</time>"],
     [-4, "<time datetime='-format-' class='me-2 text-danger'>Overdue by 3 days</time>"],
 ]);
+
+it('can covert text to plural', function ($count, $word, $expected) {
+    expect(str_plural($word, $count))->toEqual($expected);
+})->with([
+    [0, 'following', 'followings'],
+    [1, 'following', 'following'],
+    [10, 'following', 'followings'],
+]);
