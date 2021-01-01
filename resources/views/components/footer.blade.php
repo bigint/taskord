@@ -2,13 +2,9 @@
     <span class="pe-2 fw-bold">
         © Taskord
     </span>
-    @auth
-    @if (user()->staffShip)
     <a class="pe-2" href="{{ route('about') }}">
         About
     </a>
-    @endif
-    @endauth
     <a class="pe-2" href="https://status.taskord.com" target="_blank" rel="noreferrer">
         Status
     </a>

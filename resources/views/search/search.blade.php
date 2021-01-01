@@ -26,5 +26,6 @@
             </form>
         </div>
     </div>
+    <x-bottom-footer />
 </div>
 @endsection
