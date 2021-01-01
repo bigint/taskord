@@ -41,7 +41,7 @@ class Helper
      */
     public static function togglePraise(Model $entity, string $type)
     {
-        $user = Auth::user();
+        $user = user();
         $hasLiked = $user->hasLiked($entity);
 
         ($hasLiked)
@@ -155,7 +155,7 @@ class Helper
 
         return $products
             ->map(fn ($product) => Product::where('slug', $product)->first())->whereNotNull('id')
-            ->filter(fn ($product) => $product->user_id === Auth::id() or Auth::user()->products->contains($product))
+            ->filter(fn ($product) => $product->user_id === Auth::id() or user()->products->contains($product))
             ->pluck('id')->first();
     }
 

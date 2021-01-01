@@ -9,7 +9,7 @@ class AdminController extends Controller
 {
     public static function toggle()
     {
-        $user = Auth::user();
+        $user = user();
         if ($user->staffShip) {
             $user->staffShip = false;
             $user->save();

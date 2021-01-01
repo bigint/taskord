@@ -23,13 +23,13 @@ class TaskMutator
         }
 
         if (Auth::check()) {
-            if (! Auth::user()->hasVerifiedEmail()) {
+            if (! user()->hasVerifiedEmail()) {
                 return [
                     'response' => 'Your email is not verified!',
                 ];
             }
 
-            if (Auth::user()->isFlagged) {
+            if (user()->isFlagged) {
                 return [
                     'response' => 'Your account is flagged!',
                 ];
@@ -70,13 +70,13 @@ class TaskMutator
         }
 
         if (Auth::check()) {
-            if (! Auth::user()->hasVerifiedEmail()) {
+            if (! user()->hasVerifiedEmail()) {
                 return [
                     'response' => 'Your email is not verified!',
                 ];
             }
 
-            if (Auth::user()->isFlagged) {
+            if (user()->isFlagged) {
                 return [
                     'response' => 'Your account is flagged!',
                 ];
@@ -126,7 +126,7 @@ class TaskMutator
         }
 
         if (Auth::check()) {
-            if (Auth::user()->isFlagged) {
+            if (user()->isFlagged) {
                 return [
                     'response' => 'Your account is flagged!',
                 ];
@@ -138,7 +138,7 @@ class TaskMutator
                 if (Auth::id() === $task->user->id) {
                     Storage::delete($task->image);
                     $task->delete();
-                    Auth::user()->touch();
+                    user()->touch();
 
                     return [
                         'response' => 'Task deleted successfully!',

@@ -18,7 +18,7 @@ class TaskController extends Controller
         ];
         if (
             Auth::check() && Auth::id() === $task->user->id or
-            Auth::check() && Auth::user()->staffShip
+            Auth::check() && user()->staffShip
         ) {
             return view('task/task', $response);
         } elseif ($task->user->isFlagged or $task->user->isPrivate) {
@@ -43,7 +43,7 @@ class TaskController extends Controller
         ];
         if (
             Auth::check() && Auth::id() === $task->user->id or
-            Auth::check() && Auth::user()->staffShip
+            Auth::check() && user()->staffShip
         ) {
             return view('comment/comment', $response);
         } elseif ($task->user->isFlagged or $task->user->isPrivate) {

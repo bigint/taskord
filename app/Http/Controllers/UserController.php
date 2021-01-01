@@ -46,7 +46,7 @@ class UserController extends Controller
                 ->count('id'),
         ];
 
-        if (Auth::check() && Auth::id() === $user->id or Auth::check() && Auth::user()->staffShip) {
+        if (Auth::check() && Auth::id() === $user->id or Auth::check() && user()->staffShip) {
             return view($type, $response);
         } elseif ($user->isFlagged) {
             return view('errors.404');
@@ -57,7 +57,7 @@ class UserController extends Controller
 
     public function profileSettings()
     {
-        $user = Auth::user();
+        $user = user();
 
         return view('user.settings.profile', [
             'user' => $user,
@@ -66,7 +66,7 @@ class UserController extends Controller
 
     public function accountSettings()
     {
-        $user = Auth::user();
+        $user = user();
 
         return view('user.settings.account', [
             'user' => $user,
@@ -75,7 +75,7 @@ class UserController extends Controller
 
     public function patronSettings()
     {
-        $user = Auth::user();
+        $user = user();
 
         return view('user.settings.patron', [
             'user' => $user,
@@ -84,7 +84,7 @@ class UserController extends Controller
 
     public function passwordSettings()
     {
-        $user = Auth::user();
+        $user = user();
 
         return view('user.settings.password', [
             'user' => $user,
@@ -93,7 +93,7 @@ class UserController extends Controller
 
     public function notificationsSettings()
     {
-        $user = Auth::user();
+        $user = user();
 
         return view('user.settings.notifications', [
             'user' => $user,
@@ -144,13 +144,13 @@ class UserController extends Controller
     public function exportLogs()
     {
         if (Auth::check()) {
-            $logs = Activity::causedBy(Auth::user())
+            $logs = Activity::causedBy(user())
                 ->get();
             $data = collect([
                 'logs' => $logs,
             ])->toJson(JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
 
-            $file_name = carbon()->format('d_m_Y_h_i_s').'_'.Auth::user()->username.'_logs.json';
+            $file_name = carbon()->format('d_m_Y_h_i_s').'_'.user()->username.'_logs.json';
             $response = response($data, 200, [
                 'Content-Type' => 'application/json',
                 'Content-Disposition' => 'attachment; filename="'.$file_name.'"',
@@ -167,7 +167,7 @@ class UserController extends Controller
 
     public function integrationsSettings()
     {
-        $user = Auth::user();
+        $user = user();
 
         return view('user.settings.integrations', [
             'user' => $user,
@@ -176,7 +176,7 @@ class UserController extends Controller
 
     public function apiSettings()
     {
-        $user = Auth::user();
+        $user = user();
 
         return view('user.settings.api', [
             'user' => $user,
@@ -185,7 +185,7 @@ class UserController extends Controller
 
     public function logsSettings()
     {
-        $user = Auth::user();
+        $user = user();
 
         return view('user.settings.logs', [
             'user' => $user,
@@ -194,7 +194,7 @@ class UserController extends Controller
 
     public function dataSettings()
     {
-        $user = Auth::user();
+        $user = user();
 
         return view('user.settings.data', [
             'user' => $user,
@@ -203,7 +203,7 @@ class UserController extends Controller
 
     public function deleteSettings()
     {
-        $user = Auth::user();
+        $user = user();
 
         return view('user.settings.delete', [
             'user' => $user,
@@ -245,7 +245,7 @@ class UserController extends Controller
 
     public function darkMode()
     {
-        $user = Auth::user();
+        $user = user();
         if ($user->darkMode) {
             $user->darkMode = false;
             $user->save();

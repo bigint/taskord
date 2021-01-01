@@ -33,7 +33,7 @@ class MeetupController extends Controller
 
     public function rsvpd()
     {
-        $meetups = Auth::user()->subscriptions(Meetup::class)
+        $meetups = user()->subscriptions(Meetup::class)
             ->orderBy('date')
             ->get();
 
