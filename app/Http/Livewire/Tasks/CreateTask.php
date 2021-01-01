@@ -2,8 +2,8 @@
 
 namespace App\Http\Livewire\Tasks;
 
+use App\Actions\CreateNewTask;
 use App\Gamify\Points\TaskCreated;
-use App\Models\Task;
 use GrahamCampbell\Throttle\Facades\Throttle;
 use Helper;
 use Illuminate\Support\Facades\Auth;
@@ -33,9 +33,7 @@ class CreateTask extends Component
                 'images.max' => 'Only 5 Images are allowed!',
             ]);
         } else {
-            return $this->alert('error', 'Forbidden!', [
-                'showCancelButton' =>  false,
-            ]);
+            return $this->alert('error', 'Forbidden!');
         }
     }
 
@@ -44,16 +42,14 @@ class CreateTask extends Component
         $throttler = Throttle::get(Request::instance(), 20, 5);
         $throttler->hit();
         if (count($throttler) > 30) {
-            Helper::flagAccount(Auth::user());
+            Helper::flagAccount(user());
         }
         if (! $throttler->check()) {
             activity()
                 ->withProperties(['type' => 'Throttle'])
                 ->log('Rate limited while creating a task');
 
-            return $this->alert('error', 'Your are rate limited, try again later!', [
-                'showCancelButton' =>  false,
-            ]);
+            return $this->alert('error', 'Your are rate limited, try again later!');
         }
 
         if (Auth::check()) {
@@ -66,19 +62,15 @@ class CreateTask extends Component
                 'images.max' => 'Only 5 Images are allowed!',
             ]);
 
-            if (! Auth::user()->hasVerifiedEmail()) {
-                return $this->alert('warning', 'Your email is not verified!', [
-                    'showCancelButton' =>  false,
-                ]);
+            if (! user()->hasVerifiedEmail()) {
+                return $this->alert('warning', 'Your email is not verified!');
             }
 
-            if (Auth::user()->isFlagged) {
-                return $this->alert('error', 'Your account is flagged!', [
-                    'showCancelButton' =>  false,
-                ]);
+            if (user()->isFlagged) {
+                return $this->alert('error', 'Your account is flagged!');
             }
 
-            $users = Helper::getUserIDFromMention($this->task);
+            $users = Helper::getUsernamesFromMentions($this->task);
 
             if ($this->images) {
                 $images = [];
@@ -96,27 +88,21 @@ class CreateTask extends Component
 
             $product_id = Helper::getProductIDFromMention($this->task);
 
-            $task = Task::create([
-                'user_id' =>  Auth::id(),
+            $task = (new CreateNewTask(auth()->user(), [
                 'product_id' =>  $product_id,
                 'task' => $this->task,
                 'done' => false,
                 'images' => $images,
                 'due_at' => $this->due_at,
                 'type' => $product_id ? 'product' : 'user',
-                'source' => 'Taskord for Web',
-            ]);
+            ]))();
+
             Helper::mentionUsers($users, $task, 'task');
             $this->emit('taskAdded');
             $this->reset();
             givePoint(new TaskCreated($task));
-            activity()
-                ->withProperties(['type' => 'Task'])
-                ->log('New task has been created U: @'.$task->user->username.' T: '.$task->id);
         } else {
-            return $this->alert('error', 'Forbidden!', [
-                'showCancelButton' =>  false,
-            ]);
+            return $this->alert('error', 'Forbidden!');
         }
     }
 }

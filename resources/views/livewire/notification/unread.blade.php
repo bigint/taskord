@@ -1,5 +1,13 @@
-<div>
-    @if ($notifications->count('id') === 0)
+<div wire:init="loadUnreadNotifications">
+    @if (!$readyToLoad)
+    <div class="card-body text-center mt-3">
+        <div class="spinner-border taskord-spinner text-secondary mb-3" role="status"></div>
+        <div class="h6">
+            Loading notifications...
+        </div>
+    </div>
+    @endif
+    @if ($readyToLoad and count($notifications) === 0)
     <div class="card-body text-center mt-5">
         <x-heroicon-o-bell class="heroicon-4x text-primary mb-2" />
         <div class="h4">
@@ -16,7 +24,7 @@
             ], key($notification->id))
         </div>
     @endforeach
-    @if ($notifications->hasMorePages())
+    @if ($readyToLoad and $notifications->hasMorePages())
         @livewire('notification.load-more', [
             'type' => 'unread',
             'page' => $page,

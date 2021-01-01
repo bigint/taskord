@@ -24,67 +24,51 @@ class SingleComment extends Component
         $throttler = Throttle::get(Request::instance(), 20, 5);
         $throttler->hit();
         if (count($throttler) > 30) {
-            Helper::flagAccount(Auth::user());
+            Helper::flagAccount(user());
         }
         if (! $throttler->check()) {
             activity()
                 ->withProperties(['type' => 'Throttle'])
                 ->log('Rate limited while praising the comment');
 
-            return $this->alert('error', 'Your are rate limited, try again later!', [
-                'showCancelButton' =>  false,
-            ]);
+            return $this->alert('error', 'Your are rate limited, try again later!');
         }
 
         if (Auth::check()) {
-            if (! Auth::user()->hasVerifiedEmail()) {
-                return $this->alert('warning', 'Your email is not verified!', [
-                    'showCancelButton' =>  false,
-                ]);
+            if (! user()->hasVerifiedEmail()) {
+                return $this->alert('warning', 'Your email is not verified!');
             }
 
-            if (Auth::user()->isFlagged) {
-                return $this->alert('error', 'Your account is flagged!', [
-                    'showCancelButton' =>  false,
-                ]);
+            if (user()->isFlagged) {
+                return $this->alert('error', 'Your account is flagged!');
             }
-            if (Auth::id() === $this->comment->user->id) {
-                return $this->alert('warning', 'You can\'t praise your own comment!', [
-                    'showCancelButton' =>  false,
-                ]);
+            if (user()->id === $this->comment->user->id) {
+                return $this->alert('warning', 'You can\'t praise your own comment!');
             }
             Helper::togglePraise($this->comment, 'COMMENT');
             activity()
                 ->withProperties(['type' => 'Comment'])
-                ->log('Comment praise was toggled C: '.$this->comment->id);
+                ->log('Toggled comment praise | Comment ID: '.$this->comment->id);
         } else {
-            return $this->alert('error', 'Forbidden!', [
-                'showCancelButton' =>  false,
-            ]);
+            return $this->alert('error', 'Forbidden!');
         }
     }
 
     public function hide()
     {
         if (Auth::check()) {
-            if (Auth::user()->isStaff and Auth::user()->staffShip) {
+            if (user()->isStaff and user()->staffShip) {
                 Helper::hide($this->comment);
                 activity()
                     ->withProperties(['type' => 'Admin'])
-                    ->log('Comment hide was toggled C: '.$this->comment->id);
+                    ->log('Toggled hide comment | Comment ID: '.$this->comment->id);
 
-                return $this->alert('success', 'Comment is hidden from public!', [
-                    'showCancelButton' =>  false,
-                ]);
+                return $this->alert('success', 'Comment is hidden from public!');
             } else {
-                return $this->alert('error', 'Forbidden!', [
-                    'showCancelButton' =>  false,
-                ]);
+                return $this->alert('error', 'Forbidden!');
             }
         } else {
-            return $this->alert('error', 'Forbidden!', [
-                'showCancelButton' =>  false,
-            ]);
+            return $this->alert('error', 'Forbidden!');
         }
     }
 
@@ -96,31 +80,23 @@ class SingleComment extends Component
     public function deleteComment()
     {
         if (Auth::check()) {
-            if (Auth::user()->isFlagged) {
-                return $this->alert('error', 'Your account is flagged!', [
-                    'showCancelButton' =>  false,
-                ]);
+            if (user()->isFlagged) {
+                return $this->alert('error', 'Your account is flagged!');
             }
-            if (Auth::user()->staffShip or Auth::id() === $this->comment->user->id) {
+            if (user()->staffShip or user()->id === $this->comment->user->id) {
                 activity()
                     ->withProperties(['type' => 'Comment'])
-                    ->log('Comment was deleted C: '.$this->comment->id);
+                    ->log('Deleted a comment | Comment ID: '.$this->comment->id);
                 $this->comment->delete();
                 $this->emit('commentDeleted');
-                Auth::user()->touch();
+                user()->touch();
 
-                return $this->alert('success', 'Comment has been deleted successfully!', [
-                    'showCancelButton' =>  false,
-                ]);
+                return $this->alert('success', 'Comment has been deleted successfully!');
             } else {
-                return $this->alert('error', 'Forbidden!', [
-                    'showCancelButton' =>  false,
-                ]);
+                return $this->alert('error', 'Forbidden!');
             }
         } else {
-            return $this->alert('error', 'Forbidden!', [
-                'showCancelButton' =>  false,
-            ]);
+            return $this->alert('error', 'Forbidden!');
         }
     }
 }

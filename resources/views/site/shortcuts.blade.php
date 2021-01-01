@@ -46,7 +46,13 @@
         <kbd class="me-1">n</kbd><kbd>i</kbd>
     </span>
 </div>
-@if (Auth::user()->isStaff)
+<div class="d-flex justify-content-between mt-2">
+    <span>Bring up this help dialog</span>
+    <span>
+        <kbd>?</kbd>
+    </span>
+</div>
+@if (user()->isStaff)
 <div class="d-flex justify-content-between mt-2">
     <span>Enable staffship / performance bar</span>
     <span>

@@ -2,6 +2,8 @@
 
 namespace App\GraphQL\Queries;
 
+use Illuminate\Support\Facades\Auth;
+
 class QuestionQuery
 {
     public function getTitle($question, array $args)
@@ -28,5 +30,14 @@ class QuestionQuery
         }
 
         return $question->body;
+    }
+
+    public function hasPraised($question, array $args)
+    {
+        if (Auth::check()) {
+            return user()->hasLiked($question);
+        } else {
+            return null;
+        }
     }
 }

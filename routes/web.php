@@ -2,7 +2,6 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\FeedController;
-use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MeetupController;
 use App\Http\Controllers\PagesController;
 use App\Http\Controllers\PatronController;
@@ -36,9 +35,9 @@ Auth::routes(['verify' => true]);
 Route::get('login/{provider}', [SocialController::class, 'redirect']);
 Route::get('login/{provider}/callback', [SocialController::class, 'Callback']);
 
-Route::group(['middleware' => ['throttle:30,1']], function () {
+Route::group(['middleware' => ['throttle:60,1']], function () {
     // Home
-    Route::get('/', [HomeController::class, 'index'])->name('home');
+    Route::view('/', 'home.home')->name('home');
 
     // User
     Route::group(['prefix' => '@{username}', 'as' => 'user.'], function () {
@@ -49,6 +48,7 @@ Route::group(['middleware' => ['throttle:30,1']], function () {
         Route::get('answers', [UserController::class, 'profile'])->name('answers');
         Route::get('following', [UserController::class, 'profile'])->name('following');
         Route::get('followers', [UserController::class, 'profile'])->name('followers');
+        Route::get('stats', [UserController::class, 'profile'])->name('stats');
     });
 
     // Settings
@@ -62,8 +62,9 @@ Route::group(['middleware' => ['throttle:30,1']], function () {
         Route::get('api', [UserController::class, 'apiSettings'])->name('api');
         Route::get('logs', [UserController::class, 'logsSettings'])->name('logs');
         Route::get('data', [UserController::class, 'dataSettings'])->name('data');
-        Route::get('export', [UserController::class, 'exportAccount'])->name('export');
         Route::get('delete', [UserController::class, 'deleteSettings'])->name('delete');
+        Route::get('export/account', [UserController::class, 'exportAccount'])->name('export.account');
+        Route::get('export/logs', [UserController::class, 'exportLogs'])->name('export.logs');
     });
 
     // Notifications
@@ -73,7 +74,7 @@ Route::group(['middleware' => ['throttle:30,1']], function () {
     });
 
     // Suspended
-    Route::get('suspended', [UserController::class, 'suspended'])->name('suspended');
+    Route::view('suspended', 'auth.suspended')->name('suspended');
 
     // Avatar
     Route::get('avatar/{username}.png', [UserController::class, 'avatar'])->name('avatar');
@@ -123,15 +124,15 @@ Route::group(['middleware' => ['throttle:30,1']], function () {
 
     // Admin
     Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['staff']], function () {
-        Route::get('users', [AdminController::class, 'users'])->middleware('password.confirm')->name('users');
-        Route::get('tasks', [AdminController::class, 'tasks'])->middleware('password.confirm')->name('tasks');
-        Route::get('activities', [AdminController::class, 'activities'])->middleware('password.confirm')->name('activities');
+        Route::view('users', 'admin.users')->middleware('password.confirm')->name('users');
+        Route::view('tasks', 'admin.tasks')->middleware('password.confirm')->name('tasks');
+        Route::view('activities', 'admin.activities')->middleware('password.confirm')->name('activities');
         Route::get('adminbar', [AdminController::class, 'toggle'])->name('adminbar');
     });
 
     // Patron
     Route::group(['prefix' => 'patron', 'as' => 'patron.'], function () {
-        Route::get('', [PatronController::class, 'patron'])->name('home');
+        Route::view('', 'pages.patron')->name('home');
     });
 
     // Paddle Integration
@@ -147,7 +148,7 @@ Route::group(['middleware' => ['throttle:30,1']], function () {
     });
 
     // Zen mode tasks
-    Route::get('tasks', [TaskController::class, 'tasks'])->name('tasks')->middleware('auth');
+    Route::view('tasks', 'tasks.tasks')->name('tasks')->middleware('auth');
 
     // Pages
     Route::view('about', 'pages.about')->name('about');
@@ -156,8 +157,8 @@ Route::group(['middleware' => ['throttle:30,1']], function () {
     Route::view('security', 'pages.security')->name('security');
     Route::view('sponsors', 'pages.sponsors')->name('sponsors');
     Route::view('contact', 'pages.contact')->name('contact');
-    Route::get('reputation', [PagesController::class, 'reputation'])->name('reputation')->middleware('auth');
-    Route::get('open', [PagesController::class, 'open'])->name('open');
+    Route::view('reputation', 'pages.reputation')->name('reputation')->middleware('auth');
+    Route::view('open', 'pages.open')->name('open');
     Route::get('deals', [PagesController::class, 'deals'])->name('deals');
 
     // Meetups
@@ -208,5 +209,5 @@ Route::group(['prefix' => 'popover'], function () {
 
 // Site
 Route::group(['prefix' => 'site'], function () {
-    Route::view('shortcuts', 'layouts.shortcuts')->name('shortcuts')->middleware('auth');
+    Route::view('shortcuts', 'site.shortcuts')->name('shortcuts')->middleware('auth');
 });

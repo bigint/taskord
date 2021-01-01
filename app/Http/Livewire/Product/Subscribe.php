@@ -24,48 +24,38 @@ class Subscribe extends Component
         $throttler = Throttle::get(Request::instance(), 10, 5);
         $throttler->hit();
         if (count($throttler) > 20) {
-            Helper::flagAccount(Auth::user());
+            Helper::flagAccount(user());
         }
         if (! $throttler->check()) {
             activity()
                 ->withProperties(['type' => 'Throttle'])
                 ->log('Rate limited while subscribing to a product');
 
-            return $this->alert('error', 'Your are rate limited, try again later!', [
-                'showCancelButton' =>  false,
-            ]);
+            return $this->alert('error', 'Your are rate limited, try again later!');
         }
 
         if (Auth::check()) {
-            if (! Auth::user()->hasVerifiedEmail()) {
-                return $this->alert('warning', 'Your email is not verified!', [
-                    'showCancelButton' =>  false,
-                ]);
+            if (! user()->hasVerifiedEmail()) {
+                return $this->alert('warning', 'Your email is not verified!');
             }
-            if (Auth::user()->isFlagged) {
-                return $this->alert('error', 'Your account is flagged!', [
-                    'showCancelButton' =>  false,
-                ]);
+            if (user()->isFlagged) {
+                return $this->alert('error', 'Your account is flagged!');
             }
-            if (Auth::id() === $this->product->owner->id) {
-                return $this->alert('warning', 'You can\'t subscribe your own product!', [
-                    'showCancelButton' =>  false,
-                ]);
+            if (user()->id === $this->product->owner->id) {
+                return $this->alert('warning', 'You can\'t subscribe your own product!');
             } else {
-                Auth::user()->toggleSubscribe($this->product);
+                user()->toggleSubscribe($this->product);
                 $this->product->refresh();
-                Auth::user()->touch();
-                if (Auth::user()->hasSubscribed($this->product)) {
-                    $this->product->owner->notify(new Subscribed($this->product, Auth::id()));
+                user()->touch();
+                if (user()->hasSubscribed($this->product)) {
+                    $this->product->owner->notify(new Subscribed($this->product, user()->id));
                 }
                 activity()
                     ->withProperties(['type' => 'Product'])
-                    ->log('Product subscribe was toggled P: #'.$this->product->slug);
+                    ->log('Toggled product subscribe | Product ID: #'.$this->product->slug);
             }
         } else {
-            return $this->alert('error', 'Forbidden!', [
-                'showCancelButton' =>  false,
-            ]);
+            return $this->alert('error', 'Forbidden!');
         }
     }
 

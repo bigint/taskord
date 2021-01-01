@@ -1,5 +1,13 @@
-<div>
-    @if (count($tasks) === 0)
+<div wire:init="loadTasks">
+    @if (!$readyToLoad)
+    <div class="card-body text-center mt-3 mb-3">
+        <div class="spinner-border taskord-spinner text-secondary mb-3" role="status"></div>
+        <div class="h6">
+            Loading Tasks...
+        </div>
+    </div>
+    @endif
+    @if ($readyToLoad and count($tasks) === 0)
     @php
     if ($type === 'user.done') {
         $message = 'No completed todos found';
@@ -24,7 +32,7 @@
         ], key($task->id))
     </li>
     @endforeach
-    @if ($tasks->hasMorePages())
+    @if ($readyToLoad and $tasks->hasMorePages())
         @livewire('user.load-more', [
             'type' => $type,
             'user' => $task->user,

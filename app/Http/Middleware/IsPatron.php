@@ -3,7 +3,6 @@
 namespace App\Http\Middleware;
 
 use Closure;
-use Illuminate\Support\Facades\Auth;
 
 class IsPatron
 {
@@ -16,7 +15,7 @@ class IsPatron
      */
     public function handle($request, Closure $next)
     {
-        if (Auth::user() && Auth::user()->isPatron) {
+        if ($request->user() && $request->user()->isPatron) {
             return $next($request);
         }
 

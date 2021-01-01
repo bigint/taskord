@@ -2,7 +2,7 @@
     <div class="container-md">
         <a class="navbar-brand" href="{{ url('/') }}">
             @auth
-            @if (Auth::user()->isBeta)
+            @if (user()->isBeta)
             <img loading=lazy src="/images/beta.svg" height="35" alt="Taskord Beta">
             @else
             <img loading=lazy src="/images/logo.svg" height="35" alt="Taskord">
@@ -43,17 +43,17 @@
                     <ul class="dropdown-menu shadow-sm border">
                         <li><a class="dropdown-item text-dark" href="{{ route('deals') }}">🎁 Deals</a></li>
                         @auth
-                        @if (Auth::user()->staffShip)
+                        @if (user()->staffShip)
                         <li><a class="dropdown-item text-dark" href="{{ route('meetups.home') }}">👥 Meetups</a></li>
                         <li><a class="dropdown-item text-dark" href="#">🤔 Help</a></li>
                         <li><a class="dropdown-item text-dark" href="#">📊 Open</a></li>
                         @endif
                         <li><a class="dropdown-item text-dark" href="{{ route('user.settings.integrations') }}">⚓ Integration</a></li>
                         @endauth
-                        <li><a class="dropdown-item text-dark" href="https://www.notion.so/Roadmap-89c75352cfe14d24b62644daa0f1cba0" target="_blank" rel="noreferrer">🚧 Roadmap</a></li>
+                        <li><a class="dropdown-item text-dark" href="https://gitlab.com/taskord/taskord/-/milestones" target="_blank" rel="noreferrer">🚧 Roadmap</a></li>
                     </ul>
                 </li>
-                @if (Auth::check() and Auth::user()->isStaff and !Auth::user()->staffShip)
+                @if (Auth::check() and user()->isStaff and !user()->staffShip)
                 <li class="nav-item">
                     <span class="nav-link text-secondary fw-bold">
                         {{ bcmul((microtime(true) - LARAVEL_START), '1000', 0) }}ms
@@ -73,62 +73,64 @@
                     @endif
                 @else
                     @livewire('notification.icon')
-                    @if (Auth::user()->hasGoal)
+                    @if (user()->hasGoal)
                     <li class="nav-item me-2">
                         <div class="nav-link">
                             <a
                                 href="{{ route('user.settings.profile') }}"
+                            >
+                                <span
                                 class="badge rounded-pill score text-white
-                                    @if(Auth::user()->daily_goal_reached >= Auth::user()->daily_goal)
+                                    @if(user()->daily_goal_reached >= user()->daily_goal)
                                         bg-success
                                     @else
                                         bg-info
-                                    @endif"
-                            >
-                                <x-heroicon-s-check-circle class="heroicon-small" />
-                                {{ Auth::user()->daily_goal_reached }}/{{ Auth::user()->daily_goal }}
+                                    @endif">
+                                    <x-heroicon-s-check-circle class="heroicon-small" />
+                                    {{ user()->daily_goal_reached }}/{{ user()->daily_goal }}
+                                </span>
                             </a>
                         </div>
                     </li>
                     @endif
                     <li class="nav-item me-2">
                         <a class="nav-link" href="{{ route('reputation') }}">
-                            <span class="badge rounded-pill text-secondary score bg-warning">
-                                <x-heroicon-o-fire class="heroicon-small me-0 text-danger" />
-                                {{ number_format(Auth::user()->getPoints()) }}
+                            <span class="badge rounded-pill text-reputation score bg-warning">
+                                <x-heroicon-o-fire class="heroicon-small text-danger" />
+                                {{ number_format(user()->getPoints()) }}
                             </span>
                         </a>
                     </li>
                     <li class="nav-item dropdown">
                         <a href="#" role="button" data-bs-toggle="dropdown" v-pre>
-                            <img loading=lazy class="rounded-circle avatar-30 mt-1" src="{{ Helper::getCDNImage(Auth::user()->avatar, 80) }}" height="30" width="30" alt="{{ Auth::user()->username }}'s avatar" />
+                            <img loading=lazy class="rounded-circle avatar-30 mt-1" src="{{ Helper::getCDNImage(user()->avatar, 80) }}" height="30" width="30" alt="{{ user()->username }}'s avatar" />
                         </a>
 
                         <div class="dropdown-menu shadow-sm border dropdown-menu-end mt-2">
-                            <a href="{{ route('user.done', ['username' => Auth::user()->username]) }}" class="dropdown-item">
+                            <a href="{{ route('user.done', ['username' => user()->username]) }}" class="dropdown-item">
                                 Signed in as
                                 <div class="fw-bold" id="taskord-username">
-                                    {{ Auth::user()->username }}
+                                    {{ user()->username }}
                                 </div>
                             </a>
                             <div class="dropdown-divider"></div>
                             <div class="px-2 text-dark">
-                                @if (Auth::user()->status)
-                                <a href="{{ route('user.done', ['username' => Auth::user()->username]) }}" class="border border-2 d-flex px-2 py-1 rounded text-dark text-start">
-                                    {{ Auth::user()->status_emoji }} {{ Str::limit(Auth::user()->status, 10) }}
+                                @if (user()->status)
+                                <a href="{{ route('user.done', ['username' => user()->username]) }}" class="border border-2 d-flex px-2 py-1 rounded text-dark text-start">
+                                    {{ user()->status_emoji }} {{ Str::limit(user()->status, 10) }}
                                 </a>
                                 @else
-                                <a href="{{ route('user.done', ['username' => Auth::user()->username]) }}" class="border border-2 d-flex px-2 py-1 rounded text-dark text-start">
+                                <a href="{{ route('user.done', ['username' => user()->username]) }}" class="border border-2 d-flex px-2 py-1 rounded text-dark text-start">
                                     ✅ Set Staus
                                 </a>
                                 @endif
                             </div>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item text-dark" href="{{ route('user.done', ['username' => Auth::user()->username]) }}">
+                            <a class="dropdown-item text-dark" href="{{ route('user.done', ['username' => user()->username]) }}">
                                 <x-heroicon-o-user class="heroicon-1x text-secondary" />
                                 Profile
                             </a>
-                            <a class="dropdown-item text-dark" href="{{ route('user.pending', ['username' => Auth::user()->username]) }}">
+                            <a class="dropdown-item text-dark" href="{{ route('user.pending', ['username' => user()->username]) }}">
                                 <x-heroicon-o-clock class="heroicon-1x text-secondary" />
                                 Pending Tasks
                             </a>
@@ -136,14 +138,14 @@
                                 <x-heroicon-o-cog class="heroicon-1x text-secondary" />
                                 Settings
                             </a>
-                            <a class="dropdown-item text-dark" href="{{ route('patron.home') }}" data-turbolinks="false">
+                            <a class="dropdown-item text-dark" href="{{ route('patron.home') }}">
                                 <x-heroicon-o-star class="heroicon-1x text-secondary" />
                                 Patron
                             </a>
                             <div class="dropdown-divider"></div>
-                            @if (Auth::user()->isStaff)
+                            @if (user()->isStaff)
                             <a class="dropdown-item text-dark" id="admin-bar-click" role="button">
-                                @if (Auth::user()->staffShip)
+                                @if (user()->staffShip)
                                 <x-heroicon-o-eye-off class="heroicon-1x text-secondary" />
                                 Hide Admin Bar
                                 @else
@@ -153,9 +155,9 @@
                             </a>
                             <div class="dropdown-divider"></div>
                             @endif
-                            @if (Auth::user()->isPatron)
+                            @if (user()->isPatron)
                             <a class="dropdown-item text-dark" id="dark-mode" role="button">
-                                @if (Auth::user()->darkMode)
+                                @if (user()->darkMode)
                                 <x-heroicon-o-sun class="heroicon-1x text-secondary" />
                                 Light Mode
                                 @else
@@ -164,13 +166,13 @@
                                 @endif
                             </a>
                             @endif
-                            @if (Auth::user()->isDeveloper)
+                            @if (user()->isDeveloper)
                             <a class="dropdown-item text-dark" href="https://gitlab.com/taskord/taskord" target="_blank" rel="noreferrer">
                                 <x-heroicon-o-code class="heroicon-1x text-secondary" />
                                 GitLab
                             </a>
                             @endif
-                            <a class="dropdown-item text-dark cursor-pointer" data-bs-toggle="modal" data-bs-target="#shortcutsModal">
+                            <a class="dropdown-item text-dark cursor-pointer d-sm-none d-md-block" data-bs-toggle="modal" data-bs-target="#shortcutsModal">
                                 <x-heroicon-o-view-grid class="heroicon-1x text-secondary" />
                                 Shortcuts
                             </a>
@@ -186,7 +188,7 @@
                             </form>
                             <div class="dropdown-divider"></div>
                             <div class="dropdown-header text-dark-50 fw-bold">
-                                <span id="taskord-version">v{{ config('app.version') }}</span> • <a href="https://headwayapp.co/taskord-changelog" target="_blank" rel="noreferrer">Changelog</a>
+                                <span id="taskord-version">v{{ config('app.version') }}</span> • <a href="https://gitlab.com/taskord/taskord/-/blob/main/CHANGELOG.md" target="_blank" rel="noreferrer">Changelog</a>
                             </div>
                         </div>
                     </li>
@@ -204,7 +206,9 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body" id="shortcutsModalBody">
-                <div class="spinner-border text-primary" role="status"></div>
+                <div class="d-flex justify-content-center">
+                    <div class="spinner-border taskord-spinner text-secondary" role="status"></div>
+                </div>
             </div>
             <div class="d-flex justify-content-between modal-footer">
                 <x-beta background="light" />

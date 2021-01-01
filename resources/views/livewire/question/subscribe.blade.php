@@ -1,6 +1,6 @@
 <div>
     @auth
-    @if (Auth::user()->hasSubscribed($question))
+    @if (user()->hasSubscribed($question))
     <button wire:click="subscribeQuestion" wire:loading.attr="disabled" class="btn btn-sm btn-danger">
         <x-heroicon-o-status-offline class="heroicon" />
         Unsubscribe
@@ -14,6 +14,6 @@
     @endauth
     <span class="small ms-2">
         <span class="fw-bold">{{ number_format($question->subscribersCount()) }}</span>
-        {{ $question->subscribersCount() <= 1 ? 'Subscriber' : 'Subscribers' }}
+        {{ str_plural('Subscriber', $question->subscribersCount()) }}
     </span>
 </div>

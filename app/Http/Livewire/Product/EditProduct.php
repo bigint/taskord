@@ -4,7 +4,6 @@ namespace App\Http\Livewire\Product;
 
 use App\Models\Product;
 use App\Rules\Repo;
-use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
@@ -53,9 +52,7 @@ class EditProduct extends Component
                 'avatar' => 'nullable|mimes:jpeg,jpg,png,gif|max:1024',
             ]);
         } else {
-            return $this->alert('error', 'Forbidden!', [
-                'showCancelButton' =>  false,
-            ]);
+            return $this->alert('error', 'Forbidden!');
         }
     }
 
@@ -65,7 +62,7 @@ class EditProduct extends Component
             $this->validate([
                 'name' => 'required|max:30',
                 'slug' => 'required|min:3|max:20|alpha_dash|unique:products,slug,'.$this->product->id,
-                'description' => 'nullable|max:280',
+                'description' => 'nullable|max:160',
                 'website' => 'nullable|active_url',
                 'twitter' => 'nullable|alpha_dash|max:30',
                 'repo' => ['nullable', 'active_url', new Repo],
@@ -74,10 +71,8 @@ class EditProduct extends Component
                 'avatar' => 'nullable|mimes:jpeg,jpg,png,gif|max:1024',
             ]);
 
-            if (Auth::user()->isFlagged) {
-                return $this->alert('error', 'Your account is flagged!', [
-                    'showCancelButton' =>  false,
-                ]);
+            if (user()->isFlagged) {
+                return $this->alert('error', 'Your account is flagged!');
             }
 
             $product = Product::where('id', $this->product->id)->firstOrFail();
@@ -96,10 +91,14 @@ class EditProduct extends Component
                 $product->avatar = $avatar;
             }
 
-            if (Auth::user()->staffShip or Auth::id() === $product->owner->id) {
+            if (user()->staffShip or user()->id === $product->owner->id) {
                 if ($this->launched and ! $product->launched) {
+<<<<<<< app/Http/Livewire/Product/EditProduct.php
                     $product->launched_at = Carbon::now();
                     $newelyLaunched = true;
+=======
+                    $product->launched_at = carbon();
+>>>>>>> app/Http/Livewire/Product/EditProduct.php
                 }
 
                 $product->name = $this->name;
@@ -118,25 +117,19 @@ class EditProduct extends Component
                     (new CreateTaskForProductLaunch)->execute($product);
                 }
 
-                Auth::user()->touch();
+                user()->touch();
 
-                $this->flash('success', 'Product has been updated!', [
-                    'showCancelButton' =>  false,
-                ]);
+                $this->flash('success', 'Product has been updated!');
                 activity()
                     ->withProperties(['type' => 'Product'])
-                    ->log('Product has been updated P: #'.$this->product->slug);
+                    ->log('Updated a product | Product Slug: #'.$this->product->slug);
 
                 return redirect()->route('product.done', ['slug' => $product->slug]);
             } else {
-                $this->alert('error', 'Forbidden!', [
-                    'showCancelButton' =>  false,
-                ]);
+                $this->alert('error', 'Forbidden!');
             }
         } else {
-            $this->alert('error', 'Forbidden!', [
-                'showCancelButton' =>  false,
-            ]);
+            $this->alert('error', 'Forbidden!');
         }
     }
 
@@ -148,22 +141,18 @@ class EditProduct extends Component
     public function deleteProduct()
     {
         if (Auth::check()) {
-            if (! Auth::user()->hasVerifiedEmail()) {
-                return $this->alert('warning', 'Your email is not verified!', [
-                    'showCancelButton' =>  false,
-                ]);
+            if (! user()->hasVerifiedEmail()) {
+                return $this->alert('warning', 'Your email is not verified!');
             }
 
-            if (Auth::user()->isFlagged) {
-                return $this->alert('error', 'Your account is flagged!', [
-                    'showCancelButton' =>  false,
-                ]);
+            if (user()->isFlagged) {
+                return $this->alert('error', 'Your account is flagged!');
             }
 
-            if (Auth::user()->staffShip or Auth::id() === $this->product->owner->id) {
+            if (user()->staffShip or user()->id === $this->product->owner->id) {
                 activity()
                     ->withProperties(['type' => 'Product'])
-                    ->log('Product was deleted P: #'.$this->product->slug);
+                    ->log('Deleted a product | Product Slug: #'.$this->product->slug);
                 $avatar = explode('storage/', $this->product->avatar);
                 if (array_key_exists(1, $avatar)) {
                     Storage::delete($avatar[1]);
@@ -171,21 +160,15 @@ class EditProduct extends Component
                 $this->product->tasks()->delete();
                 $this->product->webhooks()->delete();
                 $this->product->delete();
-                Auth::user()->touch();
-                $this->flash('success', 'Product has been deleted!', [
-                    'showCancelButton' =>  false,
-                ]);
+                user()->touch();
+                $this->flash('success', 'Product has been deleted!');
 
                 return redirect()->route('products.newest');
             } else {
-                $this->alert('error', 'Forbidden!', [
-                    'showCancelButton' =>  false,
-                ]);
+                $this->alert('error', 'Forbidden!');
             }
         } else {
-            return $this->alert('error', 'Forbidden!', [
-                'showCancelButton' =>  false,
-            ]);
+            return $this->alert('error', 'Forbidden!');
         }
     }
 }

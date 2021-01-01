@@ -27,42 +27,34 @@ class NewUpdate extends Component
                 'body' => 'required|min:3|max:10000',
             ]);
 
-            if (! Auth::user()->hasVerifiedEmail()) {
-                return $this->alert('warning', 'Your email is not verified!', [
-                    'showCancelButton' =>  false,
-                ]);
+            if (! user()->hasVerifiedEmail()) {
+                return $this->alert('warning', 'Your email is not verified!');
             }
 
-            if (Auth::user()->isFlagged) {
-                return $this->alert('error', 'Your account is flagged!', [
-                    'showCancelButton' =>  false,
-                ]);
+            if (user()->isFlagged) {
+                return $this->alert('error', 'Your account is flagged!');
             }
 
             $update = ProductUpdate::create([
-                'user_id' =>  Auth::id(),
+                'user_id' =>  user()->id,
                 'product_id' => $this->product->id,
                 'title' => $this->title,
                 'body' => $this->body,
             ]);
-            Auth::user()->touch();
+            user()->touch();
             $users = Product::find($this->product->id)->subscribers()->get();
             foreach ($users as $user) {
                 $user->notify(new NewProductUpdate($update));
             }
             activity()
                 ->withProperties(['type' => 'Product'])
-                ->log('New product update has been created P: '.$this->product->id.' PU: '.$update->id);
+                ->log('Created a new product update on #'.$this->product->slug.' | Update ID: '.$update->id);
 
-            $this->flash('success', 'New Update has been created!', [
-                'showCancelButton' =>  false,
-            ]);
+            $this->flash('success', 'New Update has been created!');
 
             return redirect()->route('product.updates', ['slug' => $update->product->slug]);
         } else {
-            $this->alert('error', 'Forbidden!', [
-                'showCancelButton' =>  false,
-            ]);
+            $this->alert('error', 'Forbidden!');
         }
     }
 }

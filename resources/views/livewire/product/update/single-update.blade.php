@@ -14,7 +14,7 @@
                     <x-heroicon-s-badge-check class="heroicon ms-1 text-primary verified" />
                 @endif
                 @if ($update->user->isPatron)
-                    <a class="patron" href="{{ route('patron.home') }}" data-turbolinks="false" aria-label="Patron">
+                    <a class="patron" href="{{ route('patron.home') }}" aria-label="Patron">
                         <x-heroicon-s-star class="heroicon text-gold" />
                     </a>
                 @endif
@@ -26,7 +26,7 @@
         <div class="mt-2">
             @auth
             @if (!$update->user->isPrivate)
-            @if (Auth::user()->hasLiked($update))
+            @if (user()->hasLiked($update))
             <span>
                 <button type="button" class="btn btn-task btn-success text-white me-1" wire:click="togglePraise" wire:loading.attr="disabled" wire:offline.attr="disabled" wire:key="{{ $update->id }}" aria-label="Praise">
                     <x-heroicon-s-thumb-up class="heroicon-small me-0" />
@@ -75,7 +75,7 @@
                 </a>
             @endguest
             @auth
-            @if (Auth::user()->staffShip or Auth::id() === $update->user->id)
+            @if (user()->staffShip or user()->id === $update->user->id)
                 @if ($confirming === $update->id)
                 <button type="button" class="btn btn-task btn-danger" wire:click="deleteUpdate" wire:loading.attr="disabled" wire:offline.attr="disabled" aria-label="Confirm Delete">
                     Are you sure?

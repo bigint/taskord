@@ -11,12 +11,17 @@ class Products extends Component
 {
     use WithPagination;
     protected $paginationTheme = 'bootstrap';
-
     public User $user;
+    public $readyToLoad = false;
 
     public function mount($user)
     {
         $this->user = $user;
+    }
+
+    public function loadProducts()
+    {
+        $this->readyToLoad = true;
     }
 
     public function render()
@@ -26,7 +31,7 @@ class Products extends Component
             ->paginate(10);
 
         return view('livewire.user.products', [
-            'products' => $products,
+            'products' => $this->readyToLoad ? $products : [],
         ]);
     }
 }

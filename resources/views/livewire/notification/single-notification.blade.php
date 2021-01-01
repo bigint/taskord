@@ -14,27 +14,27 @@
                     $type === "App\Notifications\AnswerPraised" or
                     $type === "App\Notifications\CommentPraised"
                 )
-                    👍
+                    <x-heroicon-o-thumb-up class="heroicon-1x text-secondary me-0" />
                 @elseif ($type === "App\Notifications\Mentioned")
-                    🙌
+                    <x-heroicon-o-at-symbol class="heroicon-1x text-secondary me-0" />
                 @elseif (
                     $type === "App\Notifications\Followed" or
                     $type === "App\Notifications\Subscribed" or
                     $type === "App\Notifications\Product\MemberAdded"
                 )
-                    ➕
+                    <x-heroicon-o-user-add class="heroicon-1x text-secondary me-0" />
                 @elseif (
                     $type === "App\Notifications\Commented" or
                     $type === "App\Notifications\Answered" or
                     $type === "App\Notifications\Task\NotifySubscribers" or
                     $type === "App\Notifications\Question\NotifySubscribers"
                 )
-                    💬
+                    <x-heroicon-o-chat-alt class="heroicon-1x text-secondary me-0" />
                 @elseif (
                     $type === "App\Notifications\Product\MemberRemoved" or
                     $type === "App\Notifications\Product\MemberLeft"
                 )
-                    🚪
+                    <x-heroicon-o-logout class="heroicon-1x text-secondary me-0" />
                 @elseif (
                     $type === "App\Notifications\Welcome" or
                     $type === "App\Notifications\VersionReleased"
@@ -88,7 +88,11 @@
                 </span>
                 @endif
                 <div class="mt-2 body-font">
-                    {!! Markdown::parse($data['body']) !!}
+                    @if ($data['body_type'] === 'task')
+                        {!! Purify::clean(Helper::renderTask($data['body'])) !!}
+                    @else
+                        {!! Markdown::parse($data['body']) !!}
+                    @endif
                 </div>
             @elseif ($type === "App\Notifications\CommentPraised")
                 <span class="align-middle">
@@ -187,9 +191,9 @@
                 <span class="ms-1 fw-bold">
                     Version {{ $data['tagName'] }} has been released!
                 </span>
-                <div class="mt-2">
+                <div class="mt-3">
                     <span class="fw-bold">Changelog</span>
-                    <div class="mt-1">
+                    <div class="mt-2">
                         {!! Markdown::parse($data['description']) !!}
                     </div>
                 </div>
@@ -201,7 +205,7 @@
                     </a>
                     you subscribed
                     <div class="mt-2 body-font">
-                        {!! nl2br(Purify::clean(Helper::renderTask($data['comment']))) !!}
+                        {!! Markdown::parse($data['comment']) !!}
                     </div>
                 </span>
             @elseif ($type === "App\Notifications\Question\NotifySubscribers")
@@ -217,7 +221,7 @@
                 </span>
             @endif
             <div class="small mt-2 text-secondary">
-                {{ Carbon::createFromTimeStamp(strtotime($created_at))->diffForHumans() }}
+                {{ carbon($created_at)->diffForHumans() }}
             </div>
         </div>
     </div>

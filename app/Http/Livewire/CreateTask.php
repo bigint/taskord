@@ -2,10 +2,9 @@
 
 namespace App\Http\Livewire;
 
+use App\Actions\CreateNewTask;
 use App\Gamify\Points\TaskCreated;
 use App\Jobs\CheckGoal;
-use App\Models\Task;
-use Carbon\Carbon;
 use GrahamCampbell\Throttle\Facades\Throttle;
 use Helper;
 use Illuminate\Support\Facades\Auth;
@@ -39,12 +38,10 @@ class CreateTask extends Component
     public function checkState()
     {
         if (Auth::check()) {
-            Auth::user()->checkState = ! Auth::user()->checkState;
-            Auth::user()->save();
+            user()->checkState = ! user()->checkState;
+            user()->save();
         } else {
-            return $this->alert('error', 'Forbidden!', [
-                'showCancelButton' =>  false,
-            ]);
+            return $this->alert('error', 'Forbidden!');
         }
     }
 
@@ -59,9 +56,7 @@ class CreateTask extends Component
                 'images.max' => 'Only 5 Images are allowed!',
             ]);
         } else {
-            return $this->alert('error', 'Forbidden!', [
-                'showCancelButton' =>  false,
-            ]);
+            return $this->alert('error', 'Forbidden!');
         }
     }
 
@@ -70,16 +65,14 @@ class CreateTask extends Component
         $throttler = Throttle::get(Request::instance(), 20, 5);
         $throttler->hit();
         if (count($throttler) > 30) {
-            Helper::flagAccount(Auth::user());
+            Helper::flagAccount(user());
         }
         if (! $throttler->check()) {
             activity()
                 ->withProperties(['type' => 'Throttle'])
                 ->log('Rate limited while creating a task');
 
-            return $this->alert('error', 'Your are rate limited, try again later!', [
-                'showCancelButton' =>  false,
-            ]);
+            return $this->alert('error', 'Your are rate limited, try again later!');
         }
 
         if (Auth::check()) {
@@ -92,19 +85,15 @@ class CreateTask extends Component
                 'images.max' => 'Only 5 Images are allowed!',
             ]);
 
-            if (! Auth::user()->hasVerifiedEmail()) {
-                return $this->alert('warning', 'Your email is not verified!', [
-                    'showCancelButton' =>  false,
-                ]);
+            if (! user()->hasVerifiedEmail()) {
+                return $this->alert('warning', 'Your email is not verified!');
             }
 
-            if (Auth::user()->isFlagged) {
-                return $this->alert('error', 'Your account is flagged!', [
-                    'showCancelButton' =>  false,
-                ]);
+            if (user()->isFlagged) {
+                return $this->alert('error', 'Your account is flagged!');
             }
 
-            $users = Helper::getUserIDFromMention($this->task);
+            $users = Helper::getUsernamesFromMentions($this->task);
 
             if ($this->images) {
                 $images = [];
@@ -120,10 +109,10 @@ class CreateTask extends Component
                 $images = null;
             }
 
-            $state = Auth::user()->checkState;
+            $state = user()->checkState;
 
             if ($state) {
-                $done_at = Carbon::now();
+                $done_at = carbon();
             } else {
                 $done_at = null;
             }
@@ -134,8 +123,7 @@ class CreateTask extends Component
                 $product_id = $this->product->id;
             }
 
-            $task = Task::create([
-                'user_id' =>  Auth::id(),
+            $task = (new CreateNewTask(auth()->user(), [
                 'product_id' =>  $product_id,
                 'task' => $this->task,
                 'done' => $state,
@@ -143,29 +131,21 @@ class CreateTask extends Component
                 'images' => $images,
                 'due_at' => $this->due_at,
                 'type' => $product_id ? 'product' : 'user',
-                'source' => 'Taskord for Web',
-            ]);
+            ]))();
 
             $this->emit('taskAdded');
             $this->resetInputFields();
             Helper::mentionUsers($users, $task, 'task');
             givePoint(new TaskCreated($task));
-            if (Auth::user()->hasGoal and $task->done) {
-                Auth::user()->daily_goal_reached++;
-                Auth::user()->save();
-                CheckGoal::dispatch(Auth::user(), $task);
+            if (user()->hasGoal and $task->done) {
+                user()->daily_goal_reached++;
+                user()->save();
+                CheckGoal::dispatch(user(), $task);
             }
-            activity()
-                ->withProperties(['type' => 'Task'])
-                ->log('New task has been created U: @'.$task->user->username.' T: '.$task->id);
 
-            return $this->alert('success', 'Task has been created!', [
-                'showCancelButton' =>  false,
-            ]);
+            return $this->alert('success', 'Task has been created!');
         } else {
-            return $this->alert('error', 'Forbidden!', [
-                'showCancelButton' =>  false,
-            ]);
+            return $this->alert('error', 'Forbidden!');
         }
     }
 }

@@ -17,7 +17,7 @@
                     </span>
                 @endif
                 @auth
-                @if (Auth::user()->staffShip)
+                @if (user()->staffShip)
                     <span class="ms-1 text-secondary small">#{{ $product->id }}</span>
                 @endif
                 @endauth
@@ -37,9 +37,9 @@
                 <span>
                     <x-heroicon-o-calendar class="heroicon-small text-secondary" />
                     @if ($product->launched)
-                    <span>Launched at {{ Carbon::parse($product->launched_at)->format("F Y") }}</span>
+                    <span>Launched at {{ carbon($product->launched_at)->format("F Y") }}</span>
                     @else
-                    <span>Created at {{ Carbon::parse($product->created_at)->format("F Y") }}</span>
+                    <span>Created at {{ $product->created_at->format("F Y") }}</span>
                     @endif
                 </span>
                 @if ($product->website)

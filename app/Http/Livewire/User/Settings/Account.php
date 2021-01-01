@@ -22,7 +22,7 @@ class Account extends Component
     public function enrollBeta()
     {
         if (Auth::check()) {
-            if (Auth::id() === $this->user->id) {
+            if (user()->id === $this->user->id) {
                 $this->user->isBeta = ! $this->user->isBeta;
                 $this->user->save();
                 if ($this->user->isBeta) {
@@ -30,38 +30,28 @@ class Account extends Component
                         ->withProperties(['type' => 'User'])
                         ->log('Enrolled to beta');
 
-                    return $this->alert('success', 'Your are now beta member!', [
-                        'showCancelButton' =>  false,
-                    ]);
+                    return $this->alert('success', 'Your are now beta member!');
                 } else {
                     activity()
                         ->withProperties(['type' => 'User'])
-                        ->log('Opt out from beta');
+                        ->log('Opted out from beta');
 
-                    return $this->alert('success', 'Your are no longer a beta member!', [
-                        'showCancelButton' =>  false,
-                    ]);
+                    return $this->alert('success', 'Your are no longer a beta member!');
                 }
             } else {
-                return $this->alert('error', 'Forbidden!', [
-                    'showCancelButton' =>  false,
-                ]);
+                return $this->alert('error', 'Forbidden!');
             }
         } else {
-            return $this->alert('error', 'Forbidden!', [
-                'showCancelButton' =>  false,
-            ]);
+            return $this->alert('error', 'Forbidden!');
         }
     }
 
     public function enrollPrivate()
     {
         if (Auth::check()) {
-            if (Auth::id() === $this->user->id) {
+            if (user()->id === $this->user->id) {
                 if (! $this->user->isPatron) {
-                    return $this->alert('error', 'Forbidden!', [
-                        'showCancelButton' =>  false,
-                    ]);
+                    return $this->alert('error', 'Forbidden!');
                 }
                 $this->user->isPrivate = ! $this->user->isPrivate;
                 $this->user->save();
@@ -70,27 +60,19 @@ class Account extends Component
                         ->withProperties(['type' => 'User'])
                         ->log('Enrolled as a private user');
 
-                    return $this->alert('success', 'All your tasks are now private', [
-                        'showCancelButton' =>  false,
-                    ]);
+                    return $this->alert('success', 'All your tasks are now private');
                 } else {
                     activity()
                         ->withProperties(['type' => 'User'])
                         ->log('Enrolled as a public user');
 
-                    return $this->alert('success', 'All your tasks are now public', [
-                        'showCancelButton' =>  false,
-                    ]);
+                    return $this->alert('success', 'All your tasks are now public');
                 }
             } else {
-                return $this->alert('error', 'Forbidden!', [
-                    'showCancelButton' =>  false,
-                ]);
+                return $this->alert('error', 'Forbidden!');
             }
         } else {
-            return $this->alert('error', 'Forbidden!', [
-                'showCancelButton' =>  false,
-            ]);
+            return $this->alert('error', 'Forbidden!');
         }
     }
 
@@ -102,16 +84,14 @@ class Account extends Component
                 'email' => 'required|email|max:255|indisposable|unique:users,email,'.$this->user->id,
             ]);
         } else {
-            return $this->alert('error', 'Forbidden!', [
-                'showCancelButton' =>  false,
-            ]);
+            return $this->alert('error', 'Forbidden!');
         }
     }
 
     public function updateAccount()
     {
         if (Auth::check()) {
-            if (Auth::id() === $this->user->id) {
+            if (user()->id === $this->user->id) {
                 $this->validate([
                     'username' => 'required|min:2|max:20|alpha_dash|unique:users,username,'.$this->user->id,
                     'email' => 'required|email|max:255|indisposable|unique:users,email,'.$this->user->id,
@@ -121,28 +101,22 @@ class Account extends Component
                     $this->user->email_verified_at = null;
                 }
 
-                if (Auth::check() && Auth::id() === $this->user->id) {
+                if (Auth::check() && user()->id === $this->user->id) {
                     $this->user->username = $this->username;
                     $this->user->email = $this->email;
                     $this->user->save();
                     $this->user->sendEmailVerificationNotification();
                     activity()
                         ->withProperties(['type' => 'User'])
-                        ->log('Account settings was updated');
+                        ->log('Updated account settings');
 
-                    return $this->alert('success', 'Your account has been updated!', [
-                        'showCancelButton' =>  false,
-                    ]);
+                    return $this->alert('success', 'Your account has been updated!');
                 }
             } else {
-                return $this->alert('error', 'Forbidden!', [
-                    'showCancelButton' =>  false,
-                ]);
+                return $this->alert('error', 'Forbidden!');
             }
         } else {
-            return $this->alert('error', 'Forbidden!', [
-                'showCancelButton' =>  false,
-            ]);
+            return $this->alert('error', 'Forbidden!');
         }
     }
 }

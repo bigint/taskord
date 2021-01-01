@@ -10,7 +10,7 @@ class PatronController extends Controller
 {
     public function handleWebhook(Request $request)
     {
-        $public_key_string = env('PADDLE_PUBLIC_KEY');
+        $public_key_string = config('services.paddle.public_key');
         $public_key = openssl_get_publickey($public_key_string);
         $signature = base64_decode($request->p_signature);
         $fields = $request->all();
@@ -93,10 +93,5 @@ class PatronController extends Controller
         } else {
             return 'No user';
         }
-    }
-
-    public function patron()
-    {
-        return view('pages.patron');
     }
 }

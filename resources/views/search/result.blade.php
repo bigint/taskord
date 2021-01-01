@@ -154,7 +154,7 @@
                     <li class="list-group-item pt-3 pb-3">
                         <div class="d-flex align-items-center">
                             <a href="{{ route('product.done', ['slug' => $product->slug]) }}">
-                                <img loading=lazy class="rounded avatar-50 mt-1 ms-2" src="{{ Helper::getCDNImage($product->avatar, 80) }}" height="50" width="50" alt="{{ $product->slug }}'s avatar" />
+                                <img loading=lazy class="rounded avatar-50" src="{{ Helper::getCDNImage($product->avatar, 80) }}" height="50" width="50" alt="{{ $product->slug }}'s avatar" />
                             </a>
                             <span class="ms-3">
                                 <a href="{{ route('product.done', ['slug' => $product->slug]) }}" class="me-2 h5 align-text-top fw-bold text-dark">
@@ -173,13 +173,13 @@
                                 <div class="text-secondary mb-2">
                                     {{ "#" . $product->slug }}
                                 </div>
-                                <div>{{ $product->description }}</div>
+                                <div class="pe-5">{{ $product->description }}</div>
                                 <div class="small mt-2">
                                     <x-heroicon-o-calendar class="heroicon text-secondary" />
                                     @if ($product->launched)
-                                    <span>Launched at {{ Carbon::parse($product->launched_at)->format("F Y") }}</span>
+                                    <span>Launched at {{ carbon($product->launched_at)->format("F Y") }}</span>
                                     @else
-                                    <span>Created at {{ Carbon::parse($product->created_at)->format("F Y") }}</span>
+                                    <span>Created at {{ $product->created_at->format("F Y") }}</span>
                                     @endif
                                 </div>
                                 <div class="mt-3">
@@ -188,7 +188,7 @@
                                     ], key($product->id))
                                 </div>
                             </span>
-                            <a class="ms-auto" href="{{ route('user.done', ['username' => $product->owner->username]) }}">
+                            <a class="d-flex ms-auto" href="{{ route('user.done', ['username' => $product->owner->username]) }}">
                                 <img loading=lazy class="rounded-circle float-end avatar-30 mt-1 ms-2" src="{{ Helper::getCDNImage($product->owner->avatar, 80) }}" height="30" width="30" alt="{{ $product->owner->username }}'s avatar" />
                             </a>
                         </div>
@@ -230,7 +230,7 @@
                                         {{ $user->username }}
                                     @endif
                                     @auth
-                                    @if (Auth::user()->staffShip)
+                                    @if (user()->staffShip)
                                         <span class="ms-2 text-secondary small">#{{ $user->id }}</span>
                                     @endif
                                     @endauth
@@ -241,12 +241,12 @@
                                         <x-heroicon-s-badge-check class="heroicon-2x text-primary ms-2 me-0 verified" />
                                     @endif
                                     @if ($user->isPatron)
-                                        <a class="patron" href="{{ route('patron.home') }}" data-turbolinks="false" aria-label="Patron">
+                                        <a class="patron" href="{{ route('patron.home') }}" aria-label="Patron">
                                             <x-heroicon-s-star class="heroicon-2x ms-2 me-0 text-gold" />
                                         </a>
                                     @endif
                                     @auth
-                                    @if ($user->isFollowing(Auth::user()))
+                                    @if ($user->isFollowing(user()))
                                         <span class="ms-2 badge bg-light text-secondary">Follows you</span>
                                     @endif
                                     @endauth
@@ -258,7 +258,7 @@
                                 <div class="small mt-2">
                                     <span>
                                         <x-heroicon-o-calendar class="heroicon text-secondary" />
-                                        Joined {{ Carbon::parse($user->created_at)->format("F Y") }}
+                                        Joined {{ $user->created_at->format("F Y") }}
                                     </span>
                                     @if ($user->location)
                                     <span class="ms-3">

@@ -21,41 +21,33 @@ class CreateQuestion extends Component
                 'body' => 'required|min:3|max:10000',
             ]);
 
-            if (! Auth::user()->hasVerifiedEmail()) {
-                return $this->alert('warning', 'Your email is not verified!', [
-                    'showCancelButton' =>  false,
-                ]);
+            if (! user()->hasVerifiedEmail()) {
+                return $this->alert('warning', 'Your email is not verified!');
             }
 
-            if (Auth::user()->isFlagged) {
-                return $this->alert('error', 'Your account is flagged!', [
-                    'showCancelButton' =>  false,
-                ]);
+            if (user()->isFlagged) {
+                return $this->alert('error', 'Your account is flagged!');
             }
 
             $patronOnly = ! $this->patronOnly ? false : true;
 
             $question = Question::create([
-                'user_id' =>  Auth::id(),
+                'user_id' =>  user()->id,
                 'title' => $this->title,
                 'body' => $this->body,
                 'patronOnly' => $patronOnly,
             ]);
-            Auth::user()->touch();
+            user()->touch();
 
             givePoint(new QuestionCreated($question));
             activity()
                 ->withProperties(['type' => 'Question'])
-                ->log('New question has been created Q: '.$question->id);
-            $this->flash('success', 'Question has been created!', [
-                'showCancelButton' =>  false,
-            ]);
+                ->log('Created a new question | Question ID: '.$question->id);
+            $this->flash('success', 'Question has been created!');
 
             return redirect()->route('question.question', ['id' => $question->id]);
         } else {
-            $this->alert('error', 'Forbidden!', [
-                'showCancelButton' =>  false,
-            ]);
+            $this->alert('error', 'Forbidden!');
         }
     }
 }

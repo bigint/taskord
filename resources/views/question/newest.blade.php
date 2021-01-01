@@ -14,7 +14,7 @@
                 @livewire('question.questions', ['type' => $type, 'page' => 1, 'perPage' => 10])
             </div>
             <div class="col-sm">
-                @include('question.sidebar')
+                @livewire('question.trending')
                 <x-footer />
             </div>
         </div>

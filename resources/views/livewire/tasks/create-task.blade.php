@@ -17,7 +17,7 @@
                     <input class="form-control form-control-sm" wire:model="images" accept="image/*" type="file" aria-label="Upload Images" multiple>
                 </div>
                 <div class="ms-auto me-2 d-none d-sm-block">
-                    <input class="form-control form-control-sm" wire:model.defer="due_at" type="date" placeholder="Due date" min="{{ Carbon::today()->format('Y-m-d') }}" />
+                    <input class="form-control form-control-sm" wire:model.defer="due_at" type="date" placeholder="Due date" min="{{ carbon('today')->format('Y-m-d') }}" />
                 </div>
                 <button wire:loading.attr="disabled" wire:offline.attr="disabled" class="btn btn-sm btn-primary" type="submit">
                     <x-heroicon-o-plus class="heroicon" />

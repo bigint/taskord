@@ -10,51 +10,16 @@ use App\Models\ProductUpdate;
 use App\Models\Question;
 use App\Models\Task;
 use App\Models\User;
-use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use Spatie\Activitylog\Models\Activity;
 
 class UserController extends Controller
 {
     public function profile($username)
     {
         $user = User::cacheFor(60 * 60)
-            ->select(
-                'id',
-                'email',
-                'username',
-                'firstname',
-                'lastname',
-                'avatar',
-                'bio',
-                'location',
-                'company',
-                'status',
-                'status_emoji',
-                'sponsor',
-                'website',
-                'twitter',
-                'twitch',
-                'github',
-                'telegram',
-                'youtube',
-                'isStaff',
-                'isDeveloper',
-                'isBeta',
-                'isPatron',
-                'darkMode',
-                'reputation',
-                'isPrivate',
-                'isVerified',
-                'isFlagged',
-                'isSuspended',
-                'lastIP',
-                'timezone',
-                'updated_at',
-                'last_active',
-                'email_verified_at',
-            )
             ->where('username', $username)->firstOrFail();
         $type = Route::current()->getName();
 
@@ -81,7 +46,7 @@ class UserController extends Controller
                 ->count('id'),
         ];
 
-        if (Auth::check() && Auth::id() === $user->id or Auth::check() && Auth::user()->staffShip) {
+        if (Auth::check() && user()->id === $user->id or Auth::check() && user()->staffShip) {
             return view($type, $response);
         } elseif ($user->isFlagged) {
             return view('errors.404');
@@ -92,62 +57,52 @@ class UserController extends Controller
 
     public function profileSettings()
     {
-        $user = Auth::user();
-
         return view('user.settings.profile', [
-            'user' => $user,
+            'user' => user(),
         ]);
     }
 
     public function accountSettings()
     {
-        $user = Auth::user();
-
         return view('user.settings.account', [
-            'user' => $user,
+            'user' => user(),
         ]);
     }
 
     public function patronSettings()
     {
-        $user = Auth::user();
-
         return view('user.settings.patron', [
-            'user' => $user,
+            'user' => user(),
         ]);
     }
 
     public function passwordSettings()
     {
-        $user = Auth::user();
-
         return view('user.settings.password', [
-            'user' => $user,
+            'user' => user(),
         ]);
     }
 
     public function notificationsSettings()
     {
-        $user = Auth::user();
-
         return view('user.settings.notifications', [
-            'user' => $user,
+            'user' => user(),
         ]);
     }
 
     public function exportAccount()
     {
         if (Auth::check()) {
-            $account = User::find(Auth::id());
+            $account = User::find(user()->id);
             $followings = $account->followings;
             $followers = $account->followers;
-            $tasks = Task::where('user_id', Auth::id())->get();
-            $comment = Comment::where('user_id', Auth::id())->get();
-            $products = Product::where('user_id', Auth::id())->get();
-            $product_updates = ProductUpdate::where('user_id', Auth::id())->get();
-            $questions = Question::where('user_id', Auth::id())->get();
-            $answers = Answer::where('user_id', Auth::id())->get();
-            $patron = Patron::where('user_id', Auth::id())->get();
+            $tasks = Task::where('user_id', user()->id)->get();
+            $comment = Comment::where('user_id', user()->id)->get();
+            $products = Product::where('user_id', user()->id)->get();
+            $product_updates = ProductUpdate::where('user_id', user()->id)->get();
+            $questions = Question::where('user_id', user()->id)->get();
+            $answers = Answer::where('user_id', user()->id)->get();
+            $patron = Patron::where('user_id', user()->id)->get();
             $data = collect([
                 'account' => $account,
                 'followings' => $followings,
@@ -161,7 +116,7 @@ class UserController extends Controller
                 'patron' => $patron,
             ])->toJson(JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
 
-            $file_name = Carbon::now()->format('d_m_Y_h_i_s').'_'.$account->username.'_data.json';
+            $file_name = carbon()->format('d_m_Y_h_i_s').'_'.$account->username.'_data.json';
             $response = response($data, 200, [
                 'Content-Type' => 'application/json',
                 'Content-Disposition' => 'attachment; filename="'.$file_name.'"',
@@ -172,54 +127,66 @@ class UserController extends Controller
 
             return $response;
         } else {
-            return $this->alert('error', 'Forbidden!', [
-                'showCancelButton' =>  false,
+            return $this->alert('error', 'Forbidden!');
+        }
+    }
+
+    public function exportLogs()
+    {
+        if (Auth::check()) {
+            $logs = Activity::causedBy(user())
+                ->get();
+            $data = collect([
+                'logs' => $logs,
+            ])->toJson(JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
+
+            $file_name = carbon()->format('d_m_Y_h_i_s').'_'.user()->username.'_logs.json';
+            $response = response($data, 200, [
+                'Content-Type' => 'application/json',
+                'Content-Disposition' => 'attachment; filename="'.$file_name.'"',
             ]);
+            activity()
+                ->withProperties(['type' => 'User'])
+                ->log('Exported the account logs');
+
+            return $response;
+        } else {
+            return $this->alert('error', 'Forbidden!');
         }
     }
 
     public function integrationsSettings()
     {
-        $user = Auth::user();
-
         return view('user.settings.integrations', [
-            'user' => $user,
+            'user' => user(),
         ]);
     }
 
     public function apiSettings()
     {
-        $user = Auth::user();
-
         return view('user.settings.api', [
-            'user' => $user,
+            'user' => user(),
         ]);
     }
 
     public function logsSettings()
     {
-        $user = Auth::user();
-
         return view('user.settings.logs', [
-            'user' => $user,
+            'user' => user(),
         ]);
     }
 
     public function dataSettings()
     {
-        $user = Auth::user();
-
         return view('user.settings.data', [
-            'user' => $user,
+            'user' => user(),
         ]);
     }
 
     public function deleteSettings()
     {
-        $user = Auth::user();
-
         return view('user.settings.delete', [
-            'user' => $user,
+            'user' => user(),
         ]);
     }
 
@@ -258,10 +225,9 @@ class UserController extends Controller
 
     public function darkMode()
     {
-        $user = Auth::user();
-        if ($user->darkMode) {
-            $user->darkMode = false;
-            $user->save();
+        if (user()->darkMode) {
+            user()->darkMode = false;
+            user()->save();
             activity()
                 ->withProperties(['type' => 'User'])
                 ->log('Disabled Dark mode');
@@ -270,8 +236,8 @@ class UserController extends Controller
                 'status' => 'disabled',
             ]);
         } else {
-            $user->darkMode = true;
-            $user->save();
+            user()->darkMode = true;
+            user()->save();
             activity()
                 ->withProperties(['type' => 'User'])
                 ->log('Enabled Dark mode');
@@ -280,10 +246,5 @@ class UserController extends Controller
                 'status' => 'enabled',
             ]);
         }
-    }
-
-    public function suspended()
-    {
-        return view('auth.suspended');
     }
 }

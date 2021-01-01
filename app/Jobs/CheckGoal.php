@@ -3,7 +3,6 @@
 namespace App\Jobs;
 
 use App\Gamify\Points\GoalReached;
-use Carbon\Carbon;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
@@ -51,7 +50,7 @@ class CheckGoal implements ShouldQueue
                 $this->giveReputation();
             }
         } else {
-            if (! Carbon::parse($last_reached->last()->created_at)->isToday()) {
+            if (! carbon($last_reached->last()->created_at)->isToday()) {
                 if ($this->user->daily_goal_reached === $this->user->daily_goal) {
                     $this->giveReputation();
                 }

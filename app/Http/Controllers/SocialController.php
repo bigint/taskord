@@ -20,7 +20,11 @@ class SocialController extends Controller
 
     public function Callback(Request $request, $provider)
     {
-        $userSocial = Socialite::driver($provider)->user();
+        if ($provider === 'twitter') {
+            $userSocial = Socialite::driver($provider)->user();
+        } else {
+            $userSocial = Socialite::driver($provider)->stateless()->user();
+        }
         $user = User::where(['email' => $userSocial->getEmail()])->first();
         if ($user) {
             Auth::login($user);
@@ -36,7 +40,7 @@ class SocialController extends Controller
             );
             activity()
                 ->withProperties(['type' => 'Auth'])
-                ->log('User logged in via Social auth from '.$request->ip());
+                ->log('Logged in via Social auth from '.$request->ip());
 
             return redirect()->route('home');
         } else {
@@ -45,10 +49,10 @@ class SocialController extends Controller
                 if (! $user) {
                     $username = $userSocial->getNickname();
                 } else {
-                    $username = $userSocial->getNickname().'_'.Str::random(5);
+                    $username = $userSocial->getNickname().'_'.strtolower(Str::random(5));
                 }
             } else {
-                $username = Str::random(10);
+                $username = strtolower(Str::random(6));
             }
 
             if ($provider === 'gitlab' or $provider === 'github') {
@@ -64,6 +68,7 @@ class SocialController extends Controller
                 'avatar' => $avatar,
                 'provider_id' => $userSocial->getId(),
                 'provider' => $provider,
+                'api_token' => Str::random(60),
                 'email_verified_at' => date('Y-m-d H:i:s'),
             ]);
             AuthGetIP::dispatch($user, $request->ip());
@@ -91,7 +96,7 @@ class SocialController extends Controller
             $user->notify(new Welcome(true));
             activity()
                 ->withProperties(['type' => 'Auth'])
-                ->log('New user has been signed up via Social auth - @'.$user->username.' from '.request()->ip());
+                ->log('Created account with '.$provider.' '.$user->email.' from '.request()->ip());
 
             return redirect()->route('home');
         }

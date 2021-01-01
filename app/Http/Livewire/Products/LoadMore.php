@@ -3,7 +3,6 @@
 namespace App\Http\Livewire\Products;
 
 use App\Models\Product;
-use Carbon\Carbon;
 use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Collection;
@@ -15,6 +14,7 @@ class LoadMore extends Component
     public $page;
     public $perPage;
     public $loadMore;
+    public $readyToLoad = true;
 
     public function mount($page, $perPage, $type)
     {
@@ -45,7 +45,7 @@ class LoadMore extends Component
                     ->orderBy('created_at', 'desc')
                     ->get()
                     ->groupBy(function ($date) {
-                        return Carbon::parse($date->created_at)->format('Y,W');
+                        return $date->created_at->format('Y,W');
                     });
             } elseif ($this->type === 'products.launched') {
                 $products = Product::cacheFor(60 * 60)
@@ -53,7 +53,7 @@ class LoadMore extends Component
                     ->orderBy('created_at', 'desc')
                     ->get()
                     ->groupBy(function ($date) {
-                        return Carbon::parse($date->created_at)->format('Y,W');
+                        return $date->created_at->format('Y,W');
                     });
             }
 

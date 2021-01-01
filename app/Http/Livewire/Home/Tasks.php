@@ -16,18 +16,23 @@ class Tasks extends Component
     ];
 
     public $page;
+    public $readyToLoad = false;
 
     public function mount($page)
     {
         $this->page = $page ? $page : 1;
     }
 
+    public function loadTasks()
+    {
+        $this->readyToLoad = true;
+    }
+
     public function render()
     {
-        $user = Auth::user();
-        if (Auth::check() && $user->onlyFollowingsTasks) {
-            $userIds = $user->followings->pluck('id');
-            $userIds->push(Auth::id());
+        if (Auth::check() && user()->onlyFollowingsTasks) {
+            $userIds = user()->followings->pluck('id');
+            $userIds->push(user()->id);
             $tasks = Task::cacheFor(60 * 60)
                 ->select('id', 'task', 'done', 'type', 'done_at', 'user_id', 'product_id', 'source', 'images', 'hidden')
                 ->whereIn('user_id', $userIds)
@@ -55,7 +60,7 @@ class Tasks extends Component
         }
 
         return view('livewire.home.tasks', [
-            'tasks' => $tasks,
+            'tasks' => $this->readyToLoad ? $tasks : [],
             'page' => $this->page,
         ]);
     }

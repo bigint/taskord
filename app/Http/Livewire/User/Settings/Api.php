@@ -28,39 +28,31 @@ class Api extends Component
         $throttler = Throttle::get(Request::instance(), 5, 5);
         $throttler->hit();
         if (count($throttler) > 10) {
-            Helper::flagAccount(Auth::user());
+            Helper::flagAccount(user());
         }
         if (! $throttler->check()) {
             activity()
                 ->withProperties(['type' => 'Throttle'])
                 ->log('Rate limited while generating a token');
 
-            return $this->alert('error', 'Your are rate limited, try again later!', [
-                'showCancelButton' =>  false,
-            ]);
+            return $this->alert('error', 'Your are rate limited, try again later!');
         }
 
         if (Auth::check()) {
-            if (Auth::id() === $this->user->id) {
-                Auth::user()->api_token = Str::random(60);
-                Auth::user()->save();
+            if (user()->id === $this->user->id) {
+                user()->api_token = Str::random(60);
+                user()->save();
                 $this->emit('tokenRegenerated');
                 activity()
                     ->withProperties(['type' => 'User'])
-                    ->log('New API key was generated');
+                    ->log('Created a new API key');
 
-                return $this->alert('success', 'New API key been generated successfully', [
-                    'showCancelButton' =>  false,
-                ]);
+                return $this->alert('success', 'New API key been generated successfully');
             } else {
-                return $this->alert('error', 'Forbidden!', [
-                    'showCancelButton' =>  false,
-                ]);
+                return $this->alert('error', 'Forbidden!');
             }
         } else {
-            return $this->alert('error', 'Forbidden!', [
-                'showCancelButton' =>  false,
-            ]);
+            return $this->alert('error', 'Forbidden!');
         }
     }
 

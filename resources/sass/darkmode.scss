@@ -60,7 +60,7 @@ body {
     color: #c9d1d9 !important;
 }
 
-.reputation {
+.score {
     color: black !important;
 }
 
@@ -94,6 +94,7 @@ body {
 
 .input-group-text {
     background-color: $input-bg;
+    color: white;
     border: 1px solid $border-bg;
 }
 
@@ -173,4 +174,17 @@ hr {
 
 .tippy-arrow:after {
     border-top-color: rgb(255 255 255 / 20%) !important;
+}
+
+.body-font {
+    color: #ced4da;
+}
+
+.taskord-spinner {
+    border: 3px solid #495057;
+    border-right-color: white;
+}
+
+.github-logo {
+    filter: invert(1);
 }

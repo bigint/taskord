@@ -2,13 +2,9 @@
     <span class="pe-2 fw-bold">
         © Taskord
     </span>
-    @auth
-    @if (Auth::user()->staffShip)
     <a class="pe-2" href="{{ route('about') }}">
         About
     </a>
-    @endif
-    @endauth
     <a class="pe-2" href="https://status.taskord.com" target="_blank" rel="noreferrer">
         Status
     </a>
@@ -28,7 +24,7 @@
         Contact
     </a>
     @auth
-    @if (Auth::user()->staffShip)
+    @if (user()->staffShip)
     <span class="pe-2 text-danger">
         Admin mode on
     </span>

@@ -111,6 +111,6 @@ class User extends Authenticatable implements MustVerifyEmail
 
     public function routeNotificationForDiscord()
     {
-        return env('DISCORD_WEBHOOK');
+        return config('taskord.discord.webhook');
     }
 }

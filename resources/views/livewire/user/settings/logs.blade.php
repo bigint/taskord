@@ -5,6 +5,14 @@
             <div>Recent events that happend on your account</div>
         </div>
         <div class="card-body">
+            @if (count($activities) === 0)
+            <div class="card-body text-center mt-3 mb-3">
+                <x-heroicon-o-collection class="heroicon-4x text-primary mb-2" />
+                <div class="h4">
+                    Nothing has been logged!
+                </div>
+            </div>
+            @endif
             @foreach ($activities as $activity)
                 <div class="d-flex w-100 justify-content-between">
                     <h6 class="mb-1">
@@ -43,7 +51,7 @@
                             Throttled 🛑
                         @endif
                     </h6>
-                    <small class="text-secondary">{{ Carbon::parse($activity->created_at)->diffForHumans() }}</small>
+                    <small class="text-secondary">{{ $activity->created_at->diffForHumans() }}</small>
                 </div>
                 <p class="mb-1">
                     {{ $activity->description }}

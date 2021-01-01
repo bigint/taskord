@@ -14,10 +14,10 @@
                             <strong>{{ $message }}</strong>
                         </span>
                     @enderror
-                    @if (Auth::user()->ownedProducts->merge(Auth::user()->products)->count('id') > 0)
+                    @if (user()->ownedProducts->merge(user()->products)->count('id') > 0)
                     <select class="form-select mt-3" wire:model.defer="product">
                         <option selected>Choose Product (optional)</option>
-                        @foreach (Auth::user()->ownedProducts->merge(Auth::user()->products) as $product)
+                        @foreach (user()->ownedProducts->merge(user()->products) as $product)
                         <option value="{{ $product->id }}">{{ $product->name }}</option>
                         @endforeach
                     </select>
@@ -109,7 +109,7 @@
                     <h2 class="accordion-header" id="github-webhook">
                         <button class="accordion-button collapsed bg-light" type="button" data-bs-toggle="collapse"
                             data-bs-target="#collapse-github-webhook" aria-expanded="false" aria-controls="collapse-github-webhook">
-                            <img class="me-2" src="{{ asset('images/brand/github.svg') }}" height="15" width="15" />
+                            <img class="me-2 github-logo" src="{{ asset('images/brand/github.svg') }}" height="15" width="15" />
                             GitHub
                         </button>
                     </h2>
@@ -186,7 +186,7 @@
                                 <x-heroicon-o-globe-alt class="heroicon text-info" />
                             </span>
                             @elseif ($webhook->type === 'github')
-                            <img src="{{ asset('images/brand/github.svg') }}" height="15" width="15" />
+                            <img class="github-logo" src="{{ asset('images/brand/github.svg') }}" height="15" width="15" />
                             @elseif ($webhook->type === 'gitlab')
                             <img src="{{ asset('images/brand/gitlab.svg') }}" height="15" width="15" />
                             @endif
@@ -198,7 +198,7 @@
                             {{ Str::limit($webhook->token, '4', '****************') }}
                         </td>
                         <td>
-                            {{ Carbon::parse($webhook->created_at)->format('M d, Y') }}
+                            {{ $webhook->created_at->format('M d, Y') }}
                         </td>
                         <td>
                             <button wire:loading.attr="disabled" wire:click="deleteWebhook({{ $webhook->id }})"

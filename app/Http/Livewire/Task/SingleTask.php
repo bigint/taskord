@@ -5,7 +5,6 @@ namespace App\Http\Livewire\Task;
 use App\Gamify\Points\TaskCompleted;
 use App\Jobs\CheckGoal;
 use App\Models\Task;
-use Carbon\Carbon;
 use GrahamCampbell\Throttle\Facades\Throttle;
 use Helper;
 use Illuminate\Support\Facades\Auth;
@@ -32,38 +31,36 @@ class SingleTask extends Component
         $throttler = Throttle::get(Request::instance(), 20, 5);
         $throttler->hit();
         if (count($throttler) > 30) {
-            Helper::flagAccount(Auth::user());
+            Helper::flagAccount(user());
         }
         if (! $throttler->check()) {
             activity()
                 ->withProperties(['type' => 'Throttle'])
                 ->log('Rate limited while checking the task');
 
-            return $this->alert('error', 'Your are rate limited, try again later!', [
-                'showCancelButton' =>  false,
-            ]);
+            return $this->alert('error', 'Your are rate limited, try again later!');
         }
 
         if (Auth::check()) {
-            if (Auth::id() === $this->task->user->id) {
+            if (user()->id === $this->task->user->id) {
                 if ($this->task->done) {
-                    $this->task->done_at = Carbon::now();
-                    Auth::user()->touch();
+                    $this->task->done_at = carbon();
+                    user()->touch();
                     activity()
                         ->withProperties(['type' => 'Task'])
-                        ->log('Task was marked as pending T: '.$this->task->id);
+                        ->log('Updated a task as pending | Task ID: '.$this->task->id);
                 } else {
-                    $this->task->done_at = Carbon::now();
-                    Auth::user()->touch();
-                    if (Auth::user()->hasGoal) {
-                        Auth::user()->daily_goal_reached++;
-                        Auth::user()->save();
-                        CheckGoal::dispatch(Auth::user(), $this->task);
+                    $this->task->done_at = carbon();
+                    user()->touch();
+                    if (user()->hasGoal) {
+                        user()->daily_goal_reached++;
+                        user()->save();
+                        CheckGoal::dispatch(user(), $this->task);
                     }
                     givePoint(new TaskCompleted($this->task));
                     activity()
                         ->withProperties(['type' => 'Task'])
-                        ->log('Task was marked as done T: '.$this->task->id);
+                        ->log('Updated a task as done | Task ID: '.$this->task->id);
                 }
                 $this->task->done = ! $this->task->done;
                 $this->task->save();
@@ -71,14 +68,10 @@ class SingleTask extends Component
 
                 return true;
             } else {
-                return $this->alert('error', 'Forbidden!', [
-                    'showCancelButton' =>  false,
-                ]);
+                return $this->alert('error', 'Forbidden!');
             }
         } else {
-            return $this->alert('error', 'Forbidden!', [
-                'showCancelButton' =>  false,
-            ]);
+            return $this->alert('error', 'Forbidden!');
         }
     }
 
@@ -87,67 +80,51 @@ class SingleTask extends Component
         $throttler = Throttle::get(Request::instance(), 20, 5);
         $throttler->hit();
         if (count($throttler) > 30) {
-            Helper::flagAccount(Auth::user());
+            Helper::flagAccount(user());
         }
         if (! $throttler->check()) {
             activity()
                 ->withProperties(['type' => 'Throttle'])
                 ->log('Rate limited while praising the task');
 
-            return $this->alert('error', 'Your are rate limited, try again later!', [
-                'showCancelButton' =>  false,
-            ]);
+            return $this->alert('error', 'Your are rate limited, try again later!');
         }
 
         if (Auth::check()) {
-            if (! Auth::user()->hasVerifiedEmail()) {
-                return $this->alert('warning', 'Your email is not verified!', [
-                    'showCancelButton' =>  false,
-                ]);
+            if (! user()->hasVerifiedEmail()) {
+                return $this->alert('warning', 'Your email is not verified!');
             }
 
-            if (Auth::user()->isFlagged) {
-                return $this->alert('error', 'Your account is flagged!', [
-                    'showCancelButton' =>  false,
-                ]);
+            if (user()->isFlagged) {
+                return $this->alert('error', 'Your account is flagged!');
             }
-            if (Auth::id() === $this->task->user->id) {
-                return $this->alert('warning', 'You can\'t praise your own task!', [
-                    'showCancelButton' =>  false,
-                ]);
+            if (user()->id === $this->task->user->id) {
+                return $this->alert('warning', 'You can\'t praise your own task!');
             }
             Helper::togglePraise($this->task, 'TASK');
             activity()
                 ->withProperties(['type' => 'Task'])
-                ->log('Task praise was toggled T: '.$this->task->id);
+                ->log('Toggled task praise | Task ID: '.$this->task->id);
         } else {
-            return $this->alert('error', 'Forbidden!', [
-                'showCancelButton' =>  false,
-            ]);
+            return $this->alert('error', 'Forbidden!');
         }
     }
 
     public function hide()
     {
         if (Auth::check()) {
-            if (Auth::user()->isStaff and Auth::user()->staffShip) {
+            if (user()->isStaff and user()->staffShip) {
                 Helper::hide($this->task);
                 activity()
                     ->withProperties(['type' => 'Admin'])
-                    ->log('Task hide was toggled T: '.$this->task->id);
+                    ->log('Toggled task hide | Task ID: '.$this->task->id);
 
-                return $this->alert('success', 'Task is hidden from public!', [
-                    'showCancelButton' =>  false,
-                ]);
+                return $this->alert('success', 'Task is hidden from public!');
             } else {
-                return $this->alert('error', 'Forbidden!', [
-                    'showCancelButton' =>  false,
-                ]);
+                return $this->alert('error', 'Forbidden!');
             }
         } else {
-            return $this->alert('error', 'Forbidden!', [
-                'showCancelButton' =>  false,
-            ]);
+            return $this->alert('error', 'Forbidden!');
         }
     }
 
@@ -159,35 +136,27 @@ class SingleTask extends Component
     public function deleteTask()
     {
         if (Auth::check()) {
-            if (Auth::user()->isFlagged) {
-                return $this->alert('error', 'Your account is flagged!', [
-                    'showCancelButton' =>  false,
-                ]);
+            if (user()->isFlagged) {
+                return $this->alert('error', 'Your account is flagged!');
             }
 
-            if (Auth::user()->staffShip or Auth::id() === $this->task->user->id) {
+            if (user()->staffShip or user()->id === $this->task->user->id) {
                 activity()
                     ->withProperties(['type' => 'Task'])
-                    ->log('Task was deleted T: '.$this->task->id);
+                    ->log('Deleted a task | Task ID: '.$this->task->id);
                 foreach ($this->task->images ?? [] as $image) {
                     Storage::delete($image);
                 }
                 $this->task->delete();
                 $this->emitUp('taskDeleted');
-                Auth::user()->touch();
+                user()->touch();
 
-                return $this->alert('success', 'Task has been deleted successfully!', [
-                    'showCancelButton' =>  false,
-                ]);
+                return $this->alert('success', 'Task has been deleted successfully!');
             } else {
-                return $this->alert('error', 'Forbidden!', [
-                    'showCancelButton' =>  false,
-                ]);
+                return $this->alert('error', 'Forbidden!');
             }
         } else {
-            return $this->alert('error', 'Forbidden!', [
-                'showCancelButton' =>  false,
-            ]);
+            return $this->alert('error', 'Forbidden!');
         }
     }
 
@@ -202,7 +171,10 @@ class SingleTask extends Component
             'shipped',
             'ship',
         ];
-        if (Str::contains(strtolower($this->task->task), $launchList) and (bool) $this->task->done) {
+        if (
+            (Str::contains(strtolower($this->task->task), $launchList) and (bool) $this->task->done) and
+            ! ($this->task->source === 'GitHub' or $this->task->source === 'GitLab' or $this->task->source === 'Webhook')
+        ) {
             $this->launched = true;
         }
 
@@ -212,7 +184,10 @@ class SingleTask extends Component
             'fixed',
             'fixes',
         ];
-        if (Str::contains(strtolower($this->task->task), $bugList) and (bool) $this->task->done) {
+        if (
+            (Str::contains(strtolower($this->task->task), $bugList) and (bool) $this->task->done) and
+            ! ($this->task->source === 'GitHub' or $this->task->source === 'GitLab' or $this->task->source === 'Webhook')
+        ) {
             $this->bug = true;
         }
 
@@ -221,7 +196,10 @@ class SingleTask extends Component
             'learning',
             'learn',
         ];
-        if (Str::contains(strtolower($this->task->task), $learnList) and (bool) $this->task->done) {
+        if (
+            (Str::contains(strtolower($this->task->task), $learnList) and (bool) $this->task->done) and
+            ! ($this->task->source === 'GitHub' or $this->task->source === 'GitLab' or $this->task->source === 'Webhook')
+        ) {
             $this->learn = true;
         }
 

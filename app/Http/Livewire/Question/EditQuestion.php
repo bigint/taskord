@@ -29,9 +29,7 @@ class EditQuestion extends Component
                 'body' => 'required|min:3|max:10000',
             ]);
         } else {
-            $this->alert('error', 'Forbidden!', [
-                'showCancelButton' =>  false,
-            ]);
+            $this->alert('error', 'Forbidden!');
         }
     }
 
@@ -43,46 +41,36 @@ class EditQuestion extends Component
                 'body' => 'required|min:3|max:10000',
             ]);
 
-            if (! Auth::user()->hasVerifiedEmail()) {
-                return $this->alert('warning', 'Your email is not verified!', [
-                    'showCancelButton' =>  false,
-                ]);
+            if (! user()->hasVerifiedEmail()) {
+                return $this->alert('warning', 'Your email is not verified!');
             }
 
-            if (Auth::user()->isFlagged) {
-                return $this->alert('error', 'Your account is flagged!', [
-                    'showCancelButton' =>  false,
-                ]);
+            if (user()->isFlagged) {
+                return $this->alert('error', 'Your account is flagged!');
             }
 
             $question = Question::where('id', $this->question->id)->firstOrFail();
 
             $patronOnly = ! $this->patronOnly ? false : true;
 
-            if (Auth::user()->staffShip or Auth::id() === $question->user_id) {
+            if (user()->staffShip or user()->id === $question->user_id) {
                 $question->title = $this->title;
                 $question->body = $this->body;
                 $question->patronOnly = $this->patronOnly;
                 $question->save();
-                Auth::user()->touch();
+                user()->touch();
 
                 activity()
                     ->withProperties(['type' => 'Question'])
-                    ->log('Question has been edited Q: '.$question->id);
-                $this->flash('success', 'Question has been edited!', [
-                    'showCancelButton' =>  false,
-                ]);
+                    ->log('Updated a question | Question ID: '.$question->id);
+                $this->flash('success', 'Question has been edited!');
 
                 return redirect()->route('question.question', ['id' => $question->id]);
             } else {
-                $this->alert('error', 'Forbidden!', [
-                    'showCancelButton' =>  false,
-                ]);
+                $this->alert('error', 'Forbidden!');
             }
         } else {
-            $this->alert('error', 'Forbidden!', [
-                'showCancelButton' =>  false,
-            ]);
+            $this->alert('error', 'Forbidden!');
         }
     }
 }

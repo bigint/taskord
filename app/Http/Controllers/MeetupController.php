@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Meetup;
-use Illuminate\Support\Facades\Auth;
 
 class MeetupController extends Controller
 {
@@ -33,7 +32,7 @@ class MeetupController extends Controller
 
     public function rsvpd()
     {
-        $meetups = Auth::user()->subscriptions(Meetup::class)
+        $meetups = user()->subscriptions(Meetup::class)
             ->orderBy('date')
             ->get();
 

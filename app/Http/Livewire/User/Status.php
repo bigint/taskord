@@ -22,21 +22,17 @@ class Status extends Component
     public function clearStatus()
     {
         if (Auth::check()) {
-            Auth::user()->status = null;
-            Auth::user()->status_emoji = null;
-            Auth::user()->save();
+            user()->status = null;
+            user()->status_emoji = null;
+            user()->save();
             $this->emit('statusUpdated');
             activity()
                 ->withProperties(['type' => 'User'])
-                ->log('User status was cleared');
+                ->log('Cleared the account status');
 
-            return $this->alert('success', 'Status cleared successfully!', [
-                'showCancelButton' =>  false,
-            ]);
+            return $this->alert('success', 'Status cleared successfully!');
         } else {
-            return $this->alert('error', 'Forbidden!', [
-                'showCancelButton' =>  false,
-            ]);
+            return $this->alert('error', 'Forbidden!');
         }
     }
 
@@ -44,40 +40,32 @@ class Status extends Component
     {
         if (Auth::check()) {
             if (strlen($event['status_emoji']) === 0) {
-                return $this->alert('warning', 'Select the emoji!', [
-                    'showCancelButton' =>  false,
-                ]);
+                return $this->alert('warning', 'Select the emoji!');
             }
 
             if (strlen($event['status']) !== 0) {
-                Auth::user()->status = $event['status'];
-                Auth::user()->status_emoji = $event['status_emoji'];
-                Auth::user()->save();
+                user()->status = $event['status'];
+                user()->status_emoji = $event['status_emoji'];
+                user()->save();
                 $this->emit('statusUpdated');
                 activity()
                     ->withProperties(['type' => 'User'])
-                    ->log('User status was updated');
+                    ->log('Updated the account status');
 
-                return $this->alert('success', 'Status set successfully!', [
-                    'showCancelButton' =>  false,
-                ]);
+                return $this->alert('success', 'Status set successfully!');
             } else {
-                Auth::user()->status = null;
-                Auth::user()->status_emoji = null;
-                Auth::user()->save();
+                user()->status = null;
+                user()->status_emoji = null;
+                user()->save();
                 $this->emit('statusUpdated');
                 activity()
                     ->withProperties(['type' => 'User'])
-                    ->log('User status was cleared');
+                    ->log('Deleted the account status');
 
-                return $this->alert('success', 'Status cleared successfully!', [
-                    'showCancelButton' =>  false,
-                ]);
+                return $this->alert('success', 'Status cleared successfully!');
             }
         } else {
-            return $this->alert('error', 'Forbidden!', [
-                'showCancelButton' =>  false,
-            ]);
+            return $this->alert('error', 'Forbidden!');
         }
     }
 

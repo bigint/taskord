@@ -15,8 +15,8 @@ use App\Notifications\QuestionPraised;
 use App\Notifications\Task\NotifySubscribers as TaskSubscribers;
 use App\Notifications\TaskPraised;
 use Carbon\Carbon;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\App;
-use Illuminate\Support\Facades\Auth;
 
 class Helper
 {
@@ -24,48 +24,59 @@ class Helper
     {
         if (App::environment() === 'production') {
             $cleaned_url = str_replace('https://taskord.com/storage/', '', $url);
-            $processed_url = 'https://ik.imagekit.io/blbrg3136a/tr:w-'.$resolution.'/'.$cleaned_url;
 
-            return $processed_url;
-        } else {
-            return $url;
+            return "https://ik.imagekit.io/taskordimg/tr:w-{$resolution}/{$cleaned_url}";
         }
+
+        return $url;
     }
 
-    public static function togglePraise($entity, $type)
+    /**
+     * Toggle praise on a model.
+     *
+     * @param \Illuminate\Database\Eloquent\Model $entity
+     * @param string                              $type
+     * @return void
+     */
+    public static function togglePraise(Model $entity, string $type)
     {
-        if (Auth::user()->hasLiked($entity)) {
-            Auth::user()->unlike($entity);
-            $entity->refresh();
-            if (
-                $type === 'TASK' or
-                $entity->source !== 'GitHub' and
-                $entity->source !== 'GitLab'
-            ) {
-                undoPoint(new PraiseCreated($entity));
-            }
-            Auth::user()->touch();
-        } else {
-            Auth::user()->like($entity);
-            $entity->refresh();
-            if ($type === 'TASK') {
-                $entity->user->notify(new TaskPraised($entity, Auth::id()));
-            } elseif ($type === 'COMMENT') {
-                $entity->user->notify(new CommentPraised($entity, Auth::id()));
-            } elseif ($type === 'QUESTION') {
-                $entity->user->notify(new QuestionPraised($entity, Auth::id()));
-            } elseif ($type === 'ANSWER') {
-                $entity->user->notify(new AnswerPraised($entity, Auth::id()));
-            }
-            if (
-                $type === 'TASK' or
-                $entity->source !== 'GitHub' and
-                $entity->source !== 'GitLab'
-            ) {
-                givePoint(new PraiseCreated($entity));
-            }
-            Auth::user()->touch();
+        $user = user();
+        $hasLiked = $user->hasLiked($entity);
+
+        ($hasLiked)
+            ? $user->unlike($entity)
+            : $user->like($entity);
+
+        if ($type === 'TASK'
+            || $entity->source !== 'GitHub'
+            && $entity->source !== 'Gitlab'
+        ) {
+            ($hasLiked)
+                ? undoPoint(new PraiseCreated($entity))
+                : givePoint(new PraiseCreated($entity));
         }
+
+        if (! $hasLiked) {
+            switch ($type) {
+                case 'TASK':
+                    $entity->user->notify(new TaskPraised($entity, $user->id));
+                    break;
+                case 'COMMENT':
+                    $entity->user->notify(new CommentPraised($entity, $user->id));
+                    break;
+                case 'QUESTION':
+                    $entity->user->notify(new QuestionPraised($entity, $user->id));
+                    break;
+                case 'ANSWER':
+                    $entity->user->notify(new AnswerPraised($entity, $user->id));
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        $entity->refresh();
+        $user->touch();
     }
 
     public static function hide($entity)
@@ -87,7 +98,7 @@ class Helper
             for ($i = 0; $i < count($users); $i++) {
                 $user = User::where('username', $users[$i])->first();
                 if ($user !== null) {
-                    if ($user->id !== Auth::id()) {
+                    if ($user->id !== user()->id) {
                         $user->notify(new Mentioned($task, $type));
                     }
                 }
@@ -97,7 +108,7 @@ class Helper
 
     public static function notifySubscribers($users, $entity, $type)
     {
-        $subscribers = $users->except(Auth::id());
+        $subscribers = $users->except(user()->id);
         if ($subscribers) {
             for ($i = 0; $i < count($subscribers); $i++) {
                 if ($subscribers[$i] !== null) {
@@ -111,17 +122,15 @@ class Helper
         }
     }
 
-    public static function getUserIDFromMention($string)
+    public static function getUsernamesFromMentions($text)
     {
-        $mention = false;
-        preg_match_all("/(@\w+)/u", $string, $matches);
-        if ($matches) {
-            $mentionsArray = array_count_values($matches[0]);
-            $mention = array_keys($mentionsArray);
-        }
-        $usernames = str_replace('@', '', $mention);
+        preg_match_all("/(@[\w-]+)/u", $text, $matches);
 
-        return $usernames;
+        if ($matches) {
+            $usernames = collect($matches[0])->values()->all();
+        }
+
+        return str_replace('@', '', $usernames);
     }
 
     public static function parseUserMentionsToMarkdownLinks($markdown, $mentions)
@@ -135,34 +144,18 @@ class Helper
 
     public static function getProductIDFromMention($string)
     {
-        $mention = false;
-        preg_match_all("/(#\w+)/u", $string, $matches);
+        preg_match_all("/(#[\w-]+)/u", $string, $matches);
+
         if ($matches) {
-            $mentionsArray = array_count_values($matches[0]);
-            $mention = array_keys($mentionsArray);
-        }
-        $products = str_replace('#', '', $mention);
-
-        if ($products) {
-            $product = Product::where('slug', $products[0])->first();
-            if ($product) {
-                if ($product->user_id === Auth::id() or Auth::user()->products->contains($product)) {
-                    $product_id = $product->id;
-                    $type = 'product';
-                } else {
-                    $product_id = null;
-                    $type = 'user';
-                }
-            } else {
-                $product_id = null;
-                $type = 'user';
-            }
-        } else {
-            $product_id = null;
-            $type = 'user';
+            $mentions = collect($matches[0])->values()->all();
         }
 
-        return $product_id;
+        $products = collect(str_replace('#', '', $mentions));
+
+        return $products
+            ->map(fn ($product) => Product::where('slug', $product)->first())->whereNotNull('id')
+            ->filter(fn ($product) => $product->user_id === user()->id or user()->products->contains($product))
+            ->pluck('id')->first();
     }
 
     public static function removeProtocol($url)
@@ -172,42 +165,45 @@ class Helper
 
     public static function renderTask($task)
     {
-        $reg_exUrl = "/(http|https|ftp|ftps)\:\/\/[a-zA-Z0-9\-\.]+\.[a-zA-Z]{2,100}(\/\S*)?/";
-        $products = preg_replace('/#(\w+)/', '<a href="/product/$1">#$1</a>', $task);
-        $users = preg_replace('/@(\w+)/', '<a href="/@$1">@$1</a>', $products);
-        if (preg_match($reg_exUrl, $users, $url)) {
+        $urlRegex = "/(http|https|ftp|ftps)\:\/\/[a-zA-Z0-9\-\.]+\.[a-zA-Z]{2,100}(\/\S*)?/";
+
+        $task = preg_replace('/#([\w-]+)/', '<a href="/product/$1">#$1</a>', $task);
+        $task = preg_replace('/@([\w-]+)/', '<a href="/@$1">@$1</a>', $task);
+
+        if (preg_match($urlRegex, $task, $url)) {
             $truncate = strlen($url[0]) > 30 ? substr($url[0], 0, 30).'...' : $url[0];
 
-            return preg_replace($reg_exUrl, "<a class='link' href=$url[0]>$truncate</a> ", $users);
-        } else {
-            return $users;
+            return preg_replace($urlRegex, "<a class='link' href='$url[0]'>$truncate</a>", $task);
         }
+
+        return $task;
     }
 
-    public static function dueDate($date)
+    public static function renderDueDate(Carbon $date)
     {
-        $diff = Carbon::today()->diffInDays(Carbon::parse($date), false);
-        $days = abs($diff);
-        $format = Carbon::parse($date)->format('M d, Y');
+        $difference = carbon('today')->diffInDays($date, false);
+        $days = abs($difference);
 
-        if ($diff > 1) {
-            return "<span title='$format' class='me-2 text-success'>Due in $days days</span>";
+        if ($difference > 1) {
+            $due = ['class' => 'text-success', 'text' => "Due in {$days} days"];
         }
 
-        if ($diff === 1) {
-            return "<span title='$format' class='me-2 text-info'>Due tomorrow</span>";
+        if ($difference === 1) {
+            $due = ['class' => 'text-info', 'text' => 'Due tomorrow'];
         }
 
-        if ($diff === 0) {
-            return "<span title='$format' class='me-2 text-danger'>Due today</span>";
+        if ($difference === 0) {
+            $due = ['class' => 'text-danger', 'text' => 'Due today'];
         }
 
-        if ($diff < 0) {
+        if ($difference < 0) {
+            $due = ['class' => 'text-danger', 'text' => "Overdue by {$days} day"];
+
             if ($days > 1) {
-                return "<span title='$format' class='me-2 text-danger'>Overdue by $days days</span>";
-            } else {
-                return "<span title='$format' class='me-2 text-danger'>Overdue by $days day</span>";
+                $due = ['class' => 'text-danger', 'text' => "Overdue by {$days} days"];
             }
         }
+
+        return "<time datetime='{$date->format('Y-m-d')}' class='me-2 {$due['class']}'>{$due['text']}</time>";
     }
 }

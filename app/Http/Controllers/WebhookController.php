@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Task;
+use App\Actions\CreateNewTask;
 use App\Models\User;
 use App\Models\Webhook;
 use App\Notifications\VersionReleased;
-use Carbon\Carbon;
 use GrahamCampbell\Throttle\Facades\Throttle;
 use GuzzleHttp\Client;
 use Helper;
@@ -21,12 +20,13 @@ class WebhookController extends Controller
         $ignoreList = [
             'styleci',
             'merge pull request',
-            'bump',
+            'merge branch',
         ];
 
         if (! Str::contains(strtolower($task), $ignoreList)) {
             $webhook->user->touch();
-            $task = Task::create([
+
+            $task = (new CreateNewTask($webhook->user, [
                 'user_id' =>  $webhook->user_id,
                 'task' => $task,
                 'done' => $done,
@@ -34,10 +34,7 @@ class WebhookController extends Controller
                 'product_id' => $product_id,
                 'type' => $product_id ? 'product' : 'user',
                 'source' => $type,
-            ]);
-            activity()
-                ->withProperties(['type' => 'Task'])
-                ->log('New Task created via '.$type);
+            ]))();
         }
     }
 
@@ -51,7 +48,7 @@ class WebhookController extends Controller
             return response('Invalid parameters', 422);
         }
         if ($request_body['done']) {
-            $done_at = Carbon::now();
+            $done_at = carbon();
         } else {
             $done_at = null;
         }
@@ -64,9 +61,6 @@ class WebhookController extends Controller
             $webhook->product_id,
             'Webhook'
         );
-        activity()
-            ->withProperties(['type' => 'Task'])
-            ->log('New Task created via Webhook');
 
         return response('success', 200);
     }
@@ -78,15 +72,16 @@ class WebhookController extends Controller
         }
         $request_body = $request->json()->all();
 
-        if ($request->header('X-GitHub-Event') === 'push') {
-            if (Str::contains($request_body['pusher']['name'], '[bot]')) {
-                return response('Bot cannot log tasks', 200);
-            }
-        } else {
+        if (! $request->header('X-GitHub-Event') === 'push') {
             return response('Only push event is allowed', 200);
         }
+
+        if (mb_strtolower($request_body['sender']['type'], 'UTF-8') == 'bot') {
+            return response('Bot cannot log tasks', 200);
+        }
+
         if ($request_body['repository']['default_branch'] !== str_replace('refs/heads/', '', $request_body['ref'])) {
-            return response('Only default branch is allowed', 200);
+            return response('Only commits from default branch is allowed', 200);
         }
 
         if ($request_body['head_commit']) {
@@ -99,7 +94,7 @@ class WebhookController extends Controller
             $webhook,
             $task,
             true,
-            Carbon::now(),
+            carbon(),
             $webhook->product_id,
             'GitHub'
         );
@@ -129,7 +124,7 @@ class WebhookController extends Controller
             $webhook,
             $task,
             true,
-            Carbon::now(),
+            carbon(),
             $webhook->product_id,
             'GitLab'
         );
@@ -142,7 +137,7 @@ class WebhookController extends Controller
         $throttler = Throttle::get(Request::instance(), 50, 5);
         $throttler->hit();
         if (count($throttler) > 60) {
-            Helper::flagAccount(Auth::user());
+            Helper::flagAccount(user());
         }
         if (! $throttler->check()) {
             activity()
@@ -172,7 +167,7 @@ class WebhookController extends Controller
 
     public function newVersion($appkey)
     {
-        if (env('APP_VERSION_KEY') === $appkey) {
+        if (config('taskord.app.version_key') === $appkey) {
             $client = new Client();
             $res = $client->request('POST', 'https://gitlab.com/api/graphql', [
                 'form_params' => [

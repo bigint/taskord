@@ -13,7 +13,6 @@
         <author>
             <username>{{ $task->user->username }}</username>
             <name>{{ $task->user->firstname .' '. $user->lastname }}</name>
-            <email>{{ $task->user->email }}</email>
         </author>
         <created>{{ $task->created_at->format('D, d M Y H:i:s') }}</created>
         <updated>{{ $task->updated_at->format('D, d M Y H:i:s') }}</updated>

@@ -29,9 +29,7 @@ class NewMeetup extends Component
                 'cover' => 'nullable|mimes:jpeg,jpg,png,gif|max:1024',
             ]);
         } else {
-            return $this->alert('error', 'Forbidden!', [
-                'showCancelButton' =>  false,
-            ]);
+            return $this->alert('error', 'Forbidden!');
         }
     }
 
@@ -48,16 +46,12 @@ class NewMeetup extends Component
                 'cover' => 'nullable|mimes:jpeg,jpg,png,gif|max:1024',
             ]);
 
-            if (! Auth::user()->hasVerifiedEmail()) {
-                return $this->alert('warning', 'Your email is not verified!', [
-                    'showCancelButton' =>  false,
-                ]);
+            if (! user()->hasVerifiedEmail()) {
+                return $this->alert('warning', 'Your email is not verified!');
             }
 
-            if (Auth::user()->isFlagged) {
-                return $this->alert('error', 'Your account is flagged!', [
-                    'showCancelButton' =>  false,
-                ]);
+            if (user()->isFlagged) {
+                return $this->alert('error', 'Your account is flagged!');
             }
 
             if ($this->cover) {
@@ -73,7 +67,7 @@ class NewMeetup extends Component
             }
 
             $meetup = Meetup::create([
-                'user_id' =>  Auth::id(),
+                'user_id' =>  user()->id,
                 'name' => $this->name,
                 'slug' => $this->slug,
                 'cover' => $url,
@@ -82,17 +76,13 @@ class NewMeetup extends Component
                 'location' => $this->location,
                 'date' => $this->date,
             ]);
-            Auth::user()->touch();
+            user()->touch();
 
-            $this->flash('success', 'Meetup has been created!', [
-                'showCancelButton' =>  false,
-            ]);
+            $this->flash('success', 'Meetup has been created!');
 
             return redirect()->route('meetups.home');
         } else {
-            $this->alert('error', 'Forbidden!', [
-                'showCancelButton' =>  false,
-            ]);
+            $this->alert('error', 'Forbidden!');
         }
     }
 }

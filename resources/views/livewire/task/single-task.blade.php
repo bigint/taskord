@@ -18,7 +18,7 @@
                     <x-heroicon-s-badge-check class="heroicon ms-1 text-primary verified" />
                 @endif
                 @if ($task->user->isPatron)
-                    <a class="patron" href="{{ route('patron.home') }}" data-turbolinks="false" aria-label="Patron">
+                    <a class="patron" href="{{ route('patron.home') }}" aria-label="Patron">
                         <x-heroicon-s-star class="heroicon text-gold" />
                     </a>
                 @endif
@@ -26,7 +26,7 @@
             </a>
         </span>
         <span class="align-text-top small float-end ms-auto text-secondary cursor-pointer" data-bs-toggle="collapse" data-bs-target="#taskExpand-{{$task->id}}" aria-expanded="false">
-            {{ !$task->done_at ? Carbon::parse($task->created_at)->diffForHumans() : Carbon::parse($task->done_at)->diffForHumans() }}
+            {{ !$task->done_at ? $task->created_at->diffForHumans() : carbon($task->done_at)->diffForHumans() }}
         </span>
     </div>
     <div class="pt-3">
@@ -39,7 +39,7 @@
         </span>
         @elseif ($task->source === 'GitHub')
         <span>
-            <img class="task-icon" src="{{ asset('images/brand/github.svg') }}" alt="GitLab Icon" />
+            <img class="task-icon github-logo" src="{{ asset('images/brand/github.svg') }}" alt="GitLab Icon" />
         </span>
         @elseif ($task->source === 'Webhook')
         <span>
@@ -54,22 +54,13 @@
             {{ $task->done ? "checked" : "unchecked" }}
             {{
                 Auth::check() &&
-                Auth::id() === $task->user_id ?
+                user()->id === $task->user_id ?
                 "enabled" : "disabled"
             }}
         />
-        @if ($launched)
-        <span class="ms-1">
-            🚀
-        </span>
-        @elseif ($bug)
-        <span class="ms-1">
-            🐛
-        </span>
-        @elseif ($learn)
-        <span class="ms-1">
-            📗
-        </span>
+        @if ($launched) <span class="ms-1">🚀</span>
+        @elseif ($bug) <span class="ms-1">🐛</span>
+        @elseif ($learn) <span class="ms-1">📗</span>
         @endif
         @endif
         <label for="task-{{ $task->id }}" class="ms-1 task-font d-inline @if ($launched or $bug or $learn) fw-bold @endif @if ($launched) text-success @endif">
@@ -103,7 +94,7 @@
         <div class="pt-3">
             @auth
             @if (!$task->user->isPrivate and !$task->hidden)
-            @if (Auth::user()->hasLiked($task))
+            @if (user()->hasLiked($task))
             <button type="button" class="btn btn-task btn-success text-white me-1" wire:click="togglePraise" wire:loading.attr="disabled" wire:offline.attr="disabled" wire:key="{{ $task->id }}" aria-label="Praises">
                 <x-heroicon-s-thumb-up class="heroicon-small me-0" />
                 <span class="small text-white fw-bold">
@@ -156,7 +147,7 @@
                 @endif
             </a>
             @auth
-            @if (Auth::user()->staffShip or Auth::id() === $task->user->id)
+            @if (user()->staffShip or user()->id === $task->user->id)
                 @if ($confirming === $task->id)
                 <button type="button" class="btn btn-task btn-danger" wire:click="deleteTask" wire:loading.attr="disabled" wire:offline.attr="disabled" aria-label="Confirm Delete">
                     Are you sure?
@@ -167,7 +158,7 @@
                 </button>
                 @endif
             @endif
-            @if (Auth::user()->staffShip)
+            @if (user()->staffShip)
             <button type="button" class="btn btn-task {{ $task->hidden ? 'btn-info' : 'btn-outline-info' }} ms-1" wire:click="hide" wire:loading.attr="disabled" wire:offline.attr="disabled" wire:key="{{ $task->id }}" title="Flag to admins" aria-label="Hide">
                 <x-heroicon-o-eye-off class="heroicon-small me-0" /> Hide
             </button>
@@ -181,18 +172,18 @@
             @auth
             {{
                 !$task->done_at ?
-                    Carbon::parse($task->created_at)
-                        ->setTimezone(Auth::user()->timezone)
+                    carbon($task->created_at)
+                        ->setTimezone(user()->timezone)
                         ->format('g:i A · M d, Y') :
-                    Carbon::parse($task->done_at)
-                        ->setTimezone(Auth::user()->timezone)
+                    carbon($task->done_at)
+                        ->setTimezone(user()->timezone)
                         ->format('g:i A · M d, Y')
             }}
             @else
             {{
                 !$task->done_at ?
-                    Carbon::parse($task->created_at)->format('g:i A · M d, Y') :
-                    Carbon::parse($task->done_at)->format('g:i A · M d, Y')
+                    $task->created_at->format('g:i A · M d, Y') :
+                    carbon($task->done_at)->format('g:i A · M d, Y')
             }}
             @endauth
             · via

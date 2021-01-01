@@ -1,6 +1,6 @@
 <div class="col-sm">
     @auth
-    @if (Auth::user()->staffShip or Auth::id() === $product->owner->id)
+    @if (user()->staffShip or user()->id === $product->owner->id)
     <div class="card mb-4">
         <div class="card-body d-grid">
             <button type="button" class="btn btn-success text-white fw-bold" data-bs-toggle="modal" data-bs-target="#newUpdateModal">
@@ -55,7 +55,7 @@
             @if ($product->repo and strlen(trim(parse_url($product->repo)['path'], '/')) !== 0)
             <a class="list-group-item link-dark" href="{{ $product->repo }}" target="_blank" rel="noreferrer">
                 @if (parse_url($product->repo)['host'] === 'github.com')
-                <img class="brand-icon" src="{{ asset('images/brand/github.svg') }}" />
+                <img class="brand-icon github-logo" src="{{ asset('images/brand/github.svg') }}" />
                 @elseif (parse_url($product->repo)['host'] === 'gitlab.com')
                 <img class="brand-icon" src="{{ asset('images/brand/gitlab.svg') }}" />
                 @elseif (parse_url($product->repo)['host'] === 'bitbucket.org')
@@ -79,14 +79,6 @@
         </a>
     </div>
     @endif
-    <div class="text-uppercase fw-bold text-secondary pb-2">
-        Activity by month
-    </div>
-    <div class="card mb-4">
-        <div class="card-body">
-            🚧
-        </div>
-    </div>
     <div class="text-uppercase fw-bold text-secondary pb-2">
         Team
     </div>
@@ -120,10 +112,12 @@
             @endforeach
         </div>
     </div>
-    @if ($product->members->contains(Auth::id()))
+    @auth
+    @if ($product->members->contains(user()->id))
     @livewire('product.leave', [
         'product' => $product,
     ])
     @endif
+    @endauth
     <x-footer />
 </div>

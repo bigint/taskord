@@ -4,7 +4,6 @@ namespace App\Http\Livewire\Home;
 
 use App\Models\Product;
 use App\Models\Task;
-use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 
 class Onboarding extends Component
@@ -34,13 +33,13 @@ class Onboarding extends Component
 
     public function render()
     {
-        $task_count = Task::select('id')->where('user_id', Auth::id())->count('id');
-        $praise_count = Auth::user()->likes(Task::class)->count('id');
+        $task_count = Task::select('id')->where('user_id', user()->id)->count('id');
+        $praise_count = user()->likes(Task::class)->count('id');
         // TODO
-        //$product_count = Product::select('id')->where('user_id', Auth::id())->count('id');
-        $product_count = Auth::user()->ownedProducts->count('id');
-        $has_name = Auth::user()->firstname;
-        $changed_username = preg_match('/^[a-f0-9]{32}$/', Auth::user()->username);
+        //$product_count = Product::select('id')->where('user_id', user()->id)->count('id');
+        $product_count = user()->ownedProducts->count('id');
+        $has_name = user()->firstname;
+        $changed_username = preg_match('/^[a-f0-9]{32}$/', user()->username);
         $completed = $this->calculateCompleteness(
                         $task_count,
                         $praise_count,

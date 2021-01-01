@@ -18,7 +18,7 @@
             ])
         </div>
         <div class="col-sm">
-            @include('question.sidebar')
+            @livewire('question.trending')
             <x-footer />
         </div>
     </div>

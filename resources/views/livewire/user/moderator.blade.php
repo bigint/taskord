@@ -10,17 +10,17 @@
                 <span class="h6">Last Active:</span>
                 <span class="fw-bold">
                     @if ($user->last_active)
-                    @if (strtotime(Carbon::now()) - strtotime($user->last_active) <= 5)
+                    @if (strtotime(carbon()) - strtotime($user->last_active) <= 5)
                     <span class="fw-bold text-success">active</span>
                     @else
-                    {{ Carbon::parse($user->last_active)->diffForHumans() }}
+                    {{ carbon($user->last_active)->diffForHumans() }}
                     @endif
                     @else
                     <span class="small fw-bold text-secondary">Not Set</span>
                     @endif
                 </span>
             </div>
-            <div class="mb-1">
+            <div class="mb-1 overflow-hidden">
                 <x-heroicon-o-mail class="heroicon text-secondary" />
                 <span class="h6">User Email:</span>
                 <a class="fw-bold" href="mailto:{{ $user->email }}">
@@ -68,14 +68,14 @@
                 @if ($user->timezone)
                 <span class="fw-bold">
                     @php
-                    $hour = Carbon::now()->setTimezone($user->timezone)->format('H');
+                    $hour = carbon()->setTimezone($user->timezone)->format('H');
                     $formattedTZ = str_replace("_", " ", $user->timezone)
                     @endphp
                     {{ $formattedTZ }}
                     •
                     <span class="text-secondary">
                         {{
-                            Carbon::now()
+                            carbon()
                             ->setTimezone($user->timezone)
                             ->format('g:i A')
                         }}
@@ -153,6 +153,18 @@
                 <label for="suspendUser" class="ms-1 text-danger fw-bold">Suspend this user</label>
             </div>
             <div class="mt-3">
+                <button wire:loading.attr="disabled" wire:click="resetAvatar" class="btn btn-sm btn-danger fw-bold">
+                    <x-heroicon-o-refresh class="heroicon" />
+                    Reset avatar
+                </button>
+            </div>
+            <div class="mt-2">
+                <button wire:loading.attr="disabled" wire:click="releaseUsername" class="btn btn-sm btn-danger fw-bold">
+                    <x-heroicon-o-switch-horizontal class="heroicon" />
+                    Release username
+                </button>
+            </div>
+            <div class="mt-2">
                 <button wire:loading.attr="disabled" wire:click="deleteTasks" class="btn btn-sm btn-danger fw-bold">
                     <x-heroicon-o-trash class="heroicon" />
                     <x-heroicon-o-check class="heroicon" />

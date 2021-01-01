@@ -4,7 +4,6 @@ namespace App\GraphQL\Mutations;
 
 use App\Gamify\Points\TaskCreated;
 use App\Models\Task;
-use Carbon\Carbon;
 use GrahamCampbell\Throttle\Facades\Throttle;
 use Helper;
 use Illuminate\Support\Facades\Auth;
@@ -24,24 +23,24 @@ class TaskMutator
         }
 
         if (Auth::check()) {
-            if (! Auth::user()->hasVerifiedEmail()) {
+            if (! user()->hasVerifiedEmail()) {
                 return [
                     'response' => 'Your email is not verified!',
                 ];
             }
 
-            if (Auth::user()->isFlagged) {
+            if (user()->isFlagged) {
                 return [
                     'response' => 'Your account is flagged!',
                 ];
             }
 
             $task = Task::create([
-                'user_id' =>  Auth::id(),
+                'user_id' =>  user()->id,
                 'product_id' =>  null,
                 'task' => $args['task'],
                 'done' => $args['done'],
-                'done_at' => $args['done'] ? Carbon::now() : null,
+                'done_at' => $args['done'] ? carbon() : null,
                 'image' => null,
                 'due_at' => null,
                 'type' => 'user',
@@ -71,13 +70,13 @@ class TaskMutator
         }
 
         if (Auth::check()) {
-            if (! Auth::user()->hasVerifiedEmail()) {
+            if (! user()->hasVerifiedEmail()) {
                 return [
                     'response' => 'Your email is not verified!',
                 ];
             }
 
-            if (Auth::user()->isFlagged) {
+            if (user()->isFlagged) {
                 return [
                     'response' => 'Your account is flagged!',
                 ];
@@ -86,7 +85,7 @@ class TaskMutator
             $task = Task::find($args['id']);
 
             if ($task) {
-                if ($task->user->id === Auth::id()) {
+                if ($task->user->id === user()->id) {
                     return [
                         'task' => $task,
                         'response' => 'You can\'t praise your own task!',
@@ -127,7 +126,7 @@ class TaskMutator
         }
 
         if (Auth::check()) {
-            if (Auth::user()->isFlagged) {
+            if (user()->isFlagged) {
                 return [
                     'response' => 'Your account is flagged!',
                 ];
@@ -136,10 +135,10 @@ class TaskMutator
             $task = Task::find($args['id']);
 
             if ($task) {
-                if (Auth::id() === $task->user->id) {
+                if (user()->id === $task->user->id) {
                     Storage::delete($task->image);
                     $task->delete();
-                    Auth::user()->touch();
+                    user()->touch();
 
                     return [
                         'response' => 'Task deleted successfully!',

@@ -1,6 +1,6 @@
 <div class="card">
     @auth
-    @if (Auth::user()->isStaff && $user->isFlagged)
+    @if (user()->isStaff && $user->isFlagged)
         <div class="p-4 pb-0">
             <div class="alert alert-danger alert-dismissible">
                 This user is flagged
@@ -37,10 +37,10 @@
                             </a>
                         @endif
                         @auth
-                        @if ($user->isFollowing(Auth::user()))
+                        @if ($user->isFollowing(user()))
                             <span class="ms-2 badge bg-light text-secondary">Follows you</span>
                         @endif
-                        @if (Auth::user()->staffShip)
+                        @if (user()->staffShip)
                             <span class="ms-2 text-secondary small">#{{ $user->id }}</span>
                         @endif
                         @endauth
@@ -59,7 +59,7 @@
                     <div class="small mt-3">
                         <span>
                             <x-heroicon-o-calendar class="heroicon-small text-secondary" />
-                            Joined {{ Carbon::parse($user->created_at)->format("F Y") }}
+                            Joined {{ $user->created_at->format("F Y") }}
                         </span>
                         @if ($user->location)
                         <span class="ms-3">
@@ -93,14 +93,13 @@
                         </span>
                         {{ $user->getPoints(true) < 2 ? 'Reputation' : 'Reputations' }}
                     </div>
-                    @if (Auth::check() && Auth::id() === $user->id)
+                    @if (Auth::check() && user()->id === $user->id)
                     <div class="mt-2">
                         <span>
                             <x-heroicon-o-sparkles class="heroicon-1x text-success" />
                             You are a
                         </span>
                         <span class="fw-bold">{{ count($level) === 0 ? 'Beginner' : $level->last()->name }}</span>
-                        <x-beta background="light" />
                     </div>
                     @else
                     <div class="mt-2">
@@ -109,7 +108,6 @@
                             {{ $user->username }} is a
                         </span>
                         <span class="fw-bold">{{ count($level) === 0 ? 'Beginner' : $level->last()->name }}</span>
-                        <x-beta background="light" />
                     </div>
                     @endif
                     @if ($user->isBeta)
@@ -135,8 +133,8 @@
     <div class="card-footer text-muted">
         @if (
             !$user->isPrivate or
-            Auth::id() === $user->id or
-            Auth::check() && Auth::user()->staffShip
+            user()->id === $user->id or
+            Auth::check() && user()->staffShip
         )
         <a class="text-dark fw-bold me-4" href="{{ route('user.done', ['username' => $user->username]) }}">
             <span class="@if (Route::currentRouteName() === 'user.done') text-primary @endif">Done</span>
@@ -158,6 +156,10 @@
         <a class="text-dark fw-bold me-4" href="{{ route('user.answers', ['username' => $user->username]) }}">
             <span class="@if (Route::currentRouteName() === 'user.answers') text-primary @endif">Answers</span>
             <span class="small fw-normal text-secondary">{{ number_format($answer_count) }}</span>
+        </a>
+        <a class="text-dark fw-bold me-4" href="{{ route('user.stats', ['username' => $user->username]) }}">
+            <span class="@if (Route::currentRouteName() === 'user.stats') text-primary @endif">Stats</span>
+            <x-new background="light" />
         </a>
         <a class="text-dark fw-bold me-4" href="{{ route('feed.user', ['username' => $user->username]) }}" target="_blank">
             <span>

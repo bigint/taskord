@@ -23,42 +23,32 @@ class Rsvp extends Component
         $throttler = Throttle::get(Request::instance(), 20, 5);
         $throttler->hit();
         if (count($throttler) > 30) {
-            Helper::flagAccount(Auth::user());
+            Helper::flagAccount(user());
         }
         if (! $throttler->check()) {
             activity()
                 ->withProperties(['type' => 'Throttle'])
                 ->log('Rate limited while toggling RSVP');
 
-            return $this->alert('error', 'Your are rate limited, try again later!', [
-                'showCancelButton' =>  false,
-            ]);
+            return $this->alert('error', 'Your are rate limited, try again later!');
         }
 
         if (Auth::check()) {
-            if (! Auth::user()->hasVerifiedEmail()) {
-                return $this->alert('warning', 'Your email is not verified!', [
-                    'showCancelButton' =>  false,
-                ]);
+            if (! user()->hasVerifiedEmail()) {
+                return $this->alert('warning', 'Your email is not verified!');
             }
-            if (Auth::user()->isFlagged) {
-                return $this->alert('error', 'Your account is flagged!', [
-                    'showCancelButton' =>  false,
-                ]);
+            if (user()->isFlagged) {
+                return $this->alert('error', 'Your account is flagged!');
             }
-            if (Auth::id() === $this->meetup->user_id) {
-                return $this->alert('warning', 'You can\'t RSVP your own meetup!', [
-                    'showCancelButton' =>  false,
-                ]);
+            if (user()->id === $this->meetup->user_id) {
+                return $this->alert('warning', 'You can\'t RSVP your own meetup!');
             } else {
-                Auth::user()->toggleSubscribe($this->meetup);
+                user()->toggleSubscribe($this->meetup);
                 $this->meetup->refresh();
-                Auth::user()->touch();
+                user()->touch();
             }
         } else {
-            return $this->alert('error', 'Forbidden!', [
-                'showCancelButton' =>  false,
-            ]);
+            return $this->alert('error', 'Forbidden!');
         }
     }
 }

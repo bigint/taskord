@@ -8,17 +8,17 @@ type Query {
     me: User @auth(guard: "api")
     users: [User!]! @paginate(type: "connection")
     user(id: ID @eq): User @find
-    products: [Product!]! @paginate(type: "connection")
+    products(orderBy: _ @orderBy(columns: ["created_at", "updated_at"])): [Product!]! @paginate(type: "connection")
     product(id: ID @eq): Product @find
-    productUpdates: [ProductUpdate!]! @paginate(type: "connection")
+    productUpdates(orderBy: _ @orderBy(columns: ["created_at", "updated_at"])): [ProductUpdate!]! @paginate(type: "connection")
     productUpdate(id: ID @eq): ProductUpdate @find
-    tasks(done: Boolean! @eq): [Task!]! @paginate(type: "connection", scopes: ["fetch"])
+    tasks(done: Boolean! @eq, orderBy: _ @orderBy(columns: ["created_at", "updated_at", "done_at"])): [Task!]! @paginate(type: "connection", scopes: ["fetch"])
     task(id: ID @eq): Task @find
-    comments: [Comment!]! @paginate(type: "connection")
+    comments(orderBy: _ @orderBy(columns: ["created_at", "updated_at"])): [Comment!]! @paginate(type: "connection")
     comment(id: ID @eq): Comment @find
-    questions: [Question!]! @paginate(type: "connection")
+    questions(orderBy: _ @orderBy(columns: ["created_at", "updated_at"])): [Question!]! @paginate(type: "connection")
     question(id: ID @eq): Question @find
-    answers: [Answer!]! @paginate(type: "connection")
+    answers(orderBy: _ @orderBy(columns: ["created_at", "updated_at"])): [Answer!]! @paginate(type: "connection")
     answer(id: ID @eq): Answer @find
 }
 

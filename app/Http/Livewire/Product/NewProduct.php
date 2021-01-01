@@ -5,7 +5,6 @@ namespace App\Http\Livewire\Product;
 use App\Actions\CreateTaskForProductLaunch;
 use App\Models\Product;
 use App\Rules\Repo;
-use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
@@ -35,9 +34,7 @@ class NewProduct extends Component
                 'avatar' => 'nullable|mimes:jpeg,jpg,png,gif|max:1024',
             ]);
         } else {
-            return $this->alert('error', 'Forbidden!', [
-                'showCancelButton' =>  false,
-            ]);
+            return $this->alert('error', 'Forbidden!');
         }
     }
 
@@ -47,7 +44,7 @@ class NewProduct extends Component
             $this->validate([
                 'name' => 'required|max:30',
                 'slug' => 'required|min:3|max:20|unique:products|alpha_dash',
-                'description' => 'nullable|max:280',
+                'description' => 'nullable|max:160',
                 'website' => 'nullable|active_url',
                 'twitter' => 'nullable|alpha_dash|max:30',
                 'repo' => ['nullable', 'active_url', new Repo],
@@ -56,23 +53,19 @@ class NewProduct extends Component
                 'avatar' => 'nullable|mimes:jpeg,jpg,png,gif|max:1024',
             ]);
 
-            if (! Auth::user()->hasVerifiedEmail()) {
-                return $this->alert('warning', 'Your email is not verified!', [
-                    'showCancelButton' =>  false,
-                ]);
+            if (! user()->hasVerifiedEmail()) {
+                return $this->alert('warning', 'Your email is not verified!');
             }
 
-            if (Auth::user()->isFlagged) {
-                return $this->alert('error', 'Your account is flagged!', [
-                    'showCancelButton' =>  false,
-                ]);
+            if (user()->isFlagged) {
+                return $this->alert('error', 'Your account is flagged!');
             }
 
             $launched = ! $this->launched ? false : true;
 
             if ($launched) {
                 $launched_status = true;
-                $launched_at = Carbon::now();
+                $launched_at = carbon();
             } else {
                 $launched_status = false;
                 $launched_at = null;
@@ -90,7 +83,7 @@ class NewProduct extends Component
             }
 
             $product = Product::create([
-                'user_id' =>  Auth::id(),
+                'user_id' =>  user()->id,
                 'name' => $this->name,
                 'slug' => $this->slug,
                 'avatar' => $url,
@@ -108,21 +101,17 @@ class NewProduct extends Component
                 (new CreateTaskForProductLaunch)->execute($product);
             }
 
-            Auth::user()->touch();
+            user()->touch();
 
             activity()
                 ->withProperties(['type' => 'Product'])
-                ->log('New product has been created P: #'.$product->slug);
+                ->log('Created a new product | Product Slug: #'.$product->slug);
 
-            $this->flash('success', 'Product has been created!', [
-                'showCancelButton' =>  false,
-            ]);
+            $this->flash('success', 'Product has been created!');
 
             return redirect()->route('product.done', ['slug' => $product->slug]);
         } else {
-            $this->alert('error', 'Forbidden!', [
-                'showCancelButton' =>  false,
-            ]);
+            $this->alert('error', 'Forbidden!');
         }
     }
 }

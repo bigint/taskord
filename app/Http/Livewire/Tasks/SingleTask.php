@@ -5,7 +5,6 @@ namespace App\Http\Livewire\Tasks;
 use App\Gamify\Points\TaskCompleted;
 use App\Jobs\CheckGoal;
 use App\Models\Task;
-use Carbon\Carbon;
 use GrahamCampbell\Throttle\Facades\Throttle;
 use Helper;
 use Illuminate\Support\Facades\Auth;
@@ -28,39 +27,35 @@ class SingleTask extends Component
         $throttler = Throttle::get(Request::instance(), 20, 5);
         $throttler->hit();
         if (count($throttler) > 30) {
-            Helper::flagAccount(Auth::user());
+            Helper::flagAccount(user());
         }
         if (! $throttler->check()) {
             activity()
                 ->withProperties(['type' => 'Throttle'])
                 ->log('Rate limited while praising the task');
 
-            return $this->alert('error', 'Your are rate limited, try again later!', [
-                'showCancelButton' =>  false,
-            ]);
+            return $this->alert('error', 'Your are rate limited, try again later!');
         }
 
         if (Auth::check()) {
             $this->task->done = ! $this->task->done;
-            $this->task->done_at = Carbon::now();
-            Auth::user()->touch();
+            $this->task->done_at = carbon();
+            user()->touch();
             givePoint(new TaskCompleted($this->task));
             $this->task->save();
             $this->emit('taskChecked');
-            if (Auth::user()->hasGoal and $this->task->done) {
-                Auth::user()->daily_goal_reached++;
-                Auth::user()->save();
-                CheckGoal::dispatch(Auth::user(), $this->task);
+            if (user()->hasGoal and $this->task->done) {
+                user()->daily_goal_reached++;
+                user()->save();
+                CheckGoal::dispatch(user(), $this->task);
             }
             activity()
                 ->withProperties(['type' => 'Task'])
-                ->log('Task was marked as done T: '.$this->task->id);
+                ->log('Updated a task as done | Task ID: '.$this->task->id);
 
             return true;
         } else {
-            return $this->alert('error', 'Forbidden!', [
-                'showCancelButton' =>  false,
-            ]);
+            return $this->alert('error', 'Forbidden!');
         }
     }
 
@@ -72,31 +67,25 @@ class SingleTask extends Component
     public function deleteTask()
     {
         if (Auth::check()) {
-            if (Auth::user()->isFlagged) {
-                return $this->alert('error', 'Your account is flagged!', [
-                    'showCancelButton' =>  false,
-                ]);
+            if (user()->isFlagged) {
+                return $this->alert('error', 'Your account is flagged!');
             }
 
-            if (Auth::user()->staffShip or Auth::id() === $this->task->user->id) {
+            if (user()->staffShip or user()->id === $this->task->user->id) {
                 activity()
                     ->withProperties(['type' => 'Task'])
-                    ->log('Task was deleted T: '.$this->task->id);
+                    ->log('Deleted a task | Task ID: '.$this->task->id);
                 foreach ($this->task->images ?? [] as $image) {
                     Storage::delete($image);
                 }
                 $this->task->delete();
                 $this->emitUp('taskDeleted');
-                Auth::user()->touch();
+                user()->touch();
             } else {
-                return $this->alert('error', 'Forbidden!', [
-                    'showCancelButton' =>  false,
-                ]);
+                return $this->alert('error', 'Forbidden!');
             }
         } else {
-            return $this->alert('error', 'Forbidden!', [
-                'showCancelButton' =>  false,
-            ]);
+            return $this->alert('error', 'Forbidden!');
         }
     }
 }

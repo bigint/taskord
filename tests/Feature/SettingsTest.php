@@ -2,52 +2,134 @@
 
 use function Tests\actingAs;
 
-it('has settings page - profile - response test', function () {
-    $this->get('/settings')->assertStatus(302);
-    actingAs(1)->get('/settings')->assertStatus(200);
-});
+it('has settings/profile page', function ($url, $expected, $auth) {
+    if ($auth) {
+        actingAs(1)->get($url)->assertStatus($expected);
+    } else {
+        $this->get($url)->assertStatus($expected);
+    }
+})->with([
+    ['/settings', 302, false],
+    ['/settings', 200, true],
+]);
 
-it('has settings page - account - response test', function () {
-    $this->get('/settings/account')->assertStatus(302);
-    actingAs(1)->get('/settings/account')->assertStatus(200);
-});
+it('has settings/account page', function ($url, $expected, $auth) {
+    if ($auth) {
+        actingAs(1)->get($url)->assertStatus($expected);
+    } else {
+        $this->get($url)->assertStatus($expected);
+    }
+})->with([
+    ['/settings/account', 302, false],
+    ['/settings/account', 200, true],
+]);
 
-it('has settings page - patron - response test', function () {
-    $this->get('/settings/patron')->assertStatus(302);
-    actingAs(1)->get('/settings/patron')->assertStatus(200);
-});
+it('has settings/patron page', function ($url, $expected, $auth) {
+    if ($auth) {
+        actingAs(1)->get($url)->assertStatus($expected);
+    } else {
+        $this->get($url)->assertStatus($expected);
+    }
+})->with([
+    ['/settings/patron', 302, false],
+    ['/settings/patron', 200, true],
+]);
 
-it('has settings page - password - response test', function () {
-    $this->get('/settings/password')->assertStatus(302);
-    actingAs(1)->get('/settings/password')->assertStatus(200);
-});
+it('has settings/password page', function ($url, $expected, $auth) {
+    if ($auth) {
+        actingAs(1)->get($url)->assertStatus($expected);
+    } else {
+        $this->get($url)->assertStatus($expected);
+    }
+})->with([
+    ['/settings/password', 302, false],
+    ['/settings/password', 200, true],
+]);
 
-it('has settings page - notifications - response test', function () {
-    $this->get('/settings/notifications')->assertStatus(302);
-    actingAs(1)->get('/settings/notifications')->assertStatus(200);
-});
+it('has settings/notifications page', function ($url, $expected, $auth) {
+    if ($auth) {
+        actingAs(1)->get($url)->assertStatus($expected);
+    } else {
+        $this->get($url)->assertStatus($expected);
+    }
+})->with([
+    ['/settings/notifications', 302, false],
+    ['/settings/notifications', 200, true],
+]);
 
-it('has settings page - integrations - response test', function () {
-    $this->get('/settings/integrations')->assertStatus(302);
-    actingAs(1)->get('/settings/integrations')->assertStatus(200);
-});
+it('has settings/integrations page', function ($url, $expected, $auth) {
+    if ($auth) {
+        actingAs(1)->get($url)->assertStatus($expected);
+    } else {
+        $this->get($url)->assertStatus($expected);
+    }
+})->with([
+    ['/settings/integrations', 302, false],
+    ['/settings/integrations', 200, true],
+]);
 
-it('has settings page - api - response test', function () {
-    $this->get('/settings/api')->assertStatus(302);
-    actingAs(1)->get('/settings/api')->assertStatus(200);
-});
+it('has settings/api page', function ($url, $expected, $auth) {
+    if ($auth) {
+        actingAs(1)->get($url)->assertStatus($expected);
+    } else {
+        $this->get($url)->assertStatus($expected);
+    }
+})->with([
+    ['/settings/api', 302, false],
+    ['/settings/api', 200, true],
+]);
 
-it('has settings page - logs - response test', function () {
-    $this->get('/settings/logs')->assertStatus(302);
-    actingAs(1)->get('/settings/logs')->assertStatus(200);
-});
+it('has settings/logs page', function ($url, $expected, $auth) {
+    if ($auth) {
+        actingAs(1)->get($url)->assertStatus($expected);
+    } else {
+        $this->get($url)->assertStatus($expected);
+    }
+})->with([
+    ['/settings/logs', 302, false],
+    ['/settings/logs', 200, true],
+]);
 
-it('has settings page - data - response test', function () {
-    $this->get('/settings/data')->assertStatus(302);
-    actingAs(1)->get('/settings/data')->assertStatus(200);
-});
+it('has settings/data page', function ($url, $expected, $auth) {
+    if ($auth) {
+        actingAs(1)->get($url)->assertStatus($expected);
+    } else {
+        $this->get($url)->assertStatus($expected);
+    }
+})->with([
+    ['/settings/data', 302, false],
+    ['/settings/data', 200, true],
+]);
 
-it('has settings page - delete - response test', function () {
-    $this->get('/settings/delete')->assertStatus(302);
-    actingAs(1)->get('/settings/delete')->assertStatus(200);
-});
+it('has settings/delete page', function ($url, $expected, $auth) {
+    if ($auth) {
+        actingAs(1)->get($url)->assertStatus($expected);
+    } else {
+        $this->get($url)->assertStatus($expected);
+    }
+})->with([
+    ['/settings/delete', 302, false],
+    ['/settings/delete', 200, true],
+]);
+
+test('can download user account data', function ($url, $expected, $auth) {
+    if ($auth) {
+        actingAs(1)->get($url)->assertStatus($expected);
+    } else {
+        $this->get($url)->assertStatus($expected);
+    }
+})->with([
+    ['/settings/export/account', 302, false],
+    ['/settings/export/account', 200, true],
+]);
+
+test('can download user logs data', function ($url, $expected, $auth) {
+    if ($auth) {
+        actingAs(1)->get($url)->assertStatus($expected);
+    } else {
+        $this->get($url)->assertStatus($expected);
+    }
+})->with([
+    ['/settings/export/logs', 302, false],
+    ['/settings/export/logs', 200, true],
+]);

@@ -16,7 +16,7 @@ a {
 }
 
 .btn-primary {
-    color: #fff;
+    color: white;
     background-color: $primary;
     &:hover,
     &:active,
@@ -26,29 +26,41 @@ a {
 }
 
 .btn-blurple {
-    color: #fff;
+    color: white;
     background-color: #7289da;
     &:hover,
     &:active,
     &:focus {
         background-color: #657ac3;
-        color: #fff;
+        color: white;
     }
 }
 
 .text-gold {
-    color: #dfc328;
+    color: $yellow-600;
+}
+
+.text-reputation {
+    color: black;
+}
+
+.score {
+    display: inline-flex;
+    align-items: center;
+    padding: 5px 8px;
+    line-height: 1px;
+
+    & > [class^="heroicon"] {
+        margin-right: 2px;
+    }
 }
 
 .navbar {
-    .score {
-        padding: 5px 7px;
-    }
     .bg-secondary {
-        background-color: #515a63 !important;
+        background-color: $gray-700 !important;
     }
      ::placeholder {
-        color: #fff;
+        color: white;
         opacity: 1;
     }
 }
@@ -98,7 +110,7 @@ a {
 .avatar-120 {
     height: 120px !important;
     width: 120px !important;
-    border: 2px solid #dedede;
+    border: 2px solid $gray-400;
 }
 
 .btn-task {
@@ -116,9 +128,14 @@ a {
 
 .btn-outline-danger,
 .btn-outline-success,
+.btn-outline-primary,
 .btn-outline-info {
     &:hover, &:focus {
         color: white;
+
+        & > [class*='text-'] {
+            color: inherit !important;
+        }
     }
 }
 
@@ -182,15 +199,16 @@ input[type="color"]:focus,
     img {
         width: 100%;
         border-radius: 5px;
-        border: 1px solid #dee2e6;
+        border: 1px solid $gray-300;
     }
 }
 
 .body-font {
+    color: $gray-700;
     img {
         width: 100%;
         border-radius: 5px;
-        border: 1px solid #dee2e6;
+        border: 1px solid $gray-300;
     }
 }
 
@@ -209,7 +227,7 @@ input[type="color"]:focus,
 }
 
 .welcome-card {
-    background: linear-gradient(90deg, #6a63ec 0%, #6a63ecba 90%);
+    background: linear-gradient(90deg, $primary 0%, #6a63ecba 90%);
     background-size: contain;
 }
 
@@ -251,11 +269,6 @@ input[type="color"]:focus,
     border-width: 0.2em;
 }
 
-.beta-badge {
-    background-color: transparent !important;
-    border: 1px solid $green;
-}
-
 .notification-count {
     font-size: 10px;
     padding: 2px 4px;
@@ -266,13 +279,14 @@ input[type="color"]:focus,
 .dropdown-item:active {
     color: white !important;
 
-    & > [class^='heroicon-'] {
+    & > [class^='heroicon-'],
+    & > [class^='heroicon'] {
         color: inherit !important;
     }
 }
 
 .bg-patron {
-    background-color: #fffde8 !important;
+    background-color: $yellow-100 !important;
 }
 
 .recent-questions {
@@ -281,7 +295,7 @@ input[type="color"]:focus,
 
 input[type="date"]:before {
     content: attr(placeholder) !important;
-    color: #aaa;
+    color: $gray-600;
     margin-right: 0.5em;
 }
 
@@ -408,20 +422,20 @@ input[type="date"]:valid:before {
 
 .btn-social {
     &.btn-google {
-        color: #DB4437;
-        border-color: #DB4437;
+        color: $google;
+        border-color: $google;
     }
     &.btn-twitter {
-        color: #38a1f3;
-        border-color: #38a1f3;
+        color: $twitter;
+        border-color: $twitter;
     }
     &.btn-github {
-        color: #24292e;
-        border-color: #24292e;
+        color: $github;
+        border-color: $github;
     }
     &.btn-gitlab {
-        color: #FC6D27;
-        border-color: #FC6D27;
+        color: $gitlab;
+        border-color: $gitlab;
     }
 }
 
@@ -479,6 +493,12 @@ input[type="date"]:valid:before {
     vertical-align: sub;
 }
 
-.turbolinks-progress-bar {
-    background-color: $primary;
+.taskord-spinner {
+    border: 3px solid $gray-500;
+    border-right-color: black;
+}
+
+.badge-font {
+    font-size: 11px;
+    padding: 2px;
 }

@@ -19,22 +19,22 @@
     <title>@yield('pageTitle') Taskord</title>
     <link rel="icon" href="/images/logo.svg" sizes="any" type="image/svg+xml">
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link href="{{ mix('css/app.css') }}" rel="stylesheet" data-turbolinks-track="true">
+    <link href="{{ mix('css/app.css') }}" rel="stylesheet">
     @auth
-    @if (Auth::user()->isPatron or Auth::user()->isStaff)
-    @if (Auth::user()->darkMode)
-    <link href="{{ mix('css/darkmode.css') }}" rel="stylesheet" data-turbolinks-track="true">
+    @if (user()->isPatron or user()->isStaff)
+    @if (user()->darkMode)
+    <link href="{{ mix('css/darkmode.css') }}" rel="stylesheet">
     @endif
     @endif
     @endauth
-    @livewireStyles
+    <livewire:styles />
     <script async src="https://cdn.splitbee.io/sb.js"></script>
 </head>
 <body>
     <div id="app">
         @auth
-        @if (Auth::user()->isStaff)
-            @if (Auth::user()->staffShip)
+        @if (user()->isStaff)
+            @if (user()->staffShip)
             <div class="admin-bar">
                 @livewire('admin.adminbar')
             </div>
@@ -50,7 +50,7 @@
             </div>
         @endif
         @auth
-        @if (Auth::user()->isFlagged)
+        @if (user()->isFlagged)
         <div class="alert alert-danger rounded-0" role="alert">
             <div class="fw-bold">
                 <x-heroicon-o-flag class="heroicon" />
@@ -61,7 +61,7 @@
             </div>
         </div>
         @endif
-        @if (!Auth::user()->hasVerifiedEmail())
+        @if (!user()->hasVerifiedEmail())
         <div class="alert alert-warning rounded-0" role="alert">
             <div class="fw-bold">
                 <x-heroicon-o-mail class="heroicon" />
@@ -80,10 +80,10 @@
         </main>
     </div>
 </body>
-@livewireScripts
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10" defer data-turbolinks-track="true" data-turbolinks-eval=false></script>
+<livewire:scripts />
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10" defer></script>
 <x-livewire-alert::scripts />
-<script src="{{ mix('js/bootstrap.js') }}" defer data-turbolinks-track="true" data-turbolinks-eval=false></script>
-<script src="{{ mix('js/app.js') }}" defer data-turbolinks-track="true" data-turbolinks-eval=false></script>
-@yield('emoji-picker')
+<script src="{{ mix('js/bootstrap.js') }}" defer></script>
+<script src="{{ mix('js/app.js') }}" defer></script>
+@yield('scripts')
 </html>

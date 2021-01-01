@@ -28,7 +28,7 @@ class CreateDeal extends Component
                 'website' => 'required|active_url',
                 'logo' => 'required|active_url',
             ]);
-            if (Auth::user()->isStaff) {
+            if (user()->isStaff) {
                 $deal = Deal::create([
                     'name' =>  $this->name,
                     'description' => $this->description,
@@ -38,24 +38,18 @@ class CreateDeal extends Component
                     'website' => $this->website,
                     'logo' => $this->logo,
                 ]);
-                Auth::user()->touch();
-                $this->flash('success', 'Deal has been created!', [
-                    'showCancelButton' =>  false,
-                ]);
+                user()->touch();
+                $this->flash('success', 'Deal has been created!');
                 activity()
                     ->withProperties(['type' => 'Admin'])
-                    ->log('New deal has been created D: '.$deal->id);
+                    ->log('Created a new deal | Deal ID: '.$deal->id);
 
                 return redirect()->route('deals');
             } else {
-                $this->alert('error', 'Forbidden!', [
-                    'showCancelButton' =>  false,
-                ]);
+                $this->alert('error', 'Forbidden!');
             }
         } else {
-            $this->alert('error', 'Forbidden!', [
-                'showCancelButton' =>  false,
-            ]);
+            $this->alert('error', 'Forbidden!');
         }
     }
 }

@@ -1,24 +1,40 @@
-<div>
+<div wire:init="loadProducts">
+    @if (!$readyToLoad)
+    <div class="card-body text-center mt-3 mb-3">
+        <div class="spinner-border taskord-spinner text-secondary mb-3" role="status"></div>
+        <div class="h6">
+            Loading Products...
+        </div>
+    </div>
+    @endif
+    @if ($readyToLoad and count($products) === 0)
+    <div class="card-body text-center mt-3 mb-3">
+        <x-heroicon-o-cube class="heroicon-4x text-primary mb-2" />
+        <div class="h4">
+            No products found!
+        </div>
+    </div>
+    @endif
     @foreach ($products as $key => $groupedProducts)
         <div class="h5 mb-3 mt-4">
-            @if (Carbon::parse($groupedProducts[$loop->index]->created_at)->weekNumberInMonth === 1)
+            @if (carbon($groupedProducts[$loop->index]->created_at)->weekNumberInMonth === 1)
                 <span>1st week of</span>
-            @elseif (Carbon::parse($groupedProducts[$loop->index]->created_at)->weekNumberInMonth === 2)
+            @elseif (carbon($groupedProducts[$loop->index]->created_at)->weekNumberInMonth === 2)
                 <span>2nd week of</span>
-            @elseif (Carbon::parse($groupedProducts[$loop->index]->created_at)->weekNumberInMonth === 3)
+            @elseif (carbon($groupedProducts[$loop->index]->created_at)->weekNumberInMonth === 3)
                 <span>3rd week of</span>
-            @elseif (Carbon::parse($groupedProducts[$loop->index]->created_at)->weekNumberInMonth === 4)
+            @elseif (carbon($groupedProducts[$loop->index]->created_at)->weekNumberInMonth === 4)
                 <span>4th week of</span>
-            @elseif (Carbon::parse($groupedProducts[$loop->index]->created_at)->weekNumberInMonth === 5)
+            @elseif (carbon($groupedProducts[$loop->index]->created_at)->weekNumberInMonth === 5)
                 <span>5th week of</span>
             @endif
-            {{ Carbon::parse($groupedProducts[$loop->index]->created_at)->englishMonth }}
+            {{ carbon($groupedProducts[$loop->index]->created_at)->englishMonth }}
         </div>
         @foreach ($groupedProducts as $product)
         <div class="card mb-2">
             <div class="card-body d-flex align-items-center">
                 <a href="{{ route('product.done', ['slug' => $product->slug]) }}">
-                    <img loading=lazy class="rounded avatar-50 mt-1 ms-2" src="{{ Helper::getCDNImage($product->avatar, 80) }}" height="50" width="50" alt="{{ $product->slug }}'s avatar" />
+                    <img loading=lazy class="rounded avatar-50" src="{{ Helper::getCDNImage($product->avatar, 80) }}" height="50" width="50" alt="{{ $product->slug }}'s avatar" />
                 </a>
                 <span class="ms-3">
                     <a href="{{ route('product.done', ['slug' => $product->slug]) }}" class="me-2 h5 align-text-top fw-bold text-dark">
@@ -29,9 +45,9 @@
                             </a>
                         @endif
                     </a>
-                    <div>{{ $product->description }}</div>
+                    <div class="pe-5">{{ $product->description }}</div>
                 </span>
-                <span class="ms-auto">
+                <span class="d-flex ms-auto">
                     @if ($product->members()->count() > 1)
                         <span class="me-2 text-secondary fw-bold">+{{ $product->members()->count() - 1 }} more</span>
                     @endif
@@ -56,7 +72,7 @@
         </div>
         @endforeach
     @endforeach
-    @if ($products->hasMorePages())
+    @if ($readyToLoad and $products->hasMorePages())
         @livewire('products.load-more', [
             'type' => $type,
             'page' => $page,

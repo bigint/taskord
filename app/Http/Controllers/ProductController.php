@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Models\Product;
 use App\Models\ProductUpdate;
 use App\Models\Task;
-use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -14,14 +13,16 @@ class ProductController extends Controller
 {
     public function profile($slug)
     {
-        $product = Product::cacheFor(60 * 60)->where('slug', $slug)->firstOrFail();
+        $product = Product::cacheFor(60 * 60)
+            ->where('slug', $slug)
+            ->firstOrFail();
         $type = Route::current()->getName();
         $tasks = Task::cacheFor(60 * 60)
             ->where('product_id', $product->id)
             ->select('created_at')
             ->get()
             ->groupBy(function ($date) {
-                return Carbon::parse($date->created_at)->format('m');
+                return $date->created_at->format('m');
             });
 
         $taskmcount = [];
@@ -71,7 +72,7 @@ class ProductController extends Controller
                 ->count('id'),
         ];
 
-        if (Auth::check() && Auth::id() === $product->owner->id or Auth::check() && Auth::user()->staffShip) {
+        if (Auth::check() && user()->id === $product->owner->id or Auth::check() && user()->staffShip) {
             return view($type, $response);
         } elseif ($product->owner->isFlagged) {
             return view('errors.404');
@@ -82,33 +83,15 @@ class ProductController extends Controller
 
     public function newest()
     {
-        $products = Product::cacheFor(60 * 60)
-            ->where('launched', true)
-            ->take(10)
-            ->get()
-            ->sortByDesc(function ($product) {
-                return $product->tasks->count('id');
-            });
-
         return view('products.newest', [
             'type' => 'products.newest',
-            'products' => $products,
         ]);
     }
 
     public function launched()
     {
-        $products = Product::cacheFor(60 * 60)
-            ->where('launched', true)
-            ->take(10)
-            ->get()
-            ->sortByDesc(function ($product) {
-                return $product->tasks->count('id');
-            });
-
         return view('products.launched', [
             'type' => 'products.launched',
-            'products' => $products,
         ]);
     }
 

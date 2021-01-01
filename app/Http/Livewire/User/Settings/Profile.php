@@ -65,16 +65,14 @@ class Profile extends Component
                 'avatar' => 'nullable|mimes:jpeg,jpg,png,gif|max:1024',
             ]);
         } else {
-            return $this->alert('error', 'Forbidden!', [
-                'showCancelButton' =>  false,
-            ]);
+            return $this->alert('error', 'Forbidden!');
         }
     }
 
     public function updateProfile()
     {
         if (Auth::check()) {
-            if (Auth::id() === $this->user->id) {
+            if (user()->id === $this->user->id) {
                 $this->validate([
                     'firstname' => 'nullable|max:30',
                     'lastname' => 'nullable|max:30',
@@ -107,28 +105,22 @@ class Profile extends Component
                     $this->user->save();
                     activity()
                         ->withProperties(['type' => 'User'])
-                        ->log('Profile settings was updated');
+                        ->log('Updated the profile settings');
 
-                    return $this->alert('success', 'Your profile has been updated!', [
-                        'showCancelButton' =>  false,
-                    ]);
+                    return $this->alert('success', 'Your profile has been updated!');
                 }
             } else {
-                return $this->alert('error', 'Forbidden!', [
-                    'showCancelButton' =>  false,
-                ]);
+                return $this->alert('error', 'Forbidden!');
             }
         } else {
-            return $this->alert('error', 'Forbidden!', [
-                'showCancelButton' =>  false,
-            ]);
+            return $this->alert('error', 'Forbidden!');
         }
     }
 
     public function resetAvatar()
     {
         if (Auth::check()) {
-            if (Auth::id() === $this->user->id) {
+            if (user()->id === $this->user->id) {
                 $old_avatar = explode('storage/', $this->user->avatar);
                 if (array_key_exists(1, $old_avatar)) {
                     Storage::delete($old_avatar[1]);
@@ -137,77 +129,61 @@ class Profile extends Component
                 $this->user->save();
                 activity()
                     ->withProperties(['type' => 'User'])
-                    ->log('Reset avatar to default');
+                    ->log('Resetted avatar to default');
 
-                return $this->alert('success', 'Your avatar has been resetted!', [
-                    'showCancelButton' =>  false,
-                ]);
+                return $this->alert('success', 'Your avatar has been resetted!');
             } else {
-                return $this->alert('error', 'Forbidden!', [
-                    'showCancelButton' =>  false,
-                ]);
+                return $this->alert('error', 'Forbidden!');
             }
         } else {
-            return $this->alert('error', 'Forbidden!', [
-                'showCancelButton' =>  false,
-            ]);
+            return $this->alert('error', 'Forbidden!');
         }
     }
 
     public function useGravatar()
     {
         if (Auth::check()) {
-            if (Auth::id() === $this->user->id) {
+            if (user()->id === $this->user->id) {
                 $old_avatar = explode('storage/', $this->user->avatar);
                 if (array_key_exists(1, $old_avatar)) {
                     Storage::delete($old_avatar[1]);
                 }
-                $this->user->avatar = 'https://secure.gravatar.com/avatar/'.md5(Auth::user()->email).'?s=500&d=identicon';
+                $this->user->avatar = 'https://secure.gravatar.com/avatar/'.md5(user()->email).'?s=500&d=identicon';
                 $this->user->save();
                 activity()
                     ->withProperties(['type' => 'User'])
-                    ->log('Changed avatar provider to Gravatar');
+                    ->log('Updated avatar provider to Gravatar');
 
-                return $this->alert('success', 'Your avatar has been switched to Gravatar!', [
-                    'showCancelButton' =>  false,
-                ]);
+                return $this->alert('success', 'Your avatar has been switched to Gravatar!');
             } else {
-                return $this->alert('error', 'Forbidden!', [
-                    'showCancelButton' =>  false,
-                ]);
+                return $this->alert('error', 'Forbidden!');
             }
         } else {
-            return $this->alert('error', 'Forbidden!', [
-                'showCancelButton' =>  false,
-            ]);
+            return $this->alert('error', 'Forbidden!');
         }
     }
 
     public function enableGoal()
     {
         if (Auth::check()) {
-            if (Auth::id() === $this->user->id) {
+            if (user()->id === $this->user->id) {
                 $this->user->hasGoal = ! $this->user->hasGoal;
                 $this->user->save();
                 activity()
                     ->withProperties(['type' => 'User'])
-                    ->log('Goals for the account was toggled');
+                    ->log('Toggled goals settings');
             } else {
-                return $this->alert('error', 'Forbidden!', [
-                    'showCancelButton' =>  false,
-                ]);
+                return $this->alert('error', 'Forbidden!');
             }
         } else {
-            return $this->alert('error', 'Forbidden!', [
-                'showCancelButton' =>  false,
-            ]);
+            return $this->alert('error', 'Forbidden!');
         }
     }
 
     public function setGoal()
     {
         if (Auth::check()) {
-            if (Auth::id() === $this->user->id) {
+            if (user()->id === $this->user->id) {
                 $this->validate([
                     'daily_goal' => 'integer|max:1000|min:5',
                 ]);
@@ -217,28 +193,22 @@ class Profile extends Component
                     $this->user->save();
                     activity()
                         ->withProperties(['type' => 'User'])
-                        ->log('Goal was set as '.$this->daily_goal.'/day');
+                        ->log('Updated the goal '.$this->daily_goal.'/day');
 
-                    return $this->alert('success', 'Your goal has been updated!', [
-                        'showCancelButton' =>  false,
-                    ]);
+                    return $this->alert('success', 'Your goal has been updated!');
                 }
             } else {
-                return $this->alert('error', 'Forbidden!', [
-                    'showCancelButton' =>  false,
-                ]);
+                return $this->alert('error', 'Forbidden!');
             }
         } else {
-            return $this->alert('error', 'Forbidden!', [
-                'showCancelButton' =>  false,
-            ]);
+            return $this->alert('error', 'Forbidden!');
         }
     }
 
     public function updateSponsor()
     {
         if (Auth::check()) {
-            if (Auth::id() === $this->user->id) {
+            if (user()->id === $this->user->id) {
                 $this->validate([
                     'sponsor' => 'nullable|active_url',
                 ]);
@@ -248,28 +218,22 @@ class Profile extends Component
                     $this->user->save();
                     activity()
                         ->withProperties(['type' => 'User'])
-                        ->log('Sponsor URL was updated');
+                        ->log('Updated the sponsor URL');
 
-                    return $this->alert('success', 'Your sponsor link has been updated!', [
-                        'showCancelButton' =>  false,
-                    ]);
+                    return $this->alert('success', 'Your sponsor link has been updated!');
                 }
             } else {
-                return $this->alert('error', 'Forbidden!', [
-                    'showCancelButton' =>  false,
-                ]);
+                return $this->alert('error', 'Forbidden!');
             }
         } else {
-            return $this->alert('error', 'Forbidden!', [
-                'showCancelButton' =>  false,
-            ]);
+            return $this->alert('error', 'Forbidden!');
         }
     }
 
     public function updateSocial()
     {
         if (Auth::check()) {
-            if (Auth::id() === $this->user->id) {
+            if (user()->id === $this->user->id) {
                 $this->validate([
                     'website' => 'nullable|active_url',
                     'twitter' => 'nullable|alpha_dash|max:30',
@@ -289,51 +253,37 @@ class Profile extends Component
                     $this->user->save();
                     activity()
                         ->withProperties(['type' => 'User'])
-                        ->log('Social URLs were updated');
+                        ->log('Updated the social URLs');
 
-                    return $this->alert('success', 'Your social links has been updated!', [
-                        'showCancelButton' =>  false,
-                    ]);
+                    return $this->alert('success', 'Your social links has been updated!');
                 }
             } else {
-                return $this->alert('error', 'Forbidden!', [
-                    'showCancelButton' =>  false,
-                ]);
+                return $this->alert('error', 'Forbidden!');
             }
         } else {
-            return $this->alert('error', 'Forbidden!', [
-                'showCancelButton' =>  false,
-            ]);
+            return $this->alert('error', 'Forbidden!');
         }
     }
 
     public function onlyFollowingsTasks()
     {
         if (Auth::check()) {
-            if (Auth::id() === $this->user->id) {
+            if (user()->id === $this->user->id) {
                 $this->user->onlyFollowingsTasks = ! $this->user->onlyFollowingsTasks;
                 $this->user->save();
                 if ($this->user->onlyFollowingsTasks) {
-                    $this->alert('success', 'Only following user\'s task will be show on homepage', [
-                        'showCancelButton' =>  false,
-                    ]);
+                    $this->alert('success', 'Only following user\'s task will be show on homepage');
                 } else {
-                    $this->alert('success', 'All user\'s task will be show on homepage', [
-                        'showCancelButton' =>  false,
-                    ]);
+                    $this->alert('success', 'All user\'s task will be show on homepage');
                 }
                 activity()
                     ->withProperties(['type' => 'User'])
-                    ->log('Toggled only followings tasks in settings');
+                    ->log('Toggled only following users tasks in settings');
             } else {
-                return $this->alert('error', 'Forbidden!', [
-                    'showCancelButton' =>  false,
-                ]);
+                return $this->alert('error', 'Forbidden!');
             }
         } else {
-            return $this->alert('error', 'Forbidden!', [
-                'showCancelButton' =>  false,
-            ]);
+            return $this->alert('error', 'Forbidden!');
         }
     }
 }

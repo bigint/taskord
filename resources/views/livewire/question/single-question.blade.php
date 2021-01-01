@@ -19,7 +19,7 @@
                         <x-heroicon-s-badge-check class="heroicon ms-1 text-primary verified" />
                     @endif
                     @if ($question->user->isPatron)
-                        <a class="patron" href="{{ route('patron.home') }}" data-turbolinks="false" aria-label="Patron">
+                        <a class="patron" href="{{ route('patron.home') }}" aria-label="Patron">
                             <x-heroicon-s-star class="heroicon text-gold" />
                         </a>
                     @endif
@@ -28,7 +28,7 @@
             </span>
             <span class="align-text-top small float-end ms-auto">
                 <a class="text-secondary" href="{{ route('question.question', ['id' => $question->id]) }}">
-                    {{ Carbon::parse($question->created_at)->diffForHumans() }}
+                    {{ $question->created_at->diffForHumans() }}
                 </a>
             </span>
         </div>
@@ -56,7 +56,7 @@
         @endif
         <div class="mt-3">
             @auth
-            @if (Auth::user()->hasLiked($question))
+            @if (user()->hasLiked($question))
                 <button role="button" class="btn btn-task btn-success text-white me-1" wire:click="togglePraise" wire:loading.attr="disabled" wire:offline.attr="disabled" aria-label="Praises">
                     <x-heroicon-s-thumb-up class="heroicon-small me-0" />
                     <span class="small text-white fw-bold">
@@ -83,7 +83,15 @@
                     @endif
                 </button>
             @endif
-            @if (Auth::user()->staffShip or Auth::id() === $question->user->id)
+            <a href="{{ route('question.question', ['id' => $question->id]) }}" class="btn btn-task btn-outline-primary me-1" aria-label="Questions">
+                <x-heroicon-o-chat-alt class="heroicon-small me-0" />
+                @if ($question->answer->count('id') !== 0)
+                <span class="small text-dark fw-bold">
+                    {{ number_format($question->answer->count('id')) }}
+                </span>
+                @endif
+            </a>
+            @if (user()->staffShip or user()->id === $question->user->id)
             @if ($type === "question.question")
             <button role="button" class="btn btn-task btn-outline-info me-1" data-bs-toggle="modal" data-bs-target="#editQuestionModal">
                 <x-heroicon-o-pencil-alt class="heroicon-small me-0" />
@@ -105,7 +113,7 @@
             </button>
             @endif
             @endif
-            @if (Auth::user()->staffShip)
+            @if (user()->staffShip)
             <button type="button" class="btn btn-task {{ $question->hidden ? 'btn-info' : 'btn-outline-info' }}" wire:click="hide" wire:loading.attr="disabled" wire:offline.attr="disabled" wire:key="{{ $question->id }}" title="Flag to admins" aria-label="Hide">
                 <x-heroicon-o-eye-off class="heroicon-small me-0" />
             </button>
@@ -126,12 +134,15 @@
                     @endif
                 </a>
             @endguest
-            @if (views($question)->remember()->count('id') > 0)
+            @if (views($question)->remember(now()->addHours(6))->count('id') > 0)
             <span class="align-middle ms-2 me-2">
                 <x-heroicon-o-eye class="heroicon" />
                 <span class="text-secondary">
-                    <span class="fw-bold">{{ number_format(views($question)->remember()->unique()->count('id')) }}</span>
-                    {{ views($question)->remember()->unique()->count('id') <= 1 ? 'View' : 'Views' }}
+                    @php
+                    $views = views($question)->remember(now()->addHours(6))->unique()->count('id')
+                    @endphp
+                    <span class="fw-bold">{{ number_format($views) }}</span>
+                    {{ str_plural('View', $views) }}
                 </span>
             </span>
             @endif

@@ -54,4 +54,13 @@ return [
         'redirect'      => env('GITLAB_URL'),
     ],
 
+    'cloudflare' => [
+        'api_key' => env('CLOUDFLARE_API_KEY'),
+        'email'   => env('CLOUDFLARE_EMAIL'),
+    ],
+
+    'paddle' => [
+        'public_key' => env('PADDLE_PUBLIC_KEY'),
+    ],
+
 ];

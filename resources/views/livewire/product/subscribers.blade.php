@@ -1,5 +1,13 @@
-<div>
-    @if (count($product->subscribers) === 0)
+<div wire:init="loadSubscribers">
+    @if (!$readyToLoad)
+    <div class="card-body text-center mt-3 mb-3">
+        <div class="spinner-border taskord-spinner text-secondary mb-3" role="status"></div>
+        <div class="h6">
+            Loading Subscribers...
+        </div>
+    </div>
+    @endif
+    @if ($readyToLoad and count($product->subscribers) === 0)
     <div class="card-body text-center mt-3 mb-3">
         <x-heroicon-o-users class="heroicon-4x text-primary mb-2" />
         <div class="h4">
@@ -7,7 +15,7 @@
         </div>
     </div>
     @endif
-    @foreach ($product->subscribers as $user)
+    @foreach ($subscribers as $user)
     <div class="card mb-3">
         <div class="card-body d-flex align-items-center">
         <img loading=lazy class="rounded-circle avatar-40 mt-1" src="{{ Helper::getCDNImage($user->avatar, 80) }}" height="40" width="40" alt="{{ $user->username }}'s avatar" />
@@ -23,14 +31,15 @@
                     <div class="mb-2">{{ $user->bio }}</div>
                 </a>
                 @auth
-                @if (Auth::id() !== $user->id && !$user->isFlagged)
+                @if (user()->id !== $user->id && !$user->isFlagged)
                     @livewire('user.follow', [
                         'user' => $user
-                    ])
+                    ], key($user->id))
                 @endif
                 @endauth
             </span>
         </div>
     </div>
     @endforeach
+    {{ $readyToLoad ? $subscribers->links() : '' }}
 </div>

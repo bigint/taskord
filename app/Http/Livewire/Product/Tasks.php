@@ -17,12 +17,18 @@ class Tasks extends Component
     public Product $product;
     public $type;
     public $page;
+    public $readyToLoad = false;
 
     public function mount($product, $type, $page)
     {
         $this->product = $product;
         $this->type = $type;
         $this->page = $page ? $page : 1;
+    }
+
+    public function loadTasks()
+    {
+        $this->readyToLoad = true;
     }
 
     public function render()
@@ -41,7 +47,7 @@ class Tasks extends Component
             ->paginate(10, null, null, $this->page);
 
         return view('livewire.product.tasks', [
-            'tasks' =>$tasks,
+            'tasks' => $this->readyToLoad ? $tasks : [],
             'page' => $this->page,
         ]);
     }

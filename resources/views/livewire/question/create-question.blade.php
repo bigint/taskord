@@ -24,9 +24,14 @@
                                 <strong>{{ $message }}</strong>
                             </span>
                         @enderror
+                        <div class="small fw-bold text-secondary mt-3">
+                            <x-heroicon-o-pencil-alt class="heroicon" />
+                            Markdown is supported
+                            <x-beta background="light" />
+                        </div>
                     </div>
                     @auth
-                    @if (Auth::user()->isPatron)
+                    @if (user()->isPatron)
                     <div class="mb-3">
                         <div class="fw-bold mb-2">Patron only</div>
                         <input id="patronOnly" class="form-check-input" type="checkbox" wire:model.defer="patronOnly">

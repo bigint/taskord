@@ -10,32 +10,19 @@ use Livewire\Component;
 class Delete extends Component
 {
     public User $user;
-    public $reset_confirming;
-    public $delete_confirming;
 
     public function mount($user)
     {
         $this->user = $user;
     }
 
-    public function confirmReset()
-    {
-        if (Auth::check()) {
-            $this->reset_confirming = $this->user->id;
-        } else {
-            return $this->alert('error', 'Forbidden!', [
-                'showCancelButton' =>  false,
-            ]);
-        }
-    }
-
     public function resetAccount()
     {
         if (Auth::check()) {
-            if (Auth::id() === $this->user->id) {
+            if (user()->id === $this->user->id) {
                 activity()
                     ->withProperties(['type' => 'User'])
-                    ->log('User account was resetted');
+                    ->log('Resetted the user account');
                 $user = User::find($this->user->id);
                 // Delete Task Images
                 foreach ($user->tasks as $task) {
@@ -64,40 +51,24 @@ class Delete extends Component
                 $user->ownedProducts()->delete();
                 $user->notifications()->delete();
                 $user->likes()->delete();
+                $this->flash('success', 'Your account has been resetted!');
 
-                return $this->alert('success', 'Your account has been resetted!', [
-                    'showCancelButton' =>  false,
-                ]);
+                return redirect()->route('home');
             } else {
-                return $this->alert('error', 'Forbidden!', [
-                    'showCancelButton' =>  false,
-                ]);
+                return $this->alert('error', 'Forbidden!');
             }
         } else {
-            return $this->alert('error', 'Forbidden!', [
-                'showCancelButton' =>  false,
-            ]);
-        }
-    }
-
-    public function confirmDelete()
-    {
-        if (Auth::check()) {
-            $this->delete_confirming = $this->user->id;
-        } else {
-            return $this->alert('error', 'Forbidden!', [
-                'showCancelButton' =>  false,
-            ]);
+            return $this->alert('error', 'Forbidden!');
         }
     }
 
     public function deleteAccount()
     {
         if (Auth::check()) {
-            if (Auth::id() === $this->user->id) {
+            if (user()->id === $this->user->id) {
                 activity()
                     ->withProperties(['type' => 'User'])
-                    ->log('User account was deleted');
+                    ->log('Deleted the user account');
                 $user = User::find($this->user->id);
                 // Delete Task Images
                 foreach ($user->tasks as $task) {
@@ -130,14 +101,10 @@ class Delete extends Component
 
                 return redirect()->route('home');
             } else {
-                return $this->alert('error', 'Forbidden!', [
-                    'showCancelButton' =>  false,
-                ]);
+                return $this->alert('error', 'Forbidden!');
             }
         } else {
-            return $this->alert('error', 'Forbidden!', [
-                'showCancelButton' =>  false,
-            ]);
+            return $this->alert('error', 'Forbidden!');
         }
     }
 }

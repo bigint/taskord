@@ -5,15 +5,6 @@
 </div>
 <br>
 <div align="center">
-    <a href="https://www.php.net">
-        <img src="https://img.shields.io/badge/PHP-v8.0-blue.svg?logo=php" alt="PHP Version">
-    </a>
-    <a href="http://laravel.com">
-        <img src="https://img.shields.io/badge/Laravel-v8.x-important.svg?logo=laravel&longCache=true" alt="Laravel Version">
-    </a>
-    <a href="https://nodejs.org">
-        <img src="https://img.shields.io/badge/Node-v14.x-brightgreen.svg?logo=node.js&longCache=true" alt="Node Version">
-    </a>
     <a href="https://gitlab.com/taskord/taskord/-/commits/main">
         <img src="https://gitlab.com/taskord/taskord/badges/main/pipeline.svg" alt="CI">
     </a>
@@ -37,9 +28,9 @@
     <br>
     <a href="https://taskord.com"><b>taskord.com »</b></a>
     <br><br>
-    <a href="https://gitlab.com/taskord/taskord/issues/new"><b>Report Bug</b></a>
+    <a href="https://gitlab.com/taskord/taskord/-/issues/new"><b>Report Bug</b></a>
     •
-    <a href="https://gitlab.com/taskord/taskord/issues/new"><b>Request Feature</b></a>
+    <a href="https://gitlab.com/taskord/taskord/-/issues/new"><b>Request Feature</b></a>
 </div>
 
 ## About Taskord
@@ -49,6 +40,7 @@
 - **😀 Makers:** Community of peoples who ships constantly.
 - **📦 Products:** Ship your products to Taskord and make regular updates about the product and even add tasks to them.
 - **💬 Q&A:** Get your questions answered and use this feature as discussion too.
+- **🤝 Meetups:** Find or create your own meetup and meet people near you who share your interests.
 - **🎁 Deals:** Discounts and special deals for Taskord members. Only available to patrons.
 
 ## Prerequisites
@@ -56,6 +48,8 @@
 - [PHP](https://www.php.net): please refer to their [installation guide](https://www.php.net/manual/en/install.php).
 - [Node](https://nodejs.org): we recommend using [nvm](https://github.com/nvm-sh/nvm) to install the Node version listed on the badge.
 - [MySQL](http://www.mysql.com) 8.0 or higher.
+- [Redis](https://redis.io) (optional) 4.0 or higher.
+- [Memcached](https://memcached.org) (optional) 1.6 or higher.
 
 ## Contributing
 
@@ -91,10 +85,10 @@ Start coding in a [ready-to-code development environment](https://www.gitpod.io)
     composer install --ignore-platform-reqs
 
     # Install NPM Dependencies
-    npm install / yarn install
+    yarn install
 
     # Build and watch assets for development
-    npm run watch / yarn watch
+    yarn watch
 
     # Generate Application Key
     php artisan key:generate
@@ -115,7 +109,7 @@ Start coding in a [ready-to-code development environment](https://www.gitpod.io)
 <br>
 
 <div align="center">
-    <img width="250px" src="https://i.imgur.com/yVtUpZa.gif">
+    <img width="250px" src="https://ik.imagekit.io/taskordimg/yVtUpZa_5v_VIfhN4.gif">
     <br>
     <strong>Happy Shipping</strong> 🚀
 </div>
