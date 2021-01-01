@@ -2,7 +2,6 @@
 <html lang="en" >
     <head>
         <meta http-equiv="Content-type" content="text/html; charset=utf-8">
-        <meta http-equiv="Content-Security-Policy" content="default-src 'none'; base-uri 'self'; connect-src 'self'; form-action 'self'; img-src 'self' data:; script-src 'self'; style-src 'unsafe-inline'">
         <meta content="origin" name="referrer">
         <title>Server Error · Taskord</title>
         <meta name="viewport" content="width=device-width">
