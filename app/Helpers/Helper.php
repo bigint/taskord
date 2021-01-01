@@ -17,7 +17,6 @@ use App\Notifications\TaskPraised;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\App;
-use Illuminate\Support\Facades\Auth;
 
 class Helper
 {

@@ -2,7 +2,6 @@
 
 namespace App\Http\Livewire\User;
 
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Livewire\Component;
 use Livewire\WithPagination;

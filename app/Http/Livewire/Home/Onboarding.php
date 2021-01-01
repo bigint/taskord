@@ -4,7 +4,6 @@ namespace App\Http\Livewire\Home;
 
 use App\Models\Product;
 use App\Models\Task;
-use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 
 class Onboarding extends Component
