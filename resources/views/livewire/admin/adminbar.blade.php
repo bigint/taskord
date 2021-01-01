@@ -10,7 +10,7 @@
             <a class="text-white fw-bold ms-3"
                 href="https://gitlab.com/taskord/taskord/-/releases/v{{ config('app.version') }}" target="_blank" rel="noreferrer">
                 <x-heroicon-o-archive class="heroicon" />
-                v{{ config('app.version') }}
+                v{{ laravel_version() }}
             </a>
             <a class="text-white fw-bold ms-3"
                 href="https://github.com/laravel/framework/releases/tag/v{{ App::VERSION() }}" target="_blank" rel="noreferrer">

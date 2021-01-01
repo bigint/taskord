@@ -2,25 +2,24 @@
 
 declare(strict_types=1);
 
+use Illuminate\Foundation\Application;
+
 /**
  * This file contains helper functions for Taskord.
  * php version 7.4+.
  *
  * @category Helpers
- * @author   Kim Hallberg <hallberg.kim@gmail.com>
- * @license  https://mit-license.org/ MIT
- * @link     http://taskord.com
  */
-if (! function_exists('git')) {
 
+if (! function_exists('git')) {
     /**
      * Execute git command
      * Should be used safetly
      * No direct end-user access.
      *
      * @param string $args arguments
-     *
-     * @return string|null output
+     * @author   Kim Hallberg <hallberg.kim@gmail.com>
+     * @return \Illuminate\Support\Carbon
      */
     function git(string $args)
     {
@@ -38,5 +37,18 @@ if (! function_exists('git')) {
         }
 
         return trim($output);
+    }
+}
+
+if (! function_exists('laravel_version')) {
+
+    /**
+     * Return current Laravel version
+     *
+     * @return string
+     */
+    function laravel_version(): string
+    {
+        return Application::VERSION;
     }
 }
