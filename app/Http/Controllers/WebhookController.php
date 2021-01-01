@@ -13,6 +13,7 @@ use Helper;
 use Illuminate\Http\Request as WebhookRequest;
 use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Str;
+use App\Actions\CreateNewTask;
 
 class WebhookController extends Controller
 {
@@ -26,7 +27,8 @@ class WebhookController extends Controller
 
         if (! Str::contains(strtolower($task), $ignoreList)) {
             $webhook->user->touch();
-            $task = Task::create([
+
+            $task = (new CreateNewTask($webhook->user, [
                 'user_id' =>  $webhook->user_id,
                 'task' => $task,
                 'done' => $done,
@@ -34,10 +36,7 @@ class WebhookController extends Controller
                 'product_id' => $product_id,
                 'type' => $product_id ? 'product' : 'user',
                 'source' => $type,
-            ]);
-            activity()
-                ->withProperties(['type' => 'Task'])
-                ->log('Created a new task via '.$type.' Task ID: '.$task->id);
+            ]))();
         }
     }
 

@@ -88,16 +88,15 @@ class CreateTask extends Component
 
             $product_id = Helper::getProductIDFromMention($this->task);
 
-            $task = Task::create([
-                'user_id' =>  Auth::id(),
+            $task = (new CreateNewTask(auth()->user(), [
                 'product_id' =>  $product_id,
                 'task' => $this->task,
                 'done' => false,
                 'images' => $images,
                 'due_at' => $this->due_at,
-                'type' => $product_id ? 'product' : 'user',
-                'source' => 'Taskord for Web',
-            ]);
+                'type' => $product_id ? 'product' : 'user'
+            ]))();
+
             Helper::mentionUsers($users, $task, 'task');
             $this->emit('taskAdded');
             $this->reset();
