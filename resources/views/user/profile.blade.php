@@ -159,7 +159,7 @@
         </a>
         <a class="text-dark fw-bold me-4" href="{{ route('user.stats', ['username' => $user->username]) }}">
             <span class="@if (Route::currentRouteName() === 'user.stats') text-primary @endif">Stats</span>
-            <x-beta background="light" />
+            <x-new background="light" />
         </a>
         <a class="text-dark fw-bold me-4" href="{{ route('feed.user', ['username' => $user->username]) }}" target="_blank">
             <span>
