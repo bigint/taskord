@@ -3,8 +3,8 @@
 declare(strict_types=1);
 
 use Illuminate\Foundation\Application;
-use Illuminate\Support\Str;
 use Illuminate\Support\Carbon;
+use Illuminate\Support\Str;
 
 /**
  * This file contains helper functions for Taskord.
@@ -111,7 +111,7 @@ if (! function_exists('get_name')) {
 if (! function_exists('carbon')) {
 
     /**
-     * Returns new Carbon object
+     * Returns new Carbon object.
      *
      * @param mixed ...$args arguments
      *
