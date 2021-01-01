@@ -10,7 +10,7 @@ use Illuminate\Support\Str;
 use Intervention\Image\Facades\Image;
 use Livewire\Component;
 use Livewire\WithFileUploads;
-use App\Actions\CreateTaskForProductLaunch;
+use App\Actions\PostTaskForProductLaunch;
 
 class EditProduct extends Component
 {
@@ -92,9 +92,11 @@ class EditProduct extends Component
             }
 
             if (user()->staffShip or user()->id === $product->owner->id) {
+                $isNewelyLaunched = false;
+
                 if ($this->launched and ! $product->launched) {
                     $product->launched_at = carbon();
-                    $newelyLaunched = true;
+                    $isNewelyLaunched = true;
                 }
 
                 $product->name = $this->name;
@@ -109,8 +111,8 @@ class EditProduct extends Component
                 $product->deprecated = $this->deprecated;
                 $product->save();
 
-                if ($newelyLaunched) {
-                    (new CreateTaskForProductLaunch)->execute($product);
+                if ($isNewelyLaunched) {
+                    (new PostTaskForProductLaunch($product))();
                 }
 
                 user()->touch();
