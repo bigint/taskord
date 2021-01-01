@@ -14,6 +14,7 @@
             <div class="small fw-bold text-secondary">
                 <x-heroicon-o-pencil-alt class="heroicon" />
                 Markdown is supported
+                <x-beta background="light" />
             </div>
             <button wire:loading.attr="disabled" class="btn btn-sm btn-primary" type="submit" wire:click="submit">
                 <x-heroicon-o-plus class="heroicon" />
