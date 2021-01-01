@@ -15,4 +15,13 @@ class CommentQuery
 
         return $comment->comment;
     }
+
+    public function hasPraised($comment, array $args)
+    {
+        if (Auth::check()) {
+            return user()->hasLiked($comment);
+        } else {
+            return null;
+        }
+    }
 }
