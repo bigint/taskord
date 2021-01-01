@@ -201,7 +201,7 @@
                     </a>
                     you subscribed
                     <div class="mt-2 body-font">
-                        {!! nl2br(Purify::clean(Helper::renderTask($data['comment']))) !!}
+                        {!! Markdown::parse($data['comment']) !!}
                     </div>
                 </span>
             @elseif ($type === "App\Notifications\Question\NotifySubscribers")
