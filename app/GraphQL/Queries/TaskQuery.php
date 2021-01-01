@@ -11,7 +11,7 @@ class TaskQuery
             $task->user->isFlagged or
             $task->user->isPrivate
         ) {
-            return null;
+            return 'Task was hidden by moderator';
         }
 
         return $task->task;
