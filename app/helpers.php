@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Str;
+use Illuminate\Support\Carbon;
 
 /**
  * This file contains helper functions for Taskord.
@@ -104,5 +105,23 @@ if (! function_exists('get_name')) {
     function get_name($firstname, $lastname): string
     {
         return Str::plural($firstname, $lastname);
+    }
+}
+
+if (! function_exists('carbon')) {
+
+    /**
+     * Returns new Carbon object
+     *
+     * @param mixed ...$args arguments
+     *
+     * @author Caleb Porzio <calebporzio@gmail.com>
+     * @link   https://github.com/calebporzio/awesome-helpers
+     *
+     * @return \Illuminate\Support\Carbon
+     */
+    function carbon(...$args): Carbon
+    {
+        return new Carbon(...$args);
     }
 }

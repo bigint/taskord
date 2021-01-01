@@ -28,7 +28,7 @@
             class="align-text-top small float-end ms-auto text-secondary"
             href="{{ route('comment', ['id' => $comment->task->id, 'comment_id' => $comment->id]) }}"
         >
-            {{ Carbon::parse($comment->created_at)->diffForHumans() }}
+            {{ carbon($comment->created_at)->diffForHumans() }}
         </a>
     </div>
     @if ($comment->hidden)

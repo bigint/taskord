@@ -103,12 +103,12 @@
                             <x-heroicon-o-globe-alt class="heroicon text-success" />
                         @endif
                     </td>
-                    <td title="{{ Carbon::parse($user->last_active)->format('M d, Y g:i A') }}">
+                    <td title="{{ carbon($user->last_active)->format('M d, Y g:i A') }}">
                         @if ($user->last_active)
-                        @if (strtotime(Carbon::now()) - strtotime($user->last_active) <= 5)
+                        @if (strtotime(carbon()) - strtotime($user->last_active) <= 5)
                         <span class="fw-bold text-success">active</span>
                         @else
-                        {{ Carbon::parse($user->last_active)->diffForHumans() }}
+                        {{ carbon($user->last_active)->diffForHumans() }}
                         @endif
                         @else
                         <span class="small fw-bold text-secondary">Not Set</span>
@@ -175,16 +175,16 @@
                                     </span>
                                 </li>
                                 <li>
-                                    <span class="dropdown-item" title="{{ Carbon::parse($user->updated_at)->format('M d, Y g:i A') }}">
+                                    <span class="dropdown-item" title="{{ $user->updated_at->format('M d, Y g:i A') }}">
                                         <x-heroicon-o-calendar class="heroicon text-secondary" />
-                                        <span class="fw-bold">{{ Carbon::parse($user->updated_at)->format('M d, Y') }}</span>
+                                        <span class="fw-bold">{{ $user->updated_at->format('M d, Y') }}</span>
                                     </span>
                                 </li>
                                 <li>
-                                    <span class="dropdown-item" title="{{ Carbon::parse($user->created_at)->format('M d, Y g:i A') }}">
+                                    <span class="dropdown-item" title="{{ $user->created_at->format('M d, Y g:i A') }}">
                                         <x-heroicon-o-calendar class="heroicon text-secondary" />
-                                        <span class="fw-bold">{{ Carbon::parse($user->created_at)->format('M d, Y') }}</span>
-                                        @if ($user->created_at->diffInDays(Carbon::today()) < 7)
+                                        <span class="fw-bold">{{ $user->created_at->format('M d, Y') }}</span>
+                                        @if ($user->created_at->diffInDays(carbon('today')) < 7)
                                             🆕
                                         @endif
                                     </span>

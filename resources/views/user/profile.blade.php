@@ -59,7 +59,7 @@
                     <div class="small mt-3">
                         <span>
                             <x-heroicon-o-calendar class="heroicon-small text-secondary" />
-                            Joined {{ Carbon::parse($user->created_at)->format("F Y") }}
+                            Joined {{ $user->created_at->format("F Y") }}
                         </span>
                         @if ($user->location)
                         <span class="ms-3">

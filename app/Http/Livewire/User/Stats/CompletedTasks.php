@@ -24,8 +24,8 @@ class CompletedTasks extends Component
 
     public function render()
     {
-        $created_at = Carbon::parse($this->user->created_at)->format('Y-m-d');
-        $current_date = Carbon::now()->format('Y-m-d');
+        $created_at = $this->user->created_at->format('Y-m-d');
+        $current_date = carbon()->format('Y-m-d');
         $period = CarbonPeriod::create($created_at, '10 days', $current_date);
         $completed_tasks_count = Task::cacheFor(60 * 60)
             ->select('id')
@@ -39,14 +39,14 @@ class CompletedTasks extends Component
         $completed_tasks = [];
         $tasks = [];
         foreach ($period->toArray() as $date) {
-            array_push($week_dates, Carbon::parse($date)->format('d M Y'));
+            array_push($week_dates, carbon($date)->format('d M Y'));
             $count = Task::cacheFor(60 * 60)
                 ->select('id')
                 ->where([
                     ['user_id', $this->user->id],
                     ['done', true],
                 ])
-                ->whereBetween('done_at', [Carbon::parse($date), Carbon::parse($date)->addDays(10)])
+                ->whereBetween('done_at', [carbon($date), carbon($date)->addDays(10)])
                 ->count();
             array_push($completed_tasks, $count);
         }

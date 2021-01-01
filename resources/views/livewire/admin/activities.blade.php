@@ -21,7 +21,7 @@
                 <tr>
                     <td>{{ $activity->id }}</td>
                     <td class="w-25 text-secondary">
-                        {{ Carbon::parse($activity->created_at)->format('l, d M Y H:i:s') }} UTC
+                        {{ $activity->created_at->format('l, d M Y H:i:s') }} UTC
                     </td>
                     <td>
                         @if($activity->causer_id)

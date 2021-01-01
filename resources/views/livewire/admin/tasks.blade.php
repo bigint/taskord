@@ -41,8 +41,8 @@
                         @endif
                     </td>
                     <td>
-                        <span title="{{ Carbon::parse($task->updated_at)->format('M d, Y g:i A') }}">
-                            {{ Carbon::parse($task->updated_at)->format('M d, Y') }}
+                        <span title="{{ $task->updated_at->format('M d, Y g:i A') }}">
+                            {{ $task->updated_at->format('M d, Y') }}
                         </span>
                     </td>
                 </tr>

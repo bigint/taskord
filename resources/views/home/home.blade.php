@@ -44,7 +44,7 @@
                 @livewire('home.onboarding')
                 <div class="h5 text-secondary pb-2">
                     @php
-                        $hour = Carbon::now()->setTimezone(Auth::user()->timezone)->format('H');
+                        $hour = carbon()->setTimezone(Auth::user()->timezone)->format('H');
                     @endphp
                     Good
                     <span>

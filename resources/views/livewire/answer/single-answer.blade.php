@@ -28,7 +28,7 @@
             </span>
             <span class="align-text-top small float-end ms-auto">
                 <a class="text-secondary" href="">
-                    {{ Carbon::parse($answer->created_at)->diffForHumans() }}
+                    {{ carbon($answer->created_at)->diffForHumans() }}
                 </a>
             </span>
         </div>
