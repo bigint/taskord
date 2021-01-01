@@ -2,6 +2,8 @@
 
 namespace App\GraphQL\Queries;
 
+use Illuminate\Support\Facades\Auth;
+
 class QuestionQuery
 {
     public function getTitle($question, array $args)

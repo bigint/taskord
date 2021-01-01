@@ -2,6 +2,8 @@
 
 namespace App\GraphQL\Queries;
 
+use Illuminate\Support\Facades\Auth;
+
 class AnswerQuery
 {
     public function getAnswer($answer, array $args)
