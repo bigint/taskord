@@ -1,6 +1,6 @@
 <div>
     @auth
-    @if (Auth::user()->hasSubscribed($question))
+    @if (user()->hasSubscribed($question))
     <button wire:click="subscribeQuestion" wire:loading.attr="disabled" class="btn btn-sm btn-danger">
         <x-heroicon-o-status-offline class="heroicon" />
         Unsubscribe

@@ -17,7 +17,7 @@
                     </span>
                 @endif
                 @auth
-                @if (Auth::user()->staffShip)
+                @if (user()->staffShip)
                     <span class="ms-1 text-secondary small">#{{ $product->id }}</span>
                 @endif
                 @endauth

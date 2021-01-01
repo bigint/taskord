@@ -2,6 +2,7 @@
 
 declare(strict_types=1);
 
+use App\Models\User;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Str;
@@ -123,5 +124,22 @@ if (! function_exists('carbon')) {
     function carbon(...$args): Carbon
     {
         return new Carbon(...$args);
+    }
+}
+
+if (! function_exists('user')) {
+    /**
+     * Returns current authenticated user.
+     *
+     * @param string|null $guard Auth guard
+     *
+     * @author Caleb Porzio <calebporzio@gmail.com>
+     * @link   https://github.com/calebporzio/awesome-helpers
+     *
+     * @return \App\Models\User
+     */
+    function user($guard = null): User
+    {
+        return auth($guard)->user();
     }
 }

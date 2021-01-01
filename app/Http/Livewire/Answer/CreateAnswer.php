@@ -38,11 +38,11 @@ class CreateAnswer extends Component
                 'answer' => 'required',
             ]);
 
-            if (! Auth::user()->hasVerifiedEmail()) {
+            if (! user()->hasVerifiedEmail()) {
                 return $this->alert('warning', 'Your email is not verified!');
             }
 
-            if (Auth::user()->isFlagged) {
+            if (user()->isFlagged) {
                 return $this->alert('error', 'Your account is flagged!');
             }
 
@@ -53,21 +53,21 @@ class CreateAnswer extends Component
             }
 
             $answer = Answer::create([
-                'user_id' =>  Auth::id(),
+                'user_id' =>  user()->id,
                 'question_id' =>  $this->question->id,
                 'answer' => $this->answer,
             ]);
-            Auth::user()->touch();
+            user()->touch();
 
             $this->emit('answerAdded');
             $this->answer = '';
             Helper::mentionUsers($users, $answer, 'answer');
             Helper::notifySubscribers($answer->question->subscribers, $answer, 'answer');
-            if (! Auth::user()->hasSubscribed($answer->question)) {
-                Auth::user()->subscribe($answer->question);
+            if (! user()->hasSubscribed($answer->question)) {
+                user()->subscribe($answer->question);
                 $this->emit('questionSubscribed');
             }
-            if (Auth::id() !== $this->question->user->id) {
+            if (user()->id !== $this->question->user->id) {
                 $this->question->user->notify(new Answered($answer));
                 givePoint(new CommentCreated($answer));
             }

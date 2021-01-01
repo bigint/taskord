@@ -31,7 +31,7 @@ class Integrations extends Component
         $throttler = Throttle::get(Request::instance(), 5, 5);
         $throttler->hit();
         if (count($throttler) > 10) {
-            Helper::flagAccount(Auth::user());
+            Helper::flagAccount(user());
         }
         if (! $throttler->check()) {
             activity()
@@ -42,22 +42,22 @@ class Integrations extends Component
         }
 
         if (Auth::check()) {
-            if (Auth::id() === $this->user->id) {
+            if (user()->id === $this->user->id) {
                 $this->validate([
                     'name' => 'required|min:2|max:20',
                     'product' => 'nullable',
                 ]);
 
-                if (Auth::user()->isFlagged) {
+                if (user()->isFlagged) {
                     return $this->alert('error', 'Your account is flagged!');
                 }
 
-                if (Auth::id() === $this->user->id) {
+                if (user()->id === $this->user->id) {
                     $webhook = Webhook::create([
-                        'user_id' => Auth::id(),
+                        'user_id' => user()->id,
                         'name' => $this->name,
                         'product_id' => $this->product,
-                        'token' => md5(uniqid(Auth::id(), true)),
+                        'token' => md5(uniqid(user()->id, true)),
                         'type' => $this->type,
                     ]);
                     $this->name = '';
@@ -82,7 +82,7 @@ class Integrations extends Component
     public function deleteWebhook($id)
     {
         if (Auth::check()) {
-            if (Auth::id() === $this->user->id) {
+            if (user()->id === $this->user->id) {
                 activity()
                     ->withProperties(['type' => 'User'])
                     ->log('Deleted a webhook | Webhook ID: '.$id);

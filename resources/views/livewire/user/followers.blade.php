@@ -31,7 +31,7 @@
                     <div class="mb-2">{{ $user->bio }}</div>
                 </a>
                 @auth
-                @if (Auth::id() !== $user->id && !$user->isFlagged)
+                @if (user()->id !== $user->id && !$user->isFlagged)
                     @livewire('user.follow', [
                         'user' => $user
                     ], key($user->id))

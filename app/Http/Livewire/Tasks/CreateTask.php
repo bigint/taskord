@@ -42,7 +42,7 @@ class CreateTask extends Component
         $throttler = Throttle::get(Request::instance(), 20, 5);
         $throttler->hit();
         if (count($throttler) > 30) {
-            Helper::flagAccount(Auth::user());
+            Helper::flagAccount(user());
         }
         if (! $throttler->check()) {
             activity()
@@ -62,11 +62,11 @@ class CreateTask extends Component
                 'images.max' => 'Only 5 Images are allowed!',
             ]);
 
-            if (! Auth::user()->hasVerifiedEmail()) {
+            if (! user()->hasVerifiedEmail()) {
                 return $this->alert('warning', 'Your email is not verified!');
             }
 
-            if (Auth::user()->isFlagged) {
+            if (user()->isFlagged) {
                 return $this->alert('error', 'Your account is flagged!');
             }
 

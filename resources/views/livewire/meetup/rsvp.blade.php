@@ -4,7 +4,7 @@
     <img loading=lazy class="avatar-20 rounded-circle" src="{{ Helper::getCDNImage($user->avatar, 80) }}" height="20" width="20" alt="{{ $user->username }}'s avatar" />
     @endforeach
     @auth
-    @if (Auth::user()->hasSubscribed($meetup))
+    @if (user()->hasSubscribed($meetup))
     <button class="btn btn-task btn-danger text-white float-end fw-bold" wire:click="toggleRSVP" wire:loading.attr="disabled" aria-label="Can't Attend">
         ❌ Can't attend
     </button>

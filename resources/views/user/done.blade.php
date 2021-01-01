@@ -22,14 +22,14 @@ if ($user->lastname and $user->lastname) {
     <div class="row justify-content-center mt-4">
         <div class="col-lg-8">
             @auth
-            @if (Auth::id() === $user->id && !$user->isFlagged)
+            @if (user()->id === $user->id && !$user->isFlagged)
                 @livewire('create-task')
             @endif
             @endauth
             @if (
                 !$user->isPrivate or
-                Auth::id() === $user->id or
-                Auth::check() && Auth::user()->staffShip
+                user()->id === $user->id or
+                Auth::check() && user()->staffShip
             )
             @livewire('user.tasks', [
                 'type' => 'user.done',

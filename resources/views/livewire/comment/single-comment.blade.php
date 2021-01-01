@@ -40,7 +40,7 @@
     @endif
     <div class="mt-2">
         @auth
-        @if (Auth::user()->hasLiked($comment))
+        @if (user()->hasLiked($comment))
             <button type="button" class="btn btn-task btn-success text-white me-1" wire:click="togglePraise" wire:loading.attr="disabled" wire:offline.attr="disabled" aria-label="Praise">
                 <x-heroicon-s-thumb-up class="heroicon-small me-0" />
                 <span class="small text-white fw-bold">
@@ -67,7 +67,7 @@
                 @endif
             </button>
         @endif
-        @if (Auth::user()->staffShip or Auth::id() === $comment->user->id)
+        @if (user()->staffShip or user()->id === $comment->user->id)
             @if ($confirming === $comment->id)
             <button type="button" class="btn btn-task btn-danger" wire:click="deleteComment" wire:loading.attr="disabled" wire:offline.attr="disabled" aria-label="Confirm Delete">
                 Are you sure?
@@ -78,7 +78,7 @@
             </button>
             @endif
         @endif
-        @if (Auth::user()->staffShip)
+        @if (user()->staffShip)
         <button type="button" class="btn btn-task {{ $comment->hidden ? 'btn-info' : 'btn-outline-info' }} ms-1" wire:click="hide" wire:loading.attr="disabled" wire:offline.attr="disabled" wire:key="{{ $comment->id }}" title="Flag to admins" aria-label="Hide">
             <x-heroicon-o-eye-off class="heroicon-small me-0" />
         </button>

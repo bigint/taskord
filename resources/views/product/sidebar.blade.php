@@ -1,6 +1,6 @@
 <div class="col-sm">
     @auth
-    @if (Auth::user()->staffShip or Auth::id() === $product->owner->id)
+    @if (user()->staffShip or user()->id === $product->owner->id)
     <div class="card mb-4">
         <div class="card-body d-grid">
             <button type="button" class="btn btn-success text-white fw-bold" data-bs-toggle="modal" data-bs-target="#newUpdateModal">
@@ -112,10 +112,12 @@
             @endforeach
         </div>
     </div>
-    @if ($product->members->contains(Auth::id()))
+    @auth
+    @if ($product->members->contains(user()->id))
     @livewire('product.leave', [
         'product' => $product,
     ])
     @endif
+    @endauth
     <x-footer />
 </div>
