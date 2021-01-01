@@ -20,7 +20,7 @@
         </a>
     </div>
     <div class="mx-3">
-        <img loading=lazy src="/images/pride.svg" height="30" alt="Taskord Beta">
+        <img loading=lazy src="/images/logo.svg" height="30" alt="Taskord Beta">
     </div>
     <div class="d-flex justify-content-evenly flex-grow-1">
         <a href="{{ route('terms') }}">
