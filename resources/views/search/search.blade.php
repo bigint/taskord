@@ -10,9 +10,9 @@
 <div class="container pt-5">
     <div class="row justify-content-center">
         <div class="col-lg-8">
-            <div class="h4 fw-normal">
+            <div class="h4 fw-normal d-flex align-items-center">
                 <x-heroicon-o-search class="heroicon-2x" />
-                <span>
+                <span class="ms-2">
                     Search more than
                     <span class="fw-bold">{{ $random }}</span>
                 </span>
