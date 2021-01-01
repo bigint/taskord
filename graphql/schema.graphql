@@ -12,7 +12,7 @@ type Query {
     product(id: ID @eq): Product @find
     productUpdates: [ProductUpdate!]! @paginate(type: "connection")
     productUpdate(id: ID @eq): ProductUpdate @find
-    tasks(done: Boolean! @eq): [Task!]! @paginate(type: "connection", scopes: ["fetch"])
+    tasks(done: Boolean! @eq, orderBy: _ @orderBy(columns: ["created_at", "updated_at", "done_at"])): [Task!]! @paginate(type: "connection", scopes: ["fetch"])
     task(id: ID @eq): Task @find
     comments: [Comment!]! @paginate(type: "connection")
     comment(id: ID @eq): Comment @find
