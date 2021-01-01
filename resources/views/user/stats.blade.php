@@ -34,6 +34,9 @@ if ($user->lastname and $user->lastname) {
                     @livewire('user.stats.comments', [
                         'user' => $user
                     ])
+                    @livewire('user.stats.answers', [
+                        'user' => $user
+                    ])
                 </div>
             </div>
         </div>
