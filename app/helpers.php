@@ -5,6 +5,7 @@ declare(strict_types=1);
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Str;
+use App\Models\User;
 
 /**
  * This file contains helper functions for Taskord.
