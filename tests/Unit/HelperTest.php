@@ -5,7 +5,7 @@ namespace Tests\Unit;
 use App\Helpers\Helper;
 use Illuminate\Support\Facades\App;
 
-test('can convert to CDN url in production enviroment with arguments', function ($url, $resolution, $expected) {
+it('can convert to CDN url in production enviroment with arguments', function ($url, $resolution, $expected) {
     App::shouldReceive('environment')->once()->withNoArgs()->andReturn('production');
 
     expect(Helper::getCDNImage($url, $resolution))->toEqual($expected);
@@ -14,7 +14,7 @@ test('can convert to CDN url in production enviroment with arguments', function 
     ['https://taskord.com/storage/test.png', 501, 'https://ik.imagekit.io/taskordimg/tr:w-501/test.png'],
 ]);
 
-test('can convert to CDN url in production enviroment without arguments', function () {
+it('can convert to CDN url in production enviroment without arguments', function () {
     App::shouldReceive('environment')->once()->withNoArgs()->andReturn('production');
 
     $urlFromHelper = Helper::getCDNImage('https://taskord.com/storage/test.png');
@@ -22,7 +22,7 @@ test('can convert to CDN url in production enviroment without arguments', functi
     expect($urlFromHelper)->toEqual('https://ik.imagekit.io/taskordimg/tr:w-500/test.png');
 });
 
-test('can get correct usernames from mentions', function ($text, $expected) {
+it('can get correct usernames from mentions', function ($text, $expected) {
     $usernames = Helper::getUsernamesFromMentions($text);
 
     expect($usernames)->toMatchArray($expected);
@@ -35,13 +35,13 @@ test('can get correct usernames from mentions', function ($text, $expected) {
     ['@test', ['test']],
 ]);
 
-test('can return empty array if no user mentions are found', function () {
+it('can return empty array if no user mentions are found', function () {
     $usernames = Helper::getUsernamesFromMentions('no users found');
 
     expect($usernames)->toBeEmpty();
 });
 
-test('can parse mentions to markdown', function (
+it('can parse mentions to markdown', function (
     string $markdown,
     array $mentions,
     string $expected
@@ -59,13 +59,13 @@ test('can parse mentions to markdown', function (
     ['@test', ['test'], '[@test](/@test)'],
 ]);
 
-test('can return empty array if no product mentions are found', function () {
+it('can return empty array if no product mentions are found', function () {
     $products = Helper::getProductIDFromMention('no users found');
 
     expect($products)->toBeEmpty();
 });
 
-test('can render task with user mentions correctly', function ($task, $expected) {
+it('can render task with user mentions correctly', function ($task, $expected) {
     expect(Helper::renderTask($task))->toEqual($expected);
 })->with([
     ['@test @admin', '<a href="/@test">@test</a> <a href="/@admin">@admin</a>'],
@@ -76,7 +76,7 @@ test('can render task with user mentions correctly', function ($task, $expected)
     ['@test', '<a href="/@test">@test</a>'],
 ]);
 
-test('can render task with product mentions correctly', function ($task, $expected) {
+it('can render task with product mentions correctly', function ($task, $expected) {
     expect(Helper::renderTask($task))->toEqual($expected);
 })->with([
     ['#test #admin', '<a href="/product/test">#test</a> <a href="/product/admin">#admin</a>'],
@@ -87,7 +87,7 @@ test('can render task with product mentions correctly', function ($task, $expect
     ['#test', '<a href="/product/test">#test</a>'],
 ]);
 
-test('can render task with both user and product mentions correctly', function ($task, $expected) {
+it('can render task with both user and product mentions correctly', function ($task, $expected) {
     expect(Helper::renderTask($task))->toEqual($expected);
 })->with([
     ['#test admin @te-st', '<a href="/product/test">#test</a> admin <a href="/@te-st">@te-st</a>'],
@@ -97,7 +97,7 @@ test('can render task with both user and product mentions correctly', function (
     ['#test @test', '<a href="/product/test">#test</a> <a href="/@test">@test</a>'],
 ]);
 
-test('can render task with links correctly', function ($task, $expected) {
+it('can render task with links correctly', function ($task, $expected) {
     expect(Helper::renderTask($task))->toEqual($expected);
 })->with([
     ['ftp://example.com/loremipsumtest', "<a class='link' href='ftp://example.com/loremipsumtest'>ftp://example.com/loremipsumte...</a>"],
@@ -108,12 +108,12 @@ test('can render task with links correctly', function ($task, $expected) {
     ['ftp://example.com/test', "<a class='link' href='ftp://example.com/test'>ftp://example.com/test</a>"],
 ]);
 
-test('can render task with plain text correctly', function () {
+it('can render task with plain text correctly', function () {
     expect(Helper::renderTask('Jean shorts scenester fingerstache gentrify.'))
         ->toEqual('Jean shorts scenester fingerstache gentrify.');
 });
 
-test('can render due date correctly', function ($days, $expected) {
+it('can render due date correctly', function ($days, $expected) {
     $date = carbon()->addDays($days);
     $expect = str_replace('-format-', $date->format('Y-m-d'), $expected);
 
