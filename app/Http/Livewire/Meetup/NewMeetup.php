@@ -46,11 +46,11 @@ class NewMeetup extends Component
                 'cover' => 'nullable|mimes:jpeg,jpg,png,gif|max:1024',
             ]);
 
-            if (! Auth::user()->hasVerifiedEmail()) {
+            if (! user()->hasVerifiedEmail()) {
                 return $this->alert('warning', 'Your email is not verified!');
             }
 
-            if (Auth::user()->isFlagged) {
+            if (user()->isFlagged) {
                 return $this->alert('error', 'Your account is flagged!');
             }
 
@@ -76,7 +76,7 @@ class NewMeetup extends Component
                 'location' => $this->location,
                 'date' => $this->date,
             ]);
-            Auth::user()->touch();
+            user()->touch();
 
             $this->flash('success', 'Meetup has been created!');
 

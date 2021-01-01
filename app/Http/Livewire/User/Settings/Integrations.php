@@ -31,7 +31,7 @@ class Integrations extends Component
         $throttler = Throttle::get(Request::instance(), 5, 5);
         $throttler->hit();
         if (count($throttler) > 10) {
-            Helper::flagAccount(Auth::user());
+            Helper::flagAccount(user());
         }
         if (! $throttler->check()) {
             activity()
@@ -48,7 +48,7 @@ class Integrations extends Component
                     'product' => 'nullable',
                 ]);
 
-                if (Auth::user()->isFlagged) {
+                if (user()->isFlagged) {
                     return $this->alert('error', 'Your account is flagged!');
                 }
 

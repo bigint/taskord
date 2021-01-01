@@ -14,10 +14,10 @@
                             <strong>{{ $message }}</strong>
                         </span>
                     @enderror
-                    @if (Auth::user()->ownedProducts->merge(Auth::user()->products)->count('id') > 0)
+                    @if (user()->ownedProducts->merge(user()->products)->count('id') > 0)
                     <select class="form-select mt-3" wire:model.defer="product">
                         <option selected>Choose Product (optional)</option>
-                        @foreach (Auth::user()->ownedProducts->merge(Auth::user()->products) as $product)
+                        @foreach (user()->ownedProducts->merge(user()->products) as $product)
                         <option value="{{ $product->id }}">{{ $product->name }}</option>
                         @endforeach
                     </select>

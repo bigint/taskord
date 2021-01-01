@@ -19,9 +19,9 @@ class Leave extends Component
     public function leaveTeam()
     {
         if (Auth::check()) {
-            Auth::user()->products()->detach($this->product);
+            user()->products()->detach($this->product);
             $this->product->owner->notify(new MemberLeft($this->product, Auth::id()));
-            Auth::user()->touch();
+            user()->touch();
             activity()
                 ->withProperties(['type' => 'Product'])
                 ->log('Left the team #'.$this->product->slug);

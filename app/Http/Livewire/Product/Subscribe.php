@@ -24,7 +24,7 @@ class Subscribe extends Component
         $throttler = Throttle::get(Request::instance(), 10, 5);
         $throttler->hit();
         if (count($throttler) > 20) {
-            Helper::flagAccount(Auth::user());
+            Helper::flagAccount(user());
         }
         if (! $throttler->check()) {
             activity()
@@ -35,19 +35,19 @@ class Subscribe extends Component
         }
 
         if (Auth::check()) {
-            if (! Auth::user()->hasVerifiedEmail()) {
+            if (! user()->hasVerifiedEmail()) {
                 return $this->alert('warning', 'Your email is not verified!');
             }
-            if (Auth::user()->isFlagged) {
+            if (user()->isFlagged) {
                 return $this->alert('error', 'Your account is flagged!');
             }
             if (Auth::id() === $this->product->owner->id) {
                 return $this->alert('warning', 'You can\'t subscribe your own product!');
             } else {
-                Auth::user()->toggleSubscribe($this->product);
+                user()->toggleSubscribe($this->product);
                 $this->product->refresh();
-                Auth::user()->touch();
-                if (Auth::user()->hasSubscribed($this->product)) {
+                user()->touch();
+                if (user()->hasSubscribed($this->product)) {
                     $this->product->owner->notify(new Subscribed($this->product, Auth::id()));
                 }
                 activity()

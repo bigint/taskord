@@ -24,7 +24,7 @@ class SingleAnswer extends Component
         $throttler = Throttle::get(Request::instance(), 20, 5);
         $throttler->hit();
         if (count($throttler) > 30) {
-            Helper::flagAccount(Auth::user());
+            Helper::flagAccount(user());
         }
         if (! $throttler->check()) {
             activity()
@@ -35,10 +35,10 @@ class SingleAnswer extends Component
         }
 
         if (Auth::check()) {
-            if (! Auth::user()->hasVerifiedEmail()) {
+            if (! user()->hasVerifiedEmail()) {
                 return $this->alert('warning', 'Your email is not verified!');
             }
-            if (Auth::user()->isFlagged) {
+            if (user()->isFlagged) {
                 return $this->alert('error', 'Your account is flagged!');
             }
             if (Auth::id() === $this->answer->user->id) {
@@ -56,7 +56,7 @@ class SingleAnswer extends Component
     public function hide()
     {
         if (Auth::check()) {
-            if (Auth::user()->isStaff and Auth::user()->staffShip) {
+            if (user()->isStaff and user()->staffShip) {
                 Helper::hide($this->answer);
                 activity()
                     ->withProperties(['type' => 'Admin'])
@@ -79,17 +79,17 @@ class SingleAnswer extends Component
     public function deleteAnswer()
     {
         if (Auth::check()) {
-            if (Auth::user()->isFlagged) {
+            if (user()->isFlagged) {
                 return $this->alert('error', 'Your account is flagged!');
             }
 
-            if (Auth::user()->staffShip or Auth::id() === $this->answer->user->id) {
+            if (user()->staffShip or Auth::id() === $this->answer->user->id) {
                 activity()
                     ->withProperties(['type' => 'Answer'])
                     ->log('Deleted an answer | Answer ID: '.$this->answer->id);
                 $this->answer->delete();
                 $this->emit('answerDeleted');
-                Auth::user()->touch();
+                user()->touch();
 
                 return $this->alert('success', 'Answer has been deleted successfully!');
             } else {

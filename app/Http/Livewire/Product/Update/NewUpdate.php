@@ -27,11 +27,11 @@ class NewUpdate extends Component
                 'body' => 'required|min:3|max:10000',
             ]);
 
-            if (! Auth::user()->hasVerifiedEmail()) {
+            if (! user()->hasVerifiedEmail()) {
                 return $this->alert('warning', 'Your email is not verified!');
             }
 
-            if (Auth::user()->isFlagged) {
+            if (user()->isFlagged) {
                 return $this->alert('error', 'Your account is flagged!');
             }
 
@@ -41,7 +41,7 @@ class NewUpdate extends Component
                 'title' => $this->title,
                 'body' => $this->body,
             ]);
-            Auth::user()->touch();
+            user()->touch();
             $users = Product::find($this->product->id)->subscribers()->get();
             foreach ($users as $user) {
                 $user->notify(new NewProductUpdate($update));

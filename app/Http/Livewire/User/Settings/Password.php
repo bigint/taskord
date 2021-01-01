@@ -46,7 +46,7 @@ class Password extends Component
                     'newPassword.pwned' => 'This password has been pwned before',
                 ]);
 
-                $user = Auth::user();
+                $user = user();
 
                 if (! Hash::check($this->currentPassword, $user->password)) {
                     return $this->alert('error', 'Current password does not match!');

@@ -30,7 +30,7 @@ class LoadMore extends Component
     public function render()
     {
         if ($this->loadMore) {
-            $user = Auth::user();
+            $user = user();
             if (Auth::check() && $user->onlyFollowingsTasks) {
                 $userIds = $user->followings->pluck('id');
                 $userIds->push(Auth::id());

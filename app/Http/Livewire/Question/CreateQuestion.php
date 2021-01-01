@@ -21,11 +21,11 @@ class CreateQuestion extends Component
                 'body' => 'required|min:3|max:10000',
             ]);
 
-            if (! Auth::user()->hasVerifiedEmail()) {
+            if (! user()->hasVerifiedEmail()) {
                 return $this->alert('warning', 'Your email is not verified!');
             }
 
-            if (Auth::user()->isFlagged) {
+            if (user()->isFlagged) {
                 return $this->alert('error', 'Your account is flagged!');
             }
 
@@ -37,7 +37,7 @@ class CreateQuestion extends Component
                 'body' => $this->body,
                 'patronOnly' => $patronOnly,
             ]);
-            Auth::user()->touch();
+            user()->touch();
 
             givePoint(new QuestionCreated($question));
             activity()

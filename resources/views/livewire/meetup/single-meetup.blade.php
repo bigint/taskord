@@ -6,7 +6,7 @@
         <div class="card-body">
             <div class="fw-bold text-uppercase small">
                 @auth
-                {{ carbon($meetup->date)->setTimezone(Auth::user()->timezone)->format('D, M d, H:i') }}
+                {{ carbon($meetup->date)->setTimezone(user()->timezone)->format('D, M d, H:i') }}
                 @else
                 {{ carbon($meetup->date)->format('D, M d, H:i') }}
                 @endauth

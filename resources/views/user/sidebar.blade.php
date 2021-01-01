@@ -1,7 +1,7 @@
 <div class="col-sm d-inline-bock text-truncate">
     <div class="d-block">
         @auth
-        @if (Auth::user()->staffShip)
+        @if (user()->staffShip)
             @livewire('user.moderator', [
                 'user' => $user
             ])

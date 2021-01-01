@@ -31,7 +31,7 @@ class SingleTask extends Component
         $throttler = Throttle::get(Request::instance(), 20, 5);
         $throttler->hit();
         if (count($throttler) > 30) {
-            Helper::flagAccount(Auth::user());
+            Helper::flagAccount(user());
         }
         if (! $throttler->check()) {
             activity()
@@ -45,17 +45,17 @@ class SingleTask extends Component
             if (Auth::id() === $this->task->user->id) {
                 if ($this->task->done) {
                     $this->task->done_at = carbon();
-                    Auth::user()->touch();
+                    user()->touch();
                     activity()
                         ->withProperties(['type' => 'Task'])
                         ->log('Updated a task as pending | Task ID: '.$this->task->id);
                 } else {
                     $this->task->done_at = carbon();
-                    Auth::user()->touch();
-                    if (Auth::user()->hasGoal) {
-                        Auth::user()->daily_goal_reached++;
-                        Auth::user()->save();
-                        CheckGoal::dispatch(Auth::user(), $this->task);
+                    user()->touch();
+                    if (user()->hasGoal) {
+                        user()->daily_goal_reached++;
+                        user()->save();
+                        CheckGoal::dispatch(user(), $this->task);
                     }
                     givePoint(new TaskCompleted($this->task));
                     activity()
@@ -80,7 +80,7 @@ class SingleTask extends Component
         $throttler = Throttle::get(Request::instance(), 20, 5);
         $throttler->hit();
         if (count($throttler) > 30) {
-            Helper::flagAccount(Auth::user());
+            Helper::flagAccount(user());
         }
         if (! $throttler->check()) {
             activity()
@@ -91,11 +91,11 @@ class SingleTask extends Component
         }
 
         if (Auth::check()) {
-            if (! Auth::user()->hasVerifiedEmail()) {
+            if (! user()->hasVerifiedEmail()) {
                 return $this->alert('warning', 'Your email is not verified!');
             }
 
-            if (Auth::user()->isFlagged) {
+            if (user()->isFlagged) {
                 return $this->alert('error', 'Your account is flagged!');
             }
             if (Auth::id() === $this->task->user->id) {
@@ -113,7 +113,7 @@ class SingleTask extends Component
     public function hide()
     {
         if (Auth::check()) {
-            if (Auth::user()->isStaff and Auth::user()->staffShip) {
+            if (user()->isStaff and user()->staffShip) {
                 Helper::hide($this->task);
                 activity()
                     ->withProperties(['type' => 'Admin'])
@@ -136,11 +136,11 @@ class SingleTask extends Component
     public function deleteTask()
     {
         if (Auth::check()) {
-            if (Auth::user()->isFlagged) {
+            if (user()->isFlagged) {
                 return $this->alert('error', 'Your account is flagged!');
             }
 
-            if (Auth::user()->staffShip or Auth::id() === $this->task->user->id) {
+            if (user()->staffShip or Auth::id() === $this->task->user->id) {
                 activity()
                     ->withProperties(['type' => 'Task'])
                     ->log('Deleted a task | Task ID: '.$this->task->id);
@@ -149,7 +149,7 @@ class SingleTask extends Component
                 }
                 $this->task->delete();
                 $this->emitUp('taskDeleted');
-                Auth::user()->touch();
+                user()->touch();
 
                 return $this->alert('success', 'Task has been deleted successfully!');
             } else {

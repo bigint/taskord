@@ -148,7 +148,7 @@ class Profile extends Component
                 if (array_key_exists(1, $old_avatar)) {
                     Storage::delete($old_avatar[1]);
                 }
-                $this->user->avatar = 'https://secure.gravatar.com/avatar/'.md5(Auth::user()->email).'?s=500&d=identicon';
+                $this->user->avatar = 'https://secure.gravatar.com/avatar/'.md5(user()->email).'?s=500&d=identicon';
                 $this->user->save();
                 activity()
                     ->withProperties(['type' => 'User'])

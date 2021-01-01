@@ -29,7 +29,7 @@ if ($user->lastname and $user->lastname) {
             @if (
                 !$user->isPrivate or
                 Auth::id() === $user->id or
-                Auth::check() && Auth::user()->staffShip
+                Auth::check() && user()->staffShip
             )
             @livewire('user.tasks', [
                 'type' => 'user.done',

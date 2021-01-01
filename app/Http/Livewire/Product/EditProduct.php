@@ -70,7 +70,7 @@ class EditProduct extends Component
                 'avatar' => 'nullable|mimes:jpeg,jpg,png,gif|max:1024',
             ]);
 
-            if (Auth::user()->isFlagged) {
+            if (user()->isFlagged) {
                 return $this->alert('error', 'Your account is flagged!');
             }
 
@@ -90,7 +90,7 @@ class EditProduct extends Component
                 $product->avatar = $avatar;
             }
 
-            if (Auth::user()->staffShip or Auth::id() === $product->owner->id) {
+            if (user()->staffShip or Auth::id() === $product->owner->id) {
                 if ($this->launched and ! $product->launched) {
                     $product->launched_at = carbon();
                 }
@@ -105,7 +105,7 @@ class EditProduct extends Component
                 $product->launched = $this->launched;
                 $product->deprecated = $this->deprecated;
                 $product->save();
-                Auth::user()->touch();
+                user()->touch();
 
                 $this->flash('success', 'Product has been updated!');
                 activity()
@@ -129,15 +129,15 @@ class EditProduct extends Component
     public function deleteProduct()
     {
         if (Auth::check()) {
-            if (! Auth::user()->hasVerifiedEmail()) {
+            if (! user()->hasVerifiedEmail()) {
                 return $this->alert('warning', 'Your email is not verified!');
             }
 
-            if (Auth::user()->isFlagged) {
+            if (user()->isFlagged) {
                 return $this->alert('error', 'Your account is flagged!');
             }
 
-            if (Auth::user()->staffShip or Auth::id() === $this->product->owner->id) {
+            if (user()->staffShip or Auth::id() === $this->product->owner->id) {
                 activity()
                     ->withProperties(['type' => 'Product'])
                     ->log('Deleted a product | Product Slug: #'.$this->product->slug);
@@ -148,7 +148,7 @@ class EditProduct extends Component
                 $this->product->tasks()->delete();
                 $this->product->webhooks()->delete();
                 $this->product->delete();
-                Auth::user()->touch();
+                user()->touch();
                 $this->flash('success', 'Product has been deleted!');
 
                 return redirect()->route('products.newest');

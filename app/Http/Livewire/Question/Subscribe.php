@@ -27,7 +27,7 @@ class Subscribe extends Component
         $throttler = Throttle::get(Request::instance(), 10, 5);
         $throttler->hit();
         if (count($throttler) > 20) {
-            Helper::flagAccount(Auth::user());
+            Helper::flagAccount(user());
         }
         if (! $throttler->check()) {
             activity()
@@ -38,18 +38,18 @@ class Subscribe extends Component
         }
 
         if (Auth::check()) {
-            if (! Auth::user()->hasVerifiedEmail()) {
+            if (! user()->hasVerifiedEmail()) {
                 return $this->alert('warning', 'Your email is not verified!');
             }
-            if (Auth::user()->isFlagged) {
+            if (user()->isFlagged) {
                 return $this->alert('error', 'Your account is flagged!');
             }
             if (Auth::id() === $this->question->user->id) {
                 return $this->alert('warning', 'You can\'t subscribe your own question!');
             } else {
-                Auth::user()->toggleSubscribe($this->question);
+                user()->toggleSubscribe($this->question);
                 $this->question->refresh();
-                Auth::user()->touch();
+                user()->touch();
                 activity()
                     ->withProperties(['type' => 'Question'])
                     ->log('Toggled question subscribe | Question ID: '.$this->question->id);

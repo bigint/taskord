@@ -3,7 +3,7 @@
         © Taskord
     </span>
     @auth
-    @if (Auth::user()->staffShip)
+    @if (user()->staffShip)
     <a class="pe-2" href="{{ route('about') }}">
         About
     </a>
@@ -28,7 +28,7 @@
         Contact
     </a>
     @auth
-    @if (Auth::user()->staffShip)
+    @if (user()->staffShip)
     <span class="pe-2 text-danger">
         Admin mode on
     </span>

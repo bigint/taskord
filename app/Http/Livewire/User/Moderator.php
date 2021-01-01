@@ -23,7 +23,7 @@ class Moderator extends Component
 
     public function enrollBeta()
     {
-        if (Auth::check() && Auth::user()->isStaff) {
+        if (Auth::check() && user()->isStaff) {
             $this->user->isBeta = ! $this->user->isBeta;
             $this->user->timestamps = false;
             $this->user->save();
@@ -31,7 +31,7 @@ class Moderator extends Component
                 $this->user->notify(
                     new Logger(
                         'MOD',
-                        Auth::user(),
+                        user(),
                         $this->user,
                         'Enrolled Beta'
                     )
@@ -43,7 +43,7 @@ class Moderator extends Component
                 $this->user->notify(
                     new Logger(
                         'MOD',
-                        Auth::user(),
+                        user(),
                         $this->user,
                         'Un-enrolled Beta'
                     )
@@ -59,7 +59,7 @@ class Moderator extends Component
 
     public function enrollStaff()
     {
-        if (Auth::check() && Auth::user()->isStaff) {
+        if (Auth::check() && user()->isStaff) {
             if ($this->user->id === 1) {
                 return false;
             }
@@ -70,7 +70,7 @@ class Moderator extends Component
                 $this->user->notify(
                     new Logger(
                         'MOD',
-                        Auth::user(),
+                        user(),
                         $this->user,
                         'Enrolled Staff'
                     )
@@ -82,7 +82,7 @@ class Moderator extends Component
                 $this->user->notify(
                     new Logger(
                         'MOD',
-                        Auth::user(),
+                        user(),
                         $this->user,
                         'Un-enrolled Staff'
                     )
@@ -98,7 +98,7 @@ class Moderator extends Component
 
     public function enrollDeveloper()
     {
-        if (Auth::check() && Auth::user()->isStaff) {
+        if (Auth::check() && user()->isStaff) {
             $this->user->isDeveloper = ! $this->user->isDeveloper;
             $this->user->timestamps = false;
             $this->user->save();
@@ -107,7 +107,7 @@ class Moderator extends Component
                 $this->user->notify(
                     new Logger(
                         'MOD',
-                        Auth::user(),
+                        user(),
                         $this->user,
                         'Enrolled Contributor'
                     )
@@ -119,7 +119,7 @@ class Moderator extends Component
                 $this->user->notify(
                     new Logger(
                         'MOD',
-                        Auth::user(),
+                        user(),
                         $this->user,
                         'Un-enrolled Contributor'
                     )
@@ -135,7 +135,7 @@ class Moderator extends Component
 
     public function privateUser()
     {
-        if (Auth::check() && Auth::user()->isStaff) {
+        if (Auth::check() && user()->isStaff) {
             if ($this->user->id === 1) {
                 return false;
             }
@@ -146,7 +146,7 @@ class Moderator extends Component
                 $this->user->notify(
                     new Logger(
                         'MOD',
-                        Auth::user(),
+                        user(),
                         $this->user,
                         'Enrolled Private account'
                     )
@@ -158,7 +158,7 @@ class Moderator extends Component
                 $this->user->notify(
                     new Logger(
                         'MOD',
-                        Auth::user(),
+                        user(),
                         $this->user,
                         'Un-enrolled Private account'
                     )
@@ -174,7 +174,7 @@ class Moderator extends Component
 
     public function flagUser()
     {
-        if (Auth::check() && Auth::user()->isStaff) {
+        if (Auth::check() && user()->isStaff) {
             if ($this->user->id === 1) {
                 return false;
             }
@@ -185,7 +185,7 @@ class Moderator extends Component
                 $this->user->notify(
                     new Logger(
                         'MOD',
-                        Auth::user(),
+                        user(),
                         $this->user,
                         'Flagged'
                     )
@@ -197,7 +197,7 @@ class Moderator extends Component
                 $this->user->notify(
                     new Logger(
                         'MOD',
-                        Auth::user(),
+                        user(),
                         $this->user,
                         'Un-flagged'
                     )
@@ -213,7 +213,7 @@ class Moderator extends Component
 
     public function suspendUser()
     {
-        if (Auth::check() && Auth::user()->isStaff) {
+        if (Auth::check() && user()->isStaff) {
             if ($this->user->id === 1) {
                 return false;
             }
@@ -229,7 +229,7 @@ class Moderator extends Component
                 $this->user->notify(
                     new Logger(
                         'MOD',
-                        Auth::user(),
+                        user(),
                         $this->user,
                         'Suspended'
                     )
@@ -241,7 +241,7 @@ class Moderator extends Component
                 $this->user->notify(
                     new Logger(
                         'MOD',
-                        Auth::user(),
+                        user(),
                         $this->user,
                         'Un-suspended'
                     )
@@ -257,7 +257,7 @@ class Moderator extends Component
 
     public function enrollPatron()
     {
-        if (Auth::check() && Auth::user()->isStaff) {
+        if (Auth::check() && user()->isStaff) {
             $this->user->isPatron = ! $this->user->isPatron;
             $this->user->timestamps = false;
             $this->user->save();
@@ -266,7 +266,7 @@ class Moderator extends Component
                 $this->user->notify(
                     new Logger(
                         'MOD',
-                        Auth::user(),
+                        user(),
                         $this->user,
                         'Enrolled Patron'
                     )
@@ -278,7 +278,7 @@ class Moderator extends Component
                 $this->user->notify(
                     new Logger(
                         'MOD',
-                        Auth::user(),
+                        user(),
                         $this->user,
                         'Un-enrolled Patron'
                     )
@@ -294,7 +294,7 @@ class Moderator extends Component
 
     public function verifyUser()
     {
-        if (Auth::check() && Auth::user()->isStaff) {
+        if (Auth::check() && user()->isStaff) {
             $this->user->isVerified = ! $this->user->isVerified;
             $this->user->timestamps = false;
             $this->user->save();
@@ -303,7 +303,7 @@ class Moderator extends Component
                 $this->user->notify(
                     new Logger(
                         'MOD',
-                        Auth::user(),
+                        user(),
                         $this->user,
                         'Verified'
                     )
@@ -315,7 +315,7 @@ class Moderator extends Component
                 $this->user->notify(
                     new Logger(
                         'MOD',
-                        Auth::user(),
+                        user(),
                         $this->user,
                         'Un-verified'
                     )
@@ -331,7 +331,7 @@ class Moderator extends Component
 
     public function enrollDarkMode()
     {
-        if (Auth::check() && Auth::user()->isStaff) {
+        if (Auth::check() && user()->isStaff) {
             $this->user->darkMode = ! $this->user->darkMode;
             $this->user->timestamps = false;
             $this->user->save();
@@ -339,7 +339,7 @@ class Moderator extends Component
                 $this->user->notify(
                     new Logger(
                         'MOD',
-                        Auth::user(),
+                        user(),
                         $this->user,
                         'Enabled Darkmode'
                     )
@@ -351,7 +351,7 @@ class Moderator extends Component
                 $this->user->notify(
                     new Logger(
                         'MOD',
-                        Auth::user(),
+                        user(),
                         $this->user,
                         'Disabled Darkmode'
                     )
@@ -367,14 +367,14 @@ class Moderator extends Component
 
     public function masquerade()
     {
-        if (Auth::check() && Auth::user()->isStaff) {
+        if (Auth::check() && user()->isStaff) {
             if ($this->user->id === 1) {
                 return false;
             }
             $this->user->notify(
                 new Logger(
                     'MOD',
-                    Auth::user(),
+                    user(),
                     $this->user,
                     'Masqueraded'
                 )
@@ -392,7 +392,7 @@ class Moderator extends Component
 
     public function resetAvatar()
     {
-        if (Auth::check() && Auth::user()->isStaff) {
+        if (Auth::check() && user()->isStaff) {
             activity()
                 ->withProperties(['type' => 'Admin'])
                 ->log('Resetted avatar | Username: @'.$this->user->username);
@@ -403,7 +403,7 @@ class Moderator extends Component
             $this->user->notify(
                 new Logger(
                     'MOD',
-                    Auth::user(),
+                    user(),
                     $this->user,
                     'Resetted avatar'
                 )
@@ -417,7 +417,7 @@ class Moderator extends Component
 
     public function releaseUsername()
     {
-        if (Auth::check() && Auth::user()->isStaff) {
+        if (Auth::check() && user()->isStaff) {
             $user = User::find($this->user->id);
             $user->timestamps = false;
             $user->username = strtolower(Str::random(6));
@@ -428,7 +428,7 @@ class Moderator extends Component
             $this->user->notify(
                 new Logger(
                     'MOD',
-                    Auth::user(),
+                    user(),
                     $this->user,
                     'Released the username'
                 )
@@ -442,7 +442,7 @@ class Moderator extends Component
 
     public function deleteTasks()
     {
-        if (Auth::check() && Auth::user()->isStaff) {
+        if (Auth::check() && user()->isStaff) {
             activity()
                 ->withProperties(['type' => 'Admin'])
                 ->log('Deleted all tasks | Username: @'.$this->user->username);
@@ -457,7 +457,7 @@ class Moderator extends Component
             $this->user->notify(
                 new Logger(
                     'MOD',
-                    Auth::user(),
+                    user(),
                     $this->user,
                     'Deleted all tasks'
                 )
@@ -471,7 +471,7 @@ class Moderator extends Component
 
     public function deleteComments()
     {
-        if (Auth::check() && Auth::user()->isStaff) {
+        if (Auth::check() && user()->isStaff) {
             activity()
                 ->withProperties(['type' => 'Admin'])
                 ->log('Deleted all comments | Username: @'.$this->user->username);
@@ -481,7 +481,7 @@ class Moderator extends Component
             $this->user->notify(
                 new Logger(
                     'MOD',
-                    Auth::user(),
+                    user(),
                     $this->user,
                     'Deleted all comments'
                 )
@@ -495,7 +495,7 @@ class Moderator extends Component
 
     public function deleteQuestions()
     {
-        if (Auth::check() && Auth::user()->isStaff) {
+        if (Auth::check() && user()->isStaff) {
             activity()
                 ->withProperties(['type' => 'Admin'])
                 ->log('Deleted all questions | Username: @'.$this->user->username);
@@ -505,7 +505,7 @@ class Moderator extends Component
             $this->user->notify(
                 new Logger(
                     'MOD',
-                    Auth::user(),
+                    user(),
                     $this->user,
                     'Deleted all questions'
                 )
@@ -519,7 +519,7 @@ class Moderator extends Component
 
     public function deleteAnswers()
     {
-        if (Auth::check() && Auth::user()->isStaff) {
+        if (Auth::check() && user()->isStaff) {
             activity()
                 ->withProperties(['type' => 'Admin'])
                 ->log('Deleted all answers | Username: @'.$this->user->username);
@@ -529,7 +529,7 @@ class Moderator extends Component
             $this->user->notify(
                 new Logger(
                     'MOD',
-                    Auth::user(),
+                    user(),
                     $this->user,
                     'Deleted all answers'
                 )
@@ -543,7 +543,7 @@ class Moderator extends Component
 
     public function deleteProducts()
     {
-        if (Auth::check() && Auth::user()->isStaff) {
+        if (Auth::check() && user()->isStaff) {
             activity()
                 ->withProperties(['type' => 'Admin'])
                 ->log('Deleted all products | Username: @'.$this->user->username);
@@ -561,7 +561,7 @@ class Moderator extends Component
             $this->user->notify(
                 new Logger(
                     'MOD',
-                    Auth::user(),
+                    user(),
                     $this->user,
                     'Deleted all products'
                 )
@@ -575,7 +575,7 @@ class Moderator extends Component
 
     public function deleteUser()
     {
-        if (Auth::check() && Auth::user()->isStaff) {
+        if (Auth::check() && user()->isStaff) {
             activity()
                 ->withProperties(['type' => 'Admin'])
                 ->log('Deleted the user | Username: @'.$this->user->username);

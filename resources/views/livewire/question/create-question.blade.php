@@ -26,7 +26,7 @@
                         @enderror
                     </div>
                     @auth
-                    @if (Auth::user()->isPatron)
+                    @if (user()->isPatron)
                     <div class="mb-3">
                         <div class="fw-bold mb-2">Patron only</div>
                         <input id="patronOnly" class="form-check-input" type="checkbox" wire:model.defer="patronOnly">

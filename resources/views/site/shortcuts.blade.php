@@ -52,7 +52,7 @@
         <kbd>?</kbd>
     </span>
 </div>
-@if (Auth::user()->isStaff)
+@if (user()->isStaff)
 <div class="d-flex justify-content-between mt-2">
     <span>Enable staffship / performance bar</span>
     <span>

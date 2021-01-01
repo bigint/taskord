@@ -31,7 +31,7 @@
                 </div>
                 <div class="col-sm d-grid">
                     @auth
-                    @if (Auth::user()->isPatron and Auth::user()->patron()->count('id') === 1)
+                    @if (user()->isPatron and user()->patron()->count('id') === 1)
                     <div class="text-center">
                         <div class="h5">
                             ❤ You are already a patron!
@@ -46,7 +46,7 @@
                         data-theme="none"
                         data-product="619848"
                         data-message="Support $5/month for Taskord!"
-                        data-email="{{ Auth::user()->email }}"
+                        data-email="{{ user()->email }}"
                     >
                         Support $5/month
                     </a>
@@ -55,7 +55,7 @@
                         data-theme="none"
                         data-product="621377"
                         data-message="Support $10/month for Taskord!"
-                        data-email="{{ Auth::user()->email }}"
+                        data-email="{{ user()->email }}"
                     >
                         Support $10/month
                     </a>
@@ -64,7 +64,7 @@
                         data-theme="none"
                         data-product="621379"
                         data-message="Support $20/month for Taskord!"
-                        data-email="{{ Auth::user()->email }}"
+                        data-email="{{ user()->email }}"
                     >
                         Support $20/month
                     </a>
@@ -73,7 +73,7 @@
                         data-theme="none"
                         data-product="621380"
                         data-message="Support $50/month for Taskord!"
-                        data-email="{{ Auth::user()->email }}"
+                        data-email="{{ user()->email }}"
                     >
                         Support $50/month
                     </a>
@@ -82,7 +82,7 @@
                         data-theme="none"
                         data-product="629491"
                         data-message="Support $100 onetime for lifetime pro in Taskord!"
-                        data-email="{{ Auth::user()->email }}"
+                        data-email="{{ user()->email }}"
                     >
                         Support $100 onetime
                     </a>

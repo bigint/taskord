@@ -30,7 +30,7 @@ class Tasks extends Component
 
     public function render()
     {
-        $user = Auth::user();
+        $user = user();
         if (Auth::check() && $user->onlyFollowingsTasks) {
             $userIds = $user->followings->pluck('id');
             $userIds->push(Auth::id());
