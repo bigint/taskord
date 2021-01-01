@@ -101,7 +101,6 @@ class CreateTask extends Component
             $this->emit('taskAdded');
             $this->reset();
             givePoint(new TaskCreated($task));
-
         } else {
             return $this->alert('error', 'Forbidden!');
         }
