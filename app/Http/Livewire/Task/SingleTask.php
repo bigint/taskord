@@ -42,7 +42,7 @@ class SingleTask extends Component
         }
 
         if (Auth::check()) {
-            if (Auth::id() === $this->task->user->id) {
+            if (user()->id === $this->task->user->id) {
                 if ($this->task->done) {
                     $this->task->done_at = carbon();
                     user()->touch();
@@ -98,7 +98,7 @@ class SingleTask extends Component
             if (user()->isFlagged) {
                 return $this->alert('error', 'Your account is flagged!');
             }
-            if (Auth::id() === $this->task->user->id) {
+            if (user()->id === $this->task->user->id) {
                 return $this->alert('warning', 'You can\'t praise your own task!');
             }
             Helper::togglePraise($this->task, 'TASK');
@@ -140,7 +140,7 @@ class SingleTask extends Component
                 return $this->alert('error', 'Your account is flagged!');
             }
 
-            if (user()->staffShip or Auth::id() === $this->task->user->id) {
+            if (user()->staffShip or user()->id === $this->task->user->id) {
                 activity()
                     ->withProperties(['type' => 'Task'])
                     ->log('Deleted a task | Task ID: '.$this->task->id);

@@ -90,7 +90,7 @@ class EditProduct extends Component
                 $product->avatar = $avatar;
             }
 
-            if (user()->staffShip or Auth::id() === $product->owner->id) {
+            if (user()->staffShip or user()->id === $product->owner->id) {
                 if ($this->launched and ! $product->launched) {
                     $product->launched_at = carbon();
                 }
@@ -137,7 +137,7 @@ class EditProduct extends Component
                 return $this->alert('error', 'Your account is flagged!');
             }
 
-            if (user()->staffShip or Auth::id() === $this->product->owner->id) {
+            if (user()->staffShip or user()->id === $this->product->owner->id) {
                 activity()
                     ->withProperties(['type' => 'Product'])
                     ->log('Deleted a product | Product Slug: #'.$this->product->slug);

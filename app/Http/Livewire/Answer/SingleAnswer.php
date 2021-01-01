@@ -41,7 +41,7 @@ class SingleAnswer extends Component
             if (user()->isFlagged) {
                 return $this->alert('error', 'Your account is flagged!');
             }
-            if (Auth::id() === $this->answer->user->id) {
+            if (user()->id === $this->answer->user->id) {
                 return $this->alert('warning', 'You can\'t praise your own answer!');
             }
             Helper::togglePraise($this->answer, 'ANSWER');
@@ -83,7 +83,7 @@ class SingleAnswer extends Component
                 return $this->alert('error', 'Your account is flagged!');
             }
 
-            if (user()->staffShip or Auth::id() === $this->answer->user->id) {
+            if (user()->staffShip or user()->id === $this->answer->user->id) {
                 activity()
                     ->withProperties(['type' => 'Answer'])
                     ->log('Deleted an answer | Answer ID: '.$this->answer->id);

@@ -53,7 +53,7 @@ class CreateAnswer extends Component
             }
 
             $answer = Answer::create([
-                'user_id' =>  Auth::id(),
+                'user_id' =>  user()->id,
                 'question_id' =>  $this->question->id,
                 'answer' => $this->answer,
             ]);
@@ -67,7 +67,7 @@ class CreateAnswer extends Component
                 user()->subscribe($answer->question);
                 $this->emit('questionSubscribed');
             }
-            if (Auth::id() !== $this->question->user->id) {
+            if (user()->id !== $this->question->user->id) {
                 $this->question->user->notify(new Answered($answer));
                 givePoint(new CommentCreated($answer));
             }

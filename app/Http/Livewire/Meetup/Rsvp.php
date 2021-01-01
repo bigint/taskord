@@ -40,7 +40,7 @@ class Rsvp extends Component
             if (user()->isFlagged) {
                 return $this->alert('error', 'Your account is flagged!');
             }
-            if (Auth::id() === $this->meetup->user_id) {
+            if (user()->id === $this->meetup->user_id) {
                 return $this->alert('warning', 'You can\'t RSVP your own meetup!');
             } else {
                 user()->toggleSubscribe($this->meetup);

@@ -42,7 +42,7 @@ class SingleUpdate extends Component
             if (user()->isFlagged) {
                 return $this->alert('error', 'Your account is flagged!');
             }
-            if (Auth::id() === $this->update->user->id) {
+            if (user()->id === $this->update->user->id) {
                 return $this->alert('warning', 'You can\'t praise your own update!');
             }
             if (user()->hasLiked($this->update)) {
@@ -54,7 +54,7 @@ class SingleUpdate extends Component
                 $this->update->refresh();
                 user()->touch();
                 // TODO
-                //$this->update->user->notify(new TaskPraised($this->update, Auth::id()));
+                //$this->update->user->notify(new TaskPraised($this->update, user()->id));
             }
         } else {
             return $this->alert('error', 'Forbidden!');
@@ -73,7 +73,7 @@ class SingleUpdate extends Component
                 return $this->alert('error', 'Your account is flagged!');
             }
 
-            if (user()->staffShip or Auth::id() === $this->update->user->id) {
+            if (user()->staffShip or user()->id === $this->update->user->id) {
                 activity()
                     ->withProperties(['type' => 'Product'])
                     ->log('Deleted a product update on #'.$this->update->product->slug.' | Update ID: '.$this->update->id);

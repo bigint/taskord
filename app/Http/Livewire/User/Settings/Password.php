@@ -36,7 +36,7 @@ class Password extends Component
     public function updatePassword()
     {
         if (Auth::check()) {
-            if (Auth::id() === $this->user->id) {
+            if (user()->id === $this->user->id) {
                 $this->validate([
                     'currentPassword' => 'required',
                     'newPassword' => 'required|min:8|pwned',

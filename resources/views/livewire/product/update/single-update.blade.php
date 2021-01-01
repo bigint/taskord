@@ -75,7 +75,7 @@
                 </a>
             @endguest
             @auth
-            @if (user()->staffShip or Auth::id() === $update->user->id)
+            @if (user()->staffShip or user()->id === $update->user->id)
                 @if ($confirming === $update->id)
                 <button type="button" class="btn btn-task btn-danger" wire:click="deleteUpdate" wire:loading.attr="disabled" wire:offline.attr="disabled" aria-label="Confirm Delete">
                     Are you sure?

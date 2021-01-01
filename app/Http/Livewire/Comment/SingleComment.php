@@ -42,7 +42,7 @@ class SingleComment extends Component
             if (user()->isFlagged) {
                 return $this->alert('error', 'Your account is flagged!');
             }
-            if (Auth::id() === $this->comment->user->id) {
+            if (user()->id === $this->comment->user->id) {
                 return $this->alert('warning', 'You can\'t praise your own comment!');
             }
             Helper::togglePraise($this->comment, 'COMMENT');
@@ -83,7 +83,7 @@ class SingleComment extends Component
             if (user()->isFlagged) {
                 return $this->alert('error', 'Your account is flagged!');
             }
-            if (user()->staffShip or Auth::id() === $this->comment->user->id) {
+            if (user()->staffShip or user()->id === $this->comment->user->id) {
                 activity()
                     ->withProperties(['type' => 'Comment'])
                     ->log('Deleted a comment | Comment ID: '.$this->comment->id);

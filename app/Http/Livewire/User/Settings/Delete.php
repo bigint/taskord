@@ -19,7 +19,7 @@ class Delete extends Component
     public function resetAccount()
     {
         if (Auth::check()) {
-            if (Auth::id() === $this->user->id) {
+            if (user()->id === $this->user->id) {
                 activity()
                     ->withProperties(['type' => 'User'])
                     ->log('Resetted the user account');
@@ -65,7 +65,7 @@ class Delete extends Component
     public function deleteAccount()
     {
         if (Auth::check()) {
-            if (Auth::id() === $this->user->id) {
+            if (user()->id === $this->user->id) {
                 activity()
                     ->withProperties(['type' => 'User'])
                     ->log('Deleted the user account');

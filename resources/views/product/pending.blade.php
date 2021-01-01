@@ -13,8 +13,8 @@
         <div class="col-lg-8">
             @auth
             @if (
-                Auth::id() === $product->owner->id or
-                $product->members->contains(Auth::id()) &&
+                user()->id === $product->owner->id or
+                $product->members->contains(user()->id) &&
                 !$product->owner->isFlagged
             )
                 @livewire('create-task', ['product' => $product])

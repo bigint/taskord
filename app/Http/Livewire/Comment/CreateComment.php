@@ -53,7 +53,7 @@ class CreateComment extends Component
             }
 
             $comment = Comment::create([
-                'user_id' =>  Auth::id(),
+                'user_id' =>  user()->id,
                 'task_id' =>  $this->task->id,
                 'comment' => $this->comment,
             ]);
@@ -67,7 +67,7 @@ class CreateComment extends Component
                 user()->subscribe($comment->task);
                 $this->emit('taskSubscribed');
             }
-            if (Auth::id() !== $this->task->user->id) {
+            if (user()->id !== $this->task->user->id) {
                 $this->task->user->notify(new Commented($comment));
                 givePoint(new CommentCreated($comment));
             }

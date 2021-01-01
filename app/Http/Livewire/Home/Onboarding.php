@@ -34,10 +34,10 @@ class Onboarding extends Component
 
     public function render()
     {
-        $task_count = Task::select('id')->where('user_id', Auth::id())->count('id');
+        $task_count = Task::select('id')->where('user_id', user()->id)->count('id');
         $praise_count = user()->likes(Task::class)->count('id');
         // TODO
-        //$product_count = Product::select('id')->where('user_id', Auth::id())->count('id');
+        //$product_count = Product::select('id')->where('user_id', user()->id)->count('id');
         $product_count = user()->ownedProducts->count('id');
         $has_name = user()->firstname;
         $changed_username = preg_match('/^[a-f0-9]{32}$/', user()->username);

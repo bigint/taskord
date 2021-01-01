@@ -46,7 +46,7 @@ class UserController extends Controller
                 ->count('id'),
         ];
 
-        if (Auth::check() && Auth::id() === $user->id or Auth::check() && user()->staffShip) {
+        if (Auth::check() && user()->id === $user->id or Auth::check() && user()->staffShip) {
             return view($type, $response);
         } elseif ($user->isFlagged) {
             return view('errors.404');
@@ -93,16 +93,16 @@ class UserController extends Controller
     public function exportAccount()
     {
         if (Auth::check()) {
-            $account = User::find(Auth::id());
+            $account = User::find(user()->id);
             $followings = $account->followings;
             $followers = $account->followers;
-            $tasks = Task::where('user_id', Auth::id())->get();
-            $comment = Comment::where('user_id', Auth::id())->get();
-            $products = Product::where('user_id', Auth::id())->get();
-            $product_updates = ProductUpdate::where('user_id', Auth::id())->get();
-            $questions = Question::where('user_id', Auth::id())->get();
-            $answers = Answer::where('user_id', Auth::id())->get();
-            $patron = Patron::where('user_id', Auth::id())->get();
+            $tasks = Task::where('user_id', user()->id)->get();
+            $comment = Comment::where('user_id', user()->id)->get();
+            $products = Product::where('user_id', user()->id)->get();
+            $product_updates = ProductUpdate::where('user_id', user()->id)->get();
+            $questions = Question::where('user_id', user()->id)->get();
+            $answers = Answer::where('user_id', user()->id)->get();
+            $patron = Patron::where('user_id', user()->id)->get();
             $data = collect([
                 'account' => $account,
                 'followings' => $followings,

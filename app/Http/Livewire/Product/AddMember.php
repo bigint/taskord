@@ -32,7 +32,7 @@ class AddMember extends Component
             }
             $user->products()->attach($this->product);
             $this->alert('success', 'User has been added to the team!');
-            $user->notify(new MemberAdded($this->product, Auth::id()));
+            $user->notify(new MemberAdded($this->product, user()->id));
             activity()
                 ->withProperties(['type' => 'Product'])
                 ->log('Added @'.$user->username.' to #'.$this->product->slug);

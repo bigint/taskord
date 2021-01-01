@@ -17,7 +17,7 @@ class TaskController extends Controller
             'task' => $task,
         ];
         if (
-            Auth::check() && Auth::id() === $task->user->id or
+            Auth::check() && user()->id === $task->user->id or
             Auth::check() && user()->staffShip
         ) {
             return view('task/task', $response);
@@ -42,7 +42,7 @@ class TaskController extends Controller
             'comment' => $comment,
         ];
         if (
-            Auth::check() && Auth::id() === $task->user->id or
+            Auth::check() && user()->id === $task->user->id or
             Auth::check() && user()->staffShip
         ) {
             return view('comment/comment', $response);

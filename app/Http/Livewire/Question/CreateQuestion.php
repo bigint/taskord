@@ -32,7 +32,7 @@ class CreateQuestion extends Component
             $patronOnly = ! $this->patronOnly ? false : true;
 
             $question = Question::create([
-                'user_id' =>  Auth::id(),
+                'user_id' =>  user()->id,
                 'title' => $this->title,
                 'body' => $this->body,
                 'patronOnly' => $patronOnly,

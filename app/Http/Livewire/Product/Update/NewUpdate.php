@@ -36,7 +36,7 @@ class NewUpdate extends Component
             }
 
             $update = ProductUpdate::create([
-                'user_id' =>  Auth::id(),
+                'user_id' =>  user()->id,
                 'product_id' => $this->product->id,
                 'title' => $this->title,
                 'body' => $this->body,

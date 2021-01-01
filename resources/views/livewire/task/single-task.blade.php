@@ -54,7 +54,7 @@
             {{ $task->done ? "checked" : "unchecked" }}
             {{
                 Auth::check() &&
-                Auth::id() === $task->user_id ?
+                user()->id === $task->user_id ?
                 "enabled" : "disabled"
             }}
         />
@@ -147,7 +147,7 @@
                 @endif
             </a>
             @auth
-            @if (user()->staffShip or Auth::id() === $task->user->id)
+            @if (user()->staffShip or user()->id === $task->user->id)
                 @if ($confirming === $task->id)
                 <button type="button" class="btn btn-task btn-danger" wire:click="deleteTask" wire:loading.attr="disabled" wire:offline.attr="disabled" aria-label="Confirm Delete">
                     Are you sure?

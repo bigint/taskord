@@ -53,7 +53,7 @@ class EditQuestion extends Component
 
             $patronOnly = ! $this->patronOnly ? false : true;
 
-            if (user()->staffShip or Auth::id() === $question->user_id) {
+            if (user()->staffShip or user()->id === $question->user_id) {
                 $question->title = $this->title;
                 $question->body = $this->body;
                 $question->patronOnly = $this->patronOnly;

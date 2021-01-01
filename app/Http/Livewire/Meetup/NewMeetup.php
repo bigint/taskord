@@ -67,7 +67,7 @@ class NewMeetup extends Component
             }
 
             $meetup = Meetup::create([
-                'user_id' =>  Auth::id(),
+                'user_id' =>  user()->id,
                 'name' => $this->name,
                 'slug' => $this->slug,
                 'cover' => $url,

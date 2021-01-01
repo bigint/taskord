@@ -41,14 +41,14 @@ class Subscribe extends Component
             if (user()->isFlagged) {
                 return $this->alert('error', 'Your account is flagged!');
             }
-            if (Auth::id() === $this->product->owner->id) {
+            if (user()->id === $this->product->owner->id) {
                 return $this->alert('warning', 'You can\'t subscribe your own product!');
             } else {
                 user()->toggleSubscribe($this->product);
                 $this->product->refresh();
                 user()->touch();
                 if (user()->hasSubscribed($this->product)) {
-                    $this->product->owner->notify(new Subscribed($this->product, Auth::id()));
+                    $this->product->owner->notify(new Subscribed($this->product, user()->id));
                 }
                 activity()
                     ->withProperties(['type' => 'Product'])

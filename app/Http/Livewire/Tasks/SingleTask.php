@@ -71,7 +71,7 @@ class SingleTask extends Component
                 return $this->alert('error', 'Your account is flagged!');
             }
 
-            if (user()->staffShip or Auth::id() === $this->task->user->id) {
+            if (user()->staffShip or user()->id === $this->task->user->id) {
                 activity()
                     ->withProperties(['type' => 'Task'])
                     ->log('Deleted a task | Task ID: '.$this->task->id);

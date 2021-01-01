@@ -44,7 +44,7 @@ class SingleQuestion extends Component
             if (user()->isFlagged) {
                 return $this->alert('error', 'Your account is flagged!');
             }
-            if (Auth::id() === $this->question->user->id) {
+            if (user()->id === $this->question->user->id) {
                 return $this->alert('warning', 'You can\'t praise your own question!');
             }
             Helper::togglePraise($this->question, 'QUESTION');
@@ -86,7 +86,7 @@ class SingleQuestion extends Component
                 return $this->alert('error', 'Your account is flagged!');
             }
 
-            if (user()->staffShip or Auth::id() === $this->question->user_id) {
+            if (user()->staffShip or user()->id === $this->question->user_id) {
                 activity()
                     ->withProperties(['type' => 'Question'])
                     ->log('Deleted a question | Question ID: '.$this->question->id);

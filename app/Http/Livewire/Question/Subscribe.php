@@ -44,7 +44,7 @@ class Subscribe extends Component
             if (user()->isFlagged) {
                 return $this->alert('error', 'Your account is flagged!');
             }
-            if (Auth::id() === $this->question->user->id) {
+            if (user()->id === $this->question->user->id) {
                 return $this->alert('warning', 'You can\'t subscribe your own question!');
             } else {
                 user()->toggleSubscribe($this->question);

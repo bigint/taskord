@@ -20,7 +20,7 @@ class Leave extends Component
     {
         if (Auth::check()) {
             user()->products()->detach($this->product);
-            $this->product->owner->notify(new MemberLeft($this->product, Auth::id()));
+            $this->product->owner->notify(new MemberLeft($this->product, user()->id));
             user()->touch();
             activity()
                 ->withProperties(['type' => 'Product'])

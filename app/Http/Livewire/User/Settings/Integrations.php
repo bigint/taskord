@@ -42,7 +42,7 @@ class Integrations extends Component
         }
 
         if (Auth::check()) {
-            if (Auth::id() === $this->user->id) {
+            if (user()->id === $this->user->id) {
                 $this->validate([
                     'name' => 'required|min:2|max:20',
                     'product' => 'nullable',
@@ -52,12 +52,12 @@ class Integrations extends Component
                     return $this->alert('error', 'Your account is flagged!');
                 }
 
-                if (Auth::id() === $this->user->id) {
+                if (user()->id === $this->user->id) {
                     $webhook = Webhook::create([
-                        'user_id' => Auth::id(),
+                        'user_id' => user()->id,
                         'name' => $this->name,
                         'product_id' => $this->product,
-                        'token' => md5(uniqid(Auth::id(), true)),
+                        'token' => md5(uniqid(user()->id, true)),
                         'type' => $this->type,
                     ]);
                     $this->name = '';
@@ -82,7 +82,7 @@ class Integrations extends Component
     public function deleteWebhook($id)
     {
         if (Auth::check()) {
-            if (Auth::id() === $this->user->id) {
+            if (user()->id === $this->user->id) {
                 activity()
                     ->withProperties(['type' => 'User'])
                     ->log('Deleted a webhook | Webhook ID: '.$id);

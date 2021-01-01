@@ -32,7 +32,7 @@ class Tasks extends Component
     {
         if (Auth::check() && user()->onlyFollowingsTasks) {
             $userIds = user()->followings->pluck('id');
-            $userIds->push(Auth::id());
+            $userIds->push(user()->id);
             $tasks = Task::cacheFor(60 * 60)
                 ->select('id', 'task', 'done', 'type', 'done_at', 'user_id', 'product_id', 'source', 'images', 'hidden')
                 ->whereIn('user_id', $userIds)

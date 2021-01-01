@@ -37,7 +37,7 @@ class QuestionController extends Controller
         ];
 
         if (
-            Auth::check() && Auth::id() === $question->user->id or
+            Auth::check() && user()->id === $question->user->id or
             Auth::check() && user()->staffShip
         ) {
             views($question)->record();

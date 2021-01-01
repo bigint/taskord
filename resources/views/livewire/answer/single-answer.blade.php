@@ -70,7 +70,7 @@
                     @endif
                 </button>
             @endif
-            @if (user()->staffShip or Auth::id() === $answer->user->id)
+            @if (user()->staffShip or user()->id === $answer->user->id)
                 @if ($confirming === $answer->id)
                 <button type="button" class="btn btn-task btn-danger me-1" wire:click="deleteAnswer" wire:loading.attr="disabled" wire:offline.attr="disabled" aria-label="Confirm Delete">
                     Are you sure?

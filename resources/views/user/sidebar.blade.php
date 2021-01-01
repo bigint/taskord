@@ -6,7 +6,7 @@
                 'user' => $user
             ])
         @endif
-        @if (Auth::id() === $user->id)
+        @if (user()->id === $user->id)
         @section('scripts')
         <script src="{{ mix('js/emoji-picker.js') }}"></script>
         @stop

@@ -38,7 +38,7 @@ class Follow extends Component
             if (user()->isFlagged) {
                 return $this->alert('error', 'Your account is flagged!');
             }
-            if (Auth::id() === $this->user->id) {
+            if (user()->id === $this->user->id) {
                 return $this->alert('warning', 'You can\'t follow yourself!');
             } else {
                 user()->toggleFollow($this->user);
