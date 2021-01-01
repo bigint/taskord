@@ -37,14 +37,14 @@ class QuestionController extends Controller
         ];
 
         if (
-            Auth::check() && Auth::id() === $question->user->id or
-            Auth::check() && Auth::user()->staffShip
+            Auth::check() && user()->id === $question->user->id or
+            Auth::check() && user()->staffShip
         ) {
             views($question)->record();
 
             return view('question.question', $response);
         } elseif (Auth::check() && $question->patronOnly) {
-            if (Auth::check() && ! Auth::user()->isPatron) {
+            if (Auth::check() && ! user()->isPatron) {
                 return redirect()->route('patron.home');
             } else {
                 views($question)->record();

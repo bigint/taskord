@@ -5,7 +5,6 @@ namespace App\Http\Livewire\Notification;
 use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Collection;
-use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 
 class All extends Component
@@ -42,7 +41,7 @@ class All extends Component
     public function render()
     {
         return view('livewire.notification.all', [
-            'notifications' => $this->readyToLoad ? $this->paginate(Auth::user()->notifications) : [],
+            'notifications' => $this->readyToLoad ? $this->paginate(user()->notifications) : [],
         ]);
     }
 }

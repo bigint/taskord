@@ -2,7 +2,6 @@
 
 namespace App\Http\Livewire\User;
 
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Livewire\Component;
 use Livewire\WithPagination;
@@ -21,7 +20,7 @@ class Reputations extends Component
     public function render()
     {
         $points = DB::table('reputations')
-            ->where('payee_id', Auth::id())
+            ->where('payee_id', user()->id)
             ->latest()
             ->paginate(50);
 

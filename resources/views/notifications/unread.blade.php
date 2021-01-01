@@ -9,13 +9,13 @@
             <a role="button" class="btn btn-primary mb-3" href="{{ route('notifications.unread') }}">
                 Unread
                 <span class="ms-1 badge bg-white text-secondary">
-                    {{ Auth::user()->unreadNotifications->count('id') }}
+                    {{ user()->unreadNotifications->count('id') }}
                 </span>
             </a>
             <a role="button" class="btn btn-primary mb-3 me-2" href="{{ route('notifications.all') }}">
                 All
             </a>
-            @if (Auth::user()->unreadNotifications->count('id') !== 0)
+            @if (user()->unreadNotifications->count('id') !== 0)
             @livewire('notification.mark-as-read')
             @endif
             @livewire('notification.unread', [

@@ -52,11 +52,11 @@ class NewProduct extends Component
                 'avatar' => 'nullable|mimes:jpeg,jpg,png,gif|max:1024',
             ]);
 
-            if (! Auth::user()->hasVerifiedEmail()) {
+            if (! user()->hasVerifiedEmail()) {
                 return $this->alert('warning', 'Your email is not verified!');
             }
 
-            if (Auth::user()->isFlagged) {
+            if (user()->isFlagged) {
                 return $this->alert('error', 'Your account is flagged!');
             }
 
@@ -82,7 +82,7 @@ class NewProduct extends Component
             }
 
             $product = Product::create([
-                'user_id' =>  Auth::id(),
+                'user_id' =>  user()->id,
                 'name' => $this->name,
                 'slug' => $this->slug,
                 'avatar' => $url,
@@ -95,7 +95,7 @@ class NewProduct extends Component
                 'launched' => $launched_status,
                 'launched_at' => $launched_at,
             ]);
-            Auth::user()->touch();
+            user()->touch();
 
             activity()
                 ->withProperties(['type' => 'Product'])

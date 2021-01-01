@@ -1,7 +1,7 @@
 <div>
     @auth
-    @if (Auth::id() !== $user->id && !$user->isFlagged)
-    @if (Auth::user()->isFollowing($user))
+    @if (user()->id !== $user->id && !$user->isFlagged)
+    @if (user()->isFollowing($user))
     <button wire:click="followUser" wire:loading.attr="disabled" class="btn btn-sm btn-danger mb-2">
         <x-heroicon-o-user-remove class="heroicon" />
         Unfollow

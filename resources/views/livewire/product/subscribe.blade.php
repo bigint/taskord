@@ -1,7 +1,7 @@
 <div>
     @auth
-    @if (Auth::id() !== $product->owner->id)
-    @if (Auth::user()->hasSubscribed($product))
+    @if (user()->id !== $product->owner->id)
+    @if (user()->hasSubscribed($product))
     <button wire:click="subscribeProduct" wire:loading.attr="disabled" class="btn btn-sm btn-danger mb-2">
         <x-heroicon-o-minus-circle class="heroicon" />
         Unsubscribe

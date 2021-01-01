@@ -16,7 +16,7 @@
                 <a href="https://tally.so/r/63l4o3" target="_blank" rel="noreferrer">Add your product</a>
             </div>
             @auth
-            @if (Auth::user()->staffShip)
+            @if (user()->staffShip)
             <button type="button" class="mt-2 btn btn-success text-white" data-bs-toggle="modal" data-bs-target="#newQuestionModal">
                 <x-heroicon-o-plus class="heroicon" />
                 Add a Deal
@@ -51,7 +51,7 @@
                             <a href="{{ $deal->website }}" target="_blank">{{ $deal->website }}</a>
                         </div>
                         @auth
-                        @if (Auth::user()->isPatron)
+                        @if (user()->isPatron)
                         @if ($deal->coupon)
                         <div class="mt-2">
                             Coupon Code

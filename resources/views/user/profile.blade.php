@@ -1,6 +1,6 @@
 <div class="card">
     @auth
-    @if (Auth::user()->isStaff && $user->isFlagged)
+    @if (user()->isStaff && $user->isFlagged)
         <div class="p-4 pb-0">
             <div class="alert alert-danger alert-dismissible">
                 This user is flagged
@@ -37,10 +37,10 @@
                             </a>
                         @endif
                         @auth
-                        @if ($user->isFollowing(Auth::user()))
+                        @if ($user->isFollowing(user()))
                             <span class="ms-2 badge bg-light text-secondary">Follows you</span>
                         @endif
-                        @if (Auth::user()->staffShip)
+                        @if (user()->staffShip)
                             <span class="ms-2 text-secondary small">#{{ $user->id }}</span>
                         @endif
                         @endauth
@@ -93,7 +93,7 @@
                         </span>
                         {{ $user->getPoints(true) < 2 ? 'Reputation' : 'Reputations' }}
                     </div>
-                    @if (Auth::check() && Auth::id() === $user->id)
+                    @if (Auth::check() && user()->id === $user->id)
                     <div class="mt-2">
                         <span>
                             <x-heroicon-o-sparkles class="heroicon-1x text-success" />
@@ -133,8 +133,8 @@
     <div class="card-footer text-muted">
         @if (
             !$user->isPrivate or
-            Auth::id() === $user->id or
-            Auth::check() && Auth::user()->staffShip
+            user()->id === $user->id or
+            Auth::check() && user()->staffShip
         )
         <a class="text-dark fw-bold me-4" href="{{ route('user.done', ['username' => $user->username]) }}">
             <span class="@if (Route::currentRouteName() === 'user.done') text-primary @endif">Done</span>

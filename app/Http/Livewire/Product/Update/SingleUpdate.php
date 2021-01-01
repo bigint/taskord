@@ -25,7 +25,7 @@ class SingleUpdate extends Component
         $throttler = Throttle::get(Request::instance(), 20, 5);
         $throttler->hit();
         if (count($throttler) > 30) {
-            Helper::flagAccount(Auth::user());
+            Helper::flagAccount(user());
         }
         if (! $throttler->check()) {
             activity()
@@ -36,25 +36,25 @@ class SingleUpdate extends Component
         }
 
         if (Auth::check()) {
-            if (! Auth::user()->hasVerifiedEmail()) {
+            if (! user()->hasVerifiedEmail()) {
                 return $this->alert('warning', 'Your email is not verified!');
             }
-            if (Auth::user()->isFlagged) {
+            if (user()->isFlagged) {
                 return $this->alert('error', 'Your account is flagged!');
             }
-            if (Auth::id() === $this->update->user->id) {
+            if (user()->id === $this->update->user->id) {
                 return $this->alert('warning', 'You can\'t praise your own update!');
             }
-            if (Auth::user()->hasLiked($this->update)) {
-                Auth::user()->unlike($this->update);
+            if (user()->hasLiked($this->update)) {
+                user()->unlike($this->update);
                 $this->update->refresh();
-                Auth::user()->touch();
+                user()->touch();
             } else {
-                Auth::user()->like($this->update);
+                user()->like($this->update);
                 $this->update->refresh();
-                Auth::user()->touch();
+                user()->touch();
                 // TODO
-                //$this->update->user->notify(new TaskPraised($this->update, Auth::id()));
+                //$this->update->user->notify(new TaskPraised($this->update, user()->id));
             }
         } else {
             return $this->alert('error', 'Forbidden!');
@@ -69,11 +69,11 @@ class SingleUpdate extends Component
     public function deleteUpdate()
     {
         if (Auth::check()) {
-            if (Auth::user()->isFlagged) {
+            if (user()->isFlagged) {
                 return $this->alert('error', 'Your account is flagged!');
             }
 
-            if (Auth::user()->staffShip or Auth::id() === $this->update->user->id) {
+            if (user()->staffShip or user()->id === $this->update->user->id) {
                 activity()
                     ->withProperties(['type' => 'Product'])
                     ->log('Deleted a product update on #'.$this->update->product->slug.' | Update ID: '.$this->update->id);

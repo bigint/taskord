@@ -10,9 +10,9 @@ class MarkAsRead extends Component
     public function markAsRead()
     {
         if (Auth::check()) {
-            Auth::user()->unreadNotifications->markAsRead();
+            user()->unreadNotifications->markAsRead();
             $this->emit('markAsRead');
-            Auth::user()->touch();
+            user()->touch();
             activity()
                 ->withProperties(['type' => 'Notification'])
                 ->log('Notifications mark as read');

@@ -17,7 +17,6 @@ use App\Notifications\TaskPraised;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\App;
-use Illuminate\Support\Facades\Auth;
 
 class Helper
 {
@@ -41,7 +40,7 @@ class Helper
      */
     public static function togglePraise(Model $entity, string $type)
     {
-        $user = Auth::user();
+        $user = user();
         $hasLiked = $user->hasLiked($entity);
 
         ($hasLiked)
@@ -99,7 +98,7 @@ class Helper
             for ($i = 0; $i < count($users); $i++) {
                 $user = User::where('username', $users[$i])->first();
                 if ($user !== null) {
-                    if ($user->id !== Auth::id()) {
+                    if ($user->id !== user()->id) {
                         $user->notify(new Mentioned($task, $type));
                     }
                 }
@@ -109,7 +108,7 @@ class Helper
 
     public static function notifySubscribers($users, $entity, $type)
     {
-        $subscribers = $users->except(Auth::id());
+        $subscribers = $users->except(user()->id);
         if ($subscribers) {
             for ($i = 0; $i < count($subscribers); $i++) {
                 if ($subscribers[$i] !== null) {
@@ -155,7 +154,7 @@ class Helper
 
         return $products
             ->map(fn ($product) => Product::where('slug', $product)->first())->whereNotNull('id')
-            ->filter(fn ($product) => $product->user_id === Auth::id() or Auth::user()->products->contains($product))
+            ->filter(fn ($product) => $product->user_id === user()->id or user()->products->contains($product))
             ->pluck('id')->first();
     }
 

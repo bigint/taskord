@@ -18,7 +18,7 @@
         @endif
     </a>
     @auth
-    @if ($product->owner->id === Auth::id())
+    @if ($product->owner->id === user()->id)
         <button class="btn btn-sm btn-danger float-end" wire:click="removeMember" wire:loading.attr="disabled">
             <x-heroicon-o-x class="heroicon" />
             Remove

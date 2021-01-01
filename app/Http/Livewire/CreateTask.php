@@ -38,8 +38,8 @@ class CreateTask extends Component
     public function checkState()
     {
         if (Auth::check()) {
-            Auth::user()->checkState = ! Auth::user()->checkState;
-            Auth::user()->save();
+            user()->checkState = ! user()->checkState;
+            user()->save();
         } else {
             return $this->alert('error', 'Forbidden!');
         }
@@ -65,7 +65,7 @@ class CreateTask extends Component
         $throttler = Throttle::get(Request::instance(), 20, 5);
         $throttler->hit();
         if (count($throttler) > 30) {
-            Helper::flagAccount(Auth::user());
+            Helper::flagAccount(user());
         }
         if (! $throttler->check()) {
             activity()
@@ -85,11 +85,11 @@ class CreateTask extends Component
                 'images.max' => 'Only 5 Images are allowed!',
             ]);
 
-            if (! Auth::user()->hasVerifiedEmail()) {
+            if (! user()->hasVerifiedEmail()) {
                 return $this->alert('warning', 'Your email is not verified!');
             }
 
-            if (Auth::user()->isFlagged) {
+            if (user()->isFlagged) {
                 return $this->alert('error', 'Your account is flagged!');
             }
 
@@ -109,7 +109,7 @@ class CreateTask extends Component
                 $images = null;
             }
 
-            $state = Auth::user()->checkState;
+            $state = user()->checkState;
 
             if ($state) {
                 $done_at = carbon();
@@ -137,10 +137,10 @@ class CreateTask extends Component
             $this->resetInputFields();
             Helper::mentionUsers($users, $task, 'task');
             givePoint(new TaskCreated($task));
-            if (Auth::user()->hasGoal and $task->done) {
-                Auth::user()->daily_goal_reached++;
-                Auth::user()->save();
-                CheckGoal::dispatch(Auth::user(), $task);
+            if (user()->hasGoal and $task->done) {
+                user()->daily_goal_reached++;
+                user()->save();
+                CheckGoal::dispatch(user(), $task);
             }
             activity()
                 ->withProperties(['type' => 'Task'])

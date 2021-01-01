@@ -56,7 +56,7 @@
         @endif
         <div class="mt-3">
             @auth
-            @if (Auth::user()->hasLiked($question))
+            @if (user()->hasLiked($question))
                 <button role="button" class="btn btn-task btn-success text-white me-1" wire:click="togglePraise" wire:loading.attr="disabled" wire:offline.attr="disabled" aria-label="Praises">
                     <x-heroicon-s-thumb-up class="heroicon-small me-0" />
                     <span class="small text-white fw-bold">
@@ -91,7 +91,7 @@
                 </span>
                 @endif
             </a>
-            @if (Auth::user()->staffShip or Auth::id() === $question->user->id)
+            @if (user()->staffShip or user()->id === $question->user->id)
             @if ($type === "question.question")
             <button role="button" class="btn btn-task btn-outline-info me-1" data-bs-toggle="modal" data-bs-target="#editQuestionModal">
                 <x-heroicon-o-pencil-alt class="heroicon-small me-0" />
@@ -113,7 +113,7 @@
             </button>
             @endif
             @endif
-            @if (Auth::user()->staffShip)
+            @if (user()->staffShip)
             <button type="button" class="btn btn-task {{ $question->hidden ? 'btn-info' : 'btn-outline-info' }}" wire:click="hide" wire:loading.attr="disabled" wire:offline.attr="disabled" wire:key="{{ $question->id }}" title="Flag to admins" aria-label="Hide">
                 <x-heroicon-o-eye-off class="heroicon-small me-0" />
             </button>

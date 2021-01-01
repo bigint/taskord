@@ -22,7 +22,7 @@
             @livewire('home.recent-questions')
             @livewire('home.launched-today')
             @auth
-                @if (!Auth::user()->isFlagged)
+                @if (!user()->isFlagged)
                 @livewire('create-task')
                 @endif
             @endauth
@@ -44,7 +44,7 @@
                 @livewire('home.onboarding')
                 <div class="h5 text-secondary pb-2">
                     @php
-                        $hour = carbon()->setTimezone(Auth::user()->timezone)->format('H');
+                        $hour = carbon()->setTimezone(user()->timezone)->format('H');
                     @endphp
                     Good
                     <span>
@@ -57,20 +57,20 @@
                 <div class="card mb-4">
                     <div class="card-body">
                         <div class="d-flex align-items-center">
-                            <a href="{{ route('user.done', ['username' => Auth::user()->username]) }}">
-                                <img loading=lazy class="rounded-circle avatar-50 mt-1" src="{{ Helper::getCDNImage(Auth::user()->avatar, 160) }}" height="50" width="50" alt="{{ Auth::user()->username }}'s avatar" />
+                            <a href="{{ route('user.done', ['username' => user()->username]) }}">
+                                <img loading=lazy class="rounded-circle avatar-50 mt-1" src="{{ Helper::getCDNImage(user()->avatar, 160) }}" height="50" width="50" alt="{{ user()->username }}'s avatar" />
                             </a>
-                            <a class="ms-3 text-dark" href="{{ route('user.done', ['username' => Auth::user()->username]) }}">
-                                @if (Auth::user()->firstname or Auth::user()->lastname)
+                            <a class="ms-3 text-dark" href="{{ route('user.done', ['username' => user()->username]) }}">
+                                @if (user()->firstname or user()->lastname)
                                 <div class="h5">
-                                    {{ Auth::user()->firstname }}{{ ' '.Auth::user()->lastname }}
-                                    @if (Auth::user()->isVerified)
+                                    {{ user()->firstname }}{{ ' '.user()->lastname }}
+                                    @if (user()->isVerified)
                                         <x-heroicon-s-badge-check class="heroicon-2x ms-1 text-primary verified" />
                                     @endif
                                 </div>
                                 @endif
                                 <div class="small fw-bold">
-                                    {{ '@'.Str::limit(Auth::user()->username, '20') }}
+                                    {{ '@'.Str::limit(user()->username, '20') }}
                                 </div>
                             </a>
                             <a class="btn btn-sm btn-success text-white float-end ms-auto" href="{{ route('user.settings.profile') }}">
@@ -80,20 +80,20 @@
                         </div>
                     </div>
                     <div class="card-footer small fw-bold d-flex justify-content-between">
-                        <a class="text-dark" href="{{ route('user.following', ['username' => Auth::user()->username]) }}">
+                        <a class="text-dark" href="{{ route('user.following', ['username' => user()->username]) }}">
                             <x-heroicon-o-user-add class="heroicon text-secondary" />
-                            {{ Auth::user()->followings()->count() }}
+                            {{ user()->followings()->count() }}
                             Following
                         </a>
-                        <a class="text-dark" href="{{ route('user.followers', ['username' => Auth::user()->username]) }}">
+                        <a class="text-dark" href="{{ route('user.followers', ['username' => user()->username]) }}">
                             <x-heroicon-o-users class="heroicon text-secondary" />
-                            {{ number_format(Auth::user()->followers()->count()) }}
-                            {{ Auth::user()->followers()->count() === 1 ? "Follower" : "Followers" }}
+                            {{ number_format(user()->followers()->count()) }}
+                            {{ user()->followers()->count() === 1 ? "Follower" : "Followers" }}
                         </a>
                         <span>
                             <x-heroicon-o-fire class="heroicon text-secondary" />
-                            {{ number_format(Auth::user()->getPoints()) }}
-                            {{ Auth::user()->getPoints() < 2 ? 'Reputation' : 'Reputations' }}
+                            {{ number_format(user()->getPoints()) }}
+                            {{ user()->getPoints() < 2 ? 'Reputation' : 'Reputations' }}
                         </span>
                     </div>
                 </div>

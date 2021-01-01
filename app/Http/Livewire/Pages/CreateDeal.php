@@ -28,7 +28,7 @@ class CreateDeal extends Component
                 'website' => 'required|active_url',
                 'logo' => 'required|active_url',
             ]);
-            if (Auth::user()->isStaff) {
+            if (user()->isStaff) {
                 $deal = Deal::create([
                     'name' =>  $this->name,
                     'description' => $this->description,
@@ -38,7 +38,7 @@ class CreateDeal extends Component
                     'website' => $this->website,
                     'logo' => $this->logo,
                 ]);
-                Auth::user()->touch();
+                user()->touch();
                 $this->flash('success', 'Deal has been created!');
                 activity()
                     ->withProperties(['type' => 'Admin'])
