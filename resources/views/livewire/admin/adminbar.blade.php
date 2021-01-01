@@ -10,12 +10,12 @@
             <a class="text-white fw-bold ms-3"
                 href="https://gitlab.com/taskord/taskord/-/releases/v{{ config('app.version') }}" target="_blank" rel="noreferrer">
                 <x-heroicon-o-archive class="heroicon" />
-                v{{ laravel_version() }}
+                v{{ config('app.version') }}
             </a>
             <a class="text-white fw-bold ms-3"
                 href="https://github.com/laravel/framework/releases/tag/v{{ App::VERSION() }}" target="_blank" rel="noreferrer">
                 <x-heroicon-o-chip class="heroicon" />
-                Laravel v{{ App::VERSION() }}
+                Laravel v{{ laravel_version() }}
             </a>
             <a class="text-white fw-bold ms-3"
                 href="http://git.php.net/?p=php-src.git;a=shortlog;h=refs/heads/PHP-{{ phpversion() }}" target="_blank" rel="noreferrer">
@@ -91,6 +91,10 @@
                 <span class="fw-normal">
                     jobs
                 </span>
+            </a>
+            <a class="fw-bold me-3 text-white" href="/admin/horizon" target="_blank" rel="noreferrer">
+                <x-heroicon-o-cog class="heroicon" />
+                {{ memory_usage() }}
             </a>
             <span class="fw-bold me-3">
                 <x-heroicon-o-clock class="heroicon" />
