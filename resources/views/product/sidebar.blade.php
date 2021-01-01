@@ -112,10 +112,12 @@
             @endforeach
         </div>
     </div>
+    @auth
     @if ($product->members->contains(user()->id))
     @livewire('product.leave', [
         'product' => $product,
     ])
     @endif
+    @endauth
     <x-footer />
 </div>
