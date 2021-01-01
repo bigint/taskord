@@ -17,7 +17,7 @@
     <div class="small">
         <a class="text-dark" href="{{ route('product.subscribers', ['slug' => $product->slug]) }}">
             <span class="fw-bold">{{ number_format($product->subscribersCount()) }}</span>
-            {{ $product->subscribersCount() <= 1 ? 'Subscriber' : 'Subscribers' }}
+            {{ str_plural('Subscriber', $product->subscribersCount()) }}
         </a>
     </div>
 </div>
