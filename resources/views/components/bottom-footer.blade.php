@@ -29,8 +29,8 @@
         <a href="{{ route('privacy') }}">
             Privacy
         </a>
-        <a href="{{ route('security') }}">
-            Security
+        <a href="{{ route('open') }}">
+            Open
         </a>
         <a href="{{ route('sponsors') }}">
             Sponsors
