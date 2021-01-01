@@ -52,7 +52,7 @@
     </head>
     <body>
         <div class="container">
-            <img loading=lazy src="/images/pride.svg" />
+            <img loading=lazy src="https://ik.imagekit.io/taskordimg/pride_vocaCTHn-.svg" />
             <h1>Whoa there!</h1>
             <p>You have triggered an abuse detection mechanism.</p>
             <p>Please wait a few minutes before you try again!</p>

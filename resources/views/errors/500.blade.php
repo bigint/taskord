@@ -1,32 +1,65 @@
-@extends('layouts.app')
-@section('pageTitle', 'Server Error ·')
-@section('code', '500')
-@section('content')
-<div class="container-md">
-    <main>
-        <h1>500</h1>
-        <h2>Looks like something went wrong!</h2>
-        <p>We track these errors automatically, but if the problem persists feel free to contact us. In the meantime, try refreshing.</p>
-        <p class="mt-3">
-            <a class="text-secondary" href="{{ route('contact') }}">Taskord Support</a> —
-            <a class="text-secondary" href="https://status.taskord.com">Taskord Status</a> —
-            <a class="text-secondary" href="https://twitter.com/taskord">@taskord</a>
-        </p>
-    </main>
-</div>
-<style>
-main {
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-  height: 90vh;
-  justify-content: center;
-  text-align: center;
-}
-
-h1 {
-  font-size: 10rem;
-  letter-spacing: .10em;
-}
-</style>
-@endsection
+<!DOCTYPE html>
+<html lang="en" >
+    <head>
+        <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+        <meta http-equiv="Content-Security-Policy" content="default-src 'none'; base-uri 'self'; connect-src 'self'; form-action 'self'; img-src 'self' data:; script-src 'self'; style-src 'unsafe-inline'">
+        <meta content="origin" name="referrer">
+        <title>Server Error · Taskord</title>
+        <meta name="viewport" content="width=device-width">
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                font-family: "Fira Code", monospace;
+            }
+            body {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                height: 100vh;
+                background-color: #ecf0f1;
+            }
+            .container {
+                text-align: center;
+                margin: auto;
+                padding: 20px;
+            }
+            .container img {
+                width: 100px;
+                height: 100px;
+            }
+            .container h1 {
+                margin-top: 30px;
+                margin-bottom: 30px;
+                font-size: 35px;
+                text-align: center;
+            }
+            .container p {
+                margin-top: 10px;
+                color: #666666;
+            }
+            .container p.info {
+                margin-top: 40px;
+                font-size: 12px;
+                color: #666666;
+            }
+            .container p.info a {
+                text-decoration: none;
+                color: #666666;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <img loading=lazy src="https://ik.imagekit.io/taskordimg/pride_vocaCTHn-.svg" />
+            <h1>Looks like something went wrong!</h1>
+            <p>We track these errors automatically, but if the problem persists feel free to contact us. In the meantime, try refreshing.</p>
+            <p class="info">
+                <a href="{{ route('contact') }}">Taskord Support</a> —
+                <a href="https://status.taskord.com">Taskord Status</a> —
+                <a href="https://twitter.com/taskord">@taskord</a>
+            </p>
+        </div>
+    </body>
+</html>
