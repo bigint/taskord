@@ -80,14 +80,6 @@
     </div>
     @endif
     <div class="text-uppercase fw-bold text-secondary pb-2">
-        Activity by month
-    </div>
-    <div class="card mb-4">
-        <div class="card-body">
-            🚧
-        </div>
-    </div>
-    <div class="text-uppercase fw-bold text-secondary pb-2">
         Team
     </div>
     <div class="card mb-4">
