@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
-@section('pageTitle', 'About ·')
-@section('title', 'About ·')
+@section('pageTitle', 'Contact ·')
+@section('title', 'Contact ·')
 @section('description', 'Get things done socially with Taskord.')
 @section('image', '')
 @section('url', url()->current())
