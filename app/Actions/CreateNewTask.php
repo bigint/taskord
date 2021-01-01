@@ -35,9 +35,7 @@ class CreateNewTask
 
     public function updateActivity(Task $task)
     {
-        $message = ($task->source !== CreateNewTask::DEFAULT_SOURCE)
-            ? "Created a new task via {$task->source}"
-            : 'Created a new task';
+        $message = "Created a new task via "{$task->source}"";
 
         activity()
                 ->withProperties(['type' => 'Task'])

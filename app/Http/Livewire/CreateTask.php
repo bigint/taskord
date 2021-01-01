@@ -142,9 +142,6 @@ class CreateTask extends Component
                 user()->save();
                 CheckGoal::dispatch(user(), $task);
             }
-            activity()
-                ->withProperties(['type' => 'Task'])
-                ->log('Created a new task | Task ID: '.$task->id);
 
             return $this->alert('success', 'Task has been created!');
         } else {
