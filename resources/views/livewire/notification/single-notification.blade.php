@@ -89,7 +89,7 @@
                 @endif
                 <div class="mt-2 body-font">
                     @if ($data['body_type'] === 'task')
-                        {!! Purify::clean(Helper::renderTask($data['task'])) !!}
+                        {!! Purify::clean(Helper::renderTask($data['body'])) !!}
                     @else
                         {!! Markdown::parse($data['body']) !!}
                     @endif
