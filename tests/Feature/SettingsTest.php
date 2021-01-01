@@ -111,3 +111,25 @@ it('has settings/delete page', function ($url, $expected, $auth) {
     ['/settings/delete', 302, false],
     ['/settings/delete', 200, true],
 ]);
+
+test('can download user account data', function ($url, $expected, $auth) {
+    if ($auth) {
+        actingAs(1)->get($url)->assertStatus($expected);
+    } else {
+        $this->get($url)->assertStatus($expected);
+    }
+})->with([
+    ['/settings/export/account', 302, false],
+    ['/settings/export/account', 200, true],
+]);
+
+test('can download user logs data', function ($url, $expected, $auth) {
+    if ($auth) {
+        actingAs(1)->get($url)->assertStatus($expected);
+    } else {
+        $this->get($url)->assertStatus($expected);
+    }
+})->with([
+    ['/settings/export/logs', 302, false],
+    ['/settings/export/logs', 200, true],
+]);
