@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('pageTitle', 'Page not found · Taskord')
+@section('pageTitle', 'Page not found ·')
 @section('code', '404')
 @section('content')
 <div class="container-md">

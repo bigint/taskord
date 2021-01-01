@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('pageTitle', 'Server Error · Taskord')
+@section('pageTitle', 'Server Error ·')
 @section('code', '500')
 @section('content')
 <div class="container-md">
