@@ -2,7 +2,13 @@
 
 use function Tests\actingAs;
 
-it('has keyboard shortcuts page - response test', function () {
-    $this->get('/site/shortcuts')->assertStatus(302);
-    actingAs(1)->get('/site/shortcuts')->assertStatus(200);
-});
+it('has keyboard shortcuts skeleton', function ($url, $expected, $auth) {
+    if ($auth) {
+        actingAs(1)->get($url)->assertStatus($expected);
+    } else {
+        $this->get($url)->assertStatus($expected);
+    }
+})->with([
+    ['/site/shortcuts', 302, false],
+    ['/site/shortcuts', 200, true],
+]);
