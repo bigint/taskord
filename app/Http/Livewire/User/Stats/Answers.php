@@ -48,7 +48,7 @@ class Answers extends Component
         return view('livewire.user.stats.answers', [
             'week_dates' => $this->readyToLoad ? json_encode($week_dates, JSON_NUMERIC_CHECK) : [],
             'answers' => $this->readyToLoad ? json_encode($answers, JSON_NUMERIC_CHECK) : [],
-            'answers_count' => $this->readyToLoad ? $answers_count : '···'
+            'answers_count' => $this->readyToLoad ? $answers_count : '···',
         ]);
     }
 }
