@@ -43,7 +43,7 @@ class Products extends Component
                 ->orderBy('created_at', 'desc')
                 ->get()
                 ->groupBy(function ($date) {
-                    return Carbon::parse($date->created_at)->format('Y,W');
+                    return $date->created_at->format('Y,W');
                 });
         } elseif ($this->type === 'products.launched') {
             $products = Product::cacheFor(60 * 60)
@@ -51,7 +51,7 @@ class Products extends Component
                 ->orderBy('created_at', 'desc')
                 ->get()
                 ->groupBy(function ($date) {
-                    return Carbon::parse($date->created_at)->format('Y,W');
+                    return $date->created_at->format('Y,W');
                 });
         }
 

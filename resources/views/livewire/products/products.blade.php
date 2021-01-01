@@ -17,18 +17,18 @@
     @endif
     @foreach ($products as $key => $groupedProducts)
         <div class="h5 mb-3 mt-4">
-            @if (Carbon::parse($groupedProducts[$loop->index]->created_at)->weekNumberInMonth === 1)
+            @if (carbon($groupedProducts[$loop->index]->created_at)->weekNumberInMonth === 1)
                 <span>1st week of</span>
-            @elseif (Carbon::parse($groupedProducts[$loop->index]->created_at)->weekNumberInMonth === 2)
+            @elseif (carbon($groupedProducts[$loop->index]->created_at)->weekNumberInMonth === 2)
                 <span>2nd week of</span>
-            @elseif (Carbon::parse($groupedProducts[$loop->index]->created_at)->weekNumberInMonth === 3)
+            @elseif (carbon($groupedProducts[$loop->index]->created_at)->weekNumberInMonth === 3)
                 <span>3rd week of</span>
-            @elseif (Carbon::parse($groupedProducts[$loop->index]->created_at)->weekNumberInMonth === 4)
+            @elseif (carbon($groupedProducts[$loop->index]->created_at)->weekNumberInMonth === 4)
                 <span>4th week of</span>
-            @elseif (Carbon::parse($groupedProducts[$loop->index]->created_at)->weekNumberInMonth === 5)
+            @elseif (carbon($groupedProducts[$loop->index]->created_at)->weekNumberInMonth === 5)
                 <span>5th week of</span>
             @endif
-            {{ Carbon::parse($groupedProducts[$loop->index]->created_at)->englishMonth }}
+            {{ carbon($groupedProducts[$loop->index]->created_at)->englishMonth }}
         </div>
         @foreach ($groupedProducts as $product)
         <div class="card mb-2">

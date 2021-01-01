@@ -14,14 +14,16 @@ class ProductController extends Controller
 {
     public function profile($slug)
     {
-        $product = Product::cacheFor(60 * 60)->where('slug', $slug)->firstOrFail();
+        $product = Product::cacheFor(60 * 60)
+            ->where('slug', $slug)
+            ->firstOrFail();
         $type = Route::current()->getName();
         $tasks = Task::cacheFor(60 * 60)
             ->where('product_id', $product->id)
             ->select('created_at')
             ->get()
             ->groupBy(function ($date) {
-                return Carbon::parse($date->created_at)->format('m');
+                return $date->created_at->format('m');
             });
 
         $taskmcount = [];

@@ -6,11 +6,11 @@
         <div class="card-body">
             <div class="fw-bold text-uppercase small">
                 @auth
-                {{ Carbon::parse($meetup->date)->setTimezone(Auth::user()->timezone)->format('D, M d, H:i') }}
+                {{ carbon($meetup->date)->setTimezone(Auth::user()->timezone)->format('D, M d, H:i') }}
                 @else
-                {{ Carbon::parse($meetup->date)->format('D, M d, H:i') }}
+                {{ carbon($meetup->date)->format('D, M d, H:i') }}
                 @endauth
-                @if (Carbon::parse($meetup->date)->isToday())
+                @if (carbon($meetup->date)->isToday())
                 <span class="text-secondary">(Happening)</span>
                 @endif
             </div>
