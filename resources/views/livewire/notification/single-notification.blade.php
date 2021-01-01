@@ -221,7 +221,7 @@
                 </span>
             @endif
             <div class="small mt-2 text-secondary">
-                {{ Carbon::createFromTimeStamp(strtotime($created_at))->diffForHumans() }}
+                {{ carbon($created_at)->diffForHumans() }}
             </div>
         </div>
     </div>

@@ -40,7 +40,7 @@ class SingleTask extends Component
 
         if (Auth::check()) {
             $this->task->done = ! $this->task->done;
-            $this->task->done_at = Carbon::now();
+            $this->task->done_at = carbon();
             Auth::user()->touch();
             givePoint(new TaskCompleted($this->task));
             $this->task->save();

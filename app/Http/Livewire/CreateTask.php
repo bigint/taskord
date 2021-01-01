@@ -113,7 +113,7 @@ class CreateTask extends Component
             $state = Auth::user()->checkState;
 
             if ($state) {
-                $done_at = Carbon::now();
+                $done_at = carbon();
             } else {
                 $done_at = null;
             }

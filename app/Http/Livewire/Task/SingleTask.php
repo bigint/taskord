@@ -45,13 +45,13 @@ class SingleTask extends Component
         if (Auth::check()) {
             if (Auth::id() === $this->task->user->id) {
                 if ($this->task->done) {
-                    $this->task->done_at = Carbon::now();
+                    $this->task->done_at = carbon();
                     Auth::user()->touch();
                     activity()
                         ->withProperties(['type' => 'Task'])
                         ->log('Updated a task as pending | Task ID: '.$this->task->id);
                 } else {
-                    $this->task->done_at = Carbon::now();
+                    $this->task->done_at = carbon();
                     Auth::user()->touch();
                     if (Auth::user()->hasGoal) {
                         Auth::user()->daily_goal_reached++;

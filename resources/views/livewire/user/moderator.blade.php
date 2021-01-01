@@ -10,7 +10,7 @@
                 <span class="h6">Last Active:</span>
                 <span class="fw-bold">
                     @if ($user->last_active)
-                    @if (strtotime(Carbon::now()) - strtotime($user->last_active) <= 5)
+                    @if (strtotime(carbon()) - strtotime($user->last_active) <= 5)
                     <span class="fw-bold text-success">active</span>
                     @else
                     {{ carbon($user->last_active)->diffForHumans() }}
@@ -68,14 +68,14 @@
                 @if ($user->timezone)
                 <span class="fw-bold">
                     @php
-                    $hour = Carbon::now()->setTimezone($user->timezone)->format('H');
+                    $hour = carbon()->setTimezone($user->timezone)->format('H');
                     $formattedTZ = str_replace("_", " ", $user->timezone)
                     @endphp
                     {{ $formattedTZ }}
                     •
                     <span class="text-secondary">
                         {{
-                            Carbon::now()
+                            carbon()
                             ->setTimezone($user->timezone)
                             ->format('g:i A')
                         }}

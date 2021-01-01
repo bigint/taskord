@@ -182,7 +182,7 @@ class Helper
 
     public static function renderDueDate(Carbon $date)
     {
-        $difference = carbon()->diffInDays($date, false);
+        $difference = carbon('today')->diffInDays($date, false);
         $days = abs($difference);
 
         if ($difference > 1) {

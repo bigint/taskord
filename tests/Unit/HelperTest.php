@@ -115,7 +115,7 @@ test('can render task with plain text correctly', function () {
 });
 
 test('can render due date correctly', function ($days, $expected) {
-    $date = Carbon::now()->addDays($days);
+    $date = carbon()->addDays($days);
     $expect = str_replace('-format-', $date->format('Y-m-d'), $expected);
 
     expect(Helper::renderDueDate($date))->toEqual($expect);

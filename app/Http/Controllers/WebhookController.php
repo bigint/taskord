@@ -49,7 +49,7 @@ class WebhookController extends Controller
             return response('Invalid parameters', 422);
         }
         if ($request_body['done']) {
-            $done_at = Carbon::now();
+            $done_at = carbon();
         } else {
             $done_at = null;
         }
@@ -95,7 +95,7 @@ class WebhookController extends Controller
             $webhook,
             $task,
             true,
-            Carbon::now(),
+            carbon(),
             $webhook->product_id,
             'GitHub'
         );
@@ -125,7 +125,7 @@ class WebhookController extends Controller
             $webhook,
             $task,
             true,
-            Carbon::now(),
+            carbon(),
             $webhook->product_id,
             'GitLab'
         );

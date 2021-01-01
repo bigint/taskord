@@ -127,7 +127,7 @@ class UserController extends Controller
                 'patron' => $patron,
             ])->toJson(JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
 
-            $file_name = Carbon::now()->format('d_m_Y_h_i_s').'_'.$account->username.'_data.json';
+            $file_name = carbon()->format('d_m_Y_h_i_s').'_'.$account->username.'_data.json';
             $response = response($data, 200, [
                 'Content-Type' => 'application/json',
                 'Content-Disposition' => 'attachment; filename="'.$file_name.'"',
@@ -151,7 +151,7 @@ class UserController extends Controller
                 'logs' => $logs,
             ])->toJson(JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
 
-            $file_name = Carbon::now()->format('d_m_Y_h_i_s').'_'.Auth::user()->username.'_logs.json';
+            $file_name = carbon()->format('d_m_Y_h_i_s').'_'.Auth::user()->username.'_logs.json';
             $response = response($data, 200, [
                 'Content-Type' => 'application/json',
                 'Content-Disposition' => 'attachment; filename="'.$file_name.'"',

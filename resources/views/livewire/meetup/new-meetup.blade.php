@@ -54,7 +54,7 @@
                     </div>
                     <div class="mb-3">
                         <label class="form-label fw-bold">Date in UTC</label>
-                        <input class="form-control" wire:model.defer="date" type="datetime-local" value="{{ Carbon::now()->toDateTimeString() }}" min="{{ Carbon::now()->toDateTimeString() }}" />
+                        <input class="form-control" wire:model.defer="date" type="datetime-local" value="{{ carbon()->toDateTimeString() }}" min="{{ carbon()->toDateTimeString() }}" />
                     </div>
                     <div class="mb-3">
                         <label class="form-label fw-bold">Cover (1500x500)</label>
