@@ -37,7 +37,7 @@ class CompletedTasks extends Component
                 ->select('id')
                 ->where([
                     ['user_id', $this->user->id],
-                    ['done', true]
+                    ['done', true],
                 ])
                 ->whereBetween('done_at', [Carbon::parse($date), Carbon::parse($date)->addDays(10)])
                 ->count();
