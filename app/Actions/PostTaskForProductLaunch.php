@@ -3,12 +3,12 @@
 namespace App\Actions;
 
 use App\Gamify\Points\TaskCreated;
-use Illuminate\Support\Arr;
 use App\Models\Product;
+use Illuminate\Support\Arr;
 
 class PostTaskForProductLaunch
 {
-    /** @var Product $product */
+    /** @var Product */
     protected Product $product;
 
     /**
