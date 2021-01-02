@@ -19,7 +19,7 @@ return [
     'tasks' => [
         'templates' => [
             'I just launched a new product! Check out #%s',
-            'Check  out #%s, I just lauched it today! 🚀',
+            'Check  out #%s, I just launched it today! 🚀',
         ],
     ],
 
