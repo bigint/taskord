@@ -8,7 +8,7 @@
     ],
     "license": "MIT",
     "require": {
-        "php": "^7.3",
+        "php": "^8.0",
         "ext-bcmath": "*",
         "ext-pdo_sqlite": "*",
         "alfredo-ramos/parsedown-extra-laravel": "^3.0",
@@ -19,7 +19,7 @@
         "fideloper/proxy": "^4.2",
         "fruitcake/laravel-cors": "^2.0",
         "graham-campbell/throttle": "^8.1",
-        "grosv/laravel-passwordless-login": "^1.2",
+        "grosv/laravel-passwordless-login": "^1.4",
         "guzzlehttp/guzzle": "^7.0",
         "intervention/image": "^2.5",
         "jantinnerezo/livewire-alert": "^2.0",
