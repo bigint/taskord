@@ -2,8 +2,11 @@
 
 namespace Tests\Unit;
 
-use App\Helpers\Helper;
+use function PHPUnit\Framework\assertMatchesRegularExpression;
+
 use Illuminate\Support\Facades\App;
+use App\Helpers\Helper;
+use Carbon\Carbon;
 
 it('can convert to CDN url in production enviroment with arguments', function ($url, $resolution, $expected) {
     App::shouldReceive('environment')->once()->withNoArgs()->andReturn('production');
@@ -136,6 +139,18 @@ it('can covert text to plural', function ($count, $word, $expected) {
     [10, 'following', 'followings'],
 ]);
 
-it('can return null when given wrong argument', function () {
+test('git() can return a string when executed', function () {
+    assertMatchesRegularExpression('/[0-9a-f]{4,9}/', git('rev-parse --short HEAD'));
+});
+
+test('carbon() can return instance of carbon', function () {
+    expect(carbon())->toBeInstanceOf(Carbon::class);
+});
+
+test('carbon() can return null with no correct argument', function () {
+    expect(carbon('null'))->toBeNull();
+});
+
+test('git() can return null with no correct argument', function () {
     expect(git('push'))->toBeNull();
 });
