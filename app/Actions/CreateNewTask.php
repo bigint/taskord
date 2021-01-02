@@ -13,11 +13,7 @@ class CreateNewTask
     protected array $data;
     protected User $user;
 
-    public function __construct(
-        User $user,
-        array $data,
-        bool $silent = false
-    ) {
+    public function __construct($user, array $data, bool $silent = false) {
         $this->user = $user;
         $this->data = $data;
         $this->silent = $silent;
