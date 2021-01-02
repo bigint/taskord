@@ -3,7 +3,6 @@
 namespace App\Actions;
 
 use App\Models\Task;
-use App\Models\User;
 
 class CreateNewTask
 {
