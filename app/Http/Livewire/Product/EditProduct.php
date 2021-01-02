@@ -2,16 +2,16 @@
 
 namespace App\Http\Livewire\Product;
 
+use App\Actions\CreateNewTask;
 use App\Models\Product;
 use App\Rules\Repo;
+use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use Intervention\Image\Facades\Image;
 use Livewire\Component;
 use Livewire\WithFileUploads;
-use App\Actions\CreateNewTask;
-use Illuminate\Support\Arr;
 
 class EditProduct extends Component
 {
