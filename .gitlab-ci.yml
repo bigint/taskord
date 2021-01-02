@@ -23,7 +23,7 @@ cache:
     - node_modules/
 
 Test:
-  image: taskord/php:latest
+  image: edbizarro/gitlab-ci-pipeline-php:latest
   stage: test
   script:
     - sudo composer install --ignore-platform-reqs
