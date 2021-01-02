@@ -2,9 +2,8 @@
 
 namespace Database\Seeders;
 
-use Faker\Generator as Faker;
+use App\Models\Task;
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\DB;
 
 class TaskSeeder extends Seeder
 {
@@ -13,41 +12,8 @@ class TaskSeeder extends Seeder
      *
      * @return void
      */
-    public function run(Faker $faker)
+    public function run()
     {
-        DB::table('tasks')->insert([
-            'user_id' => 1,
-            'product_id' => 1,
-            'task' => 'Hello, World!',
-            'done' => true,
-            'source' => 'Taskord for Web',
-            'done_at' => $faker->dateTimeBetween($startDate = '-30 days', $endDate = '-5 days'),
-            'created_at' => $faker->dateTimeBetween($startDate = '-30 days', $endDate = '-5 days'),
-            'updated_at' => $faker->dateTimeBetween($startDate = '-30 days', $endDate = '-5 days'),
-        ]);
-        foreach (range(1, 50) as $index) {
-            DB::table('tasks')->insert([
-                'user_id' => 3,
-                'product_id' => 1,
-                'task' => $faker->sentence($nbWords = 6, $variableNbWords = true),
-                'done' => $faker->boolean($chanceOfGettingTrue = 50),
-                'source' => 'Taskord for Web',
-                'done_at' => $faker->dateTimeBetween($startDate = '-30 days', $endDate = '-5 days'),
-                'created_at' => $faker->dateTimeBetween($startDate = '-30 days', $endDate = '-5 days'),
-                'updated_at' => $faker->dateTimeBetween($startDate = '-30 days', $endDate = '-5 days'),
-            ]);
-        }
-        foreach (range(1, 500) as $index) {
-            DB::table('tasks')->insert([
-                'user_id' => $faker->numberBetween($min = 1, $max = 50),
-                'product_id' => $faker->numberBetween($min = 1, $max = 100),
-                'task' => $faker->sentence($nbWords = 6, $variableNbWords = true),
-                'done' => $faker->boolean($chanceOfGettingTrue = 50),
-                'source' => 'Taskord for Web',
-                'done_at' => $faker->dateTimeBetween($startDate = '-30 days', $endDate = '-5 days'),
-                'created_at' => $faker->dateTimeBetween($startDate = '-30 days', $endDate = '-5 days'),
-                'updated_at' => $faker->dateTimeBetween($startDate = '-30 days', $endDate = '-5 days'),
-            ]);
-        }
+        Task::factory()->count(500)->create();
     }
 }

@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Multicaret\Acquaintances\Traits\CanBeLiked;
 use Multicaret\Acquaintances\Traits\CanBeSubscribed;
@@ -10,7 +11,9 @@ use Rennokki\QueryCache\Traits\QueryCacheable;
 
 class Task extends Model
 {
-    use CanBeLiked, QueryCacheable, CanBeSubscribed;
+    use CanBeLiked, CanBeSubscribed;
+    use QueryCacheable;
+    use HasFactory;
 
     public $cacheFor = 3600;
     protected static $flushCacheOnUpdate = true;

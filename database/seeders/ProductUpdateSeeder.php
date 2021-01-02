@@ -2,10 +2,10 @@
 
 namespace Database\Seeders;
 
-use App\Models\Meetup;
+use App\Models\ProductUpdate;
 use Illuminate\Database\Seeder;
 
-class MeetupSeeder extends Seeder
+class ProductUpdateSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -14,6 +14,6 @@ class MeetupSeeder extends Seeder
      */
     public function run()
     {
-        Meetup::factory()->count(30)->create();
+        ProductUpdate::factory()->count(200)->create();
     }
 }

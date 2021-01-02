@@ -2,9 +2,8 @@
 
 namespace Database\Seeders;
 
-use Faker\Generator as Faker;
+use App\Models\Comment;
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\DB;
 
 class CommentSeeder extends Seeder
 {
@@ -13,23 +12,12 @@ class CommentSeeder extends Seeder
      *
      * @return void
      */
-    public function run(Faker $faker)
+    public function run()
     {
-        DB::table('comments')->insert([
-            'user_id' => 1,
+        Comment::factory()->count(50)->create([
             'task_id' => 1,
-            'comment' => 'Hello, World!',
-            'created_at' => $faker->dateTimeBetween($startDate = '-5 days', $endDate = 'now'),
-            'updated_at' => $faker->dateTimeBetween($startDate = '-5 days', $endDate = 'now'),
         ]);
-        foreach (range(1, 500) as $index) {
-            DB::table('comments')->insert([
-                'user_id' => $faker->numberBetween($min = 1, $max = 50),
-                'task_id' => $faker->numberBetween($min = 1, $max = 50),
-                'comment' => $faker->sentence($nbWords = 10, $variableNbWords = true),
-                'created_at' => $faker->dateTimeBetween($startDate = '-5 days', $endDate = 'now'),
-                'updated_at' => $faker->dateTimeBetween($startDate = '-5 days', $endDate = 'now'),
-            ]);
-        }
+
+        Comment::factory()->count(950)->create();
     }
 }

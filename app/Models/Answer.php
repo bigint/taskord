@@ -2,13 +2,16 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Multicaret\Acquaintances\Traits\CanBeLiked;
 use Rennokki\QueryCache\Traits\QueryCacheable;
 
 class Answer extends Model
 {
-    use CanBeLiked, QueryCacheable;
+    use CanBeLiked;
+    use HasFactory;
+    use QueryCacheable;
 
     public $cacheFor = 3600;
     protected static $flushCacheOnUpdate = true;
