@@ -37,6 +37,7 @@ class UserSeeder extends Seeder
                 'isDeveloper' => false,
                 'isBeta' => false,
                 'created_at' => $faker->dateTimeBetween($startDate = '-10 days', $endDate = 'now'),
+                'updated_at' => $faker->dateTimeBetween($startDate = '-10 days', $endDate = 'now'),
                 'email_verified_at' => date('Y-m-d H:i:s'),
             ]);
         }
