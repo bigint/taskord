@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Product;
 
+use App\Jobs\CreateTaskOnLaunch;
 use App\Models\Product;
 use App\Rules\Repo;
 use Illuminate\Support\Facades\Auth;
@@ -10,7 +11,6 @@ use Illuminate\Support\Str;
 use Intervention\Image\Facades\Image;
 use Livewire\Component;
 use Livewire\WithFileUploads;
-use App\Jobs\CreateTaskOnLaunch;
 
 class EditProduct extends Component
 {
