@@ -28,7 +28,9 @@
     @endif
     @endauth
     <livewire:styles />
+    @if (App::environment() === 'production')
     <script async src="https://cdn.splitbee.io/sb.js"></script>
+    @endif
 </head>
 <body>
     <div id="app">
