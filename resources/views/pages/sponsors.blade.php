@@ -50,6 +50,17 @@
                 </div>
                 <div class="text-center mb-5 pt-2">
                     <div>
+                        <img loading=lazy height="50" src="https://ik.imagekit.io/taskordimg/splitbee_crMfleVPn.svg" />
+                    </div>
+                    <div class="task-font h6 mt-4 lh-base">
+                        Splitbee is an Analytics & A/B testing tool that focuses on simplicity and speed. We make analytics fun to use and understandable.
+                    </div>
+                    <div class="mt-2">
+                        <a href="https://splitbee.io" target="_blank" rel="noreferrer">➜ Go to Splitbee</a>
+                    </div>
+                </div>
+                <div class="text-center mb-5 pt-2">
+                    <div>
                         <img loading=lazy height="50" src="https://ik.imagekit.io/taskordimg/clickup_3YRDhOJZs.png" />
                     </div>
                     <div class="task-font h6 mt-5 lh-base">
