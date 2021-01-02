@@ -112,7 +112,7 @@ class EditProduct extends Component
                 $product->save();
 
                 if ($isNewelyLaunched) {
-                    CreateTaskOnLaunch::dispatch($product, user());
+                    CreateTaskOnLaunch::dispatch($product);
                 }
 
                 user()->touch();

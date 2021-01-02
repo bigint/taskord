@@ -18,17 +18,15 @@ class CreateTaskOnLaunch implements ShouldQueue
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
     protected Product $product;
-    protected User $user;
 
     /**
      * Create a new job instance.
      *
      * @return void
      */
-    public function __construct(Product $product, User $user)
+    public function __construct(Product $product)
     {
         $this->product = $product;
-        $this->user = $user;
     }
 
     /**
@@ -41,7 +39,7 @@ class CreateTaskOnLaunch implements ShouldQueue
         $randomTask = Arr::random(config('taskord.tasks.templates'));
 
         $task = (new CreateNewTask(
-            $this->user, [
+            user(), [
                 'product_id' => $this->product->id,
                 'task' => sprintf($randomTask, $this->product->name),
                 'done' => true,

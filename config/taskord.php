@@ -20,7 +20,6 @@ return [
         'templates' => [
             'I just launched a new product! Check out #%s',
             'Check  out #%s, I just lauched it today! 🚀',
-            'Welcome into the world #%s!',
         ],
     ],
 
