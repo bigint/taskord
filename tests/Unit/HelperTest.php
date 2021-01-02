@@ -135,3 +135,7 @@ it('can covert text to plural', function ($count, $word, $expected) {
     [1, 'following', 'following'],
     [10, 'following', 'followings'],
 ]);
+
+it('can return null when given wrong argument', function () {
+    expect(git('push'))->toBeNull();
+});

@@ -14,16 +14,17 @@ use Illuminate\Support\Str;
  * @category Helpers
  */
 if (! function_exists('git')) {
+
     /**
      * Execute git command
      * Should be used safetly
      * No direct end-user access.
      *
-     * @param string $args arguments
-     * @author   Kim Hallberg <hallberg.kim@gmail.com>
-     * @return \Illuminate\Support\Carbon
+     * @param string $args
+     *
+     * @return string|null
      */
-    function git(string $args): string
+    function git(string $args): ?string
     {
         $approved_args = ['rev-parse'];
         $arguments = explode(' ', $args);
