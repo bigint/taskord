@@ -23,7 +23,7 @@ cache:
     - node_modules/
 
 Test:
-  image: taskord/php:7.4
+  image: taskord/php:latest
   stage: test
   script:
     - sudo composer install --ignore-platform-reqs
