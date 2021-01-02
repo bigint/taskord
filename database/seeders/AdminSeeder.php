@@ -77,7 +77,7 @@ class AdminSeeder extends Seeder
             'isPatron' => true,
             'api_token' => 'Ajfow3xVyqqHD3lRFirc6bRD8xzPov65XdXDbevR6ytxKS3pXoINUgIVRNpc',
             'created_at' => date('Y-m-d H:i:s'),
-            'updated_at' => '2020-04-20 13:14:01',
+            'updated_at' => $faker->dateTimeBetween($startDate = '-5 days', $endDate = 'now'),
             'email_verified_at' => date('Y-m-d H:i:s'),
         ]);
 
