@@ -8,7 +8,7 @@ return [
          * The name of this application. You can use this name to monitor
          * the backups.
          */
-        'name' => env('APP_NAME', 'laravel-backup'),
+        'name' => env('GOOGLE_DRIVE_FOLDER_ID', 'laravel-backup'),
 
         'source' => [
 
@@ -101,7 +101,7 @@ return [
              * The disk names on which the backups will be stored.
              */
             'disks' => [
-                'local',
+                'local', 'google',
             ],
         ],
 
