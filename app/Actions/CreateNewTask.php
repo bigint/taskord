@@ -9,19 +9,11 @@ class CreateNewTask
 {
     private const DEFAULT_SOURCE = 'Taskord for Web';
 
-    protected bool $silent;
-    protected array $data;
-    protected User $user;
-
     public function __construct(
-        User $user,
-        array $data,
-        bool $silent = false
-    ) {
-        $this->user = $user;
-        $this->data = $data;
-        $this->silent = $silent;
-    }
+        protected User $user,
+        protected array $data,
+        protected bool $silent = false,
+    ) { }
 
     public function __invoke(): Task
     {
