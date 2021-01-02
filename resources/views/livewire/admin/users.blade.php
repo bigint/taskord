@@ -183,7 +183,7 @@
                                 <li>
                                     <span class="dropdown-item" title="{{ $user->created_at->format('M d, Y g:i A') }}">
                                         <x-heroicon-o-calendar class="heroicon text-secondary" />
-                                        <span class="fw-bold">{{ $user->created_at?->format('M d, Y') }}</span>
+                                        <span class="fw-bold">{{ $user->created_at->format('M d, Y') }}</span>
                                         @if ($user->created_at->diffInDays(carbon('today')) < 7)
                                             🆕
                                         @endif
