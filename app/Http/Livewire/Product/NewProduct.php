@@ -102,11 +102,9 @@ class NewProduct extends Component
             }
 
             user()->touch();
-
             activity()
                 ->withProperties(['type' => 'Product'])
                 ->log('Created a new product | Product Slug: #'.$product->slug);
-
             $this->flash('success', 'Product has been created!');
 
             return redirect()->route('product.done', ['slug' => $product->slug]);
