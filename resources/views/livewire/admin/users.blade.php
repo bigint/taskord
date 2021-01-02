@@ -175,9 +175,9 @@
                                     </span>
                                 </li>
                                 <li>
-                                    <span class="dropdown-item" title="{{ $user->updated_at?->format('M d, Y g:i A') }}">
+                                    <span class="dropdown-item" title="{{ $user->updated_at->format('M d, Y g:i A') }}">
                                         <x-heroicon-o-calendar class="heroicon text-secondary" />
-                                        <span class="fw-bold">{{ $user->updated_at?->format('M d, Y') }}</span>
+                                        <span class="fw-bold">{{ $user->updated_at->format('M d, Y') }}</span>
                                     </span>
                                 </li>
                                 <li>
