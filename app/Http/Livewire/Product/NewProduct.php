@@ -100,7 +100,7 @@ class NewProduct extends Component
 
             if ($launched_status) {
                 $randomTask = Arr::random(config('taskord.tasks.templates'));
-                (new CreateNewTask(auth()->user(), [
+                (new CreateNewTask(user(), [
                     'product_id' => $product->id,
                     'task' => sprintf($randomTask, $product->slug),
                     'done' => true,
