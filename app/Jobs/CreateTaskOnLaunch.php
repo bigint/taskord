@@ -1,20 +1,28 @@
 <?php
 
-namespace App\Actions;
+namespace App\Jobs;
 
+use Illuminate\Bus\Queueable;
+use Illuminate\Contracts\Queue\ShouldBeUnique;
+use Illuminate\Contracts\Queue\ShouldQueue;
+use Illuminate\Foundation\Bus\Dispatchable;
+use Illuminate\Queue\InteractsWithQueue;
+use Illuminate\Queue\SerializesModels;
+use App\Actions\CreateNewTask;
 use App\Gamify\Points\TaskCreated;
 use App\Models\Product;
 use Illuminate\Support\Arr;
 
-class PostTaskForProductLaunch
+class CreateTaskOnLaunch implements ShouldQueue
 {
-    /** @var Product */
+    use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
+
     protected Product $product;
 
     /**
-     * Inject products to post.
+     * Create a new job instance.
      *
-     * @param \App\Models\Product $product Product
+     * @return void
      */
     public function __construct(Product $product)
     {
@@ -22,11 +30,11 @@ class PostTaskForProductLaunch
     }
 
     /**
-     * Select random task to post on product launch.
+     * Execute the job.
      *
      * @return void
      */
-    public function __invoke()
+    public function handle()
     {
         $randomTask = Arr::random(config('taskord.tasks.templates'));
 
