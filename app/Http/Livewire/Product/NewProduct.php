@@ -98,7 +98,7 @@ class NewProduct extends Component
             ]);
 
             if ($launched_status) {
-                CreateTaskOnLaunch::dispatch($product);
+                CreateTaskOnLaunch::dispatch($product, user());
             }
 
             user()->touch();
