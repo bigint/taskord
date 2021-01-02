@@ -20,6 +20,7 @@ class CommentSeeder extends Seeder
             'task_id' => 1,
             'comment' => 'Hello, World!',
             'created_at' => $faker->dateTimeBetween($startDate = '-5 days', $endDate = 'now'),
+            'updated_at' => $faker->dateTimeBetween($startDate = '-5 days', $endDate = 'now'),
         ]);
         foreach (range(1, 500) as $index) {
             DB::table('comments')->insert([
@@ -27,6 +28,7 @@ class CommentSeeder extends Seeder
                 'task_id' => $faker->numberBetween($min = 1, $max = 50),
                 'comment' => $faker->sentence($nbWords = 10, $variableNbWords = true),
                 'created_at' => $faker->dateTimeBetween($startDate = '-5 days', $endDate = 'now'),
+                'updated_at' => $faker->dateTimeBetween($startDate = '-5 days', $endDate = 'now'),
             ]);
         }
     }
