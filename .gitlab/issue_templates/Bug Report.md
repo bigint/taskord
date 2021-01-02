@@ -28,7 +28,6 @@
 **Browser Details**
 
 ```
-Base URL: https://taskord.com
 Taskord Version: v
 Browser name:
 Browser version:
