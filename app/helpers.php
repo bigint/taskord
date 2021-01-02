@@ -67,15 +67,11 @@ if (! function_exists('memory_usage')) {
     {
         $mem_usage = memory_get_usage(true);
 
-        if ($mem_usage < 1024) {
-            $format = sprintf('%dB', $mem_usage);
-        } elseif ($mem_usage < 1048576) {
-            $format = sprintf('%dKB', round($mem_usage / 1024, 2));
-        } else {
-            $format = sprintf('%dMB', round($mem_usage / 1048576, 2));
-        }
-
-        return $format;
+        return match (true) {
+            ($mem_usage < 1024) => sprintf('%dB', $mem_usage),
+            ($mem_usage < 1048576) => sprintf('%dKB', round($mem_usage / 1024, 2)),
+            default => sprintf('%dMB', round($mem_usage / 1048576, 2))
+        };
     }
 }
 
