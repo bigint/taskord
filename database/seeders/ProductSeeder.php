@@ -28,6 +28,7 @@ class ProductSeeder extends Seeder
             'launched' => true,
             'launched_at' => $faker->dateTimeBetween($startDate = '-2 days', $endDate = 'now'),
             'created_at' => $faker->dateTimeBetween($startDate = '-2 days', $endDate = 'now'),
+            'updated_at' => $faker->dateTimeBetween($startDate = '-2 days', $endDate = 'now'),
         ]);
         foreach (range(1, 100) as $index) {
             DB::table('products')->insert([
@@ -43,6 +44,7 @@ class ProductSeeder extends Seeder
                 'launched' => $faker->boolean($chanceOfGettingTrue = 50),
                 'launched_at' => $faker->dateTimeBetween($startDate = '-600 days', $endDate = 'now'),
                 'created_at' => $faker->dateTimeBetween($startDate = '-600 days', $endDate = 'now'),
+                'updated_at' => $faker->dateTimeBetween($startDate = '-2 days', $endDate = 'now'),
             ]);
         }
     }
