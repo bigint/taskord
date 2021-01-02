@@ -3,6 +3,7 @@
 namespace App\Actions;
 
 use App\Models\Task;
+use App\Models\User;
 
 class CreateNewTask
 {
@@ -10,10 +11,13 @@ class CreateNewTask
 
     protected bool $silent;
     protected array $data;
-    protected $user;
+    protected User $user;
 
-    public function __construct($user, array $data, bool $silent = false)
-    {
+    public function __construct(
+        User $user,
+        array $data,
+        bool $silent = false
+    ) {
         $this->user = $user;
         $this->data = $data;
         $this->silent = $silent;

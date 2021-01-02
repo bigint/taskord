@@ -2,7 +2,6 @@
 
 namespace App\Http\Livewire\Product;
 
-use App\Jobs\CreateTaskOnLaunch;
 use App\Models\Product;
 use App\Rules\Repo;
 use Illuminate\Support\Facades\Auth;
@@ -11,6 +10,8 @@ use Illuminate\Support\Str;
 use Intervention\Image\Facades\Image;
 use Livewire\Component;
 use Livewire\WithFileUploads;
+use Illuminate\Support\Arr;
+use App\Actions\CreateNewTask;
 
 class NewProduct extends Component
 {
@@ -98,7 +99,14 @@ class NewProduct extends Component
             ]);
 
             if ($launched_status) {
-                CreateTaskOnLaunch::dispatch($product);
+                $randomTask = Arr::random(config('taskord.tasks.templates'));
+                (new CreateNewTask(auth()->user(), [
+                    'product_id' => $product->id,
+                    'task' => sprintf($randomTask, $product->slug),
+                    'done' => true,
+                    'done_at' => $product->launched_at,
+                    'type' => 'product',
+                ]))();
             }
 
             user()->touch();

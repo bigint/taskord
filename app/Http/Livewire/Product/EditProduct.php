@@ -2,7 +2,6 @@
 
 namespace App\Http\Livewire\Product;
 
-use App\Jobs\CreateTaskOnLaunch;
 use App\Models\Product;
 use App\Rules\Repo;
 use Illuminate\Support\Facades\Auth;
@@ -112,7 +111,7 @@ class EditProduct extends Component
                 $product->save();
 
                 if ($isNewelyLaunched) {
-                    CreateTaskOnLaunch::dispatch($product);
+                    //CreateTaskOnLaunch::dispatch($product);
                 }
 
                 user()->touch();
