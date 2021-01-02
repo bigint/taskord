@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e105e01a76d8cf1406e0116bc6ff1728",
+    "content-hash": "d09cd26c2c34cfc148186950c32a9e78",
     "packages": [
         {
             "name": "alfredo-ramos/parsedown-extra-laravel",
@@ -3655,16 +3655,16 @@
         },
         {
             "name": "nuwave/lighthouse",
-            "version": "v5.0-beta.3",
+            "version": "v5.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nuwave/lighthouse.git",
-                "reference": "4e7c8c752a899ea7852aa2c0321dd1ecb0c3fabb"
+                "reference": "69cfbae0c94eb85f9d7a0c53f9ade0b8cf84e412"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nuwave/lighthouse/zipball/4e7c8c752a899ea7852aa2c0321dd1ecb0c3fabb",
-                "reference": "4e7c8c752a899ea7852aa2c0321dd1ecb0c3fabb",
+                "url": "https://api.github.com/repos/nuwave/lighthouse/zipball/69cfbae0c94eb85f9d7a0c53f9ade0b8cf84e412",
+                "reference": "69cfbae0c94eb85f9d7a0c53f9ade0b8cf84e412",
                 "shasum": ""
             },
             "require": {
@@ -3775,7 +3775,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2020-12-30T13:37:18+00:00"
+            "time": "2021-01-01T19:23:03+00:00"
         },
         {
             "name": "opis/closure",
