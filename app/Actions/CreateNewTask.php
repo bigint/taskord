@@ -45,6 +45,7 @@ class CreateNewTask
     public function createTaskModel(): Task
     {
         dd($this->user);
+
         return Task::create(
             \array_merge([
                 'user_id' => $this->user->id,
