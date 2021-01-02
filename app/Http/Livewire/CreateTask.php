@@ -123,7 +123,7 @@ class CreateTask extends Component
                 $product_id = $this->product->id;
             }
 
-            $task = (new CreateNewTask(user()->id, [
+            $task = (new CreateNewTask(user(), [
                 'product_id' =>  $product_id,
                 'task' => $this->task,
                 'done' => $state,

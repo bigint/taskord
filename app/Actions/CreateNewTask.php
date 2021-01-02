@@ -3,6 +3,7 @@
 namespace App\Actions;
 
 use App\Models\Task;
+use App\Models\User;
 
 class CreateNewTask
 {
@@ -10,14 +11,14 @@ class CreateNewTask
 
     protected bool $silent;
     protected array $data;
-    protected $user_id;
+    protected User $user;
 
     public function __construct(
-        $user_id,
+        User $user,
         array $data,
         bool $silent = false
     ) {
-        $this->user_id = $user_id;
+        $this->user = $user;
         $this->data = $data;
         $this->silent = $silent;
     }
@@ -45,7 +46,7 @@ class CreateNewTask
     {
         return Task::create(
             \array_merge([
-                'user_id' => $this->user_id,
+                'user_id' => $this->user->id,
                 'source' => CreateNewTask::DEFAULT_SOURCE,
             ], $this->data)
         );
