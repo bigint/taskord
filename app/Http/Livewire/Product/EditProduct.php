@@ -10,6 +10,8 @@ use Illuminate\Support\Str;
 use Intervention\Image\Facades\Image;
 use Livewire\Component;
 use Livewire\WithFileUploads;
+use App\Actions\CreateNewTask;
+use Illuminate\Support\Arr;
 
 class EditProduct extends Component
 {
@@ -111,7 +113,14 @@ class EditProduct extends Component
                 $product->save();
 
                 if ($isNewelyLaunched) {
-                    //CreateTaskOnLaunch::dispatch($product);
+                    $randomTask = Arr::random(config('taskord.tasks.templates'));
+                    (new CreateNewTask(user(), [
+                        'product_id' => $product->id,
+                        'task' => sprintf($randomTask, $product->slug),
+                        'done' => true,
+                        'done_at' => $product->launched_at,
+                        'type' => 'product',
+                    ]))();
                 }
 
                 user()->touch();
