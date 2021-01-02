@@ -10,6 +10,7 @@ use Illuminate\Support\Str;
 use Intervention\Image\Facades\Image;
 use Livewire\Component;
 use Livewire\WithFileUploads;
+use App\Actions\PostTaskForProductLaunch;
 
 class EditProduct extends Component
 {
@@ -91,9 +92,13 @@ class EditProduct extends Component
             }
 
             if (user()->staffShip or user()->id === $product->owner->id) {
+                $isNewelyLaunched = false;
+
                 if ($this->launched and ! $product->launched) {
                     $product->launched_at = carbon();
+                    $isNewelyLaunched = true;
                 }
+
                 $product->name = $this->name;
                 $product->slug = $this->slug;
                 $product->description = $this->description;
@@ -105,6 +110,11 @@ class EditProduct extends Component
                 $product->launched = $this->launched;
                 $product->deprecated = $this->deprecated;
                 $product->save();
+
+                if ($isNewelyLaunched) {
+                    (new PostTaskForProductLaunch($product))();
+                }
+
                 user()->touch();
 
                 $this->flash('success', 'Product has been updated!');
