@@ -38,15 +38,13 @@ class CreateTaskOnLaunch implements ShouldQueue
     {
         $randomTask = Arr::random(config('taskord.tasks.templates'));
 
-        $task = (new CreateNewTask(
-            user(), [
-                'product_id' => $this->product->id,
-                'task' => sprintf($randomTask, $this->product->name),
-                'done' => true,
-                'done_at' => $this->product->launched_at,
-                'type' => 'product',
-            ]
-        ))();
+        $task = (new CreateNewTask(user(), [
+            'product_id' => $this->product->id,
+            'task' => sprintf($randomTask, $this->product->name),
+            'done' => true,
+            'done_at' => $this->product->launched_at,
+            'type' => 'product',
+        ]))();
 
         givePoint(new TaskCreated($task));
     }
