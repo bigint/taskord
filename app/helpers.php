@@ -98,7 +98,7 @@ if (! function_exists('str_plural')) {
 if (! function_exists('carbon')) {
 
     /**
-     * Returns new Carbon object
+     * Returns new Carbon object.
      *
      * @param mixed ...$args arguments
      *

@@ -2,11 +2,10 @@
 
 namespace Tests\Unit;
 
-use function PHPUnit\Framework\assertMatchesRegularExpression;
-
-use Illuminate\Support\Facades\App;
 use App\Helpers\Helper;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\App;
+use function PHPUnit\Framework\assertMatchesRegularExpression;
 
 it('can convert to CDN url in production enviroment with arguments', function ($url, $resolution, $expected) {
     App::shouldReceive('environment')->once()->withNoArgs()->andReturn('production');
