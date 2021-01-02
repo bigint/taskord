@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Product;
 
+use App\Actions\CreateTaskForProductLaunch;
 use App\Models\Product;
 use App\Rules\Repo;
 use Illuminate\Support\Facades\Auth;
@@ -95,6 +96,11 @@ class NewProduct extends Component
                 'launched' => $launched_status,
                 'launched_at' => $launched_at,
             ]);
+
+            if ($launched_status) {
+                (new CreateTaskForProductLaunch)->execute($product);
+            }
+
             user()->touch();
 
             activity()
