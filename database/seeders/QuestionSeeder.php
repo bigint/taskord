@@ -12,16 +12,16 @@ class QuestionSeeder extends Seeder
         // Public Question
         Question::factory()->create([
             'user_id' => 1,
-            'title' => "Hello, World this is public question!",
-            'body' => "Hello, World!",
+            'title' => 'Hello, World this is public question!',
+            'body' => 'Hello, World!',
             'patronOnly' => false,
         ]);
 
         // Patron Only Question
         Question::factory()->create([
             'user_id' => 1,
-            'title' => "Hello, World this is patron only question!",
-            'body' => "Hello, World!",
+            'title' => 'Hello, World this is patron only question!',
+            'body' => 'Hello, World!',
             'patronOnly' => true,
         ]);
 
