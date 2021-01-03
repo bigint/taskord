@@ -4,7 +4,6 @@ namespace App\Http\Livewire\Product;
 
 use App\Models\Task;
 use Carbon\CarbonPeriod;
-use Illuminate\Support\Facades\DB;
 use Livewire\Component;
 
 class Graph extends Component
@@ -12,7 +11,8 @@ class Graph extends Component
     public $readyToLoad = false;
     public $product_id;
 
-    public function mount($product_id) {
+    public function mount($product_id)
+    {
         $this->product_id = $product_id;
     }
 
@@ -25,7 +25,7 @@ class Graph extends Component
     {
         $created_at = carbon('Sep 1 2020')->format('Y-m-d');
         $current_date = carbon()->format('Y-m-d');
-        $period = CarbonPeriod::create($created_at, '10 days' ,$current_date);
+        $period = CarbonPeriod::create($created_at, '10 days', $current_date);
 
         $week_dates = [];
         $tasks = [];
