@@ -2,8 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use Spatie\Activitylog\Models\Activity;
-
 class AdminController extends Controller
 {
     public static function toggle()

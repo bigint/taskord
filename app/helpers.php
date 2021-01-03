@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
+use App\Jobs\LogActivity;
 use App\Models\User;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Str;
-use App\Jobs\LogActivity;
 
 /**
  * This file contains helper functions for Taskord.
