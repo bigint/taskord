@@ -11,8 +11,8 @@ class QuestionSeeder extends Seeder
     {
         Question::factory()->create([
             'user_id' => 1,
-            'title' => "Hello, World!",
-            'body' => "Hello, World!",
+            'title' => 'Hello, World!',
+            'body' => 'Hello, World!',
             'patronOnly' => false,
         ]);
 
