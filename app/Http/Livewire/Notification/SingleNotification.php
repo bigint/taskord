@@ -21,7 +21,8 @@ class SingleNotification extends Component
         $this->created_at = strval($created_at);
     }
 
-    public function markSingleNotificationAsRead() {
+    public function markSingleNotificationAsRead()
+    {
         auth()->user()->unreadNotifications->where('id', $this->notification_id)->markAsRead();
         $this->emit('markAsRead');
         activity()
