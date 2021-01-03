@@ -36,10 +36,7 @@ class CreateNewTask
     public function updateActivity(Task $task)
     {
         $message = "Created a new task via {$task->source}";
-
-        activity()
-                ->withProperties(['type' => 'Task'])
-                ->log(\sprintf('%s | Task ID: %d', $message, $task->id));
+        loggy('Task', $this->user, \sprintf('%s | Task ID: %d', $message, $task->id));
     }
 
     public function createTaskModel(): Task

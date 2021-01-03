@@ -2,8 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use Spatie\Activitylog\Models\Activity;
-
 class AdminController extends Controller
 {
     public static function toggle()
@@ -11,9 +9,7 @@ class AdminController extends Controller
         if (auth()->user()->staffShip) {
             auth()->user()->staffShip = false;
             auth()->user()->save();
-            activity()
-                ->withProperties(['type' => 'Admin'])
-                ->log('Disabled Staff Ship');
+            loggy('Admin', auth()->user(), 'Disabled Staff Ship');
 
             return response()->json([
                 'status' => 'disabled',
@@ -21,9 +17,7 @@ class AdminController extends Controller
         } else {
             auth()->user()->staffShip = true;
             auth()->user()->save();
-            activity()
-                ->withProperties(['type' => 'Admin'])
-                ->log('Enabled Staff Ship');
+            loggy('Admin', auth()->user(), 'Enabled Staff Ship');
 
             return response()->json([
                 'status' => 'enabled',

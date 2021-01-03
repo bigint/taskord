@@ -26,9 +26,7 @@ class Rsvp extends Component
             Helper::flagAccount(auth()->user());
         }
         if (! $throttler->check()) {
-            activity()
-                ->withProperties(['type' => 'Throttle'])
-                ->log('Rate limited while toggling RSVP');
+            loggy('Throttle', auth()->user(), 'Rate limited while toggling the RSVP');
 
             return $this->alert('error', 'Your are rate limited, try again later!');
         }

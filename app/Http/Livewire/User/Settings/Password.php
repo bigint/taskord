@@ -52,9 +52,7 @@ class Password extends Component
 
                 auth()->user()->password = Hash::make($this->newPassword);
                 auth()->user()->save();
-                activity()
-                    ->withProperties(['type' => 'User'])
-                    ->log('Changed account password');
+                loggy('User', auth()->user(), 'Changed account password');
 
                 return $this->alert('success', 'Your password has been changed!');
             } else {

@@ -27,9 +27,7 @@ class SingleAnswer extends Component
             Helper::flagAccount(auth()->user());
         }
         if (! $throttler->check()) {
-            activity()
-                ->withProperties(['type' => 'Throttle'])
-                ->log('Rate limited while praising the answer');
+            loggy('Throttle', auth()->user(), 'Rate limited while praising the answer');
 
             return $this->alert('error', 'Your are rate limited, try again later!');
         }
@@ -45,9 +43,7 @@ class SingleAnswer extends Component
                 return $this->alert('warning', 'You can\'t praise your own answer!');
             }
             Helper::togglePraise($this->answer, 'ANSWER');
-            activity()
-                ->withProperties(['type' => 'Answer'])
-                ->log('Toggled answer praise | Answer ID: '.$this->answer->id);
+            loggy('Answer', auth()->user(), 'Toggled answer praise | Answer ID: '.$this->answer->id);
         } else {
             return $this->alert('error', 'Forbidden!');
         }
@@ -58,9 +54,7 @@ class SingleAnswer extends Component
         if (Auth::check()) {
             if (auth()->user()->isStaff and auth()->user()->staffShip) {
                 Helper::hide($this->answer);
-                activity()
-                    ->withProperties(['type' => 'Admin'])
-                    ->log('Toggled hide answer | Answer ID: '.$this->answer->id);
+                loggy('Admin', auth()->user(), 'Toggled hide answer | Answer ID: '.$this->answer->id);
 
                 return $this->alert('success', 'Answer is hidden from public!');
             } else {
@@ -84,9 +78,7 @@ class SingleAnswer extends Component
             }
 
             if (auth()->user()->staffShip or auth()->user()->id === $this->answer->user->id) {
-                activity()
-                    ->withProperties(['type' => 'Answer'])
-                    ->log('Deleted an answer | Answer ID: '.$this->answer->id);
+                loggy('Answer', auth()->user(), 'Deleted an answer | Answer ID: '.$this->answer->id);
                 $this->answer->delete();
                 $this->emit('answerDeleted');
                 auth()->user()->touch();

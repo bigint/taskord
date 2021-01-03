@@ -23,9 +23,7 @@ class Adminbar extends Component
 
     public function refreshStats()
     {
-        activity()
-            ->withProperties(['type' => 'Admin'])
-            ->log('Refreshed Adminbar Status');
+        loggy('Admin', auth()->user(), 'Refreshed Adminbar Status');
 
         $this->emitSelf('refreshStats');
     }
@@ -33,9 +31,7 @@ class Adminbar extends Component
     public function clean()
     {
         Clean::dispatch()->delay(now()->addSeconds(10));
-        activity()
-            ->withProperties(['type' => 'Admin'])
-            ->log('Cleaned the Application');
+        loggy('Admin', auth()->user(), 'Cleaned the Application');
 
         return $this->alert('success', 'Cleaning process has been initiated successfully 🧼');
     }

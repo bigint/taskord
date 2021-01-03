@@ -30,9 +30,7 @@ class SingleTask extends Component
             Helper::flagAccount(auth()->user());
         }
         if (! $throttler->check()) {
-            activity()
-                ->withProperties(['type' => 'Throttle'])
-                ->log('Rate limited while praising the task');
+            loggy('Throttle', auth()->user(), 'Rate limited while praising a task');
 
             return $this->alert('error', 'Your are rate limited, try again later!');
         }
@@ -49,9 +47,7 @@ class SingleTask extends Component
                 auth()->user()->save();
                 CheckGoal::dispatch(auth()->user(), $this->task);
             }
-            activity()
-                ->withProperties(['type' => 'Task'])
-                ->log('Updated a task as done | Task ID: '.$this->task->id);
+            loggy('Task', auth()->user(), 'Updated a task as done | Task ID: '.$this->task->id);
 
             return true;
         } else {
@@ -72,9 +68,7 @@ class SingleTask extends Component
             }
 
             if (auth()->user()->staffShip or auth()->user()->id === $this->task->user->id) {
-                activity()
-                    ->withProperties(['type' => 'Task'])
-                    ->log('Deleted a task | Task ID: '.$this->task->id);
+                loggy('Task', auth()->user(), 'Deleted a task | Task ID: '.$this->task->id);
                 foreach ($this->task->images ?? [] as $image) {
                     Storage::delete($image);
                 }

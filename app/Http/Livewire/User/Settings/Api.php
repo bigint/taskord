@@ -31,9 +31,7 @@ class Api extends Component
             Helper::flagAccount(auth()->user());
         }
         if (! $throttler->check()) {
-            activity()
-                ->withProperties(['type' => 'Throttle'])
-                ->log('Rate limited while generating a token');
+            loggy('Throttle', auth()->user(), 'Rate limited while generating a API token');
 
             return $this->alert('error', 'Your are rate limited, try again later!');
         }
@@ -43,9 +41,7 @@ class Api extends Component
                 auth()->user()->api_token = Str::random(60);
                 auth()->user()->save();
                 $this->emit('tokenRegenerated');
-                activity()
-                    ->withProperties(['type' => 'User'])
-                    ->log('Created a new API key');
+                loggy('User', auth()->user(), 'Created a new API key');
 
                 return $this->alert('success', 'New API key been generated successfully');
             } else {

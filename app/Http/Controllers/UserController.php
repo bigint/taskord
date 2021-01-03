@@ -121,9 +121,7 @@ class UserController extends Controller
                 'Content-Type' => 'application/json',
                 'Content-Disposition' => 'attachment; filename="'.$file_name.'"',
             ]);
-            activity()
-                ->withProperties(['type' => 'User'])
-                ->log('Exported the account data');
+            loggy('User', auth()->user(), 'Exported the account data');
 
             return $response;
         } else {
@@ -145,9 +143,7 @@ class UserController extends Controller
                 'Content-Type' => 'application/json',
                 'Content-Disposition' => 'attachment; filename="'.$file_name.'"',
             ]);
-            activity()
-                ->withProperties(['type' => 'User'])
-                ->log('Exported the account logs');
+            loggy('User', auth()->user(), 'Exported the account logs');
 
             return $response;
         } else {
@@ -228,9 +224,7 @@ class UserController extends Controller
         if (auth()->user()->darkMode) {
             auth()->user()->darkMode = false;
             auth()->user()->save();
-            activity()
-                ->withProperties(['type' => 'User'])
-                ->log('Disabled Dark mode');
+            loggy('User', auth()->user(), 'Disabled Dark mode');
 
             return response()->json([
                 'status' => 'disabled',
@@ -238,9 +232,7 @@ class UserController extends Controller
         } else {
             auth()->user()->darkMode = true;
             auth()->user()->save();
-            activity()
-                ->withProperties(['type' => 'User'])
-                ->log('Enabled Dark mode');
+            loggy('User', auth()->user(), 'Enabled Dark mode');
 
             return response()->json([
                 'status' => 'enabled',

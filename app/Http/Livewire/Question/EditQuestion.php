@@ -60,9 +60,7 @@ class EditQuestion extends Component
                 $question->save();
                 auth()->user()->touch();
 
-                activity()
-                    ->withProperties(['type' => 'Question'])
-                    ->log('Updated a question | Question ID: '.$question->id);
+                loggy('Question', auth()->user(), 'Updated a question | Question ID: '.$question->id);
                 $this->flash('success', 'Question has been edited!');
 
                 return redirect()->route('question.question', ['id' => $question->id]);

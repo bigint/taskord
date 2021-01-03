@@ -27,9 +27,7 @@ class SingleComment extends Component
             Helper::flagAccount(auth()->user());
         }
         if (! $throttler->check()) {
-            activity()
-                ->withProperties(['type' => 'Throttle'])
-                ->log('Rate limited while praising the comment');
+            loggy('Throttle', auth()->user(), 'Rate limited while praising the comment');
 
             return $this->alert('error', 'Your are rate limited, try again later!');
         }
@@ -46,9 +44,7 @@ class SingleComment extends Component
                 return $this->alert('warning', 'You can\'t praise your own comment!');
             }
             Helper::togglePraise($this->comment, 'COMMENT');
-            activity()
-                ->withProperties(['type' => 'Comment'])
-                ->log('Toggled comment praise | Comment ID: '.$this->comment->id);
+            loggy('Comment', auth()->user(), 'Toggled comment praise | Comment ID: '.$this->comment->id);
         } else {
             return $this->alert('error', 'Forbidden!');
         }
@@ -59,9 +55,7 @@ class SingleComment extends Component
         if (Auth::check()) {
             if (auth()->user()->isStaff and auth()->user()->staffShip) {
                 Helper::hide($this->comment);
-                activity()
-                    ->withProperties(['type' => 'Admin'])
-                    ->log('Toggled hide comment | Comment ID: '.$this->comment->id);
+                loggy('Admin', auth()->user(), 'Toggled hide comment | Comment ID: '.$this->comment->id);
 
                 return $this->alert('success', 'Comment is hidden from public!');
             } else {
@@ -84,9 +78,7 @@ class SingleComment extends Component
                 return $this->alert('error', 'Your account is flagged!');
             }
             if (auth()->user()->staffShip or auth()->user()->id === $this->comment->user->id) {
-                activity()
-                    ->withProperties(['type' => 'Comment'])
-                    ->log('Deleted a comment | Comment ID: '.$this->comment->id);
+                loggy('Comment', auth()->user(), 'Deleted a comment | Comment ID: '.$this->comment->id);
                 $this->comment->delete();
                 $this->emit('commentDeleted');
                 auth()->user()->touch();

@@ -40,9 +40,7 @@ class CreateDeal extends Component
                 ]);
                 auth()->user()->touch();
                 $this->flash('success', 'Deal has been created!');
-                activity()
-                    ->withProperties(['type' => 'Admin'])
-                    ->log('Created a new deal | Deal ID: '.$deal->id);
+                loggy('Admin', auth()->user(), 'Created a new deal | Deal ID: '.$deal->id);
 
                 return redirect()->route('deals');
             } else {

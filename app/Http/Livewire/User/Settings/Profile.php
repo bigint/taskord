@@ -103,9 +103,7 @@ class Profile extends Component
                     $this->user->location = $this->location;
                     $this->user->company = $this->company;
                     $this->user->save();
-                    activity()
-                        ->withProperties(['type' => 'User'])
-                        ->log('Updated the profile settings');
+                    loggy('User', auth()->user(), 'Updated the profile settings');
 
                     return $this->alert('success', 'Your profile has been updated!');
                 }
@@ -127,9 +125,7 @@ class Profile extends Component
                 }
                 $this->user->avatar = 'https://avatar.tobi.sh/'.md5($this->user->email).'.svg?text='.strtoupper(substr($this->user->username, 0, 2));
                 $this->user->save();
-                activity()
-                    ->withProperties(['type' => 'User'])
-                    ->log('Resetted avatar to default');
+                loggy('User', auth()->user(), 'Resetted avatar to default');
 
                 return $this->alert('success', 'Your avatar has been resetted!');
             } else {
@@ -150,9 +146,7 @@ class Profile extends Component
                 }
                 $this->user->avatar = 'https://secure.gravatar.com/avatar/'.md5(auth()->user()->email).'?s=500&d=identicon';
                 $this->user->save();
-                activity()
-                    ->withProperties(['type' => 'User'])
-                    ->log('Updated avatar provider to Gravatar');
+                loggy('User', auth()->user(), 'Updated avatar provider to Gravatar');
 
                 return $this->alert('success', 'Your avatar has been switched to Gravatar!');
             } else {
@@ -169,9 +163,7 @@ class Profile extends Component
             if (auth()->user()->id === $this->user->id) {
                 $this->user->hasGoal = ! $this->user->hasGoal;
                 $this->user->save();
-                activity()
-                    ->withProperties(['type' => 'User'])
-                    ->log('Toggled goals settings');
+                loggy('User', auth()->user(), 'Toggled goals settings');
             } else {
                 return $this->alert('error', 'Forbidden!');
             }
@@ -191,9 +183,7 @@ class Profile extends Component
                 if (Auth::check()) {
                     $this->user->daily_goal = $this->daily_goal;
                     $this->user->save();
-                    activity()
-                        ->withProperties(['type' => 'User'])
-                        ->log('Updated the goal '.$this->daily_goal.'/day');
+                    loggy('User', auth()->user(), 'Updated the goal '.$this->daily_goal.'/day');
 
                     return $this->alert('success', 'Your goal has been updated!');
                 }
@@ -216,9 +206,7 @@ class Profile extends Component
                 if (Auth::check()) {
                     $this->user->sponsor = $this->sponsor;
                     $this->user->save();
-                    activity()
-                        ->withProperties(['type' => 'User'])
-                        ->log('Updated the sponsor URL');
+                    loggy('User', auth()->user(), 'Updated the sponsor URL');
 
                     return $this->alert('success', 'Your sponsor link has been updated!');
                 }
@@ -251,9 +239,7 @@ class Profile extends Component
                     $this->user->github = $this->github;
                     $this->user->youtube = $this->youtube;
                     $this->user->save();
-                    activity()
-                        ->withProperties(['type' => 'User'])
-                        ->log('Updated the social URLs');
+                    loggy('User', auth()->user(), 'Updated the social URLs');
 
                     return $this->alert('success', 'Your social links has been updated!');
                 }
@@ -276,9 +262,7 @@ class Profile extends Component
                 } else {
                     $this->alert('success', 'All user\'s task will be show on homepage');
                 }
-                activity()
-                    ->withProperties(['type' => 'User'])
-                    ->log('Toggled only following users tasks in settings');
+                loggy('User', auth()->user(), 'Toggled only following users tasks in settings');
             } else {
                 return $this->alert('error', 'Forbidden!');
             }

@@ -88,9 +88,7 @@ class RegisterController extends Controller
                 '🎉 New user signed up to Taskord'
             )
         );
-        activity()
-            ->withProperties(['type' => 'Auth'])
-            ->log('Created account with the email '.$user->email.' from '.request()->ip());
+        loggy('Auth', $user, 'Created account with the email '.$user->email.' from '.request()->ip());
         $user->notify(new Welcome(true));
 
         return $user;

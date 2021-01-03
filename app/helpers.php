@@ -2,6 +2,7 @@
 
 declare(strict_types=1);
 
+use App\Jobs\LogActivity;
 use App\Models\User;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Carbon;
@@ -114,5 +115,19 @@ if (! function_exists('carbon')) {
         } catch (Exception $exception) {
             return null;
         }
+    }
+}
+
+if (! function_exists('loggy')) {
+    function loggy($type, $user, $message)
+    {
+        return LogActivity::dispatch($type, $user, $message);
+    }
+}
+
+if (! function_exists('opsuser')) {
+    function opsuser(): User
+    {
+        return User::where('username', 'opsbot')->first();
     }
 }

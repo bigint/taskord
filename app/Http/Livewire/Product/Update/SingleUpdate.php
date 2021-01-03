@@ -28,9 +28,7 @@ class SingleUpdate extends Component
             Helper::flagAccount(auth()->user());
         }
         if (! $throttler->check()) {
-            activity()
-                ->withProperties(['type' => 'Throttle'])
-                ->log('Rate limited while praising the update');
+            loggy('Throttle', auth()->user(), 'Rate limited while praising the update');
 
             return $this->alert('error', 'Your are rate limited, try again later!');
         }
@@ -74,9 +72,7 @@ class SingleUpdate extends Component
             }
 
             if (auth()->user()->staffShip or auth()->user()->id === $this->update->user->id) {
-                activity()
-                    ->withProperties(['type' => 'Product'])
-                    ->log('Deleted a product update on #'.$this->update->product->slug.' | Update ID: '.$this->update->id);
+                loggy('Product', auth()->user(), 'Deleted a product update on #'.$this->update->product->slug.' | Update ID: '.$this->update->id);
                 $this->update->delete();
                 $this->emit('updateDeleted');
             } else {

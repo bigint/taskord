@@ -21,9 +21,7 @@ class Notifications extends Component
             if (auth()->user()->id === $this->user->id) {
                 $this->user->taskMentionedEmail = ! $this->user->taskMentionedEmail;
                 $this->user->save();
-                activity()
-                    ->withProperties(['type' => 'User'])
-                    ->log('Toggled "mentionsEmail" in notification settings');
+                loggy('User', auth()->user(), 'Toggled "mentionsEmail" in notification settings');
 
                 return $this->alert('success', 'Notification settings has been updated');
             } else {
@@ -40,9 +38,7 @@ class Notifications extends Component
             if (auth()->user()->id === $this->user->id) {
                 $this->user->taskMentionedWeb = ! $this->user->taskMentionedWeb;
                 $this->user->save();
-                activity()
-                    ->withProperties(['type' => 'User'])
-                    ->log('Toggled "mentionsWeb" in notification settings');
+                loggy('User', auth()->user(), 'Toggled "mentionsWeb" in notification settings');
 
                 return $this->alert('success', 'Notification settings has been updated');
             } else {
@@ -59,9 +55,7 @@ class Notifications extends Component
             if (auth()->user()->id === $this->user->id) {
                 $this->user->taskPraisedEmail = ! $this->user->taskPraisedEmail;
                 $this->user->save();
-                activity()
-                    ->withProperties(['type' => 'User'])
-                    ->log('Toggled "taskPraisedEmail" in notification settings');
+                loggy('User', auth()->user(), 'Toggled "taskPraisedEmail" in notification settings');
 
                 return $this->alert('success', 'Notification settings has been updated');
             } else {
@@ -78,9 +72,7 @@ class Notifications extends Component
             if (auth()->user()->id === $this->user->id) {
                 $this->user->taskPraisedWeb = ! $this->user->taskPraisedWeb;
                 $this->user->save();
-                activity()
-                    ->withProperties(['type' => 'User'])
-                    ->log('Toggled "taskPraisedWeb" in notification settings');
+                loggy('User', auth()->user(), 'Toggled "taskPraisedWeb" in notification settings');
 
                 return $this->alert('success', 'Notification settings has been updated');
             } else {
@@ -97,9 +89,7 @@ class Notifications extends Component
             if (auth()->user()->id === $this->user->id) {
                 $this->user->commentPraisedEmail = ! $this->user->commentPraisedEmail;
                 $this->user->save();
-                activity()
-                    ->withProperties(['type' => 'User'])
-                    ->log('Toggled "commentPraisedEmail" in notification settings');
+                loggy('User', auth()->user(), 'Toggled "commentPraisedEmail" in notification settings');
 
                 return $this->alert('success', 'Notification settings has been updated');
             } else {
@@ -116,9 +106,7 @@ class Notifications extends Component
             if (auth()->user()->id === $this->user->id) {
                 $this->user->commentPraisedWeb = ! $this->user->commentPraisedWeb;
                 $this->user->save();
-                activity()
-                    ->withProperties(['type' => 'User'])
-                    ->log('Toggled "commentPraisedWeb" in notification settings');
+                loggy('User', auth()->user(), 'Toggled "commentPraisedWeb" in notification settings');
 
                 return $this->alert('success', 'Notification settings has been updated');
             } else {
@@ -135,9 +123,7 @@ class Notifications extends Component
             if (auth()->user()->id === $this->user->id) {
                 $this->user->questionPraisedEmail = ! $this->user->questionPraisedEmail;
                 $this->user->save();
-                activity()
-                    ->withProperties(['type' => 'User'])
-                    ->log('Toggled "questionPraisedEmail" in notification settings');
+                loggy('User', auth()->user(), 'Toggled "questionPraisedEmail" in notification settings');
 
                 return $this->alert('success', 'Notification settings has been updated');
             } else {
@@ -154,9 +140,7 @@ class Notifications extends Component
             if (auth()->user()->id === $this->user->id) {
                 $this->user->questionPraisedWeb = ! $this->user->questionPraisedWeb;
                 $this->user->save();
-                activity()
-                    ->withProperties(['type' => 'User'])
-                    ->log('Toggled "questionPraisedWeb" in notification settings');
+                loggy('User', auth()->user(), 'Toggled "questionPraisedWeb" in notification settings');
 
                 return $this->alert('success', 'Notification settings has been updated');
             } else {
@@ -173,9 +157,7 @@ class Notifications extends Component
             if (auth()->user()->id === $this->user->id) {
                 $this->user->answerPraisedEmail = ! $this->user->answerPraisedEmail;
                 $this->user->save();
-                activity()
-                    ->withProperties(['type' => 'User'])
-                    ->log('Toggled "answerPraisedEmail" in notification settings');
+                loggy('User', auth()->user(), 'Toggled "answerPraisedEmail" in notification settings');
 
                 return $this->alert('success', 'Notification settings has been updated');
             } else {
@@ -192,9 +174,7 @@ class Notifications extends Component
             if (auth()->user()->id === $this->user->id) {
                 $this->user->answerPraisedWeb = ! $this->user->answerPraisedWeb;
                 $this->user->save();
-                activity()
-                    ->withProperties(['type' => 'User'])
-                    ->log('Toggled "answerPraisedWeb" in notification settings');
+                loggy('User', auth()->user(), 'Toggled "answerPraisedWeb" in notification settings');
 
                 return $this->alert('success', 'Notification settings has been updated');
             } else {
@@ -211,9 +191,7 @@ class Notifications extends Component
             if (auth()->user()->id === $this->user->id) {
                 $this->user->commentAddedEmail = ! $this->user->commentAddedEmail;
                 $this->user->save();
-                activity()
-                    ->withProperties(['type' => 'User'])
-                    ->log('Toggled "commentAddedEmail" in notification settings');
+                loggy('User', auth()->user(), 'Toggled "commentAddedEmail" in notification settings');
 
                 return $this->alert('success', 'Notification settings has been updated');
             } else {
@@ -230,9 +208,7 @@ class Notifications extends Component
             if (auth()->user()->id === $this->user->id) {
                 $this->user->commentAddedWeb = ! $this->user->commentAddedWeb;
                 $this->user->save();
-                activity()
-                    ->withProperties(['type' => 'User'])
-                    ->log('Toggled "commentAddedWeb" in notification settings');
+                loggy('User', auth()->user(), 'Toggled "commentAddedWeb" in notification settings');
 
                 return $this->alert('success', 'Notification settings has been updated');
             } else {
@@ -249,9 +225,7 @@ class Notifications extends Component
             if (auth()->user()->id === $this->user->id) {
                 $this->user->answerAddedEmail = ! $this->user->answerAddedEmail;
                 $this->user->save();
-                activity()
-                    ->withProperties(['type' => 'User'])
-                    ->log('Toggled "answerAddedEmail" in notification settings');
+                loggy('User', auth()->user(), 'Toggled "answerAddedEmail" in notification settings');
 
                 return $this->alert('success', 'Notification settings has been updated');
             } else {
@@ -268,9 +242,7 @@ class Notifications extends Component
             if (auth()->user()->id === $this->user->id) {
                 $this->user->answerAddedWeb = ! $this->user->answerAddedWeb;
                 $this->user->save();
-                activity()
-                    ->withProperties(['type' => 'User'])
-                    ->log('Toggled "answerAddedWeb" in notification settings');
+                loggy('User', auth()->user(), 'Toggled "answerAddedWeb" in notification settings');
 
                 return $this->alert('success', 'Notification settings has been updated');
             } else {
@@ -287,9 +259,7 @@ class Notifications extends Component
             if (auth()->user()->id === $this->user->id) {
                 $this->user->userFollowedEmail = ! $this->user->userFollowedEmail;
                 $this->user->save();
-                activity()
-                    ->withProperties(['type' => 'User'])
-                    ->log('Toggled "userFollowedEmail" in notification settings');
+                loggy('User', auth()->user(), 'Toggled "userFollowedEmail" in notification settings');
 
                 return $this->alert('success', 'Notification settings has been updated');
             } else {
@@ -306,9 +276,7 @@ class Notifications extends Component
             if (auth()->user()->id === $this->user->id) {
                 $this->user->userFollowedWeb = ! $this->user->userFollowedWeb;
                 $this->user->save();
-                activity()
-                    ->withProperties(['type' => 'User'])
-                    ->log('Toggled "userFollowedWeb" in notification settings');
+                loggy('User', auth()->user(), 'Toggled "userFollowedWeb" in notification settings');
 
                 return $this->alert('success', 'Notification settings has been updated');
             } else {
@@ -325,9 +293,7 @@ class Notifications extends Component
             if (auth()->user()->id === $this->user->id) {
                 $this->user->productSubscribedWeb = ! $this->user->productSubscribedWeb;
                 $this->user->save();
-                activity()
-                    ->withProperties(['type' => 'User'])
-                    ->log('Toggled "productSubscribedWeb" in notification settings');
+                loggy('User', auth()->user(), 'Toggled "productSubscribedWeb" in notification settings');
 
                 return $this->alert('success', 'Notification settings has been updated');
             } else {
@@ -344,9 +310,7 @@ class Notifications extends Component
             if (auth()->user()->id === $this->user->id) {
                 $this->user->productSubscribedEmail = ! $this->user->productSubscribedEmail;
                 $this->user->save();
-                activity()
-                    ->withProperties(['type' => 'User'])
-                    ->log('productSubscribedEmail was toggled in notification settings');
+                loggy('User', auth()->user(), 'Toggled "productSubscribedEmail" in notification settings');
 
                 return $this->alert('success', 'Notification settings has been updated');
             } else {
@@ -363,9 +327,7 @@ class Notifications extends Component
             if (auth()->user()->id === $this->user->id) {
                 $this->user->productUpdatesWeb = ! $this->user->productUpdatesWeb;
                 $this->user->save();
-                activity()
-                    ->withProperties(['type' => 'User'])
-                    ->log('productUpdatesWeb was toggled in notification settings');
+                loggy('User', auth()->user(), 'Toggled "productUpdatesWeb" in notification settings');
 
                 return $this->alert('success', 'Notification settings has been updated');
             } else {
@@ -382,9 +344,7 @@ class Notifications extends Component
             if (auth()->user()->id === $this->user->id) {
                 $this->user->productUpdatesEmail = ! $this->user->productUpdatesEmail;
                 $this->user->save();
-                activity()
-                    ->withProperties(['type' => 'User'])
-                    ->log('productUpdatesEmail was toggled in notification settings');
+                loggy('User', auth()->user(), 'Toggled "productUpdatesEmail" in notification settings');
 
                 return $this->alert('success', 'Notification settings has been updated');
             } else {
