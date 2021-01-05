@@ -196,6 +196,7 @@ class TelegramController extends Controller
                ."/logout - Disconnect Taskord account from Telegram\n\n"
                ."*Others*\n\n"
                ."/start - See this message again anytime\n";
+
         return $this->send($chat_id, $res);
     }
 
