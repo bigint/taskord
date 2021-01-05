@@ -89,7 +89,7 @@ class TelegramController extends Controller
                 'source' => 'Telegram',
             ]))();
 
-            return $status ? 
+            return $status ?
                 $this->send($chat_id, '✅ *A new completed task has been created* [#'.$task->id.'](https://taskord.com/task/'.$task->id.')') :
                 $this->send($chat_id, '⏳ *A new pending task has been created* [#'.$task->id.'](https://taskord.com/task/'.$task->id.')');
         }
@@ -163,7 +163,7 @@ class TelegramController extends Controller
             }
         }
     }
-    
+
     public function start($chat_id)
     {
         return $this->send($chat_id, '🚪 *Logout successful*');
