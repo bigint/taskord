@@ -5,11 +5,11 @@ namespace App\Http\Controllers;
 use App\Actions\CreateNewTask;
 use App\Models\Task;
 use App\Models\User;
-use Illuminate\Support\Str;
-use Telegram;
-use Intervention\Image\Facades\Image;
 use GuzzleHttp\Client;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
+use Intervention\Image\Facades\Image;
+use Telegram;
 
 class TelegramController extends Controller
 {
@@ -97,7 +97,7 @@ class TelegramController extends Controller
             if ($user->isFlagged) {
                 return $this->send($chat_id, '🚩 Your account is flagged!');
             }
-            
+
             if ($file_id) {
                 $image = [];
                 $client = new Client();
