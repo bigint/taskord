@@ -14,10 +14,14 @@ return [
         'showConfirmButton' => false,
     ],
     'confirm' => [
+        'icon' => 'warning',
         'position' => 'center',
         'toast' => false,
         'timer' => null,
         'showConfirmButton' => true,
+        'showCancelButton' => true,
         'cancelButtonText' => 'No',
+        'confirmButtonColor' => '#3085d6',
+        'cancelButtonColor' => '#d33',
     ],
 ];
