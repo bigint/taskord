@@ -81,25 +81,25 @@ class TelegramController extends Controller
             $user = User::where('telegram_chat_id', $chat_id)->first();
             $task = Task::find($id);
             if ($task) {
-                if($task->user_id !== $user->id) {
+                if ($task->user_id !== $user->id) {
                     return $this->send($chat_id, 'Forbidden!');
                 }
-                
+
                 if (! $user->hasVerifiedEmail()) {
                     return $this->send($chat_id, 'Your email is not verified!');
                 }
-    
+
                 if ($user->isFlagged) {
                     return $this->send($chat_id, 'Your account is flagged!');
                 }
-                
+
                 if ($task->done) {
                     return $this->send($chat_id, 'Task #'.$task->id.' is already done');
                 } else {
                     $task->done = true;
                     $task->done_at = carbon();
                     $task->save();
-                    
+
                     return $this->send($chat_id, 'Task #'.$task->id.' has been marked as done');
                 }
             } else {
