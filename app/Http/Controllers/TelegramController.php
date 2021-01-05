@@ -125,7 +125,7 @@ class TelegramController extends Controller
             if ($user) {
                 $user->telegram_chat_id = null;
                 $user->save();
-    
+
                 return $this->send($chat_id, 'Logout successful!');
             }
         }
@@ -138,6 +138,7 @@ class TelegramController extends Controller
             return true;
         } else {
             $this->send($chat_id, 'You\'re not logged in. /auth <token> to begin.!');
+
             return false;
         }
     }
