@@ -86,7 +86,7 @@ class TelegramController extends Controller
             return $this->send($chat_id, '⏳ A new pending task has been Created - #'.$task->id);
         }
     }
-    
+
     public function getPending($chat_id)
     {
         if ($this->authCheck($chat_id)) {
@@ -94,10 +94,10 @@ class TelegramController extends Controller
             $tasks = Task::cacheFor(60 * 60)
                 ->where([
                     ['user_id', $user->id],
-                    ['done', false]
+                    ['done', false],
                 ])
                 ->get();
-                
+
             if (count($tasks) > 0) {
                 if (! $user->hasVerifiedEmail()) {
                     return $this->send($chat_id, '💌 Your email is not *verified*!');
@@ -106,12 +106,12 @@ class TelegramController extends Controller
                 if ($user->isFlagged) {
                     return $this->send($chat_id, '🚩 Your account is *flagged*!');
                 }
-                
+
                 $res = [];
                 foreach ($tasks as $task) {
-                    array_push($res, '⏳ *' . $task->task . '* [#' . $task->id. '](https://taskord.com/task/' . $task->id . ')');
+                    array_push($res, '⏳ *'.$task->task.'* [#'.$task->id.'](https://taskord.com/task/'.$task->id.')');
                 }
-                
+
                 return $this->send($chat_id, implode("\n\n", $res));
             } else {
                 return $this->send($chat_id, '*All done!* No pending tasks 👏');
