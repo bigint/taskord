@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Actions\CreateNewTask;
-use App\Models\User;
 use App\Models\Task;
+use App\Models\User;
 use Illuminate\Support\Str;
 use Telegram;
 
@@ -70,7 +70,7 @@ class TelegramController extends Controller
             return $this->send($chat_id, 'Task has been Created - #'.$task->id);
         }
     }
-    
+
     public function markAsDone($id, $chat_id)
     {
         if (! $id) {
@@ -87,11 +87,11 @@ class TelegramController extends Controller
             if (! $task) {
                 return $this->send($chat_id, 'Task not exist!');
             }
-            
+
             return $this->send($chat_id, 'Task #'.$task->id.' has been marked as done');
         }
     }
-    
+
     public function authCheck($chat_id)
     {
         $user = User::where('telegram_chat_id', $chat_id)->first();
@@ -101,8 +101,9 @@ class TelegramController extends Controller
             return true;
         }
     }
-    
-    public function send($chat_id, $message) {
+
+    public function send($chat_id, $message)
+    {
         return Telegram::sendMessage([
             'chat_id' => $chat_id,
             'text' => $message,
