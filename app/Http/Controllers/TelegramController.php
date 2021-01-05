@@ -61,7 +61,7 @@ class TelegramController extends Controller
 
         if ($this->authCheck($chat_id)) {
             $user = User::where('telegram_chat_id', $chat_id)->first();
-            
+
             if (! $user->hasVerifiedEmail()) {
                 return $this->send($chat_id, 'Your email is not verified!');
             }
@@ -117,14 +117,14 @@ class TelegramController extends Controller
             }
         }
     }
-    
+
     public function logout($chat_id)
     {
         if ($this->authCheck($chat_id)) {
             $user = User::where('telegram_chat_id', $chat_id)->first();
             $user->telegram_chat_id = null;
             $user->save();
-            
+
             return $this->send($chat_id, 'Logout successful!');
         }
     }
