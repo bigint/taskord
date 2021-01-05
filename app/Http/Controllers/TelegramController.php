@@ -51,7 +51,8 @@ class TelegramController extends Controller
         $user = User::where('api_token', $token)->first();
         if (! $user or strlen($token) !== 60) {
             $helper = "Go to https://taskord.com/settings/api and copy your *API Token 🔑*\n\n"
-                ."And paste it here `/auth <API token>`";
+                .'And paste it here `/auth <API token>`';
+
             return $this->send($chat_id, $helper);
         }
 
