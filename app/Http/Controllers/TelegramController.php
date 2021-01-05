@@ -159,7 +159,7 @@ class TelegramController extends Controller
                         $task->done = true;
                         $task->done_at = carbon();
                         $task->save();
-    
+
                         return $this->send($chat_id, 'Task [#'.$task->id.'](https://taskord.com/task/'.$task->id.') has been *marked as done* ✅');
                     }
                 } else {
@@ -169,7 +169,7 @@ class TelegramController extends Controller
                         $task->done = false;
                         $task->done_at = null;
                         $task->save();
-    
+
                         return $this->send($chat_id, 'Task [#'.$task->id.'](https://taskord.com/task/'.$task->id.') has been *marked as pending* ⏳');
                     }
                 }
