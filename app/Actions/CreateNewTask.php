@@ -2,9 +2,9 @@
 
 namespace App\Actions;
 
+use App\Gamify\Points\TaskCreated;
 use App\Models\Task;
 use App\Models\User;
-use App\Gamify\Points\TaskCreated;
 
 class CreateNewTask
 {

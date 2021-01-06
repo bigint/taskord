@@ -2,7 +2,6 @@
 
 namespace App\GraphQL\Mutations;
 
-use App\Gamify\Points\TaskCreated;
 use App\Models\Task;
 use GrahamCampbell\Throttle\Facades\Throttle;
 use Helper;

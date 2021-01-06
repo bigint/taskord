@@ -3,7 +3,6 @@
 namespace App\Http\Livewire;
 
 use App\Actions\CreateNewTask;
-use App\Gamify\Points\TaskCreated;
 use App\Jobs\CheckGoal;
 use GrahamCampbell\Throttle\Facades\Throttle;
 use Helper;
