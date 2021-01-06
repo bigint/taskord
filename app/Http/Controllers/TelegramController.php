@@ -129,7 +129,7 @@ class TelegramController extends Controller
                 'type' => $product_id ? 'product' : 'user',
                 'source' => 'Telegram',
             ]))();
-            
+
             Helper::mentionUsers($users, $todo, $user, 'task');
 
             return $status ?
