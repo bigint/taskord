@@ -6,11 +6,11 @@ use App\Actions\CreateNewTask;
 use App\Models\Task;
 use App\Models\User;
 use GuzzleHttp\Client;
+use Helper;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use Intervention\Image\Facades\Image;
 use Telegram;
-use Helper;
 
 class TelegramController extends Controller
 {
@@ -116,7 +116,7 @@ class TelegramController extends Controller
             } else {
                 $image = null;
             }
-            
+
             $product_id = Helper::getProductIDFromMention($todo, $user);
 
             $task = (new CreateNewTask($user, [
