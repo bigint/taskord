@@ -39,50 +39,50 @@ class TelegramController extends Controller
         }
 
         $user = User::where('telegram_chat_id', $chat_id)->first();
-        
+
         switch (true) {
             case Str::of($message)->startsWith('/start'):
                 return (new Start($chat_id))();
             break;
-            
+
             case Str::of($message)->startsWith('/auth'):
                 $token = substr($message, strpos($message, '/auth') + 6);
 
                 return (new AuthUser($token, $chat_id))();
             break;
-        
+
             case Str::of($message)->startsWith('/todo'):
                 if ($this->authCheck($chat_id)) {
                     $task = substr($message, strpos($message, '/todo') + 6);
-    
+
                     return (new CreateTask($user, $task, $file_id, false))();
                 }
             break;
-        
+
             case Str::of($message)->startsWith('/done'):
                 if ($this->authCheck($chat_id)) {
                     $task = substr($message, strpos($message, '/done') + 6);
-    
+
                     return (new CreateTask($user, $task, $file_id, true))();
                 }
             break;
-            
+
             case Str::of($message)->startsWith('/complete'):
                 if ($this->authCheck($chat_id)) {
                     $id = substr($message, strpos($message, '/complete') + 10);
-    
+
                     return (new ToggleTaskStatus($user, $id, true))();
                 }
             break;
-            
+
             case Str::of($message)->startsWith('/uncomplete'):
                 if ($this->authCheck($chat_id)) {
                     $id = substr($message, strpos($message, '/complete') + 12);
-    
+
                     return (new ToggleTaskStatus($user, $id, false))();
                 }
             break;
-            
+
             case Str::of($message)->startsWith('/pending'):
                 if ($this->authCheck($chat_id)) {
                     return (new Pending($user))();
@@ -94,13 +94,13 @@ class TelegramController extends Controller
                     return (new Stats($user))();
                 }
             break;
-            
+
             case Str::of($message)->startsWith('/logout'):
                 if ($this->authCheck($chat_id)) {
                     return (new Logout($chat_id))();
                 }
             break;
-            
+
             default:
                 return $this->send($chat_id, 'Please enter the valid command!');
             break;
