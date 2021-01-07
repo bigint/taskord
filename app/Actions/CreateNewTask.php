@@ -14,7 +14,8 @@ class CreateNewTask
     protected array $data;
     protected User $user;
 
-    public function __construct(User $user, array $data) {
+    public function __construct(User $user, array $data)
+    {
         $this->user = $user;
         $this->data = $data;
     }

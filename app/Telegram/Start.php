@@ -2,25 +2,17 @@
 
 namespace App\Telegram;
 
-use App\Gamify\Points\TaskCreated;
-use App\Models\Task;
-use App\Models\User;
-use Helper;
-use App\Actions\CreateNewTask;
-use GuzzleHttp\Client;
-use Illuminate\Support\Facades\Storage;
-use Illuminate\Support\Str;
-use Intervention\Image\Facades\Image;
 use Telegram;
 
 class Start
 {
     protected $chat_id;
 
-    public function __construct($chat_id) {
+    public function __construct($chat_id)
+    {
         $this->chat_id = $chat_id;
     }
-    
+
     public function __invoke()
     {
         $res = "*Hi 👋, I'm Taskord Bot, I can help you stay productive without leaving your chat application.*\n\n"
