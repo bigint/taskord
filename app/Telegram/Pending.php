@@ -2,25 +2,19 @@
 
 namespace App\Telegram;
 
-use App\Gamify\Points\TaskCreated;
 use App\Models\Task;
 use App\Models\User;
-use Helper;
-use App\Actions\CreateNewTask;
-use GuzzleHttp\Client;
-use Illuminate\Support\Facades\Storage;
-use Illuminate\Support\Str;
-use Intervention\Image\Facades\Image;
 use Telegram;
 
 class Pending
 {
     protected User $user;
 
-    public function __construct(User $user) {
+    public function __construct(User $user)
+    {
         $this->user = $user;
     }
-    
+
     public function __invoke()
     {
         if (! $this->user->hasVerifiedEmail()) {

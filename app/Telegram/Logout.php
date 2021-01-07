@@ -2,25 +2,18 @@
 
 namespace App\Telegram;
 
-use App\Gamify\Points\TaskCreated;
-use App\Models\Task;
 use App\Models\User;
-use Helper;
-use App\Actions\CreateNewTask;
-use GuzzleHttp\Client;
-use Illuminate\Support\Facades\Storage;
-use Illuminate\Support\Str;
-use Intervention\Image\Facades\Image;
 use Telegram;
 
 class Logout
 {
     protected $chat_id;
 
-    public function __construct($chat_id) {
+    public function __construct($chat_id)
+    {
         $this->chat_id = $chat_id;
     }
-    
+
     public function __invoke()
     {
         $user = User::where('telegram_chat_id', $this->chat_id)->first();

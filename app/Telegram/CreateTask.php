@@ -2,12 +2,12 @@
 
 namespace App\Telegram;
 
+use App\Actions\CreateNewTask;
 use App\Gamify\Points\TaskCreated;
 use App\Models\Task;
 use App\Models\User;
-use Helper;
-use App\Actions\CreateNewTask;
 use GuzzleHttp\Client;
+use Helper;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use Intervention\Image\Facades\Image;
@@ -31,13 +31,13 @@ class CreateTask
         $this->file_id = $file_id;
         $this->status = $status;
     }
-    
+
     public function __invoke()
     {
         if (strlen($this->task) < 5) {
             return $this->send($this->user->telegram_chat_id, '⚠ Task should have at least 5 characters');
         }
-        
+
         if (! $this->user->hasVerifiedEmail()) {
             return $this->send($this->user->telegram_chat_id, '💌 Your email is not verified!');
         }
@@ -88,7 +88,7 @@ class CreateTask
         $message = "Created a new task via {$task->source}";
         loggy('Task', $this->user, \sprintf('%s | Task ID: %d', $message, $task->id));
     }
-    
+
     public function send($chat_id, $message)
     {
         return Telegram::sendMessage([

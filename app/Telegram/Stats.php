@@ -2,25 +2,18 @@
 
 namespace App\Telegram;
 
-use App\Gamify\Points\TaskCreated;
-use App\Models\Task;
 use App\Models\User;
-use Helper;
-use App\Actions\CreateNewTask;
-use GuzzleHttp\Client;
-use Illuminate\Support\Facades\Storage;
-use Illuminate\Support\Str;
-use Intervention\Image\Facades\Image;
 use Telegram;
 
 class Stats
 {
     protected User $user;
 
-    public function __construct(User $user) {
+    public function __construct(User $user)
+    {
         $this->user = $user;
     }
-    
+
     public function __invoke()
     {
         if (! $this->user->hasVerifiedEmail()) {
@@ -30,7 +23,7 @@ class Stats
         if ($this->user->isFlagged) {
             return $this->send($this->user->telegram_chat_id, '🚩 Your account is flagged!');
         }
-        
+
         $res = "*Your account stats ✨*\n\n"
                .'🔥 *'.number_format($this->user->getPoints())."* Reputations\n"
                .'✅ *'.number_format($this->user->tasks()->whereDone(true)->count())."* tasks completed\n"

@@ -2,15 +2,8 @@
 
 namespace App\Telegram;
 
-use App\Gamify\Points\TaskCreated;
 use App\Models\Task;
 use App\Models\User;
-use Helper;
-use App\Actions\CreateNewTask;
-use GuzzleHttp\Client;
-use Illuminate\Support\Facades\Storage;
-use Illuminate\Support\Str;
-use Intervention\Image\Facades\Image;
 use Telegram;
 
 class ToggleTaskStatus
@@ -28,13 +21,13 @@ class ToggleTaskStatus
         $this->id = $id;
         $this->status = $status;
     }
-    
+
     public function __invoke()
     {
         if (! $this->id) {
             return $this->send($this->user->telegram_chat_id, '⚠ You should give *Task ID* `Eg: /done 28`');
         }
-        
+
         if (! $this->user->hasVerifiedEmail()) {
             return $this->send($this->user->telegram_chat_id, '💌 Your email is not verified!');
         }
@@ -42,7 +35,7 @@ class ToggleTaskStatus
         if ($this->user->isFlagged) {
             return $this->send($this->user->telegram_chat_id, '🚩 Your account is flagged!');
         }
-        
+
         $task = Task::find($this->id);
         if ($task) {
             if ($this->status) {

@@ -2,15 +2,7 @@
 
 namespace App\Telegram;
 
-use App\Gamify\Points\TaskCreated;
-use App\Models\Task;
 use App\Models\User;
-use Helper;
-use App\Actions\CreateNewTask;
-use GuzzleHttp\Client;
-use Illuminate\Support\Facades\Storage;
-use Illuminate\Support\Str;
-use Intervention\Image\Facades\Image;
 use Telegram;
 
 class AuthUser
@@ -25,7 +17,7 @@ class AuthUser
         $this->token = $token;
         $this->chat_id = $chat_id;
     }
-    
+
     public function __invoke()
     {
         $user = User::where('api_token', $this->token)->first();
@@ -38,7 +30,7 @@ class AuthUser
         }
 
         if ($user_count > 1) {
-            return $this->send($this->chat_id, "*This Telegram account is already associated with another account* 👀");
+            return $this->send($this->chat_id, '*This Telegram account is already associated with another account* 👀');
         }
 
         if ($user->telegram_chat_id) {
