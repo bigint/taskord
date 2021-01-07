@@ -37,7 +37,9 @@ Route::get('login/{provider}', [SocialController::class, 'redirect']);
 Route::get('login/{provider}/callback', [SocialController::class, 'Callback']);
 
 // 404 Fallback
-Route::fallback(function(){ return response()->view('errors.404', [], 404); });
+Route::fallback(function () {
+    return response()->view('errors.404', [], 404);
+});
 
 // Routes with throttle
 Route::group(['middleware' => ['throttle:60,1']], function () {
