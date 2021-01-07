@@ -41,7 +41,7 @@ class LogActivity implements ShouldQueue
             ->causedBy($this->user)
             ->withProperties([
                 'type' => $this->type,
-                'ip' => $this->ip
+                'ip' => $this->ip,
             ])
             ->log($this->message);
     }
