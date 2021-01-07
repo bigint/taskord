@@ -3,8 +3,6 @@
 namespace App\Telegram;
 
 use App\Actions\CreateNewTask;
-use App\Gamify\Points\TaskCreated;
-use App\Models\Task;
 use App\Models\User;
 use GuzzleHttp\Client;
 use Helper;
