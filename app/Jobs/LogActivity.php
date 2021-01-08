@@ -46,11 +46,12 @@ class LogActivity implements ShouldQueue
             ])
             ->log($this->message);
     }
-    
+
     public function getLocation()
     {
         try {
             $ipInfo = json_decode(file_get_contents('http://ip-api.com/json/'.$this->ip));
+
             return $ipInfo->city.', '.$ipInfo->regionName.', '.$ipInfo->country;
         } catch (Exception $e) {
             return null;
