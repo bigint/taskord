@@ -3,12 +3,14 @@
     @if (auth()->user()->id !== $product->owner->id)
     @if (auth()->user()->hasSubscribed($product))
     <button wire:click="subscribeProduct" wire:loading.attr="disabled" class="btn btn-sm btn-danger mb-2">
-        <x-heroicon-o-minus-circle class="heroicon" />
+        <div wire:loading class="spinner-border spinner-border-sm me-1"></div>
+        <x-heroicon-o-minus-circle wire:loading.remove class="heroicon" />
         Unsubscribe
     </button>
     @else
     <button wire:click="subscribeProduct" wire:loading.attr="disabled" class="btn btn-sm btn-primary mb-2">
-        <x-heroicon-o-plus class="heroicon" />
+        <div wire:loading class="spinner-border spinner-border-sm me-1"></div>
+        <x-heroicon-o-plus wire:loading.remove class="heroicon" />
         Subscribe
     </button>
     @endif

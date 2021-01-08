@@ -97,6 +97,9 @@
                         </span>
                     </div>
                 </div>
+                @livewire('home.suggestions', [
+                    'user' => auth()->user()
+                ])
             @endauth
             @livewire('home.recently-joined')
             @livewire('home.recently-launched')
