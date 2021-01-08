@@ -32,7 +32,7 @@ class UserSeeder extends Seeder
             'lastname' => 'Test',
             'username' => 'test',
         ]);
-        
+
         // 3
         User::factory()->create([
             'firstname' => 'Taskord',
@@ -43,7 +43,7 @@ class UserSeeder extends Seeder
             'email' => 'suspended@taskord.com',
             'avatar' => 'https://i.imgur.com/QpfHEy6.png',
         ]);
-        
+
         // 4
         User::factory()->create([
             'firstname' => 'Taskord',
@@ -53,7 +53,7 @@ class UserSeeder extends Seeder
             'avatar' => 'https://i.imgur.com/QpfHEy6.png',
             'email_verified_at' => null,
         ]);
-        
+
         User::factory()->count(46)->create();
     }
 }
