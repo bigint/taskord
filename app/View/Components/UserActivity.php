@@ -7,7 +7,7 @@ use Illuminate\View\Component;
 class UserActivity extends Component
 {
     public $activity;
-    
+
     /**
      * Create a new component instance.
      *
