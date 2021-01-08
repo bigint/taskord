@@ -2,14 +2,14 @@
 
 namespace App\Http\Livewire\Home;
 
-use Livewire\Component;
 use App\Models\User;
+use Livewire\Component;
 
 class Suggestions extends Component
 {
     public $readyToLoad = false;
     public User $user;
-    
+
     public function mount($user)
     {
         $this->user = $user;
@@ -22,7 +22,7 @@ class Suggestions extends Component
 
     public function render()
     {
-        $users  = User::cacheFor(60 * 60)
+        $users = User::cacheFor(60 * 60)
             ->select('id', 'username', 'firstname', 'lastname', 'avatar', 'isVerified', 'updated_at')
             ->where([
                 ['isFlagged', false],
@@ -31,7 +31,7 @@ class Suggestions extends Component
             ->orderBy('reputation', 'DESC')
             ->take(3)
             ->get();
-            
+
         return view('livewire.home.suggestions', [
             'users' => $this->readyToLoad ? $users : [],
         ]);
