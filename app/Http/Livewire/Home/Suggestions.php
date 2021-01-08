@@ -20,7 +20,7 @@ class Suggestions extends Component
     {
         $this->readyToLoad = true;
     }
-    
+
     public function render()
     {
         $users = User::cacheFor(60 * 60)
