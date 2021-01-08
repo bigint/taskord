@@ -70,11 +70,11 @@ class WebhookController extends Controller
         if (Str::contains($request->header('User-Agent'), 'GitLab')) {
             return response('You are using GitHub hook which is not allowed', 422);
         }
-        
+
         if ($request->header('content-type') !== 'application/json') {
             return response('Only application/json content type is allowed', 422);
         }
-        
+
         if ($request->header('X-GitHub-Event') === 'ping') {
             return response('success', 200);
         }
@@ -82,7 +82,7 @@ class WebhookController extends Controller
         if ($request->header('X-GitHub-Event') !== 'push') {
             return response('Only push event is allowed', 200);
         }
-        
+
         $request_body = $request->json()->all();
 
         if (mb_strtolower($request_body['sender']['type'], 'UTF-8') == 'bot') {
@@ -117,7 +117,7 @@ class WebhookController extends Controller
         if (Str::contains($request->header('User-Agent'), 'GitHub')) {
             return response('You are using GitLab hook which is not allowed', 422);
         }
-        
+
         if ($request->header('Content-Type') !== 'application/json') {
             return response('Only application/json content type is allowed', 422);
         }
@@ -125,7 +125,7 @@ class WebhookController extends Controller
         if ($request->header('X-Gitlab-Event') !== 'Push Hook') {
             return response('Only push event is allowed', 200);
         }
-        
+
         $request_body = $request->json()->all();
 
         if ($request_body['project']['default_branch'] !== str_replace('refs/heads/', '', $request_body['ref'])) {
