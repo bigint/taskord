@@ -3,7 +3,6 @@
 namespace App\Http\Livewire\Explore;
 
 use App\Models\Task;
-use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 
 class LoadMoreTasks extends Component
@@ -12,7 +11,7 @@ class LoadMoreTasks extends Component
         'taskDeleted' => 'render',
         'taskChecked' => 'render',
     ];
-    
+
     public $page;
     public $loadMore;
     public $readyToLoad = true;
@@ -42,6 +41,7 @@ class LoadMoreTasks extends Component
                 ->where('done', true)
                 ->orderBy('done_at', 'desc')
                 ->paginate(10, null, null, $this->page);
+
             return view('livewire.explore.popular-tasks', [
                 'tasks' => $tasks,
             ]);

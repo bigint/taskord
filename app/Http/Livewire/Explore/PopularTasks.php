@@ -2,9 +2,8 @@
 
 namespace App\Http\Livewire\Explore;
 
-use Livewire\Component;
 use App\Models\Task;
-use Illuminate\Support\Facades\Auth;
+use Livewire\Component;
 
 class PopularTasks extends Component
 {
@@ -12,10 +11,10 @@ class PopularTasks extends Component
         'taskDeleted' => 'render',
         'taskChecked' => 'render',
     ];
-    
+
     public $page;
     public $readyToLoad = false;
-    
+
     public function mount($page)
     {
         $this->page = $page ? $page : 1;
@@ -39,10 +38,10 @@ class PopularTasks extends Component
                 ->where('done', true)
                 ->orderBy('done_at', 'desc')
                 ->paginate(10, null, null, $this->page);
-                
+
         return view('livewire.explore.popular-tasks', [
             'tasks' => $this->readyToLoad ? $tasks : [],
-            'page' => $this->page
+            'page' => $this->page,
         ]);
     }
 }
