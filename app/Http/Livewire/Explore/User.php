@@ -12,11 +12,11 @@ class User extends Component
     {
         $this->readyToLoad = true;
     }
-    
+
     public function render()
     {
         $user = auth()->user();
-        
+
         return view('livewire.explore.user', [
             'user' => $this->readyToLoad ? $user : [],
         ]);
