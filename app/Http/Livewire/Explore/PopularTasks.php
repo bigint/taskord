@@ -12,7 +12,7 @@ class PopularTasks extends Component
     {
         $this->readyToLoad = true;
     }
-    
+
     public function render()
     {
         return view('livewire.explore.popular-tasks');
