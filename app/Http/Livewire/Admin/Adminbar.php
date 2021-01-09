@@ -56,7 +56,7 @@ class Adminbar extends Component
         $interactions = DB::table('interactions')->count();
         $praises = DB::table('interactions')->whereRelation('like')->count();
         $jobs = Queue::size();
-        $cache = Cache::getStore()->getMemcached()->getAllKeys();
+        $cache = Cache::getStore()->getMemcached()->getAllKeys() ?: [];
 
         return view('livewire.admin.adminbar', [
             'branchname' => $branch,
