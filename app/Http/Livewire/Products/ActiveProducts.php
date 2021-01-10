@@ -16,8 +16,7 @@ class ActiveProducts extends Component
 
     public function render()
     {
-        $products = Product::cacheFor(60 * 60)
-            ->where('launched', true)
+        $products = Product::where('launched', true)
             ->take(10)
             ->get()
             ->sortByDesc(function ($product) {

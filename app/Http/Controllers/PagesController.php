@@ -8,8 +8,7 @@ class PagesController extends Controller
 {
     public function deals()
     {
-        $deals = Deal::cacheFor(60 * 60)
-            ->latest()
+        $deals = Deal::latest()
             ->get();
 
         return view('pages.deals', [

@@ -41,27 +41,24 @@ class LoadMore extends Component
     {
         if ($this->loadMore) {
             if ($this->type === 'questions.newest') {
-                $questions = Question::cacheFor(60 * 60)
-                    ->whereHas('user', function ($q) {
-                        $q->where([
-                            ['isFlagged', false],
-                        ]);
-                    })
+                $questions = Question::whereHas('user', function ($q) {
+                    $q->where([
+                        ['isFlagged', false],
+                    ]);
+                })
                     ->latest()
                     ->get();
             } elseif ($this->type === 'questions.unanswered') {
-                $questions = Question::cacheFor(60 * 60)
-                    ->whereHas('user', function ($q) {
-                        $q->where([
-                            ['isFlagged', false],
-                        ]);
-                    })
+                $questions = Question::whereHas('user', function ($q) {
+                    $q->where([
+                        ['isFlagged', false],
+                    ]);
+                })
                     ->doesntHave('answer')
                     ->latest()
                     ->get();
             } elseif ($this->type === 'questions.popular') {
-                $questions = Question::cacheFor(60 * 60)
-                    ->withCount('answer')
+                $questions = Question::withCount('answer')
                     ->whereHas('user', function ($q) {
                         $q->where([
                             ['isFlagged', false],

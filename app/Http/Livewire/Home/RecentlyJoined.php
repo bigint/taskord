@@ -16,8 +16,7 @@ class RecentlyJoined extends Component
 
     public function render()
     {
-        $recently_joined = User::cacheFor(60 * 60)
-            ->select('id', 'username', 'firstname', 'lastname', 'avatar', 'bio', 'isVerified', 'created_at')
+        $recently_joined = User::select('id', 'username', 'firstname', 'lastname', 'avatar', 'bio', 'isVerified', 'created_at')
             ->where([
                 ['isFlagged', false],
             ])

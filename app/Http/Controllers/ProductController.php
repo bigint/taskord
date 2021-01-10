@@ -13,12 +13,10 @@ class ProductController extends Controller
 {
     public function profile($slug)
     {
-        $product = Product::cacheFor(60 * 60)
-            ->where('slug', $slug)
+        $product = Product::where('slug', $slug)
             ->firstOrFail();
         $type = Route::current()->getName();
-        $tasks = Task::cacheFor(60 * 60)
-            ->where('product_id', $product->id)
+        $tasks = Task::where('product_id', $product->id)
             ->select('created_at')
             ->get()
             ->groupBy(function ($date) {
@@ -43,19 +41,17 @@ class ProductController extends Controller
         $members = $product->members->pluck('id');
         $members->push($product->owner->id);
 
-        $done_count = Task::cacheFor(60 * 60)
-            ->where([
-                ['product_id', $product->id],
-                ['done', true],
-            ])
+        $done_count = Task::where([
+            ['product_id', $product->id],
+            ['done', true],
+        ])
             ->whereIn('user_id', $members)
             ->count('id');
 
-        $pending_count = Task::cacheFor(60 * 60)
-            ->where([
-                ['product_id', $product->id],
-                ['done', false],
-            ])
+        $pending_count = Task::where([
+            ['product_id', $product->id],
+            ['done', false],
+        ])
             ->whereIn('user_id', $members)
             ->count('id');
 
@@ -65,10 +61,9 @@ class ProductController extends Controller
             'graph' => $countArr,
             'done_count' => $done_count,
             'pending_count' => $pending_count,
-            'updates_count' => ProductUpdate::cacheFor(60 * 60)
-                ->where([
-                    ['product_id', $product->id],
-                ])
+            'updates_count' => ProductUpdate::where([
+                ['product_id', $product->id],
+            ])
                 ->count('id'),
         ];
 
@@ -98,8 +93,7 @@ class ProductController extends Controller
     public function mention(Request $request)
     {
         if ($request['query']) {
-            $users = Product::cacheFor(60 * 60)
-                ->select('slug', 'name', 'avatar')
+            $users = Product::select('slug', 'name', 'avatar')
                 ->where('slug', 'LIKE', '%'.$request['query'].'%')
                 ->orWhere('name', 'LIKE', '%'.$request['query'].'%')
                 ->take(10)

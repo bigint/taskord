@@ -16,8 +16,7 @@ class Trending extends Component
 
     public function render()
     {
-        $trending = Question::cacheFor(60 * 60)
-            ->orderByViews()
+        $trending = Question::orderByViews()
             ->has('answer')
             ->take(5)
             ->get()

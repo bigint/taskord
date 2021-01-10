@@ -26,8 +26,7 @@ class Questions extends Component
 
     public function render()
     {
-        $questions = Question::cacheFor(60 * 60)
-            ->where('user_id', $this->user->id)
+        $questions = Question::where('user_id', $this->user->id)
             ->latest()
             ->paginate(10);
 

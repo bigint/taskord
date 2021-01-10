@@ -16,8 +16,7 @@ class RecentlyLaunched extends Component
 
     public function render()
     {
-        $products = Product::cacheFor(60 * 60)
-            ->select('id', 'slug', 'name', 'launched', 'avatar', 'user_id')
+        $products = Product::select('id', 'slug', 'name', 'launched', 'avatar', 'user_id')
             ->where('launched', true)
             ->orderBy('created_at', 'DESC')
             ->take(5)

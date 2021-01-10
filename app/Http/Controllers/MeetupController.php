@@ -8,8 +8,7 @@ class MeetupController extends Controller
 {
     public function meetups()
     {
-        $meetups = Meetup::cacheFor(60 * 60)
-            ->where('date', '>=', date('Y-m-d'))
+        $meetups = Meetup::where('date', '>=', date('Y-m-d'))
             ->orderBy('date')
             ->paginate(12);
 
@@ -20,8 +19,7 @@ class MeetupController extends Controller
 
     public function finished()
     {
-        $meetups = Meetup::cacheFor(60 * 60)
-            ->where('date', '<=', date('Y-m-d'))
+        $meetups = Meetup::where('date', '<=', date('Y-m-d'))
             ->latest()
             ->paginate(12);
 

@@ -26,8 +26,7 @@ class Answers extends Component
 
     public function render()
     {
-        $answers = Answer::cacheFor(60 * 60)
-            ->where('user_id', $this->user->id)
+        $answers = Answer::where('user_id', $this->user->id)
             ->latest()
             ->paginate(10);
 

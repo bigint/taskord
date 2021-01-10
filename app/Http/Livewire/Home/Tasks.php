@@ -33,8 +33,7 @@ class Tasks extends Component
         if (Auth::check() && auth()->user()->onlyFollowingsTasks) {
             $userIds = auth()->user()->followings->pluck('id');
             $userIds->push(auth()->user()->id);
-            $tasks = Task::cacheFor(60 * 60)
-                ->select('id', 'task', 'done', 'type', 'done_at', 'user_id', 'product_id', 'source', 'images', 'hidden')
+            $tasks = Task::select('id', 'task', 'done', 'type', 'done_at', 'user_id', 'product_id', 'source', 'images', 'hidden')
                 ->whereIn('user_id', $userIds)
                 ->whereHas('user', function ($q) {
                     $q->where([
@@ -46,8 +45,7 @@ class Tasks extends Component
                 ->orderBy('done_at', 'desc')
                 ->paginate(10, null, null, $this->page);
         } else {
-            $tasks = Task::cacheFor(60 * 60)
-                ->select('id', 'task', 'done', 'type', 'done_at', 'user_id', 'product_id', 'source', 'images', 'hidden')
+            $tasks = Task::select('id', 'task', 'done', 'type', 'done_at', 'user_id', 'product_id', 'source', 'images', 'hidden')
                 ->whereHas('user', function ($q) {
                     $q->where([
                         ['isFlagged', false],

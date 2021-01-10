@@ -26,8 +26,7 @@ class Comments extends Component
         $created_at = $this->user->created_at->format('Y-m-d');
         $current_date = carbon()->format('Y-m-d');
         $period = CarbonPeriod::create($created_at, '7 days', $current_date);
-        $comments_count = Comment::cacheFor(60 * 60)
-            ->select('id')
+        $comments_count = Comment::select('id')
             ->where('user_id', $this->user->id)
             ->count();
 
@@ -36,8 +35,7 @@ class Comments extends Component
         $tasks = [];
         foreach ($period->toArray() as $date) {
             array_push($week_dates, carbon($date)->format('d M Y'));
-            $count = Comment::cacheFor(60 * 60)
-                ->select('id')
+            $count = Comment::select('id')
                 ->where('user_id', $this->user->id)
                 ->whereBetween('created_at', [carbon($date), carbon($date)->addDays(7)])
                 ->count();

@@ -19,8 +19,7 @@ class UserController extends Controller
 {
     public function profile($username)
     {
-        $user = User::cacheFor(60 * 60)
-            ->where('username', $username)->firstOrFail();
+        $user = User::where('username', $username)->firstOrFail();
         $type = Route::current()->getName();
 
         $response = [
@@ -29,20 +28,15 @@ class UserController extends Controller
             'level' => $user->badges->sortBy(function ($post) {
                 return $post->pivot->created_at;
             }),
-            'done_count' => Task::cacheFor(60 * 60)
-                ->where([['user_id', $user->id], ['done', true]])
+            'done_count' => Task::where([['user_id', $user->id], ['done', true]])
                 ->count('id'),
-            'pending_count' => Task::cacheFor(60 * 60)
-                ->where([['user_id', $user->id], ['done', false]])
+            'pending_count' => Task::where([['user_id', $user->id], ['done', false]])
                 ->count('id'),
-            'product_count' => Product::cacheFor(60 * 60)
-                ->where('user_id', $user->id)
+            'product_count' => Product::where('user_id', $user->id)
                 ->count('id'),
-            'question_count' => Question::cacheFor(60 * 60)
-                ->where('user_id', $user->id)
+            'question_count' => Question::where('user_id', $user->id)
                 ->count('id'),
-            'answer_count' => Answer::cacheFor(60 * 60)
-                ->where('user_id', $user->id)
+            'answer_count' => Answer::where('user_id', $user->id)
                 ->count('id'),
         ];
 
@@ -188,7 +182,7 @@ class UserController extends Controller
 
     public function avatar($username)
     {
-        $avatar = User::cacheFor(60 * 60)->where('username', $username)->first();
+        $avatar = User::where('username', $username)->first();
 
         return redirect($avatar->avatar);
     }
@@ -196,8 +190,7 @@ class UserController extends Controller
     public function mention(Request $request)
     {
         if ($request['query']) {
-            $users = User::cacheFor(60 * 60)
-                ->select('username', 'firstname', 'lastname', 'avatar', 'isVerified')
+            $users = User::select('username', 'firstname', 'lastname', 'avatar', 'isVerified')
                 ->where('username', 'LIKE', '%'.$request['query'].'%')
                 ->orWhere('firstname', 'LIKE', '%'.$request['query'].'%')
                 ->orWhere('lastname', 'LIKE', '%'.$request['query'].'%')

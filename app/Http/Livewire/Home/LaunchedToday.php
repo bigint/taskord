@@ -16,8 +16,7 @@ class LaunchedToday extends Component
 
     public function render()
     {
-        $launched_today = Product::cacheFor(60 * 60)
-            ->select('id', 'slug', 'name', 'launched', 'description', 'avatar', 'user_id')
+        $launched_today = Product::select('id', 'slug', 'name', 'launched', 'description', 'avatar', 'user_id')
             ->where('launched', true)
             ->whereDate('launched_at', carbon('today'))
             ->orderBy('launched_at', 'DESC')

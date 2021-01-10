@@ -27,8 +27,7 @@ class PopularTasks extends Component
 
     public function render()
     {
-        $tasks = Task::cacheFor(60 * 60)
-                ->withCount(['comments', 'likers'])
+        $tasks = Task::withCount(['comments', 'likers'])
                 ->whereHas('user', function ($q) {
                     $q->where([
                         ['isFlagged', false],

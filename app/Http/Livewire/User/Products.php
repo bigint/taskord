@@ -26,8 +26,7 @@ class Products extends Component
 
     public function render()
     {
-        $products = Product::cacheFor(60 * 60)
-            ->where('user_id', $this->user->id)
+        $products = Product::where('user_id', $this->user->id)
             ->paginate(10);
 
         return view('livewire.user.products', [

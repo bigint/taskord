@@ -38,8 +38,7 @@ class LoadMore extends Component
         if ($this->loadMore) {
             $members = $this->product->members->pluck('id');
             $members->push($this->product->owner->id);
-            $tasks = Task::cacheFor(60 * 60)
-                ->select('id', 'task', 'done', 'created_at', 'done_at', 'user_id', 'product_id', 'source', 'images', 'type', 'hidden')
+            $tasks = Task::select('id', 'task', 'done', 'created_at', 'done_at', 'user_id', 'product_id', 'source', 'images', 'type', 'hidden')
                 ->where([
                     ['product_id', $this->product->id],
                     ['done', $this->type === 'product.done' ? true : false],
