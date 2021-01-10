@@ -54,14 +54,14 @@ class UserSeeder extends Seeder
             'avatar' => 'https://i.imgur.com/QpfHEy6.png',
             'email_verified_at' => null,
         ]);
-        
+
         // 5
         User::factory()->create([
             'firstname' => 'Taskord',
             'lastname' => 'Ops',
             'username' => 'ops',
         ]);
-        
+
         // 6
         User::factory()->create([
             'firstname' => 'Taskord',
