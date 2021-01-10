@@ -10,7 +10,6 @@ use Helper;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\Storage;
-use Illuminate\Support\Str;
 use Livewire\Component;
 
 class SingleTask extends Component
@@ -156,12 +155,12 @@ class SingleTask extends Component
 
         $launchFound = false;
         foreach ($launchList as $keyword) {
-          if (preg_match("/\b$keyword\b/", strtolower($this->task->task))) {
-            $launchFound = true;
-            break;
-          }
+            if (preg_match("/\b$keyword\b/", strtolower($this->task->task))) {
+                $launchFound = true;
+                break;
+            }
         }
-        
+
         if (
             ($launchFound and (bool) $this->task->done) and
             ! ($this->task->source === 'GitHub' or $this->task->source === 'GitLab' or $this->task->source === 'Webhook')
