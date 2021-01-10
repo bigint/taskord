@@ -4,8 +4,8 @@ namespace App\Notifications;
 
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
-use Illuminate\Notifications\Notification;
 use Illuminate\Notifications\Messages\MailMessage;
+use Illuminate\Notifications\Notification;
 
 class VersionReleased extends Notification implements ShouldQueue
 {
@@ -22,7 +22,7 @@ class VersionReleased extends Notification implements ShouldQueue
     {
         return ['database', 'mail'];
     }
-    
+
     public function toMail($notifiable)
     {
         return (new MailMessage)
