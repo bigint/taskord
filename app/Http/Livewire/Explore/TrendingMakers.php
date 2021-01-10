@@ -2,8 +2,8 @@
 
 namespace App\Http\Livewire\Explore;
 
-use Livewire\Component;
 use App\Models\User;
+use Livewire\Component;
 
 class TrendingMakers extends Component
 {
@@ -13,21 +13,21 @@ class TrendingMakers extends Component
     {
         $this->readyToLoad = true;
     }
-    
+
     public function render()
     {
         $users = User::where([
-                ['isFlagged', false],
-                ['isStaff', false],
-            ])
+            ['isFlagged', false],
+            ['isStaff', false],
+        ])
             ->latest('last_active')
             ->take(5)
             ->get()
             ->sortByDesc('reputations')
             ->sortByDesc('streaks');
-            
+
         return view('livewire.explore.trending-makers', [
-            'users' => $this->readyToLoad ? $users : []
+            'users' => $this->readyToLoad ? $users : [],
         ]);
     }
 }
