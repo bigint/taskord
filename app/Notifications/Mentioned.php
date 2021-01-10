@@ -24,11 +24,11 @@ class Mentioned extends Notification implements ShouldQueue
     {
         $pref = [];
 
-        if ($notifiable->taskMentionedEmail) {
+        if ($notifiable->notifications_email) {
             array_push($pref, 'mail');
         }
 
-        if ($notifiable->taskMentionedWeb) {
+        if ($notifiable->notifications_web) {
             array_push($pref, 'database');
         }
 

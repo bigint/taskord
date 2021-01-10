@@ -25,11 +25,11 @@ class Answered extends Notification implements ShouldQueue
     {
         $pref = [];
 
-        if ($notifiable->answerAddedEmail) {
+        if ($notifiable->notifications_email) {
             array_push($pref, 'mail');
         }
 
-        if ($notifiable->answerAddedWeb) {
+        if ($notifiable->notifications_web) {
             array_push($pref, 'database');
         }
 

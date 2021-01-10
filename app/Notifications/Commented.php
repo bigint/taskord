@@ -25,11 +25,11 @@ class Commented extends Notification implements ShouldQueue
     {
         $pref = [];
 
-        if ($notifiable->commentAddedEmail) {
+        if ($notifiable->notifications_email) {
             array_push($pref, 'mail');
         }
 
-        if ($notifiable->commentAddedWeb) {
+        if ($notifiable->notifications_web) {
             array_push($pref, 'database');
         }
 
