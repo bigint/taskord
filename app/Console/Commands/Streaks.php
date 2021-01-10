@@ -2,10 +2,10 @@
 
 namespace App\Console\Commands;
 
-use Illuminate\Console\Command;
+use App\Models\Task;
 use App\Models\User;
 use Carbon\CarbonPeriod;
-use App\Models\Task;
+use Illuminate\Console\Command;
 
 class Streaks extends Command
 {
@@ -41,7 +41,7 @@ class Streaks extends Command
     public function handle()
     {
         $users = User::all();
-        
+
         foreach ($users as $user) {
             $created_at = $user->created_at->format('Y-m-d');
             $current_date = carbon()->format('Y-m-d');
@@ -65,7 +65,7 @@ class Streaks extends Command
             $user->save();
         }
         $this->info('Streaks Calculation Completed!');
-        
+
         return 0;
     }
 }
