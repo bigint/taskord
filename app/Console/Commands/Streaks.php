@@ -42,14 +42,14 @@ class Streaks extends Command
     {
         $timezones = timezone_identifiers_list();
         $tz_list = [];
-        
+
         foreach ($timezones as $timezone) {
             $time = carbon()->tz($timezone)->format('H');
             if ($time === '23') {
                 array_push($tz_list, $timezone);
             }
         }
-        
+
         $users = User::whereIn('timezone', $tz_list)
             ->get();
 
