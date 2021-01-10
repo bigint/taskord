@@ -26,9 +26,9 @@ class Pending
         }
 
         $tasks = Task::where([
-                ['user_id', $this->user->id],
-                ['done', false],
-            ])
+            ['user_id', $this->user->id],
+            ['done', false],
+        ])
             ->get();
 
         if (count($tasks) > 0) {

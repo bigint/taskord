@@ -42,18 +42,18 @@ class LoadMore extends Component
         if ($this->loadMore) {
             if ($this->type === 'questions.newest') {
                 $questions = Question::whereHas('user', function ($q) {
-                        $q->where([
-                            ['isFlagged', false],
-                        ]);
-                    })
+                    $q->where([
+                        ['isFlagged', false],
+                    ]);
+                })
                     ->latest()
                     ->get();
             } elseif ($this->type === 'questions.unanswered') {
                 $questions = Question::whereHas('user', function ($q) {
-                        $q->where([
-                            ['isFlagged', false],
-                        ]);
-                    })
+                    $q->where([
+                        ['isFlagged', false],
+                    ]);
+                })
                     ->doesntHave('answer')
                     ->latest()
                     ->get();

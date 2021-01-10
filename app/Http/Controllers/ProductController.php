@@ -42,16 +42,16 @@ class ProductController extends Controller
         $members->push($product->owner->id);
 
         $done_count = Task::where([
-                ['product_id', $product->id],
-                ['done', true],
-            ])
+            ['product_id', $product->id],
+            ['done', true],
+        ])
             ->whereIn('user_id', $members)
             ->count('id');
 
         $pending_count = Task::where([
-                ['product_id', $product->id],
-                ['done', false],
-            ])
+            ['product_id', $product->id],
+            ['done', false],
+        ])
             ->whereIn('user_id', $members)
             ->count('id');
 
@@ -62,8 +62,8 @@ class ProductController extends Controller
             'done_count' => $done_count,
             'pending_count' => $pending_count,
             'updates_count' => ProductUpdate::where([
-                    ['product_id', $product->id],
-                ])
+                ['product_id', $product->id],
+            ])
                 ->count('id'),
         ];
 

@@ -32,11 +32,11 @@ class SearchController extends Controller
         $searchTerm = $request->input('q');
         if ($searchTerm) {
             $tasks = Task::whereHas('user', function ($q) {
-                    $q->where([
-                        ['isFlagged', false],
-                        ['isPrivate', false],
-                    ]);
-                })
+                $q->where([
+                    ['isFlagged', false],
+                    ['isPrivate', false],
+                ]);
+            })
                 ->where('hidden', false)
                 ->where('task', 'LIKE', '%'.$searchTerm.'%')
                 ->paginate(10)
@@ -61,11 +61,11 @@ class SearchController extends Controller
         $searchTerm = $request->input('q');
         if ($searchTerm) {
             $comments = Comment::whereHas('user', function ($q) {
-                    $q->where([
-                        ['isFlagged', false],
-                        ['isPrivate', false],
-                    ]);
-                })
+                $q->where([
+                    ['isFlagged', false],
+                    ['isPrivate', false],
+                ]);
+            })
                 ->where('hidden', false)
                 ->where('comment', 'LIKE', '%'.$searchTerm.'%')
                 ->paginate(10)
@@ -90,10 +90,10 @@ class SearchController extends Controller
         $searchTerm = $request->input('q');
         if ($searchTerm) {
             $questions = Question::whereHas('user', function ($q) {
-                    $q->where([
-                        ['isFlagged', false],
-                    ]);
-                })
+                $q->where([
+                    ['isFlagged', false],
+                ]);
+            })
                 ->where('hidden', false)
                 ->where('title', 'LIKE', '%'.$searchTerm.'%')
                 ->paginate(10)
@@ -118,10 +118,10 @@ class SearchController extends Controller
         $searchTerm = $request->input('q');
         if ($searchTerm) {
             $answers = Answer::whereHas('user', function ($q) {
-                    $q->where([
-                        ['isFlagged', false],
-                    ]);
-                })
+                $q->where([
+                    ['isFlagged', false],
+                ]);
+            })
                 ->where('hidden', false)
                 ->where('answer', 'LIKE', '%'.$searchTerm.'%')
                 ->paginate(10)
@@ -146,10 +146,10 @@ class SearchController extends Controller
         $searchTerm = $request->input('q');
         if ($searchTerm) {
             $products = Product::whereHas('owner', function ($q) {
-                    $q->where([
-                        ['isFlagged', false],
-                    ]);
-                })
+                $q->where([
+                    ['isFlagged', false],
+                ]);
+            })
                 ->where('slug', 'LIKE', '%'.$searchTerm.'%')
                 ->orWhere('name', 'LIKE', '%'.$searchTerm.'%')
                 ->paginate(10)
