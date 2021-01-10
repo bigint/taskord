@@ -49,9 +49,9 @@ class Streaks extends Command
                 array_push($tz_list, $timezone);
             }
         }
-        
+
         $type = $this->arguments()['type'];
-        
+
         if ($type === 'timezone') {
             $this->info('Calculating timezone based users streaks!');
             $users = User::whereIn('timezone', $tz_list)
