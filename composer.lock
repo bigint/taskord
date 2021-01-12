@@ -1701,16 +1701,16 @@
         },
         {
             "name": "grosv/laravel-passwordless-login",
-            "version": "1.4.1",
+            "version": "1.5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/grosv/laravel-passwordless-login.git",
-                "reference": "c84ab43239e42209f32f74f5bb1b50fd6b2f4cdf"
+                "reference": "6a8b68ed45a38e184d5cd6d2f54eff8ca7f83f71"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/grosv/laravel-passwordless-login/zipball/c84ab43239e42209f32f74f5bb1b50fd6b2f4cdf",
-                "reference": "c84ab43239e42209f32f74f5bb1b50fd6b2f4cdf",
+                "url": "https://api.github.com/repos/grosv/laravel-passwordless-login/zipball/6a8b68ed45a38e184d5cd6d2f54eff8ca7f83f71",
+                "reference": "6a8b68ed45a38e184d5cd6d2f54eff8ca7f83f71",
                 "shasum": ""
             },
             "require": {
@@ -1744,9 +1744,9 @@
             "description": "Passwordless login using temporary signed URL",
             "support": {
                 "issues": "https://github.com/grosv/laravel-passwordless-login/issues",
-                "source": "https://github.com/grosv/laravel-passwordless-login/tree/1.4.1"
+                "source": "https://github.com/grosv/laravel-passwordless-login/tree/1.5.0"
             },
-            "time": "2021-01-03T07:12:13+00:00"
+            "time": "2021-01-12T14:53:00+00:00"
         },
         {
             "name": "guzzlehttp/guzzle",
@@ -5934,16 +5934,16 @@
         },
         {
             "name": "swiftmailer/swiftmailer",
-            "version": "v6.2.4",
+            "version": "v6.2.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/swiftmailer/swiftmailer.git",
-                "reference": "56f0ab23f54c4ccbb0d5dcc67ff8552e0c98d59e"
+                "reference": "698a6a9f54d7eb321274de3ad19863802c879fb7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/swiftmailer/swiftmailer/zipball/56f0ab23f54c4ccbb0d5dcc67ff8552e0c98d59e",
-                "reference": "56f0ab23f54c4ccbb0d5dcc67ff8552e0c98d59e",
+                "url": "https://api.github.com/repos/swiftmailer/swiftmailer/zipball/698a6a9f54d7eb321274de3ad19863802c879fb7",
+                "reference": "698a6a9f54d7eb321274de3ad19863802c879fb7",
                 "shasum": ""
             },
             "require": {
@@ -5993,7 +5993,7 @@
             ],
             "support": {
                 "issues": "https://github.com/swiftmailer/swiftmailer/issues",
-                "source": "https://github.com/swiftmailer/swiftmailer/tree/v6.2.4"
+                "source": "https://github.com/swiftmailer/swiftmailer/tree/v6.2.5"
             },
             "funding": [
                 {
@@ -6005,7 +6005,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2020-12-08T18:02:06+00:00"
+            "time": "2021-01-12T09:35:59+00:00"
         },
         {
             "name": "symfony/console",
