@@ -137,6 +137,17 @@
                     Masquerade
                 </button>
             </div>
+                <div class="text-info h5 mt-3">
+                <x-heroicon-o-pencil-alt class="heroicon-2x" />
+                {{__("Notes")}}
+                    <form wire:submit.prevent="updateUserStaffNotes">
+                        <textarea name="staff_notes" id="staff_notes" class="form-control mt-3" rows="3" wire:model="staff_notes" placeholder="Important information about this user..">
+                        </textarea>
+                        <button wire:click="updateUserStaffNotes" type="button" class="btn btn-sm btn-primary mt-2">
+                            <x-heroicon-o-save class="heroicon" />{{__("Save Notes")}}
+                        </button>
+                    </form>
+            </div>
             @endif
             @if (!$user->isStaff)
             <hr>

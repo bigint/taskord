@@ -15,10 +15,12 @@ use Livewire\Component;
 class Moderator extends Component
 {
     public User $user;
+    public $staff_notes;
 
     public function mount($user)
     {
         $this->user = $user;
+        $this->staff_notes = $user->staff_notes;
     }
 
     public function enrollBeta()
@@ -558,5 +560,18 @@ class Moderator extends Component
         } else {
             return false;
         }
+    }
+
+    public function updateUserStaffNotes()
+    {
+        $this->validate([
+            'staff_notes' => ['nullable'],
+        ]);
+
+        User::where('id', $this->user->id)->update(['staff_notes' => $this->staff_notes]);
+
+        loggy(request()->ip(), 'Admin', auth()->user(), 'Updated the staff notes for user: @'.$this->user->username);
+
+        $this->alert('success', 'Note updated!');
     }
 }
