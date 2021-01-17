@@ -8,4 +8,7 @@
     <li class="nav-item">
         <a class="nav-link @if (Route::currentRouteName() === 'admin.activities') active @endif" href="{{ route('admin.activities') }}">Activities</a>
     </li>
+    <li class="nav-item">
+        <a class="nav-link @if (Route::currentRouteName() === 'admin.products') active @endif" href="{{ route('admin.products') }}">Products</a>
+    </li>
 </ul>

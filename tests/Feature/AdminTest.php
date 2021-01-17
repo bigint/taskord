@@ -17,3 +17,9 @@ it('has admin/activities page', function ($url, $expected) {
 })->with([
     ['/admin/activities', 302, false],
 ]);
+
+it('has admin/products page', function ($url, $expected) {
+    $this->get($url)->assertStatus($expected);
+})->with([
+    ['/admin/products', 302, false],
+]);

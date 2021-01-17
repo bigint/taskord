@@ -32,6 +32,10 @@ class Product extends Model
         'launched_at',
     ];
 
+    protected $dates = [
+        'launched_at',
+    ];
+
     public function owner()
     {
         return $this->belongsTo(\App\Models\User::class, 'user_id');
@@ -49,7 +53,7 @@ class Product extends Model
 
     public function product_update()
     {
-        return $this->belongsTo(\App\Models\ProductUpdate::class);
+        return $this->hasMany(\App\Models\ProductUpdate::class);
     }
 
     public function webhooks()
