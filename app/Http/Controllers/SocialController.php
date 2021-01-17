@@ -25,7 +25,12 @@ class SocialController extends Controller
         } else {
             $userSocial = Socialite::driver($provider)->stateless()->user();
         }
-        $user = User::where(['email' => $userSocial->getEmail()])->first();
+
+        if ($provider === 'github') {
+            $user = User::where(['github_id' => $userSocial->id])->first();
+        } else {
+            $user = User::where(['email' => $userSocial->getEmail()])->first();
+        }
         if ($user) {
             Auth::login($user);
             AuthGetIP::dispatch($user, $request->ip());
@@ -35,66 +40,73 @@ class SocialController extends Controller
                     'AUTH',
                     null,
                     $user,
-                    "🔒 User logged in to Taskord\n\n`".$request->ip().'`'
+                    "🔒 User logged in to Taskord\n\n`" . $request->ip() . '`'
                 )
             );
             loggy(request()->ip(), 'Auth', $user, 'Logged in via Social auth');
 
             return redirect()->route('home');
-        } else {
-            if ($provider === 'twitter' or $provider === 'gitlab' or $provider === 'github') {
-                $user = User::where(['username' => $userSocial->getNickname()])->first();
-                if (! $user) {
-                    $username = $userSocial->getNickname();
-                } else {
-                    $username = $userSocial->getNickname().'_'.strtolower(Str::random(5));
-                }
-            } else {
-                $username = strtolower(Str::random(6));
-            }
-
-            if ($provider === 'gitlab' or $provider === 'github') {
-                $avatar = $userSocial->avatar;
-            } else {
-                $avatar = str_replace('http://', 'https://', $userSocial->avatar_original);
-            }
-
-            $user = User::create([
-                'username' => $username,
-                'firstname' => $userSocial->getName(),
-                'email' => $userSocial->getEmail(),
-                'avatar' => $avatar,
-                'provider_id' => $userSocial->getId(),
-                'provider' => $provider,
-                'api_token' => Str::random(60),
-                'email_verified_at' => date('Y-m-d H:i:s'),
-            ]);
-            AuthGetIP::dispatch($user, $request->ip());
-
-            if ($provider === 'twitter') {
-                $user->twitter = $userSocial->getNickname();
-                $user->save();
-            }
-
-            if ($provider === 'github') {
-                $user->github = $userSocial->getNickname();
-                $user->save();
-            }
-
-            Auth::login($user);
-
-            $user->notify(
-                new Logger(
-                    'AUTH',
-                    null,
-                    $user,
-                    '🎉 New user signed up to Taskord'
-                )
-            );
-            $user->notify(new Welcome(true));
-            loggy(request()->ip(), 'Auth', $user, 'Created account with '.$provider.' '.$user->email.' from '.request()->ip());
-
-            return redirect()->route('home');
         }
+
+        if ($provider === 'twitter' or $provider === 'gitlab' or $provider === 'github') {
+            $user = User::where(['username' => $userSocial->getNickname()])->first();
+            if (!$user) {
+                $username = $userSocial->getNickname();
+            } else {
+                $username = $userSocial->getNickname() . '_' . strtolower(Str::random(5));
+            }
+        } else {
+            $username = strtolower(Str::random(6));
+        }
+
+        if ($provider === 'gitlab' or $provider === 'github') {
+            $avatar = $userSocial->avatar;
+        } else{
+            $avatar = str_replace('http://', 'https://', $userSocial->avatar_original);
+        }
+
+        $user = User::create(
+            [
+                'username'          => $username,
+                'firstname'         => $userSocial->getName(),
+                'email'             => $userSocial->getEmail(),
+                'avatar'            => $avatar,
+                'provider_id'       => $userSocial->getId(),
+                'provider'          => $provider,
+                'api_token'         => Str::random(60),
+                'email_verified_at' => date('Y-m-d H:i:s'),
+            ]
+        );
+        AuthGetIP::dispatch($user, $request->ip());
+
+        if ($provider === 'twitter') {
+            $user->twitter = $userSocial->getNickname();
+            $user->save();
+        }
+
+        if ($provider === 'github') {
+            $user->github = $userSocial->getNickname();
+            $user->save();
+        }
+
+        Auth::login($user);
+
+        $user->notify(
+            new Logger(
+                'AUTH',
+                null,
+                $user,
+                '🎉 New user signed up to Taskord'
+            )
+        );
+        $user->notify(new Welcome(true));
+        loggy(
+            request()->ip(),
+            'Auth',
+            $user,
+            'Created account with ' . $provider . ' ' . $user->email . ' from ' . request()->ip()
+        );
+
+        return redirect()->route('home');
     }
 }
