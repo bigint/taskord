@@ -25,7 +25,7 @@ class Products extends Component
             ->withCount(['members', 'tasks', 'product_update'])
             ->latest()->paginate(50);
 
-        $count    = Product::all()->count('id');
+        $count = Product::all()->count('id');
 
         return view('livewire.admin.products', [
             'products' => $this->readyToLoad ? $products : [],
