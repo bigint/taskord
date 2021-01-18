@@ -40,7 +40,7 @@ class SocialController extends Controller
                     'AUTH',
                     null,
                     $user,
-                    "🔒 User logged in to Taskord\n\n`" . $request->ip() . '`'
+                    "🔒 User logged in to Taskord\n\n`".$request->ip().'`'
                 )
             );
             loggy(request()->ip(), 'Auth', $user, 'Logged in via Social auth');
@@ -50,10 +50,10 @@ class SocialController extends Controller
 
         if ($provider === 'twitter' or $provider === 'gitlab' or $provider === 'github') {
             $user = User::where(['username' => $userSocial->getNickname()])->first();
-            if (!$user) {
+            if (! $user) {
                 $username = $userSocial->getNickname();
             } else {
-                $username = $userSocial->getNickname() . '_' . strtolower(Str::random(5));
+                $username = $userSocial->getNickname().'_'.strtolower(Str::random(5));
             }
         } else {
             $username = strtolower(Str::random(6));
@@ -61,7 +61,7 @@ class SocialController extends Controller
 
         if ($provider === 'gitlab' or $provider === 'github') {
             $avatar = $userSocial->avatar;
-        } else{
+        } else {
             $avatar = str_replace('http://', 'https://', $userSocial->avatar_original);
         }
 
@@ -104,7 +104,7 @@ class SocialController extends Controller
             request()->ip(),
             'Auth',
             $user,
-            'Created account with ' . $provider . ' ' . $user->email . ' from ' . request()->ip()
+            'Created account with '.$provider.' '.$user->email.' from '.request()->ip()
         );
 
         return redirect()->route('home');
