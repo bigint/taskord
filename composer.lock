@@ -10693,16 +10693,16 @@
         },
         {
             "name": "pestphp/pest",
-            "version": "v1.0.0",
+            "version": "v1.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pestphp/pest.git",
-                "reference": "b0f03c278db30bfe9a146827c651b719acf6f02b"
+                "reference": "6b8feed08a44ad9f5a821a7b536d0d06a619c430"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pestphp/pest/zipball/b0f03c278db30bfe9a146827c651b719acf6f02b",
-                "reference": "b0f03c278db30bfe9a146827c651b719acf6f02b",
+                "url": "https://api.github.com/repos/pestphp/pest/zipball/6b8feed08a44ad9f5a821a7b536d0d06a619c430",
+                "reference": "6b8feed08a44ad9f5a821a7b536d0d06a619c430",
                 "shasum": ""
             },
             "require": {
@@ -10712,7 +10712,7 @@
                 "pestphp/pest-plugin-expectations": "^1.0",
                 "pestphp/pest-plugin-init": "^1.0",
                 "php": "^7.3 || ^8.0",
-                "phpunit/phpunit": ">= 9.3.7 <= 9.5.0"
+                "phpunit/phpunit": ">= 9.3.7 <= 9.5.1"
             },
             "require-dev": {
                 "illuminate/console": "^8.0",
@@ -10770,7 +10770,7 @@
             ],
             "support": {
                 "issues": "https://github.com/pestphp/pest/issues",
-                "source": "https://github.com/pestphp/pest/tree/v1.0.0"
+                "source": "https://github.com/pestphp/pest/tree/v1.0.1"
             },
             "funding": [
                 {
@@ -10798,7 +10798,7 @@
                     "type": "patreon"
                 }
             ],
-            "time": "2021-01-03T16:27:11+00:00"
+            "time": "2021-01-18T09:35:53+00:00"
         },
         {
             "name": "pestphp/pest-plugin",
@@ -11892,16 +11892,16 @@
         },
         {
             "name": "phpunit/phpunit",
-            "version": "9.5.0",
+            "version": "9.5.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "8e16c225d57c3d6808014df6b1dd7598d0a5bbbe"
+                "reference": "e7bdf4085de85a825f4424eae52c99a1cec2f360"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/8e16c225d57c3d6808014df6b1dd7598d0a5bbbe",
-                "reference": "8e16c225d57c3d6808014df6b1dd7598d0a5bbbe",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/e7bdf4085de85a825f4424eae52c99a1cec2f360",
+                "reference": "e7bdf4085de85a825f4424eae52c99a1cec2f360",
                 "shasum": ""
             },
             "require": {
@@ -11979,7 +11979,7 @@
             ],
             "support": {
                 "issues": "https://github.com/sebastianbergmann/phpunit/issues",
-                "source": "https://github.com/sebastianbergmann/phpunit/tree/9.5.0"
+                "source": "https://github.com/sebastianbergmann/phpunit/tree/9.5.1"
             },
             "funding": [
                 {
@@ -11991,7 +11991,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2020-12-04T05:05:53+00:00"
+            "time": "2021-01-17T07:42:25+00:00"
         },
         {
             "name": "sebastian/cli-parser",
