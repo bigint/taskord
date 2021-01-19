@@ -8,7 +8,14 @@
             <form wire:submit.prevent="regenerateToken">
                 <div class="mb-3">
                     <label class="form-label">Personal Access Token</label>
-                    <input type="text" class="form-control @error('token') is-invalid @enderror" value="{{ $user->api_token }}" disabled>
+                    <div class="input-group">
+                        <input type="text" id="personal-access-token" class="form-control @error('token') is-invalid @enderror" value="{{ $user->api_token }}" readonly>
+                        <div class="input-group-append">
+                            <button class="btn btn-outline-secondary js-clipboard" type="button" title="Copy" data-bs-toggle="tooltip" data-for="#personal-access-token">
+                                <x-heroicon-o-clipboard-copy class="heroicon-1x"></x-heroicon-o-clipboard-copy>
+                            </button>
+                        </div>
+                    </div>
                     @error('token')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>

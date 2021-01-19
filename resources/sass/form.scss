@@ -1,0 +1,11 @@
+.input-group-append .btn {
+  // Prevents button borders diverging, looking odd in UI
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.input-group-prepend .btn {
+  // Prevents button borders diverging, looking odd in UI
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}

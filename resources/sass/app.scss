@@ -3,6 +3,8 @@
 @import "~bootstrap/scss/bootstrap"; // Bootstrap
 @import "~tributejs/dist/tribute.css"; // Tribute
 @import "floating-labels";
+@import "./form";
+
 a {
     text-decoration: none;
 }

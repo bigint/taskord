@@ -1,6 +1,7 @@
 require("./shortcuts");
 require("./tribute");
 require("./tippy");
+require('./clipboard');
 import { isInViewport } from "observe-element-in-viewport";
 
 // Greetings
