@@ -26,7 +26,7 @@ Test:
   image: edbizarro/gitlab-ci-pipeline-php:latest
   stage: test
   script:
-    - sudo composer install --ignore-platform-reqs
+    - sudo composer install --no-progress --ignore-platform-reqs
     - cp .env.ci .env
     - php artisan key:generate
     - sudo npm i -g yarn
@@ -41,7 +41,7 @@ Commands:
   image: edbizarro/gitlab-ci-pipeline-php:latest
   stage: test
   script:
-    - sudo composer install --ignore-platform-reqs
+    - sudo composer install --no-progress --ignore-platform-reqs
     - cp .env.ci .env
     - php artisan key:generate
     - php artisan migrate:fresh --seed
