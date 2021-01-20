@@ -6159,21 +6159,21 @@
         },
         {
             "name": "rennokki/laravel-eloquent-query-cache",
-            "version": "2.5.0",
+            "version": "2.5.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/renoki-co/laravel-eloquent-query-cache.git",
-                "reference": "c298c5c564064a79ba9d130a3df1ed9cc7348ca9"
+                "reference": "1440be4a099284efbf81884105e4e40628990002"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/renoki-co/laravel-eloquent-query-cache/zipball/c298c5c564064a79ba9d130a3df1ed9cc7348ca9",
-                "reference": "c298c5c564064a79ba9d130a3df1ed9cc7348ca9",
+                "url": "https://api.github.com/repos/renoki-co/laravel-eloquent-query-cache/zipball/1440be4a099284efbf81884105e4e40628990002",
+                "reference": "1440be4a099284efbf81884105e4e40628990002",
                 "shasum": ""
             },
             "require": {
-                "illuminate/database": "^7.0|^8.0",
-                "illuminate/support": "^7.0|^8.0"
+                "illuminate/database": "^7.30|^8.23",
+                "illuminate/support": "^7.30|^8.23"
             },
             "require-dev": {
                 "laravel/legacy-factories": "^1.1",
@@ -6211,15 +6211,15 @@
             ],
             "support": {
                 "issues": "https://github.com/renoki-co/laravel-eloquent-query-cache/issues",
-                "source": "https://github.com/renoki-co/laravel-eloquent-query-cache/tree/2.5.0"
+                "source": "https://github.com/renoki-co/laravel-eloquent-query-cache/tree/2.5.1"
             },
             "funding": [
                 {
-                    "url": "https://github.com/renoki-co",
-                    "type": "github"
+                    "url": "https://ko-fi.com/rennokki",
+                    "type": "ko_fi"
                 }
             ],
-            "time": "2020-11-20T08:30:28+00:00"
+            "time": "2021-01-20T08:21:03+00:00"
         },
         {
             "name": "seld/jsonlint",
