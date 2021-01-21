@@ -111,7 +111,7 @@ class User extends Authenticatable implements MustVerifyEmail
 
     public function isOnline()
     {
-        return Cache::has('user-online-' . $this->id);
+        return Cache::has('user-online-'.$this->id);
     }
 
     public function sendEmailVerificationNotification()
