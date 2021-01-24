@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "cf042dd854cac2ca7e6660414c8cd747",
+    "content-hash": "684b0d5e3bbbd8d4d78386c268c5889b",
     "packages": [
         {
             "name": "alfredo-ramos/parsedown-extra-laravel",
@@ -4615,16 +4615,16 @@
         },
         {
             "name": "nuwave/lighthouse",
-            "version": "v5.0.2",
+            "version": "v5.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nuwave/lighthouse.git",
-                "reference": "d3921f093ccf608b52a92879dd24915317cefa65"
+                "reference": "aea7c442768b61c33548f2fdf8f975e2d7a6bcbb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nuwave/lighthouse/zipball/d3921f093ccf608b52a92879dd24915317cefa65",
-                "reference": "d3921f093ccf608b52a92879dd24915317cefa65",
+                "url": "https://api.github.com/repos/nuwave/lighthouse/zipball/aea7c442768b61c33548f2fdf8f975e2d7a6bcbb",
+                "reference": "aea7c442768b61c33548f2fdf8f975e2d7a6bcbb",
                 "shasum": ""
             },
             "require": {
@@ -4642,7 +4642,7 @@
                 "laragraph/utils": "^1",
                 "php": ">= 7.2",
                 "thecodingmachine/safe": "^1",
-                "webonyx/graphql-php": "^14.2"
+                "webonyx/graphql-php": "^14.5"
             },
             "require-dev": {
                 "bensampo/laravel-enum": "^1.28.3 || ^2 || ^3",
@@ -4657,6 +4657,7 @@
                 "orchestra/testbench": "3.6.* || 3.7.* || 3.8.* || 3.9.* || ^4 || ^5 || ^6",
                 "phpbench/phpbench": "^0.17",
                 "phpstan/phpstan-mockery": "^0.12.5",
+                "phpstan/phpstan-phpunit": "^0.12.17",
                 "phpunit/phpunit": "^7.5 || ^8.4",
                 "predis/predis": "^1.1",
                 "pusher/pusher-php-server": "^3.2",
@@ -4735,7 +4736,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-01-11T14:17:35+00:00"
+            "time": "2021-01-24T10:44:59+00:00"
         },
         {
             "name": "opis/closure",
@@ -10135,16 +10136,16 @@
         },
         {
             "name": "webonyx/graphql-php",
-            "version": "v14.4.0",
+            "version": "v14.5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/webonyx/graphql-php.git",
-                "reference": "aab3d49181467db064b41429cde117a7589625fc"
+                "reference": "115a20e419439a27092788cdf36f1ac5f0fa429b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/webonyx/graphql-php/zipball/aab3d49181467db064b41429cde117a7589625fc",
-                "reference": "aab3d49181467db064b41429cde117a7589625fc",
+                "url": "https://api.github.com/repos/webonyx/graphql-php/zipball/115a20e419439a27092788cdf36f1ac5f0fa429b",
+                "reference": "115a20e419439a27092788cdf36f1ac5f0fa429b",
                 "shasum": ""
             },
             "require": {
@@ -10189,7 +10190,7 @@
             ],
             "support": {
                 "issues": "https://github.com/webonyx/graphql-php/issues",
-                "source": "https://github.com/webonyx/graphql-php/tree/v14.4.0"
+                "source": "https://github.com/webonyx/graphql-php/tree/v14.5.0"
             },
             "funding": [
                 {
@@ -10197,7 +10198,7 @@
                     "type": "open_collective"
                 }
             ],
-            "time": "2020-12-03T16:05:21+00:00"
+            "time": "2021-01-23T12:52:35+00:00"
         },
         {
             "name": "xemlock/htmlpurifier-html5",
