@@ -1663,16 +1663,16 @@
         },
         {
             "name": "enlightn/enlightn",
-            "version": "v1.5",
+            "version": "v1.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/enlightn/enlightn.git",
-                "reference": "1fd8321caf5b830c31a01bfab813dc67280b4aa4"
+                "reference": "67ac154f8a5e38737c6c614d1235f88978834838"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/enlightn/enlightn/zipball/1fd8321caf5b830c31a01bfab813dc67280b4aa4",
-                "reference": "1fd8321caf5b830c31a01bfab813dc67280b4aa4",
+                "url": "https://api.github.com/repos/enlightn/enlightn/zipball/67ac154f8a5e38737c6c614d1235f88978834838",
+                "reference": "67ac154f8a5e38737c6c614d1235f88978834838",
                 "shasum": ""
             },
             "require": {
@@ -1737,9 +1737,9 @@
             "support": {
                 "docs": "https://www.laravel-enlightn.com/docs/",
                 "issues": "https://github.com/enlightn/enlightn/issues",
-                "source": "https://github.com/enlightn/enlightn/tree/v1.5"
+                "source": "https://github.com/enlightn/enlightn/tree/v1.6"
             },
-            "time": "2021-01-26T06:49:52+00:00"
+            "time": "2021-01-26T15:02:34+00:00"
         },
         {
             "name": "enlightn/security-checker",
@@ -3119,16 +3119,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v8.24.0",
+            "version": "v8.25.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "d16e9f875e4d7609a05d5007393e22ba95efd1fc"
+                "reference": "05da44d6823c2923597519ac10151f5827a24f80"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/d16e9f875e4d7609a05d5007393e22ba95efd1fc",
-                "reference": "d16e9f875e4d7609a05d5007393e22ba95efd1fc",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/05da44d6823c2923597519ac10151f5827a24f80",
+                "reference": "05da44d6823c2923597519ac10151f5827a24f80",
                 "shasum": ""
             },
             "require": {
@@ -3215,6 +3215,7 @@
             },
             "suggest": {
                 "aws/aws-sdk-php": "Required to use the SQS queue driver, DynamoDb failed job storage and SES mail driver (^3.155).",
+                "brianium/paratest": "Required to run tests in parallel (^6.0).",
                 "doctrine/dbal": "Required to rename columns and drop SQLite columns (^2.6|^3.0).",
                 "ext-ftp": "Required to use the Flysystem FTP driver.",
                 "ext-gd": "Required to use Illuminate\\Http\\Testing\\FileFactory::image().",
@@ -3282,7 +3283,7 @@
                 "issues": "https://github.com/laravel/framework/issues",
                 "source": "https://github.com/laravel/framework"
             },
-            "time": "2021-01-21T14:19:29+00:00"
+            "time": "2021-01-26T14:40:21+00:00"
         },
         {
             "name": "laravel/horizon",
