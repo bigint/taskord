@@ -4074,23 +4074,23 @@
         },
         {
             "name": "mll-lab/laravel-graphql-playground",
-            "version": "v2.4.0",
+            "version": "v2.5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/mll-lab/laravel-graphql-playground.git",
-                "reference": "b14caee7de995deeb60b2bd6f602fdd1020eccb7"
+                "reference": "f76efb5d83827df355d548e2f78766787a3d1688"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mll-lab/laravel-graphql-playground/zipball/b14caee7de995deeb60b2bd6f602fdd1020eccb7",
-                "reference": "b14caee7de995deeb60b2bd6f602fdd1020eccb7",
+                "url": "https://api.github.com/repos/mll-lab/laravel-graphql-playground/zipball/f76efb5d83827df355d548e2f78766787a3d1688",
+                "reference": "f76efb5d83827df355d548e2f78766787a3d1688",
                 "shasum": ""
             },
             "require": {
                 "illuminate/console": "5.5.* || 5.6.* || 5.7.* || 5.8.* || ^6 || ^7 || ^8",
                 "illuminate/contracts": "5.5.* || 5.6.* || 5.7.* || 5.8.* || ^6 || ^7 || ^8",
                 "illuminate/support": "5.5.* || 5.6.* || 5.7.* || 5.8.* || ^6 || ^7 || ^8",
-                "php": ">=7.1"
+                "php": "^7.1 || ^8"
             },
             "require-dev": {
                 "laravel/lumen-framework": "5.5.* || 5.6.* || 5.7.* || 5.8.* || ^6 || ^7",
@@ -4127,9 +4127,9 @@
             ],
             "support": {
                 "issues": "https://github.com/mll-lab/laravel-graphql-playground/issues",
-                "source": "https://github.com/mll-lab/laravel-graphql-playground/tree/v2.4.0"
+                "source": "https://github.com/mll-lab/laravel-graphql-playground/tree/v2.5.0"
             },
-            "time": "2020-09-10T11:51:48+00:00"
+            "time": "2021-02-01T17:55:49+00:00"
         },
         {
             "name": "mockery/mockery",
