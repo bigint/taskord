@@ -4002,16 +4002,16 @@
         },
         {
             "name": "livewire/livewire",
-            "version": "v2.3.12",
+            "version": "v2.3.13",
             "source": {
                 "type": "git",
                 "url": "https://github.com/livewire/livewire.git",
-                "reference": "55e8a6269376945a59cecf998a25440af6df934a"
+                "reference": "80a734ed3a2688a1f3558e12b3f679e1407ba455"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/livewire/livewire/zipball/55e8a6269376945a59cecf998a25440af6df934a",
-                "reference": "55e8a6269376945a59cecf998a25440af6df934a",
+                "url": "https://api.github.com/repos/livewire/livewire/zipball/80a734ed3a2688a1f3558e12b3f679e1407ba455",
+                "reference": "80a734ed3a2688a1f3558e12b3f679e1407ba455",
                 "shasum": ""
             },
             "require": {
@@ -4062,7 +4062,7 @@
             "description": "A front-end framework for Laravel.",
             "support": {
                 "issues": "https://github.com/livewire/livewire/issues",
-                "source": "https://github.com/livewire/livewire/tree/v2.3.12"
+                "source": "https://github.com/livewire/livewire/tree/v2.3.13"
             },
             "funding": [
                 {
@@ -4070,7 +4070,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2021-02-03T13:17:17+00:00"
+            "time": "2021-02-03T14:33:58+00:00"
         },
         {
             "name": "mll-lab/laravel-graphql-playground",
