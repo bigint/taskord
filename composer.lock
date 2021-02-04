@@ -6167,16 +6167,16 @@
         },
         {
             "name": "rennokki/laravel-eloquent-query-cache",
-            "version": "2.5.1",
+            "version": "2.6.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/renoki-co/laravel-eloquent-query-cache.git",
-                "reference": "1440be4a099284efbf81884105e4e40628990002"
+                "reference": "6c0f022cbd0566ebf13a1937b0d311a20c695742"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/renoki-co/laravel-eloquent-query-cache/zipball/1440be4a099284efbf81884105e4e40628990002",
-                "reference": "1440be4a099284efbf81884105e4e40628990002",
+                "url": "https://api.github.com/repos/renoki-co/laravel-eloquent-query-cache/zipball/6c0f022cbd0566ebf13a1937b0d311a20c695742",
+                "reference": "6c0f022cbd0566ebf13a1937b0d311a20c695742",
                 "shasum": ""
             },
             "require": {
@@ -6219,7 +6219,7 @@
             ],
             "support": {
                 "issues": "https://github.com/renoki-co/laravel-eloquent-query-cache/issues",
-                "source": "https://github.com/renoki-co/laravel-eloquent-query-cache/tree/2.5.1"
+                "source": "https://github.com/renoki-co/laravel-eloquent-query-cache/tree/2.6.0"
             },
             "funding": [
                 {
@@ -6227,7 +6227,7 @@
                     "type": "ko_fi"
                 }
             ],
-            "time": "2021-01-20T08:21:03+00:00"
+            "time": "2021-02-04T16:00:00+00:00"
         },
         {
             "name": "seld/jsonlint",
