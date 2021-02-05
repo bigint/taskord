@@ -1663,16 +1663,16 @@
         },
         {
             "name": "enlightn/enlightn",
-            "version": "v1.9.0",
+            "version": "v1.10.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/enlightn/enlightn.git",
-                "reference": "d99ad9e752cbf62869eebc57032c48df7caa13e9"
+                "reference": "8d79d4458188592e2452f6dfe89f6f2adc24ed63"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/enlightn/enlightn/zipball/d99ad9e752cbf62869eebc57032c48df7caa13e9",
-                "reference": "d99ad9e752cbf62869eebc57032c48df7caa13e9",
+                "url": "https://api.github.com/repos/enlightn/enlightn/zipball/8d79d4458188592e2452f6dfe89f6f2adc24ed63",
+                "reference": "8d79d4458188592e2452f6dfe89f6f2adc24ed63",
                 "shasum": ""
             },
             "require": {
@@ -1738,9 +1738,9 @@
             "support": {
                 "docs": "https://www.laravel-enlightn.com/docs/",
                 "issues": "https://github.com/enlightn/enlightn/issues",
-                "source": "https://github.com/enlightn/enlightn/tree/v1.9.0"
+                "source": "https://github.com/enlightn/enlightn/tree/v1.10.0"
             },
-            "time": "2021-02-03T15:11:19+00:00"
+            "time": "2021-02-04T18:24:48+00:00"
         },
         {
             "name": "enlightn/security-checker",
