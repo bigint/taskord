@@ -1663,16 +1663,16 @@
         },
         {
             "name": "enlightn/enlightn",
-            "version": "v1.15.0",
+            "version": "v1.15.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/enlightn/enlightn.git",
-                "reference": "a1d334df1f3da9813f98b706e7e0eb8a94878826"
+                "reference": "f83302d53b6cba424e89de42361cc152944f30cf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/enlightn/enlightn/zipball/a1d334df1f3da9813f98b706e7e0eb8a94878826",
-                "reference": "a1d334df1f3da9813f98b706e7e0eb8a94878826",
+                "url": "https://api.github.com/repos/enlightn/enlightn/zipball/f83302d53b6cba424e89de42361cc152944f30cf",
+                "reference": "f83302d53b6cba424e89de42361cc152944f30cf",
                 "shasum": ""
             },
             "require": {
@@ -1689,6 +1689,7 @@
             "require-dev": {
                 "barryvdh/laravel-ide-helper": "^2.8",
                 "brianium/paratest": "^6.1",
+                "fideloper/proxy": "^4.4",
                 "friendsofphp/php-cs-fixer": "^2.18",
                 "mockery/mockery": "^1.3",
                 "orchestra/testbench": "^4.0|^5.0|^6.0",
@@ -1739,22 +1740,22 @@
             "support": {
                 "docs": "https://www.laravel-enlightn.com/docs/",
                 "issues": "https://github.com/enlightn/enlightn/issues",
-                "source": "https://github.com/enlightn/enlightn/tree/v1.15.0"
+                "source": "https://github.com/enlightn/enlightn/tree/v1.15.1"
             },
-            "time": "2021-02-16T06:19:54+00:00"
+            "time": "2021-02-21T09:05:20+00:00"
         },
         {
             "name": "enlightn/security-checker",
-            "version": "v1.5.0",
+            "version": "v1.5.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/enlightn/security-checker.git",
-                "reference": "85ada478c641a304112ddd43e0c67dd18ce7c51e"
+                "reference": "aa8170ec81d7b65e35efb3821159b198dd10eac3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/enlightn/security-checker/zipball/85ada478c641a304112ddd43e0c67dd18ce7c51e",
-                "reference": "85ada478c641a304112ddd43e0c67dd18ce7c51e",
+                "url": "https://api.github.com/repos/enlightn/security-checker/zipball/aa8170ec81d7b65e35efb3821159b198dd10eac3",
+                "reference": "aa8170ec81d7b65e35efb3821159b198dd10eac3",
                 "shasum": ""
             },
             "require": {
@@ -1803,9 +1804,9 @@
             ],
             "support": {
                 "issues": "https://github.com/enlightn/security-checker/issues",
-                "source": "https://github.com/enlightn/security-checker/tree/v1.5.0"
+                "source": "https://github.com/enlightn/security-checker/tree/v1.5.1"
             },
-            "time": "2021-02-09T10:28:00+00:00"
+            "time": "2021-02-17T16:25:07+00:00"
         },
         {
             "name": "erusev/parsedown",
@@ -5269,16 +5270,16 @@
         },
         {
             "name": "phpstan/phpstan",
-            "version": "0.12.76",
+            "version": "0.12.78",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpstan/phpstan.git",
-                "reference": "7aaaf9a759a29795e8f46d48041af1c1f1b23d38"
+                "reference": "eecce8d2ee3cac6769f37b4cb1998b2715f82984"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/7aaaf9a759a29795e8f46d48041af1c1f1b23d38",
-                "reference": "7aaaf9a759a29795e8f46d48041af1c1f1b23d38",
+                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/eecce8d2ee3cac6769f37b4cb1998b2715f82984",
+                "reference": "eecce8d2ee3cac6769f37b4cb1998b2715f82984",
                 "shasum": ""
             },
             "require": {
@@ -5309,7 +5310,7 @@
             "description": "PHPStan - PHP Static Analysis Tool",
             "support": {
                 "issues": "https://github.com/phpstan/phpstan/issues",
-                "source": "https://github.com/phpstan/phpstan/tree/0.12.76"
+                "source": "https://github.com/phpstan/phpstan/tree/0.12.78"
             },
             "funding": [
                 {
@@ -5325,7 +5326,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-02-13T11:47:44+00:00"
+            "time": "2021-02-20T13:24:36+00:00"
         },
         {
             "name": "propaganistas/laravel-disposable-email",
