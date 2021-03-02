@@ -65,6 +65,7 @@ Route::group(['middleware' => ['throttle:60,1']], function () {
     Route::group(['prefix' => 'settings', 'as' => 'user.settings.', 'middleware' => ['auth']], function () {
         Route::get('', [UserController::class, 'profileSettings'])->name('profile');
         Route::get('account', [UserController::class, 'accountSettings'])->name('account');
+        Route::get('products', [UserController::class, 'productsSettings'])->name('products');
         Route::get('patron', [UserController::class, 'patronSettings'])->name('patron');
         Route::get('password', [UserController::class, 'passwordSettings'])->name('password');
         Route::get('notifications', [UserController::class, 'notificationsSettings'])->name('notifications');

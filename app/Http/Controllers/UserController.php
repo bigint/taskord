@@ -63,6 +63,13 @@ class UserController extends Controller
         ]);
     }
 
+    public function productsSettings()
+    {
+        return view('user.settings.products', [
+            'user' => auth()->user(),
+        ]);
+    }
+
     public function patronSettings()
     {
         return view('user.settings.patron', [
