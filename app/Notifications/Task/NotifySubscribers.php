@@ -29,8 +29,8 @@ class NotifySubscribers extends Notification implements ShouldQueue
     public function toMail($notifiable)
     {
         $user = User::find($this->user_id);
-        
-        if (!$user->isFlagged) {
+
+        if (! $user->isFlagged) {
             return (new MailMessage)
                         ->subject('@'.$user->username.' commented on a subscribed task')
                         ->greeting('Hello @'.$notifiable->username.' 👋')

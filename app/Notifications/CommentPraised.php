@@ -39,8 +39,8 @@ class CommentPraised extends Notification implements ShouldQueue
     public function toMail($notifiable)
     {
         $user = User::find($this->user_id);
-        
-        if (!$user->isFlagged) {
+
+        if (! $user->isFlagged) {
             return (new MailMessage)
                         ->subject('@'.$user->username.' praised your comment')
                         ->greeting('Hello @'.$notifiable->username.' 👋')

@@ -39,8 +39,8 @@ class Answered extends Notification implements ShouldQueue
     public function toMail($notifiable)
     {
         $user = User::find($this->user_id);
-        
-        if (!$user->isFlagged) {
+
+        if (! $user->isFlagged) {
             return (new MailMessage)
                         ->subject('@'.$user->username.' answered your question')
                         ->greeting('Hello @'.$notifiable->username.' 👋')

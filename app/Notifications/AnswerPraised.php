@@ -40,7 +40,7 @@ class AnswerPraised extends Notification implements ShouldQueue
     {
         $user = User::find($this->user_id);
 
-        if (!$user->isFlagged) {
+        if (! $user->isFlagged) {
             return (new MailMessage)
                         ->subject('@'.$user->username.' praised your answer')
                         ->greeting('Hello @'.$notifiable->username.' 👋')

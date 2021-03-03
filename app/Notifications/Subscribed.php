@@ -39,8 +39,8 @@ class Subscribed extends Notification implements ShouldQueue
     public function toMail($notifiable)
     {
         $user = User::find($this->user_id);
-        
-        if (!$user->isFlagged) {
+
+        if (! $user->isFlagged) {
             return (new MailMessage)
                         ->subject('@'.$user->username.' subscribed to "'.$this->product->name.'"')
                         ->greeting('Hello @'.$notifiable->username.' 👋')
