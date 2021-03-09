@@ -2825,16 +2825,16 @@
         },
         {
             "name": "jantinnerezo/livewire-alert",
-            "version": "2.1.4",
+            "version": "2.1.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/jantinnerezo/livewire-alert.git",
-                "reference": "817215353d9af7ed97fec7e764f529d9b03b031d"
+                "reference": "e4fae96fd13f9a9bfb415993b8209313d492f547"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/jantinnerezo/livewire-alert/zipball/817215353d9af7ed97fec7e764f529d9b03b031d",
-                "reference": "817215353d9af7ed97fec7e764f529d9b03b031d",
+                "url": "https://api.github.com/repos/jantinnerezo/livewire-alert/zipball/e4fae96fd13f9a9bfb415993b8209313d492f547",
+                "reference": "e4fae96fd13f9a9bfb415993b8209313d492f547",
                 "shasum": ""
             },
             "require": {
@@ -2877,7 +2877,7 @@
             ],
             "support": {
                 "issues": "https://github.com/jantinnerezo/livewire-alert/issues",
-                "source": "https://github.com/jantinnerezo/livewire-alert/tree/2.1.4"
+                "source": "https://github.com/jantinnerezo/livewire-alert/tree/2.1.5"
             },
             "funding": [
                 {
@@ -2885,7 +2885,7 @@
                     "type": "custom"
                 }
             ],
-            "time": "2021-01-05T08:18:43+00:00"
+            "time": "2021-03-09T19:56:45+00:00"
         },
         {
             "name": "jaybizzle/crawler-detect",
