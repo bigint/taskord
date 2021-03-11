@@ -11557,16 +11557,16 @@
         },
         {
             "name": "phar-io/version",
-            "version": "3.0.4",
+            "version": "3.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phar-io/version.git",
-                "reference": "e4782611070e50613683d2b9a57730e9a3ba5451"
+                "reference": "bae7c545bef187884426f042434e561ab1ddb182"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phar-io/version/zipball/e4782611070e50613683d2b9a57730e9a3ba5451",
-                "reference": "e4782611070e50613683d2b9a57730e9a3ba5451",
+                "url": "https://api.github.com/repos/phar-io/version/zipball/bae7c545bef187884426f042434e561ab1ddb182",
+                "reference": "bae7c545bef187884426f042434e561ab1ddb182",
                 "shasum": ""
             },
             "require": {
@@ -11602,9 +11602,9 @@
             "description": "Library for handling version information and constraints",
             "support": {
                 "issues": "https://github.com/phar-io/version/issues",
-                "source": "https://github.com/phar-io/version/tree/3.0.4"
+                "source": "https://github.com/phar-io/version/tree/3.1.0"
             },
-            "time": "2020-12-13T23:18:30+00:00"
+            "time": "2021-02-23T14:00:09+00:00"
         },
         {
             "name": "phpdocumentor/reflection-common",
@@ -13329,16 +13329,16 @@
         },
         {
             "name": "wnx/laravel-stats",
-            "version": "v2.5.0",
+            "version": "v2.5.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/stefanzweifel/laravel-stats.git",
-                "reference": "d6237ba1e44def2abd89a1a96faa10f15e47358a"
+                "reference": "689408202f77cad97664458dcd6c59f9142dbdd7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/stefanzweifel/laravel-stats/zipball/d6237ba1e44def2abd89a1a96faa10f15e47358a",
-                "reference": "d6237ba1e44def2abd89a1a96faa10f15e47358a",
+                "url": "https://api.github.com/repos/stefanzweifel/laravel-stats/zipball/689408202f77cad97664458dcd6c59f9142dbdd7",
+                "reference": "689408202f77cad97664458dcd6c59f9142dbdd7",
                 "shasum": ""
             },
             "require": {
@@ -13351,12 +13351,14 @@
                 "symfony/process": "^4.3 || ^5.0"
             },
             "require-dev": {
+                "friendsofphp/php-cs-fixer": "^2.18",
                 "laravel/browser-kit-testing": "~5.0 || ~6.0 || ~7.0",
                 "laravel/dusk": "~5.0 || ~6.0",
                 "mockery/mockery": "^1.1",
                 "orchestra/testbench": "^4.0 || ^5.0 || ^6.0",
                 "phpunit/phpunit": "8.* || 9.*",
                 "psalm/plugin-laravel": "^1.4",
+                "rector/rector": "^0.9",
                 "vimeo/psalm": "^4.0"
             },
             "type": "library",
@@ -13394,7 +13396,7 @@
             ],
             "support": {
                 "issues": "https://github.com/stefanzweifel/laravel-stats/issues",
-                "source": "https://github.com/stefanzweifel/laravel-stats/tree/v2.5.0"
+                "source": "https://github.com/stefanzweifel/laravel-stats/tree/v2.5.1"
             },
             "funding": [
                 {
@@ -13406,7 +13408,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2020-11-20T19:49:06+00:00"
+            "time": "2021-03-11T18:36:42+00:00"
         }
     ],
     "aliases": [],
