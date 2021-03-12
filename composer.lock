@@ -6870,16 +6870,16 @@
         },
         {
             "name": "spatie/laravel-backup",
-            "version": "7.3.0",
+            "version": "7.3.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/laravel-backup.git",
-                "reference": "eb9e8c79363717df4962223c88996cd709e8585d"
+                "reference": "71f6378fc48940c6a5898df24113dee65ddfee00"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/laravel-backup/zipball/eb9e8c79363717df4962223c88996cd709e8585d",
-                "reference": "eb9e8c79363717df4962223c88996cd709e8585d",
+                "url": "https://api.github.com/repos/spatie/laravel-backup/zipball/71f6378fc48940c6a5898df24113dee65ddfee00",
+                "reference": "71f6378fc48940c6a5898df24113dee65ddfee00",
                 "shasum": ""
             },
             "require": {
@@ -6945,7 +6945,7 @@
             ],
             "support": {
                 "issues": "https://github.com/spatie/laravel-backup/issues",
-                "source": "https://github.com/spatie/laravel-backup/tree/7.3.0"
+                "source": "https://github.com/spatie/laravel-backup/tree/7.3.1"
             },
             "funding": [
                 {
@@ -6957,20 +6957,20 @@
                     "type": "other"
                 }
             ],
-            "time": "2021-03-04T12:00:21+00:00"
+            "time": "2021-03-12T21:51:59+00:00"
         },
         {
             "name": "spatie/laravel-package-tools",
-            "version": "1.4.0",
+            "version": "1.6.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/laravel-package-tools.git",
-                "reference": "53e2a33a30ff269d800a49200f567d78f03ecb44"
+                "reference": "c190a294db3a10a14e27db67cd286c3ce10c8277"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/laravel-package-tools/zipball/53e2a33a30ff269d800a49200f567d78f03ecb44",
-                "reference": "53e2a33a30ff269d800a49200f567d78f03ecb44",
+                "url": "https://api.github.com/repos/spatie/laravel-package-tools/zipball/c190a294db3a10a14e27db67cd286c3ce10c8277",
+                "reference": "c190a294db3a10a14e27db67cd286c3ce10c8277",
                 "shasum": ""
             },
             "require": {
@@ -7009,7 +7009,7 @@
             ],
             "support": {
                 "issues": "https://github.com/spatie/laravel-package-tools/issues",
-                "source": "https://github.com/spatie/laravel-package-tools/tree/1.4.0"
+                "source": "https://github.com/spatie/laravel-package-tools/tree/1.6.0"
             },
             "funding": [
                 {
@@ -7017,7 +7017,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2021-02-15T08:10:39+00:00"
+            "time": "2021-03-12T12:08:43+00:00"
         },
         {
             "name": "spatie/temporary-directory",
