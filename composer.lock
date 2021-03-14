@@ -4308,16 +4308,16 @@
         },
         {
             "name": "multicaret/laravel-acquaintances",
-            "version": "v3.4.1",
+            "version": "v3.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/multicaret/laravel-acquaintances.git",
-                "reference": "0f0d472f6e0ad342df4ecce0564af6c40444122b"
+                "reference": "8304ef5e68caadca69470211c82f901dff12bbbc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/multicaret/laravel-acquaintances/zipball/0f0d472f6e0ad342df4ecce0564af6c40444122b",
-                "reference": "0f0d472f6e0ad342df4ecce0564af6c40444122b",
+                "url": "https://api.github.com/repos/multicaret/laravel-acquaintances/zipball/8304ef5e68caadca69470211c82f901dff12bbbc",
+                "reference": "8304ef5e68caadca69470211c82f901dff12bbbc",
                 "shasum": ""
             },
             "require": {
@@ -4372,9 +4372,9 @@
             ],
             "support": {
                 "issues": "https://github.com/multicaret/laravel-acquaintances/issues",
-                "source": "https://github.com/multicaret/laravel-acquaintances/tree/v3.4.1"
+                "source": "https://github.com/multicaret/laravel-acquaintances/tree/v3.4.0"
             },
-            "time": "2021-03-13T20:30:23+00:00"
+            "time": "2020-10-25T10:56:58+00:00"
         },
         {
             "name": "nesbot/carbon",
