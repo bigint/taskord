@@ -20,7 +20,7 @@
     },
     "dependencies": {
         "@joeattardi/emoji-button": "^4.6.0",
-        "@sentry/browser": "^6.2.2",
+        "@sentry/browser": "^6.2.3",
         "@sentry/tracing": "^6.2.3",
         "bootstrap": "^5.0.0-beta2",
         "hotkeys-js": "^3.8.3",
