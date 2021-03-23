@@ -1667,16 +1667,16 @@
         },
         {
             "name": "enlightn/enlightn",
-            "version": "v1.20.0",
+            "version": "v1.21.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/enlightn/enlightn.git",
-                "reference": "32c94efdae0dc13ac30e00a67e17f8d4370a4d0a"
+                "reference": "959c9dc6d4dc95c6182569e96fc6e3c48ac538fc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/enlightn/enlightn/zipball/32c94efdae0dc13ac30e00a67e17f8d4370a4d0a",
-                "reference": "32c94efdae0dc13ac30e00a67e17f8d4370a4d0a",
+                "url": "https://api.github.com/repos/enlightn/enlightn/zipball/959c9dc6d4dc95c6182569e96fc6e3c48ac538fc",
+                "reference": "959c9dc6d4dc95c6182569e96fc6e3c48ac538fc",
                 "shasum": ""
             },
             "require": {
@@ -1744,9 +1744,9 @@
             "support": {
                 "docs": "https://www.laravel-enlightn.com/docs/",
                 "issues": "https://github.com/enlightn/enlightn/issues",
-                "source": "https://github.com/enlightn/enlightn/tree/v1.20.0"
+                "source": "https://github.com/enlightn/enlightn/tree/v1.21.0"
             },
-            "time": "2021-03-19T14:03:13+00:00"
+            "time": "2021-03-23T07:38:44+00:00"
         },
         {
             "name": "enlightn/security-checker",
@@ -2455,16 +2455,16 @@
         },
         {
             "name": "guzzlehttp/psr7",
-            "version": "1.7.0",
+            "version": "1.8.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/psr7.git",
-                "reference": "53330f47520498c0ae1f61f7e2c90f55690c06a3"
+                "reference": "35ea11d335fd638b5882ff1725228b3d35496ab1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/psr7/zipball/53330f47520498c0ae1f61f7e2c90f55690c06a3",
-                "reference": "53330f47520498c0ae1f61f7e2c90f55690c06a3",
+                "url": "https://api.github.com/repos/guzzle/psr7/zipball/35ea11d335fd638b5882ff1725228b3d35496ab1",
+                "reference": "35ea11d335fd638b5882ff1725228b3d35496ab1",
                 "shasum": ""
             },
             "require": {
@@ -2524,9 +2524,9 @@
             ],
             "support": {
                 "issues": "https://github.com/guzzle/psr7/issues",
-                "source": "https://github.com/guzzle/psr7/tree/1.7.0"
+                "source": "https://github.com/guzzle/psr7/tree/1.8.1"
             },
-            "time": "2020-09-30T07:37:11+00:00"
+            "time": "2021-03-21T16:25:00+00:00"
         },
         {
             "name": "hamcrest/hamcrest-php",
