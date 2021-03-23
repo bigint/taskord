@@ -118,9 +118,14 @@
                     <x-heroicon-o-cube-transparent class="heroicon text-white" />
                 </a>
             </span>
-            <span class="fw-bold">
+            <span class="fw-bold me-3">
                 <a href="{{ route('admin.users') }}" title="Admin">
                     <x-heroicon-o-shield-check class="heroicon text-white" />
+                </a>
+            </span>
+            <span class="fw-bold">
+                <a class="cursor-pointer" data-bs-toggle="modal" data-bs-target="#deployModal" title="Deploy">
+                    <x-heroicon-o-cloud class="heroicon text-white" />
                 </a>
             </span>
         </span>
@@ -146,6 +151,43 @@
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                     <button class="btn btn-primary" wire:loading.attr="disabled" wire:click="clean" data-bs-dismiss="modal">
                         Clean Cache
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal" id="cacheModal" tabindex="-1" aria-labelledby="cacheModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title text-dark" id="cacheModalLabel">Memcached Cache Hits</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body" id="cacheModalBody">
+                    <div class="d-flex justify-content-center">
+                        <div class="spinner-border taskord-spinner text-secondary" role="status"></div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div wire:ignore.self class="modal" data-bs-backdrop="static" id="deployModal" tabindex="-1" aria-labelledby="deployModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title text-dark" id="deployModalLabel">Are you sure?</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    WIP
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button class="btn btn-primary" wire:loading.attr="disabled" wire:click="deploy" data-bs-dismiss="modal">
+                        Deploy now
                     </button>
                 </div>
             </div>
