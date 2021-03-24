@@ -36,7 +36,7 @@
                 </li>
                 @endauth
                 <li class="nav-item">
-                    <a class="nav-link text-white fw-bold" href="{{ route('explore') }}">
+                    <a class="nav-link text-white fw-bold" href="{{ route('explore.explore') }}">
                         Explore
                         <x-beta background="dark" />
                     </a>
