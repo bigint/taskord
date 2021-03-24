@@ -183,6 +183,7 @@
                 </div>
                 <div class="modal-body row">
                     <img src="https://media.giphy.com/media/1UYw95vafYW4QCQwOK/giphy.gif" />
+                    <livewire:admin.commit />
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
