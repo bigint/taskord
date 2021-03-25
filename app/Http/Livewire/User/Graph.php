@@ -39,7 +39,7 @@ class Graph extends Component
 
             array_push($tasks, $count);
         }
-        
+
         if ($type === 'tasks') {
             return $tasks;
         } else {

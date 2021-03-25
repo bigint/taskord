@@ -23,7 +23,7 @@ class Moderator extends Component
         $this->user = $user;
         $this->staff_notes = $user->staff_notes;
     }
-    
+
     public function loadModerator()
     {
         $this->readyToLoad = true;
@@ -580,7 +580,7 @@ class Moderator extends Component
 
         $this->alert('success', 'Note updated!');
     }
-    
+
     public function render()
     {
         return view('livewire.user.moderator', [
