@@ -190,6 +190,10 @@
                     <div id="deployModalCIBody" class="text-dark">
                         <div class="mt-2 spinner-border taskord-spinner text-secondary" role="status"></div>
                     </div>
+                    <h4 class="mt-3 text-dark">Deployment Details</h4>
+                    <div id="deployModalDeploymentBody" class="text-dark">
+                        <div class="mt-2 spinner-border taskord-spinner text-secondary" role="status"></div>
+                    </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
