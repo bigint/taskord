@@ -12,6 +12,7 @@ use Multicaret\Acquaintances\Traits\CanBeFollowed;
 use Multicaret\Acquaintances\Traits\CanFollow;
 use Multicaret\Acquaintances\Traits\CanLike;
 use Multicaret\Acquaintances\Traits\CanSubscribe;
+use Nicolaslopezj\Searchable\SearchableTrait;
 use QCod\Gamify\Gamify;
 use Rennokki\QueryCache\Traits\QueryCacheable;
 
@@ -23,6 +24,7 @@ class User extends Authenticatable implements MustVerifyEmail
     use CanFollow, CanBeFollowed, CanSubscribe;
     use QueryCacheable;
     use HasFactory;
+    use SearchableTrait;
 
     public $cacheFor = 3600;
     public $cacheTags = ['users'];
@@ -39,6 +41,13 @@ class User extends Authenticatable implements MustVerifyEmail
         'lastIP',
         'email_verified_at',
         'api_token',
+    ];
+
+    protected $searchable = [
+        'columns' => [
+            'users.username' => 10,
+            'users.firstname' => 9,
+        ],
     ];
 
     /**

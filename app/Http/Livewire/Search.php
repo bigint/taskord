@@ -35,18 +35,15 @@ class Search extends Component
                 ]);
             })
             ->where('hidden', false)
-            ->where('task', 'LIKE', '%'.$this->query.'%')
+            ->search($this->query)
             ->take(3)
             ->get();
-        $this->users = User::select('username', 'firstname', 'lastname', 'avatar', 'isVerified')
-            ->where('username', 'LIKE', '%'.$this->query.'%')
-            ->orWhere('firstname', 'LIKE', '%'.$this->query.'%')
-            ->orWhere('lastname', 'LIKE', '%'.$this->query.'%')
+        $this->users = User::where('isFlagged', 'false')
+            ->search($this->query)
             ->take(3)
             ->get();
         $this->products = Product::select('slug', 'name', 'avatar', 'user_id')
-            ->where('slug', 'LIKE', '%'.$this->query.'%')
-            ->orWhere('name', 'LIKE', '%'.$this->query.'%')
+            ->search($this->query)
             ->take(3)
             ->get();
         $this->questions = Question::select('id', 'title', 'user_id')
@@ -56,7 +53,7 @@ class Search extends Component
                 ]);
             })
             ->where('hidden', false)
-            ->where('title', 'LIKE', '%'.$this->query.'%')
+            ->search($this->query)
             ->take(3)
             ->get();
     }

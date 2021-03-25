@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Multicaret\Acquaintances\Traits\CanBeSubscribed;
+use Nicolaslopezj\Searchable\SearchableTrait;
 use Rennokki\QueryCache\Traits\QueryCacheable;
 
 class Product extends Model
@@ -12,6 +13,7 @@ class Product extends Model
     use CanBeSubscribed;
     use QueryCacheable;
     use HasFactory;
+    use SearchableTrait;
 
     public $cacheFor = 3600;
     public $cacheTags = ['products'];
@@ -34,6 +36,13 @@ class Product extends Model
 
     protected $dates = [
         'launched_at',
+    ];
+
+    protected $searchable = [
+        'columns' => [
+            'products.slug' => 10,
+            'products.name' => 9,
+        ],
     ];
 
     public function owner()

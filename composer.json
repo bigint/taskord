@@ -32,6 +32,7 @@
         "mll-lab/laravel-graphql-playground": "^2.4",
         "multicaret/laravel-acquaintances": "^3.3",
         "nesbot/carbon": "^2.36",
+        "nicolaslopezj/searchable": "^1.13",
         "nuwave/lighthouse": "v5.3.0",
         "propaganistas/laravel-disposable-email": "^2.0",
         "qcod/laravel-gamify": "^1.0",
