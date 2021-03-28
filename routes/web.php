@@ -3,6 +3,7 @@
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\FeedController;
 use App\Http\Controllers\MeetupController;
+use App\Http\Controllers\MilestoneController;
 use App\Http\Controllers\PagesController;
 use App\Http\Controllers\PatronController;
 use App\Http\Controllers\ProductController;
@@ -123,6 +124,12 @@ Route::group(['middleware' => ['throttle:60,1']], function () {
         Route::get('', [QuestionController::class, 'newest'])->name('newest');
         Route::get('unanswered', [QuestionController::class, 'unanswered'])->name('unanswered');
         Route::get('popular', [QuestionController::class, 'popular'])->name('popular');
+    });
+
+    // Milestone
+    Route::group(['prefix' => 'milestones', 'as' => 'milestones.'], function () {
+        Route::get('', [MilestoneController::class, 'home'])->name('home');
+        Route::get('{id}', [MilestoneController::class, 'milestone'])->name('milestone');
     });
 
     // Search
