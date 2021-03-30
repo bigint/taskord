@@ -22,7 +22,7 @@
     "dependencies": {
         "@joeattardi/emoji-button": "^4.6.0",
         "@sentry/browser": "^6.2.3",
-        "@sentry/tracing": "^6.2.3",
+        "@sentry/tracing": "^6.2.4",
         "bootstrap": "^5.0.0-beta3",
         "hotkeys-js": "^3.8.3",
         "observe-element-in-viewport": "0.0.15",
