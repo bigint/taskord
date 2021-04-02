@@ -1,7 +1,12 @@
 @extends('layouts.app')
 
+@if ($type === 'products.newest')
 @section('pageTitle', 'Products / Newest ·')
 @section('title', 'Products / Newest ·')
+@else
+@section('pageTitle', 'Products / Launched ·')
+@section('title', 'Products / Launched ·')
+@endif
 @section('description', 'Public products available in Taskord.')
 @section('image', '')
 @section('url', url()->current())

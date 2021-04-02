@@ -68,6 +68,27 @@ class SingleMilestone extends Component
         }
     }
 
+    public function toggleStatus()
+    {
+        if (Auth::check()) {
+            if ($this->milestone->status) {
+                $this->milestone->status = false;
+                $this->milestone->save();
+                loggy(request()->ip(), 'Milestone', auth()->user(), 'Closed the milestone | Milestone ID: '.$this->milestone->id);
+
+                return redirect()->route('milestones.milestone', ['id' => $this->milestone->id]);
+            } else {
+                $this->milestone->status = true;
+                $this->milestone->save();
+                loggy(request()->ip(), 'Milestone', auth()->user(), 'Opened the milestone | Milestone ID: '.$this->milestone->id);
+
+                return redirect()->route('milestones.milestone', ['id' => $this->milestone->id]);
+            }
+        } else {
+            return $this->alert('error', 'Forbidden!');
+        }
+    }
+
     public function confirmDelete()
     {
         $this->confirming = $this->milestone->id;

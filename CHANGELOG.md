@@ -5,6 +5,7 @@
 ### **v1.0.8** (WIP)
 
 - Fix modal transition animation issue 🍃
+- Add milestone feature ⛳
 
 ## Released
 

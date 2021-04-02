@@ -78,14 +78,14 @@ class ProductController extends Controller
 
     public function newest()
     {
-        return view('products.newest', [
+        return view('products.products', [
             'type' => 'products.newest',
         ]);
     }
 
     public function launched()
     {
-        return view('products.launched', [
+        return view('products.products', [
             'type' => 'products.launched',
         ]);
     }

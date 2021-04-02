@@ -29,13 +29,25 @@ class Milestones extends Component
 
     public function getMilestones()
     {
-        return Milestone::whereHas('user', function ($q) {
-            $q->where([
-                ['isFlagged', false],
-            ]);
-        })
-            ->latest()
-            ->get();
+        if ($this->type === 'milestones.opened') {
+            return Milestone::where('status', true)
+                ->whereHas('user', function ($q) {
+                    $q->where([
+                        ['isFlagged', false],
+                    ]);
+                })
+                ->latest()
+                ->get();
+        } elseif ($this->type === 'milestones.closed') {
+            return Milestone::where('status', false)
+                ->whereHas('user', function ($q) {
+                    $q->where([
+                        ['isFlagged', false],
+                    ]);
+                })
+                ->latest()
+                ->get();
+        }
     }
 
     public function paginate($items, $options = [])

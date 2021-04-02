@@ -9,21 +9,21 @@ class QuestionController extends Controller
 {
     public function newest()
     {
-        return view('question.newest', [
+        return view('question.questions', [
             'type' => 'questions.newest',
         ]);
     }
 
     public function unanswered()
     {
-        return view('question.unanswered', [
+        return view('question.questions', [
             'type' => 'questions.unanswered',
         ]);
     }
 
     public function popular()
     {
-        return view('question.popular', [
+        return view('question.questions', [
             'type' => 'questions.popular',
         ]);
     }

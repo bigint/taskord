@@ -126,6 +126,31 @@
                 <x-heroicon-o-eye-off class="heroicon-small me-0" />
             </button>
             @endif
+            @if (auth()->user()->staffShip or auth()->user()->id === $milestone->user->id)
+            @if ($type === "milestones.milestone")
+            @if ($milestone->status)
+            <button type="button" class="btn btn-danger btn-task float-end" wire:click="toggleStatus" wire:loading.attr="disabled">
+                <x-heroicon-o-x class="heroicon-small" />
+                Close Milestone
+            </button>
+            @else
+            <button type="button" class="btn btn-success btn-task text-white float-end" wire:click="toggleStatus" wire:loading.attr="disabled">
+                <x-heroicon-o-check class="heroicon-small" />
+                Open Milestone
+            </button>
+            @endif
+            @else
+            @if ($milestone->status)
+            <div class="float-end text-success fw-bold">
+                OPENED
+            </div>
+            @else
+            <div class="float-end text-danger fw-bold">
+                CLOSED
+            </div>
+            @endif
+            @endif
+            @endif
             @endauth
             @guest
                 <a href="/login" class="btn btn-task btn-outline-success me-1" aria-label="Praises">
