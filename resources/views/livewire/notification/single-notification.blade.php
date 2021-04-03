@@ -186,7 +186,13 @@
                     </span>
                 @elseif ($type === "App\Notifications\Welcome")
                     <span class="ms-1 fw-bold">
-                        Welcome to Taskord
+                        <span>Welcome to Taskord! 👋</span>
+                        <div class="mt-3">
+                            <a href="{{ route('explore.explore') }}">Explore</a> what's happening on Taskord
+                        </div>
+                        <div class="mt-3">
+                            Have a nice day 💜
+                        </div>
                     </span>
                 @elseif ($type === "App\Notifications\VersionReleased")
                     <span class="ms-1 fw-bold">
