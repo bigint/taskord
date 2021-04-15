@@ -3,8 +3,6 @@
 namespace App\Http\Livewire\Task;
 
 use Livewire\Component;
-use App\Models\Task;
-use App\Models\Comment;
 
 class Comments extends Component
 {
@@ -24,8 +22,9 @@ class Comments extends Component
     public function render()
     {
         $comments = $this->task->comments->take(5);
+
         return view('livewire.task.comments', [
-            'comments' => $comments
+            'comments' => $comments,
         ]);
     }
 }
