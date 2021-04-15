@@ -17,10 +17,12 @@ class SingleTask extends Component
     public Task $task;
     public $confirming;
     public $launched;
+    public $showComments;
 
-    public function mount($task)
+    public function mount($task, $showComments = true)
     {
         $this->task = $task;
+        $this->showComments = $showComments;
     }
 
     public function checkTask()

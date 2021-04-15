@@ -17,7 +17,8 @@
             <div class="card">
                 <span class="p-3">
                 @livewire('task.single-task', [
-                    'task' => $task
+                    'task' => $task,
+                    'showComments' => false
                 ], key($task->id))
                 </span>
             </div>
