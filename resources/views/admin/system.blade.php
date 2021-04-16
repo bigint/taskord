@@ -11,28 +11,53 @@
     <div class="row justify-content-center">
         <div class="container-md">
             @include('admin.nav')
-            <div class="card" wire:init="loadTasks">
+            <div class="card">
                 <div class="card-header h6 pt-3 pb-3">
                     <div class="h5">System Info</div>
                     Taskord's system info
                 </div>
-                <div class="card-body">
-                    <div class="card">
-                        <div class="card-header fw-bold">
-                            Disk Info
+                <div class="card-body row-col-2">
+                    <div class="row">
+                        <div class="col-md">
+                            <div class="card">
+                                <div class="card-header fw-bold">
+                                    Disk Info
+                                </div>
+                                <div class="card-body">
+                                    <div>
+                                        <span class="fw-bold">Total Storage: </span>
+                                        <span>{{ $ds }}</span>
+                                    </div>
+                                    <div>
+                                        <span class="fw-bold">Disk used: </span>
+                                        <span>{{ $du }}</span>
+                                    </div>
+                                    <div>
+                                        <span class="fw-bold">Disk available: </span>
+                                        <span>{{ $df }}</span>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <div class="card-body">
-                            <div>
-                                <span class="fw-bold">Total Storage: </span>
-                                <span>{{ $ds }}</span>
-                            </div>
-                            <div>
-                                <span class="fw-bold">Disk used: </span>
-                                <span>{{ $du }}</span>
-                            </div>
-                            <div>
-                                <span class="fw-bold">Disk available: </span>
-                                <span>{{ $df }}</span>
+                        <div class="col-md">
+                            <div class="card">
+                                <div class="card-header fw-bold">
+                                    Disk Info
+                                </div>
+                                <div class="card-body">
+                                    <div>
+                                        <span class="fw-bold">Total Storage: </span>
+                                        <span>{{ $ds }}</span>
+                                    </div>
+                                    <div>
+                                        <span class="fw-bold">Disk used: </span>
+                                        <span>{{ $du }}</span>
+                                    </div>
+                                    <div>
+                                        <span class="fw-bold">Disk available: </span>
+                                        <span>{{ $df }}</span>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
