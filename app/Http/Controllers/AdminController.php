@@ -92,4 +92,11 @@ class AdminController extends Controller
             return 'Something went wrong!';
         }
     }
+
+    public static function system()
+    {
+        return view('admin.system', [
+            'deployments' => 1,
+        ]);
+    }
 }

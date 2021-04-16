@@ -11,7 +11,15 @@
     <div class="row justify-content-center">
         <div class="container-md">
             @include('admin.nav')
-            @livewire('admin.tasks')
+            <div class="card" wire:init="loadTasks">
+                <div class="card-header h6 pt-3 pb-3">
+                    <div class="h5">System Info</div>
+                    Taskord's system info
+                </div>
+                <div class="card-body">
+                    
+                </div>
+            </div>
         </div>
     </div>
 </div>
