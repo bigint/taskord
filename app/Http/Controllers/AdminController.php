@@ -95,8 +95,10 @@ class AdminController extends Controller
 
     public static function system()
     {
+        $df = disk_free_space("/");
+
         return view('admin.system', [
-            'deployments' => 1,
+            'df' => $df,
         ]);
     }
 }

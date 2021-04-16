@@ -17,7 +17,7 @@
                     Taskord's system info
                 </div>
                 <div class="card-body">
-                    
+                    {{ $df }}
                 </div>
             </div>
         </div>
