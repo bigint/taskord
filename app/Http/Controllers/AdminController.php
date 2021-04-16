@@ -93,19 +93,20 @@ class AdminController extends Controller
         }
     }
 
-    function formatBytes($size, $precision = 2)
+    public function formatBytes($size, $precision = 2)
     {
         $base = log($size, 1024);
-        $suffixes = array('', 'K', 'M', 'G', 'T');   
-    
-        return round(pow(1024, $base - floor($base)), $precision) .' '. $suffixes[floor($base)];
+        $suffixes = ['', 'K', 'M', 'G', 'T'];
+
+        return round(pow(1024, $base - floor($base)), $precision).' '.$suffixes[floor($base)];
     }
 
     public static function system()
     {
-        $df = disk_free_space("/");
-        $ds = disk_total_space("/");
+        $df = disk_free_space('/');
+        $ds = disk_total_space('/');
         $du = $ds - $df;
+
         return view('admin.system', [
             'df' => formatBytes($df),
             'ds' => formatBytes($ds),
