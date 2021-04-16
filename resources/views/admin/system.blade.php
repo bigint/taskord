@@ -26,15 +26,15 @@
                                 <div class="card-body">
                                     <div>
                                         <span class="fw-bold">Total Storage: </span>
-                                        <span>{{ $ds }}</span>
+                                        <span>{{ formatBytes(disk_total_space('/')) }}</span>
                                     </div>
                                     <div>
                                         <span class="fw-bold">Disk used: </span>
-                                        <span>{{ $du }}</span>
+                                        <span>{{ formatBytes(disk_total_space('/') - disk_free_space('/')) }}</span>
                                     </div>
                                     <div>
                                         <span class="fw-bold">Disk available: </span>
-                                        <span>{{ $df }}</span>
+                                        <span>{{ formatBytes(disk_free_space('/')) }}</span>
                                     </div>
                                 </div>
                             </div>
@@ -42,20 +42,20 @@
                         <div class="col-md">
                             <div class="card">
                                 <div class="card-header fw-bold">
-                                    Disk Info
+                                    Memory Info
                                 </div>
                                 <div class="card-body">
                                     <div>
                                         <span class="fw-bold">Total Storage: </span>
-                                        <span>{{ $ds }}</span>
+                                        <span>{{ formatBytes(memory_get_usage()) }}</span>
                                     </div>
                                     <div>
                                         <span class="fw-bold">Disk used: </span>
-                                        <span>{{ $du }}</span>
+                                        <span>{{ formatBytes(memory_get_usage()) }}</span>
                                     </div>
                                     <div>
                                         <span class="fw-bold">Disk available: </span>
-                                        <span>{{ $df }}</span>
+                                        <span>{{ formatBytes(memory_get_usage()) }}</span>
                                     </div>
                                 </div>
                             </div>
