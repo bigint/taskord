@@ -106,7 +106,6 @@ class AdminController extends Controller
         $df = disk_free_space("/");
         $ds = disk_total_space("/");
         $du = $ds - $df;
-
         return view('admin.system', [
             'df' => formatBytes($df),
             'ds' => formatBytes($ds),
