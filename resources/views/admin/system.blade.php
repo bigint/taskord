@@ -17,7 +17,25 @@
                     Taskord's system info
                 </div>
                 <div class="card-body">
-                    {{ $df }}
+                    <div class="card">
+                        <div class="card-header fw-bold">
+                            Disk Info
+                        </div>
+                        <div class="card-body">
+                            <div>
+                                <span class="fw-bold">Total Storage: </span>
+                                <span>{{ $ds }}</span>
+                            </div>
+                            <div>
+                                <span class="fw-bold">Disk used: </span>
+                                <span>{{ $du }}</span>
+                            </div>
+                            <div>
+                                <span class="fw-bold">Disk available: </span>
+                                <span>{{ $df }}</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
