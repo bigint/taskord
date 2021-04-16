@@ -103,6 +103,12 @@ class AdminController extends Controller
 
     public static function system()
     {
-        return view('admin.system');
+        $contents = file_get_contents('/proc/meminfo');
+        preg_match_all('/(\w+):\s+(\d+)\s/', $contents, $matches);
+        $meminfo = array_combine($matches[1], $matches[2]);
+
+        return view('admin.system', [
+            'meminfo' => $meminfo,
+        ]);
     }
 }

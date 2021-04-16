@@ -18,44 +18,48 @@
                 </div>
                 <div class="card-body row-col-2">
                     <div class="row">
-                        <div class="col-md">
+                        <div class="col-md mb-3">
                             <div class="card">
                                 <div class="card-header fw-bold">
                                     Disk Info
                                 </div>
                                 <div class="card-body">
                                     <div>
-                                        <span class="fw-bold">Total Storage: </span>
+                                        <span class="fw-bold">Total: </span>
                                         <span>{{ formatBytes(disk_total_space('/')) }}</span>
                                     </div>
                                     <div>
-                                        <span class="fw-bold">Disk used: </span>
+                                        <span class="fw-bold">Used: </span>
                                         <span>{{ formatBytes(disk_total_space('/') - disk_free_space('/')) }}</span>
                                     </div>
                                     <div>
-                                        <span class="fw-bold">Disk available: </span>
+                                        <span class="fw-bold">Available: </span>
                                         <span>{{ formatBytes(disk_free_space('/')) }}</span>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md">
+                        <div class="col-md mb-3">
                             <div class="card">
                                 <div class="card-header fw-bold">
                                     Memory Info
                                 </div>
                                 <div class="card-body">
                                     <div>
-                                        <span class="fw-bold">Total Storage: </span>
-                                        <span>{{ formatBytes(memory_get_usage()) }}</span>
+                                        <span class="fw-bold">Total: </span>
+                                        <span>{{ formatBytes(floatval($meminfo['MemTotal']) * 1024) }}</span>
                                     </div>
                                     <div>
-                                        <span class="fw-bold">Disk used: </span>
-                                        <span>{{ formatBytes(memory_get_usage()) }}</span>
+                                        <span class="fw-bold">Free: </span>
+                                        <span>{{ formatBytes(floatval($meminfo['MemFree']) * 1024) }}</span>
                                     </div>
                                     <div>
-                                        <span class="fw-bold">Disk available: </span>
-                                        <span>{{ formatBytes(memory_get_usage()) }}</span>
+                                        <span class="fw-bold">Available: </span>
+                                        <span>{{ formatBytes(floatval($meminfo['MemAvailable']) * 1024) }}</span>
+                                    </div>
+                                    <div>
+                                        <span class="fw-bold">Cached: </span>
+                                        <span>{{ formatBytes(floatval($meminfo['Cached']) * 1024) }}</span>
                                     </div>
                                 </div>
                             </div>
