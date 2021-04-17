@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
-@section('pageTitle', 'Admin - Tasks ·')
-@section('title', 'Admin - Tasks ·')
+@section('pageTitle', 'Admin - System ·')
+@section('title', 'Admin - System ·')
 @section('description', 'Get things done socially with Taskord.')
 @section('image', '')
 @section('url', url()->current())
@@ -17,7 +17,7 @@
                     Taskord's system info
                 </div>
                 <div class="card-body">
-                    <h5 class="mb-2">System</h4>
+                    <h5 class="mb-3">System</h4>
                     <div class="row">
                         <div class="col-md-3 mb-4">
                             <div class="card">
@@ -85,8 +85,7 @@
                             </div>
                         </div>
                     </div>
-                    <hr />
-                    <h5 class="mb-2 mt-4">Database</h4>
+                    <h5 class="mb-3 mt-4">Database</h4>
                     <div class="row">
                         <div class="col-md-3 mb-4">
                             <div class="card">

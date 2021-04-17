@@ -24,67 +24,6 @@
             </a>
         </span>
         <span class="float-end">
-            <span role="button" class="dropdown">
-                <span class="fw-bold me-3" data-bs-toggle="dropdown">
-                    <x-heroicon-o-chart-bar class="heroicon" />
-                    Stats
-                </span>
-                <ul class="dropdown-menu shadow-sm border mt-2">
-                    <li class="dropdown-item">
-                        <x-heroicon-o-check class="heroicon text-secondary me-1" />
-                        <span class="fw-bold">{{ $tasks }}</span> Tasks
-                    </li>
-                    <li class="dropdown-item">
-                        <x-heroicon-o-users class="heroicon text-secondary me-1" />
-                        <span class="fw-bold">{{ $users }}</span> Users
-                    </li>
-                    <li class="dropdown-item">
-                        <x-heroicon-o-cube class="heroicon text-secondary me-1" />
-                        <span class="fw-bold">{{ $products }}</span> Products
-                    </li>
-                    <li class="dropdown-item">
-                        <x-heroicon-o-question-mark-circle class="heroicon text-secondary me-1" />
-                        <span class="fw-bold">{{ $questions }}</span> Questions
-                    </li>
-                    <li class="dropdown-item">
-                        <x-heroicon-o-chat-alt-2 class="heroicon text-secondary me-1" />
-                        <span class="fw-bold">{{ $answers }}</span> Answers
-                    </li>
-                    <li class="dropdown-item">
-                        <x-heroicon-o-chat-alt class="heroicon text-secondary me-1" />
-                        <span class="fw-bold">{{ $comments }}</span> Comments
-                    </li>
-                    <li class="dropdown-item">
-                        <x-heroicon-o-fire class="heroicon text-secondary me-1" />
-                        <span class="fw-bold">{{ $reputations }}</span> Reputations
-                    </li>
-                    <li class="dropdown-item">
-                        <x-heroicon-o-thumb-up class="heroicon text-secondary me-1" />
-                        <span class="fw-bold">{{ $praises }}</span> Praises
-                    </li>
-                    <li class="dropdown-item">
-                        <x-heroicon-o-bell class="heroicon text-secondary me-1" />
-                        <span class="fw-bold">{{ $notifications }}</span> Notifications
-                    </li>
-                    <li class="dropdown-item">
-                        <x-heroicon-o-cloud-upload class="heroicon text-secondary me-1" />
-                        <span class="fw-bold">{{ $webhooks }}</span> Webhooks
-                    </li>
-                    <li class="dropdown-item">
-                        <x-heroicon-o-switch-horizontal class="heroicon text-secondary me-1" />
-                        <span class="fw-bold">{{ $interactions }}</span> Interactions
-                    </li>
-                    <li class="dropdown-item">
-                        <x-heroicon-o-collection class="heroicon text-secondary me-1" />
-                        <span class="fw-bold">{{ $logs }}</span> Logs
-                    </li>
-                    <div class="dropdown-divider"></div>
-                    <li class="dropdown-item" wire:click="refreshStats">
-                        <x-heroicon-o-refresh class="heroicon text-secondary me-1" />
-                        Refresh
-                    </li>
-                </ul>
-            </span>
             <a class="fw-bold me-3 text-white" href="/admin/horizon" target="_blank" rel="noreferrer">
                 <x-heroicon-o-collection class="heroicon" />
                 {{ $jobs }}

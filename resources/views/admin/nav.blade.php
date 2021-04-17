@@ -1,5 +1,8 @@
 <ul class="nav nav-pills justify-content-center mb-3">
     <li class="nav-item">
+        <a class="nav-link @if (Route::currentRouteName() === 'admin.stats') active @endif" href="{{ route('admin.stats') }}">Stats</a>
+    </li>
+    <li class="nav-item">
         <a class="nav-link @if (Route::currentRouteName() === 'admin.users') active @endif" href="{{ route('admin.users') }}">Users</a>
     </li>
     <li class="nav-item">

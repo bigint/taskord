@@ -5,7 +5,14 @@
         total users
     </div>
     <div class="table-responsive">
-        @if ($readyToLoad)
+        @if (!$readyToLoad)
+        <div class="card-body text-center mt-3">
+            <div class="spinner-border taskord-spinner text-secondary mb-3" role="status"></div>
+            <div class="h6">
+                Loading Users...
+            </div>
+        </div>
+        @else
         <table class="table text-dark">
             <thead>
                 <tr>
@@ -199,14 +206,6 @@
                 @endforeach
             </tbody>
         </table>
-        @endif
-        @if (!$readyToLoad)
-        <div class="card-body text-center mt-3">
-            <div class="spinner-border taskord-spinner text-secondary mb-3" role="status"></div>
-            <div class="h6">
-                Loading Users...
-            </div>
-        </div>
         @endif
     </div>
     {{ $readyToLoad ? $users->links() : '' }}
