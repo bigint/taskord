@@ -14,7 +14,7 @@
         "blade-ui-kit/blade-heroicons": "1.0.1",
         "cyrildewit/eloquent-viewable": "6.0.2",
         "doctrine/dbal": "3.0.0",
-        "enlightn/enlightn": "1.21.0",
+        "enlightn/enlightn": "1.22.0",
         "fideloper/proxy": "4.4.1",
         "fruitcake/laravel-cors": "2.0.3",
         "graham-campbell/throttle": "8.1.0",
