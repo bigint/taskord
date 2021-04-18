@@ -28,7 +28,7 @@
         "laravel/socialite": "5.2.3",
         "laravel/tinker": "2.6.1",
         "laravel/ui": "3.2.0",
-        "livewire/livewire": "2.4.2",
+        "livewire/livewire": "2.4.3",
         "mll-lab/laravel-graphql-playground": "2.5.0",
         "multicaret/laravel-acquaintances": "3.5.0",
         "nesbot/carbon": "2.46.0",
