@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "dbdbae41a49a757bac49ce4b379c8246",
+    "content-hash": "339e5330df4fed92a3bc5cf0d28606ac",
     "packages": [
         {
             "name": "alfredo-ramos/parsedown-extra-laravel",
@@ -4317,16 +4317,16 @@
         },
         {
             "name": "multicaret/laravel-acquaintances",
-            "version": "v3.5.0",
+            "version": "v3.5.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/multicaret/laravel-acquaintances.git",
-                "reference": "240ed186f8a4786f3a95c0e2120e6f8f93215e67"
+                "reference": "5fcf08a61668c586ce8402af442179e0ccee1f1f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/multicaret/laravel-acquaintances/zipball/240ed186f8a4786f3a95c0e2120e6f8f93215e67",
-                "reference": "240ed186f8a4786f3a95c0e2120e6f8f93215e67",
+                "url": "https://api.github.com/repos/multicaret/laravel-acquaintances/zipball/5fcf08a61668c586ce8402af442179e0ccee1f1f",
+                "reference": "5fcf08a61668c586ce8402af442179e0ccee1f1f",
                 "shasum": ""
             },
             "require": {
@@ -4381,9 +4381,9 @@
             ],
             "support": {
                 "issues": "https://github.com/multicaret/laravel-acquaintances/issues",
-                "source": "https://github.com/multicaret/laravel-acquaintances/tree/v3.5.0"
+                "source": "https://github.com/multicaret/laravel-acquaintances/tree/v3.5.1"
             },
-            "time": "2021-04-17T16:26:57+00:00"
+            "time": "2021-04-21T00:06:17+00:00"
         },
         {
             "name": "nesbot/carbon",
