@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5074b9e5e9aeaeb90b8060ec78233d2d",
+    "content-hash": "46f7c9adf9732946601e226ff2e5029d",
     "packages": [
         {
             "name": "alfredo-ramos/parsedown-extra-laravel",
@@ -6995,16 +6995,16 @@
         },
         {
             "name": "spatie/laravel-backup",
-            "version": "7.5.1",
+            "version": "7.5.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/laravel-backup.git",
-                "reference": "f6be7328249d6e8557f9e2fee7ffa4446461793b"
+                "reference": "61296bfd8ada78893f926ab6df47d56e0ea3b419"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/laravel-backup/zipball/f6be7328249d6e8557f9e2fee7ffa4446461793b",
-                "reference": "f6be7328249d6e8557f9e2fee7ffa4446461793b",
+                "url": "https://api.github.com/repos/spatie/laravel-backup/zipball/61296bfd8ada78893f926ab6df47d56e0ea3b419",
+                "reference": "61296bfd8ada78893f926ab6df47d56e0ea3b419",
                 "shasum": ""
             },
             "require": {
@@ -7074,7 +7074,7 @@
             ],
             "support": {
                 "issues": "https://github.com/spatie/laravel-backup/issues",
-                "source": "https://github.com/spatie/laravel-backup/tree/7.5.1"
+                "source": "https://github.com/spatie/laravel-backup/tree/7.5.2"
             },
             "funding": [
                 {
@@ -7086,7 +7086,7 @@
                     "type": "other"
                 }
             ],
-            "time": "2021-04-15T09:37:45+00:00"
+            "time": "2021-04-21T21:26:06+00:00"
         },
         {
             "name": "spatie/laravel-package-tools",
