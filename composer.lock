@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "46f7c9adf9732946601e226ff2e5029d",
+    "content-hash": "5fb1563c81936494726834eddad30d48",
     "packages": [
         {
             "name": "alfredo-ramos/parsedown-extra-laravel",
@@ -4683,16 +4683,16 @@
         },
         {
             "name": "nuwave/lighthouse",
-            "version": "v5.4.0",
+            "version": "v5.5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nuwave/lighthouse.git",
-                "reference": "36147960aa84336261f68892b20c79a6b7120446"
+                "reference": "d722b4b4e9f29b77d2fdbe90a7bfc225a323cd6d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nuwave/lighthouse/zipball/36147960aa84336261f68892b20c79a6b7120446",
-                "reference": "36147960aa84336261f68892b20c79a6b7120446",
+                "url": "https://api.github.com/repos/nuwave/lighthouse/zipball/d722b4b4e9f29b77d2fdbe90a7bfc225a323cd6d",
+                "reference": "d722b4b4e9f29b77d2fdbe90a7bfc225a323cd6d",
                 "shasum": ""
             },
             "require": {
@@ -4808,7 +4808,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-04-21T19:57:47+00:00"
+            "time": "2021-04-22T11:39:40+00:00"
         },
         {
             "name": "nyholm/psr7",
