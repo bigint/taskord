@@ -14,7 +14,7 @@ class SelectMilestone extends Component
     {
         $this->task = $task;
     }
-    
+
     public function noMilestone()
     {
         $this->task->milestone()->disassociate();
