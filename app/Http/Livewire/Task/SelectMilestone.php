@@ -2,9 +2,9 @@
 
 namespace App\Http\Livewire\Task;
 
-use Livewire\Component;
 use App\Models\Milestone;
 use App\Models\Task;
+use Livewire\Component;
 
 class SelectMilestone extends Component
 {
@@ -14,26 +14,28 @@ class SelectMilestone extends Component
     {
         $this->task = $task;
     }
-    
+
     public function selectMilestone(Milestone $milestone)
     {
         $milestone = Milestone::find($milestone->id);
         $this->task->milestone()->associate($milestone);
         $this->task->save();
         $this->emitUp('addedToMilestone');
-        return $this->alert('success', 'Task has been added to the milestone #' . $milestone->id);
+
+        return $this->alert('success', 'Task has been added to the milestone #'.$milestone->id);
     }
 
     public function render()
     {
         $milestones = Milestone::where([
-                ['user_id', $this->task->user->id],
-                ['status', true],
-            ])
+            ['user_id', $this->task->user->id],
+            ['status', true],
+        ])
             ->latest()
             ->get();
+
         return view('livewire.task.select-milestone', [
-            'milestones' => $milestones
+            'milestones' => $milestones,
         ]);
     }
 }
