@@ -14,6 +14,10 @@ use Livewire\Component;
 
 class SingleTask extends Component
 {
+    public $listeners = [
+        'addedToMilestone' => 'render',
+    ];
+
     public Task $task;
     public $confirming;
     public $launched;

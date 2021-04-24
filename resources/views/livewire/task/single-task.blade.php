@@ -83,6 +83,12 @@
         </div>
         @endif
         @endif
+        @if ($task->milestone)
+        <div class="mt-2 text-secondary" title="Milestone">
+            <x-heroicon-o-truck class="heroicon me-1" />
+            <span>{{ $task->milestone->name }}</span>
+        </div>
+        @endif
         <div class="pt-3">
             @auth
             @if (!$task->user->isPrivate and !$task->hidden)
@@ -141,14 +147,17 @@
             @auth
             @if (auth()->user()->staffShip or auth()->user()->id === $task->user->id)
                 @if ($confirming === $task->id)
-                <button type="button" class="btn btn-task btn-danger" wire:click="deleteTask" wire:loading.attr="disabled" wire:offline.attr="disabled" aria-label="Confirm Delete">
+                <button type="button" class="btn btn-task btn-danger me-1" wire:click="deleteTask" wire:loading.attr="disabled" wire:offline.attr="disabled" aria-label="Confirm Delete">
                     Are you sure?
                 </button>
                 @else
-                <button type="button" class="btn btn-task btn-outline-danger" wire:click="confirmDelete" wire:loading.attr="disabled" wire:offline.attr="disabled" aria-label="Delete">
+                <button type="button" class="btn btn-task btn-outline-danger me-1" wire:click="confirmDelete" wire:loading.attr="disabled" wire:offline.attr="disabled" aria-label="Delete">
                     <x-heroicon-o-trash class="heroicon-small me-0 text-secondary" />
                 </button>
                 @endif
+                @livewire('task.select-milestone', [
+                    'task' => $task
+                ])
             @endif
             @if (auth()->user()->staffShip)
             <button type="button" class="btn btn-task {{ $task->hidden ? 'btn-info' : 'btn-outline-info' }} ms-1" wire:click="hide" wire:loading.attr="disabled" wire:offline.attr="disabled" wire:key="{{ $task->id }}" title="Flag to admins" aria-label="Hide">

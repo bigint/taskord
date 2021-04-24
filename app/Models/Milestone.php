@@ -36,4 +36,9 @@ class Milestone extends Model
     {
         return $this->belongsTo(\App\Models\User::class, 'user_id');
     }
+
+    public function tasks()
+    {
+        return $this->hasMany(\App\Models\Task::class);
+    }
 }

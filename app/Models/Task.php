@@ -58,4 +58,9 @@ class Task extends Model
     {
         return $this->belongsTo(\App\Models\Product::class);
     }
+
+    public function milestone()
+    {
+        return $this->belongsTo(\App\Models\Milestone::class);
+    }
 }
