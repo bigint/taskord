@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use GuzzleHttp\Client;
-use Illuminate\Support\Facades\Cache;
 
 class AdminController extends Controller
 {
