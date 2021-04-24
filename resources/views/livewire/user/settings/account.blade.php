@@ -8,7 +8,10 @@
             <form wire:submit.prevent="updateAccount">
                 <div class="mb-3">
                     <label class="form-label">Username</label>
-                    <input type="text" class="form-control @error('username') is-invalid @enderror" value="{{ $user->username }}" wire:model="username">
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="basic-addon3">https://taskord.com/@</span>
+                        <input type="text" class="form-control @error('username') is-invalid @enderror" value="{{ $user->username }}" wire:model="username">
+                    </div>
                     @error('username')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
