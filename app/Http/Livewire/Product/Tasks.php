@@ -37,9 +37,9 @@ class Tasks extends Component
         $members->push($this->product->owner->id);
 
         return Task::where([
-                ['product_id', $this->product->id],
-                ['done', $this->type === 'product.done' ? true : false],
-            ])
+            ['product_id', $this->product->id],
+            ['done', $this->type === 'product.done' ? true : false],
+        ])
             ->whereIn('user_id', $members)
             ->orderBy('created_at', 'desc')
             ->orderBy('done_at', 'desc')

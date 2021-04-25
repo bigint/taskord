@@ -47,11 +47,11 @@ class LoadMore extends Component
                     ->paginate(10, '*', null, $this->page);
             } else {
                 $tasks = Task::whereHas('user', function ($q) {
-                        $q->where([
-                            ['isFlagged', false],
-                            ['isPrivate', false],
-                        ]);
-                    })
+                    $q->where([
+                        ['isFlagged', false],
+                        ['isPrivate', false],
+                    ]);
+                })
                     ->where('done', true)
                     ->orderBy('done_at', 'desc')
                     ->paginate(10, '*', null, $this->page);
