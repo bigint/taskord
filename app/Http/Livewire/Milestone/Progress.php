@@ -2,9 +2,8 @@
 
 namespace App\Http\Livewire\Milestone;
 
-use Livewire\Component;
 use App\Models\Milestone;
-use App\Models\Task;
+use Livewire\Component;
 
 class Progress extends Component
 {
@@ -15,7 +14,7 @@ class Progress extends Component
     {
         $this->milestone = $milestone;
     }
-    
+
     public function loadProgress()
     {
         $this->readyToLoad = true;
@@ -27,7 +26,7 @@ class Progress extends Component
         $pending = $this->milestone->tasks()->where('done', false)->count();
         $total = $this->milestone->tasks()->count();
         if ($total != 0) {
-            $percent = number_format($completed/$total * 100, 0);
+            $percent = number_format($completed / $total * 100, 0);
         } else {
             $percent = 0;
         }
