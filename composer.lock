@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f6eb076efc1d528a00d1b66d1c8ddefe",
+    "content-hash": "e5fd2fb4a23c57566dc5a311df19aa6a",
     "packages": [
         {
             "name": "alfredo-ramos/parsedown-extra-laravel",
@@ -208,16 +208,16 @@
         },
         {
             "name": "blade-ui-kit/blade-heroicons",
-            "version": "1.0.1",
+            "version": "v1.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/blade-ui-kit/blade-heroicons.git",
-                "reference": "2e47c31b6553e158ff93f14a961cc588d3302b0d"
+                "reference": "fcb102a569f085cb369d6a725f04f4b539fefd11"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/blade-ui-kit/blade-heroicons/zipball/2e47c31b6553e158ff93f14a961cc588d3302b0d",
-                "reference": "2e47c31b6553e158ff93f14a961cc588d3302b0d",
+                "url": "https://api.github.com/repos/blade-ui-kit/blade-heroicons/zipball/fcb102a569f085cb369d6a725f04f4b539fefd11",
+                "reference": "fcb102a569f085cb369d6a725f04f4b539fefd11",
                 "shasum": ""
             },
             "require": {
@@ -261,7 +261,7 @@
             ],
             "support": {
                 "issues": "https://github.com/blade-ui-kit/blade-heroicons/issues",
-                "source": "https://github.com/blade-ui-kit/blade-heroicons/tree/1.0.1"
+                "source": "https://github.com/blade-ui-kit/blade-heroicons/tree/v1.1.0"
             },
             "funding": [
                 {
@@ -273,7 +273,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2021-03-31T15:01:44+00:00"
+            "time": "2021-04-25T13:40:51+00:00"
         },
         {
             "name": "blade-ui-kit/blade-icons",
