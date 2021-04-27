@@ -42,7 +42,7 @@ class CreateNewTask
         return Task::create(
             \array_merge([
                 'user_id' => $this->user->id,
-                'source' => CreateNewTask::DEFAULT_SOURCE,
+                'source' => self::DEFAULT_SOURCE,
             ], $this->data)
         );
     }
