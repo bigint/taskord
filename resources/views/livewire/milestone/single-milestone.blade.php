@@ -48,7 +48,7 @@
             @endif
         </a>
         <div class="mt-2 body-font text-secondary">
-            {!! Markdown::parse($milestone->description) !!}
+            {!! markdown($milestone->description) !!}
         </div>
         @endif
         @if ($milestone->start_date or $milestone->end_date)

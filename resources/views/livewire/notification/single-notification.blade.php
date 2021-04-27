@@ -92,7 +92,7 @@
                         @if ($data['body_type'] === 'task')
                             {!! Purify::clean(Helper::renderTask($data['body'])) !!}
                         @else
-                            {!! Markdown::parse($data['body']) !!}
+                            {!! markdown($data['body']) !!}
                         @endif
                     </div>
                 @elseif ($type === "App\Notifications\CommentPraised")
@@ -103,7 +103,7 @@
                         </a>
                     </span>
                     <div class="mt-2 body-font">
-                        {!! Markdown::parse($data['comment']) !!}
+                        {!! markdown($data['comment']) !!}
                     </div>
                 @elseif ($type === "App\Notifications\QuestionPraised")
                     <span class="align-middle">
@@ -113,7 +113,7 @@
                         </a>
                     </span>
                     <div class="mt-2 body-font">
-                        {!! Markdown::parse($data['question']) !!}
+                        {!! markdown($data['question']) !!}
                     </div>
                 @elseif ($type === "App\Notifications\AnswerPraised")
                     <span class="align-middle">
@@ -123,7 +123,7 @@
                         </a>
                     </span>
                     <div class="mt-2 body-font">
-                        {!! Markdown::parse($data['answer']) !!}
+                        {!! markdown($data['answer']) !!}
                     </div>
                 @elseif ($type === "App\Notifications\Commented")
                     <span class="align-middle">
@@ -133,7 +133,7 @@
                         </a>
                     </span>
                     <div class="mt-2 body-font">
-                        {!! Markdown::parse($data['comment']) !!}
+                        {!! markdown($data['comment']) !!}
                     </div>
                 @elseif ($type === "App\Notifications\Answered")
                     <span class="align-middle">
@@ -143,7 +143,7 @@
                         </a>
                     </span>
                     <div class="mt-2 body-font">
-                        {!! Markdown::parse($data['answer']) !!}
+                        {!! markdown($data['answer']) !!}
                     </div>
                 @elseif ($type === "App\Notifications\Followed")
                     <span class="align-middle">followed you</span>
@@ -201,7 +201,7 @@
                     <div class="mt-3">
                         <span class="fw-bold">Changelog</span>
                         <div class="mt-2">
-                            {!! Markdown::parse($data['description']) !!}
+                            {!! markdown($data['description']) !!}
                         </div>
                     </div>
                 @elseif ($type === "App\Notifications\Task\NotifySubscribers")
@@ -212,7 +212,7 @@
                         </a>
                         you subscribed
                         <div class="mt-2 body-font">
-                            {!! Markdown::parse($data['comment']) !!}
+                            {!! markdown($data['comment']) !!}
                         </div>
                     </span>
                 @elseif ($type === "App\Notifications\Question\NotifySubscribers")
@@ -223,7 +223,7 @@
                         </a>
                         you subscribed
                         <div class="mt-2 body-font">
-                            {!! Markdown::parse($data['answer']) !!}
+                            {!! markdown($data['answer']) !!}
                         </div>
                     </span>
                 @endif

@@ -498,3 +498,9 @@ input[type="date"]:valid:before {
 .border-staffbar {
     border-color: #121212 !important;
 }
+
+.comment-md {
+    p {
+        margin-bottom: 0;
+    }
+}

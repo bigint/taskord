@@ -9,7 +9,6 @@
     "license": "MIT",
     "require": {
         "php": "^8.0",
-        "alfredo-ramos/parsedown-extra-laravel": "3.0.0",
         "blade-ui-kit/blade-heroicons": "1.1.0",
         "cyrildewit/eloquent-viewable": "6.0.2",
         "doctrine/dbal": "3.1.0",
@@ -27,6 +26,7 @@
         "laravel/socialite": "5.2.3",
         "laravel/tinker": "2.6.1",
         "laravel/ui": "3.2.0",
+        "league/commonmark": "^1.5",
         "livewire/livewire": "2.4.3",
         "mll-lab/laravel-graphql-playground": "2.5.0",
         "multicaret/laravel-acquaintances": "3.5.1",

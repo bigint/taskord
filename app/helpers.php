@@ -7,6 +7,7 @@ use App\Models\User;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Str;
+use League\CommonMark\GithubFlavoredMarkdownConverter;
 
 /**
  * This file contains helper functions for Taskord.
@@ -132,5 +133,17 @@ if (! function_exists('formatBytes')) {
         $suffixes = ['', 'KB', 'MB', 'GB', 'TB'];
 
         return round(pow(1024, $base - floor($base)), $precision).' '.$suffixes[floor($base)];
+    }
+}
+
+if (! function_exists('markdown')) {
+    function markdown($content)
+    {
+        $converter = new GithubFlavoredMarkdownConverter([
+            'html_input' => 'strip',
+            'allow_unsafe_links' => false,
+        ]);
+
+        return $converter->convertToHtml($content);
     }
 }

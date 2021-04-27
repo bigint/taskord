@@ -38,8 +38,8 @@
                     </div>
                 </div>
                 <div class="mt-2 card d-inline-block bg-light {{ $loop->last ? '' : 'mb-3' }}">
-                    <div class="card-body px-2 py-1">
-                        {{ $comment->comment }}
+                    <div class="card-body px-2 py-1 comment-md">
+                        {!! markdown($comment->comment) !!}
                     </div>
                 </div>
                 @endforeach

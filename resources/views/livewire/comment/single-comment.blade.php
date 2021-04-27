@@ -38,7 +38,7 @@
     <span class="body-font fst-italic text-secondary">Comment was hidden by moderator</span>
     @else
     <span class="body-font">
-        {!! Markdown::parse($comment->comment) !!}
+        {!! markdown($comment->comment) !!}
     </span>
     @endif
     <div class="mt-2">
