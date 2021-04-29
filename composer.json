@@ -46,7 +46,7 @@
         "symfony/psr-http-message-bridge": "2.1.0"
     },
     "require-dev": {
-        "facade/ignition": "2.8.3",
+        "facade/ignition": "2.8.4",
         "fakerphp/faker": "1.14.1",
         "mockery/mockery": "1.4.3",
         "nunomaduro/collision": "5.4.0",
