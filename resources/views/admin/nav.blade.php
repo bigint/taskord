@@ -17,4 +17,7 @@
     <li class="nav-item">
         <a class="nav-link @if (Route::currentRouteName() === 'admin.system') active @endif" href="{{ route('admin.system') }}">System</a>
     </li>
+    <li class="nav-item">
+        <a class="nav-link @if (Route::currentRouteName() === 'admin.features') active @endif" href="{{ route('admin.features') }}">Features</a>
+    </li>
 </ul>

@@ -17,7 +17,7 @@ class AddHeaders
     public function handle(Request $request, Closure $next)
     {
         $response = $next($request);
-        $response->header('Permissions-Policy', 'interest-cohort=()');
+        // $response->header('Permissions-Policy', 'interest-cohort=()');
 
         return $response;
     }

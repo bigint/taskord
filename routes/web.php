@@ -151,6 +151,7 @@ Route::group(['middleware' => ['throttle:60,1']], function () {
         Route::view('tasks', 'admin.tasks')->middleware('password.confirm')->name('tasks');
         Route::view('activities', 'admin.activities')->middleware('password.confirm')->name('activities');
         Route::view('products', 'admin.products')->middleware('password.confirm')->name('products');
+        Route::view('features', 'admin.features')->middleware('password.confirm')->name('features');
         Route::get('system', [AdminController::class, 'system'])->middleware('password.confirm')->name('system');
         Route::get('adminbar', [AdminController::class, 'toggle'])->name('adminbar');
     });
