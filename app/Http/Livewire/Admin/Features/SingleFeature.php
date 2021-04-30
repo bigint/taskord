@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Admin\Features;
 
 use App\Models\Feature;
+use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 
 class SingleFeature extends Component
@@ -11,6 +12,7 @@ class SingleFeature extends Component
     public $staffStatus;
     public $contributorStatus;
     public $betaStatus;
+    public $confirming;
 
     public function mount($feature)
     {
@@ -43,6 +45,25 @@ class SingleFeature extends Component
     {
         $this->feature->staff = $this->staffStatus;
         $this->feature->save();
+    }
+
+    public function confirmDelete()
+    {
+        $this->confirming = $this->feature->id;
+    }
+
+    public function deleteFeature()
+    {
+        if (Auth::check()) {
+            loggy(request()->ip(), 'Admin', auth()->user(), 'Deleted a feature flag | Feature ID: '.$this->feature->id);
+            $this->feature->delete();
+            auth()->user()->touch();
+            $this->flash('success', 'Feature flag has been deleted successfully!');
+
+            return redirect()->route('admin.features');
+        } else {
+            return $this->alert('error', 'Forbidden!');
+        }
     }
 
     public function render()
