@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "0e342623c6df530d43436fc989b92a30",
+    "content-hash": "6244a9c5a6c815a592088008589caa3d",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -5299,16 +5299,16 @@
         },
         {
             "name": "propaganistas/laravel-disposable-email",
-            "version": "2.0.18",
+            "version": "2.0.19",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Propaganistas/Laravel-Disposable-Email.git",
-                "reference": "9739f986f9a40d84ede3155a30a02781d27aab97"
+                "reference": "d30663c7432203a84d566de4c1772846e9ebbef7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Propaganistas/Laravel-Disposable-Email/zipball/9739f986f9a40d84ede3155a30a02781d27aab97",
-                "reference": "9739f986f9a40d84ede3155a30a02781d27aab97",
+                "url": "https://api.github.com/repos/Propaganistas/Laravel-Disposable-Email/zipball/d30663c7432203a84d566de4c1772846e9ebbef7",
+                "reference": "d30663c7432203a84d566de4c1772846e9ebbef7",
                 "shasum": ""
             },
             "require": {
@@ -5361,9 +5361,9 @@
             ],
             "support": {
                 "issues": "https://github.com/Propaganistas/Laravel-Disposable-Email/issues",
-                "source": "https://github.com/Propaganistas/Laravel-Disposable-Email/tree/2.0.18"
+                "source": "https://github.com/Propaganistas/Laravel-Disposable-Email/tree/2.0.19"
             },
-            "time": "2021-03-01T00:47:22+00:00"
+            "time": "2021-04-01T02:37:58+00:00"
         },
         {
             "name": "psr/container",
