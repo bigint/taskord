@@ -80,9 +80,13 @@ class Streaks extends Command
                 }
             }
 
-            $user->streaks = $streaks;
-            $this->info('Calculation Successful for @'.$user->username.'! - '.$streaks.' Total Streaks');
-            $user->save();
+            if ($user->vacation_mode) {
+                $this->info('Skipped streaks update for @'.$user->username.'! - '.$streaks.' Total Streaks');
+            } else {
+                $user->streaks = $streaks;
+                $this->info('Calculation Successful for @'.$user->username.'! - '.$streaks.' Total Streaks');
+                $user->save();
+            }
         }
         $ops = User::where('username', 'ops')->first();
         loggy(request()->ip(), 'Admin', $ops, 'Resetted streaks for '.number_format(count($users)).' users in '.number_format(count($tz_list)).' timezones');

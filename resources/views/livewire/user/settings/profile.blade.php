@@ -87,8 +87,7 @@
             </form>
         </div>
     </div>
-
-    <div class="card mb-4">
+    <div class="card mb-4" id="goal">
         <div class="card-header pt-3 pb-3">
             <span class="h5">Goal</span>
             <div>Complete your goal and earn additional reputations</div>
@@ -96,8 +95,10 @@
         <div class="card-body">
             <form wire:submit.prevent="setGoal">
                 <div>
-                    <input wire:click="enableGoal" id="enableGoal" class="form-check-input" type="checkbox" {{ $user->hasGoal ? 'checked' : '' }}>
-                    <label for="enableGoal" class="ms-1">Enable Goal</label>
+                    <div class="form-check">
+                        <input wire:click="enableGoal" id="enableGoal" class="form-check-input" type="checkbox" {{ $user->hasGoal ? 'checked' : '' }}>
+                        <label for="enableGoal" class="form-check-label">Enable Goal</label>
+                    </div>
                 </div>
                 @if ($user->hasGoal)
                 <div class="mt-2 mb-3">
@@ -116,18 +117,33 @@
             </form>
         </div>
     </div>
-
+    <div class="card mb-4" id="vacation">
+        <div class="card-header pt-3 pb-3">
+            <span class="h5">Vacation mode</span>
+            <div>
+                When turned on, your streaks will remain intact even if you don't create a task.
+                <x-beta />
+            </div>
+        </div>
+        <div class="card-body">
+            <div class="form-check">
+                <input wire:click="toggleVacationMode" id="toggleVacationMode" class="form-check-input" type="checkbox" {{ $user->vacation_mode ? 'checked' : '' }}>
+                <label for="toggleVacationMode" class="form-check-label">Enable vacation mode</label>
+            </div>
+        </div>
+    </div>
     <div class="card mb-4">
         <div class="card-header pt-3 pb-3">
             <span class="h5">Homepage</span>
             <div>Update your homepage preference.</div>
         </div>
         <div class="card-body">
-            <input wire:click="onlyFollowingsTasks" id="onlyFollowingsTasks" class="form-check-input" type="checkbox" {{ $user->onlyFollowingsTasks ? 'checked' : '' }}>
-            <label for="onlyFollowingsTasks" class="ms-1">Show only following user's tasks on homepage</label>
+            <div class="form-check">
+                <input wire:click="onlyFollowingsTasks" id="onlyFollowingsTasks" class="form-check-input" type="checkbox" {{ $user->onlyFollowingsTasks ? 'checked' : '' }}>
+                <label for="onlyFollowingsTasks" class="form-check-label">Show only following user's tasks on homepage</label>
+            </div>
         </div>
     </div>
-
     <div class="card mb-4">
         <div class="card-header pt-3 pb-3">
             <span class="h5">Sponsor</span>
@@ -152,7 +168,6 @@
             </form>
         </div>
     </div>
-
     <div class="card mb-4">
         <div class="card-header pt-3 pb-3">
             <span class="h5">Social</span>

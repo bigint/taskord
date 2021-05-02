@@ -123,8 +123,13 @@
                     <li class="nav-item me-2">
                         <div class="nav-link">
                             <a
-                                href="{{ route('user.settings.profile') }}"
+                                href="{{ route('user.settings.profile') }}{{ auth()->user()->vacation_mode ? '#vacation' : '#goal' }}"
                             >
+                                @if (auth()->user()->vacation_mode)
+                                <span class="badge rounded-pill score text-white bg-success" title="Vacation mode on">
+                                    <x-heroicon-o-sun class="heroicon-small me-0" />
+                                </span>
+                                @else
                                 <span
                                 class="badge rounded-pill score text-white
                                     @if(auth()->user()->daily_goal_reached >= auth()->user()->daily_goal)
@@ -135,6 +140,7 @@
                                     <x-heroicon-s-check-circle class="heroicon-small" />
                                     {{ auth()->user()->daily_goal_reached }}/{{ auth()->user()->daily_goal }}
                                 </span>
+                                @endif
                             </a>
                         </div>
                     </li>

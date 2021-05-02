@@ -34,26 +34,26 @@
                 Add Taskord bot
             </a>
             @if (preg_match('/^[a-f0-9]{32}$/', auth()->user()->username))
-            <div class="mb-2">
+            <div class="mb-2 form-check">
                 <input class="form-check-input" type="checkbox" disabled {{ $changed_username ? '' : 'checked' }}>
-                <span class="ms-1">Change your username</span>
+                <label>Change your username</label>
             </div>
             @endif
-            <div class="mb-2">
+            <div class="mb-2 form-check">
                 <input class="form-check-input" type="checkbox" disabled {{ strlen($has_name) === 0 ? '' : 'checked' }}>
-                <span class="ms-1">Add your name</span>
+                <label>Add your name</label>
             </div>
-            <div class="mb-2">
+            <div class="mb-2 form-check">
                 <input class="form-check-input" type="checkbox" disabled {{ $task_count === 0 ? '' : 'checked' }}>
-                <span class="ms-1">Add a new task</span>
+                <label>Add a new task</label>
             </div>
-            <div class="mb-2">
+            <div class="mb-2 form-check">
                 <input class="form-check-input" type="checkbox" disabled {{ $praise_count === 0 ? '' : 'checked' }}>
-                <span class="ms-1">Praise one task</span>
+                <label>Praise one task</label>
             </div>
-            <div>
+            <div class="form-check">
                 <input class="form-check-input" type="checkbox" disabled {{ $product_count === 0 ? '' : 'checked' }}>
-                <span class="ms-1">Add your product</span>
+                <label>Add your product</label>
             </div>
         </div>
     </div>

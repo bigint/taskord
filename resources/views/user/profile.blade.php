@@ -36,6 +36,11 @@
                                 <x-heroicon-s-star class="heroicon-2x ms-2 me-0 text-gold" />
                             </a>
                         @endif
+                        @if ($user->vacation_mode)
+                            <span title="On Vacation">
+                                <x-heroicon-o-sun class="heroicon-2x ms-2 me-0 text-success" />
+                            </span>
+                        @endif
                         @auth
                         @if ($user->isFollowing(auth()->user()))
                             <span class="ms-2 badge bg-light text-secondary">Follows you</span>
