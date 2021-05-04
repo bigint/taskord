@@ -40,7 +40,7 @@
         "rennokki/laravel-eloquent-query-cache": "2.6.0",
         "sentry/sentry-laravel": "2.5.1",
         "silviolleite/laravelpwa": "2.0.3",
-        "spatie/laravel-activitylog": "3.17.0",
+        "spatie/laravel-activitylog": "4.0.0",
         "spatie/laravel-backup": "7.5.2",
         "stevebauman/purify": "4.0.0",
         "symfony/psr-http-message-bridge": "2.1.0"
