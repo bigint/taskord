@@ -1,6 +1,6 @@
 <div class="col-lg-8">
     <div class="card">
-        <div class="card-header pt-3 pb-3">
+        <div class="card-header py-3">
             <span class="h5">Notifications</span>
             <div>Choose how you receive notifications.</div>
         </div>

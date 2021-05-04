@@ -1,5 +1,5 @@
 <div class="card" wire:init="loadStats">
-    <div class="card-header h6 pt-3 pb-3">
+    <div class="card-header h6 py-3">
         <div class="h5">Stats</div>
         Taskord Stats
     </div>

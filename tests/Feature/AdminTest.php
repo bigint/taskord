@@ -35,3 +35,9 @@ it('has stafftools/system page', function ($url, $expected) {
 })->with([
     ['/stafftools/system', 302, false],
 ]);
+
+it('has stafftools/features page', function ($url, $expected) {
+    $this->get($url)->assertStatus($expected);
+})->with([
+    ['/stafftools/features', 302, false],
+]);

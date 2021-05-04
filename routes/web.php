@@ -113,6 +113,7 @@ Route::group(['middleware' => ['throttle:60,1']], function () {
     Route::group(['prefix' => 'products', 'as' => 'products.'], function () {
         Route::get('', [ProductController::class, 'newest'])->name('newest');
         Route::get('launched', [ProductController::class, 'launched'])->name('launched');
+        Route::view('new', 'products.new')->name('new');
     });
 
     // Question

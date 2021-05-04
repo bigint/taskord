@@ -17,7 +17,7 @@
     @endif
     @foreach ($answers as $answer)
         <div class="card mb-4">
-            <div class="card-header h6 pt-3 pb-3">
+            <div class="card-header h6 py-3">
                 <a
                     href="{{ route('user.done', ['username' => $answer->question->user->username]) }}"
                     class="user-popover"

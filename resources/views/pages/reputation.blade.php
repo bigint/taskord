@@ -11,7 +11,7 @@
     <div class="row justify-content-center mt-4">
         <div class="col-sm">
             <div class="card mb-4">
-            <div class="card-header pt-3 pb-3">
+            <div class="card-header py-3">
                 <span class="h5 text-success">Badges</span>
             </div>
             <div class="card-body">

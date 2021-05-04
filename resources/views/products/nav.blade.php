@@ -6,10 +6,9 @@
         Launched
     </a>
     @auth
-    <button type="button" class="mb-2 btn btn-success float-md-end text-white" data-bs-toggle="modal" data-bs-target="#newProductModal">
+    <a type="button" class="mb-2 btn btn-success float-md-end text-white" href="{{ route('products.new') }}">
         <x-heroicon-o-plus class="heroicon" />
         Add your Product
-    </button>
-    @livewire('product.new-product')
+    </a>
     @endauth
 </div>

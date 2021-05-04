@@ -1,5 +1,5 @@
 <div class="card" wire:init="loadFeatures">
-    <div class="card-header h6 pt-3 pb-3 d-flex align-items-center justify-content-between">
+    <div class="card-header h6 py-3 d-flex align-items-center justify-content-between">
         <div>
             <div class="h5">Features</div>
             Taskord Feature flags

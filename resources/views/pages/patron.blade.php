@@ -12,7 +12,7 @@
         <img loading=lazy src="https://ik.imagekit.io/taskordimg/patron_H2bHcQezM.svg" alt="Taskord Patron" width="100" />
     </div>
     <div class="card">
-        <div class="card-header pt-3 pb-3">
+        <div class="card-header py-3">
             <span class="h5">Become a Patron</span>
             <div>Support Taskord by becoming a Patron.</div>
         </div>

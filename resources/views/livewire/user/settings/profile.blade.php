@@ -1,6 +1,6 @@
 <div class="col-lg-8">
     <div class="card mb-4">
-        <div class="card-header pt-3 pb-3">
+        <div class="card-header py-3">
             <span class="h5">Profile</span>
             <div>Update your basic profile details.</div>
         </div>
@@ -88,7 +88,7 @@
         </div>
     </div>
     <div class="card mb-4" id="goal">
-        <div class="card-header pt-3 pb-3">
+        <div class="card-header py-3">
             <span class="h5">Goal</span>
             <div>Complete your goal and earn additional reputations</div>
         </div>
@@ -118,7 +118,7 @@
         </div>
     </div>
     <div class="card mb-4" id="vacation">
-        <div class="card-header pt-3 pb-3">
+        <div class="card-header py-3">
             <span class="h5">Vacation mode</span>
             <div>
                 When turned on, your streaks will remain intact even if you don't create a task.
@@ -133,7 +133,7 @@
         </div>
     </div>
     <div class="card mb-4">
-        <div class="card-header pt-3 pb-3">
+        <div class="card-header py-3">
             <span class="h5">Homepage</span>
             <div>Update your homepage preference.</div>
         </div>
@@ -145,7 +145,7 @@
         </div>
     </div>
     <div class="card mb-4">
-        <div class="card-header pt-3 pb-3">
+        <div class="card-header py-3">
             <span class="h5">Sponsor</span>
             <div>Add Sponsor URL to show badge in your profile.</div>
         </div>
@@ -169,7 +169,7 @@
         </div>
     </div>
     <div class="card mb-4">
-        <div class="card-header pt-3 pb-3">
+        <div class="card-header py-3">
             <span class="h5">Social</span>
             <div>Update your social media links.</div>
         </div>

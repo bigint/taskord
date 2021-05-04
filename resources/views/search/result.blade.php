@@ -115,7 +115,7 @@
                 @else
                 @foreach ($answers as $answer)
                     <div class="card mb-2">
-                        <div class="card-header h6 pt-3 pb-3">
+                        <div class="card-header h6 py-3">
                             <a href="{{ route('user.done', ['username' => $answer->question->user->username]) }}">
                                 <img loading=lazy class="rounded-circle avatar-30" src="{{ Helper::getCDNImage($answer->question->user->avatar, 80) }}" height="30" width="30" alt="{{ $answer->question->user->username }}'s avatar" />
                             </a>
@@ -151,7 +151,7 @@
                 </div>
                 @else
                 @foreach ($products as $product)
-                    <li class="list-group-item pt-3 pb-3">
+                    <li class="list-group-item py-3">
                         <div class="d-flex align-items-center">
                             <a href="{{ route('product.done', ['slug' => $product->slug]) }}">
                                 <img loading=lazy class="rounded avatar-50" src="{{ Helper::getCDNImage($product->avatar, 80) }}" height="50" width="50" alt="{{ $product->slug }}'s avatar" />
@@ -217,7 +217,7 @@
                 </div>
                 @else
                 @foreach ($users as $user)
-                    <li class="list-group-item pt-3 pb-3">
+                    <li class="list-group-item py-3">
                         <div class="d-flex align-items-center">
                             <a href="{{ route('user.done', ['username' => $user->username]) }}">
                                 <img loading=lazy class="rounded-circle avatar-50 mt-1 ms-2" src="{{ Helper::getCDNImage($user->avatar, 80) }}" height="50" width="50" alt="{{ $user->username }}'s avatar" />

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire\Product;
+namespace App\Http\Livewire\Products;
 
 use App\Actions\CreateNewTask;
 use App\Models\Product;
@@ -13,7 +13,7 @@ use Intervention\Image\Facades\Image;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 
-class NewProduct extends Component
+class CreateProduct extends Component
 {
     use WithFileUploads;
 
@@ -117,5 +117,10 @@ class NewProduct extends Component
         } else {
             $this->alert('error', 'Forbidden!');
         }
+    }
+
+    public function render()
+    {
+        return view('livewire.products.create-product');
     }
 }

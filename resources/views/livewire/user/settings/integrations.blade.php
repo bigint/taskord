@@ -1,6 +1,6 @@
 <div class="col-lg-8">
     <div class="card mb-4">
-        <div class="card-header pt-3 pb-3">
+        <div class="card-header py-3">
             <span class="h5">Integrations</span>
             <div>Just send a POST event from anywhere</div>
         </div>
@@ -61,7 +61,7 @@
         </div>
     </div>
     <div class="card mb-4">
-        <div class="card-header pt-3 pb-3">
+        <div class="card-header py-3">
             <span class="h5">Webhook Docs</span>
             <div>Available webhook options</div>
         </div>
@@ -154,7 +154,7 @@
     </div>
 
     <div class="card mb-4">
-        <div class="card-header pt-3 pb-3">
+        <div class="card-header py-3">
             <span class="h5">Active webhooks</span>
             <div>Webhooks that are active</div>
         </div>

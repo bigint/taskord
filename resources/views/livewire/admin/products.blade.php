@@ -1,5 +1,5 @@
 <div class="card" wire:init="loadProducts">
-    <div class="card-header h6 pt-3 pb-3">
+    <div class="card-header h6 py-3">
         <div class="h5">Products</div>
         <span class="fw-bold">{{ $readyToLoad ? $count : '···' }}</span>
         total products

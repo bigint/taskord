@@ -1,6 +1,6 @@
 <div class="col-lg-8">
     <div class="card mb-4">
-        <div class="card-header pt-3 pb-3">
+        <div class="card-header py-3">
             <span class="h5 text-danger">Danger Zone</span>
             <div class="fw-bold text-danger">
                 Note: You can't recover your account

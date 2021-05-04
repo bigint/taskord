@@ -1,6 +1,6 @@
 <div class="col-lg-8">
     <div class="card mb-4">
-        <div class="card-header pt-3 pb-3">
+        <div class="card-header py-3">
             <span class="h5">Account</span>
             <div>Change your username and email.</div>
         </div>
@@ -34,7 +34,7 @@
         </div>
     </div>
     <div class="card mb-4">
-        <div class="card-header pt-3 pb-3">
+        <div class="card-header py-3">
             <span class="h5">Beta</span>
             <div>
                 Get release earlier.
@@ -49,7 +49,7 @@
         </div>
     </div>
     <div class="card">
-        <div class="card-header pt-3 pb-3">
+        <div class="card-header py-3">
             <span class="h5">Private Tasks</span>
             <div>
                 All your tasks will hidden from public.

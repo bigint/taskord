@@ -9,7 +9,7 @@
 @section('content')
 <div class="container-md">
     <div class="card">
-        <div class="card-header pt-3 pb-3">
+        <div class="card-header py-3">
             <span class="h5">Privacy Policy</span>
             <div>Web Site Privacy Policy</div>
         </div>

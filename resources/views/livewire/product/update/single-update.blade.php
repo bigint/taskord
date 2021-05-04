@@ -1,5 +1,5 @@
 <div class="card mb-4">
-    <div class="card-header d-flex align-items-center h6 pt-3 pb-3">
+    <div class="card-header d-flex align-items-center h6 py-3">
         <a href="{{ route('user.done', ['username' => $update->user->username]) }}">
             <img loading=lazy class="avatar-30 rounded-circle" src="{{ Helper::getCDNImage($update->user->avatar, 80) }}" height="30" width="30" alt="{{ $update->user->username }}'s avatar" />
         </a>

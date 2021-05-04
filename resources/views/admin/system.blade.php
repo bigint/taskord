@@ -12,7 +12,7 @@
         <div class="container-md">
             @include('admin.nav')
             <div class="card">
-                <div class="card-header h6 pt-3 pb-3">
+                <div class="card-header h6 py-3">
                     <div class="h5">System Info</div>
                     Taskord's system info
                 </div>

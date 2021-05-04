@@ -13,6 +13,28 @@ it('has products page', function ($url, $expected, $auth) {
     ['/products', 200, true],
 ]);
 
+it('has launched products page', function ($url, $expected, $auth) {
+    if ($auth) {
+        actingAs(1)->get($url)->assertStatus($expected);
+    } else {
+        $this->get($url)->assertStatus($expected);
+    }
+})->with([
+    ['/products/launched', 200, false],
+    ['/products/launched', 200, true],
+]);
+
+it('has new products page', function ($url, $expected, $auth) {
+    if ($auth) {
+        actingAs(1)->get($url)->assertStatus($expected);
+    } else {
+        $this->get($url)->assertStatus($expected);
+    }
+})->with([
+    ['/products/new', 200, false],
+    ['/products/new', 200, true],
+]);
+
 it('has product done page', function ($url, $expected, $auth) {
     if ($auth) {
         actingAs(1)->get($url)->assertStatus($expected);
