@@ -118,6 +118,10 @@
                         </li>
                     @endif
                 @else
+                    <a class="nav-link text-white" href="{{ route('notifications.unread') }}" data-bs-toggle="modal" data-bs-target="#newTaskModal">
+                        <x-heroicon-o-plus-circle class="heroicon-notification me-0" />
+                    </a>
+                    @include('layouts.modals.new-task')
                     @livewire('notification.icon')
                     @if (auth()->user()->hasGoal)
                     <li class="nav-item me-2">

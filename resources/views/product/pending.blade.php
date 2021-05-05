@@ -17,7 +17,13 @@
                 $product->members->contains(auth()->user()->id) &&
                 !$product->owner->isFlagged
             )
-                @livewire('create-task', ['product' => $product])
+                <div class="card mb-3">
+                    <div class="card-body">
+                    @livewire('create-task', [
+                        'product' => $product
+                    ])
+                    </div>
+                </div>
             @endif
             @endauth
             @livewire('product.tasks', [

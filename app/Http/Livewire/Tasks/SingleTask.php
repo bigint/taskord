@@ -20,6 +20,7 @@ class SingleTask extends Component
 
     public Task $task;
     public $confirming;
+    public $show_delete = true;
 
     public function mount($task)
     {

@@ -5,7 +5,7 @@
             id="task-{{ $task->id }}"
             type="checkbox"
             wire:click="checkTask"
-            unchecked
+            {{ $task->done ? "checked" : "unchecked" }}
         />
         <label class="task-font text-dark ms-2">
             <a class="text-dark" href="{{ route('task', ['id' => $task->id]) }}">
@@ -40,16 +40,17 @@
         </a>
     </div>
     @endif
-    <div class="mt-1">
-        <div class="fw-bold me-2 mb-1 small">
-            @if ($task->due_at)
-                {!! Helper::renderDueDate($task->due_at) !!}
-            @endif
+    <div class="mt-2">
+        @if ($task->due_at)
+        <div class="fw-bold me-2 mb-2 small">
+            {!! Helper::renderDueDate($task->due_at) !!}
         </div>
+        @endif
         @if (auth()->user()->id === $task->user->id)
             @livewire('task.select-milestone', [
                 'task' => $task
             ])
+            @if ($show_delete)
             @if ($confirming === $task->id)
             <button type="button" class="btn btn-task btn-danger my-1" wire:click="deleteTask" wire:loading.attr="disabled" aria-label="Confirm Delete">
                 Are you sure?
@@ -58,6 +59,12 @@
             <button type="button" class="btn btn-task btn-outline-danger my-1" wire:click="confirmDelete" wire:loading.attr="disabled" aria-label="Delete">
                 <x-heroicon-o-trash class="heroicon-small me-0 text-secondary" />
             </button>
+            @endif
+            @else
+            <a href="{{ route('task', ['id' => $task->id]) }}" class="btn btn-task btn-outline-success me-1" target="_blank" aria-label="Open task">
+                <x-heroicon-o-external-link class="heroicon-small me-0" />
+                Open task
+            </a>
             @endif
         @endif
     </div>

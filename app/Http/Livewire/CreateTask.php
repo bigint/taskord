@@ -22,6 +22,8 @@ class CreateTask extends Component
     public $images = [];
     public $due_at;
     public $product;
+    public $show_latest_task = false;
+    public $latest_task;
 
     public function mount($product = null)
     {
@@ -135,6 +137,7 @@ class CreateTask extends Component
                 auth()->user()->save();
                 CheckGoal::dispatch(auth()->user(), $task);
             }
+            $this->latest_task = $task;
 
             return $this->alert('success', 'Task has been created!');
         } else {
