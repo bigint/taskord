@@ -38,7 +38,7 @@
         "qcod/laravel-gamify": "1.0.5",
         "renatomarinho/laravel-page-speed": "2.0.0",
         "rennokki/laravel-eloquent-query-cache": "2.6.0",
-        "sentry/sentry-laravel": "2.5.1",
+        "sentry/sentry-laravel": "2.5.2",
         "spatie/laravel-activitylog": "4.0.0",
         "spatie/laravel-backup": "7.5.2",
         "stevebauman/purify": "4.0.0",

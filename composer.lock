@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5fe608e031f7c3bf30223561254c3aba",
+    "content-hash": "aafb82cb7e69d1272fd358cf22020bb8",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -6532,16 +6532,16 @@
         },
         {
             "name": "sentry/sentry-laravel",
-            "version": "2.5.1",
+            "version": "2.5.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/getsentry/sentry-laravel.git",
-                "reference": "2af8a531f202f0ac014f5fad532815ed34f730a9"
+                "reference": "368a2701b3bd370a2892f1f67bfbf0cbecbaca17"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/getsentry/sentry-laravel/zipball/2af8a531f202f0ac014f5fad532815ed34f730a9",
-                "reference": "2af8a531f202f0ac014f5fad532815ed34f730a9",
+                "url": "https://api.github.com/repos/getsentry/sentry-laravel/zipball/368a2701b3bd370a2892f1f67bfbf0cbecbaca17",
+                "reference": "368a2701b3bd370a2892f1f67bfbf0cbecbaca17",
                 "shasum": ""
             },
             "require": {
@@ -6604,7 +6604,7 @@
             ],
             "support": {
                 "issues": "https://github.com/getsentry/sentry-laravel/issues",
-                "source": "https://github.com/getsentry/sentry-laravel/tree/2.5.1"
+                "source": "https://github.com/getsentry/sentry-laravel/tree/2.5.2"
             },
             "funding": [
                 {
@@ -6616,7 +6616,7 @@
                     "type": "custom"
                 }
             ],
-            "time": "2021-04-29T11:10:22+00:00"
+            "time": "2021-05-06T07:49:08+00:00"
         },
         {
             "name": "spatie/db-dumper",
