@@ -179,7 +179,7 @@ Route::group(['middleware' => ['throttle:60,1']], function () {
     Route::view('tasks', 'tasks.tasks')->name('tasks')->middleware('auth');
 
     // Pages
-    Route::view('about', 'pages.about')->name('about');
+    Route::get('about', [PagesController::class, 'about'])->name('about');
     Route::view('terms', 'pages.terms')->name('terms');
     Route::view('privacy', 'pages.privacy')->name('privacy');
     Route::view('security', 'pages.security')->name('security');

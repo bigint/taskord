@@ -1,5 +1,7 @@
 <div align="center">
-    <p><img src="https://ik.imagekit.io/taskordimg/logo_8lLu9EPFa.svg" height="70" alt="Taskord Logo"></p>
+    <p>
+        <img src="https://ik.imagekit.io/taskordimg/logo_8lLu9EPFa.svg" height="70" alt="Taskord Logo">
+    </p>
     <h1>Taskord</h1>
     <strong>✅ Get things done in public</strong>
 </div>
