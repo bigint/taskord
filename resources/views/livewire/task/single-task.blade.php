@@ -56,7 +56,7 @@
             />
             @if ($launched)<span class="ms-2">🚀</span>@endif
             <label for="task-{{ $task->id }}" class="task-font ms-2 {{ $launched ? 'fw-bold text-success' : 'text-dark' }}">
-                {!! Purify::clean(Helper::renderTask($task->task)) !!}
+                {!! Purifier::clean(Helper::renderTask($task->task)) !!}
                 @if ($task->type === 'product')
                 <span class="small text-secondary ms-1">
                     <img loading=lazy class="rounded mb-1 avatar-15" src="{{ Helper::getCDNImage($task->product->avatar, 80) }}" height="15" width="15" alt="{{ $task->product->slug }}'s avatar" />

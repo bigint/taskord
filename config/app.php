@@ -179,7 +179,6 @@ return [
         App\Providers\RouteServiceProvider::class,
 
         Laravel\Socialite\SocialiteServiceProvider::class,
-        Stevebauman\Purify\PurifyServiceProvider::class,
         QCod\Gamify\GamifyServiceProvider::class,
         CyrildeWit\EloquentViewable\EloquentViewableServiceProvider::class,
         Intervention\Image\ImageServiceProvider::class,
@@ -240,7 +239,6 @@ return [
         // Plugins
         'Carbon' => Carbon\Carbon::class,
         'Socialite' => Laravel\Socialite\Facades\Socialite::class,
-        'Purify' => Stevebauman\Purify\Facades\Purify::class,
         'Throttle' => GrahamCampbell\Throttle\Facades\Throttle::class,
         'Image' => Intervention\Image\Facades\Image::class,
 

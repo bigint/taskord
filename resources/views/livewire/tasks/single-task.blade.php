@@ -9,7 +9,7 @@
         />
         <label class="task-font text-dark ms-2">
             <a class="text-dark" href="{{ route('task', ['id' => $task->id]) }}">
-                {!! Purify::clean(Helper::renderTask($task->task)) !!}
+                {!! Purifier::clean(Helper::renderTask($task->task)) !!}
             </a>
             @if ($task->type === 'product')
             <span class="small text-secondary">

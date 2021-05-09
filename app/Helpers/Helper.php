@@ -173,7 +173,7 @@ class Helper
         if (preg_match($urlRegex, $task, $url)) {
             $truncate = strlen($url[0]) > 30 ? substr($url[0], 0, 30).'...' : $url[0];
 
-            return preg_replace($urlRegex, "<a class='link' href='$url[0]'>$truncate</a>", $task);
+            return preg_replace($urlRegex, "<a class='link' target='_blank' href='$url[0]'>$truncate</a>", $task);
         }
 
         return $task;

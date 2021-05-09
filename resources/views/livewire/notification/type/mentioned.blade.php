@@ -10,7 +10,7 @@
             @if ($body->hidden)
             <div class="body-font fst-italic text-secondary mt-2">Task was hidden by moderator</div>
             @else
-                <div class="mt-2 body-font">{!! Purify::clean(Helper::renderTask($body->task)) !!}</div>
+                <div class="mt-2 body-font">{!! Purifier::clean(Helper::renderTask($body->task)) !!}</div>
             @endif
         @else
             <div class="body-font fst-italic text-secondary mt-2">Notification source was deleted</div>

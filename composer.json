@@ -29,6 +29,7 @@
         "laravel/ui": "3.2.1",
         "league/commonmark": "1.6.1",
         "livewire/livewire": "2.4.4",
+        "mews/purifier": "^3.3",
         "mll-lab/laravel-graphql-playground": "2.5.0",
         "multicaret/laravel-acquaintances": "3.5.1",
         "nesbot/carbon": "2.47.0",
@@ -41,7 +42,6 @@
         "sentry/sentry-laravel": "2.5.2",
         "spatie/laravel-activitylog": "4.0.0",
         "spatie/laravel-backup": "7.5.2",
-        "stevebauman/purify": "4.0.0",
         "symfony/psr-http-message-bridge": "2.1.0"
     },
     "require-dev": {
