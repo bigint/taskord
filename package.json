@@ -22,7 +22,7 @@
     "dependencies": {
         "@joeattardi/emoji-button": "4.6.0",
         "bootstrap": "5.0.0",
-        "hotkeys-js": "3.8.3",
+        "hotkeys-js": "3.8.5",
         "observe-element-in-viewport": "0.0.15",
         "tippy.js": "6.3.1",
         "tributejs": "5.1.3"
