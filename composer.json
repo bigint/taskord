@@ -32,7 +32,7 @@
         "mews/purifier": "3.3.4",
         "mll-lab/laravel-graphql-playground": "2.5.0",
         "multicaret/laravel-acquaintances": "3.5.1",
-        "nesbot/carbon": "2.47.0",
+        "nesbot/carbon": "2.48.0",
         "nicolaslopezj/searchable": "1.13.0",
         "nuwave/lighthouse": "5.8.1",
         "propaganistas/laravel-disposable-email": "2.0.19",
