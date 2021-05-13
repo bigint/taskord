@@ -14,7 +14,7 @@
         <div class="mt-3 h4 lh-sm text-secondary fw-normal" style="letter-spacing:1px">
             Thanks for signing up to Taskord, you are going to love the community and awesome makers here.
         </div>
-        <a class="btn btn-primary px-5 mt-4 fw-bold" href="{{ route('onboarding.profile') }}">
+        <a class="btn btn-primary px-5 mt-4 fw-bold" href="">
             Let's do it
         </a>
     </div>

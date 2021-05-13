@@ -50,6 +50,7 @@ Route::group(['middleware' => ['throttle:100,1']], function () {
     // Onboarding
     Route::group(['prefix' => 'onboarding', 'as' => 'onboarding.'], function () {
         Route::view('welcome', 'onboarding.welcome')->name('welcome');
+        Route::view('profile', 'onboarding.profile')->name('profile');
     });
 
     // Explore
