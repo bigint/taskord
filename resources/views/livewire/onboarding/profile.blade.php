@@ -12,7 +12,12 @@
         </div>
         <div class="mt-3">
             <label class="form-label fw-bold">Username</label>
-            <input type="text" class="form-control" placeholder="johndoe" wire:model.defer="username">
+            <input type="text" class="form-control @error('username') is-invalid @enderror" placeholder="johndoe" wire:model="username">
+            @error('username')
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
+            @enderror
         </div>
         <div class="mt-3">
             <label class="form-label fw-bold">Bio</label>
