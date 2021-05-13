@@ -51,6 +51,8 @@ class Profile extends Component
                 $this->user->username = $this->username;
                 $this->user->bio = $this->bio;
                 $this->user->save();
+
+                return redirect()->route('onboarding.welcome');
             }
         }
     }
