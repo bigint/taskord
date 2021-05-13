@@ -24,7 +24,7 @@
     </div>
     <div class="text-center">
         <button type="submit" class="btn btn-primary px-5 mt-4 fw-bold">
-            Update the profile
+            All done!
         </button>
     </div>
 </form>
