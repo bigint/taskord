@@ -14,7 +14,7 @@ class AddOnboardStatusToUsersTable extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            //
+            $table->boolean('onboard_status')->default('new');
         });
     }
 
@@ -26,7 +26,7 @@ class AddOnboardStatusToUsersTable extends Migration
     public function down()
     {
         Schema::table('users', function (Blueprint $table) {
-            //
+            $table->dropColumn('onboard_status');
         });
     }
 }
