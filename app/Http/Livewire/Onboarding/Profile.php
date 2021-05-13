@@ -29,6 +29,8 @@ class Profile extends Component
             if (auth()->user()->id === $this->user->id) {
                 $this->validateOnly($field, [
                     'username' => 'required|min:2|max:20|alpha_dash|unique:users,username,'.$this->user->id,
+                    'firstname' => 'nullable|max:30',
+                    'lastname' => 'nullable|max:30',
                 ]);
             }
         }
@@ -40,7 +42,15 @@ class Profile extends Component
             if (auth()->user()->id === $this->user->id) {
                 $this->validate([
                     'username' => 'required|min:2|max:20|alpha_dash|unique:users,username,'.$this->user->id,
+                    'firstname' => 'nullable|max:30',
+                    'lastname' => 'nullable|max:30',
                 ]);
+
+                $this->user->firstname = $this->firstname;
+                $this->user->lastname = $this->lastname;
+                $this->user->username = $this->username;
+                $this->user->bio = $this->bio;
+                $this->user->save();
             }
         }
     }
