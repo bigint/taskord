@@ -47,6 +47,11 @@ Route::group(['middleware' => ['throttle:100,1']], function () {
     // Home
     Route::view('/', 'home.home')->name('home');
 
+    // Onboarding
+    Route::group(['prefix' => 'onboarding', 'as' => 'onboarding.'], function () {
+        Route::view('welcome', 'onboarding.welcome')->name('welcome');
+    });
+
     // Explore
     Route::group(['prefix' => 'explore', 'as' => 'explore.'], function () {
         Route::view('', 'explore.explore')->name('explore');

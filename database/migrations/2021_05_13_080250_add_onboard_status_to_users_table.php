@@ -14,7 +14,7 @@ class AddOnboardStatusToUsersTable extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->boolean('onboard_status')->default('new');
+            $table->string('onboard_status')->default('new');
         });
     }
 
