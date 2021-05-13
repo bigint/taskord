@@ -42,16 +42,16 @@ Route::fallback(function () {
     return response()->view('errors.404', [], 404);
 });
 
+// Onboarding
+Route::group(['prefix' => 'onboarding', 'as' => 'onboarding.'], function () {
+    Route::view('welcome', 'onboarding.welcome')->name('welcome');
+    Route::view('profile', 'onboarding.profile')->name('profile');
+});
+
 // Routes with throttle
 Route::group(['middleware' => ['throttle:100,1']], function () {
     // Home
     Route::view('/', 'home.home')->name('home');
-
-    // Onboarding
-    Route::group(['prefix' => 'onboarding', 'as' => 'onboarding.'], function () {
-        Route::view('welcome', 'onboarding.welcome')->name('welcome');
-        Route::view('profile', 'onboarding.profile')->name('profile');
-    });
 
     // Explore
     Route::group(['prefix' => 'explore', 'as' => 'explore.'], function () {
