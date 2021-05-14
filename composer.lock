@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "af5d5bd6a8d1daad1944f40b56a22e6f",
+    "content-hash": "e21b98cd65c0bfa85b257dbd3cd9803c",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -4593,16 +4593,16 @@
         },
         {
             "name": "nuwave/lighthouse",
-            "version": "v5.8.1",
+            "version": "v5.8.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nuwave/lighthouse.git",
-                "reference": "fbddf6af7008905fc05225841a190abcac867bc1"
+                "reference": "135c38ac0180e57694ad9cd9d305ab34c3d106e0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nuwave/lighthouse/zipball/fbddf6af7008905fc05225841a190abcac867bc1",
-                "reference": "fbddf6af7008905fc05225841a190abcac867bc1",
+                "url": "https://api.github.com/repos/nuwave/lighthouse/zipball/135c38ac0180e57694ad9cd9d305ab34c3d106e0",
+                "reference": "135c38ac0180e57694ad9cd9d305ab34c3d106e0",
                 "shasum": ""
             },
             "require": {
@@ -4718,7 +4718,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-05-03T20:06:40+00:00"
+            "time": "2021-05-14T14:51:18+00:00"
         },
         {
             "name": "nyholm/psr7",
@@ -10304,16 +10304,16 @@
         },
         {
             "name": "webonyx/graphql-php",
-            "version": "v14.6.2",
+            "version": "v14.6.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/webonyx/graphql-php.git",
-                "reference": "bcbb6926bbf2d0cf466c63d0b9edc90e44d5dd3f"
+                "reference": "34aa6dd54cd2ebdf8f36cafe817323333f7eb6ba"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/webonyx/graphql-php/zipball/bcbb6926bbf2d0cf466c63d0b9edc90e44d5dd3f",
-                "reference": "bcbb6926bbf2d0cf466c63d0b9edc90e44d5dd3f",
+                "url": "https://api.github.com/repos/webonyx/graphql-php/zipball/34aa6dd54cd2ebdf8f36cafe817323333f7eb6ba",
+                "reference": "34aa6dd54cd2ebdf8f36cafe817323333f7eb6ba",
                 "shasum": ""
             },
             "require": {
@@ -10358,7 +10358,7 @@
             ],
             "support": {
                 "issues": "https://github.com/webonyx/graphql-php/issues",
-                "source": "https://github.com/webonyx/graphql-php/tree/v14.6.2"
+                "source": "https://github.com/webonyx/graphql-php/tree/v14.6.4"
             },
             "funding": [
                 {
@@ -10366,7 +10366,7 @@
                     "type": "open_collective"
                 }
             ],
-            "time": "2021-04-23T09:26:03+00:00"
+            "time": "2021-05-11T12:37:43+00:00"
         }
     ],
     "packages-dev": [
