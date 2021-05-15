@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e21b98cd65c0bfa85b257dbd3cd9803c",
+    "content-hash": "c6592187e95fd8b9f4d242c2cad4807b",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -2663,16 +2663,16 @@
         },
         {
             "name": "jantinnerezo/livewire-alert",
-            "version": "2.1.5",
+            "version": "2.1.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/jantinnerezo/livewire-alert.git",
-                "reference": "e4fae96fd13f9a9bfb415993b8209313d492f547"
+                "reference": "e5e05f63c42b1410433a1c70d2a9a9d48939f949"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/jantinnerezo/livewire-alert/zipball/e4fae96fd13f9a9bfb415993b8209313d492f547",
-                "reference": "e4fae96fd13f9a9bfb415993b8209313d492f547",
+                "url": "https://api.github.com/repos/jantinnerezo/livewire-alert/zipball/e5e05f63c42b1410433a1c70d2a9a9d48939f949",
+                "reference": "e5e05f63c42b1410433a1c70d2a9a9d48939f949",
                 "shasum": ""
             },
             "require": {
@@ -2715,7 +2715,7 @@
             ],
             "support": {
                 "issues": "https://github.com/jantinnerezo/livewire-alert/issues",
-                "source": "https://github.com/jantinnerezo/livewire-alert/tree/2.1.5"
+                "source": "https://github.com/jantinnerezo/livewire-alert/tree/2.1.6"
             },
             "funding": [
                 {
@@ -2723,7 +2723,7 @@
                     "type": "custom"
                 }
             ],
-            "time": "2021-03-09T19:56:45+00:00"
+            "time": "2021-05-06T07:45:52+00:00"
         },
         {
             "name": "jaybizzle/crawler-detect",
