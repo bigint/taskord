@@ -44,6 +44,9 @@ Route::fallback(function () {
 
 // Routes with throttle
 Route::group(['middleware' => ['throttle:60,1']], function () {
+    // RSS Feeds
+    Route::feeds();
+
     // Home
     Route::view('/', 'home.home')->name('home');
 
