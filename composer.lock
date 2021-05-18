@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "9fbd591e7f4bf8d9f14dce91b6a596eb",
+    "content-hash": "290d74c2913ee6de9bcc8272994f2b31",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -4593,16 +4593,16 @@
         },
         {
             "name": "nuwave/lighthouse",
-            "version": "v5.9.1",
+            "version": "v5.10.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nuwave/lighthouse.git",
-                "reference": "086f22bac5bd2f43d2d114088fb5ff2947f222cc"
+                "reference": "8b18d9a380da69ddf369f8a0ea5a196dbc2303c2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nuwave/lighthouse/zipball/086f22bac5bd2f43d2d114088fb5ff2947f222cc",
-                "reference": "086f22bac5bd2f43d2d114088fb5ff2947f222cc",
+                "url": "https://api.github.com/repos/nuwave/lighthouse/zipball/8b18d9a380da69ddf369f8a0ea5a196dbc2303c2",
+                "reference": "8b18d9a380da69ddf369f8a0ea5a196dbc2303c2",
                 "shasum": ""
             },
             "require": {
@@ -4620,28 +4620,28 @@
                 "laragraph/utils": "^1",
                 "php": ">= 7.2",
                 "thecodingmachine/safe": "^1",
-                "webonyx/graphql-php": "^14.6.2"
+                "webonyx/graphql-php": "^14.7"
             },
             "require-dev": {
                 "bensampo/laravel-enum": "^1.28.3 || ^2 || ^3",
                 "ergebnis/composer-normalize": "^2.2.2",
                 "laravel/framework": "5.6.* || 5.7.* || 5.8.* || ^6 || ^7 || ^8",
-                "laravel/legacy-factories": "^1.0",
+                "laravel/legacy-factories": "^1",
                 "laravel/lumen-framework": "5.6.* || 5.7.* || 5.8.* || ^6 || ^7 || ^8",
                 "laravel/scout": "^7 || ^8",
                 "mll-lab/graphql-php-scalars": "^4",
-                "mockery/mockery": "^1.0",
+                "mockery/mockery": "^1",
                 "nunomaduro/larastan": "^0.6 || ^0.7",
                 "orchestra/testbench": "3.6.* || 3.7.* || 3.8.* || 3.9.* || ^4 || ^5 || ^6",
                 "phpbench/phpbench": "1.0.0-alpha4",
-                "phpstan/phpstan": "0.12.83",
+                "phpstan/phpstan": "0.12.88",
                 "phpstan/phpstan-mockery": "^0.12.5",
                 "phpstan/phpstan-phpunit": "^0.12.17",
                 "phpunit/phpunit": "^7.5 || ^8.4 || ^9",
                 "predis/predis": "^1.1",
                 "pusher/pusher-php-server": "^4 || ^5",
                 "rector/rector": "^0.9",
-                "thecodingmachine/phpstan-safe-rule": "^1.0",
+                "thecodingmachine/phpstan-safe-rule": "^1",
                 "vimeo/psalm": "^4.7"
             },
             "suggest": {
@@ -4718,7 +4718,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-05-18T08:24:51+00:00"
+            "time": "2021-05-18T10:10:34+00:00"
         },
         {
             "name": "nyholm/psr7",
