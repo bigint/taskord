@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "6768e81625256749667ca3ec3e693897",
+    "content-hash": "0adbcc9853eb3279819a31fea5775751",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -3131,16 +3131,16 @@
         },
         {
             "name": "laravel/horizon",
-            "version": "v5.7.6",
+            "version": "v5.7.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/horizon.git",
-                "reference": "24ffd819df749ef11a4eb20e14150b671d4f5717"
+                "reference": "6f3b522bf628852d180fabfeb3bddac69a4f6fca"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/horizon/zipball/24ffd819df749ef11a4eb20e14150b671d4f5717",
-                "reference": "24ffd819df749ef11a4eb20e14150b671d4f5717",
+                "url": "https://api.github.com/repos/laravel/horizon/zipball/6f3b522bf628852d180fabfeb3bddac69a4f6fca",
+                "reference": "6f3b522bf628852d180fabfeb3bddac69a4f6fca",
                 "shasum": ""
             },
             "require": {
@@ -3202,9 +3202,9 @@
             ],
             "support": {
                 "issues": "https://github.com/laravel/horizon/issues",
-                "source": "https://github.com/laravel/horizon/tree/v5.7.6"
+                "source": "https://github.com/laravel/horizon/tree/v5.7.7"
             },
-            "time": "2021-04-27T18:00:46+00:00"
+            "time": "2021-05-18T15:24:26+00:00"
         },
         {
             "name": "laravel/socialite",
