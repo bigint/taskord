@@ -8,8 +8,10 @@ use Multicaret\Acquaintances\Traits\CanBeLiked;
 use Multicaret\Acquaintances\Traits\CanBeSubscribed;
 use Nicolaslopezj\Searchable\SearchableTrait;
 use Rennokki\QueryCache\Traits\QueryCacheable;
+use Spatie\Feed\Feedable;
+use Spatie\Feed\FeedItem;
 
-class Task extends Model
+class Task extends Model implements Feedable
 {
     use CanBeLiked, CanBeSubscribed;
     use QueryCacheable;
@@ -62,5 +64,17 @@ class Task extends Model
     public function milestone()
     {
         return $this->belongsTo(\App\Models\Milestone::class);
+    }
+
+    public function toFeedItem(): FeedItem
+    {
+        return FeedItem::create()
+            ->id($this->id)
+            ->title($this->task);
+    }
+
+    public static function getFeedItems()
+    {
+    return Task::all();
     }
 }
