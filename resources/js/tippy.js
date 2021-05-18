@@ -57,6 +57,27 @@ const initHover = () => {
     },
   });
 
+  // Milestone Popover
+  tippy(".milestone-popover", {
+    ...config,
+    onShow(instance) {
+      const id = instance.reference.getAttribute("data-id");
+      window.fetch(`/popover/milestone/${id}`)
+        .then((response) => response.text())
+        .then((blob) => {
+          instance.setContent(blob);
+        })
+        .catch((error) => {
+          instance.setContent(`<div class="p-3">Something went wrong!</div>`);
+        });
+    },
+    onHidden(instance) {
+      instance.setContent(config.content);
+      instance._src = null;
+      instance._error = null;
+    },
+  });
+
   tippy(".patron", {
     allowHTML: true,
     placement: "right",

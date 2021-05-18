@@ -239,6 +239,7 @@ Route::group(['prefix' => 'mention', 'middleware' => ['auth']], function () {
 Route::group(['prefix' => 'popover'], function () {
     Route::get('user/{user}', [UserController::class, 'popover']);
     Route::get('product/{product}', [ProductController::class, 'popover']);
+    Route::get('milestone/{milestone}', [MilestoneController::class, 'popover']);
 });
 
 // Site

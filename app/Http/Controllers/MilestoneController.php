@@ -51,4 +51,11 @@ class MilestoneController extends Controller
             abort(404);
         }
     }
+
+    public function popover(Milestone $milestone)
+    {
+        return view('milestone.popover', [
+            'milestone' => $milestone,
+        ]);
+    }
 }

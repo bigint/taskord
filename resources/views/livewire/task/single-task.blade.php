@@ -58,7 +58,11 @@
         @endif
         @if ($task->milestone)
             <div class="mt-2">
-                <a class="text-secondary" href="{{ route('milestones.milestone', ['milestone' => $task->milestone]) }}" title="Milestone">
+                <a
+                    class="text-secondary milestone-popover"
+                    href="{{ route('milestones.milestone', ['milestone' => $task->milestone]) }}"
+                    data-id="{{ $task->milestone->id }}"
+                >
                     <x-heroicon-o-truck class="heroicon me-1" />
                     <span>{{ $task->milestone->name }}</span>
                 </a>
