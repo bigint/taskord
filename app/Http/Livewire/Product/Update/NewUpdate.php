@@ -26,11 +26,17 @@ class NewUpdate extends Component
             ]);
 
             if (! auth()->user()->hasVerifiedEmail()) {
-                return $this->alert('warning', 'Your email is not verified!');
+                return $this->dispatchBrowserEvent('toast', [
+                    'type' => 'error',
+                    'body' => 'Your email is not verified!',
+                ]);
             }
 
             if (auth()->user()->isFlagged) {
-                return $this->alert('error', 'Your account is flagged!');
+                return $this->dispatchBrowserEvent('toast', [
+                    'type' => 'error',
+                    'body' => 'Your account is flagged!',
+                ]);
             }
 
             $update = auth()->user()->product_updates()->create([
@@ -46,11 +52,12 @@ class NewUpdate extends Component
             }
             loggy(request(), 'Product', auth()->user(), 'Created a new product update on #'.$this->product->slug.' | Update ID: '.$update->id);
 
-            $this->flash('success', 'New Update has been created!');
-
             return redirect()->route('product.updates', ['slug' => $update->product->slug]);
         } else {
-            $this->alert('error', 'Forbidden!');
+            $this->dispatchBrowserEvent('toast', [
+                'type' => 'error',
+                'body' => 'Forbidden!',
+            ]);
         }
     }
 }

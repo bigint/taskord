@@ -28,17 +28,29 @@ class Account extends Component
                 if ($this->user->isBeta) {
                     loggy(request(), 'User', auth()->user(), 'Enrolled to beta');
 
-                    return $this->alert('success', 'Your are now beta member!');
+                    return $this->dispatchBrowserEvent('toast', [
+                        'type' => 'success',
+                        'body' => 'Your are now beta member!',
+                    ]);
                 } else {
                     loggy(request(), 'User', auth()->user(), 'Opted out from beta');
 
-                    return $this->alert('success', 'Your are no longer a beta member!');
+                    return $this->dispatchBrowserEvent('toast', [
+                        'type' => 'success',
+                        'body' => 'Your are no longer a beta member!',
+                    ]);
                 }
             } else {
-                return $this->alert('error', 'Forbidden!');
+                return $this->dispatchBrowserEvent('toast', [
+                    'type' => 'error',
+                    'body' => 'Forbidden!',
+                ]);
             }
         } else {
-            return $this->alert('error', 'Forbidden!');
+            return $this->dispatchBrowserEvent('toast', [
+                'type' => 'error',
+                'body' => 'Forbidden!',
+            ]);
         }
     }
 
@@ -47,24 +59,39 @@ class Account extends Component
         if (auth()->check()) {
             if (auth()->user()->id === $this->user->id) {
                 if (! $this->user->isPatron) {
-                    return $this->alert('error', 'Forbidden!');
+                    return $this->dispatchBrowserEvent('toast', [
+                        'type' => 'error',
+                        'body' => 'Forbidden!',
+                    ]);
                 }
                 $this->user->isPrivate = ! $this->user->isPrivate;
                 $this->user->save();
                 if ($this->user->isPrivate) {
                     loggy(request(), 'User', auth()->user(), 'Enrolled as a private user');
 
-                    return $this->alert('success', 'All your tasks are now private');
+                    return $this->dispatchBrowserEvent('toast', [
+                        'type' => 'success',
+                        'body' => 'All your tasks are now private',
+                    ]);
                 } else {
                     loggy(request(), 'User', auth()->user(), 'Enrolled as a public user');
 
-                    return $this->alert('success', 'All your tasks are now public');
+                    return $this->dispatchBrowserEvent('toast', [
+                        'type' => 'success',
+                        'body' => 'All your tasks are now public',
+                    ]);
                 }
             } else {
-                return $this->alert('error', 'Forbidden!');
+                return $this->dispatchBrowserEvent('toast', [
+                    'type' => 'error',
+                    'body' => 'Forbidden!',
+                ]);
             }
         } else {
-            return $this->alert('error', 'Forbidden!');
+            return $this->dispatchBrowserEvent('toast', [
+                'type' => 'error',
+                'body' => 'Forbidden!',
+            ]);
         }
     }
 
@@ -76,7 +103,10 @@ class Account extends Component
                 'email' => ['required', 'email', 'max:255', 'indisposable', 'unique:users,email,'.$this->user->id],
             ]);
         } else {
-            return $this->alert('error', 'Forbidden!');
+            return $this->dispatchBrowserEvent('toast', [
+                'type' => 'error',
+                'body' => 'Forbidden!',
+            ]);
         }
     }
 
@@ -99,13 +129,22 @@ class Account extends Component
                     $this->user->save();
                     loggy(request(), 'User', auth()->user(), 'Updated account settings');
 
-                    return $this->alert('success', 'Your account has been updated!');
+                    return $this->dispatchBrowserEvent('toast', [
+                        'type' => 'success',
+                        'body' => 'Your account has been updated!',
+                    ]);
                 }
             } else {
-                return $this->alert('error', 'Forbidden!');
+                return $this->dispatchBrowserEvent('toast', [
+                    'type' => 'error',
+                    'body' => 'Forbidden!',
+                ]);
             }
         } else {
-            return $this->alert('error', 'Forbidden!');
+            return $this->dispatchBrowserEvent('toast', [
+                'type' => 'error',
+                'body' => 'Forbidden!',
+            ]);
         }
     }
 }

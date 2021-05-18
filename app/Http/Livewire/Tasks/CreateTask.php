@@ -28,7 +28,10 @@ class CreateTask extends Component
                 'images.*' => ['nullable', 'mimes:jpeg,jpg,png,gif', 'max:5000'],
             ]);
         } else {
-            return $this->alert('error', 'Forbidden!');
+            return $this->dispatchBrowserEvent('toast', [
+                'type' => 'error',
+                'body' => 'Forbidden!',
+            ]);
         }
     }
 
@@ -42,7 +45,10 @@ class CreateTask extends Component
         if (! $throttler->check()) {
             loggy(request(), 'Throttle', auth()->user(), 'Rate limited while creating a task');
 
-            return $this->alert('error', 'Your are rate limited, try again later!');
+            return $this->dispatchBrowserEvent('toast', [
+                'type' => 'error',
+                'body' => 'Your are rate limited, try again later!',
+            ]);
         }
 
         if (auth()->check()) {
@@ -53,11 +59,17 @@ class CreateTask extends Component
             ]);
 
             if (! auth()->user()->hasVerifiedEmail()) {
-                return $this->alert('warning', 'Your email is not verified!');
+                return $this->dispatchBrowserEvent('toast', [
+                    'type' => 'error',
+                    'body' => 'Your email is not verified!',
+                ]);
             }
 
             if (auth()->user()->isFlagged) {
-                return $this->alert('error', 'Your account is flagged!');
+                return $this->dispatchBrowserEvent('toast', [
+                    'type' => 'error',
+                    'body' => 'Your account is flagged!',
+                ]);
             }
 
             if ($this->images) {
@@ -88,7 +100,10 @@ class CreateTask extends Component
             $this->emit('taskAdded');
             $this->reset();
         } else {
-            return $this->alert('error', 'Forbidden!');
+            return $this->dispatchBrowserEvent('toast', [
+                'type' => 'error',
+                'body' => 'Forbidden!',
+            ]);
         }
     }
 }

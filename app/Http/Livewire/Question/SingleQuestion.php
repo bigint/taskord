@@ -29,24 +29,39 @@ class SingleQuestion extends Component
         if (! $throttler->check()) {
             loggy(request(), 'Throttle', auth()->user(), 'Rate limited while praising the question');
 
-            return $this->alert('error', 'Your are rate limited, try again later!');
+            return $this->dispatchBrowserEvent('toast', [
+                'type' => 'error',
+                'body' => 'Your are rate limited, try again later!',
+            ]);
         }
 
         if (auth()->check()) {
             if (! auth()->user()->hasVerifiedEmail()) {
-                return $this->alert('warning', 'Your email is not verified!');
+                return $this->dispatchBrowserEvent('toast', [
+                    'type' => 'error',
+                    'body' => 'Your email is not verified!',
+                ]);
             }
 
             if (auth()->user()->isFlagged) {
-                return $this->alert('error', 'Your account is flagged!');
+                return $this->dispatchBrowserEvent('toast', [
+                    'type' => 'error',
+                    'body' => 'Your account is flagged!',
+                ]);
             }
             if (auth()->user()->id === $this->question->user->id) {
-                return $this->alert('warning', 'You can\'t praise your own question!');
+                return $this->dispatchBrowserEvent('toast', [
+                    'type' => 'error',
+                    'body' => 'You can\'t praise your own question!',
+                ]);
             }
             Helper::togglePraise($this->question, 'QUESTION');
             loggy(request(), 'Question', auth()->user(), 'Toggled question praise | Question ID: '.$this->question->id);
         } else {
-            return $this->alert('error', 'Forbidden!');
+            return $this->dispatchBrowserEvent('toast', [
+                'type' => 'error',
+                'body' => 'Forbidden!',
+            ]);
         }
     }
 
@@ -57,12 +72,21 @@ class SingleQuestion extends Component
                 Helper::hide($this->question);
                 loggy(request(), 'Admin', auth()->user(), 'Toggled hide question | Question ID: '.$this->question->id);
 
-                return $this->alert('success', 'Question is hidden from public!');
+                return $this->dispatchBrowserEvent('toast', [
+                    'type' => 'success',
+                    'body' => 'Question is hidden from public!',
+                ]);
             } else {
-                return $this->alert('error', 'Forbidden!');
+                return $this->dispatchBrowserEvent('toast', [
+                    'type' => 'error',
+                    'body' => 'Forbidden!',
+                ]);
             }
         } else {
-            return $this->alert('error', 'Forbidden!');
+            return $this->dispatchBrowserEvent('toast', [
+                'type' => 'error',
+                'body' => 'Forbidden!',
+            ]);
         }
     }
 
@@ -70,21 +94,29 @@ class SingleQuestion extends Component
     {
         if (auth()->check()) {
             if (auth()->user()->isFlagged) {
-                return $this->alert('error', 'Your account is flagged!');
+                return $this->dispatchBrowserEvent('toast', [
+                    'type' => 'error',
+                    'body' => 'Your account is flagged!',
+                ]);
             }
 
             if (auth()->user()->staffShip or auth()->user()->id === $this->question->user_id) {
                 loggy(request(), 'Question', auth()->user(), 'Deleted a question | Question ID: '.$this->question->id);
                 $this->question->delete();
                 auth()->user()->touch();
-                $this->flash('success', 'Question has been deleted successfully!');
 
                 return redirect()->route('questions.newest');
             } else {
-                $this->alert('error', 'Forbidden!');
+                $this->dispatchBrowserEvent('toast', [
+                    'type' => 'error',
+                    'body' => 'Forbidden!',
+                ]);
             }
         } else {
-            return $this->alert('error', 'Forbidden!');
+            return $this->dispatchBrowserEvent('toast', [
+                'type' => 'error',
+                'body' => 'Forbidden!',
+            ]);
         }
     }
 }

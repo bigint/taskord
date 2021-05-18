@@ -34,7 +34,10 @@ class CreateProduct extends Component
                 'avatar' => ['nullable', 'mimes:jpeg,jpg,png,gif', 'max:1024'],
             ]);
         } else {
-            return $this->alert('error', 'Forbidden!');
+            return $this->dispatchBrowserEvent('toast', [
+                'type' => 'error',
+                'body' => 'Forbidden!',
+            ]);
         }
     }
 
@@ -54,11 +57,17 @@ class CreateProduct extends Component
             ]);
 
             if (! auth()->user()->hasVerifiedEmail()) {
-                return $this->alert('warning', 'Your email is not verified!');
+                return $this->dispatchBrowserEvent('toast', [
+                    'type' => 'error',
+                    'body' => 'Your email is not verified!',
+                ]);
             }
 
             if (auth()->user()->isFlagged) {
-                return $this->alert('error', 'Your account is flagged!');
+                return $this->dispatchBrowserEvent('toast', [
+                    'type' => 'error',
+                    'body' => 'Your account is flagged!',
+                ]);
             }
 
             $launched = ! $this->launched ? false : true;
@@ -109,11 +118,13 @@ class CreateProduct extends Component
 
             auth()->user()->touch();
             loggy(request(), 'Product', auth()->user(), 'Created a new product | Product Slug: #'.$product->slug);
-            $this->flash('success', 'Product has been created!');
 
             return redirect()->route('product.done', ['slug' => $product->slug]);
         } else {
-            $this->alert('error', 'Forbidden!');
+            $this->dispatchBrowserEvent('toast', [
+                'type' => 'error',
+                'body' => 'Forbidden!',
+            ]);
         }
     }
 

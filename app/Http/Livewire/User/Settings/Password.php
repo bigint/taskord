@@ -28,7 +28,10 @@ class Password extends Component
                 'confirmPassword' => ['required', 'same:newPassword'],
             ]);
         } else {
-            $this->alert('error', 'Forbidden!');
+            $this->dispatchBrowserEvent('toast', [
+                'type' => 'error',
+                'body' => 'Forbidden!',
+            ]);
         }
     }
 
@@ -43,19 +46,31 @@ class Password extends Component
                 ]);
 
                 if (! Hash::check($this->currentPassword, auth()->user()->password)) {
-                    return $this->alert('error', 'Current password does not match!');
+                    return $this->dispatchBrowserEvent('toast', [
+                        'type' => 'error',
+                        'body' => 'Current password does not match!',
+                    ]);
                 }
 
                 auth()->user()->password = Hash::make($this->newPassword);
                 auth()->user()->save();
                 loggy(request(), 'User', auth()->user(), 'Changed account password');
 
-                return $this->alert('success', 'Your password has been changed!');
+                return $this->dispatchBrowserEvent('toast', [
+                    'type' => 'success',
+                    'body' => 'Your password has been changed!',
+                ]);
             } else {
-                return $this->alert('error', 'Forbidden!');
+                return $this->dispatchBrowserEvent('toast', [
+                    'type' => 'error',
+                    'body' => 'Forbidden!',
+                ]);
             }
         } else {
-            return $this->alert('error', 'Forbidden!');
+            return $this->dispatchBrowserEvent('toast', [
+                'type' => 'error',
+                'body' => 'Forbidden!',
+            ]);
         }
     }
 }

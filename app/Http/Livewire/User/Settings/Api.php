@@ -32,7 +32,10 @@ class Api extends Component
         if (! $throttler->check()) {
             loggy(request(), 'Throttle', auth()->user(), 'Rate limited while generating a API token');
 
-            return $this->alert('error', 'Your are rate limited, try again later!');
+            return $this->dispatchBrowserEvent('toast', [
+                'type' => 'error',
+                'body' => 'Your are rate limited, try again later!',
+            ]);
         }
 
         if (auth()->check()) {
@@ -42,12 +45,21 @@ class Api extends Component
                 $this->emit('tokenRegenerated');
                 loggy(request(), 'User', auth()->user(), 'Created a new API key');
 
-                return $this->alert('success', 'New API key been generated successfully');
+                return $this->dispatchBrowserEvent('toast', [
+                    'type' => 'success',
+                    'body' => 'New API key been generated successfully',
+                ]);
             } else {
-                return $this->alert('error', 'Forbidden!');
+                return $this->dispatchBrowserEvent('toast', [
+                    'type' => 'error',
+                    'body' => 'Forbidden!',
+                ]);
             }
         } else {
-            return $this->alert('error', 'Forbidden!');
+            return $this->dispatchBrowserEvent('toast', [
+                'type' => 'error',
+                'body' => 'Forbidden!',
+            ]);
         }
     }
 

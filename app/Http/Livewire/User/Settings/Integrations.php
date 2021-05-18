@@ -35,7 +35,10 @@ class Integrations extends Component
         if (! $throttler->check()) {
             loggy(request(), 'Throttle', auth()->user(), 'Rate limited while creating an API integration');
 
-            return $this->alert('error', 'Your are rate limited, try again later!');
+            return $this->dispatchBrowserEvent('toast', [
+                'type' => 'error',
+                'body' => 'Your are rate limited, try again later!',
+            ]);
         }
 
         if (auth()->check()) {
@@ -46,7 +49,10 @@ class Integrations extends Component
                 ]);
 
                 if (auth()->user()->isFlagged) {
-                    return $this->alert('error', 'Your account is flagged!');
+                    return $this->dispatchBrowserEvent('toast', [
+                        'type' => 'error',
+                        'body' => 'Your account is flagged!',
+                    ]);
                 }
 
                 if (auth()->user()->id === $this->user->id) {
@@ -61,15 +67,27 @@ class Integrations extends Component
                     session()->flash('created', $webhook);
                     loggy(request(), 'User', auth()->user(), 'Created a new webhook | Webhook ID: '.$webhook->id);
 
-                    return $this->alert('success', 'New webhook has been created!');
+                    return $this->dispatchBrowserEvent('toast', [
+                        'type' => 'success',
+                        'body' => 'New webhook has been created!',
+                    ]);
                 } else {
-                    return $this->alert('error', 'Forbidden!');
+                    return $this->dispatchBrowserEvent('toast', [
+                        'type' => 'error',
+                        'body' => 'Forbidden!',
+                    ]);
                 }
             } else {
-                return $this->alert('error', 'Forbidden!');
+                return $this->dispatchBrowserEvent('toast', [
+                    'type' => 'error',
+                    'body' => 'Forbidden!',
+                ]);
             }
         } else {
-            return $this->alert('error', 'Forbidden!');
+            return $this->dispatchBrowserEvent('toast', [
+                'type' => 'error',
+                'body' => 'Forbidden!',
+            ]);
         }
     }
 
@@ -82,12 +100,21 @@ class Integrations extends Component
                 $webhook->delete();
                 $this->emit('webhookDeleted');
 
-                return $this->alert('success', 'Webhook has been deleted!');
+                return $this->dispatchBrowserEvent('toast', [
+                    'type' => 'success',
+                    'body' => 'Webhook has been deleted!',
+                ]);
             } else {
-                return $this->alert('error', 'Forbidden!');
+                return $this->dispatchBrowserEvent('toast', [
+                    'type' => 'error',
+                    'body' => 'Forbidden!',
+                ]);
             }
         } else {
-            return $this->alert('error', 'Forbidden!');
+            return $this->dispatchBrowserEvent('toast', [
+                'type' => 'error',
+                'body' => 'Forbidden!',
+            ]);
         }
     }
 

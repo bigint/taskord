@@ -30,7 +30,10 @@ class EditQuestion extends Component
         if (auth()->check()) {
             $this->validateOnly($field);
         } else {
-            $this->alert('error', 'Forbidden!');
+            $this->dispatchBrowserEvent('toast', [
+                'type' => 'error',
+                'body' => 'Forbidden!',
+            ]);
         }
     }
 
@@ -40,11 +43,17 @@ class EditQuestion extends Component
             $this->validate();
 
             if (! auth()->user()->hasVerifiedEmail()) {
-                return $this->alert('warning', 'Your email is not verified!');
+                return $this->dispatchBrowserEvent('toast', [
+                    'type' => 'error',
+                    'body' => 'Your email is not verified!',
+                ]);
             }
 
             if (auth()->user()->isFlagged) {
-                return $this->alert('error', 'Your account is flagged!');
+                return $this->dispatchBrowserEvent('toast', [
+                    'type' => 'error',
+                    'body' => 'Your account is flagged!',
+                ]);
             }
 
             $question = Question::where('id', $this->question->id)->firstOrFail();
@@ -59,14 +68,19 @@ class EditQuestion extends Component
                 auth()->user()->touch();
 
                 loggy(request(), 'Question', auth()->user(), 'Updated a question | Question ID: '.$question->id);
-                $this->flash('success', 'Question has been edited!');
 
                 return redirect()->route('question.question', ['id' => $question->id]);
             } else {
-                $this->alert('error', 'Forbidden!');
+                $this->dispatchBrowserEvent('toast', [
+                    'type' => 'error',
+                    'body' => 'Forbidden!',
+                ]);
             }
         } else {
-            $this->alert('error', 'Forbidden!');
+            $this->dispatchBrowserEvent('toast', [
+                'type' => 'error',
+                'body' => 'Forbidden!',
+            ]);
         }
     }
 }

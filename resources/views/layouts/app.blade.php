@@ -86,14 +86,13 @@
                 @include('home.hero')
             @endif
         @endguest
+        <x:shared.toast />
         <main class="py-4">
             @yield('content')
         </main>
     </div>
 </body>
 <livewire:scripts />
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@latest" defer></script>
-<x-livewire-alert::scripts />
 <script src="{{ mix('js/bootstrap.js') }}" defer></script>
 <script src="{{ mix('js/app.js') }}" defer></script>
 @if (App::environment() === 'production')

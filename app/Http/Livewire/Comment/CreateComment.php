@@ -27,7 +27,10 @@ class CreateComment extends Component
         if (auth()->check()) {
             $this->validateOnly($field);
         } else {
-            $this->alert('error', 'Forbidden!');
+            $this->dispatchBrowserEvent('toast', [
+                'type' => 'error',
+                'body' => 'Forbidden!',
+            ]);
         }
     }
 
@@ -37,11 +40,17 @@ class CreateComment extends Component
             $this->validate();
 
             if (! auth()->user()->hasVerifiedEmail()) {
-                return $this->alert('warning', 'Your email is not verified!');
+                return $this->dispatchBrowserEvent('toast', [
+                    'type' => 'error',
+                    'body' => 'Your email is not verified!',
+                ]);
             }
 
             if (auth()->user()->isFlagged) {
-                return $this->alert('error', 'Your account is flagged!');
+                return $this->dispatchBrowserEvent('toast', [
+                    'type' => 'error',
+                    'body' => 'Your account is flagged!',
+                ]);
             }
 
             $users = Helper::getUsernamesFromMentions($this->comment);
@@ -70,9 +79,15 @@ class CreateComment extends Component
             }
             loggy(request(), 'Comment', auth()->user(), 'Created a new comment | Comment ID: '.$comment->id);
 
-            return $this->alert('success', 'Comment has been added!');
+            return $this->dispatchBrowserEvent('toast', [
+                'type' => 'success',
+                'body' => 'Comment has been added!',
+            ]);
         } else {
-            $this->alert('error', 'Forbidden!');
+            $this->dispatchBrowserEvent('toast', [
+                'type' => 'error',
+                'body' => 'Forbidden!',
+            ]);
         }
     }
 

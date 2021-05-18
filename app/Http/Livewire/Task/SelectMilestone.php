@@ -22,7 +22,10 @@ class SelectMilestone extends Component
         $this->emitUp('addedToMilestone');
         loggy(request(), 'Milestone', auth()->user(), 'Removed milestone from the task | Task ID: '.$this->task->id);
 
-        return $this->alert('success', 'Milestone has been removed from the task!');
+        return $this->dispatchBrowserEvent('toast', [
+            'type' => 'success',
+            'body' => 'Milestone has been removed from the task!',
+        ]);
     }
 
     public function selectMilestone(Milestone $milestone)
@@ -33,7 +36,10 @@ class SelectMilestone extends Component
         $this->emitUp('addedToMilestone');
         loggy(request(), 'Milestone', auth()->user(), 'Added milestone to the task | Task ID: '.$this->task->id);
 
-        return $this->alert('success', 'Task has been added to the milestone #'.$milestone->id);
+        return $this->dispatchBrowserEvent('toast', [
+            'type' => 'success',
+            'body' => 'Task has been added to the milestone #'.$milestone->id,
+        ]);
     }
 
     public function render()

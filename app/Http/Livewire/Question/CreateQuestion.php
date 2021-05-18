@@ -20,11 +20,17 @@ class CreateQuestion extends Component
             ]);
 
             if (! auth()->user()->hasVerifiedEmail()) {
-                return $this->alert('warning', 'Your email is not verified!');
+                return $this->dispatchBrowserEvent('toast', [
+                    'type' => 'error',
+                    'body' => 'Your email is not verified!',
+                ]);
             }
 
             if (auth()->user()->isFlagged) {
-                return $this->alert('error', 'Your account is flagged!');
+                return $this->dispatchBrowserEvent('toast', [
+                    'type' => 'error',
+                    'body' => 'Your account is flagged!',
+                ]);
             }
 
             $patronOnly = ! $this->patronOnly ? false : true;
@@ -38,11 +44,13 @@ class CreateQuestion extends Component
 
             givePoint(new QuestionCreated($question));
             loggy(request(), 'Question', auth()->user(), 'Created a new question | Question ID: '.$question->id);
-            $this->flash('success', 'Question has been created!');
 
             return redirect()->route('question.question', ['id' => $question->id]);
         } else {
-            $this->alert('error', 'Forbidden!');
+            $this->dispatchBrowserEvent('toast', [
+                'type' => 'error',
+                'body' => 'Forbidden!',
+            ]);
         }
     }
 }

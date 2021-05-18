@@ -383,7 +383,10 @@ class Moderator extends Component
 
         loggy(request(), 'Admin', auth()->user(), 'Updated the staff notes for user: @'.$this->user->username);
 
-        $this->alert('success', 'Note updated!');
+        return $this->dispatchBrowserEvent('toast', [
+            'type' => 'success',
+            'body' => 'Note has been updated!',
+        ]);
     }
 
     public function render()

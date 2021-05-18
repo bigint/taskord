@@ -27,9 +27,15 @@ class Status extends Component
             $this->emit('statusUpdated');
             loggy(request(), 'User', auth()->user(), 'Cleared the account status');
 
-            return $this->alert('success', 'Status cleared successfully!');
+            return $this->dispatchBrowserEvent('toast', [
+                'type' => 'success',
+                'body' => 'Status cleared successfully!',
+            ]);
         } else {
-            return $this->alert('error', 'Forbidden!');
+            return $this->dispatchBrowserEvent('toast', [
+                'type' => 'error',
+                'body' => 'Forbidden!',
+            ]);
         }
     }
 
@@ -37,7 +43,10 @@ class Status extends Component
     {
         if (auth()->check()) {
             if (strlen($event['status_emoji']) === 0) {
-                return $this->alert('warning', 'Select the emoji!');
+                return $this->dispatchBrowserEvent('toast', [
+                    'type' => 'error',
+                    'body' => 'Select the emoji!',
+                ]);
             }
 
             if (strlen($event['status']) !== 0) {
@@ -47,7 +56,10 @@ class Status extends Component
                 $this->emit('statusUpdated');
                 loggy(request(), 'User', auth()->user(), 'Updated the account status');
 
-                return $this->alert('success', 'Status set successfully!');
+                return $this->dispatchBrowserEvent('toast', [
+                    'type' => 'success',
+                    'body' => 'Status set successfully!',
+                ]);
             } else {
                 auth()->user()->status = null;
                 auth()->user()->status_emoji = null;
@@ -55,10 +67,16 @@ class Status extends Component
                 $this->emit('statusUpdated');
                 loggy(request(), 'User', auth()->user(), 'Deleted the account status');
 
-                return $this->alert('success', 'Status cleared successfully!');
+                return $this->dispatchBrowserEvent('toast', [
+                    'type' => 'success',
+                    'body' => 'Status cleared successfully!',
+                ]);
             }
         } else {
-            return $this->alert('error', 'Forbidden!');
+            return $this->dispatchBrowserEvent('toast', [
+                'type' => 'error',
+                'body' => 'Forbidden!',
+            ]);
         }
     }
 

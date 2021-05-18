@@ -32,7 +32,10 @@ class EditMilestone extends Component
         if (auth()->check()) {
             $this->validateOnly($field);
         } else {
-            $this->alert('error', 'Forbidden!');
+            $this->dispatchBrowserEvent('toast', [
+                'type' => 'error',
+                'body' => 'Forbidden!',
+            ]);
         }
     }
 
@@ -42,11 +45,17 @@ class EditMilestone extends Component
             $this->validate();
 
             if (! auth()->user()->hasVerifiedEmail()) {
-                return $this->alert('warning', 'Your email is not verified!');
+                return $this->dispatchBrowserEvent('toast', [
+                    'type' => 'error',
+                    'body' => 'Your email is not verified!',
+                ]);
             }
 
             if (auth()->user()->isFlagged) {
-                return $this->alert('error', 'Your account is flagged!');
+                return $this->dispatchBrowserEvent('toast', [
+                    'type' => 'error',
+                    'body' => 'Your account is flagged!',
+                ]);
             }
 
             $milestone = Milestone::where('id', $this->milestone->id)->firstOrFail();
@@ -60,14 +69,19 @@ class EditMilestone extends Component
                 auth()->user()->touch();
 
                 loggy(request(), 'Milestone', auth()->user(), 'Updated a milestone | Milestone ID: '.$milestone->id);
-                $this->flash('success', 'Milestone has been edited!');
 
                 return redirect()->route('milestones.milestone', ['milestone' => $milestone]);
             } else {
-                $this->alert('error', 'Forbidden!');
+                $this->dispatchBrowserEvent('toast', [
+                    'type' => 'error',
+                    'body' => 'Forbidden!',
+                ]);
             }
         } else {
-            $this->alert('error', 'Forbidden!');
+            $this->dispatchBrowserEvent('toast', [
+                'type' => 'error',
+                'body' => 'Forbidden!',
+            ]);
         }
     }
 }
