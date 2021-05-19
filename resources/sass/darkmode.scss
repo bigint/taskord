@@ -207,6 +207,11 @@ hr {
     filter: invert(1) grayscale(100%) brightness(200%);
 }
 
+.toast {
+    background-color: $card-bg !important;
+    border: 1px solid $border-bg;
+}
+
 ::-webkit-scrollbar {
     background-color: $border-bg;
 }
