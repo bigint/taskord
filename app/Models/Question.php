@@ -27,6 +27,8 @@ class Question extends Model implements Viewable
         'user_id',
         'title',
         'body',
+        'is_solvable',
+        'solved',
         'patronOnly',
         'hidden',
     ];

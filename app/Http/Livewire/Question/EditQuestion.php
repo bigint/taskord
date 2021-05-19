@@ -10,6 +10,7 @@ class EditQuestion extends Component
     public Question $question;
     public $title;
     public $body;
+    public $solvable;
     public $patronOnly;
 
     protected $rules = [
@@ -22,6 +23,7 @@ class EditQuestion extends Component
         $this->question = $question;
         $this->title = $question->title;
         $this->body = $question->body;
+        $this->solvable = $question->is_solvable;
         $this->patronOnly = $question->patronOnly;
     }
 
@@ -58,11 +60,13 @@ class EditQuestion extends Component
 
             $question = Question::where('id', $this->question->id)->firstOrFail();
 
+            $solvable = ! $this->solvable ? false : true;
             $patronOnly = ! $this->patronOnly ? false : true;
 
             if (auth()->user()->staffShip or auth()->user()->id === $question->user_id) {
                 $question->title = $this->title;
                 $question->body = $this->body;
+                $question->is_solvable = $this->solvable;
                 $question->patronOnly = $this->patronOnly;
                 $question->save();
                 auth()->user()->touch();

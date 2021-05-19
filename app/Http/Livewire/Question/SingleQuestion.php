@@ -10,6 +10,10 @@ use Livewire\Component;
 
 class SingleQuestion extends Component
 {
+    public $listeners = [
+        'render' => 'render',
+    ];
+
     public Question $question;
     public $type;
 
@@ -90,6 +94,37 @@ class SingleQuestion extends Component
         }
     }
 
+    public function toggleSolve()
+    {
+        if (auth()->check()) {
+            if (auth()->user()->isFlagged) {
+                return $this->dispatchBrowserEvent('toast', [
+                    'type' => 'error',
+                    'body' => 'Your account is flagged!',
+                ]);
+            }
+
+            if (auth()->user()->staffShip or auth()->user()->id === $this->question->user_id) {
+                loggy(request(), 'Question', auth()->user(), 'Toggled solve question | Question ID: '.$this->question->id);
+                $this->question->solved = ! $this->question->solved;
+                $this->question->save();
+                auth()->user()->touch();
+
+                return $this->emit('render');
+            } else {
+                $this->dispatchBrowserEvent('toast', [
+                    'type' => 'error',
+                    'body' => 'Forbidden!',
+                ]);
+            }
+        } else {
+            return $this->dispatchBrowserEvent('toast', [
+                'type' => 'error',
+                'body' => 'Forbidden!',
+            ]);
+        }
+    }
+
     public function deleteQuestion()
     {
         if (auth()->check()) {
@@ -118,5 +153,10 @@ class SingleQuestion extends Component
                 'body' => 'Forbidden!',
             ]);
         }
+    }
+
+    public function render()
+    {
+        return view('livewire.question.single-question');
     }
 }

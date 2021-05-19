@@ -2,7 +2,26 @@
     <div class="card-body">
         <div class="d-flex align-items-center">
             <x:shared.user-label-big :user="$question->user" />
-            <span class="align-text-top small float-end ms-auto">
+            <span class="d-flex align-items-center small ms-auto">
+                <div>
+                    @if ($question->is_solvable)
+                        @if ($question->solved)
+                            <h6 class="m-0">
+                                <span class="badge bg-success me-2">
+                                    <x-heroicon-s-check-circle class="heroicon heroicon-15px" />
+                                    <span>Solved</span>
+                                </span>
+                            </h6>
+                        @else
+                            <h6 class="m-0">
+                                <span class="badge bg-secondary me-2 d-flex align-items-center">
+                                    <x-heroicon-o-check-circle class="heroicon heroicon-15px" />
+                                    <span>Unsolved</span>
+                                </span>
+                            </h6>
+                        @endif
+                    @endif
+                </div>
                 <a class="text-secondary" href="{{ route('question.question', ['id' => $question->id]) }}">
                     {{ $question->created_at->diffForHumans() }}
                 </a>
@@ -87,6 +106,23 @@
                     >
                         <x-heroicon-o-trash class="heroicon heroicon-15px me-0 text-secondary" />
                     </button>
+                    @if ($question->is_solvable)
+                        <button
+                            role="button"
+                            class="btn btn-task btn-outline-success me-1"
+                            wire:click="toggleSolve"
+                            wire:loading.attr="disabled"
+                            wire:offline.attr="disabled"
+                        >
+                            @if ($question->solved)
+                                <x-heroicon-s-check-circle class="heroicon heroicon-15px me-0 text-success" />
+                                Unsolve
+                            @else
+                                <x-heroicon-s-check-circle class="heroicon heroicon-15px me-0 text-success" />
+                                Solve
+                            @endif
+                        </button>
+                    @endif
                 @endif
                 @if (auth()->user()->staffShip)
                     <button type="button" class="btn btn-task {{ $question->hidden ? 'btn-info' : 'btn-outline-info' }}" wire:click="hide" wire:loading.attr="disabled" wire:offline.attr="disabled" wire:key="{{ $question->id }}" title="Flag to admins" aria-label="Hide">
