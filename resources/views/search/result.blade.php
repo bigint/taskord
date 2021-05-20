@@ -57,9 +57,11 @@
                     </div>
                 @else
                     @foreach ($comments as $comment)
-                        @livewire('comment.single-comment', [
-                            'comment' => $comment,
-                        ], key($comment->id))
+                        <div class="mb-3">
+                            @livewire('comment.single-comment', [
+                                'comment' => $comment,
+                            ], key($comment->id))
+                        </div>
                     @endforeach
                     <div class="mt-3">
                         {{ $comments->appends(request()->input())->links() }}

@@ -66,7 +66,7 @@ class CreateComment extends Component
             auth()->user()->touch();
 
             $this->emit('refreshComments');
-            $this->comment = '';
+            $this->reset('comment');
             Helper::mentionUsers($users, $comment, auth()->user(), 'comment');
             Helper::notifySubscribers($comment->task->subscribers, $comment, 'comment');
             if (! auth()->user()->hasSubscribed($comment->task)) {

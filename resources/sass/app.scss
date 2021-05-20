@@ -488,3 +488,11 @@ input[type="date"]:valid:before {
 .border-staffbar {
     border-color: $black !important;
 }
+
+.border-reply {
+    border-color: $gray-300 !important;
+}
+
+.reply-line {
+    margin-left: 11px;
+}

@@ -29,6 +29,20 @@
         @else
             <div class="body-font fst-italic text-secondary mt-2">Notification source was deleted</div>
         @endif
+    @elseif ($data['body_type'] === 'comment_reply')
+        @if ($body and $body->comment)
+            <div class="mt-2 text-secondary">
+                mentioned you in a
+                <a class="fw-bold" href="{{ route('comment', ['id' => $body->comment->task->id, 'comment_id' => $body->comment->id]) }}">
+                    reply
+                </a>
+            </div>
+            <div class="mt-3 body-font">
+                {!! markdown($body->reply) !!}
+            </div>
+        @else
+            <div class="body-font fst-italic text-secondary mt-2">Notification source was deleted</div>
+        @endif
     @elseif ($data['body_type'] === 'answer')
         @if ($body and $body->question)
             <div class="mt-2 text-secondary">

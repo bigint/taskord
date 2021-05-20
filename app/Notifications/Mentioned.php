@@ -53,6 +53,14 @@ class Mentioned extends Notification implements ShouldQueue
                     ->line($this->body->comment)
                     ->action('Go to Task', url('/task/'.$this->body->task->id))
                     ->line('Thank you for using Taskord!');
+        } elseif ($this->type === 'comment_reply') {
+            return (new MailMessage)
+                    ->subject('@'.$this->body->user->username.' mentioned you in a comment reply')
+                    ->greeting('Hello @'.$notifiable->username.' 👋')
+                    ->line('@'.$this->body->user->username.' mentioned you in a comment reply.')
+                    ->line($this->body->reply)
+                    ->action('Go to Comment', url('/task/'.$this->body->comment->task->id.'/'.$this->body->comment->id))
+                    ->line('Thank you for using Taskord!');
         } elseif ($this->type === 'answer') {
             return (new MailMessage)
                     ->subject('@'.$this->body->user->username.' mentioned you in an answer')
@@ -71,6 +79,9 @@ class Mentioned extends Notification implements ShouldQueue
             $entity_id = null;
         } elseif ($this->type === 'comment') {
             $id = $this->body->task->id;
+            $entity_id = $this->body->id;
+        } elseif ($this->type === 'comment_reply') {
+            $id = $this->body->comment->id;
             $entity_id = $this->body->id;
         } elseif ($this->type === 'answer') {
             $id = $this->body->question->id;

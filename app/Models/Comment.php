@@ -41,4 +41,9 @@ class Comment extends Model
     {
         return $this->belongsTo(\App\Models\Task::class);
     }
+
+    public function replies()
+    {
+        return $this->hasMany(\App\Models\CommentReply::class);
+    }
 }

@@ -11,6 +11,7 @@ use Livewire\Component;
 class SingleComment extends Component
 {
     public Comment $comment;
+    public $showReplyBox = false;
 
     public function mount($comment)
     {
@@ -61,6 +62,11 @@ class SingleComment extends Component
                 'body' => 'Forbidden!',
             ]);
         }
+    }
+
+    public function toggleCommentBox()
+    {
+        $this->showReplyBox = ! $this->showReplyBox;
     }
 
     public function hide()

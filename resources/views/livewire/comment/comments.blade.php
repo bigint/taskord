@@ -17,7 +17,9 @@
     @endif
     <ul class="list-group mt-4">
         @foreach ($comments as $comment)
-            <livewire:comment.single-comment :comment="$comment" :wire:key="$comment->id" />
+            <div class="mb-3">
+                <livewire:comment.single-comment :comment="$comment" :wire:key="$comment->id" />
+            </div>
         @endforeach
     </ul>
     <div class="mt-4">

@@ -117,9 +117,9 @@
             @endguest
             <a href="{{ route('task', ['id' => $task->id]) }}" class="btn btn-task btn-outline-primary me-1" aria-label="Comments">
                 <x-heroicon-o-chat-alt class="heroicon heroicon-15px me-0 text-secondary" />
-                @if ($task->comments->count('id') !== 0)
+                @if ($task->comments()->count('id') !== 0)
                     <span class="small text-dark fw-bold">
-                        {{ number_format($task->comments->count('id')) }}
+                        {{ number_format($task->comments()->count('id')) }}
                     </span>
                 @endif
             </a>
