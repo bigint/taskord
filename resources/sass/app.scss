@@ -496,3 +496,7 @@ input[type="date"]:valid:before {
 .reply-line {
     margin-left: 11px;
 }
+
+:target {
+    background-color: $yellow-100;
+}

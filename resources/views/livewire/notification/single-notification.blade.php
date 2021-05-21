@@ -46,6 +46,8 @@
                 <livewire:notification.type.task.notify-subscribers :data="$data" />
             @elseif ($type === "App\Notifications\Question\NotifySubscribers")
                 <livewire:notification.type.question.notify-subscribers :data="$data" />
+            @elseif ($type === "App\Notifications\Comment\Reply\Replied")
+                <livewire:notification.type.comment.reply.replied :data="$data" />
             @elseif ($type === "App\Notifications\Followed")
                 <div class="mt-2 text-secondary">
                     followed you

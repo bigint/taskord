@@ -1,4 +1,4 @@
-<div>
+<div id="reply_{{ $reply->id }}">
     <div class="align-items-center d-flex">
         <x:shared.user-label-small :user="$reply->user" />
         <span class="align-text-top small float-end ms-auto text-secondary">

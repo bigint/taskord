@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Comment\Reply;
 
 use App\Models\Comment;
+use App\Notifications\Comment\Reply\Replied;
 use Helper;
 use Livewire\Component;
 
@@ -67,7 +68,11 @@ class CreateReply extends Component
             $this->reset('reply');
 
             Helper::mentionUsers($users, $reply, auth()->user(), 'comment_reply');
-            // TODO: Notify the comment user
+            if (auth()->user()->id !== $this->comment->user->id) {
+                $this->comment->user->notify(new Replied($reply));
+            }
+
+            loggy(request(), 'Reply', auth()->user(), 'Created a new comment reply | Reply ID: '.$reply->id);
 
             return $this->dispatchBrowserEvent('toast', [
                 'type' => 'success',
