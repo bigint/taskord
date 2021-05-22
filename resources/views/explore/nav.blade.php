@@ -4,12 +4,12 @@
     </li>
     @if (feature('explore_makers'))
         <li class="nav-item px-1">
-            <a class="nav-link @if (Route::currentRouteName() === 'explore.makers') active @endif" href="{{ route('explore.makers') }}">Makers <x-staffship /></a>
+            <a class="nav-link @if (Route::currentRouteName() === 'explore.makers') active @endif" href="{{ route('explore.makers') }}">Makers  <x:labels.staff-ship /></a>
         </li>
     @endif
     @if (feature('explore_products'))
         <li class="nav-item px-1">
-            <a class="nav-link" href="#">Products <x-staffship /></a>
+            <a class="nav-link" href="#">Products  <x:labels.staff-ship /></a>
         </li>
     @endif
 </ul>

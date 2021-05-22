@@ -11,7 +11,7 @@
                 </div>
             </div>
             <div class="d-flex justify-content-between modal-footer">
-                <x-beta />
+                 <x:labels.beta />
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
             </div>
         </div>

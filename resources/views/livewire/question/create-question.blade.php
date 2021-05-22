@@ -26,7 +26,7 @@
                     <div class="small fw-bold text-secondary mt-3">
                         <x-heroicon-o-pencil-alt class="heroicon" />
                         Markdown is supported
-                        <x-beta />
+                         <x:labels.beta />
                     </div>
                 </div>
                 <div class="mb-3">

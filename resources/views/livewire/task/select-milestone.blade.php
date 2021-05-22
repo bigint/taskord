@@ -29,7 +29,7 @@
         <div class="dropdown-divider"></div>
         <li>
             <span class="p-2">
-                <x-beta />
+                 <x:labels.beta />
             </span>
         </li>
     </ul>

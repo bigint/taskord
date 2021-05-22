@@ -10,7 +10,7 @@
                 @stop
                 <div class="text-uppercase fw-bold text-secondary pb-2">
                     Status
-                    <x-beta />
+                     <x:labels.beta />
                 </div>
                 @livewire('user.status', [
                     'user' => $user

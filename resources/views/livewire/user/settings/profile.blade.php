@@ -122,7 +122,7 @@
             <span class="h5">Vacation mode</span>
             <div>
                 When turned on, your streaks will remain intact even if you don't create a task.
-                <x-beta />
+                 <x:labels.beta />
             </div>
         </div>
         <div class="card-body">

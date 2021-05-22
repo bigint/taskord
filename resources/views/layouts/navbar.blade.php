@@ -38,7 +38,7 @@
                 <li class="nav-item">
                     <a class="nav-link text-white fw-bold" href="{{ route('explore.explore') }}">
                         Explore
-                        <x-beta />
+                         <x:labels.beta />
                     </a>
                 </li>
                 <li class="nav-item dropdown">
@@ -50,7 +50,7 @@
                             <a class="dropdown-item text-dark" href="{{ route('milestones.opened') }}">
                                 <x-heroicon-o-truck class="heroicon heroicon-18px text-secondary" />
                                 Milestones
-                                <x-beta />
+                                 <x:labels.beta />
                             </a>
                         </li>
                         @if (feature('meetups'))
@@ -58,7 +58,7 @@
                                 <a class="dropdown-item text-dark" href="{{ route('meetups.home') }}">
                                     <x-heroicon-o-user-group class="heroicon heroicon-18px text-secondary" />
                                     Meetups
-                                    <x-staffship />
+                                     <x:labels.staff-ship />
                                 </a>
                             </li>
                         @endif
@@ -67,7 +67,7 @@
                                 <a class="dropdown-item text-dark" href="#">
                                     <x-heroicon-o-support class="heroicon heroicon-18px text-secondary" />
                                     Help
-                                    <x-staffship />
+                                     <x:labels.staff-ship />
                                 </a>
                             </li>
                         @endif

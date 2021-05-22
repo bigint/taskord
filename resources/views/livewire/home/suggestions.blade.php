@@ -1,6 +1,6 @@
 <div wire:init="loadSuggestions">
     <div class="text-uppercase fw-bold text-secondary pb-2">
-        Who to follow <x-new />
+        Who to follow
     </div>
     <div class="card mb-4">
         @if (!$readyToLoad)
