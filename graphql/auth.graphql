@@ -2,5 +2,5 @@
 type LoginPayload {
     user: User
     token: String
-    response: String
+    message: String
 }

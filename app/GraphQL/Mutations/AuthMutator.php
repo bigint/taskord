@@ -7,21 +7,17 @@ use Illuminate\Support\Facades\Auth;
 
 class AuthMutator
 {
-    /**
-     * @param  null  $_
-     * @param  array<string, mixed>  $args
-     */
     public function __invoke($_, array $args)
     {
         if (auth()->check()) {
             if (auth()->user()->isSuspended) {
                 return [
-                    'response' => 'Your account is suspended!',
+                    'message' => 'Your account is suspended!',
                 ];
             }
 
             return [
-                'response' => 'Already logged in',
+                'message' => 'Already logged in',
             ];
         } else {
             $credentials = Arr::only($args, ['email', 'password']);
@@ -29,18 +25,18 @@ class AuthMutator
             if (Auth::once($credentials)) {
                 if (auth()->user()->isSuspended) {
                     return [
-                        'response' => 'Your account is suspended!',
+                        'message' => 'Your account is suspended!',
                     ];
                 }
 
                 return [
                     'user' => auth()->user(),
                     'token' => auth()->user()->api_token,
-                    'response' => 'Success',
+                    'message' => 'Success',
                 ];
             } else {
                 return [
-                    'response' => 'Invalid Credentials',
+                    'message' => 'Invalid Credentials',
                 ];
             }
         }
