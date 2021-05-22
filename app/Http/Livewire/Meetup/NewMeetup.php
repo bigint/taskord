@@ -27,10 +27,7 @@ class NewMeetup extends Component
                 'cover' => ['nullable', 'mimes:jpeg,jpg,png,gif', 'max:1024'],
             ]);
         } else {
-            return $this->dispatchBrowserEvent('toast', [
-                'type' => 'error',
-                'body' => 'Forbidden!',
-            ]);
+            return toast($this, 'error', 'Forbidden!');
         }
     }
 
@@ -48,17 +45,11 @@ class NewMeetup extends Component
             ]);
 
             if (! auth()->user()->hasVerifiedEmail()) {
-                return $this->dispatchBrowserEvent('toast', [
-                    'type' => 'error',
-                    'body' => 'Your email is not verified!',
-                ]);
+                return toast($this, 'error', 'Your email is not verified!');
             }
 
             if (auth()->user()->isFlagged) {
-                return $this->dispatchBrowserEvent('toast', [
-                    'type' => 'error',
-                    'body' => 'Your account is flagged!',
-                ]);
+                return toast($this, 'error', 'Your account is flagged!');
             }
 
             if ($this->cover) {
@@ -86,10 +77,7 @@ class NewMeetup extends Component
 
             return redirect()->route('meetups.home');
         } else {
-            $this->dispatchBrowserEvent('toast', [
-                'type' => 'error',
-                'body' => 'Forbidden!',
-            ]);
+            toast($this, 'error', 'Forbidden!');
         }
     }
 }

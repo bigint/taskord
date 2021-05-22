@@ -31,30 +31,18 @@ class Subscribe extends Component
         if (! $throttler->check()) {
             loggy(request(), 'Throttle', auth()->user(), 'Rate limited while subscribing to the task');
 
-            return $this->dispatchBrowserEvent('toast', [
-                'type' => 'error',
-                'body' => 'Your are rate limited, try again later!',
-            ]);
+            return toast($this, 'error', 'Your are rate limited, try again later!');
         }
 
         if (auth()->check()) {
             if (! auth()->user()->hasVerifiedEmail()) {
-                return $this->dispatchBrowserEvent('toast', [
-                    'type' => 'error',
-                    'body' => 'Your email is not verified!',
-                ]);
+                return toast($this, 'error', 'Your email is not verified!');
             }
             if (auth()->user()->isFlagged) {
-                return $this->dispatchBrowserEvent('toast', [
-                    'type' => 'error',
-                    'body' => 'Your account is flagged!',
-                ]);
+                return toast($this, 'error', 'Your account is flagged!');
             }
             if (auth()->user()->id === $this->task->user->id) {
-                return $this->dispatchBrowserEvent('toast', [
-                    'type' => 'error',
-                    'body' => 'You can\'t subscribe your own task!',
-                ]);
+                return toast($this, 'error', 'You can\'t subscribe your own task!');
             } else {
                 auth()->user()->toggleSubscribe($this->task);
                 $this->task->refresh();
@@ -62,10 +50,7 @@ class Subscribe extends Component
                 loggy(request(), 'Task', auth()->user(), 'Toggled task subscribe | Task ID: '.$this->task->id);
             }
         } else {
-            return $this->dispatchBrowserEvent('toast', [
-                'type' => 'error',
-                'body' => 'Forbidden!',
-            ]);
+            return toast($this, 'error', 'Forbidden!');
         }
     }
 

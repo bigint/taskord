@@ -51,16 +51,10 @@ class Delete extends Component
 
                 return redirect()->route('home');
             } else {
-                return $this->dispatchBrowserEvent('toast', [
-                    'type' => 'error',
-                    'body' => 'Forbidden!',
-                ]);
+                return toast($this, 'error', 'Forbidden!');
             }
         } else {
-            return $this->dispatchBrowserEvent('toast', [
-                'type' => 'error',
-                'body' => 'Forbidden!',
-            ]);
+            return toast($this, 'error', 'Forbidden!');
         }
     }
 
@@ -101,16 +95,10 @@ class Delete extends Component
 
                 return redirect()->route('home');
             } else {
-                return $this->dispatchBrowserEvent('toast', [
-                    'type' => 'error',
-                    'body' => 'Forbidden!',
-                ]);
+                return toast($this, 'error', 'Forbidden!');
             }
         } else {
-            return $this->dispatchBrowserEvent('toast', [
-                'type' => 'error',
-                'body' => 'Forbidden!',
-            ]);
+            return toast($this, 'error', 'Forbidden!');
         }
     }
 }

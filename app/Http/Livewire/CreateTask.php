@@ -35,10 +35,7 @@ class CreateTask extends Component
             auth()->user()->checkState = ! auth()->user()->checkState;
             auth()->user()->save();
         } else {
-            return $this->dispatchBrowserEvent('toast', [
-                'type' => 'error',
-                'body' => 'Forbidden!',
-            ]);
+            return toast($this, 'error', 'Forbidden!');
         }
     }
 
@@ -50,10 +47,7 @@ class CreateTask extends Component
                 'images.*' => ['nullable', 'mimes:jpeg,jpg,png,gif', 'max:5000'],
             ]);
         } else {
-            return $this->dispatchBrowserEvent('toast', [
-                'type' => 'error',
-                'body' => 'Forbidden!',
-            ]);
+            return toast($this, 'error', 'Forbidden!');
         }
     }
 
@@ -67,10 +61,7 @@ class CreateTask extends Component
         if (! $throttler->check()) {
             loggy(request(), 'Throttle', auth()->user(), 'Rate limited while creating a task');
 
-            return $this->dispatchBrowserEvent('toast', [
-                'type' => 'error',
-                'body' => 'Your are rate limited, try again later!',
-            ]);
+            return toast($this, 'error', 'Your are rate limited, try again later!');
         }
 
         if (auth()->check()) {
@@ -81,17 +72,11 @@ class CreateTask extends Component
             ]);
 
             if (! auth()->user()->hasVerifiedEmail()) {
-                return $this->dispatchBrowserEvent('toast', [
-                    'type' => 'error',
-                    'body' => 'Your email is not verified!',
-                ]);
+                return toast($this, 'error', 'Your email is not verified!');
             }
 
             if (auth()->user()->isFlagged) {
-                return $this->dispatchBrowserEvent('toast', [
-                    'type' => 'error',
-                    'body' => 'Your account is flagged!',
-                ]);
+                return toast($this, 'error', 'Your account is flagged!');
             }
 
             if ($this->images) {
@@ -141,15 +126,9 @@ class CreateTask extends Component
             }
             $this->latest_task = $task;
 
-            return $this->dispatchBrowserEvent('toast', [
-                'type' => 'success',
-                'body' => 'Task has been created!',
-            ]);
+            return toast($this, 'success', 'Task has been created!');
         } else {
-            return $this->dispatchBrowserEvent('toast', [
-                'type' => 'error',
-                'body' => 'Forbidden!',
-            ]);
+            return toast($this, 'error', 'Forbidden!');
         }
     }
 }

@@ -14,15 +14,9 @@ class Delete extends Component
             auth()->user()->touch();
             loggy(request(), 'Notification', auth()->user(), 'Deleted all notifications');
 
-            return $this->dispatchBrowserEvent('toast', [
-                'type' => 'success',
-                'body' => 'All notifications has been deleted!',
-            ]);
+            return toast($this, 'success', 'All notifications has been deleted!');
         } else {
-            return $this->dispatchBrowserEvent('toast', [
-                'type' => 'error',
-                'body' => 'Forbidden!',
-            ]);
+            return toast($this, 'error', 'Forbidden!');
         }
     }
 }

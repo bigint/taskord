@@ -22,21 +22,12 @@ class Notifications extends Component
                 $this->user->save();
                 loggy(request(), 'User', auth()->user(), 'Toggled the email notification settings');
 
-                return $this->dispatchBrowserEvent('toast', [
-                    'type' => 'success',
-                    'body' => 'Notification settings has been updated',
-                ]);
+                return toast($this, 'success', 'Notification settings has been updated');
             } else {
-                return $this->dispatchBrowserEvent('toast', [
-                    'type' => 'error',
-                    'body' => 'Forbidden!',
-                ]);
+                return toast($this, 'error', 'Forbidden!');
             }
         } else {
-            return $this->dispatchBrowserEvent('toast', [
-                'type' => 'error',
-                'body' => 'Forbidden!',
-            ]);
+            return toast($this, 'error', 'Forbidden!');
         }
     }
 
@@ -48,21 +39,12 @@ class Notifications extends Component
                 $this->user->save();
                 loggy(request(), 'User', auth()->user(), 'Toggled the web notification settings');
 
-                return $this->dispatchBrowserEvent('toast', [
-                    'type' => 'success',
-                    'body' => 'Notification settings has been updated',
-                ]);
+                return toast($this, 'success', 'Notification settings has been updated');
             } else {
-                return $this->dispatchBrowserEvent('toast', [
-                    'type' => 'error',
-                    'body' => 'Forbidden!',
-                ]);
+                return toast($this, 'error', 'Forbidden!');
             }
         } else {
-            return $this->dispatchBrowserEvent('toast', [
-                'type' => 'error',
-                'body' => 'Forbidden!',
-            ]);
+            return toast($this, 'error', 'Forbidden!');
         }
     }
 }

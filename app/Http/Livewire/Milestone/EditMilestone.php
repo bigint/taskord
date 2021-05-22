@@ -32,10 +32,7 @@ class EditMilestone extends Component
         if (auth()->check()) {
             $this->validateOnly($field);
         } else {
-            $this->dispatchBrowserEvent('toast', [
-                'type' => 'error',
-                'body' => 'Forbidden!',
-            ]);
+            toast($this, 'error', 'Forbidden!');
         }
     }
 
@@ -45,17 +42,11 @@ class EditMilestone extends Component
             $this->validate();
 
             if (! auth()->user()->hasVerifiedEmail()) {
-                return $this->dispatchBrowserEvent('toast', [
-                    'type' => 'error',
-                    'body' => 'Your email is not verified!',
-                ]);
+                return toast($this, 'error', 'Your email is not verified!');
             }
 
             if (auth()->user()->isFlagged) {
-                return $this->dispatchBrowserEvent('toast', [
-                    'type' => 'error',
-                    'body' => 'Your account is flagged!',
-                ]);
+                return toast($this, 'error', 'Your account is flagged!');
             }
 
             $milestone = Milestone::where('id', $this->milestone->id)->firstOrFail();
@@ -72,16 +63,10 @@ class EditMilestone extends Component
 
                 return redirect()->route('milestones.milestone', ['milestone' => $milestone]);
             } else {
-                $this->dispatchBrowserEvent('toast', [
-                    'type' => 'error',
-                    'body' => 'Forbidden!',
-                ]);
+                toast($this, 'error', 'Forbidden!');
             }
         } else {
-            $this->dispatchBrowserEvent('toast', [
-                'type' => 'error',
-                'body' => 'Forbidden!',
-            ]);
+            toast($this, 'error', 'Forbidden!');
         }
     }
 }

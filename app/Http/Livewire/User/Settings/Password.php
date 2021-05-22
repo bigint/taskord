@@ -28,10 +28,7 @@ class Password extends Component
                 'confirmPassword' => ['required', 'same:newPassword'],
             ]);
         } else {
-            $this->dispatchBrowserEvent('toast', [
-                'type' => 'error',
-                'body' => 'Forbidden!',
-            ]);
+            toast($this, 'error', 'Forbidden!');
         }
     }
 
@@ -56,21 +53,12 @@ class Password extends Component
                 auth()->user()->save();
                 loggy(request(), 'User', auth()->user(), 'Changed account password');
 
-                return $this->dispatchBrowserEvent('toast', [
-                    'type' => 'success',
-                    'body' => 'Your password has been changed!',
-                ]);
+                return toast($this, 'success', 'Your password has been changed!');
             } else {
-                return $this->dispatchBrowserEvent('toast', [
-                    'type' => 'error',
-                    'body' => 'Forbidden!',
-                ]);
+                return toast($this, 'error', 'Forbidden!');
             }
         } else {
-            return $this->dispatchBrowserEvent('toast', [
-                'type' => 'error',
-                'body' => 'Forbidden!',
-            ]);
+            return toast($this, 'error', 'Forbidden!');
         }
     }
 }

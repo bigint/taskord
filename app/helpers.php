@@ -159,3 +159,13 @@ if (! function_exists('feature')) {
         }
     }
 }
+
+if (! function_exists('toast')) {
+    function toast($livewire, $type, $body)
+    {
+        return $livewire->dispatchBrowserEvent('toast', [
+            'type' => $type,
+            'body' => $body,
+        ]);
+    }
+}

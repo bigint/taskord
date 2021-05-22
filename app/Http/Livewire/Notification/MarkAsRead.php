@@ -14,15 +14,9 @@ class MarkAsRead extends Component
             auth()->user()->touch();
             loggy(request(), 'Notification', auth()->user(), 'All notifications are marked as read');
 
-            return $this->dispatchBrowserEvent('toast', [
-                'type' => 'success',
-                'body' => 'Notifications has been marked as read!',
-            ]);
+            return toast($this, 'success', 'Notifications has been marked as read!');
         } else {
-            return $this->dispatchBrowserEvent('toast', [
-                'type' => 'error',
-                'body' => 'Forbidden!',
-            ]);
+            return toast($this, 'error', 'Forbidden!');
         }
     }
 }

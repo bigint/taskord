@@ -21,22 +21,13 @@ class AddMember extends Component
         if (auth()->check()) {
             $user = User::whereUsername($this->username)->first();
             if ($user === null) {
-                return $this->dispatchBrowserEvent('toast', [
-                    'type' => 'error',
-                    'body' => 'User does not exists',
-                ]);
+                return toast($this, 'error', 'User does not exists');
             }
             if ($user->products->contains($this->product) or $user->id === $this->product->owner->id) {
-                return $this->dispatchBrowserEvent('toast', [
-                    'type' => 'error',
-                    'body' => 'User is already in the team',
-                ]);
+                return toast($this, 'error', 'User is already in the team');
             }
             if (auth()->user()->username === $this->username) {
-                return $this->dispatchBrowserEvent('toast', [
-                    'type' => 'error',
-                    'body' => 'You can\'t add yourself to the team!',
-                ]);
+                return toast($this, 'error', 'You can\'t add yourself to the team!');
             }
             $user->products()->attach($this->product);
             $user->notify(new MemberAdded($this->product, auth()->user()->id));
