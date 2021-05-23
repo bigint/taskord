@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "060f155922fa4f38d84f5cdc8909ba3f",
+    "content-hash": "fb0346332948e0de885258b414561cea",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -6965,16 +6965,16 @@
         },
         {
             "name": "spatie/laravel-backup",
-            "version": "7.5.2",
+            "version": "7.5.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/laravel-backup.git",
-                "reference": "61296bfd8ada78893f926ab6df47d56e0ea3b419"
+                "reference": "8019cbd89fb5543ad9235bd21345f11fd4acd0cb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/laravel-backup/zipball/61296bfd8ada78893f926ab6df47d56e0ea3b419",
-                "reference": "61296bfd8ada78893f926ab6df47d56e0ea3b419",
+                "url": "https://api.github.com/repos/spatie/laravel-backup/zipball/8019cbd89fb5543ad9235bd21345f11fd4acd0cb",
+                "reference": "8019cbd89fb5543ad9235bd21345f11fd4acd0cb",
                 "shasum": ""
             },
             "require": {
@@ -7044,7 +7044,7 @@
             ],
             "support": {
                 "issues": "https://github.com/spatie/laravel-backup/issues",
-                "source": "https://github.com/spatie/laravel-backup/tree/7.5.2"
+                "source": "https://github.com/spatie/laravel-backup/tree/7.5.3"
             },
             "funding": [
                 {
@@ -7056,20 +7056,20 @@
                     "type": "other"
                 }
             ],
-            "time": "2021-04-21T21:26:06+00:00"
+            "time": "2021-05-23T09:56:56+00:00"
         },
         {
             "name": "spatie/laravel-package-tools",
-            "version": "1.7.0",
+            "version": "1.8.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/laravel-package-tools.git",
-                "reference": "a28108b61dac8a83de6c97f09a5a1e98f4d75522"
+                "reference": "1150930205dbe32f4e594ba2805cd56563120145"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/laravel-package-tools/zipball/a28108b61dac8a83de6c97f09a5a1e98f4d75522",
-                "reference": "a28108b61dac8a83de6c97f09a5a1e98f4d75522",
+                "url": "https://api.github.com/repos/spatie/laravel-package-tools/zipball/1150930205dbe32f4e594ba2805cd56563120145",
+                "reference": "1150930205dbe32f4e594ba2805cd56563120145",
                 "shasum": ""
             },
             "require": {
@@ -7108,7 +7108,7 @@
             ],
             "support": {
                 "issues": "https://github.com/spatie/laravel-package-tools/issues",
-                "source": "https://github.com/spatie/laravel-package-tools/tree/1.7.0"
+                "source": "https://github.com/spatie/laravel-package-tools/tree/1.8.0"
             },
             "funding": [
                 {
@@ -7116,7 +7116,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2021-05-06T21:49:32+00:00"
+            "time": "2021-05-22T09:13:53+00:00"
         },
         {
             "name": "spatie/laravel-signal-aware-command",
