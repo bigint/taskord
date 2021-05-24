@@ -44,6 +44,13 @@ class UserController extends Controller
         ]);
     }
 
+    public function appearanceSettings()
+    {
+        return view('user.settings.appearance', [
+            'user' => auth()->user(),
+        ]);
+    }
+
     public function accountSettings()
     {
         return view('user.settings.account', [
@@ -200,7 +207,7 @@ class UserController extends Controller
         if (auth()->user()->darkMode) {
             auth()->user()->darkMode = false;
             auth()->user()->save();
-            loggy(request(), 'User', auth()->user(), 'Disabled Dark mode');
+            loggy(request(), 'User', auth()->user(), 'Disabled dark mode');
 
             return response()->json([
                 'status' => 'disabled',
@@ -208,7 +215,7 @@ class UserController extends Controller
         } else {
             auth()->user()->darkMode = true;
             auth()->user()->save();
-            loggy(request(), 'User', auth()->user(), 'Enabled Dark mode');
+            loggy(request(), 'User', auth()->user(), 'Enabled dark mode');
 
             return response()->json([
                 'status' => 'enabled',

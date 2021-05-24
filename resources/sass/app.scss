@@ -363,6 +363,16 @@ input[type="date"]:valid:before {
     border-radius: 6px !important;
 }
 
+.rounded-top {
+    border-top-left-radius: 5px !important;
+    border-top-right-radius: 5px !important;
+}
+
+.rounded-bottom {
+    border-bottom-right-radius: 5px !important;
+    border-bottom-left-radius: 5px !important;
+}
+
 .card-header:first-child,
 .popover-header {
     border-radius: 6px 6px 0 0;

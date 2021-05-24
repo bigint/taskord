@@ -24,6 +24,17 @@ it('has settings/account page', function ($url, $expected, $auth) {
     ['/settings/account', 200, true],
 ]);
 
+it('has settings/appearance page', function ($url, $expected, $auth) {
+    if ($auth) {
+        actingAs(1)->get($url)->assertStatus($expected);
+    } else {
+        $this->get($url)->assertStatus($expected);
+    }
+})->with([
+    ['/settings/appearance', 302, false],
+    ['/settings/appearance', 200, true],
+]);
+
 it('has settings/products page', function ($url, $expected, $auth) {
     if ($auth) {
         actingAs(1)->get($url)->assertStatus($expected);

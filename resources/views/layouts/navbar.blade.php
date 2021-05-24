@@ -239,17 +239,15 @@
                                 </a>
                                 <div class="dropdown-divider"></div>
                             @endif
-                            @if (auth()->user()->isPatron)
-                                <a class="dropdown-item text-dark" id="dark-mode" role="button">
-                                    @if (auth()->user()->darkMode)
-                                        <x-heroicon-o-sun class="heroicon heroicon-18px text-secondary" />
-                                        Light Mode
-                                    @else
-                                        <x-heroicon-o-moon class="heroicon heroicon-18px text-secondary" />
-                                        Dark Mode
-                                    @endif
-                                </a>
-                            @endif
+                            <a class="dropdown-item text-dark" id="dark-mode" role="button">
+                                @if (auth()->user()->darkMode)
+                                    <x-heroicon-o-sun class="heroicon heroicon-18px text-secondary" />
+                                    Light Mode
+                                @else
+                                    <x-heroicon-o-moon class="heroicon heroicon-18px text-secondary" />
+                                    Dark Mode
+                                @endif
+                            </a>
                             @if (auth()->user()->isDeveloper)
                                 <a class="dropdown-item text-dark" href="https://gitlab.com/yo/taskord" target="_blank" rel="noreferrer">
                                     <x-heroicon-o-code class="heroicon heroicon-18px text-secondary" />

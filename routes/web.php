@@ -70,6 +70,7 @@ Route::group(['middleware' => ['throttle:100,1']], function () {
     Route::group(['prefix' => 'settings', 'as' => 'user.settings.', 'middleware' => ['auth']], function () {
         Route::get('', [UserController::class, 'profileSettings'])->name('profile');
         Route::get('account', [UserController::class, 'accountSettings'])->name('account');
+        Route::get('appearance', [UserController::class, 'appearanceSettings'])->name('appearance');
         Route::get('products', [UserController::class, 'productsSettings'])->name('products');
         Route::get('patron', [UserController::class, 'patronSettings'])->name('patron');
         Route::get('password', [UserController::class, 'passwordSettings'])->name('password');
@@ -172,7 +173,7 @@ Route::group(['middleware' => ['throttle:100,1']], function () {
     Route::post('paddle/webhook', [PatronController::class, 'handleWebhook'])->name('paddle.webhook');
 
     // Dark mode
-    Route::get('darkmode', [UserController::class, 'darkMode'])->name('darkmode')->middleware('patron');
+    Route::get('darkmode', [UserController::class, 'darkMode'])->name('darkmode')->middleware('auth');
 
     // Single Task and comment
     Route::group(['prefix' => 'task'], function () {

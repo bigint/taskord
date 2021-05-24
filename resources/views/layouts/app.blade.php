@@ -30,10 +30,8 @@
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="{{ mix('css/app.css') }}" rel="stylesheet">
     @auth
-        @if (auth()->user()->isPatron or auth()->user()->isStaff)
-            @if (auth()->user()->darkMode)
-                <link href="{{ mix('css/darkmode.css') }}" rel="stylesheet">
-            @endif
+        @if (auth()->user()->darkMode)
+            <link href="{{ mix('css/darkmode.css') }}" rel="stylesheet">
         @endif
     @endauth
     @if (App::environment() === 'production')
