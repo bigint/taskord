@@ -4,14 +4,14 @@ namespace App\Http\Controllers;
 
 use GuzzleHttp\Client;
 
-class AdminController extends Controller
+class StaffController extends Controller
 {
     public static function toggle()
     {
         if (auth()->user()->staffShip) {
             auth()->user()->staffShip = false;
             auth()->user()->save();
-            loggy(request(), 'Admin', auth()->user(), 'Disabled Staff Ship');
+            loggy(request(), 'Staff', auth()->user(), 'Disabled staff ship');
 
             return response()->json([
                 'status' => 'disabled',
@@ -19,7 +19,7 @@ class AdminController extends Controller
         } else {
             auth()->user()->staffShip = true;
             auth()->user()->save();
-            loggy(request(), 'Admin', auth()->user(), 'Enabled Staff Ship');
+            loggy(request(), 'Staff', auth()->user(), 'Enabled staff ship');
 
             return response()->json([
                 'status' => 'enabled',
@@ -98,7 +98,7 @@ class AdminController extends Controller
         preg_match_all('/^processor/m', $cpuinfo_file, $matches);
         $ncpu = count($matches[0]);
 
-        return view('admin.system', [
+        return view('staff.system', [
             'meminfo' => $meminfo,
             'uptime' => $uptime,
             'ncpu' => $ncpu,

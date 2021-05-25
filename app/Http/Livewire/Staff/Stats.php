@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire\Admin;
+namespace App\Http\Livewire\Staff;
 
 use App\Models\Answer;
 use App\Models\Comment;
@@ -69,7 +69,7 @@ class Stats extends Component
 
     public function render()
     {
-        return view('livewire.admin.stats', [
+        return view('livewire.staff.stats', [
             'stats' => $this->readyToLoad ? $this->getStats() : [],
         ]);
     }

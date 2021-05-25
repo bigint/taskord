@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
-@section('pageTitle', 'Admin - Features ·')
-@section('title', 'Admin - Features ·')
+@section('pageTitle', 'Stafftool - Stats ·')
+@section('title', 'Stafftool - Stats ·')
 @section('description', 'Get things done socially with Taskord.')
 @section('image', '')
 @section('url', url()->current())
@@ -10,8 +10,8 @@
 <div class="container-fluid">
     <div class="row justify-content-center">
         <div class="container-md">
-            @include('admin.nav')
-            <livewire:admin.features.features />
+            @include('staff.nav')
+            <livewire:staff.stats />
         </div>
     </div>
 </div>

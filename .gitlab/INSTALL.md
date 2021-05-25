@@ -124,7 +124,7 @@ php artisan cache:clear
 
 ```sh
 php artisan migrate
-php artisan db:seed --class=ProdAdminSeeder
+php artisan db:seed --class=ProdStaffSeeder
 ```
 
 ### Setup Nginx

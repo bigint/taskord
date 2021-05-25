@@ -1,6 +1,5 @@
 <?php
 
-use App\Http\Controllers\AdminController;
 use App\Http\Controllers\FeedController;
 use App\Http\Controllers\MeetupController;
 use App\Http\Controllers\MilestoneController;
@@ -11,6 +10,7 @@ use App\Http\Controllers\QuestionController;
 use App\Http\Controllers\SearchController;
 use App\Http\Controllers\SitemapController;
 use App\Http\Controllers\SocialController;
+use App\Http\Controllers\StaffController;
 use App\Http\Controllers\StatusController;
 use App\Http\Controllers\TaskController;
 use App\Http\Controllers\TelegramController;
@@ -157,19 +157,19 @@ Route::group(['middleware' => ['throttle:100,1']], function () {
     | Stafftools
     |--------------------------------------------------------------------------
     |
-    | Stafftools are used by the admins to analyze Taskord.
+    | Stafftools are used by the staffs to analyze Taskord.
     | Stafftools routes are not available to normal users.
     |
     */
-    Route::group(['prefix' => 'stafftools', 'as' => 'admin.', 'middleware' => ['staffship']], function () {
-        Route::view('', 'admin.stats')->middleware('password.confirm')->name('stats');
-        Route::view('users', 'admin.users')->middleware('password.confirm')->name('users');
-        Route::view('tasks', 'admin.tasks')->middleware('password.confirm')->name('tasks');
-        Route::view('activities', 'admin.activities')->middleware('password.confirm')->name('activities');
-        Route::view('products', 'admin.products')->middleware('password.confirm')->name('products');
-        Route::view('features', 'admin.features')->middleware('password.confirm')->name('features');
-        Route::get('system', [AdminController::class, 'system'])->middleware('password.confirm')->name('system');
-        Route::view('jobs', 'admin.jobs')->middleware('password.confirm')->name('jobs');
+    Route::group(['prefix' => 'stafftools', 'as' => 'staff.', 'middleware' => ['staffship']], function () {
+        Route::view('', 'staff.stats')->middleware('password.confirm')->name('stats');
+        Route::view('users', 'staff.users')->middleware('password.confirm')->name('users');
+        Route::view('tasks', 'staff.tasks')->middleware('password.confirm')->name('tasks');
+        Route::view('activities', 'staff.activities')->middleware('password.confirm')->name('activities');
+        Route::view('products', 'staff.products')->middleware('password.confirm')->name('products');
+        Route::view('features', 'staff.features')->middleware('password.confirm')->name('features');
+        Route::get('system', [StaffController::class, 'system'])->middleware('password.confirm')->name('system');
+        Route::view('jobs', 'staff.jobs')->middleware('password.confirm')->name('jobs');
     });
 
     // Patron
@@ -254,10 +254,10 @@ Route::group(['prefix' => 'popover'], function () {
 // Site
 Route::group(['prefix' => 'site'], function () {
     Route::view('shortcuts', 'site.shortcuts')->name('shortcuts');
-    Route::get('commit-data', [AdminController::class, 'commitData'])->name('commit-data')->middleware('staffship');
-    Route::get('ci-data', [AdminController::class, 'ciData'])->name('ci-data')->middleware('staffship');
-    Route::get('deployment-data', [AdminController::class, 'deploymentData'])->name('deployment-data')->middleware('staffship');
-    Route::get('adminbar', [AdminController::class, 'toggle'])->middleware('staff')->name('adminbar');
+    Route::get('commit-data', [StaffController::class, 'commitData'])->name('commit-data')->middleware('staffship');
+    Route::get('ci-data', [StaffController::class, 'ciData'])->name('ci-data')->middleware('staffship');
+    Route::get('deployment-data', [StaffController::class, 'deploymentData'])->name('deployment-data')->middleware('staffship');
+    Route::get('staffbar', [StaffController::class, 'toggle'])->middleware('staff')->name('staffbar');
 });
 
 // Site

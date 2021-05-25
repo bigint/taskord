@@ -20,9 +20,9 @@
             </div>
         @else
             @foreach ($features as $feature)
-                <livewire:admin.features.single-feature :feature="$feature" :wire:key="$feature->id" />
+                <livewire:staff.features.single-feature :feature="$feature" :wire:key="$feature->id" />
             @endforeach
         @endif
     </div>
-    <livewire:admin.features.create-feature />
+    <livewire:staff.features.create-feature />
 </div>

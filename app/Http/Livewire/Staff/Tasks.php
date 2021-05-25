@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire\Admin;
+namespace App\Http\Livewire\Staff;
 
 use App\Models\Task;
 use Livewire\Component;
@@ -24,7 +24,7 @@ class Tasks extends Component
 
     public function render()
     {
-        return view('livewire.admin.tasks', [
+        return view('livewire.staff.tasks', [
             'tasks' => $this->readyToLoad ? $this->getTasks() : [],
             'count' => $this->readyToLoad ? Task::count('id') : [],
         ]);

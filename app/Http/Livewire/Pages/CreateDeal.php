@@ -42,7 +42,7 @@ class CreateDeal extends Component
                 'logo' => $this->logo,
             ]);
             auth()->user()->touch();
-            loggy(request(), 'Admin', auth()->user(), 'Created a new deal | Deal ID: '.$deal->id);
+            loggy(request(), 'Staff', auth()->user(), 'Created a new deal | Deal ID: '.$deal->id);
 
             return redirect()->route('deals');
         } else {

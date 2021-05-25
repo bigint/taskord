@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
-@section('pageTitle', 'Admin - System ·')
-@section('title', 'Admin - System ·')
+@section('pageTitle', 'Stafftool - System ·')
+@section('title', 'Stafftool - System ·')
 @section('description', 'Get things done socially with Taskord.')
 @section('image', '')
 @section('url', url()->current())
@@ -10,7 +10,7 @@
 <div class="container-fluid">
     <div class="row justify-content-center">
         <div class="container-md">
-            @include('admin.nav')
+            @include('staff.nav')
             <div class="card">
                 <div class="card-header h6 py-3">
                     <div class="h5">System Info</div>

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire\Admin\Features;
+namespace App\Http\Livewire\Staff\Features;
 
 use App\Models\Feature;
 use Livewire\Component;
@@ -29,8 +29,8 @@ class CreateFeature extends Component
             'slug' => $this->slug,
         ]);
 
-        loggy(request(), 'Admin', auth()->user(), 'Created a new feature flag | Feature ID: '.$feature->id);
+        loggy(request(), 'Staff', auth()->user(), 'Created a new feature flag | Feature ID: '.$feature->id);
 
-        return redirect()->route('admin.features');
+        return redirect()->route('staff.features');
     }
 }

@@ -51,7 +51,7 @@
                 </a>
             </span>
             <span class="fw-bold me-3">
-                <a href="{{ route('admin.stats') }}" title="Admin">
+                <a href="{{ route('staff.stats') }}" title="Stafftool">
                     <x-heroicon-o-shield-check class="heroicon text-white" />
                 </a>
             </span>
@@ -62,6 +62,6 @@
             </span>
         </span>
     </div>
-    @include('livewire.admin.modals.clean')
-    @include('livewire.admin.modals.deploy')
+    @include('livewire.staff.modals.clean')
+    @include('livewire.staff.modals.deploy')
 </div>

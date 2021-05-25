@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire\Admin;
+namespace App\Http\Livewire\Staff;
 
 use App\Models\User;
 use Livewire\Component;
@@ -24,7 +24,7 @@ class Users extends Component
 
     public function render()
     {
-        return view('livewire.admin.users', [
+        return view('livewire.staff.users', [
             'users' => $this->readyToLoad ? $this->getUsers() : [],
             'count' => $this->readyToLoad ? User::count('id') : [],
         ]);

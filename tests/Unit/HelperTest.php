@@ -29,9 +29,9 @@ it('can get correct usernames from mentions', function ($text, $expected) {
 
     expect($usernames)->toMatchArray($expected);
 })->with([
-    ['Hello @test and @admin', ['test', 'admin']],
+    ['Hello @test and @staff', ['test', 'staff']],
     ['@test @adm_in', ['test', 'adm_in']],
-    ['@test @admin', ['test', 'admin']],
+    ['@test @staff', ['test', 'staff']],
     ['Hello @te-st', ['te-st']],
     ['@te-st', ['te-st']],
     ['@test', ['test']],
@@ -53,8 +53,8 @@ it('can parse mentions to markdown', function (
     expect($parsed)->toEqual($expected);
 })->with([
     ['@test @ad_min', ['ad_min', 'test'], '[@test](/@test) [@ad_min](/@ad_min)'],
-    ['@test @admin', ['test', 'admin'], '[@test](/@test) [@admin](/@admin)'],
-    ['@test @admin', ['test'], '[@test](/@test) @admin'],
+    ['@test @staff', ['test', 'staff'], '[@test](/@test) [@staff](/@staff)'],
+    ['@test @staff', ['test'], '[@test](/@test) @staff'],
     ['Hello @test', ['test'], 'Hello [@test](/@test)'],
     ['@ad_min', ['ad_min'], '[@ad_min](/@ad_min)'],
     ['@te-st', ['te-st'], '[@te-st](/@te-st)'],
@@ -70,8 +70,8 @@ it('can parse mentions to markdown', function (
 it('can render task with user mentions correctly', function ($task, $expected) {
     expect(Helper::renderTask($task))->toEqual($expected);
 })->with([
-    ['@test @admin', '<a href="/@test">@test</a> <a href="/@admin">@admin</a>'],
-    ['@test admin', '<a href="/@test">@test</a> admin'],
+    ['@test @staff', '<a href="/@test">@test</a> <a href="/@staff">@staff</a>'],
+    ['@test staff', '<a href="/@test">@test</a> staff'],
     ['Hello @test', 'Hello <a href="/@test">@test</a>'],
     ['@te_st', '<a href="/@te_st">@te_st</a>'],
     ['@te-st', '<a href="/@te-st">@te-st</a>'],
@@ -81,8 +81,8 @@ it('can render task with user mentions correctly', function ($task, $expected) {
 it('can render task with product mentions correctly', function ($task, $expected) {
     expect(Helper::renderTask($task))->toEqual($expected);
 })->with([
-    ['#test #admin', '<a href="/product/test">#test</a> <a href="/product/admin">#admin</a>'],
-    ['#test admin', '<a href="/product/test">#test</a> admin'],
+    ['#test #staff', '<a href="/product/test">#test</a> <a href="/product/staff">#staff</a>'],
+    ['#test staff', '<a href="/product/test">#test</a> staff'],
     ['Hello #test', 'Hello <a href="/product/test">#test</a>'],
     ['#te_st', '<a href="/product/te_st">#te_st</a>'],
     ['#te-st', '<a href="/product/te-st">#te-st</a>'],
@@ -92,7 +92,7 @@ it('can render task with product mentions correctly', function ($task, $expected
 it('can render task with both user and product mentions correctly', function ($task, $expected) {
     expect(Helper::renderTask($task))->toEqual($expected);
 })->with([
-    ['#test admin @te-st', '<a href="/product/test">#test</a> admin <a href="/@te-st">@te-st</a>'],
+    ['#test staff @te-st', '<a href="/product/test">#test</a> staff <a href="/@te-st">@te-st</a>'],
     ['Hello #test @te-st', 'Hello <a href="/product/test">#test</a> <a href="/@te-st">@te-st</a>'],
     ['#te_st @te_st', '<a href="/product/te_st">#te_st</a> <a href="/@te_st">@te_st</a>'],
     ['#te-st @te-st', '<a href="/product/te-st">#te-st</a> <a href="/@te-st">@te-st</a>'],

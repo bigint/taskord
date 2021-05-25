@@ -20,8 +20,8 @@
                 </a>
                 •
                 @if (count($activity->properties) !== 0)
-                    @if ($activity->getExtraProperty('type') === 'Admin')
-                        🛡 Admin
+                    @if ($activity->getExtraProperty('type') === 'Staff')
+                        🛡 Staff
                     @endif
                     @if ($activity->getExtraProperty('type') === 'Auth')
                         🚪 Auth

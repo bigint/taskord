@@ -25,6 +25,7 @@ return [
         'unanswered',
         'popular',
         'admin',
+        'staff',
         'stafftools',
     ],
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire\Admin;
+namespace App\Http\Livewire\Staff;
 
 use Livewire\Component;
 use Livewire\WithPagination;
@@ -24,7 +24,7 @@ class Activities extends Component
 
     public function render()
     {
-        return view('livewire.admin.activities', [
+        return view('livewire.staff.activities', [
             'activities' => $this->readyToLoad ? $this->getActivities() : [],
             'count' => number_format(Activity::count('id')),
         ]);

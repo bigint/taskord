@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire\Admin;
+namespace App\Http\Livewire\Staff;
 
 use App\Models\Product;
 use Livewire\Component;
@@ -29,7 +29,7 @@ class Products extends Component
 
     public function render()
     {
-        return view('livewire.admin.products', [
+        return view('livewire.staff.products', [
             'products' => $this->readyToLoad ? $this->getProducts() : [],
             'count'    => $this->readyToLoad ? Product::count('id') : [],
         ]);

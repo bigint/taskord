@@ -58,7 +58,7 @@ class SingleMilestone extends Component
 
         if (auth()->user()->isStaff and auth()->user()->staffShip) {
             Helper::hide($this->milestone);
-            loggy(request(), 'Admin', auth()->user(), 'Toggled hide milestone | Milestone ID: '.$this->milestone->id);
+            loggy(request(), 'Staff', auth()->user(), 'Toggled hide milestone | Milestone ID: '.$this->milestone->id);
 
             return toast($this, 'success', 'Milestone is hidden from public!');
         } else {

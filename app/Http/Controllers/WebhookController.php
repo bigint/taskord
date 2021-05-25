@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Actions\CreateNewTask;
 use App\Models\User;
 use App\Models\Webhook;
-use App\Notifications\Admin\VersionReleased;
+use App\Notifications\Staff\VersionReleased;
 use GrahamCampbell\Throttle\Facades\Throttle;
 use GuzzleHttp\Client;
 use Helper;
