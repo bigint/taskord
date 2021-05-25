@@ -40,7 +40,7 @@ class SingleMilestone extends Component
             return toast($this, 'error', 'Your email is not verified!');
         }
 
-        if (auth()->user()->isFlagged) {
+        if (auth()->user()->spammy) {
             return toast($this, 'error', 'Your account is flagged!');
         }
         if (auth()->user()->id === $this->milestone->user->id) {
@@ -56,7 +56,7 @@ class SingleMilestone extends Component
             return toast($this, 'error', 'Forbidden!');
         }
 
-        if (auth()->user()->isStaff and auth()->user()->staffShip) {
+        if (auth()->user()->is_staff and auth()->user()->staff_mode) {
             Helper::hide($this->milestone);
             loggy(request(), 'Staff', auth()->user(), 'Toggled hide milestone | Milestone ID: '.$this->milestone->id);
 
@@ -93,11 +93,11 @@ class SingleMilestone extends Component
             return toast($this, 'error', 'Forbidden!');
         }
 
-        if (auth()->user()->isFlagged) {
+        if (auth()->user()->spammy) {
             return toast($this, 'error', 'Your account is flagged!');
         }
 
-        if (auth()->user()->staffShip or auth()->user()->id === $this->milestone->user_id) {
+        if (auth()->user()->staff_mode or auth()->user()->id === $this->milestone->user_id) {
             loggy(request(), 'Milestone', auth()->user(), 'Deleted a milestone | Milestone ID: '.$this->milestone->id);
             $this->milestone->delete();
             auth()->user()->touch();

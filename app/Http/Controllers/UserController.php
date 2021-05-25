@@ -28,9 +28,9 @@ class UserController extends Controller
             'milestone_count' => $user->milestones()->count('id'),
         ];
 
-        if (auth()->check() && auth()->user()->id === $user->id or auth()->check() && auth()->user()->staffShip) {
+        if (auth()->check() && auth()->user()->id === $user->id or auth()->check() && auth()->user()->staff_mode) {
             return view($type, $response);
-        } elseif ($user->isFlagged) {
+        } elseif ($user->spammy) {
             abort(404);
         }
 
@@ -184,7 +184,7 @@ class UserController extends Controller
     public function mention(Request $request)
     {
         if ($request['query']) {
-            $users = User::select('username', 'firstname', 'lastname', 'avatar', 'isVerified')
+            $users = User::select('username', 'firstname', 'lastname', 'avatar', 'is_verified')
                 ->search($request['query'])
                 ->take(10)
                 ->get();
@@ -204,8 +204,8 @@ class UserController extends Controller
 
     public function darkMode()
     {
-        if (auth()->user()->darkMode) {
-            auth()->user()->darkMode = false;
+        if (auth()->user()->dark_mode) {
+            auth()->user()->dark_mode = false;
             auth()->user()->save();
             loggy(request(), 'User', auth()->user(), 'Disabled dark mode');
 
@@ -213,7 +213,7 @@ class UserController extends Controller
                 'status' => 'disabled',
             ]);
         } else {
-            auth()->user()->darkMode = true;
+            auth()->user()->dark_mode = true;
             auth()->user()->save();
             loggy(request(), 'User', auth()->user(), 'Enabled dark mode');
 

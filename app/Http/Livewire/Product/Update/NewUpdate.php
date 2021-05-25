@@ -24,14 +24,14 @@ class NewUpdate extends Component
         }
 
         $this->validate([
-            'title' => ['required', 'min:5', 'max:100'], ['required', 'min:3', 'max:10000'],
+            'title' => ['required', 'min:3', 'max:10000'],
         ]);
 
         if (! auth()->user()->hasVerifiedEmail()) {
             return toast($this, 'error', 'Your email is not verified!');
         }
 
-        if (auth()->user()->isFlagged) {
+        if (auth()->user()->spammy) {
             return toast($this, 'error', 'Your account is flagged!');
         }
 

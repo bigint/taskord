@@ -43,7 +43,7 @@ class LoadMore extends Component
             $comments = $this->task->comments()
                 ->whereHas('user', function ($q) {
                     $q->where([
-                        ['isFlagged', false],
+                        ['spammy', false],
                     ]);
                 })
                 ->orderBy('created_at', 'DESC')

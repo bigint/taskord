@@ -35,7 +35,7 @@ class CreateTask extends Component
             return toast($this, 'error', 'Forbidden!');
         }
 
-        auth()->user()->checkState = ! auth()->user()->checkState;
+        auth()->user()->check_state = ! auth()->user()->check_state;
         auth()->user()->save();
     }
 
@@ -78,7 +78,7 @@ class CreateTask extends Component
             return toast($this, 'error', 'Your email is not verified!');
         }
 
-        if (auth()->user()->isFlagged) {
+        if (auth()->user()->spammy) {
             return toast($this, 'error', 'Your account is flagged!');
         }
 
@@ -96,7 +96,7 @@ class CreateTask extends Component
             $images = null;
         }
 
-        $state = auth()->user()->checkState;
+        $state = auth()->user()->check_state;
 
         if ($state) {
             $done_at = carbon();
@@ -122,7 +122,7 @@ class CreateTask extends Component
 
         $this->emit('refreshTasks');
         $this->reset(['task', 'images', 'due_at']);
-        if (auth()->user()->hasGoal and $task->done) {
+        if (auth()->user()->has_goal and $task->done) {
             auth()->user()->daily_goal_reached++;
             auth()->user()->save();
             CheckGoal::dispatch(auth()->user(), $task);

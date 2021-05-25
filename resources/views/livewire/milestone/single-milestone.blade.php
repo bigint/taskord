@@ -82,7 +82,7 @@
                         @endif
                     </button>
                 @endif
-                @if (auth()->user()->staffShip or auth()->user()->id === $milestone->user->id)
+                @if (auth()->user()->staff_mode or auth()->user()->id === $milestone->user->id)
                     @if ($type === "milestones.milestone")
                         <a href="{{ route('milestones.edit', ['milestone' => $milestone]) }}" class="btn btn-task btn-outline-info me-1">
                             <x-heroicon-o-pencil-alt class="heroicon heroicon-15px me-0 text-secondary" />
@@ -103,12 +103,12 @@
                         <x-heroicon-o-trash class="heroicon heroicon-15px me-0 text-secondary" />
                     </button>
                 @endif
-                @if (auth()->user()->staffShip)
+                @if (auth()->user()->staff_mode)
                     <button type="button" class="btn btn-task {{ $milestone->hidden ? 'btn-info' : 'btn-outline-info' }}" wire:click="hide" wire:loading.attr="disabled" wire:offline.attr="disabled" wire:key="{{ $milestone->id }}" aria-label="Hide">
                         <x-heroicon-o-eye-off class="heroicon heroicon-15px me-0" />
                     </button>
                 @endif
-                @if (auth()->user()->staffShip or auth()->user()->id === $milestone->user->id)
+                @if (auth()->user()->staff_mode or auth()->user()->id === $milestone->user->id)
                     @if ($type === "milestones.milestone")
                         @if ($milestone->status)
                             <button type="button" class="btn btn-danger btn-task float-end" wire:click="toggleStatus" wire:loading.attr="disabled">

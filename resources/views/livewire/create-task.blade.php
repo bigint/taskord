@@ -15,7 +15,7 @@
                     aria-label="Checkbox"
                     wire:click="checkState"
                     wire:offline.attr="disabled"
-                    {{ auth()->check() && auth()->user()->checkState ? 'checked' : 'unchecked' }}
+                    {{ auth()->check() && auth()->user()->check_state ? 'checked' : 'unchecked' }}
                 >
             </div>
             <input type="text" class="form-control mentionInput" placeholder="Add a Task" wire:model.lazy="task" autocomplete="off" aria-label="Task Input" />
@@ -25,7 +25,7 @@
             <input class="form-control form-control-sm" wire:model="images" accept="image/*" type="file" aria-label="Upload Images" multiple>
         </div>
         @auth
-            @if (!auth()->user()->checkState)
+            @if (!auth()->user()->check_state)
                 <div class="ms-auto me-2 d-none d-sm-block">
                     <input class="form-control form-control-sm" wire:model.defer="due_at" type="date" placeholder="Due date" min="{{ carbon('today')->format('Y-m-d') }}" />
                 </div>

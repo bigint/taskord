@@ -62,9 +62,9 @@ class ProductController extends Controller
                 ->count('id'),
         ];
 
-        if (auth()->check() && auth()->user()->id === $product->owner->id or auth()->check() && auth()->user()->staffShip) {
+        if (auth()->check() && auth()->user()->id === $product->owner->id or auth()->check() && auth()->user()->staff_mode) {
             return view($type, $response);
-        } elseif ($product->owner->isFlagged) {
+        } elseif ($product->owner->spammy) {
             abort(404);
         }
 
@@ -78,7 +78,7 @@ class ProductController extends Controller
 
         if (
             auth()->check() && auth()->user()->id === $product->owner->id or
-            auth()->check() && auth()->user()->staffShip
+            auth()->check() && auth()->user()->staff_mode
         ) {
             return view('product.edit', [
                 'product' => $product,

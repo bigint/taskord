@@ -48,7 +48,7 @@ class SingleTask extends Component
         givePoint(new TaskCompleted($this->task));
         $this->task->save();
         $this->emit('refreshTasks');
-        if (auth()->user()->hasGoal and $this->task->done) {
+        if (auth()->user()->has_goal and $this->task->done) {
             auth()->user()->daily_goal_reached++;
             auth()->user()->save();
             CheckGoal::dispatch(auth()->user(), $this->task);
@@ -64,11 +64,11 @@ class SingleTask extends Component
             return toast($this, 'error', 'Forbidden!');
         }
 
-        if (auth()->user()->isFlagged) {
+        if (auth()->user()->spammy) {
             return toast($this, 'error', 'Your account is flagged!');
         }
 
-        if (auth()->user()->staffShip or auth()->user()->id === $this->task->user->id) {
+        if (auth()->user()->staff_mode or auth()->user()->id === $this->task->user->id) {
             loggy(request(), 'Task', auth()->user(), 'Deleted a task | Task ID: '.$this->task->id);
             foreach ($this->task->images ?? [] as $image) {
                 Storage::delete($image);

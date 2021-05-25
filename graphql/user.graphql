@@ -15,12 +15,12 @@ type User {
     github: String
     youtube: String
     reputation: Int!
-    isStaff: Boolean!
-    isVerified: Boolean!
-    isDeveloper: Boolean!
-    isBeta: Boolean!
-    isPatron: Boolean!
-    isPrivate: Boolean!
+    is_staff: Boolean!
+    is_verified: Boolean!
+    is_contributor: Boolean!
+    is_beta: Boolean!
+    is_patron: Boolean!
+    is_private: Boolean!
     tasks: [Task!]! @hasMany(type: "connection")
     comments: [Comment!]! @hasMany(type: "connection")
     ownedProducts: [Product!]! @hasMany(type: "connection")

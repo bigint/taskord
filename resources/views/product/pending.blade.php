@@ -15,7 +15,7 @@
                 @if (
                     auth()->user()->id === $product->owner->id or
                     $product->members->contains(auth()->user()->id) &&
-                    !$product->owner->isFlagged
+                    !$product->owner->spammy
                 )
                     <div class="card mb-3">
                         <div class="card-body">

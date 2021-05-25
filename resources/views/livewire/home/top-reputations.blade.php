@@ -50,7 +50,7 @@
                         @if ($user->status)
                             <span class="ms-1 small" title="{{ $user->status }}">{{ $user->status_emoji }}</span>
                         @endif
-                        @if ($user->isVerified)
+                        @if ($user->is_verified)
                             <x-heroicon-s-badge-check class="heroicon ms-1 text-primary verified" />
                         @endif
                     </a>

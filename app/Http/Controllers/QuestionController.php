@@ -37,24 +37,24 @@ class QuestionController extends Controller
 
         if (
             auth()->check() && auth()->user()->id === $question->user->id or
-            auth()->check() && auth()->user()->staffShip
+            auth()->check() && auth()->user()->staff_mode
         ) {
             views($question)->record();
 
             return view('question.question', $response);
-        } elseif (auth()->check() && $question->patronOnly) {
-            if (auth()->check() && ! auth()->user()->isPatron) {
+        } elseif (auth()->check() && $question->patron_only) {
+            if (auth()->check() && ! auth()->user()->is_patron) {
                 return redirect()->route('patron.home');
             } else {
                 views($question)->record();
 
                 return view('question.question', $response);
             }
-        } elseif ($question->user->isFlagged) {
+        } elseif ($question->user->spammy) {
             abort(404);
         }
 
-        if ($question->patronOnly) {
+        if ($question->patron_only) {
             return redirect()->route('patron.home');
         } else {
             return view('question.question', $response);
@@ -65,7 +65,7 @@ class QuestionController extends Controller
     {
         if (
             auth()->check() && auth()->user()->id === $question->user->id or
-            auth()->check() && auth()->user()->staffShip
+            auth()->check() && auth()->user()->staff_mode
         ) {
             return view('question.edit', [
                 'question' => $question,

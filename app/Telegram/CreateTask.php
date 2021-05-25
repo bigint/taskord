@@ -33,7 +33,7 @@ class CreateTask
             return $this->send($this->user->telegram_chat_id, '💌 Your email is not verified!');
         }
 
-        if ($this->user->isFlagged) {
+        if ($this->user->spammy) {
             return $this->send($this->user->telegram_chat_id, '🚩 Your account is flagged!');
         }
 

@@ -10,7 +10,7 @@ class CreateQuestion extends Component
     public $title;
     public $body;
     public $solvable = true;
-    public $patronOnly;
+    public $patron_only;
 
     public function submit()
     {
@@ -19,24 +19,26 @@ class CreateQuestion extends Component
         }
 
         $this->validate([
-            'title' => ['required', 'min:5', 'max:100'], ['required', 'min:3', 'max:10000'],
+            'title' => ['required', 'min:3', 'max:150'],
+            'body' => ['required', 'min:3', 'max:20000'],
         ]);
 
         if (! auth()->user()->hasVerifiedEmail()) {
             return toast($this, 'error', 'Your email is not verified!');
         }
 
-        if (auth()->user()->isFlagged) {
+        if (auth()->user()->spammy) {
             return toast($this, 'error', 'Your account is flagged!');
         }
 
         $solvable = ! $this->solvable ? false : true;
-        $patronOnly = ! $this->patronOnly ? false : true;
+        $patron_only = ! $this->patron_only ? false : true;
 
         $question = auth()->user()->questions()->create([
-            'title' => $this->title, $this->body,
+            'title' => $this->title,
+            'body' => $this->body,
             'is_solvable' => $solvable,
-            'patronOnly' => $patronOnly,
+            'patron_only' => $patron_only,
         ]);
         auth()->user()->touch();
 

@@ -169,7 +169,7 @@ class WebhookController extends Controller
             return response('No webhook exists', 404);
         }
 
-        if (User::find($webhook->user_id)->isFlagged) {
+        if (User::find($webhook->user_id)->spammy) {
             return response('Your account is flagged', 401);
         }
 

@@ -102,9 +102,9 @@
                                 </div>
                                 <div class="mt-1">
                                     <span>IP:</span>
-                                    @if ($user->lastIP)
-                                        <a class="fw-bold" href="https://ipinfo.io/{{ $user->lastIP }}" title="{{ $user->lastIP }}" target="_blank" rel="noreferrer">
-                                            {{ Str::limit($user->lastIP, 15, '..') }}
+                                    @if ($user->last_ip)
+                                        <a class="fw-bold" href="https://ipinfo.io/{{ $user->last_ip }}" title="{{ $user->last_ip }}" target="_blank" rel="noreferrer">
+                                            {{ Str::limit($user->last_ip, 15, '..') }}
                                         </a>
                                     @else
                                         <span class="small fw-bold text-secondary">Not logged</span>
@@ -129,13 +129,13 @@
                             <div class="col-lg">
                                 <div>
                                     <span>Status:</span>
-                                    @if ($user->isSuspended)
+                                    @if ($user->is_suspended)
                                         <span class="badge bg-danger">Suspended</span>
                                     @endif
-                                    @if ($user->isFlagged)
+                                    @if ($user->spammy)
                                         <span class="badge bg-info">Flagged</span>
                                     @endif
-                                    @if (!$user->isSuspended or !$user->isFlagged)
+                                    @if (!$user->is_suspended or !$user->spammy)
                                         <span class="badge bg-success">Good</span>
                                     @endif
                                 </div>
@@ -147,7 +147,7 @@
                                 </div>
                                 <div class="mt-1">
                                     <span>Plan:</span>
-                                    @if (!$user->isPatron)
+                                    @if (!$user->is_patron)
                                         <span class="badge bg-danger">Free user</span>
                                     @else
                                         @if ($user->patron)

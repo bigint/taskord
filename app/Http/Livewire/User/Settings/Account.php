@@ -22,9 +22,9 @@ class Account extends Component
     public function enrollBeta()
     {
         if (auth()->user()->id === $this->user->id) {
-            $this->user->isBeta = ! $this->user->isBeta;
+            $this->user->is_beta = ! $this->user->is_beta;
             $this->user->save();
-            if ($this->user->isBeta) {
+            if ($this->user->is_beta) {
                 loggy(request(), 'User', auth()->user(), 'Enrolled to beta');
 
                 toast($this, 'success', 'Your are now beta member!');
@@ -41,12 +41,12 @@ class Account extends Component
     public function enrollPrivate()
     {
         if (auth()->user()->id === $this->user->id) {
-            if (! $this->user->isPatron) {
+            if (! $this->user->is_patron) {
                 toast($this, 'error', 'Forbidden!');
             }
-            $this->user->isPrivate = ! $this->user->isPrivate;
+            $this->user->is_private = ! $this->user->is_private;
             $this->user->save();
-            if ($this->user->isPrivate) {
+            if ($this->user->is_private) {
                 loggy(request(), 'User', auth()->user(), 'Enrolled as a private user');
 
                 toast($this, 'success', 'All your tasks are now private');

@@ -38,7 +38,7 @@ class SingleUpdate extends Component
         if (! auth()->user()->hasVerifiedEmail()) {
             return toast($this, 'error', 'Your email is not verified!');
         }
-        if (auth()->user()->isFlagged) {
+        if (auth()->user()->spammy) {
             return toast($this, 'error', 'Your account is flagged!');
         }
         if (auth()->user()->id === $this->update->user->id) {
@@ -63,11 +63,11 @@ class SingleUpdate extends Component
             return toast($this, 'error', 'Forbidden!');
         }
 
-        if (auth()->user()->isFlagged) {
+        if (auth()->user()->spammy) {
             return toast($this, 'error', 'Your account is flagged!');
         }
 
-        if (auth()->user()->staffShip or auth()->user()->id === $this->update->user->id) {
+        if (auth()->user()->staff_mode or auth()->user()->id === $this->update->user->id) {
             loggy(request(), 'Product', auth()->user(), 'Deleted a product update on #'.$this->update->product->slug.' | Update ID: '.$this->update->id);
             $this->update->delete();
             $this->emitUp('refreshProduct');

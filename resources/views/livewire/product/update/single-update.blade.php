@@ -6,7 +6,7 @@
         <div>{!! markdown($update->body) !!}</div>
         <div class="mt-2">
             @auth
-                @if (!$update->user->isPrivate)
+                @if (!$update->user->is_private)
                     @if (auth()->user()->hasLiked($update))
                         <span>
                             <button type="button" class="btn btn-task btn-success text-white me-1" wire:click="togglePraise" wire:loading.attr="disabled" wire:offline.attr="disabled" wire:key="{{ $update->id }}" aria-label="Praise">
@@ -58,7 +58,7 @@
                 </a>
             @endguest
             @auth
-                @if (auth()->user()->staffShip or auth()->user()->id === $update->user->id)
+                @if (auth()->user()->staff_mode or auth()->user()->id === $update->user->id)
                     <button
                         type="button"
                         class="btn btn-task btn-outline-danger"

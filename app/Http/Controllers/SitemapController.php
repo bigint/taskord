@@ -13,8 +13,8 @@ class SitemapController extends Controller
 {
     public function users()
     {
-        $users = User::select('username', 'isFlagged')
-            ->where('isFlagged', false)
+        $users = User::select('username', 'spammy')
+            ->where('spammy', false)
             ->get();
 
         return view('seo.sitemap_users', [

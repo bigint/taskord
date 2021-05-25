@@ -25,7 +25,7 @@ class Login extends Notification implements ShouldQueue
 
     public function toMail($notifiable)
     {
-        if (! $notifiable->isFlagged) {
+        if (! $notifiable->spammy) {
             return (new MailMessage)
                         ->subject('Account security notice - Successful login')
                         ->greeting('Hello @'.$notifiable->username.' 👋')

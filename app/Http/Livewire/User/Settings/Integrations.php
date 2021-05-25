@@ -45,7 +45,7 @@ class Integrations extends Component
                 'product' => ['nullable'],
             ]);
 
-            if (auth()->user()->isFlagged) {
+            if (auth()->user()->spammy) {
                 toast($this, 'error', 'Your account is flagged!');
             }
 

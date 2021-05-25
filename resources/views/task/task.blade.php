@@ -21,7 +21,7 @@
             </div>
             <livewire:comment.comments :task="$task" :page="1" :perPage="10" />
             @auth
-                @if (!auth()->user()->isFlagged)
+                @if (!auth()->user()->spammy)
                     <livewire:comment.create-comment :task="$task" />
                 @endif
             @endauth

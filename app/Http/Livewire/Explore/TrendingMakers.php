@@ -18,8 +18,8 @@ class TrendingMakers extends Component
     {
         return User::withCount('tasks')
             ->where([
-                ['isFlagged', false],
-                ['isStaff', false],
+                ['spammy', false],
+                ['is_staff', false],
             ])
             ->latest('last_active')
             ->take(50)

@@ -74,7 +74,7 @@ class RegisterController extends Controller
             'email' => $data['email'],
             'avatar' => 'https://avatar.tobi.sh/'.Str::orderedUuid().'.svg?text='.strtoupper(substr($data['username'], 0, 2)),
             'password' => Hash::make($data['password']),
-            'lastIP' => request()->ip(),
+            'last_ip' => request()->ip(),
             'api_token' => Str::random(60),
         ]);
         AuthGetIP::dispatch($user, request()->ip());

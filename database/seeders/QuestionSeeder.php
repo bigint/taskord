@@ -14,7 +14,7 @@ class QuestionSeeder extends Seeder
             'user_id' => 1,
             'title' => 'Hello, World this is public question!',
             'body' => 'Hello, World!',
-            'patronOnly' => false,
+            'patron_only' => false,
         ]);
 
         // Patron Only Question
@@ -22,7 +22,7 @@ class QuestionSeeder extends Seeder
             'user_id' => 1,
             'title' => 'Hello, World this is patron only question!',
             'body' => 'Hello, World!',
-            'patronOnly' => true,
+            'patron_only' => true,
         ]);
 
         Question::factory()->count(98)->create();

@@ -8,8 +8,8 @@ class StaffController extends Controller
 {
     public static function toggle()
     {
-        if (auth()->user()->staffShip) {
-            auth()->user()->staffShip = false;
+        if (auth()->user()->staff_mode) {
+            auth()->user()->staff_mode = false;
             auth()->user()->save();
             loggy(request(), 'Staff', auth()->user(), 'Disabled staff ship');
 
@@ -17,7 +17,7 @@ class StaffController extends Controller
                 'status' => 'disabled',
             ]);
         } else {
-            auth()->user()->staffShip = true;
+            auth()->user()->staff_mode = true;
             auth()->user()->save();
             loggy(request(), 'Staff', auth()->user(), 'Enabled staff ship');
 

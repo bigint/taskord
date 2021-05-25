@@ -13,7 +13,7 @@
                     <div>Thanks for showing us your support!</div>
                 </div>
                 <div class="card-body">
-                    @if (!$user->isPatron)
+                    @if (!$user->is_patron)
                         <a class="btn btn-success text-white" href="{{ route('patron.home') }}">
                             Support now!
                         </a>

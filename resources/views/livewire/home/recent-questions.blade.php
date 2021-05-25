@@ -11,7 +11,7 @@
                 </div>
             @endif
             @foreach ($recent_questions as $question)
-                <div class="{{ $loop->index === count($recent_questions) - 1 ? '' : 'mb-2' }} {{ $question->patronOnly ? 'bg-patron recent-questions' : '' }} d-flex align-items-center">
+                <div class="{{ $loop->index === count($recent_questions) - 1 ? '' : 'mb-2' }} {{ $question->patron_only ? 'bg-patron recent-questions' : '' }} d-flex align-items-center">
                     <a
                         href="{{ route('user.done', ['username' => $question->user->username]) }}"
                         class="user-popover"

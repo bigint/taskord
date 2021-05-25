@@ -25,7 +25,7 @@ class QuestionFactory extends Factory
             'user_id' => $this->faker->numberBetween($min = 1, $max = 50),
             'title' => $this->faker->sentence($nbWords = 15, $variableNbWords = true),
             'body' => $this->faker->sentence($nbWords = 60, $variableNbWords = true),
-            'patronOnly' => $this->faker->boolean($chanceOfGettingTrue = 10),
+            'patron_only' => $this->faker->boolean($chanceOfGettingTrue = 10),
             'created_at' => $this->faker->dateTimeBetween($startDate = '-5 days', $endDate = 'now'),
             'updated_at' => $this->faker->dateTimeBetween($startDate = '-5 days', $endDate = 'now'),
         ];

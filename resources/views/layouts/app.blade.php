@@ -19,7 +19,7 @@
     <title>@yield('pageTitle') Taskord</title>
     @auth
         @if (App::environment() === 'production')
-            @if (auth()->user()->isBeta)
+            @if (auth()->user()->is_beta)
                 <link rel="icon" href="https://ik.imagekit.io/taskordimg/beta_J6zazpyIw.svg" sizes="any" type="image/svg+xml">
             @else
                 <link rel="icon" href="https://ik.imagekit.io/taskordimg/logo_8lLu9EPFa.svg" sizes="any" type="image/svg+xml">
@@ -34,7 +34,7 @@
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="{{ mix('css/app.css') }}" rel="stylesheet">
     @auth
-        @if (auth()->user()->darkMode)
+        @if (auth()->user()->dark_mode)
             <link href="{{ mix('css/darkmode.css') }}" rel="stylesheet">
         @endif
     @endauth
@@ -46,7 +46,7 @@
 <body>
     <div id="app">
         @auth
-            @if (auth()->user()->isStaff and auth()->user()->staffShip)
+            @if (auth()->user()->is_staff and auth()->user()->staff_mode)
                 <div class="staff-bar">
                     <livewire:staff.staffbar />
                 </div>
@@ -61,7 +61,7 @@
             </div>
         @endif
         @auth
-            @if (auth()->user()->isFlagged)
+            @if (auth()->user()->spammy)
                 <div class="alert alert-danger rounded-0" role="alert">
                     <div class="fw-bold">
                         <x-heroicon-o-flag class="heroicon" />

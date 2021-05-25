@@ -1,4 +1,4 @@
-<div class="card mb-2 {{ $question->patronOnly ? 'bg-patron' : '' }}">
+<div class="card mb-2 {{ $question->patron_only ? 'bg-patron' : '' }}">
     <div class="card-body">
         <div class="d-flex align-items-center">
             <x:shared.user-label-big :user="$question->user" />
@@ -41,7 +41,7 @@
         </a>
         <div class="mt-2 body-font">
             @if ($type !== "question.question")
-                @if (!$question->patronOnly)
+                @if (!$question->patron_only)
                     {!! markdown(Str::words($question->body, '30')) !!}
                 @endif
             @else
@@ -88,7 +88,7 @@
                         </span>
                     @endif
                 </a>
-                @if (auth()->user()->staffShip or auth()->user()->id === $question->user->id)
+                @if (auth()->user()->staff_mode or auth()->user()->id === $question->user->id)
                     @if ($type === "question.question")
                         <a href="{{ route('question.edit', ['question' => $question]) }}" class="btn btn-task btn-outline-info me-1">
                             <x-heroicon-o-pencil-alt class="heroicon heroicon-15px me-0 text-secondary" />
@@ -126,7 +126,7 @@
                         </button>
                     @endif
                 @endif
-                @if (auth()->user()->staffShip)
+                @if (auth()->user()->staff_mode)
                     <button type="button" class="btn btn-task {{ $question->hidden ? 'btn-info' : 'btn-outline-info' }}" wire:click="hide" wire:loading.attr="disabled" wire:offline.attr="disabled" wire:key="{{ $question->id }}" aria-label="Hide">
                         <x-heroicon-o-eye-off class="heroicon heroicon-15px me-0" />
                     </button>

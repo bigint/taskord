@@ -43,7 +43,7 @@
                 GitLab
             </a>
             @auth
-                @if (auth()->user()->staffShip)
+                @if (auth()->user()->staff_mode)
                     <span class="text-danger ms-2">
                         <x-heroicon-o-shield-check class="heroicon me-0" />
                         Staff mode on

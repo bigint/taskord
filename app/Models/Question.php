@@ -29,7 +29,7 @@ class Question extends Model implements Viewable
         'body',
         'is_solvable',
         'solved',
-        'patronOnly',
+        'patron_only',
         'hidden',
     ];
 

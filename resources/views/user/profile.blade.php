@@ -11,11 +11,11 @@
 @endif
 <div class="card">
     @auth
-    @if (auth()->user()->isStaff && $user->isFlagged)
+    @if (auth()->user()->is_staff && $user->spammy)
         <div class="p-4 pb-0">
             <div class="alert alert-danger alert-dismissible">
                 This user is flagged
-                {{ $user->isSuspended ? 'and suspended' : '' }}
+                {{ $user->is_suspended ? 'and suspended' : '' }}
                 as spammy!
             </div>
         </div>
@@ -36,13 +36,13 @@
                         @endif
                         @auth
                         @endauth
-                        @if ($user->isPrivate)
+                        @if ($user->is_private)
                             <x-heroicon-o-lock-closed class="heroicon heroicon-20px text-primary ms-2 me-0 private" />
                         @endif
-                        @if ($user->isVerified)
+                        @if ($user->is_verified)
                             <x-heroicon-s-badge-check class="heroicon heroicon-20px text-primary ms-2 me-0 verified" />
                         @endif
-                        @if ($user->isPatron)
+                        @if ($user->is_patron)
                             <a class="patron" href="{{ route('patron.home') }}" aria-label="Patron">
                                 <x-heroicon-s-star class="heroicon heroicon-20px ms-2 me-0 text-gold" />
                             </a>
@@ -56,7 +56,7 @@
                         @if ($user->isFollowing(auth()->user()))
                             <span class="ms-2 badge bg-light text-secondary">Follows you</span>
                         @endif
-                        @if (auth()->user()->staffShip)
+                        @if (auth()->user()->staff_mode)
                             <span class="ms-2 text-secondary small">#{{ $user->id }}</span>
                         @endif
                         @endauth
@@ -96,7 +96,7 @@
                             <x-heroicon-o-briefcase class="heroicon heroicon-15px text-secondary" />
                             {{ $user->company }}
                         </span>
-                        @if ($user->isStaff)
+                        @if ($user->is_staff)
                         <span class="border border-1 border-info text-info fw-bold ms-1 px-2 rounded-pill small">Staff</span>
                         @endif
                         @endif
@@ -139,7 +139,7 @@
                         <span class="fw-bold">{{ count($level) === 0 ? 'Beginner' : $level->last()->name }}</span>
                     </div>
                     @endif
-                    @if ($user->isBeta)
+                    @if ($user->is_beta)
                     <div class="mt-2">
                         <span class="fw-bold">
                             <x-heroicon-o-beaker class="heroicon heroicon-18px text-info" />
@@ -147,7 +147,7 @@
                         </span>
                     </div>
                     @endif
-                    @if ($user->isDeveloper)
+                    @if ($user->is_contributor)
                     <div class="mt-2">
                         <span class="fw-bold">
                             <x-heroicon-o-chip class="heroicon heroicon-18px text-dark" />
@@ -161,9 +161,9 @@
     </div>
     <div class="card-footer text-muted">
         @if (
-            !$user->isPrivate or
+            !$user->is_private or
             auth()->check() and auth()->user()->id === $user->id or
-            auth()->check() and auth()->user()->staffShip
+            auth()->check() and auth()->user()->staff_mode
         )
         <a class="text-dark fw-bold me-4" href="{{ route('user.done', ['username' => $user->username]) }}">
             <span class="@if (Route::currentRouteName() === 'user.done') text-primary @endif me-1">Done</span>

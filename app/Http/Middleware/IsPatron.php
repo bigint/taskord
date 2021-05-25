@@ -16,7 +16,7 @@ class IsPatron
      */
     public function handle(Request $request, Closure $next)
     {
-        if ($request->user() && $request->user()->isPatron) {
+        if ($request->user() && $request->user()->is_patron) {
             return $next($request);
         }
 

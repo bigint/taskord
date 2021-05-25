@@ -11,7 +11,7 @@ class EditQuestion extends Component
     public $title;
     public $body;
     public $solvable;
-    public $patronOnly;
+    public $patron_only;
 
     protected $rules = [
         'title' => ['required', 'min:5', 'max:150'],
@@ -24,7 +24,7 @@ class EditQuestion extends Component
         $this->title = $question->title;
         $this->body = $question->body;
         $this->solvable = $question->is_solvable;
-        $this->patronOnly = $question->patronOnly;
+        $this->patron_only = $question->patron_only;
     }
 
     public function updated($field)
@@ -48,20 +48,20 @@ class EditQuestion extends Component
             return toast($this, 'error', 'Your email is not verified!');
         }
 
-        if (auth()->user()->isFlagged) {
+        if (auth()->user()->spammy) {
             return toast($this, 'error', 'Your account is flagged!');
         }
 
         $question = Question::where('id', $this->question->id)->firstOrFail();
 
         $solvable = ! $this->solvable ? false : true;
-        $patronOnly = ! $this->patronOnly ? false : true;
+        $patron_only = ! $this->patron_only ? false : true;
 
-        if (auth()->user()->staffShip or auth()->user()->id === $question->user_id) {
+        if (auth()->user()->staff_mode or auth()->user()->id === $question->user_id) {
             $question->title = $this->title;
             $question->body = $this->body;
             $question->is_solvable = $this->solvable;
-            $question->patronOnly = $this->patronOnly;
+            $question->patron_only = $this->patron_only;
             $question->save();
             auth()->user()->touch();
 

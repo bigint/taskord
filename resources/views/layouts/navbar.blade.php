@@ -2,7 +2,7 @@
     <div class="container-md">
         <a class="navbar-brand" href="{{ url('/') }}">
             @auth
-                @if (auth()->user()->isBeta)
+                @if (auth()->user()->is_beta)
                     <img loading=lazy src="https://ik.imagekit.io/taskordimg/beta_J6zazpyIw.svg" height="35" alt="Taskord Beta" title="Taskord Beta">
                 @else
                     <img loading=lazy src="https://ik.imagekit.io/taskordimg/logo_8lLu9EPFa.svg" height="35" alt="Taskord">
@@ -99,7 +99,7 @@
                         </li>
                     </ul>
                 </li>
-                @if (auth()->check() and auth()->user()->isStaff and !auth()->user()->staffShip)
+                @if (auth()->check() and auth()->user()->is_staff and !auth()->user()->staff_mode)
                     <li class="nav-item">
                         <span class="nav-link text-secondary fw-bold">
                             {{ bcmul((microtime(true) - LARAVEL_START), '1000', 0) }}ms
@@ -151,7 +151,7 @@
                     </li>
                     @include('layouts.modals.new-task')
                     <livewire:notification.icon />
-                    @if (auth()->user()->hasGoal)
+                    @if (auth()->user()->has_goal)
                         <li class="nav-item me-2">
                             <div class="nav-link">
                                 <a
@@ -227,9 +227,9 @@
                                 Patron
                             </a>
                             <div class="dropdown-divider"></div>
-                            @if (auth()->user()->isStaff)
+                            @if (auth()->user()->is_staff)
                                 <a class="dropdown-item text-dark" id="staff-bar-click" role="button">
-                                    @if (auth()->user()->staffShip)
+                                    @if (auth()->user()->staff_mode)
                                         <x-heroicon-o-eye-off class="heroicon heroicon-18px text-secondary" />
                                         Hide Staff Bar
                                     @else
@@ -240,7 +240,7 @@
                                 <div class="dropdown-divider"></div>
                             @endif
                             <a class="dropdown-item text-dark" id="dark-mode" role="button">
-                                @if (auth()->user()->darkMode)
+                                @if (auth()->user()->dark_mode)
                                     <x-heroicon-o-sun class="heroicon heroicon-18px text-secondary" />
                                     Light Mode
                                 @else
@@ -248,7 +248,7 @@
                                     Dark Mode
                                 @endif
                             </a>
-                            @if (auth()->user()->isDeveloper)
+                            @if (auth()->user()->is_contributor)
                                 <a class="dropdown-item text-dark" href="https://gitlab.com/yo/taskord" target="_blank" rel="noreferrer">
                                     <x-heroicon-o-code class="heroicon heroicon-18px text-secondary" />
                                     GitLab

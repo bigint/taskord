@@ -43,7 +43,7 @@ class LoadMore extends Component
             if ($this->type === 'questions.newest') {
                 $questions = Question::whereHas('user', function ($q) {
                     $q->where([
-                        ['isFlagged', false],
+                        ['spammy', false],
                     ]);
                 })
                     ->latest()
@@ -51,7 +51,7 @@ class LoadMore extends Component
             } elseif ($this->type === 'questions.unanswered') {
                 $questions = Question::whereHas('user', function ($q) {
                     $q->where([
-                        ['isFlagged', false],
+                        ['spammy', false],
                     ]);
                 })
                     ->doesntHave('answer')
@@ -61,7 +61,7 @@ class LoadMore extends Component
                 $questions = Question::withCount('answer')
                     ->whereHas('user', function ($q) {
                         $q->where([
-                            ['isFlagged', false],
+                            ['spammy', false],
                         ]);
                     })
                     ->has('answer')

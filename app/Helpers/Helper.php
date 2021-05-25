@@ -88,7 +88,7 @@ class Helper
 
     public static function flagAccount($user)
     {
-        $user->isFlagged = true;
+        $user->spammy = true;
         $user->save();
     }
 

@@ -96,11 +96,11 @@
             <form wire:submit.prevent="setGoal">
                 <div>
                     <div class="form-check">
-                        <input wire:click="enableGoal" id="enableGoal" class="form-check-input" type="checkbox" {{ $user->hasGoal ? 'checked' : '' }}>
+                        <input wire:click="enableGoal" id="enableGoal" class="form-check-input" type="checkbox" {{ $user->has_goal ? 'checked' : '' }}>
                         <label for="enableGoal" class="form-check-label">Enable Goal</label>
                     </div>
                 </div>
-                @if ($user->hasGoal)
+                @if ($user->has_goal)
                     <div class="mt-2 mb-3">
                         <label class="form-label mt-2">Number of tasks</label>
                         <input type="text" class="form-control @error('daily_goal') is-invalid @enderror" value="{{ $user->daily_goal }}" wire:model.defer="daily_goal">
@@ -139,7 +139,7 @@
         </div>
         <div class="card-body">
             <div class="form-check">
-                <input wire:click="onlyFollowingsTasks" id="onlyFollowingsTasks" class="form-check-input" type="checkbox" {{ $user->onlyFollowingsTasks ? 'checked' : '' }}>
+                <input wire:click="onlyFollowingsTasks" id="onlyFollowingsTasks" class="form-check-input" type="checkbox" {{ $user->only_followings_tasks ? 'checked' : '' }}>
                 <label for="onlyFollowingsTasks" class="form-check-label">Show only following user's tasks on homepage</label>
             </div>
         </div>

@@ -31,7 +31,7 @@
                 </div>
                 <div class="col-sm d-grid">
                     @auth
-                        @if (auth()->user()->isPatron and auth()->user()->patron()->count('id') === 1)
+                        @if (auth()->user()->is_patron and auth()->user()->patron()->count('id') === 1)
                             <div class="text-center">
                                 <div class="h5">
                                     ❤ You are already a patron!

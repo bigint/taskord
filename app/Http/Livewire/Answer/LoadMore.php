@@ -44,7 +44,7 @@ class LoadMore extends Component
             $answers = Answer::whereQuestionId($this->question->id)
                 ->whereHas('user', function ($q) {
                     $q->where([
-                        ['isFlagged', false],
+                        ['spammy', false],
                     ]);
                 })
                 ->get();

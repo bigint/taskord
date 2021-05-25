@@ -8,7 +8,7 @@
         <a href="{{ route('user.done', ['username' => $user->username]) }}">
             <img loading=lazy class="avatar-50 rounded-circle" src="{{ Helper::getCDNImage($user->avatar, 80) }}" height="50" width="50" alt="{{ $user->username }}'s avatar" />
         </a>
-        @if ($user->isPatron)
+        @if ($user->is_patron)
             <div class="border border-primary mt-2 ps-1 pe-1 rounded-pill small text-center text-primary">Patron</div>
         @endif
     </div>
@@ -19,7 +19,7 @@
             @else
                 {{ $user->username }}
             @endif
-            @if ($user->isVerified)
+            @if ($user->is_verified)
                 <x-heroicon-s-badge-check class="heroicon ms-1 text-primary verified" />
             @endif
         </a>

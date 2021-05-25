@@ -43,7 +43,7 @@
         </div>
         <div class="card-body">
             <div class="form-check">
-                <input wire:click="enrollBeta" id="enrollBeta" class="form-check-input" type="checkbox" {{ $user->isBeta ? 'checked' : '' }}>
+                <input wire:click="enrollBeta" id="enrollBeta" class="form-check-input" type="checkbox" {{ $user->is_beta ? 'checked' : '' }}>
                 <label for="enrollBeta" class="form-check-label">Enroll to Beta</label>
             </div>
         </div>
@@ -57,9 +57,9 @@
             </div>
         </div>
         <div class="card-body">
-            @if ($user->isPatron)
+            @if ($user->is_patron)
                 <div class="form-check">
-                    <input wire:click="enrollPrivate" id="enrollPrivate" class="form-check-input" type="checkbox" {{ $user->isPrivate ? 'checked' : '' }}>
+                    <input wire:click="enrollPrivate" id="enrollPrivate" class="form-check-input" type="checkbox" {{ $user->is_private ? 'checked' : '' }}>
                     <label for="enrollPrivate" class="form-check-label">Hide all tasks from public</label>
                 </div>
             @else

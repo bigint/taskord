@@ -230,17 +230,17 @@
                                         {{ $user->username }}
                                     @endif
                                     @auth
-                                        @if (auth()->user()->staffShip)
+                                        @if (auth()->user()->staff_mode)
                                             <span class="ms-2 text-secondary small">#{{ $user->id }}</span>
                                         @endif
                                     @endauth
-                                    @if ($user->isPrivate)
+                                    @if ($user->is_private)
                                         <x-heroicon-o-lock-closed class="heroicon heroicon-20px text-primary ms-2 me-0 private" />
                                     @endif
-                                    @if ($user->isVerified)
+                                    @if ($user->is_verified)
                                         <x-heroicon-s-badge-check class="heroicon heroicon-20px text-primary ms-2 me-0 verified" />
                                     @endif
-                                    @if ($user->isPatron)
+                                    @if ($user->is_patron)
                                         <a class="patron" href="{{ route('patron.home') }}" aria-label="Patron">
                                             <x-heroicon-s-star class="heroicon heroicon-20px ms-2 me-0 text-gold" />
                                         </a>
@@ -273,7 +273,7 @@
                                             <x-heroicon-o-briefcase class="heroicon text-secondary" />
                                             {{ $user->company }}
                                         </span>
-                                        @if ($user->isStaff)
+                                        @if ($user->is_staff)
                                             <span class="badge rounded-pill bg-primary ms-1">Staff</span>
                                         @endif
                                     @endif

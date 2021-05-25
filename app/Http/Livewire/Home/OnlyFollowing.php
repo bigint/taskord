@@ -12,12 +12,12 @@ class OnlyFollowing extends Component
             return toast($this, 'error', 'Forbidden!');
         }
 
-        auth()->user()->onlyFollowingsTasks = ! auth()->user()->onlyFollowingsTasks;
+        auth()->user()->only_followings_tasks = ! auth()->user()->only_followings_tasks;
         auth()->user()->save();
         $this->emit('refreshTasks');
         loggy(request(), 'User', auth()->user(), 'Toggled only followings tasks');
 
-        if (auth()->user()->onlyFollowingsTasks) {
+        if (auth()->user()->only_followings_tasks) {
             return toast($this, 'success', 'Only following users tasks will be visible!');
         } else {
             return toast($this, 'success', 'All users tasks will be visible!');

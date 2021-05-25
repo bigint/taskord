@@ -16,7 +16,7 @@ class RecentQuestions extends Component
 
     public function getRecentQuestions()
     {
-        return Question::select('id', 'title', 'body', 'patronOnly', 'created_at', 'user_id')
+        return Question::select('id', 'title', 'body', 'patron_only', 'created_at', 'user_id')
             ->orderBy('created_at', 'DESC')
             ->take(5)
             ->get();

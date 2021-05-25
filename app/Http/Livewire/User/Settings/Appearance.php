@@ -18,13 +18,13 @@ class Appearance extends Component
     {
         if (auth()->user()->id === $this->user->id) {
             if ($mode === 'light') {
-                $this->user->darkMode = false;
+                $this->user->dark_mode = false;
                 $this->user->save();
                 loggy(request(), 'User', auth()->user(), 'Disabled dark mode');
 
                 return redirect()->route('user.settings.appearance');
             } else {
-                $this->user->darkMode = true;
+                $this->user->dark_mode = true;
                 $this->user->save();
                 loggy(request(), 'User', auth()->user(), 'Enabled dark mode');
 

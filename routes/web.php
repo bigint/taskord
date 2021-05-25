@@ -161,7 +161,7 @@ Route::group(['middleware' => ['throttle:100,1']], function () {
     | Stafftools routes are not available to normal users.
     |
     */
-    Route::group(['prefix' => 'stafftools', 'as' => 'staff.', 'middleware' => ['staffship']], function () {
+    Route::group(['prefix' => 'stafftools', 'as' => 'staff.', 'middleware' => ['staff_mode']], function () {
         Route::view('', 'staff.stats')->middleware('password.confirm')->name('stats');
         Route::view('users', 'staff.users')->middleware('password.confirm')->name('users');
         Route::view('tasks', 'staff.tasks')->middleware('password.confirm')->name('tasks');
@@ -254,9 +254,9 @@ Route::group(['prefix' => 'popover'], function () {
 // Site
 Route::group(['prefix' => 'site'], function () {
     Route::view('shortcuts', 'site.shortcuts')->name('shortcuts');
-    Route::get('commit-data', [StaffController::class, 'commitData'])->name('commit-data')->middleware('staffship');
-    Route::get('ci-data', [StaffController::class, 'ciData'])->name('ci-data')->middleware('staffship');
-    Route::get('deployment-data', [StaffController::class, 'deploymentData'])->name('deployment-data')->middleware('staffship');
+    Route::get('commit-data', [StaffController::class, 'commitData'])->name('commit-data')->middleware('staff_mode');
+    Route::get('ci-data', [StaffController::class, 'ciData'])->name('ci-data')->middleware('staff_mode');
+    Route::get('deployment-data', [StaffController::class, 'deploymentData'])->name('deployment-data')->middleware('staff_mode');
     Route::get('staffbar', [StaffController::class, 'toggle'])->middleware('staff')->name('staffbar');
 });
 

@@ -26,7 +26,7 @@ class Tasks extends Component
 
     public function getTasks()
     {
-        if (auth()->check() && auth()->user()->onlyFollowingsTasks) {
+        if (auth()->check() && auth()->user()->only_followings_tasks) {
             $userIds = auth()->user()->followings->pluck('id');
             $userIds->push(auth()->user()->id);
 
@@ -34,8 +34,8 @@ class Tasks extends Component
                 ->whereIn('user_id', $userIds)
                 ->whereHas('user', function ($q) {
                     $q->where([
-                        ['isFlagged', false],
-                        ['isPrivate', false],
+                        ['spammy', false],
+                        ['is_private', false],
                     ]);
                 })
                 ->whereDone(true)
@@ -44,8 +44,8 @@ class Tasks extends Component
         } else {
             return Task::whereHas('user', function ($q) {
                 $q->where([
-                    ['isFlagged', false],
-                    ['isPrivate', false],
+                    ['spammy', false],
+                    ['is_private', false],
                 ]);
             })
                 ->whereDone(true)

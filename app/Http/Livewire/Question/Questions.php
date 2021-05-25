@@ -32,7 +32,7 @@ class Questions extends Component
         if ($this->type === 'questions.newest') {
             return Question::whereHas('user', function ($q) {
                 $q->where([
-                    ['isFlagged', false],
+                    ['spammy', false],
                 ]);
             })
                 ->latest()
@@ -40,7 +40,7 @@ class Questions extends Component
         } elseif ($this->type === 'questions.unanswered') {
             return Question::whereHas('user', function ($q) {
                 $q->where([
-                    ['isFlagged', false],
+                    ['spammy', false],
                 ]);
             })
                 ->doesntHave('answer')
@@ -50,7 +50,7 @@ class Questions extends Component
             return Question::withCount('answer')
                 ->whereHas('user', function ($q) {
                     $q->where([
-                        ['isFlagged', false],
+                        ['spammy', false],
                     ]);
                 })
                 ->has('answer')

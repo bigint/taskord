@@ -20,11 +20,11 @@ class SingleReply extends Component
             return toast($this, 'error', 'Forbidden!');
         }
 
-        if (auth()->user()->isFlagged) {
+        if (auth()->user()->spammy) {
             return toast($this, 'error', 'Your account is flagged!');
         }
 
-        if (auth()->user()->staffShip or auth()->user()->id === $this->reply->user->id) {
+        if (auth()->user()->staff_mode or auth()->user()->id === $this->reply->user->id) {
             loggy(request(), 'Reply', auth()->user(), 'Deleted a reply | Reply ID: '.$this->reply->id);
             $this->reply->delete();
             $this->emit('refreshReplies');

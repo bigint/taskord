@@ -44,7 +44,7 @@ class LoadMore extends Component
                 $milestones = Milestone::whereStatus(true)
                     ->whereHas('user', function ($q) {
                         $q->where([
-                            ['isFlagged', false],
+                            ['spammy', false],
                         ]);
                     })
                     ->latest()
@@ -53,7 +53,7 @@ class LoadMore extends Component
                 $milestones = Milestone::whereStatus(false)
                     ->whereHas('user', function ($q) {
                         $q->where([
-                            ['isFlagged', false],
+                            ['spammy', false],
                         ]);
                     })
                     ->latest()

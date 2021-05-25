@@ -20,7 +20,7 @@ class CheckUser
             $request->user()->last_active = carbon();
             $request->user()->save();
 
-            if ($request->user()->isSuspended) {
+            if ($request->user()->is_suspended) {
                 auth()->logout();
 
                 return redirect()->route('suspended');

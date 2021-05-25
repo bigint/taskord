@@ -14,7 +14,7 @@ class EditMilestone extends Component
     public $end_date;
 
     protected $rules = [
-        'name' => ['required', 'min:5', 'max:100'],
+        'name' => ['required', 'min:5', 'max:150'],
         'description' => ['required', 'min:3', 'max:10000'],
     ];
 
@@ -48,13 +48,13 @@ class EditMilestone extends Component
             return toast($this, 'error', 'Your email is not verified!');
         }
 
-        if (auth()->user()->isFlagged) {
+        if (auth()->user()->spammy) {
             return toast($this, 'error', 'Your account is flagged!');
         }
 
         $milestone = Milestone::where('id', $this->milestone->id)->firstOrFail();
 
-        if (auth()->user()->staffShip or auth()->user()->id === $milestone->user_id) {
+        if (auth()->user()->staff_mode or auth()->user()->id === $milestone->user_id) {
             $milestone->name = $this->name;
             $milestone->description = $this->description;
             $milestone->start_date = $this->start_date ? $this->start_date : null;

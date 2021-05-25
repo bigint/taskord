@@ -14,30 +14,30 @@ use Livewire\Component;
 class Moderator extends Component
 {
     public User $user;
-    public $isBeta;
-    public $isStaff;
-    public $isPatron;
-    public $darkMode;
-    public $isDeveloper;
-    public $isPrivate;
-    public $isVerified;
-    public $isFlagged;
-    public $isSuspended;
+    public $is_beta;
+    public $is_staff;
+    public $is_patron;
+    public $dark_mode;
+    public $is_contributor;
+    public $is_private;
+    public $is_verified;
+    public $spammy;
+    public $is_suspended;
     public $staff_notes;
     public $readyToLoad = false;
 
     public function mount($user)
     {
         $this->user = $user;
-        $this->isBeta = $user->isBeta;
-        $this->isStaff = $user->isStaff;
-        $this->isPatron = $user->isPatron;
-        $this->darkMode = $user->darkMode;
-        $this->isDeveloper = $user->isDeveloper;
-        $this->isPrivate = $user->isPrivate;
-        $this->isVerified = $user->isVerified;
-        $this->isFlagged = $user->isFlagged;
-        $this->isSuspended = $user->isSuspended;
+        $this->is_beta = $user->is_beta;
+        $this->is_staff = $user->is_staff;
+        $this->is_patron = $user->is_patron;
+        $this->dark_mode = $user->dark_mode;
+        $this->is_contributor = $user->is_contributor;
+        $this->is_private = $user->is_private;
+        $this->is_verified = $user->is_verified;
+        $this->spammy = $user->spammy;
+        $this->is_suspended = $user->is_suspended;
         $this->staff_notes = $user->staff_notes;
     }
 
@@ -48,11 +48,11 @@ class Moderator extends Component
 
     public function enrollBeta()
     {
-        if (auth()->check() && auth()->user()->isStaff) {
-            $this->user->isBeta = ! $this->user->isBeta;
+        if (auth()->check() && auth()->user()->is_staff) {
+            $this->user->is_beta = ! $this->user->is_beta;
             $this->user->timestamps = false;
             $this->user->save();
-            if ($this->user->isBeta) {
+            if ($this->user->is_beta) {
                 loggy(request(), 'Staff', auth()->user(), 'Enrolled to Beta | Username: @'.$this->user->username);
             } else {
                 loggy(request(), 'Staff', auth()->user(), 'Un-enrolled from Beta | Username: @'.$this->user->username);
@@ -64,14 +64,14 @@ class Moderator extends Component
 
     public function enrollStaff()
     {
-        if (auth()->check() && auth()->user()->isStaff) {
+        if (auth()->check() && auth()->user()->is_staff) {
             if ($this->user->id === 1) {
                 return toast($this, 'error', 'Forbidden!');
             }
-            $this->user->isStaff = ! $this->user->isStaff;
+            $this->user->is_staff = ! $this->user->is_staff;
             $this->user->timestamps = false;
             $this->user->save();
-            if ($this->user->isStaff) {
+            if ($this->user->is_staff) {
                 loggy(request(), 'Staff', auth()->user(), 'Enrolled as Staff | Username: @'.$this->user->username);
             } else {
                 loggy(request(), 'Staff', auth()->user(), 'Un-enrolled from Staff | Username: @'.$this->user->username);
@@ -83,11 +83,11 @@ class Moderator extends Component
 
     public function enrollDeveloper()
     {
-        if (auth()->check() && auth()->user()->isStaff) {
-            $this->user->isDeveloper = ! $this->user->isDeveloper;
+        if (auth()->check() && auth()->user()->is_staff) {
+            $this->user->is_contributor = ! $this->user->is_contributor;
             $this->user->timestamps = false;
             $this->user->save();
-            if ($this->user->isDeveloper) {
+            if ($this->user->is_contributor) {
                 $this->user->notify(new ContributorEnabled(true));
                 loggy(request(), 'Staff', auth()->user(), 'Enrolled as Contributor | Username: @'.$this->user->username);
             } else {
@@ -100,14 +100,14 @@ class Moderator extends Component
 
     public function privateUser()
     {
-        if (auth()->check() && auth()->user()->isStaff) {
+        if (auth()->check() && auth()->user()->is_staff) {
             if ($this->user->id === 1) {
                 return toast($this, 'error', 'Forbidden!');
             }
-            $this->user->isPrivate = ! $this->user->isPrivate;
+            $this->user->is_private = ! $this->user->is_private;
             $this->user->timestamps = false;
             $this->user->save();
-            if ($this->user->isPrivate) {
+            if ($this->user->is_private) {
                 loggy(request(), 'Staff', auth()->user(), 'Enrolled as private user | Username: @'.$this->user->username);
             } else {
                 loggy(request(), 'Staff', auth()->user(), 'Un-enrolled from private user | Username: @'.$this->user->username);
@@ -119,14 +119,14 @@ class Moderator extends Component
 
     public function flagUser()
     {
-        if (auth()->check() && auth()->user()->isStaff) {
+        if (auth()->check() && auth()->user()->is_staff) {
             if ($this->user->id === 1) {
                 return toast($this, 'error', 'Forbidden!');
             }
-            $this->user->isFlagged = ! $this->user->isFlagged;
+            $this->user->spammy = ! $this->user->spammy;
             $this->user->timestamps = false;
             $this->user->save();
-            if ($this->user->isFlagged) {
+            if ($this->user->spammy) {
                 loggy(request(), 'Staff', auth()->user(), 'Flagged the user | Username: @'.$this->user->username);
             } else {
                 loggy(request(), 'Staff', auth()->user(), 'Un-flagged the user | Username: @'.$this->user->username);
@@ -138,21 +138,21 @@ class Moderator extends Component
 
     public function suspendUser()
     {
-        if (auth()->check() && auth()->user()->isStaff) {
+        if (auth()->check() && auth()->user()->is_staff) {
             if ($this->user->id === 1) {
                 return toast($this, 'error', 'Forbidden!');
             }
-            $this->user->isSuspended = ! $this->user->isSuspended;
-            if ($this->user->isSuspended) {
-                $this->user->isFlagged = true;
-                $this->isFlagged = true;
+            $this->user->is_suspended = ! $this->user->is_suspended;
+            if ($this->user->is_suspended) {
+                $this->user->spammy = true;
+                $this->spammy = true;
             } else {
-                $this->user->isFlagged = false;
-                $this->isFlagged = false;
+                $this->user->spammy = false;
+                $this->spammy = false;
             }
             $this->user->timestamps = false;
             $this->user->save();
-            if ($this->user->isSuspended) {
+            if ($this->user->is_suspended) {
                 loggy(request(), 'Staff', auth()->user(), 'Suspended the user | Username: @'.$this->user->username);
             } else {
                 loggy(request(), 'Staff', auth()->user(), 'Un-suspended the user | Username: @'.$this->user->username);
@@ -164,11 +164,11 @@ class Moderator extends Component
 
     public function enrollPatron()
     {
-        if (auth()->check() && auth()->user()->isStaff) {
-            $this->user->isPatron = ! $this->user->isPatron;
+        if (auth()->check() && auth()->user()->is_staff) {
+            $this->user->is_patron = ! $this->user->is_patron;
             $this->user->timestamps = false;
             $this->user->save();
-            if ($this->user->isPatron) {
+            if ($this->user->is_patron) {
                 $this->user->notify(new PatronGifted(true));
                 loggy(request(), 'Staff', auth()->user(), 'Enrolled as Patron | Username: @'.$this->user->username);
             } else {
@@ -181,11 +181,11 @@ class Moderator extends Component
 
     public function verifyUser()
     {
-        if (auth()->check() && auth()->user()->isStaff) {
-            $this->user->isVerified = ! $this->user->isVerified;
+        if (auth()->check() && auth()->user()->is_staff) {
+            $this->user->is_verified = ! $this->user->is_verified;
             $this->user->timestamps = false;
             $this->user->save();
-            if ($this->user->isVerified) {
+            if ($this->user->is_verified) {
                 $this->user->notify(new UserVerified(true));
                 loggy(request(), 'Staff', auth()->user(), 'Verified the user | Username: @'.$this->user->username);
             } else {
@@ -198,11 +198,11 @@ class Moderator extends Component
 
     public function enrollDarkMode()
     {
-        if (auth()->check() && auth()->user()->isStaff) {
-            $this->user->darkMode = ! $this->user->darkMode;
+        if (auth()->check() && auth()->user()->is_staff) {
+            $this->user->dark_mode = ! $this->user->dark_mode;
             $this->user->timestamps = false;
             $this->user->save();
-            if ($this->user->darkMode) {
+            if ($this->user->dark_mode) {
                 loggy(request(), 'Staff', auth()->user(), 'Enrolled to Dark mode | Username: @'.$this->user->username);
             } else {
                 loggy(request(), 'Staff', auth()->user(), 'Un-enrolled from Dark mode | Username: @'.$this->user->username);
@@ -214,7 +214,7 @@ class Moderator extends Component
 
     public function masquerade()
     {
-        if (auth()->check() && auth()->user()->isStaff) {
+        if (auth()->check() && auth()->user()->is_staff) {
             if ($this->user->id === 1) {
                 return toast($this, 'error', 'Forbidden!');
             }
@@ -229,7 +229,7 @@ class Moderator extends Component
 
     public function resetAvatar()
     {
-        if (auth()->check() && auth()->user()->isStaff) {
+        if (auth()->check() && auth()->user()->is_staff) {
             loggy(request(), 'Staff', auth()->user(), 'Resetted avatar | Username: @'.$this->user->username);
             $user = User::find($this->user->id);
             $user->timestamps = false;
@@ -244,7 +244,7 @@ class Moderator extends Component
 
     public function releaseUsername()
     {
-        if (auth()->check() && auth()->user()->isStaff) {
+        if (auth()->check() && auth()->user()->is_staff) {
             $user = User::find($this->user->id);
             $user->timestamps = false;
             $user->username = strtolower(Str::random(6));
@@ -259,7 +259,7 @@ class Moderator extends Component
 
     public function deleteTasks()
     {
-        if (auth()->check() && auth()->user()->isStaff) {
+        if (auth()->check() && auth()->user()->is_staff) {
             loggy(request(), 'Staff', auth()->user(), 'Deleted all tasks | Username: @'.$this->user->username);
             $user = User::find($this->user->id);
             $user->timestamps = false;
@@ -278,7 +278,7 @@ class Moderator extends Component
 
     public function deleteComments()
     {
-        if (auth()->check() && auth()->user()->isStaff) {
+        if (auth()->check() && auth()->user()->is_staff) {
             loggy(request(), 'Staff', auth()->user(), 'Deleted all comments | Username: @'.$this->user->username);
             $user = User::find($this->user->id);
             $user->timestamps = false;
@@ -292,7 +292,7 @@ class Moderator extends Component
 
     public function deleteQuestions()
     {
-        if (auth()->check() && auth()->user()->isStaff) {
+        if (auth()->check() && auth()->user()->is_staff) {
             loggy(request(), 'Staff', auth()->user(), 'Deleted all questions | Username: @'.$this->user->username);
             $user = User::find($this->user->id);
             $user->timestamps = false;
@@ -306,7 +306,7 @@ class Moderator extends Component
 
     public function deleteAnswers()
     {
-        if (auth()->check() && auth()->user()->isStaff) {
+        if (auth()->check() && auth()->user()->is_staff) {
             loggy(request(), 'Staff', auth()->user(), 'Deleted all answers | Username: @'.$this->user->username);
             $user = User::find($this->user->id);
             $user->timestamps = false;
@@ -320,7 +320,7 @@ class Moderator extends Component
 
     public function deleteMilestones()
     {
-        if (auth()->check() && auth()->user()->isStaff) {
+        if (auth()->check() && auth()->user()->is_staff) {
             loggy(request(), 'Staff', auth()->user(), 'Deleted all milestones | Username: @'.$this->user->username);
             $user = User::find($this->user->id);
             $user->timestamps = false;
@@ -334,7 +334,7 @@ class Moderator extends Component
 
     public function deleteProducts()
     {
-        if (auth()->check() && auth()->user()->isStaff) {
+        if (auth()->check() && auth()->user()->is_staff) {
             loggy(request(), 'Staff', auth()->user(), 'Deleted all products | Username: @'.$this->user->username);
             $user = User::find($this->user->id);
             $user->timestamps = false;
@@ -356,7 +356,7 @@ class Moderator extends Component
 
     public function deleteUser()
     {
-        if (auth()->check() && auth()->user()->isStaff) {
+        if (auth()->check() && auth()->user()->is_staff) {
             loggy(request(), 'Staff', auth()->user(), 'Deleted the user | Username: @'.$this->user->username);
             if ($this->user->id === 1) {
                 return toast($this, 'error', 'Forbidden!');

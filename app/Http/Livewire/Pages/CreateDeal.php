@@ -31,7 +31,7 @@ class CreateDeal extends Component
             'logo' => ['required', 'active_url'],
         ]);
 
-        if (auth()->user()->isStaff) {
+        if (auth()->user()->is_staff) {
             $deal = Deal::create([
                 'name' =>  $this->name,
                 'description' => $this->description,

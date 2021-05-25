@@ -43,7 +43,7 @@ class UserFactory extends Factory
             'remember_token' => Str::random(10),
             'api_token' => Str::random(60),
             'timezone' => $this->faker->timezone(),
-            'lastIP' => $this->faker->ipv4(),
+            'last_ip' => $this->faker->ipv4(),
             'created_at' => date('Y-m-d H:i:s'),
             'updated_at' => date('Y-m-d H:i:s'),
             'email_verified_at' => date('Y-m-d H:i:s'),

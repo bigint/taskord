@@ -1,6 +1,6 @@
 <div>
     @auth
-        @if (auth()->user()->id !== $user->id && !$user->isFlagged)
+        @if (auth()->user()->id !== $user->id && !$user->spammy)
             @if (auth()->user()->isFollowing($user))
                 <button wire:click="followUser" wire:loading.attr="disabled" class="btn btn-sm btn-danger mb-2">
                     <div wire:loading class="spinner-border spinner-border-sm me-1"></div>

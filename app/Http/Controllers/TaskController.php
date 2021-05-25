@@ -15,10 +15,10 @@ class TaskController extends Controller
         ];
         if (
             auth()->check() && auth()->user()->id === $task->user->id or
-            auth()->check() && auth()->user()->staffShip
+            auth()->check() && auth()->user()->staff_mode
         ) {
             return view('task/task', $response);
-        } elseif ($task->user->isFlagged or $task->user->isPrivate) {
+        } elseif ($task->user->spammy or $task->user->is_private) {
             abort(404);
         }
 
@@ -39,10 +39,10 @@ class TaskController extends Controller
         ];
         if (
             auth()->check() && auth()->user()->id === $task->user->id or
-            auth()->check() && auth()->user()->staffShip
+            auth()->check() && auth()->user()->staff_mode
         ) {
             return view('comment/comment', $response);
-        } elseif ($task->user->isFlagged or $task->user->isPrivate) {
+        } elseif ($task->user->spammy or $task->user->is_private) {
             abort(404);
         }
 

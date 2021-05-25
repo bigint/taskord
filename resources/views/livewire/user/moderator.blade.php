@@ -42,9 +42,9 @@
                         <x-heroicon-o-credit-card class="heroicon text-secondary" />
                         Last login IP:
                     </span>
-                    @if ($user->lastIP)
-                        <a class="fw-bold" href="https://ipinfo.io/{{ $user->lastIP }}" target="_blank" rel="noreferrer">
-                            {{ Str::limit($user->lastIP, 15, '..') }}
+                    @if ($user->last_ip)
+                        <a class="fw-bold" href="https://ipinfo.io/{{ $user->last_ip }}" target="_blank" rel="noreferrer">
+                            {{ Str::limit($user->last_ip, 15, '..') }}
                         </a>
                     @else
                         <span class="fw-bold text-secondary">
@@ -52,7 +52,7 @@
                         </span>
                     @endif
                     @php
-                        $suspectedUsers = \App\Models\User::where('lastIP', $user->lastIP)->get();
+                        $suspectedUsers = \App\Models\User::where('last_ip', $user->last_ip)->get();
                     @endphp
                     @if ($suspectedUsers->count() > 1)
                         <div class="small mt-1">
@@ -120,34 +120,34 @@
                     Flags
                 </div>
                 <div class="mb-2 mt-3">
-                    <input wire:click="enrollBeta" id="enrollBeta" class="form-check-input" type="checkbox" wire:model="isBeta">
+                    <input wire:click="enrollBeta" id="enrollBeta" class="form-check-input" type="checkbox" wire:model="is_beta">
                     <label for="enrollBeta" class="ms-1">Enroll to Beta</label >
                 </div>
                 <div class="mb-2">
-                    <input wire:click="enrollStaff" id="enrollStaff" class="form-check-input" type="checkbox" wire:model="isStaff">
+                    <input wire:click="enrollStaff" id="enrollStaff" class="form-check-input" type="checkbox" wire:model="is_staff">
                     <label for="enrollStaff" class="ms-1">Enroll to Staff</label>
                 </div>
                 <div class="mb-2">
-                    <input wire:click="enrollPatron" id="enrollPatron" class="form-check-input" type="checkbox" wire:model="isPatron">
+                    <input wire:click="enrollPatron" id="enrollPatron" class="form-check-input" type="checkbox" wire:model="is_patron">
                     <label for="enrollPatron" class="ms-1">Enroll to Patron</label>
                 </div>
                 <div class="mb-2">
-                    <input wire:click="enrollDarkMode" id="enrollDarkMode" class="form-check-input" type="checkbox" wire:model="darkMode">
+                    <input wire:click="enrollDarkMode" id="enrollDarkMode" class="form-check-input" type="checkbox" wire:model="dark_mode">
                     <label for="enrollDarkMode" class="ms-1">Enable Dark Mode</label>
                 </div>
                 <div class="mb-2">
-                    <input wire:click="enrollDeveloper" id="enrollDeveloper" class="form-check-input" type="checkbox" wire:model="isDeveloper">
+                    <input wire:click="enrollDeveloper" id="enrollDeveloper" class="form-check-input" type="checkbox" wire:model="is_contributor">
                     <label for="enrollDeveloper" class="ms-1">Enroll to Contributor</label>
                 </div>
                 <div class="mb-2">
-                    <input wire:click="privateUser" id="privateUser" class="form-check-input" type="checkbox" wire:model="isPrivate">
+                    <input wire:click="privateUser" id="privateUser" class="form-check-input" type="checkbox" wire:model="is_private">
                     <label for="privateUser" class="ms-1 text-danger fw-bold">Make user Private</label>
                 </div>
                 <div>
-                    <input wire:click="verifyUser" id="verifyUser" class="form-check-input" type="checkbox" wire:model="isVerified">
+                    <input wire:click="verifyUser" id="verifyUser" class="form-check-input" type="checkbox" wire:model="is_verified">
                     <label for="verifyUser" class="ms-1 text-success fw-bold">Verify this user</label>
                 </div>
-                @if (!$user->isStaff)
+                @if (!$user->is_staff)
                     <div class="mt-3">
                         <button wire:loading.attr="disabled" wire:click="masquerade" class="btn btn-sm btn-warning fw-bold">
                             <x-heroicon-o-eye class="heroicon" />
@@ -167,18 +167,18 @@
                             </form>
                     </div>
                 @endif
-                @if (!$user->isStaff)
+                @if (!$user->is_staff)
                     <hr>
                     <div class="text-danger h5 mb-3">
                         <x-heroicon-o-user class="heroicon heroicon-20px" />
                         Danger Zone
                     </div>
                     <div class="mt-2">
-                        <input wire:click="flagUser" id="flagUser" class="form-check-input" type="checkbox" wire:model="isFlagged">
+                        <input wire:click="flagUser" id="flagUser" class="form-check-input" type="checkbox" wire:model="spammy">
                         <label for="flagUser" class="ms-1 text-danger fw-bold">Flag this user</label>
                     </div>
                     <div class="mt-2">
-                        <input wire:click="suspendUser" id="suspendUser" class="form-check-input" type="checkbox" wire:model="isSuspended">
+                        <input wire:click="suspendUser" id="suspendUser" class="form-check-input" type="checkbox" wire:model="is_suspended">
                         <label for="suspendUser" class="ms-1 text-danger fw-bold">Suspend this user</label>
                     </div>
                     <div class="mt-3">

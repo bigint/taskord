@@ -37,7 +37,7 @@ class Answers extends Component
         return Answer::whereQuestionId($this->question->id)
             ->whereHas('user', function ($q) {
                 $q->where([
-                    ['isFlagged', false],
+                    ['spammy', false],
                 ]);
             })
             ->orderBy('created_at', 'DESC')

@@ -7,7 +7,7 @@
     <div class="row justify-content-center">
         <div class="col-lg-7">
             @auth
-                @if (!auth()->user()->isFlagged)
+                @if (!auth()->user()->spammy)
                     <livewire:milestone.create-milestone />
                 @else
                     <div class="text-center">

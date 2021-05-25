@@ -39,7 +39,7 @@ class SingleComment extends Component
             return toast($this, 'error', 'Your email is not verified!');
         }
 
-        if (auth()->user()->isFlagged) {
+        if (auth()->user()->spammy) {
             return toast($this, 'error', 'Your account is flagged!');
         }
         if (auth()->user()->id === $this->comment->user->id) {
@@ -60,7 +60,7 @@ class SingleComment extends Component
             return toast($this, 'error', 'Forbidden!');
         }
 
-        if (auth()->user()->isStaff and auth()->user()->staffShip) {
+        if (auth()->user()->is_staff and auth()->user()->staff_mode) {
             Helper::hide($this->comment);
             loggy(request(), 'Staff', auth()->user(), 'Toggled hide comment | Comment ID: '.$this->comment->id);
 
@@ -76,11 +76,11 @@ class SingleComment extends Component
             return toast($this, 'error', 'Forbidden!');
         }
 
-        if (auth()->user()->isFlagged) {
+        if (auth()->user()->spammy) {
             return toast($this, 'error', 'Your account is flagged!');
         }
 
-        if (auth()->user()->staffShip or auth()->user()->id === $this->comment->user->id) {
+        if (auth()->user()->staff_mode or auth()->user()->id === $this->comment->user->id) {
             loggy(request(), 'Comment', auth()->user(), 'Deleted a comment | Comment ID: '.$this->comment->id);
             $this->comment->delete();
             $this->emit('refreshComments');

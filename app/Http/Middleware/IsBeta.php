@@ -16,7 +16,7 @@ class IsBeta
      */
     public function handle(Request $request, Closure $next)
     {
-        if ($request->user() && $request->user()->isBeta) {
+        if ($request->user() && $request->user()->is_beta) {
             return $next($request);
         }
 

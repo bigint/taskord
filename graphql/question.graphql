@@ -3,7 +3,7 @@ type Question {
     id: ID!
     title: String!
     body: String!
-    patronOnly: Boolean!
+    patron_only: Boolean!
     user: User @belongsTo
     hasPraised: Boolean @field(resolver: "App\\GraphQL\\Queries\\QuestionQuery@hasPraised")
     praises: [User!]! @hasMany(relation: "likers", type: "connection")

@@ -20,15 +20,15 @@
             @if ($user->status)
                 <span class="ms-1 small" title="{{ $user->status }}">{{ $user->status_emoji }}</span>
             @endif
-            @if ($user->isVerified)
+            @if ($user->is_verified)
                 <x-heroicon-s-badge-check class="heroicon ms-1 text-primary verified" />
             @endif
-            @if ($user->isPatron)
+            @if ($user->is_patron)
                 <a class="patron" href="{{ route('patron.home') }}" aria-label="Patron">
                     <x-heroicon-s-star class="heroicon text-gold" />
                 </a>
             @endif
-            @if ($user->isStaff)
+            @if ($user->is_staff)
                 <span class="staff" title="Staff">
                     <x-heroicon-o-shield-check class="heroicon text-primary" />
                 </span>

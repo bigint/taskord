@@ -38,13 +38,13 @@
                     <label for="solvable" class="ms-1">This question will enable you to solve the question</label>
                 </div>
                 @auth
-                    @if (auth()->user()->isPatron)
+                    @if (auth()->user()->is_patron)
                         <div class="mb-3">
                             <div class="fw-bold mb-2 d-flex align-items-center">
                                 <x-heroicon-s-star class="heroicon-18px text-gold" />
                                 <span class="ms-1">Patron only</span>
                             </div>
-                            <input id="patronOnly" class="form-check-input" type="checkbox" wire:model.defer="patronOnly">
+                            <input id="patronOnly" class="form-check-input" type="checkbox" wire:model.defer="patron_only">
                             <label for="patronOnly" class="ms-1">This question will visible only for patrons</label>
                         </div>
                     @else

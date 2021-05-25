@@ -10,7 +10,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body px-4 pb-4">
-                @if (!auth()->user()->isFlagged)
+                @if (!auth()->user()->spammy)
                     @livewire('create-task', [
                         'show_latest_task' => true
                     ])

@@ -19,7 +19,7 @@ class CreateMilestone extends Component
         }
 
         $this->validate([
-            'name' => ['required', 'min:5', 'max:100'],
+            'name' => ['required', 'min:5', 'max:150'],
             'description' => ['required', 'min:3', 'max:10000'],
         ]);
 
@@ -27,7 +27,7 @@ class CreateMilestone extends Component
             return toast($this, 'error', 'Your email is not verified!');
         }
 
-        if (auth()->user()->isFlagged) {
+        if (auth()->user()->spammy) {
             return toast($this, 'error', 'Your account is flagged!');
         }
 

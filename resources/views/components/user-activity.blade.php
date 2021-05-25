@@ -66,7 +66,7 @@
             </div>
         </div>
         <div class="mt-2">
-            @if (auth()->user()->staffShip)
+            @if (auth()->user()->staff_mode)
                 <span class="font-monospace text-secondary" title="Log ID">Log ID: {{ $activity->id }}</span>
                 <span class="vertical-separator"></span>
             @endif
@@ -80,7 +80,7 @@
                 <span class="text-dark">{{ $activity->getExtraProperty('location') }}</span>
                 <span class="vertical-separator"></span>
             @endif
-            @if ($activity->getExtraProperty('user_agent') and auth()->user()->staffShip)
+            @if ($activity->getExtraProperty('user_agent') and auth()->user()->staff_mode)
                 <a
                     class="cursor-pointer text-dark"
                     href="https://userstack.com/ua_api.php?ua={{ $activity->getExtraProperty('user_agent') }}"

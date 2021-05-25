@@ -1,6 +1,6 @@
 <div class="col-sm">
     @auth
-        @if (auth()->user()->staffShip or auth()->user()->id === $product->owner->id)
+        @if (auth()->user()->staff_mode or auth()->user()->id === $product->owner->id)
             <div class="card mb-4">
                 <div class="card-body d-grid">
                     <button type="button" class="btn btn-success text-white fw-bold" data-bs-toggle="modal" data-bs-target="#newUpdateModal">

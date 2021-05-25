@@ -36,7 +36,7 @@ class Comments extends Component
         return $this->task->comments()
             ->whereHas('user', function ($q) {
                 $q->where([
-                    ['isFlagged', false],
+                    ['spammy', false],
                 ]);
             })
             ->oldest()

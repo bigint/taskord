@@ -38,7 +38,7 @@ class User extends Authenticatable implements MustVerifyEmail
         'password',
         'provider',
         'provider_id',
-        'lastIP',
+        'last_ip',
         'email_verified_at',
         'api_token',
     ];

@@ -16,7 +16,7 @@ class IsStaff
      */
     public function handle(Request $request, Closure $next)
     {
-        if ($request->user() && $request->user()->isStaff) {
+        if ($request->user() && $request->user()->is_staff) {
             return $next($request);
         } else {
             return abort(404);
