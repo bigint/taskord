@@ -1,5 +1,5 @@
 <div wire:init="loadGraph">
-    @if (!$readyToLoad)
+    @if (!$ready_to_load)
         <div class="card-body">
             <div class="spinner-border spinner-border-sm taskord-spinner text-secondary me-2" role="status"></div>
             Loading activity graph...
@@ -13,7 +13,7 @@
             <div id="activityGraph"></div>
         @endif
     @endif
-    @if ($readyToLoad)
+    @if ($ready_to_load)
         <script>
         var options = {
             chart: {

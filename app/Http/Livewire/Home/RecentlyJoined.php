@@ -7,11 +7,11 @@ use Livewire\Component;
 
 class RecentlyJoined extends Component
 {
-    public $readyToLoad = false;
+    public $ready_to_load = false;
 
     public function loadRecentlyJoined()
     {
-        $this->readyToLoad = true;
+        $this->ready_to_load = true;
     }
 
     public function getRecentlyJoined()
@@ -28,7 +28,7 @@ class RecentlyJoined extends Component
     public function render()
     {
         return view('livewire.home.recently-joined', [
-            'recently_joined' => $this->readyToLoad ? $this->getRecentlyJoined() : [],
+            'recently_joined' => $this->ready_to_load ? $this->getRecentlyJoined() : [],
         ]);
     }
 }

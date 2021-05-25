@@ -15,7 +15,7 @@ class LoadMore extends Component
     public $page;
     public $perPage;
     public $loadMore;
-    public $readyToLoad = true;
+    public $ready_to_load = true;
 
     public function mount($question, $page, $perPage)
     {

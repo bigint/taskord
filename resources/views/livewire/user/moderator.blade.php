@@ -5,7 +5,7 @@
     </div>
     <div class="card border-danger mb-4">
         <div class="card-body">
-            @if (!$readyToLoad)
+            @if (!$ready_to_load)
                 <div class="card-body text-center">
                     <div class="spinner-border spinner-border-sm taskord-spinner text-secondary" role="status"></div>
                 </div>

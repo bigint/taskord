@@ -7,11 +7,11 @@ use Livewire\Component;
 
 class ActiveProducts extends Component
 {
-    public $readyToLoad = false;
+    public $ready_to_load = false;
 
     public function loadActiveProducts()
     {
-        $this->readyToLoad = true;
+        $this->ready_to_load = true;
     }
 
     public function getActiveProducts()
@@ -27,7 +27,7 @@ class ActiveProducts extends Component
     public function render()
     {
         return view('livewire.products.active-products', [
-            'products' => $this->readyToLoad ? $this->getActiveProducts() : [],
+            'products' => $this->ready_to_load ? $this->getActiveProducts() : [],
         ]);
     }
 }

@@ -12,7 +12,7 @@ class Progress extends Component
     ];
 
     public Milestone $milestone;
-    public $readyToLoad = false;
+    public $ready_to_load = false;
 
     public function mount($milestone)
     {
@@ -21,7 +21,7 @@ class Progress extends Component
 
     public function loadProgress()
     {
-        $this->readyToLoad = true;
+        $this->ready_to_load = true;
     }
 
     public function render()
@@ -36,9 +36,9 @@ class Progress extends Component
         }
 
         return view('livewire.milestone.progress', [
-            'completed' => $this->readyToLoad ? $completed : 0,
-            'pending' => $this->readyToLoad ? $pending : 0,
-            'percent' => $this->readyToLoad ? $percent : 0,
+            'completed' => $this->ready_to_load ? $completed : 0,
+            'pending' => $this->ready_to_load ? $pending : 0,
+            'percent' => $this->ready_to_load ? $percent : 0,
         ]);
     }
 }

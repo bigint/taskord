@@ -1,5 +1,5 @@
 <div wire:init="loadTasks">
-    @if (!$readyToLoad)
+    @if (!$ready_to_load)
         <div class="card-body text-center mt-3 mb-3">
             <div class="spinner-border taskord-spinner text-secondary mb-3" role="status"></div>
             <div class="h6">
@@ -7,7 +7,7 @@
             </div>
         </div>
     @endif
-    @if ($readyToLoad and count($tasks) === 0)
+    @if ($ready_to_load and count($tasks) === 0)
         <div class="card-body text-center mt-3 mb-3">
             <x-heroicon-o-check-circle class="heroicon heroicon-60px text-primary mb-2" />
             <div class="h4">
@@ -26,7 +26,7 @@
             <livewire:task.single-task :task="$task" :wire:key="$task->id" />
         </li>
     @endforeach
-    @if ($readyToLoad and $tasks->hasMorePages())
+    @if ($ready_to_load and $tasks->hasMorePages())
         <livewire:home.load-more :page="$page" />
     @endif
     @if ($page === 1)

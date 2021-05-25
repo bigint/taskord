@@ -10,7 +10,7 @@ class Suggestions extends Component
     protected $listeners = [
         'refreshSuggestions' => 'render',
     ];
-    public $readyToLoad = false;
+    public $ready_to_load = false;
     public $showText;
     public User $user;
 
@@ -22,7 +22,7 @@ class Suggestions extends Component
 
     public function loadSuggestions()
     {
-        $this->readyToLoad = true;
+        $this->ready_to_load = true;
     }
 
     public function getSuggestions()
@@ -43,7 +43,7 @@ class Suggestions extends Component
     public function render()
     {
         return view('livewire.home.suggestions', [
-            'users' => $this->readyToLoad ? $this->getSuggestions() : [],
+            'users' => $this->ready_to_load ? $this->getSuggestions() : [],
         ]);
     }
 }

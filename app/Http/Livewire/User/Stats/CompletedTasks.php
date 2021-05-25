@@ -8,7 +8,7 @@ use Livewire\Component;
 class CompletedTasks extends Component
 {
     public $user;
-    public $readyToLoad = false;
+    public $ready_to_load = false;
 
     public function mount($user)
     {
@@ -17,7 +17,7 @@ class CompletedTasks extends Component
 
     public function loadCompletedTasks()
     {
-        $this->readyToLoad = true;
+        $this->ready_to_load = true;
     }
 
     public function render()
@@ -44,9 +44,9 @@ class CompletedTasks extends Component
         }
 
         return view('livewire.user.stats.completed-tasks', [
-            'week_dates' => $this->readyToLoad ? json_encode($week_dates, JSON_NUMERIC_CHECK) : [],
-            'completed_tasks' => $this->readyToLoad ? json_encode($completed_tasks, JSON_NUMERIC_CHECK) : [],
-            'completed_tasks_count' => $this->readyToLoad ? $completed_tasks_count : '···',
+            'week_dates' => $this->ready_to_load ? json_encode($week_dates, JSON_NUMERIC_CHECK) : [],
+            'completed_tasks' => $this->ready_to_load ? json_encode($completed_tasks, JSON_NUMERIC_CHECK) : [],
+            'completed_tasks_count' => $this->ready_to_load ? $completed_tasks_count : '···',
         ]);
     }
 }

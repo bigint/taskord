@@ -1,5 +1,5 @@
 <div wire:init="loadProducts">
-    @if (!$readyToLoad)
+    @if (!$ready_to_load)
         <div class="card-body text-center mt-3 mb-3">
             <div class="spinner-border taskord-spinner text-secondary mb-3" role="status"></div>
             <div class="h6">
@@ -7,7 +7,7 @@
             </div>
         </div>
     @endif
-    @if ($readyToLoad and count($products) === 0)
+    @if ($ready_to_load and count($products) === 0)
         <div class="card-body text-center mt-3 mb-3">
             <x-heroicon-o-cube class="heroicon heroicon-60px text-primary mb-2" />
             <div class="h4">
@@ -23,5 +23,5 @@
         </div>
     @endforeach
 
-    {{ $readyToLoad ? $products->links() : '' }}
+    {{ $ready_to_load ? $products->links() : '' }}
 </div>

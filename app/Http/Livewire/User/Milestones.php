@@ -11,7 +11,7 @@ class Milestones extends Component
     use WithPagination;
     protected $paginationTheme = 'bootstrap';
     public User $user;
-    public $readyToLoad = false;
+    public $ready_to_load = false;
 
     public function mount($user)
     {
@@ -20,7 +20,7 @@ class Milestones extends Component
 
     public function loadMilestones()
     {
-        $this->readyToLoad = true;
+        $this->ready_to_load = true;
     }
 
     public function getMilestones()
@@ -33,7 +33,7 @@ class Milestones extends Component
     public function render()
     {
         return view('livewire.user.milestones', [
-            'milestones' => $this->readyToLoad ? $this->getMilestones() : [],
+            'milestones' => $this->ready_to_load ? $this->getMilestones() : [],
         ]);
     }
 }

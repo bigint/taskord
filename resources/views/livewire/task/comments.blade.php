@@ -1,7 +1,7 @@
 <div wire:init="loadComments" class="pt-3">
     <div class="card">
         <div class="card-body">
-            @if (!$readyToLoad)
+            @if (!$ready_to_load)
                 <div class="text-center">
                     <div class="spinner-border spinner-border-sm taskord-spinner text-secondary" role="status"></div>
                 </div>

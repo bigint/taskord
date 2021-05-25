@@ -11,11 +11,11 @@ class Subscribers extends Component
     use WithPagination;
     protected $paginationTheme = 'bootstrap';
     public Product $product;
-    public $readyToLoad = false;
+    public $ready_to_load = false;
 
     public function loadSubscribers()
     {
-        $this->readyToLoad = true;
+        $this->ready_to_load = true;
     }
 
     public function mount($product)
@@ -28,7 +28,7 @@ class Subscribers extends Component
         $subscribers = $this->product->subscribers()->paginate(10);
 
         return view('livewire.product.subscribers', [
-            'subscribers' => $this->readyToLoad ? $subscribers : [],
+            'subscribers' => $this->ready_to_load ? $subscribers : [],
         ]);
     }
 }

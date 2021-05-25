@@ -10,11 +10,11 @@ class Users extends Component
 {
     use WithPagination;
     protected $paginationTheme = 'bootstrap';
-    public $readyToLoad = false;
+    public $ready_to_load = false;
 
     public function loadUsers()
     {
-        $this->readyToLoad = true;
+        $this->ready_to_load = true;
     }
 
     public function getUsers()
@@ -25,8 +25,8 @@ class Users extends Component
     public function render()
     {
         return view('livewire.staff.users', [
-            'users' => $this->readyToLoad ? $this->getUsers() : [],
-            'count' => $this->readyToLoad ? User::count('id') : [],
+            'users' => $this->ready_to_load ? $this->getUsers() : [],
+            'count' => $this->ready_to_load ? User::count('id') : [],
         ]);
     }
 }

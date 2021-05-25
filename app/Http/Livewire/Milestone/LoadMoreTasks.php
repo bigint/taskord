@@ -14,7 +14,7 @@ class LoadMoreTasks extends Component
     public Milestone $milestone;
     public $page;
     public $loadMore;
-    public $readyToLoad = true;
+    public $ready_to_load = true;
 
     public function mount($milestone, $page = 1)
     {

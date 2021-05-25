@@ -12,7 +12,7 @@ class Tasks extends Component
     ];
 
     public $page;
-    public $readyToLoad = false;
+    public $ready_to_load = false;
 
     public function mount($page)
     {
@@ -21,7 +21,7 @@ class Tasks extends Component
 
     public function loadTasks()
     {
-        $this->readyToLoad = true;
+        $this->ready_to_load = true;
     }
 
     public function getTasks()
@@ -57,7 +57,7 @@ class Tasks extends Component
     public function render()
     {
         return view('livewire.home.tasks', [
-            'tasks' => $this->readyToLoad ? $this->getTasks() : [],
+            'tasks' => $this->ready_to_load ? $this->getTasks() : [],
             'page' => $this->page,
         ]);
     }

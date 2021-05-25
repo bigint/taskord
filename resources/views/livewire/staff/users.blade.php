@@ -1,11 +1,11 @@
 <div class="card" wire:init="loadUsers">
     <div class="card-header h6 py-3">
         <div class="h5">Users</div>
-        <span class="fw-bold">{{ $readyToLoad ? $count : '···' }}</span>
+        <span class="fw-bold">{{ $ready_to_load ? $count : '···' }}</span>
         total users
     </div>
     <div class="px-3">
-        @if (!$readyToLoad)
+        @if (!$ready_to_load)
             <div class="card-body text-center mt-3">
                 <div class="spinner-border taskord-spinner text-secondary mb-3" role="status"></div>
                 <div class="h6">
@@ -187,5 +187,5 @@
             @endforeach
         @endif
     </div>
-    {{ $readyToLoad ? $users->links() : '' }}
+    {{ $ready_to_load ? $users->links() : '' }}
 </div>

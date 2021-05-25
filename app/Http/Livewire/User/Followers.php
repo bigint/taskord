@@ -11,11 +11,11 @@ class Followers extends Component
     use WithPagination;
     protected $paginationTheme = 'bootstrap';
     public User $user;
-    public $readyToLoad = false;
+    public $ready_to_load = false;
 
     public function loadFollowers()
     {
-        $this->readyToLoad = true;
+        $this->ready_to_load = true;
     }
 
     public function getFollowers()
@@ -31,7 +31,7 @@ class Followers extends Component
     public function render()
     {
         return view('livewire.user.followers', [
-            'followers' => $this->readyToLoad ? $this->getFollowers() : [],
+            'followers' => $this->ready_to_load ? $this->getFollowers() : [],
         ]);
     }
 }

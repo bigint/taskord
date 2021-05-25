@@ -8,7 +8,7 @@ use Livewire\Component;
 
 class Graph extends Component
 {
-    public $readyToLoad = false;
+    public $ready_to_load = false;
     public User $user;
 
     public function mount($user)
@@ -18,7 +18,7 @@ class Graph extends Component
 
     public function loadGraph()
     {
-        $this->readyToLoad = true;
+        $this->ready_to_load = true;
     }
 
     public function getGraph($type)
@@ -49,9 +49,9 @@ class Graph extends Component
     public function render()
     {
         return view('livewire.user.graph', [
-            'week_dates' => $this->readyToLoad ? json_encode($this->getGraph('week_dates'), JSON_NUMERIC_CHECK) : [],
-            'tasks' => $this->readyToLoad ? json_encode($this->getGraph('tasks'), JSON_NUMERIC_CHECK) : [],
-            'count' => $this->readyToLoad ? array_sum($this->getGraph('tasks')) : 0,
+            'week_dates' => $this->ready_to_load ? json_encode($this->getGraph('week_dates'), JSON_NUMERIC_CHECK) : [],
+            'tasks' => $this->ready_to_load ? json_encode($this->getGraph('tasks'), JSON_NUMERIC_CHECK) : [],
+            'count' => $this->ready_to_load ? array_sum($this->getGraph('tasks')) : 0,
         ]);
     }
 }

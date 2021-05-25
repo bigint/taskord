@@ -7,11 +7,11 @@ use Livewire\Component;
 
 class LaunchedToday extends Component
 {
-    public $readyToLoad = false;
+    public $ready_to_load = false;
 
     public function loadLaunchedToday()
     {
-        $this->readyToLoad = true;
+        $this->ready_to_load = true;
     }
 
     public function getLaunchedToday()
@@ -27,7 +27,7 @@ class LaunchedToday extends Component
     public function render()
     {
         return view('livewire.home.launched-today', [
-            'launched_today' => $this->readyToLoad ? $this->getLaunchedToday() : [],
+            'launched_today' => $this->ready_to_load ? $this->getLaunchedToday() : [],
         ]);
     }
 }

@@ -8,11 +8,11 @@ use Livewire\Component;
 
 class CompletedTasks extends Component
 {
-    public $readyToLoad = false;
+    public $ready_to_load = false;
 
     public function loadCompletedTasks()
     {
-        $this->readyToLoad = true;
+        $this->ready_to_load = true;
     }
 
     public function render()
@@ -38,8 +38,8 @@ class CompletedTasks extends Component
 
         return view('livewire.pages.open.completed-tasks', [
             'week_dates' => json_encode($week_dates, JSON_NUMERIC_CHECK),
-            'completed_tasks' => $this->readyToLoad ? json_encode($completed_tasks, JSON_NUMERIC_CHECK) : [],
-            'completed_tasks_count' => $this->readyToLoad ? number_format($completed_tasks_count) : '···',
+            'completed_tasks' => $this->ready_to_load ? json_encode($completed_tasks, JSON_NUMERIC_CHECK) : [],
+            'completed_tasks_count' => $this->ready_to_load ? number_format($completed_tasks_count) : '···',
         ]);
     }
 }

@@ -1,5 +1,5 @@
 <div wire:init="loadPopularTasks">
-    @if (!$readyToLoad)
+    @if (!$ready_to_load)
         <div class="card-body text-center mt-3 mb-3">
             <div class="spinner-border taskord-spinner text-secondary mb-3" role="status"></div>
             <div class="h6">
@@ -14,7 +14,7 @@
             </span>
         </div>
     @endforeach
-    @if ($readyToLoad)
+    @if ($ready_to_load)
         <div class="text-center">
             <img class="avatar-100 my-3" src="https://ik.imagekit.io/taskordimg/tada_UEF5fl7T3.png" loading=lazy />
             <h4>

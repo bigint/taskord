@@ -6,17 +6,17 @@ use Livewire\Component;
 
 class UserCard extends Component
 {
-    public $readyToLoad = false;
+    public $ready_to_load = false;
 
     public function loadUser()
     {
-        $this->readyToLoad = true;
+        $this->ready_to_load = true;
     }
 
     public function render()
     {
         return view('livewire.explore.user-card', [
-            'user' => $this->readyToLoad ? auth()->user() : [],
+            'user' => $this->ready_to_load ? auth()->user() : [],
         ]);
     }
 }

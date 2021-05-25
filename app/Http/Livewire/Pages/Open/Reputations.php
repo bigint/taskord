@@ -9,11 +9,11 @@ use Livewire\Component;
 
 class Reputations extends Component
 {
-    public $readyToLoad = false;
+    public $ready_to_load = false;
 
     public function loadReputations()
     {
-        $this->readyToLoad = true;
+        $this->ready_to_load = true;
     }
 
     public function render()
@@ -38,8 +38,8 @@ class Reputations extends Component
 
         return view('livewire.pages.open.reputations', [
             'week_dates' => json_encode($week_dates, JSON_NUMERIC_CHECK),
-            'reputations' => $this->readyToLoad ? json_encode($reputations, JSON_NUMERIC_CHECK) : [],
-            'reputations_count' => $this->readyToLoad ? number_format($reputations_count) : '···',
+            'reputations' => $this->ready_to_load ? json_encode($reputations, JSON_NUMERIC_CHECK) : [],
+            'reputations_count' => $this->ready_to_load ? number_format($reputations_count) : '···',
         ]);
     }
 }

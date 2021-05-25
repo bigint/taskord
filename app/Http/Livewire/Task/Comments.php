@@ -7,7 +7,7 @@ use Livewire\Component;
 class Comments extends Component
 {
     public $task;
-    public $readyToLoad = false;
+    public $ready_to_load = false;
 
     public function mount($task)
     {
@@ -16,13 +16,13 @@ class Comments extends Component
 
     public function loadComments()
     {
-        $this->readyToLoad = true;
+        $this->ready_to_load = true;
     }
 
     public function render()
     {
         return view('livewire.task.comments', [
-            'comments' => $this->readyToLoad ? $this->task->comments : [],
+            'comments' => $this->ready_to_load ? $this->task->comments : [],
         ]);
     }
 }

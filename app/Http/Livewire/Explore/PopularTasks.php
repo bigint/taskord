@@ -11,11 +11,11 @@ class PopularTasks extends Component
         'refreshTasks' => 'render',
     ];
 
-    public $readyToLoad = false;
+    public $ready_to_load = false;
 
     public function loadPopularTasks()
     {
-        $this->readyToLoad = true;
+        $this->ready_to_load = true;
     }
 
     public function getPopularTasks()
@@ -40,7 +40,7 @@ class PopularTasks extends Component
     public function render()
     {
         return view('livewire.explore.popular-tasks', [
-            'tasks' => $this->readyToLoad ? $this->getPopularTasks() : [],
+            'tasks' => $this->ready_to_load ? $this->getPopularTasks() : [],
         ]);
     }
 }

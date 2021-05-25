@@ -4,7 +4,7 @@
     </div>
     <div class="card mb-4">
         <div class="pt-2 pb-2">
-        @if (!$readyToLoad)
+        @if (!$ready_to_load)
             <div class="card-body text-center">
                 <div class="spinner-border spinner-border-sm taskord-spinner text-secondary" role="status"></div>
             </div>
@@ -51,7 +51,7 @@
             </div>
         @endforeach
         </div>
-        @if ($readyToLoad)
+        @if ($ready_to_load)
             <div class="card-footer">
                 <a class="fw-bold" href="{{ route('products.newest') }}">More Products...</a>
             </div>

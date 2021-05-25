@@ -7,11 +7,11 @@ use Livewire\Component;
 
 class RecentQuestions extends Component
 {
-    public $readyToLoad = false;
+    public $ready_to_load = false;
 
     public function loadRecentQuestions()
     {
-        $this->readyToLoad = true;
+        $this->ready_to_load = true;
     }
 
     public function getRecentQuestions()
@@ -25,7 +25,7 @@ class RecentQuestions extends Component
     public function render()
     {
         return view('livewire.home.recent-questions', [
-            'recent_questions' => $this->readyToLoad ? $this->getRecentQuestions() : [],
+            'recent_questions' => $this->ready_to_load ? $this->getRecentQuestions() : [],
         ]);
     }
 }

@@ -7,11 +7,11 @@ use Livewire\Component;
 
 class Trending extends Component
 {
-    public $readyToLoad = false;
+    public $ready_to_load = false;
 
     public function loadTrending()
     {
-        $this->readyToLoad = true;
+        $this->ready_to_load = true;
     }
 
     public function getTrending()
@@ -28,7 +28,7 @@ class Trending extends Component
     public function render()
     {
         return view('livewire.question.trending', [
-            'trending' => $this->readyToLoad ? $this->getTrending() : [],
+            'trending' => $this->ready_to_load ? $this->getTrending() : [],
         ]);
     }
 }

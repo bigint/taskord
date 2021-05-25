@@ -9,7 +9,7 @@ use Livewire\Component;
 class Graph extends Component
 {
     public Product $product;
-    public $readyToLoad = false;
+    public $ready_to_load = false;
 
     public function mount($product)
     {
@@ -18,7 +18,7 @@ class Graph extends Component
 
     public function loadGraph()
     {
-        $this->readyToLoad = true;
+        $this->ready_to_load = true;
     }
 
     public function render()
@@ -40,9 +40,9 @@ class Graph extends Component
         }
 
         return view('livewire.product.graph', [
-            'week_dates' => $this->readyToLoad ? json_encode($week_dates, JSON_NUMERIC_CHECK) : [],
-            'tasks' => $this->readyToLoad ? json_encode($tasks, JSON_NUMERIC_CHECK) : [],
-            'count' => $this->readyToLoad ? array_sum($tasks) : 0,
+            'week_dates' => $this->ready_to_load ? json_encode($week_dates, JSON_NUMERIC_CHECK) : [],
+            'tasks' => $this->ready_to_load ? json_encode($tasks, JSON_NUMERIC_CHECK) : [],
+            'count' => $this->ready_to_load ? array_sum($tasks) : 0,
         ]);
     }
 }
