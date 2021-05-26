@@ -9,8 +9,16 @@ class CreateQuestion extends Component
 {
     public $title;
     public $body;
+    public $selectedTags;
     public $solvable = true;
     public $patronOnly;
+
+    public function updatedSelectedTags()
+    {
+        if (count($this->selectedTags) > 5) {
+            $this->addError('tags', 'Only 5 tags are allowed!');
+        }
+    }
 
     public function submit()
     {
@@ -40,6 +48,8 @@ class CreateQuestion extends Component
             'is_solvable' => $solvable,
             'patron_only' => $patronOnly,
         ]);
+
+        $question->retag($this->selectedTags);
         auth()->user()->touch();
 
         givePoint(new QuestionCreated($question));

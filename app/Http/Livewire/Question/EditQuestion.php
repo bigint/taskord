@@ -10,6 +10,7 @@ class EditQuestion extends Component
     public Question $question;
     public $title;
     public $body;
+    public $selectedTags;
     public $solvable;
     public $patronOnly;
 
@@ -23,6 +24,7 @@ class EditQuestion extends Component
         $this->question = $question;
         $this->title = $question->title;
         $this->body = $question->body;
+        $this->selectedTags = $question->tagNames();
         $this->solvable = $question->is_solvable;
         $this->patronOnly = $question->patron_only;
     }
@@ -34,6 +36,13 @@ class EditQuestion extends Component
         }
 
         $this->validateOnly($field);
+    }
+
+    public function updatedSelectedTags()
+    {
+        if (count($this->selectedTags) > 5) {
+            $this->addError('tags', 'Only 5 tags are allowed!');
+        }
     }
 
     public function submit()
@@ -54,12 +63,16 @@ class EditQuestion extends Component
 
         $question = Question::where('id', $this->question->id)->firstOrFail();
 
+        $solvable = ! $this->solvable ? false : true;
+        $patronOnly = ! $this->patronOnly ? false : true;
+
         if (auth()->user()->staff_mode or auth()->user()->id === $question->user_id) {
             $question->title = $this->title;
             $question->body = $this->body;
-            $question->is_solvable = $this->solvable;
-            $question->patron_only = $this->patronOnly;
+            $question->is_solvable = $solvable;
+            $question->patron_only = $patronOnly;
             $question->save();
+            $question->retag($this->selectedTags);
             auth()->user()->touch();
 
             loggy(request(), 'Question', auth()->user(), 'Updated a question | Question ID: '.$question->id);
