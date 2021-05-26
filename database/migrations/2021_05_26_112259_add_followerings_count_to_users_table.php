@@ -16,6 +16,8 @@ class AddFolloweringsCountToUsersTable extends Migration
         Schema::table('users', function (Blueprint $table) {
             $table->mediumInteger('following_count')->default(0);
             $table->mediumInteger('followers_count')->default(0);
+            $table->index('following_count');
+            $table->index('followers_count');
         });
     }
 
@@ -27,7 +29,10 @@ class AddFolloweringsCountToUsersTable extends Migration
     public function down()
     {
         Schema::table('users', function (Blueprint $table) {
-            //
+            $table->dropColumn('following_count');
+            $table->dropColumn('followers_count');
+            $table->dropIndex('following_count');
+            $table->dropIndex('followers_count');
         });
     }
 }
