@@ -25,6 +25,10 @@ class CheckUser
 
                 return redirect()->route('suspended');
             }
+
+            if ($request->user()->onboard_status === 'new') {
+                return redirect()->route('onboarding.welcome');
+            }
         }
 
         return $next($request);
