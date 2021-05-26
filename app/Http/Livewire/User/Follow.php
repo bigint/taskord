@@ -49,7 +49,8 @@ class Follow extends Component
                 $this->user->notify(new Followed(auth()->user()));
             }
             CalculateFollowerings::dispatch(auth()->user(), $this->user);
-            loggy(request(), 'User', auth()->user(), 'Toggled user follow | Username: @'.$this->user->username);
+
+            return loggy(request(), 'User', auth()->user(), 'Toggled user follow | Username: @'.$this->user->username);
         }
     }
 }
