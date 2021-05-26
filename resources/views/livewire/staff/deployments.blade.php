@@ -78,7 +78,10 @@
                             <td>
                                 <div class="d-flex align-items-center">
                                     <x-heroicon-o-clock class="heroicon heroicon-15px me-1" />
-                                    <span>{{ round($deployment->duration, 2) }} seconds</span>
+                                    <div>
+                                        <span>{{ round($deployment->duration, 2) }} seconds</span>
+                                        <span class="small text-secondary">(Queued: {{ round($deployment->queued_duration, 2) }} seconds)</span>
+                                    </div>
                                 </div>
                             </td>
                             <td>
