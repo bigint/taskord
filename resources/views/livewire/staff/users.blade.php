@@ -39,10 +39,10 @@
                     <div class="card-body">
                         <div class="row row-cols-lg-6">
                             <div class="col-lg">
-                                <span class="fw-bold">{{ $user->followers()->count() }}</span> Followers
+                                <span class="fw-bold">{{ $user->followers_count }}</span> Followers
                             </div>
                             <div class="col-lg">
-                                <span class="fw-bold">{{ $user->followings()->count() }}</span> Following
+                                <span class="fw-bold">{{ $user->following_count }}</span> Following
                             </div>
                             <div class="col-lg">
                                 <span class="fw-bold">{{ number_format($user->getPoints()) }}</span> Reputations

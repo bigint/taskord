@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddTelegramChatIdToUsersTable extends Migration
+class AddFolloweringsCountToUsersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,7 +14,10 @@ class AddTelegramChatIdToUsersTable extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->string('telegram_chat_id')->nullable()->default(null);
+            $table->mediumInteger('following_count')->default(0);
+            $table->mediumInteger('followers_count')->default(0);
+            $table->index('following_count');
+            $table->index('followers_count');
         });
     }
 
@@ -26,7 +29,10 @@ class AddTelegramChatIdToUsersTable extends Migration
     public function down()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->dropColumn('telegram_chat_id');
+            $table->dropColumn('following_count');
+            $table->dropColumn('followers_count');
+            $table->dropIndex('following_count');
+            $table->dropIndex('followers_count');
         });
     }
 }

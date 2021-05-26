@@ -18,12 +18,12 @@
     @endauth
     <div class="small">
         <a class="text-dark" href="{{ route('user.following', ['username' => $user->username]) }}">
-            <span class="fw-bold">{{ $user->followings->count('id') }}</span>
-            {{ pluralize('Following', $user->followings->count('id')) }}
+            <span class="fw-bold">{{ $user->following_count }}</span>
+            {{ pluralize('Following', $user->following_count) }}
         </a>
         <a class="text-dark" href="{{ route('user.followers', ['username' => $user->username]) }}">
-            <span class="fw-bold ms-2">{{ number_format($user->followers->count()) }}</span>
-            {{ pluralize('Follower', $user->followers->count('id')) }}
+            <span class="fw-bold ms-2">{{ number_format($user->followers_count) }}</span>
+            {{ pluralize('Follower', $user->followers_count) }}
         </a>
     </div>
 </div>

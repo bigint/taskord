@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Home;
 
+use App\Jobs\User\CalculateFollowerings;
 use App\Models\User;
 use App\Notifications\Followed;
 use GrahamCampbell\Throttle\Facades\Throttle;
@@ -51,6 +52,7 @@ class Follow extends Component
             }
             loggy(request(), 'Notification', auth()->user(), 'Toggled user follow | Username: @'.$this->user->username);
             $this->emitUp('refreshSuggestions');
+            CalculateFollowerings::dispatch(auth()->user(), $this->user);
 
             return toast($this, 'success', 'Followed successfully!');
         }
