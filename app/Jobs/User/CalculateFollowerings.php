@@ -24,6 +24,11 @@ class CalculateFollowerings implements ShouldQueue
 
     public function handle()
     {
-        //
+        $this->sourceUser->following_count = $this->sourceUser->followings->count('id');
+        $this->sourceUser->followers_count = $this->sourceUser->followers->count('id');
+        $this->targerUser->following_count = $this->targerUser->followings->count('id');
+        $this->targerUser->followers_count = $this->targerUser->followers->count('id');
+        $this->sourceUser->save();
+        $this->targerUser->save();
     }
 }
