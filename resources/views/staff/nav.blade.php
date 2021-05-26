@@ -47,4 +47,10 @@
             Jobs
         </a>
     </li>
+    <li class="nav-item">
+        <a class="nav-link @if (Route::currentRouteName() === 'staff.deployments') active @endif" href="{{ route('staff.deployments') }}">
+            <x-heroicon-o-cloud class="heroicon heroicon-18px" />
+            Deployments
+        </a>
+    </li>
 </ul>

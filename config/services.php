@@ -50,6 +50,7 @@ return [
 
     'gitlab' => [
         'trigger_token'      => env('GITLAB_TRIGGER_TOKEN'),
+        'pat'      => env('GITLAB_TOKEN'),
     ],
 
     'discord' => [
