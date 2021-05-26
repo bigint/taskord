@@ -13,21 +13,15 @@ class CalculateFollowerings implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
-    /**
-     * Create a new job instance.
-     *
-     * @return void
-     */
-    public function __construct()
+    protected $sourceUser;
+    protected $targerUser;
+
+    public function __construct($sourceUser, $targerUser)
     {
-        //
+        $this->sourceUser = $sourceUser;
+        $this->targerUser = $targerUser;
     }
 
-    /**
-     * Execute the job.
-     *
-     * @return void
-     */
     public function handle()
     {
         //
