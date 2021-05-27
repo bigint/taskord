@@ -1,9 +1,9 @@
 <div class="col-sm d-inline-bock">
     <div class="d-block">
         @auth
-            @if (auth()->user()->staff_mode)
+            @can('staff_mode')
                 <livewire:user.moderator :user="$user" />
-            @endif
+            @endcan
             @if (auth()->user()->id === $user->id)
                 @section('scripts')
                 <script src="{{ mix('js/emoji-picker.js') }}"></script>

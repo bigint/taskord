@@ -15,15 +15,13 @@
             <div>
                 <a href="https://tally.so/r/63l4o3" target="_blank" rel="noreferrer">Add your product</a>
             </div>
-            @auth
-                @if (auth()->user()->staff_mode)
-                    <button type="button" class="mt-2 btn btn-success text-white" data-bs-toggle="modal" data-bs-target="#newQuestionModal">
-                        <x-heroicon-o-plus class="heroicon" />
-                        Add a Deal
-                    </button>
-                    <livewire:pages.create-deal />
-                @endif
-            @endauth
+            @can('staff_mode')
+                <button type="button" class="mt-2 btn btn-success text-white" data-bs-toggle="modal" data-bs-target="#newQuestionModal">
+                    <x-heroicon-o-plus class="heroicon" />
+                    Add a Deal
+                </button>
+                <livewire:pages.create-deal />
+            @endcan
         </div>
         <div class="card-body">
             @if (count($deals) === 0)

@@ -126,11 +126,11 @@
                         </button>
                     @endif
                 @endif
-                @if (auth()->user()->staff_mode)
+                @can('staff_mode')
                     <button type="button" class="btn btn-task {{ $question->hidden ? 'btn-info' : 'btn-outline-info' }}" wire:click="hide" wire:loading.attr="disabled" wire:offline.attr="disabled" wire:key="{{ $question->id }}" aria-label="Hide">
                         <x-heroicon-o-eye-off class="heroicon heroicon-15px me-0" />
                     </button>
-                @endif
+                @endcan
             @endauth
             @guest
                 <a href="/login" class="btn btn-task btn-outline-success me-1" aria-label="Praises">

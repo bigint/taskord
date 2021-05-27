@@ -23,19 +23,17 @@
     <a class="pe-2" href="{{ route('contact') }}">
         Contact
     </a>
-    @auth
-        @if (auth()->user()->is_staff)
-            @if (auth()->user()->staff_mode)
-                <span class="pe-2 text-danger">
-                    <x-heroicon-o-shield-check class="heroicon me-0" />
-                    Staff mode on
-                </span>
-            @else
-                <span class="pe-2 text-success">
-                    <x-heroicon-o-shield-exclamation class="heroicon me-0" />
-                    Staff mode off
-                </span>
-            @endif
-        @endif
-    @endauth
+    @can('is_staff')
+        @can('staff_mode')
+            <span class="pe-2 text-danger">
+                <x-heroicon-o-shield-check class="heroicon me-0" />
+                Staff mode on
+            </span>
+        @else
+            <span class="pe-2 text-success">
+                <x-heroicon-o-shield-exclamation class="heroicon me-0" />
+                Staff mode off
+            </span>
+        @endcan
+    @endif
 </div>

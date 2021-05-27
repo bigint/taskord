@@ -5,6 +5,7 @@ namespace App\Http\Livewire\Answer;
 use App\Models\Answer;
 use GrahamCampbell\Throttle\Facades\Throttle;
 use Helper;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Request;
 use Livewire\Component;
 
@@ -49,11 +50,7 @@ class SingleAnswer extends Component
 
     public function hide()
     {
-        if (! auth()->check()) {
-            return toast($this, 'error', 'Forbidden!');
-        }
-
-        if (auth()->user()->is_staff and auth()->user()->staff_mode) {
+        if (Gate::allows('staff_mode')) {
             Helper::hide($this->answer);
             loggy(request(), 'Staff', auth()->user(), 'Toggled hide answer | Answer ID: '.$this->answer->id);
 

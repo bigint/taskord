@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Pages;
 
 use App\Models\Deal;
+use Illuminate\Support\Facades\Gate;
 use Livewire\Component;
 
 class CreateDeal extends Component
@@ -17,10 +18,6 @@ class CreateDeal extends Component
 
     public function submit()
     {
-        if (! auth()->check()) {
-            return toast($this, 'error', 'Forbidden!');
-        }
-
         $this->validate([
             'name' => ['required', 'min:2'],
             'description' => ['required', 'min:5'],
@@ -31,7 +28,7 @@ class CreateDeal extends Component
             'logo' => ['required', 'active_url'],
         ]);
 
-        if (auth()->user()->is_staff) {
+        if (Gate::allows('staff_mode')) {
             $deal = Deal::create([
                 'name' =>  $this->name,
                 'description' => $this->description,

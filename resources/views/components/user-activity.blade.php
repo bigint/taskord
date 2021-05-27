@@ -66,10 +66,10 @@
             </div>
         </div>
         <div class="mt-2">
-            @if (auth()->user()->staff_mode)
+            @can('staff_mode')
                 <span class="font-monospace text-secondary" title="Log ID">Log ID: {{ $activity->id }}</span>
                 <span class="vertical-separator"></span>
-            @endif
+            @endcan
             @if ($activity->getExtraProperty('ip'))
                 <a class="font-monospace fw-bold" href="https://ipinfo.io/{{ $activity->getExtraProperty('ip') }}" target="_blank" rel="noreferrer">
                     {{ Str::limit($activity->getExtraProperty('ip'), 15, '..') }}
@@ -80,17 +80,19 @@
                 <span class="text-dark">{{ $activity->getExtraProperty('location') }}</span>
                 <span class="vertical-separator"></span>
             @endif
-            @if ($activity->getExtraProperty('user_agent') and auth()->user()->staff_mode)
-                <a
-                    class="cursor-pointer text-dark"
-                    href="https://userstack.com/ua_api.php?ua={{ $activity->getExtraProperty('user_agent') }}"
-                    title="{{ $activity->getExtraProperty('user_agent') }}"
-                    target="_blank"
-                >
-                    <x-heroicon-o-globe-alt class="heroicon" />
-                </a>
-                <span class="vertical-separator"></span>
-            @endif
+            @can('staff_mode')
+                @if ($activity->getExtraProperty('user_agent'))
+                    <a
+                        class="cursor-pointer text-dark"
+                        href="https://userstack.com/ua_api.php?ua={{ $activity->getExtraProperty('user_agent') }}"
+                        title="{{ $activity->getExtraProperty('user_agent') }}"
+                        target="_blank"
+                    >
+                        <x-heroicon-o-globe-alt class="heroicon" />
+                    </a>
+                    <span class="vertical-separator"></span>
+                @endif
+            @endcan
             <span class="text-secondary">
                 {{ carbon($activity->created_at)->diffForHumans() }}
             </span>

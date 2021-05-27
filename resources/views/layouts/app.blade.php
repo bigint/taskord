@@ -45,13 +45,11 @@
 </head>
 <body>
     <div id="app">
-        @auth
-            @if (auth()->user()->is_staff and auth()->user()->staff_mode)
-                <div class="staff-bar">
-                    <livewire:staff.staffbar />
-                </div>
-            @endif
-        @endauth
+        @can('staff_mode')
+            <div class="staff-bar">
+                <livewire:staff.staffbar />
+            </div>
+        @endcan
         @include('layouts.navbar')
         @if (session()->has('global'))
             <div class="alert alert-success alert-dismissible fade show rounded-0 mb-0">

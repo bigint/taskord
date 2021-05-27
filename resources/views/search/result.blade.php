@@ -229,11 +229,9 @@
                                     @else
                                         {{ $user->username }}
                                     @endif
-                                    @auth
-                                        @if (auth()->user()->staff_mode)
-                                            <span class="ms-2 text-secondary small">#{{ $user->id }}</span>
-                                        @endif
-                                    @endauth
+                                    @can('staff_mode')
+                                        <span class="ms-2 text-secondary small">#{{ $user->id }}</span>
+                                    @endcan
                                     @if ($user->is_private)
                                         <x-heroicon-o-lock-closed class="heroicon heroicon-20px text-primary ms-2 me-0 private" />
                                     @endif

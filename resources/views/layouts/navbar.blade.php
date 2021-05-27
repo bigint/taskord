@@ -99,13 +99,6 @@
                         </li>
                     </ul>
                 </li>
-                @if (auth()->check() and auth()->user()->is_staff and !auth()->user()->staff_mode)
-                    <li class="nav-item">
-                        <span class="nav-link text-secondary fw-bold">
-                            {{ bcmul((microtime(true) - LARAVEL_START), '1000', 0) }}ms
-                        </span>
-                    </li>
-                @endif
             </ul>
             <ul class="navbar-nav ms-auto">
                 @guest
@@ -238,18 +231,18 @@
                                 Patron
                             </a>
                             <div class="dropdown-divider"></div>
-                            @if (auth()->user()->is_staff)
+                            @can('is_staff')
                                 <a class="dropdown-item text-dark" id="staff-bar-click" role="button">
-                                    @if (auth()->user()->staff_mode)
+                                    @can('staff_mode')
                                         <x-heroicon-o-eye-off class="heroicon heroicon-18px text-secondary" />
                                         Hide Staff Bar
                                     @else
                                         <x-heroicon-o-eye class="heroicon heroicon-18px text-secondary" />
                                         Show Staff Bar
-                                    @endif
+                                    @endcan
                                 </a>
                                 <div class="dropdown-divider"></div>
-                            @endif
+                            @endcan
                             <a class="dropdown-item text-dark" id="dark-mode" role="button">
                                 @if (auth()->user()->dark_mode)
                                     <x-heroicon-o-sun class="heroicon heroicon-18px text-secondary" />

@@ -43,15 +43,16 @@ class Questions extends Component
                     ['spammy', false],
                 ]);
             })
-                ->doesntHave('answer')
+                ->doesntHave('answers')
                 ->latest()
                 ->get();
         } elseif ($this->type === 'questions.popular') {
-            return Question::whereHas('user', function ($q) {
-                $q->where([
-                    ['spammy', false],
-                ]);
-            })
+            return Question::withCount('answers')
+                ->whereHas('user', function ($q) {
+                    $q->where([
+                        ['spammy', false],
+                    ]);
+                })
                 ->has('answers')
                 ->orderBy('answers_count', 'desc')
                 ->get();

@@ -10,17 +10,17 @@
 </div>
 @endif
 <div class="card">
-    @auth
-    @if (auth()->user()->is_staff && $user->spammy)
-        <div class="p-4 pb-0">
-            <div class="alert alert-danger alert-dismissible">
-                This user is flagged
-                {{ $user->is_suspended ? 'and suspended' : '' }}
-                as spammy!
+    @can('staff_mode')
+        @if ($user->spammy)
+            <div class="p-4 pb-0">
+                <div class="alert alert-danger alert-dismissible">
+                    This user is flagged
+                    {{ $user->is_suspended ? 'and suspended' : '' }}
+                    as spammy!
+                </div>
             </div>
-        </div>
-    @endif
-    @endauth
+        @endif
+    @endcan
     <div class="row">
         <div class="col-md-7">
             <div class="card-body d-flex align-items-center">
@@ -53,12 +53,12 @@
                             </span>
                         @endif
                         @auth
-                        @if ($user->isFollowing(auth()->user()))
-                            <span class="ms-2 badge bg-light text-secondary">Follows you</span>
-                        @endif
-                        @if (auth()->user()->staff_mode)
-                            <span class="ms-2 text-secondary small">#{{ $user->id }}</span>
-                        @endif
+                            @if ($user->isFollowing(auth()->user()))
+                                <span class="ms-2 badge bg-light text-secondary">Follows you</span>
+                            @endif
+                            @can('staff_mode')
+                                <span class="ms-2 text-secondary small">#{{ $user->id }}</span>
+                            @endcan
                         @endauth
                     </div>
                     <div class="text-secondary mb-3">
@@ -68,15 +68,15 @@
                         'user' => $user
                     ])
                     @if ($user->status)
-                    <div class="d-inline-block border border-dark border-1 mt-3 px-2 py-1 rounded">
-                        <span>{{ $user->status_emoji }}</span>
-                        <span class="ms-1" title="{{ $user->status }}">{{ Str::limit($user->status, '50') }}</span>
-                    </div>
+                        <div class="d-inline-block border border-dark border-1 mt-3 px-2 py-1 rounded">
+                            <span>{{ $user->status_emoji }}</span>
+                            <span class="ms-1" title="{{ $user->status }}">{{ Str::limit($user->status, '50') }}</span>
+                        </div>
                     @endif
                     @if ($user->bio)
-                    <div class="mt-2">
-                        {{ $user->bio }}
-                    </div>
+                        <div class="mt-2">
+                            {{ $user->bio }}
+                        </div>
                     @endif
                     <div class="small mt-3">
                         <span>
@@ -84,21 +84,21 @@
                             Joined {{ $user->created_at->format("F Y") }}
                         </span>
                         @if ($user->location)
-                        <span class="ms-3">
-                            <a class="text-dark" href="https://www.google.com/maps/search/{{ urlencode($user->location) }}" target="_blank" rel="noreferrer">
-                                <x-heroicon-o-map class="heroicon heroicon-15px text-secondary" />
-                                {{ $user->location }}
-                            </a>
-                        </span>
+                            <span class="ms-3">
+                                <a class="text-dark" href="https://www.google.com/maps/search/{{ urlencode($user->location) }}" target="_blank" rel="noreferrer">
+                                    <x-heroicon-o-map class="heroicon heroicon-15px text-secondary" />
+                                    {{ $user->location }}
+                                </a>
+                            </span>
                         @endif
                         @if ($user->company)
-                        <span class="ms-3">
-                            <x-heroicon-o-briefcase class="heroicon heroicon-15px text-secondary" />
-                            {{ $user->company }}
-                        </span>
-                        @if ($user->is_staff)
-                        <span class="border border-1 border-info text-info fw-bold ms-1 px-2 rounded-pill small">Staff</span>
-                        @endif
+                            <span class="ms-3">
+                                <x-heroicon-o-briefcase class="heroicon heroicon-15px text-secondary" />
+                                {{ $user->company }}
+                            </span>
+                            @if ($user->is_staff)
+                                <span class="border border-1 border-info text-info fw-bold ms-1 px-2 rounded-pill small">Staff</span>
+                            @endif
                         @endif
                     </div>
                 </div>
@@ -123,37 +123,37 @@
                         {{ $user->getPoints(true) < 2 ? 'Reputation' : 'Reputations' }}
                     </div>
                     @if (auth()->check() && auth()->user()->id === $user->id)
-                    <div class="mt-2">
-                        <span>
-                            <x-heroicon-o-sparkles class="heroicon heroicon-18px text-success" />
-                            You are a
-                        </span>
-                        <span class="fw-bold">{{ count($level) === 0 ? 'Beginner' : $level->last()->name }}</span>
-                    </div>
+                        <div class="mt-2">
+                            <span>
+                                <x-heroicon-o-sparkles class="heroicon heroicon-18px text-success" />
+                                You are a
+                            </span>
+                            <span class="fw-bold">{{ count($level) === 0 ? 'Beginner' : $level->last()->name }}</span>
+                        </div>
                     @else
-                    <div class="mt-2">
-                        <span>
-                            <x-heroicon-o-sparkles class="heroicon heroicon-18px text-success" />
-                            {{ $user->username }} is a
-                        </span>
-                        <span class="fw-bold">{{ count($level) === 0 ? 'Beginner' : $level->last()->name }}</span>
-                    </div>
+                        <div class="mt-2">
+                            <span>
+                                <x-heroicon-o-sparkles class="heroicon heroicon-18px text-success" />
+                                {{ $user->username }} is a
+                            </span>
+                            <span class="fw-bold">{{ count($level) === 0 ? 'Beginner' : $level->last()->name }}</span>
+                        </div>
                     @endif
                     @if ($user->is_beta)
-                    <div class="mt-2">
-                        <span class="fw-bold">
-                            <x-heroicon-o-beaker class="heroicon heroicon-18px text-info" />
-                            Beta Program Member
-                        </span>
-                    </div>
+                        <div class="mt-2">
+                            <span class="fw-bold">
+                                <x-heroicon-o-beaker class="heroicon heroicon-18px text-info" />
+                                Beta Program Member
+                            </span>
+                        </div>
                     @endif
                     @if ($user->is_contributor)
-                    <div class="mt-2">
-                        <span class="fw-bold">
-                            <x-heroicon-o-chip class="heroicon heroicon-18px text-dark" />
-                            Taskord Contributor
-                        </span>
-                    </div>
+                        <div class="mt-2">
+                            <span class="fw-bold">
+                                <x-heroicon-o-chip class="heroicon heroicon-18px text-dark" />
+                                Taskord Contributor
+                            </span>
+                        </div>
                     @endif
                 </div>
             </div>
@@ -165,14 +165,14 @@
             auth()->check() and auth()->user()->id === $user->id or
             auth()->check() and auth()->user()->staff_mode
         )
-        <a class="text-dark fw-bold me-4" href="{{ route('user.done', ['username' => $user->username]) }}">
-            <span class="@if (Route::currentRouteName() === 'user.done') text-primary @endif me-1">Done</span>
-            <span class="small fw-normal text-secondary">{{ number_format($done_count) }}</span>
-        </a>
-        <a class="text-dark fw-bold me-4" href="{{ route('user.pending', ['username' => $user->username]) }}">
-            <span class="@if (Route::currentRouteName() === 'user.pending') text-primary @endif me-1">Pending</span>
-            <span class="small fw-normal text-secondary">{{ number_format($pending_count) }}</span>
-        </a>
+            <a class="text-dark fw-bold me-4" href="{{ route('user.done', ['username' => $user->username]) }}">
+                <span class="@if (Route::currentRouteName() === 'user.done') text-primary @endif me-1">Done</span>
+                <span class="small fw-normal text-secondary">{{ number_format($done_count) }}</span>
+            </a>
+            <a class="text-dark fw-bold me-4" href="{{ route('user.pending', ['username' => $user->username]) }}">
+                <span class="@if (Route::currentRouteName() === 'user.pending') text-primary @endif me-1">Pending</span>
+                <span class="small fw-normal text-secondary">{{ number_format($pending_count) }}</span>
+            </a>
         @endif
         <a class="text-dark fw-bold me-4" href="{{ route('user.products', ['username' => $user->username]) }}">
             <span class="@if (Route::currentRouteName() === 'user.products') text-primary @endif me-1">Products</span>

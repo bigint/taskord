@@ -65,7 +65,7 @@
             <kbd class="me-1">d</kbd><kbd>m</kbd>
         </span>
     </div>
-    @if (auth()->user()->is_staff)
+    @can('is_staff')
         <div class="d-flex justify-content-between mt-2">
             <span>Enable staff mode</span>
             <span>
@@ -79,7 +79,7 @@
                 <kbd class="me-1">shift</kbd><kbd>d</kbd>
             </span>
         </div>
-    @endif
+    @endcan
 @endauth
 <div class="d-flex justify-content-between mt-2">
     <span>Bring up this help dialog</span>

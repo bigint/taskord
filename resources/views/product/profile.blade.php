@@ -16,11 +16,9 @@
                         <x-heroicon-o-shield-exclamation class="heroicon text-danger" />
                     </span>
                 @endif
-                @auth
-                @if (auth()->user()->staff_mode)
+                @can('staff_mode')
                     <span class="ms-1 text-secondary small">#{{ $product->id }}</span>
-                @endif
-                @endauth
+                @endcan
             </div>
             <div class="text-secondary mb-2">
                 {{ "#" . $product->slug }}

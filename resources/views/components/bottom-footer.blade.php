@@ -42,14 +42,12 @@
             <a href="https://gitlab.com/yo/taskord" target="_blank" rel="noreferrer">
                 GitLab
             </a>
-            @auth
-                @if (auth()->user()->staff_mode)
-                    <span class="text-danger ms-2">
-                        <x-heroicon-o-shield-check class="heroicon me-0" />
-                        Staff mode on
-                    </span>
-                @endif
-            @endauth
+            @can('staff_mode')
+                <span class="text-danger ms-2">
+                    <x-heroicon-o-shield-check class="heroicon me-0" />
+                    Staff mode on
+                </span>
+            @endcan
         </div>
     </div>
 </div>

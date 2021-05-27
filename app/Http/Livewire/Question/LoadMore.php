@@ -54,15 +54,16 @@ class LoadMore extends Component
                         ['spammy', false],
                     ]);
                 })
-                    ->doesntHave('answer')
+                    ->doesntHave('answers')
                     ->latest()
                     ->get();
             } elseif ($this->type === 'questions.popular') {
-                $questions = Question::whereHas('user', function ($q) {
-                    $q->where([
-                        ['spammy', false],
-                    ]);
-                })
+                $questions = Question::withCount('answers')
+                    ->whereHas('user', function ($q) {
+                        $q->where([
+                            ['spammy', false],
+                        ]);
+                    })
                     ->has('answers')
                     ->orderBy('answers_count', 'desc')
                     ->get();
