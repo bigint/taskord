@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a59a42f2982f797c4512f1b9fd3f411f",
+    "content-hash": "bd4a91febdfa03bd1200595647116576",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -2441,16 +2441,16 @@
         },
         {
             "name": "laravel/horizon",
-            "version": "v5.7.7",
+            "version": "v5.7.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/horizon.git",
-                "reference": "6f3b522bf628852d180fabfeb3bddac69a4f6fca"
+                "reference": "2b5628b598c813650458dc7e4afacb500d72ff9a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/horizon/zipball/6f3b522bf628852d180fabfeb3bddac69a4f6fca",
-                "reference": "6f3b522bf628852d180fabfeb3bddac69a4f6fca",
+                "url": "https://api.github.com/repos/laravel/horizon/zipball/2b5628b598c813650458dc7e4afacb500d72ff9a",
+                "reference": "2b5628b598c813650458dc7e4afacb500d72ff9a",
                 "shasum": ""
             },
             "require": {
@@ -2512,9 +2512,9 @@
             ],
             "support": {
                 "issues": "https://github.com/laravel/horizon/issues",
-                "source": "https://github.com/laravel/horizon/tree/v5.7.7"
+                "source": "https://github.com/laravel/horizon/tree/v5.7.8"
             },
-            "time": "2021-05-18T15:24:26+00:00"
+            "time": "2021-05-27T12:07:58+00:00"
         },
         {
             "name": "laravel/socialite",
@@ -7413,16 +7413,16 @@
         },
         {
             "name": "symfony/polyfill-ctype",
-            "version": "v1.22.1",
+            "version": "v1.23.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-ctype.git",
-                "reference": "c6c942b1ac76c82448322025e084cadc56048b4e"
+                "reference": "46cd95797e9df938fdd2b03693b5fca5e64b01ce"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/polyfill-ctype/zipball/c6c942b1ac76c82448322025e084cadc56048b4e",
-                "reference": "c6c942b1ac76c82448322025e084cadc56048b4e",
+                "url": "https://api.github.com/repos/symfony/polyfill-ctype/zipball/46cd95797e9df938fdd2b03693b5fca5e64b01ce",
+                "reference": "46cd95797e9df938fdd2b03693b5fca5e64b01ce",
                 "shasum": ""
             },
             "require": {
@@ -7434,7 +7434,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-main": "1.22-dev"
+                    "dev-main": "1.23-dev"
                 },
                 "thanks": {
                     "name": "symfony/polyfill",
@@ -7472,7 +7472,7 @@
                 "portable"
             ],
             "support": {
-                "source": "https://github.com/symfony/polyfill-ctype/tree/v1.22.1"
+                "source": "https://github.com/symfony/polyfill-ctype/tree/v1.23.0"
             },
             "funding": [
                 {
@@ -7488,7 +7488,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-01-07T16:49:33+00:00"
+            "time": "2021-02-19T12:13:01+00:00"
         },
         {
             "name": "symfony/polyfill-iconv",
