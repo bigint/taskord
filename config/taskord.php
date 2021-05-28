@@ -8,10 +8,6 @@ return [
     |--------------------------------------------------------------------------
     */
 
-    'app' => [
-        'version_key' => env('APP_VERSION_KEY'),
-    ],
-
     'tasks' => [
         'templates' => [
             'I just launched a new product! Check out #%s',

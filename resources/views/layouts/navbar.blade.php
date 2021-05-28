@@ -274,7 +274,7 @@
                             </form>
                             <div class="dropdown-divider"></div>
                             <div class="dropdown-header text-secondary fw-bold">
-                                <span id="taskord-version">v{{ config('app.version') }}</span> • <a href="https://gitlab.com/yo/taskord/-/blob/main/CHANGELOG.md" target="_blank" rel="noreferrer">Changelog</a>
+                                <span>SHA</span> • <a href="https://gitlab.com/yo/taskord/-/commit/{{ config('app.sha') }}" target="_blank" rel="noreferrer">{{ config('app.sha') }}</a>
                             </div>
                         </div>
                     </li>

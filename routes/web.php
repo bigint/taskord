@@ -99,7 +99,6 @@ Route::group(['middleware' => ['throttle:100,1']], function () {
     // Webhooks
     Route::group(['prefix' => 'webhook'], function () {
         Route::post('web/{token}', [WebhookController::class, 'web']);
-        Route::post('version/{appkey}', [WebhookController::class, 'newVersion']);
     });
 
     // Product

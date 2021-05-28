@@ -5,9 +5,7 @@ namespace App\Http\Controllers;
 use App\Actions\CreateNewTask;
 use App\Models\User;
 use App\Models\Webhook;
-use App\Notifications\Staff\VersionReleased;
 use GrahamCampbell\Throttle\Facades\Throttle;
-use GuzzleHttp\Client;
 use Helper;
 use Illuminate\Http\Request as WebhookRequest;
 use Illuminate\Support\Facades\Request;
@@ -179,37 +177,6 @@ class WebhookController extends Controller
             return $this->githubWebhook($request, $webhook);
         } elseif ($webhook->type === 'gitlab') {
             return $this->gitlabWebhook($request, $webhook);
-        }
-    }
-
-    public function newVersion($appkey)
-    {
-        if (config('taskord.app.version_key') === $appkey) {
-            $client = new Client();
-            $res = $client->request('POST', 'https://gitlab.com/api/graphql', [
-                'form_params' => [
-                    'query' => '
-                    query {
-                      project(fullPath: "yo/taskord") {
-                        releases(first: 1) {
-                          nodes {
-                            tagName
-                            description
-                          }
-                        }
-                      }
-                    }',
-                ],
-            ]);
-            $message = json_decode($res->getBody(), true)['data']['project']['releases']['nodes'][0];
-            $users = User::all();
-            foreach ($users as $user) {
-                $user->notify(new VersionReleased($message));
-            }
-
-            return response('success', 200);
-        } else {
-            return response('failed', 500);
         }
     }
 }

@@ -8,7 +8,7 @@
     <div class="card mb-3">
         <div class="card-body">
             <div class="d-flex justify-content-between">
-                @if ($type !== "App\Notifications\Welcome" and $type !== "App\Notifications\Staff\VersionReleased")
+                @if ($type !== "App\Notifications\Welcome")
                     <x:shared.user-label-small :user="$user" />
                 @endif
                 @if ($pageType === 'unread')
@@ -66,16 +66,6 @@
                 </div>
                 <div class="mt-2">
                     Have a nice day 💜
-                </div>
-            @elseif ($type === "App\Notifications\Staff\VersionReleased")
-                <div class="mt-2 fw-bold">
-                    Version {{ $data['tagName'] }} has been released!
-                </div>
-                <div class="mt-3">
-                    <span class="fw-bold">Changelog</span>
-                    <div class="mt-2">
-                        {!! markdown($data['description']) !!}
-                    </div>
                 </div>
             @endif
             <div class="small mt-3 text-secondary">

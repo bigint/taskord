@@ -33,14 +33,14 @@ class Staffbar extends Component
 
     public function render()
     {
-        $branch = git('rev-parse --abbrev-ref HEAD') ?: 'main';
-        $commit = git('rev-parse --short HEAD') ?: '0000000';
+        $branch_name = git('rev-parse --abbrev-ref HEAD') ?: 'main';
+        $head_ref = git('rev-parse --short HEAD') ?: '0000000';
         $jobs = Queue::size();
         $version = PrettyVersions::getVersion('laravel/framework');
 
         return view('livewire.staff.staffbar', [
-            'branchname' => $branch,
-            'headHASH' => $commit,
+            'branch_name' => $branch_name,
+            'head_ref' => $head_ref,
             'laravel_version' => $version->getShortVersion(),
             'laravel_ref' => $version->getShortReference(),
             'jobs' => number_format($jobs),
