@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "8057888b3e47f494f736007db1627950",
+    "content-hash": "645580fd836918edc92f114af2d93d97",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -4474,19 +4474,20 @@
         },
         {
             "name": "propaganistas/laravel-disposable-email",
-            "version": "2.0.19",
+            "version": "2.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Propaganistas/Laravel-Disposable-Email.git",
-                "reference": "d30663c7432203a84d566de4c1772846e9ebbef7"
+                "reference": "09a9fde95441f719282584a56a9cb5b23f00eeaa"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Propaganistas/Laravel-Disposable-Email/zipball/d30663c7432203a84d566de4c1772846e9ebbef7",
-                "reference": "d30663c7432203a84d566de4c1772846e9ebbef7",
+                "url": "https://api.github.com/repos/Propaganistas/Laravel-Disposable-Email/zipball/09a9fde95441f719282584a56a9cb5b23f00eeaa",
+                "reference": "09a9fde95441f719282584a56a9cb5b23f00eeaa",
                 "shasum": ""
             },
             "require": {
+                "ext-json": "*",
                 "illuminate/cache": "^6.0|^7.0|^8.0",
                 "illuminate/config": "^6.0|^7.0|^8.0",
                 "illuminate/console": "^6.0|^7.0|^8.0",
@@ -4536,9 +4537,9 @@
             ],
             "support": {
                 "issues": "https://github.com/Propaganistas/Laravel-Disposable-Email/issues",
-                "source": "https://github.com/Propaganistas/Laravel-Disposable-Email/tree/2.0.19"
+                "source": "https://github.com/Propaganistas/Laravel-Disposable-Email/tree/2.1.0"
             },
-            "time": "2021-04-01T02:37:58+00:00"
+            "time": "2021-05-27T18:25:20+00:00"
         },
         {
             "name": "psr/container",

@@ -34,7 +34,7 @@
         "nesbot/carbon": "2.48.1",
         "nicolaslopezj/searchable": "1.13.0",
         "nuwave/lighthouse": "5.12.2",
-        "propaganistas/laravel-disposable-email": "2.0.19",
+        "propaganistas/laravel-disposable-email": "2.1.0",
         "qcod/laravel-gamify": "1.0.5",
         "rennokki/laravel-eloquent-query-cache": "2.6.0",
         "rtconner/laravel-tagging": "4.1.1",
