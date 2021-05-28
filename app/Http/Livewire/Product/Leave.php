@@ -22,7 +22,7 @@ class Leave extends Component
         }
 
         auth()->user()->products()->detach($this->product);
-        $this->product->owner->notify(new MemberLeft($this->product, auth()->user()->id));
+        $this->product->user->notify(new MemberLeft($this->product, auth()->user()->id));
         auth()->user()->touch();
         loggy(request(), 'Product', auth()->user(), 'Left the team #'.$this->product->slug);
 

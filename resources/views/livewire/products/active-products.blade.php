@@ -43,11 +43,11 @@
                             </a>
                         @endforeach
                         <a
-                            href="{{ route('user.done', ['username' => $product->owner->username]) }}"
+                            href="{{ route('user.done', ['username' => $product->user->username]) }}"
                             class="user-popover"
-                            data-id="{{ $product->owner->id }}"
+                            data-id="{{ $product->user->id }}"
                         >
-                            <img loading=lazy class="rounded-circle avatar-30 me-0" src="{{ Helper::getCDNImage($product->owner->avatar, 80) }}" height="30" width="30" alt="{{ $product->owner->username }}'s avatar" />
+                            <img loading=lazy class="rounded-circle avatar-30 me-0" src="{{ Helper::getCDNImage($product->user->avatar, 80) }}" height="30" width="30" alt="{{ $product->user->username }}'s avatar" />
                         </a>
                     </span>
                 </div>

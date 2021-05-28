@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Staff\Features;
 
 use App\Models\Feature;
+use Illuminate\Support\Facades\Gate;
 use Livewire\Component;
 
 class CreateFeature extends Component
@@ -13,7 +14,7 @@ class CreateFeature extends Component
 
     public function submit()
     {
-        if (! auth()->check()) {
+        if (Gate::denies('create')) {
             return toast($this, 'error', "Oops! You can't perform this action");
         }
 

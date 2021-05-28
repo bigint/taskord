@@ -12,7 +12,7 @@
                         <a href="{{ route('product.done', ['slug' => $product->slug]) }}" class="link-dark">
                             {{ $product->name }}
                         </a>
-                        @if ($product->owner->username == $user->username)
+                        @if ($product->user->username == $user->username)
                             <span class="badge bg-success ms-2">Owns</span>
                         @else
                             <span class="badge bg-secondary ms-2">Member</span>

@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Question;
 
 use App\Gamify\Points\QuestionCreated;
+use Illuminate\Support\Facades\Gate;
 use Livewire\Component;
 
 class CreateQuestion extends Component
@@ -22,7 +23,7 @@ class CreateQuestion extends Component
 
     public function submit()
     {
-        if (! auth()->check()) {
+        if (Gate::denies('create')) {
             return toast($this, 'error', "Oops! You can't perform this action");
         }
 
@@ -30,14 +31,6 @@ class CreateQuestion extends Component
             'title' => ['required', 'min:3', 'max:150'],
             'body' => ['required', 'min:3', 'max:20000'],
         ]);
-
-        if (! auth()->user()->hasVerifiedEmail()) {
-            return toast($this, 'error', 'Your email is not verified!');
-        }
-
-        if (auth()->user()->spammy) {
-            return toast($this, 'error', 'Your account is flagged!');
-        }
 
         $solvable = ! $this->solvable ? false : true;
         $patronOnly = ! $this->patronOnly ? false : true;

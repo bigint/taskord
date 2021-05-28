@@ -34,7 +34,7 @@ class LoadMore extends Component
     {
         if ($this->loadMore) {
             $members = $this->product->members->pluck('id');
-            $members->push($this->product->owner->id);
+            $members->push($this->product->user->id);
             $tasks = $this->product->tasks()
                 ->whereDone($this->type === 'product.done' ? true : false)
                 ->whereIn('user_id', $members)

@@ -33,7 +33,7 @@ class Products extends Component
     public function leaveProduct(Product $product)
     {
         $product->members()->detach($this->user);
-        $product->owner->notify(new MemberLeft($product, $this->user->id));
+        $product->user->notify(new MemberLeft($product, $this->user->id));
 
         $this->user->touch();
 

@@ -31,31 +31,32 @@ class SingleQuestion extends Component
         if (count($throttler) > 30) {
             Helper::flagAccount(auth()->user());
         }
+
         if (! $throttler->check()) {
             loggy(request(), 'Throttle', auth()->user(), 'Rate limited while praising the question');
 
             return toast($this, 'error', 'Your are rate limited, try again later!');
         }
 
-        if (Gate::allows('praise', $this->question)) {
-            Helper::togglePraise($this->question, 'QUESTION');
-
-            return loggy(request(), 'Question', auth()->user(), 'Toggled question praise | Question ID: '.$this->question->id);
+        if (Gate::denies('praise', $this->question)) {
+            return toast($this, 'error', "Oops! You can't perform this action");
         }
 
-        return toast($this, 'error', "Oops! You can't perform this action");
+        Helper::togglePraise($this->question, 'QUESTION');
+
+        return loggy(request(), 'Question', auth()->user(), 'Toggled question praise | Question ID: '.$this->question->id);
     }
 
     public function hide()
     {
-        if (Gate::allows('staff_mode')) {
-            Helper::hide($this->question);
-            loggy(request(), 'Staff', auth()->user(), 'Toggled hide question | Question ID: '.$this->question->id);
-
-            return toast($this, 'success', 'Question is hidden from public!');
-        } else {
+        if (Gate::denies('staff_mode')) {
             return toast($this, 'error', "Oops! You can't perform this action");
         }
+
+        Helper::hide($this->question);
+        loggy(request(), 'Staff', auth()->user(), 'Toggled hide question | Question ID: '.$this->question->id);
+
+        return toast($this, 'success', 'Question is hidden from public!');
     }
 
     public function toggleSolve()
@@ -82,15 +83,15 @@ class SingleQuestion extends Component
 
     public function deleteQuestion()
     {
-        if (Gate::allows('act', $this->question)) {
-            loggy(request(), 'Question', auth()->user(), 'Deleted a question | Question ID: '.$this->question->id);
-            $this->question->delete();
-            auth()->user()->touch();
-
-            return redirect()->route('questions.newest');
+        if (Gate::denies('act', $this->question)) {
+            return toast($this, 'error', "Oops! You can't perform this action");
         }
 
-        return toast($this, 'error', "Oops! You can't perform this action");
+        loggy(request(), 'Question', auth()->user(), 'Deleted a question | Question ID: '.$this->question->id);
+        $this->question->delete();
+        auth()->user()->touch();
+
+        return redirect()->route('questions.newest');
     }
 
     public function render()

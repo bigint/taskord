@@ -31,7 +31,7 @@ class Tasks extends Component
     public function getTasks()
     {
         $members = $this->product->members->pluck('id');
-        $members->push($this->product->owner->id);
+        $members->push($this->product->user->id);
 
         return $this->product->tasks()
             ->whereDone($this->type === 'product.done' ? true : false)

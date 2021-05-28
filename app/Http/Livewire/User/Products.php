@@ -26,7 +26,7 @@ class Products extends Component
     public function getProducts()
     {
         return $this->user->ownedProducts()
-            ->with(['owner', 'members'])
+            ->with(['user', 'members'])
             ->paginate(10);
     }
 

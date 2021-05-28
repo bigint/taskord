@@ -145,7 +145,7 @@ class SearchController extends Controller
     {
         $searchTerm = $request->input('q');
         if ($searchTerm) {
-            $products = Product::whereHas('owner', function ($q) {
+            $products = Product::whereHas('user', function ($q) {
                 $q->where([
                     ['spammy', false],
                 ]);

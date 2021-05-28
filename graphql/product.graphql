@@ -11,7 +11,7 @@ type Product {
     producthunt: String @cache(maxAge: 3600)
     launched: Boolean! @cache(maxAge: 3600)
     launched_at: DateTime @cache(maxAge: 3600)
-    owner: User @belongsTo @cache(maxAge: 3600)
+    user: User @belongsTo @cache(maxAge: 3600)
     tasks: [Task!]! @hasMany(type: "connection")
     subscribers: [User!]! @hasMany(type: "connection")
     created_at: DateTime! @cache(maxAge: 3600)

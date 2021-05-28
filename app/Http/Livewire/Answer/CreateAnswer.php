@@ -6,6 +6,7 @@ use App\Gamify\Points\CommentCreated;
 use App\Models\Question;
 use App\Notifications\Answer\Answered;
 use Helper;
+use Illuminate\Support\Facades\Gate;
 use Livewire\Component;
 
 class CreateAnswer extends Component
@@ -24,28 +25,16 @@ class CreateAnswer extends Component
 
     public function updated($field)
     {
-        if (! auth()->check()) {
-            return toast($this, 'error', "Oops! You can't perform this action");
-        }
-
         $this->validateOnly($field);
     }
 
     public function submit()
     {
-        if (! auth()->check()) {
+        if (Gate::denies('create')) {
             return toast($this, 'error', "Oops! You can't perform this action");
         }
 
         $this->validate();
-
-        if (! auth()->user()->hasVerifiedEmail()) {
-            return toast($this, 'error', 'Your email is not verified!');
-        }
-
-        if (auth()->user()->spammy) {
-            return toast($this, 'error', 'Your account is flagged!');
-        }
 
         $users = Helper::getUsernamesFromMentions($this->answer);
 

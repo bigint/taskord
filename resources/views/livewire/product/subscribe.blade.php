@@ -1,6 +1,6 @@
 <div>
     @auth
-        @if (auth()->user()->id !== $product->owner->id)
+        @if (auth()->user()->id !== $product->user->id)
             @if (auth()->user()->hasSubscribed($product))
                 <button wire:click="subscribeProduct" wire:loading.attr="disabled" class="btn btn-sm btn-danger mb-2">
                     <div wire:loading wire:target="subscribeProduct" class="spinner-border spinner-border-sm me-1"></div>

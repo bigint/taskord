@@ -5,6 +5,7 @@ namespace App\Http\Livewire\Product\Update;
 use App\Models\ProductUpdate;
 use GrahamCampbell\Throttle\Facades\Throttle;
 use Helper;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Request;
 use Livewire\Component;
 
@@ -25,25 +26,17 @@ class SingleUpdate extends Component
         if (count($throttler) > 30) {
             Helper::flagAccount(auth()->user());
         }
+
         if (! $throttler->check()) {
             loggy(request(), 'Throttle', auth()->user(), 'Rate limited while praising the update');
 
             return toast($this, 'error', 'Your are rate limited, try again later!');
         }
 
-        if (! auth()->check()) {
+        if (Gate::denies('praise', $this->update)) {
             return toast($this, 'error', "Oops! You can't perform this action");
         }
 
-        if (! auth()->user()->hasVerifiedEmail()) {
-            return toast($this, 'error', 'Your email is not verified!');
-        }
-        if (auth()->user()->spammy) {
-            return toast($this, 'error', 'Your account is flagged!');
-        }
-        if (auth()->user()->id === $this->update->user->id) {
-            return toast($this, 'error', 'You can\'t praise your own update!');
-        }
         if (auth()->user()->hasLiked($this->update)) {
             auth()->user()->unlike($this->update);
             $this->update->refresh();

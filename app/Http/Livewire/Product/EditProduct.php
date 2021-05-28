@@ -7,6 +7,7 @@ use App\Models\Product;
 use App\Rules\Repo;
 use App\Rules\ReservedSlug;
 use Illuminate\Support\Arr;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use Intervention\Image\Facades\Image;
@@ -47,10 +48,6 @@ class EditProduct extends Component
 
     public function updatedAvatar()
     {
-        if (! auth()->check()) {
-            return toast($this, 'error', "Oops! You can't perform this action");
-        }
-
         $this->validate([
             'avatar' => ['nullable', 'mimes:jpeg,jpg,png,gif', 'max:1024'],
         ]);
@@ -58,7 +55,7 @@ class EditProduct extends Component
 
     public function submit()
     {
-        if (! auth()->check()) {
+        if (Gate::denies('act', $this->product)) {
             return toast($this, 'error', "Oops! You can't perform this action");
         }
 
@@ -73,10 +70,6 @@ class EditProduct extends Component
             'sponsor' => ['nullable', 'active_url'],
             'avatar' => ['nullable', 'mimes:jpeg,jpg,png,gif', 'max:1024'],
         ]);
-
-        if (auth()->user()->spammy) {
-            return toast($this, 'error', 'Your account is flagged!');
-        }
 
         $product = Product::where('id', $this->product->id)->firstOrFail();
 
@@ -94,75 +87,59 @@ class EditProduct extends Component
             $product->avatar = $avatar;
         }
 
-        if (auth()->user()->staff_mode or auth()->user()->id === $product->owner->id) {
-            $isNewelyLaunched = false;
+        $isNewelyLaunched = false;
 
-            if ($this->launched and ! $product->launched) {
-                $product->launched_at = carbon();
-                $isNewelyLaunched = true;
-            }
-
-            $product->name = $this->name;
-            $product->slug = $this->slug;
-            $product->description = $this->description;
-            $product->website = $this->website;
-            $product->twitter = $this->twitter;
-            $product->repo = $this->repo;
-            $product->producthunt = $this->producthunt;
-            $product->sponsor = $this->sponsor;
-            $product->launched = $this->launched;
-            $product->deprecated = $this->deprecated;
-            $product->save();
-
-            if ($isNewelyLaunched) {
-                $randomTask = Arr::random(config('taskord.tasks.templates'));
-                (new CreateNewTask(auth()->user(), [
-                    'product_id' => $product->id,
-                    'task' => sprintf($randomTask, $product->slug),
-                    'done' => true,
-                    'done_at' => $product->launched_at,
-                    'type' => 'product',
-                ]))();
-            }
-
-            auth()->user()->touch();
-
-            loggy(request(), 'Product', auth()->user(), 'Updated a product | Product Slug: #'.$this->product->slug);
-
-            return redirect()->route('product.done', ['slug' => $product->slug]);
+        if ($this->launched and ! $product->launched) {
+            $product->launched_at = carbon();
+            $isNewelyLaunched = true;
         }
 
-        return toast($this, 'error', "Oops! You can't perform this action");
+        $product->name = $this->name;
+        $product->slug = $this->slug;
+        $product->description = $this->description;
+        $product->website = $this->website;
+        $product->twitter = $this->twitter;
+        $product->repo = $this->repo;
+        $product->producthunt = $this->producthunt;
+        $product->sponsor = $this->sponsor;
+        $product->launched = $this->launched;
+        $product->deprecated = $this->deprecated;
+        $product->save();
+
+        if ($isNewelyLaunched) {
+            $randomTask = Arr::random(config('taskord.tasks.templates'));
+            (new CreateNewTask(auth()->user(), [
+                'product_id' => $product->id,
+                'task' => sprintf($randomTask, $product->slug),
+                'done' => true,
+                'done_at' => $product->launched_at,
+                'type' => 'product',
+            ]))();
+        }
+
+        auth()->user()->touch();
+
+        loggy(request(), 'Product', auth()->user(), 'Updated a product | Product Slug: #'.$this->product->slug);
+
+        return redirect()->route('product.done', ['slug' => $product->slug]);
     }
 
     public function deleteProduct()
     {
-        if (! auth()->check()) {
+        if (Gate::denies('act', $this->product)) {
             return toast($this, 'error', "Oops! You can't perform this action");
         }
 
-        if (! auth()->user()->hasVerifiedEmail()) {
-            return toast($this, 'error', 'Your email is not verified!');
+        loggy(request(), 'Product', auth()->user(), 'Deleted a product | Product Slug: #'.$this->product->slug);
+        $avatar = explode('storage/', $this->product->avatar);
+        if (array_key_exists(1, $avatar)) {
+            Storage::delete($avatar[1]);
         }
+        $this->product->tasks()->delete();
+        $this->product->webhooks()->delete();
+        $this->product->delete();
+        auth()->user()->touch();
 
-        if (auth()->user()->spammy) {
-            return toast($this, 'error', 'Your account is flagged!');
-        }
-
-        if (auth()->user()->staff_mode or auth()->user()->id === $this->product->owner->id) {
-            loggy(request(), 'Product', auth()->user(), 'Deleted a product | Product Slug: #'.$this->product->slug);
-            $avatar = explode('storage/', $this->product->avatar);
-            if (array_key_exists(1, $avatar)) {
-                Storage::delete($avatar[1]);
-            }
-            $this->product->tasks()->delete();
-            $this->product->webhooks()->delete();
-            $this->product->delete();
-            auth()->user()->touch();
-
-            return redirect()->route('products.newest');
-        }
-
-        return toast($this, 'error', "Oops! You can't perform this action");
+        return redirect()->route('products.newest');
     }
 }

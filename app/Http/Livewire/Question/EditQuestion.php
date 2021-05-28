@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Question;
 
 use App\Models\Question;
+use Illuminate\Support\Facades\Gate;
 use Livewire\Component;
 
 class EditQuestion extends Component
@@ -31,10 +32,6 @@ class EditQuestion extends Component
 
     public function updated($field)
     {
-        if (! auth()->check()) {
-            return toast($this, 'error', "Oops! You can't perform this action");
-        }
-
         $this->validateOnly($field);
     }
 
@@ -47,18 +44,10 @@ class EditQuestion extends Component
 
     public function submit()
     {
-        if (! auth()->check()) {
-            return toast($this, 'error', "Oops! You can't perform this action");
-        }
-
         $this->validate();
 
-        if (! auth()->user()->hasVerifiedEmail()) {
-            return toast($this, 'error', 'Your email is not verified!');
-        }
-
-        if (auth()->user()->spammy) {
-            return toast($this, 'error', 'Your account is flagged!');
+        if (Gate::denies('act', $this->question)) {
+            return toast($this, 'error', "Oops! You can't perform this action");
         }
 
         $question = Question::where('id', $this->question->id)->firstOrFail();
@@ -66,20 +55,16 @@ class EditQuestion extends Component
         $solvable = ! $this->solvable ? false : true;
         $patronOnly = ! $this->patronOnly ? false : true;
 
-        if (auth()->user()->staff_mode or auth()->user()->id === $question->user_id) {
-            $question->title = $this->title;
-            $question->body = $this->body;
-            $question->is_solvable = $solvable;
-            $question->patron_only = $patronOnly;
-            $question->save();
-            $question->retag($this->selectedTags);
-            auth()->user()->touch();
+        $question->title = $this->title;
+        $question->body = $this->body;
+        $question->is_solvable = $solvable;
+        $question->patron_only = $patronOnly;
+        $question->save();
+        $question->retag($this->selectedTags);
+        auth()->user()->touch();
 
-            loggy(request(), 'Question', auth()->user(), 'Updated a question | Question ID: '.$question->id);
+        loggy(request(), 'Question', auth()->user(), 'Updated a question | Question ID: '.$question->id);
 
-            return redirect()->route('question.question', ['id' => $question->id]);
-        }
-
-        return toast($this, 'error', "Oops! You can't perform this action");
+        return redirect()->route('question.question', ['id' => $question->id]);
     }
 }

@@ -4,6 +4,7 @@ namespace App\Http\Livewire\Product\Update;
 
 use App\Models\Product;
 use App\Notifications\Product\NewProductUpdate;
+use Illuminate\Support\Facades\Gate;
 use Livewire\Component;
 
 class NewUpdate extends Component
@@ -19,21 +20,13 @@ class NewUpdate extends Component
 
     public function submit()
     {
-        if (! auth()->check()) {
+        if (Gate::denies('create')) {
             return toast($this, 'error', "Oops! You can't perform this action");
         }
 
         $this->validate([
             'title' => ['required', 'min:3', 'max:10000'],
         ]);
-
-        if (! auth()->user()->hasVerifiedEmail()) {
-            return toast($this, 'error', 'Your email is not verified!');
-        }
-
-        if (auth()->user()->spammy) {
-            return toast($this, 'error', 'Your account is flagged!');
-        }
 
         $update = auth()->user()->productUpdates()->create([
             'user_id' =>  auth()->user()->id,

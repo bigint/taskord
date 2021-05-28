@@ -6,6 +6,7 @@ use App\Actions\CreateNewTask;
 use App\Rules\Repo;
 use App\Rules\ReservedSlug;
 use Illuminate\Support\Arr;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use Intervention\Image\Facades\Image;
@@ -29,10 +30,6 @@ class CreateProduct extends Component
 
     public function updatedAvatar()
     {
-        if (! auth()->check()) {
-            return toast($this, 'error', "Oops! You can't perform this action");
-        }
-
         $this->validate([
             'avatar' => ['nullable', 'mimes:jpeg,jpg,png,gif', 'max:1024'],
         ]);
@@ -40,7 +37,7 @@ class CreateProduct extends Component
 
     public function submit()
     {
-        if (! auth()->check()) {
+        if (Gate::denies('create')) {
             return toast($this, 'error', "Oops! You can't perform this action");
         }
 
@@ -55,14 +52,6 @@ class CreateProduct extends Component
             'sponsor' => ['nullable', 'active_url'],
             'avatar' => ['nullable', 'mimes:jpeg,jpg,png,gif', 'max:1024'],
         ]);
-
-        if (! auth()->user()->hasVerifiedEmail()) {
-            return toast($this, 'error', 'Your email is not verified!');
-        }
-
-        if (auth()->user()->spammy) {
-            return toast($this, 'error', 'Your account is flagged!');
-        }
 
         $launched = ! $this->launched ? false : true;
 

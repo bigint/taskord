@@ -188,8 +188,8 @@
                                         ], key($product->id))
                                     </div>
                                 </span>
-                                <a class="d-flex ms-auto" href="{{ route('user.done', ['username' => $product->owner->username]) }}">
-                                    <img loading=lazy class="rounded-circle float-end avatar-30 mt-1 ms-2" src="{{ Helper::getCDNImage($product->owner->avatar, 80) }}" height="30" width="30" alt="{{ $product->owner->username }}'s avatar" />
+                                <a class="d-flex ms-auto" href="{{ route('user.done', ['username' => $product->user->username]) }}">
+                                    <img loading=lazy class="rounded-circle float-end avatar-30 mt-1 ms-2" src="{{ Helper::getCDNImage($product->user->avatar, 80) }}" height="30" width="30" alt="{{ $product->user->username }}'s avatar" />
                                 </a>
                             </div>
                         </li>

@@ -38,7 +38,7 @@ class ProductController extends Controller
         }
 
         $members = $product->members->pluck('id');
-        $members->push($product->owner->id);
+        $members->push($product->user->id);
 
         $doneCount = $product->tasks()
             ->whereDone(true)
@@ -62,9 +62,9 @@ class ProductController extends Controller
                 ->count('id'),
         ];
 
-        if (auth()->check() && auth()->user()->id === $product->owner->id or auth()->check() && auth()->user()->staff_mode) {
+        if (auth()->check() && auth()->user()->id === $product->user->id or auth()->check() && auth()->user()->staff_mode) {
             return view($type, $response);
-        } elseif ($product->owner->spammy) {
+        } elseif ($product->user->spammy) {
             return abort(404);
         }
 
@@ -77,7 +77,7 @@ class ProductController extends Controller
             ->firstOrFail();
 
         if (
-            auth()->check() && auth()->user()->id === $product->owner->id or
+            auth()->check() && auth()->user()->id === $product->user->id or
             auth()->check() && auth()->user()->staff_mode
         ) {
             return view('product.edit', [

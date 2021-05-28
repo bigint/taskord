@@ -25,43 +25,44 @@ class SingleAnswer extends Component
         if (count($throttler) > 30) {
             Helper::flagAccount(auth()->user());
         }
+
         if (! $throttler->check()) {
             loggy(request(), 'Throttle', auth()->user(), 'Rate limited while praising the answer');
 
             return toast($this, 'error', 'Your are rate limited, try again later!');
         }
-        if (Gate::allows('praise', $this->answer)) {
-            Helper::togglePraise($this->answer, 'ANSWER');
 
-            return loggy(request(), 'Answer', auth()->user(), 'Toggled answer praise | Answer ID: '.$this->answer->id);
+        if (Gate::denies('praise', $this->answer)) {
+            return toast($this, 'error', "Oops! You can't perform this action");
         }
 
-        return toast($this, 'error', "Oops! You can't perform this action");
+        Helper::togglePraise($this->answer, 'ANSWER');
+
+        return loggy(request(), 'Answer', auth()->user(), 'Toggled answer praise | Answer ID: '.$this->answer->id);
     }
 
     public function hide()
     {
-        if (Gate::allows('staff_mode')) {
-            Helper::hide($this->answer);
-            loggy(request(), 'Staff', auth()->user(), 'Toggled hide answer | Answer ID: '.$this->answer->id);
-
-            return toast($this, 'success', 'Answer is hidden from public!');
+        if (Gate::denies('staff_mode')) {
+            return toast($this, 'error', "Oops! You can't perform this action");
         }
 
-        return toast($this, 'error', "Oops! You can't perform this action");
+        Helper::hide($this->answer);
+        loggy(request(), 'Staff', auth()->user(), 'Toggled hide answer | Answer ID: '.$this->answer->id);
+
+        return toast($this, 'success', 'Answer is hidden from public!');
     }
 
     public function deleteAnswer()
     {
-        if (Gate::allows('act', $this->answer)) {
-            loggy(request(), 'Answer', auth()->user(), 'Deleted an answer | Answer ID: '.$this->answer->id);
-            $this->answer->delete();
-            $this->emit('refreshAnswers');
-            auth()->user()->touch();
-
+        if (Gate::denies('act', $this->answer)) {
             return toast($this, 'success', 'Answer has been deleted successfully!');
         }
 
-        return toast($this, 'error', "Oops! You can't perform this action");
+        loggy(request(), 'Answer', auth()->user(), 'Deleted an answer | Answer ID: '.$this->answer->id);
+        $this->answer->delete();
+        $this->emit('refreshAnswers');
+
+        return auth()->user()->touch();
     }
 }

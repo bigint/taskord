@@ -5,6 +5,7 @@ namespace App\Http\Livewire\Task;
 use App\Models\Task;
 use GrahamCampbell\Throttle\Facades\Throttle;
 use Helper;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Request;
 use Livewire\Component;
 
@@ -34,19 +35,10 @@ class Subscribe extends Component
             return toast($this, 'error', 'Your are rate limited, try again later!');
         }
 
-        if (! auth()->check()) {
+        if (Gate::denies('praise', $this->question)) {
             return toast($this, 'error', "Oops! You can't perform this action");
         }
 
-        if (! auth()->user()->hasVerifiedEmail()) {
-            return toast($this, 'error', 'Your email is not verified!');
-        }
-        if (auth()->user()->spammy) {
-            return toast($this, 'error', 'Your account is flagged!');
-        }
-        if (auth()->user()->id === $this->task->user->id) {
-            return toast($this, 'error', 'You can\'t subscribe your own task!');
-        }
         auth()->user()->toggleSubscribe($this->task);
         $this->task->refresh();
         auth()->user()->touch();

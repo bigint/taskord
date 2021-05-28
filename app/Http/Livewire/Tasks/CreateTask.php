@@ -5,6 +5,7 @@ namespace App\Http\Livewire\Tasks;
 use App\Actions\CreateNewTask;
 use GrahamCampbell\Throttle\Facades\Throttle;
 use Helper;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
@@ -44,9 +45,6 @@ class CreateTask extends Component
 
             return toast($this, 'error', 'Your are rate limited, try again later!');
         }
-        if (! auth()->check()) {
-            return toast($this, 'error', "Oops! You can't perform this action");
-        }
 
         $this->validate([
             'task' => ['required', 'min:5', 'max:10000'],
@@ -54,12 +52,8 @@ class CreateTask extends Component
             'images.*' => ['nullable', 'mimes:jpeg,jpg,png,gif', 'max:5000'],
         ]);
 
-        if (! auth()->user()->hasVerifiedEmail()) {
-            return toast($this, 'error', 'Your email is not verified!');
-        }
-
-        if (auth()->user()->spammy) {
-            return toast($this, 'error', 'Your account is flagged!');
+        if (Gate::denies('create')) {
+            return toast($this, 'error', "Oops! You can't perform this action");
         }
 
         if ($this->images) {

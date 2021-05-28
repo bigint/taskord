@@ -14,7 +14,7 @@
         @endif
         <div class="mt-2 text-secondary d-flex align-items-center">
             @php
-                $members_count = $product->owner()->count() + $product->members()->count();
+                $members_count = $product->user()->count() + $product->members()->count();
             @endphp
             <x-heroicon-o-users class="heroicon" />
             <div class="ms-1">{{ $members_count }} {{ pluralize('member', $members_count) }} in the team</div>

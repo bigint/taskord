@@ -13,9 +13,9 @@
         <div class="col-lg-8">
             @auth
                 @if (
-                    auth()->user()->id === $product->owner->id or
+                    auth()->user()->id === $product->user->id or
                     $product->members->contains(auth()->user()->id) &&
-                    !$product->owner->spammy
+                    !$product->user->spammy
                 )
                     <div class="card mb-3">
                         <div class="card-body">

@@ -18,6 +18,10 @@ class CreateDeal extends Component
 
     public function submit()
     {
+        if (Gate::denies('create')) {
+            return toast($this, 'error', "Oops! You can't perform this action");
+        }
+
         $this->validate([
             'name' => ['required', 'min:2'],
             'description' => ['required', 'min:5'],
@@ -28,22 +32,18 @@ class CreateDeal extends Component
             'logo' => ['required', 'active_url'],
         ]);
 
-        if (Gate::allows('staff_mode')) {
-            $deal = Deal::create([
-                'name' =>  $this->name,
-                'description' => $this->description,
-                'offer' => $this->offer,
-                'coupon' => $this->coupon,
-                'referral' => $this->referral,
-                'website' => $this->website,
-                'logo' => $this->logo,
-            ]);
-            auth()->user()->touch();
-            loggy(request(), 'Staff', auth()->user(), 'Created a new deal | Deal ID: '.$deal->id);
+        $deal = Deal::create([
+            'name' =>  $this->name,
+            'description' => $this->description,
+            'offer' => $this->offer,
+            'coupon' => $this->coupon,
+            'referral' => $this->referral,
+            'website' => $this->website,
+            'logo' => $this->logo,
+        ]);
+        auth()->user()->touch();
+        loggy(request(), 'Staff', auth()->user(), 'Created a new deal | Deal ID: '.$deal->id);
 
-            return redirect()->route('deals');
-        }
-
-        return toast($this, 'error', "Oops! You can't perform this action");
+        return redirect()->route('deals');
     }
 }

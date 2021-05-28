@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Meetup;
 
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use Intervention\Image\Facades\Image;
@@ -22,10 +23,6 @@ class NewMeetup extends Component
 
     public function updatedCover()
     {
-        if (! auth()->check()) {
-            return toast($this, 'error', "Oops! You can't perform this action");
-        }
-
         $this->validate([
             'cover' => ['nullable', 'mimes:jpeg,jpg,png,gif', 'max:1024'],
         ]);
@@ -33,7 +30,7 @@ class NewMeetup extends Component
 
     public function submit()
     {
-        if (! auth()->check()) {
+        if (Gate::denies('create')) {
             return toast($this, 'error', "Oops! You can't perform this action");
         }
 
@@ -46,14 +43,6 @@ class NewMeetup extends Component
             'date' => ['required', 'date'],
             'cover' => ['nullable', 'mimes:jpeg,jpg,png,gif', 'max:1024'],
         ]);
-
-        if (! auth()->user()->hasVerifiedEmail()) {
-            return toast($this, 'error', 'Your email is not verified!');
-        }
-
-        if (auth()->user()->spammy) {
-            return toast($this, 'error', 'Your account is flagged!');
-        }
 
         if ($this->cover) {
             $img = Image::make($this->cover)

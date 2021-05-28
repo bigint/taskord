@@ -1,6 +1,6 @@
 <div class="col-sm">
     @auth
-        @if (auth()->user()->staff_mode or auth()->user()->id === $product->owner->id)
+        @if (auth()->user()->staff_mode or auth()->user()->id === $product->user->id)
             <div class="card mb-4">
                 <div class="card-body d-grid">
                     <button type="button" class="btn btn-success text-white fw-bold" data-bs-toggle="modal" data-bs-target="#newUpdateModal">
@@ -92,24 +92,24 @@
         <div class="pt-2 pb-2">
             <div class="py-2 px-3">
                 <a
-                    href="{{ route('user.done', ['username' => $product->owner->username]) }}"
+                    href="{{ route('user.done', ['username' => $product->user->username]) }}"
                     class="user-popover"
-                    data-id="{{ $product->owner->id }}"
+                    data-id="{{ $product->user->id }}"
                 >
-                    <img loading=lazy class="rounded-circle avatar-30" src="{{ Helper::getCDNImage($product->owner->avatar, 80) }}" height="30" width="30" alt="{{ $product->owner->username }}'s avatar" />
+                    <img loading=lazy class="rounded-circle avatar-30" src="{{ Helper::getCDNImage($product->user->avatar, 80) }}" height="30" width="30" alt="{{ $product->user->username }}'s avatar" />
                 </a>
                 <a
-                    href="{{ route('user.done', ['username' => $product->owner->username]) }}"
+                    href="{{ route('user.done', ['username' => $product->user->username]) }}"
                     class="ms-2 align-middle fw-bold text-dark user-popover"
-                    data-id="{{ $product->owner->id }}"
+                    data-id="{{ $product->user->id }}"
                 >
-                    @if ($product->owner->firstname or $product->owner->lastname)
-                        {{ $product->owner->firstname }}{{ ' '.$product->owner->lastname }}
+                    @if ($product->user->firstname or $product->user->lastname)
+                        {{ $product->user->firstname }}{{ ' '.$product->user->lastname }}
                     @else
-                        {{ $product->owner->username }}
+                        {{ $product->user->username }}
                     @endif
-                    @if ($product->owner->status)
-                    <span class="ms-1 small" title="{{ $product->owner->status }}">{{ $product->owner->status_emoji }}</span>
+                    @if ($product->user->status)
+                    <span class="ms-1 small" title="{{ $product->user->status }}">{{ $product->user->status_emoji }}</span>
                     @endif
                 </a>
             </div>

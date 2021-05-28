@@ -27,31 +27,32 @@ class SingleMilestone extends Component
         if (count($throttler) > 30) {
             Helper::flagAccount(auth()->user());
         }
+
         if (! $throttler->check()) {
             loggy(request(), 'Throttle', auth()->user(), 'Rate limited while praising the milestone');
 
             return toast($this, 'error', 'Your are rate limited, try again later!');
         }
 
-        if (Gate::allows('praise', $this->milestone)) {
-            Helper::togglePraise($this->milestone, 'MILESTONE');
-
-            return loggy(request(), 'Milestone', auth()->user(), 'Toggled milestone praise | Milestone ID: '.$this->milestone->id);
+        if (Gate::denies('praise', $this->milestone)) {
+            return toast($this, 'error', "Oops! You can't perform this action");
         }
 
-        return toast($this, 'error', "Oops! You can't perform this action");
+        Helper::togglePraise($this->milestone, 'MILESTONE');
+
+        return loggy(request(), 'Milestone', auth()->user(), 'Toggled milestone praise | Milestone ID: '.$this->milestone->id);
     }
 
     public function hide()
     {
-        if (Gate::allows('staff_mode')) {
-            Helper::hide($this->milestone);
-            loggy(request(), 'Staff', auth()->user(), 'Toggled hide milestone | Milestone ID: '.$this->milestone->id);
-
-            return toast($this, 'success', 'Milestone is hidden from public!');
+        if (Gate::denies('staff_mode')) {
+            return toast($this, 'error', "Oops! You can't perform this action");
         }
 
-        return toast($this, 'error', "Oops! You can't perform this action");
+        Helper::hide($this->milestone);
+        loggy(request(), 'Staff', auth()->user(), 'Toggled hide milestone | Milestone ID: '.$this->milestone->id);
+
+        return toast($this, 'success', 'Milestone is hidden from public!');
     }
 
     public function toggleStatus()
@@ -77,14 +78,14 @@ class SingleMilestone extends Component
 
     public function deleteMilestone()
     {
-        if (Gate::allows('act', $this->milestone)) {
-            loggy(request(), 'Milestone', auth()->user(), 'Deleted a milestone | Milestone ID: '.$this->milestone->id);
-            $this->milestone->delete();
-            auth()->user()->touch();
-
-            return redirect()->route('milestones.opened');
+        if (Gate::denies('act', $this->milestone)) {
+            return toast($this, 'error', "Oops! You can't perform this action");
         }
 
-        return toast($this, 'error', "Oops! You can't perform this action");
+        loggy(request(), 'Milestone', auth()->user(), 'Deleted a milestone | Milestone ID: '.$this->milestone->id);
+        $this->milestone->delete();
+        auth()->user()->touch();
+
+        return redirect()->route('milestones.opened');
     }
 }

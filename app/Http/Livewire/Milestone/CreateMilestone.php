@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Milestone;
 
 use App\Models\Milestone;
+use Illuminate\Support\Facades\Gate;
 use Livewire\Component;
 
 class CreateMilestone extends Component
@@ -14,7 +15,7 @@ class CreateMilestone extends Component
 
     public function submit()
     {
-        if (! auth()->check()) {
+        if (Gate::denies('create')) {
             return toast($this, 'error', "Oops! You can't perform this action");
         }
 
@@ -22,14 +23,6 @@ class CreateMilestone extends Component
             'name' => ['required', 'min:5', 'max:150'],
             'description' => ['required', 'min:3', 'max:10000'],
         ]);
-
-        if (! auth()->user()->hasVerifiedEmail()) {
-            return toast($this, 'error', 'Your email is not verified!');
-        }
-
-        if (auth()->user()->spammy) {
-            return toast($this, 'error', 'Your account is flagged!');
-        }
 
         $milestone = Milestone::create([
             'user_id' =>  auth()->user()->id,

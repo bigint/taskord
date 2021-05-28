@@ -26,7 +26,7 @@ class AddMember extends Component
         if ($user === null) {
             return toast($this, 'error', 'User does not exists');
         }
-        if ($user->products->contains($this->product) or $user->id === $this->product->owner->id) {
+        if ($user->products->contains($this->product) or $user->id === $this->product->user->id) {
             return toast($this, 'error', 'User is already in the team');
         }
         if (auth()->user()->username === $this->username) {

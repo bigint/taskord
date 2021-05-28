@@ -16,7 +16,7 @@ class ActiveProducts extends Component
 
     public function getActiveProducts()
     {
-        return Product::with(['owner', 'members'])
+        return Product::with(['user', 'members'])
             ->whereLaunched(true)
             ->take(10)
             ->get()

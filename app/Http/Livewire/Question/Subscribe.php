@@ -5,6 +5,7 @@ namespace App\Http\Livewire\Question;
 use App\Models\Question;
 use GrahamCampbell\Throttle\Facades\Throttle;
 use Helper;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Request;
 use Livewire\Component;
 
@@ -28,24 +29,15 @@ class Subscribe extends Component
         if (count($throttler) > 20) {
             Helper::flagAccount(auth()->user());
         }
+
         if (! $throttler->check()) {
             loggy(request(), 'Throttle', auth()->user(), 'Rate limited while subscribing a question');
 
             return toast($this, 'error', 'Your are rate limited, try again later!');
         }
 
-        if (! auth()->check()) {
+        if (Gate::denies('praise', $this->question)) {
             return toast($this, 'error', "Oops! You can't perform this action");
-        }
-
-        if (! auth()->user()->hasVerifiedEmail()) {
-            return toast($this, 'error', 'Your email is not verified!');
-        }
-        if (auth()->user()->spammy) {
-            return toast($this, 'error', 'Your account is flagged!');
-        }
-        if (auth()->user()->id === $this->question->user->id) {
-            return toast($this, 'error', 'You can\'t subscribe your own question!');
         }
 
         auth()->user()->toggleSubscribe($this->question);

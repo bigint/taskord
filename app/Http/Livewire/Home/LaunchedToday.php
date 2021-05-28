@@ -17,7 +17,7 @@ class LaunchedToday extends Component
     public function getLaunchedToday()
     {
         return Product::select('id', 'slug', 'name', 'launched', 'description', 'avatar', 'user_id')
-            ->with(['owner', 'members'])
+            ->with(['user', 'members'])
             ->whereLaunched(true)
             ->whereDate('launched_at', carbon('today'))
             ->orderBy('launched_at', 'DESC')

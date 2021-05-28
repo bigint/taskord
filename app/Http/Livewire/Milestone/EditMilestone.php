@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Milestone;
 
 use App\Models\Milestone;
+use Illuminate\Support\Facades\Gate;
 use Livewire\Component;
 
 class EditMilestone extends Component
@@ -38,35 +39,23 @@ class EditMilestone extends Component
 
     public function submit()
     {
-        if (! auth()->check()) {
+        if (Gate::denies('act', $this->milestone)) {
             return toast($this, 'error', "Oops! You can't perform this action");
         }
 
         $this->validate();
 
-        if (! auth()->user()->hasVerifiedEmail()) {
-            return toast($this, 'error', 'Your email is not verified!');
-        }
-
-        if (auth()->user()->spammy) {
-            return toast($this, 'error', 'Your account is flagged!');
-        }
-
         $milestone = Milestone::where('id', $this->milestone->id)->firstOrFail();
 
-        if (auth()->user()->staff_mode or auth()->user()->id === $milestone->user_id) {
-            $milestone->name = $this->name;
-            $milestone->description = $this->description;
-            $milestone->start_date = $this->startDate ? $this->startDate : null;
-            $milestone->end_date = $this->startDate ? $this->endDate : null;
-            $milestone->save();
-            auth()->user()->touch();
+        $milestone->name = $this->name;
+        $milestone->description = $this->description;
+        $milestone->start_date = $this->startDate ? $this->startDate : null;
+        $milestone->end_date = $this->startDate ? $this->endDate : null;
+        $milestone->save();
+        auth()->user()->touch();
 
-            loggy(request(), 'Milestone', auth()->user(), 'Updated a milestone | Milestone ID: '.$milestone->id);
+        loggy(request(), 'Milestone', auth()->user(), 'Updated a milestone | Milestone ID: '.$milestone->id);
 
-            return redirect()->route('milestones.milestone', ['milestone' => $milestone]);
-        }
-
-        return toast($this, 'error', "Oops! You can't perform this action");
+        return redirect()->route('milestones.milestone', ['milestone' => $milestone]);
     }
 }

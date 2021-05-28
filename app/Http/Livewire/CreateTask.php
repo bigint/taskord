@@ -6,6 +6,7 @@ use App\Actions\CreateNewTask;
 use App\Jobs\CheckGoal;
 use GrahamCampbell\Throttle\Facades\Throttle;
 use Helper;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
@@ -54,19 +55,20 @@ class CreateTask extends Component
 
     public function submit()
     {
+        if (Gate::denies('create')) {
+            return toast($this, 'error', "Oops! You can't perform this action");
+        }
+
         $throttler = Throttle::get(Request::instance(), 20, 5);
         $throttler->hit();
         if (count($throttler) > 30) {
             Helper::flagAccount(auth()->user());
         }
+
         if (! $throttler->check()) {
             loggy(request(), 'Throttle', auth()->user(), 'Rate limited while creating a task');
 
             return toast($this, 'error', 'Your are rate limited, try again later!');
-        }
-
-        if (! auth()->check()) {
-            return toast($this, 'error', "Oops! You can't perform this action");
         }
 
         $this->validate([
@@ -74,14 +76,6 @@ class CreateTask extends Component
             'images' => ['max:5'],
             'images.*' => ['nullable', 'mimes:jpeg,jpg,png,gif', 'max:5000'],
         ]);
-
-        if (! auth()->user()->hasVerifiedEmail()) {
-            return toast($this, 'error', 'Your email is not verified!');
-        }
-
-        if (auth()->user()->spammy) {
-            return toast($this, 'error', 'Your account is flagged!');
-        }
 
         if ($this->images) {
             $images = [];

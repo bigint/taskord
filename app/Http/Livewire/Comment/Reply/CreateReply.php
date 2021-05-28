@@ -5,6 +5,7 @@ namespace App\Http\Livewire\Comment\Reply;
 use App\Models\Comment;
 use App\Notifications\Comment\Reply\Replied;
 use Helper;
+use Illuminate\Support\Facades\Gate;
 use Livewire\Component;
 
 class CreateReply extends Component
@@ -32,19 +33,11 @@ class CreateReply extends Component
 
     public function submit()
     {
-        if (! auth()->check()) {
+        if (Gate::denies('create')) {
             return toast($this, 'error', "Oops! You can't perform this action");
         }
 
         $this->validate();
-
-        if (! auth()->user()->hasVerifiedEmail()) {
-            return toast($this, 'error', 'Your email is not verified!');
-        }
-
-        if (auth()->user()->spammy) {
-            return toast($this, 'error', 'Your account is flagged!');
-        }
 
         $users = Helper::getUsernamesFromMentions($this->reply);
 

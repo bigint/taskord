@@ -21,7 +21,7 @@ class Products extends Component
 
     public function getProducts()
     {
-        return Product::with('owner')
+        return Product::with('user')
             ->withCount(['members', 'tasks', 'productUpdates'])
             ->latest()
             ->paginate(50);

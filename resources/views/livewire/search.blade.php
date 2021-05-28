@@ -81,8 +81,8 @@
                                 <span class="fw-bold">{{ $product->name }}</span>
                             </a>
                         </span>
-                        <a href="{{ route('user.done', ['username' => $product->owner->username]) }}">
-                            <img loading=lazy class="rounded-circle float-end avatar-30" src="{{ Helper::getCDNImage($product->owner->avatar, 80) }}" height="30" width="30" alt="{{ $product->owner->username }}'s avatar" />
+                        <a href="{{ route('user.done', ['username' => $product->user->username]) }}">
+                            <img loading=lazy class="rounded-circle float-end avatar-30" src="{{ Helper::getCDNImage($product->user->avatar, 80) }}" height="30" width="30" alt="{{ $product->user->username }}'s avatar" />
                         </a>
                     </li>
                 @endforeach

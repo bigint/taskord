@@ -30,15 +30,10 @@ class Rsvp extends Component
             return toast($this, 'error', 'Your are rate limited, try again later!');
         }
 
-        if (! auth()->user()->hasVerifiedEmail()) {
-            return toast($this, 'error', 'Your email is not verified!');
+        if (Gate::denies('praise', $this->meetup)) {
+            return toast($this, 'error', "Oops! You can't perform this action");
         }
-        if (auth()->user()->spammy) {
-            return toast($this, 'error', 'Your account is flagged!');
-        }
-        if (auth()->user()->id === $this->meetup->user_id) {
-            return toast($this, 'error', 'You can\'t RSVP your own meetup!');
-        }
+
         auth()->user()->toggleSubscribe($this->meetup);
         $this->meetup->refresh();
 
