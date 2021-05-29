@@ -56,7 +56,7 @@ class EditProduct extends Component
     public function submit()
     {
         if (Gate::denies('act', $this->product)) {
-            return toast($this, 'error', "Oops! You can't perform this action");
+            return toast($this, 'error', config('taskord.error.deny'));
         }
 
         $this->validate([
@@ -127,7 +127,7 @@ class EditProduct extends Component
     public function deleteProduct()
     {
         if (Gate::denies('act', $this->product)) {
-            return toast($this, 'error', "Oops! You can't perform this action");
+            return toast($this, 'error', config('taskord.error.deny'));
         }
 
         loggy(request(), 'Product', auth()->user(), 'Deleted a product | Product Slug: #'.$this->product->slug);

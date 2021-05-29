@@ -3,14 +3,16 @@
 namespace App\Http\Livewire\Question;
 
 use App\Models\Question;
-use GrahamCampbell\Throttle\Facades\Throttle;
+use DanHarrin\LivewireRateLimiting\Exceptions\TooManyRequestsException;
+use DanHarrin\LivewireRateLimiting\WithRateLimiting;
 use Helper;
 use Illuminate\Support\Facades\Gate;
-use Illuminate\Support\Facades\Request;
 use Livewire\Component;
 
 class SingleQuestion extends Component
 {
+    use WithRateLimiting;
+
     public $listeners = [
         'refreshSingleQuestion' => 'render',
     ];
@@ -26,20 +28,14 @@ class SingleQuestion extends Component
 
     public function togglePraise()
     {
-        $throttler = Throttle::get(Request::instance(), 30, 5);
-        $throttler->hit();
-        if (count($throttler) > 30) {
-            Helper::flagAccount(auth()->user());
-        }
-
-        if (! $throttler->check()) {
-            loggy(request(), 'Throttle', auth()->user(), 'Rate limited while praising the question');
-
-            return toast($this, 'error', 'Your are rate limited, try again later!');
+        try {
+            $this->rateLimit(50);
+        } catch (TooManyRequestsException $exception) {
+            return toast($this, 'error', config('taskord.error.rate-limit'));
         }
 
         if (Gate::denies('praise', $this->question)) {
-            return toast($this, 'error', "Oops! You can't perform this action");
+            return toast($this, 'error', config('taskord.error.deny'));
         }
 
         Helper::togglePraise($this->question, 'QUESTION');
@@ -50,7 +46,7 @@ class SingleQuestion extends Component
     public function hide()
     {
         if (Gate::denies('staff_mode')) {
-            return toast($this, 'error', "Oops! You can't perform this action");
+            return toast($this, 'error', config('taskord.error.deny'));
         }
 
         Helper::hide($this->question);
@@ -62,7 +58,7 @@ class SingleQuestion extends Component
     public function toggleSolve()
     {
         if (! auth()->check()) {
-            return toast($this, 'error', "Oops! You can't perform this action");
+            return toast($this, 'error', config('taskord.error.deny'));
         }
 
         if (auth()->user()->spammy) {
@@ -77,14 +73,14 @@ class SingleQuestion extends Component
 
             return $this->emit('refreshSingleQuestion');
         } else {
-            toast($this, 'error', "Oops! You can't perform this action");
+            toast($this, 'error', config('taskord.error.deny'));
         }
     }
 
     public function deleteQuestion()
     {
         if (Gate::denies('act', $this->question)) {
-            return toast($this, 'error', "Oops! You can't perform this action");
+            return toast($this, 'error', config('taskord.error.deny'));
         }
 
         loggy(request(), 'Question', auth()->user(), 'Deleted a question | Question ID: '.$this->question->id);

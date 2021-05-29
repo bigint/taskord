@@ -21,7 +21,7 @@ class Team extends Component
     public function removeMember()
     {
         if (! auth()->check()) {
-            return toast($this, 'error', "Oops! You can't perform this action");
+            return toast($this, 'error', config('taskord.error.deny'));
         }
 
         $this->user->products()->detach($this->product);

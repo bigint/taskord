@@ -47,7 +47,7 @@ class EditQuestion extends Component
         $this->validate();
 
         if (Gate::denies('act', $this->question)) {
-            return toast($this, 'error', "Oops! You can't perform this action");
+            return toast($this, 'error', config('taskord.error.deny'));
         }
 
         $question = Question::where('id', $this->question->id)->firstOrFail();

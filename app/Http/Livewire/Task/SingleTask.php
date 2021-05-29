@@ -5,15 +5,17 @@ namespace App\Http\Livewire\Task;
 use App\Gamify\Points\TaskCompleted;
 use App\Jobs\CheckGoal;
 use App\Models\Task;
-use GrahamCampbell\Throttle\Facades\Throttle;
+use DanHarrin\LivewireRateLimiting\Exceptions\TooManyRequestsException;
+use DanHarrin\LivewireRateLimiting\WithRateLimiting;
 use Helper;
 use Illuminate\Support\Facades\Gate;
-use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\Storage;
 use Livewire\Component;
 
 class SingleTask extends Component
 {
+    use WithRateLimiting;
+
     public $listeners = [
         'refreshSingleTask' => 'render',
     ];
@@ -30,21 +32,14 @@ class SingleTask extends Component
 
     public function checkTask()
     {
-        $throttler = Throttle::get(Request::instance(), 20, 5);
-        $throttler->hit();
-
-        if (count($throttler) > 30) {
-            Helper::flagAccount(auth()->user());
-        }
-
-        if (! $throttler->check()) {
-            loggy(request(), 'Throttle', auth()->user(), 'Rate limited while checking a task');
-
-            return toast($this, 'error', 'Your are rate limited, try again later!');
+        try {
+            $this->rateLimit(50);
+        } catch (TooManyRequestsException $exception) {
+            return toast($this, 'error', config('taskord.error.rate-limit'));
         }
 
         if (Gate::denies('check.task', $this->task)) {
-            return toast($this, 'error', "Oops! You can't perform this action");
+            return toast($this, 'error', config('taskord.error.deny'));
         }
 
         if ($this->task->done) {
@@ -70,20 +65,14 @@ class SingleTask extends Component
 
     public function togglePraise()
     {
-        $throttler = Throttle::get(Request::instance(), 30, 5);
-        $throttler->hit();
-        if (count($throttler) > 30) {
-            Helper::flagAccount(auth()->user());
-        }
-
-        if (! $throttler->check()) {
-            loggy(request(), 'Throttle', auth()->user(), 'Rate limited while praising a task');
-
-            return toast($this, 'error', 'Your are rate limited, try again later!');
+        try {
+            $this->rateLimit(50);
+        } catch (TooManyRequestsException $exception) {
+            return toast($this, 'error', config('taskord.error.rate-limit'));
         }
 
         if (Gate::denies('praise', $this->task)) {
-            return toast($this, 'error', "Oops! You can't perform this action");
+            return toast($this, 'error', config('taskord.error.deny'));
         }
 
         Helper::togglePraise($this->task, 'TASK');
@@ -94,7 +83,7 @@ class SingleTask extends Component
     public function hide()
     {
         if (Gate::denies('staff_mode')) {
-            return toast($this, 'error', "Oops! You can't perform this action");
+            return toast($this, 'error', config('taskord.error.deny'));
         }
 
         Helper::hide($this->task);
@@ -106,7 +95,7 @@ class SingleTask extends Component
     public function deleteTask()
     {
         if (Gate::denies('act', $this->task)) {
-            return toast($this, 'error', "Oops! You can't perform this action");
+            return toast($this, 'error', config('taskord.error.deny'));
         }
 
         loggy(request(), 'Task', auth()->user(), 'Deleted a task | Task ID: '.$this->task->id);

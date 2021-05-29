@@ -3,14 +3,16 @@
 namespace App\Http\Livewire\Milestone;
 
 use App\Models\Milestone;
-use GrahamCampbell\Throttle\Facades\Throttle;
+use DanHarrin\LivewireRateLimiting\Exceptions\TooManyRequestsException;
+use DanHarrin\LivewireRateLimiting\WithRateLimiting;
 use Helper;
 use Illuminate\Support\Facades\Gate;
-use Illuminate\Support\Facades\Request;
 use Livewire\Component;
 
 class SingleMilestone extends Component
 {
+    use WithRateLimiting;
+
     public Milestone $milestone;
     public $type;
 
@@ -22,20 +24,14 @@ class SingleMilestone extends Component
 
     public function togglePraise()
     {
-        $throttler = Throttle::get(Request::instance(), 30, 5);
-        $throttler->hit();
-        if (count($throttler) > 30) {
-            Helper::flagAccount(auth()->user());
-        }
-
-        if (! $throttler->check()) {
-            loggy(request(), 'Throttle', auth()->user(), 'Rate limited while praising the milestone');
-
-            return toast($this, 'error', 'Your are rate limited, try again later!');
+        try {
+            $this->rateLimit(50);
+        } catch (TooManyRequestsException $exception) {
+            return toast($this, 'error', config('taskord.error.rate-limit'));
         }
 
         if (Gate::denies('praise', $this->milestone)) {
-            return toast($this, 'error', "Oops! You can't perform this action");
+            return toast($this, 'error', config('taskord.error.deny'));
         }
 
         Helper::togglePraise($this->milestone, 'MILESTONE');
@@ -46,7 +42,7 @@ class SingleMilestone extends Component
     public function hide()
     {
         if (Gate::denies('staff_mode')) {
-            return toast($this, 'error', "Oops! You can't perform this action");
+            return toast($this, 'error', config('taskord.error.deny'));
         }
 
         Helper::hide($this->milestone);
@@ -58,7 +54,7 @@ class SingleMilestone extends Component
     public function toggleStatus()
     {
         if (! auth()->check()) {
-            return toast($this, 'error', "Oops! You can't perform this action");
+            return toast($this, 'error', config('taskord.error.deny'));
         }
 
         if ($this->milestone->status) {
@@ -79,7 +75,7 @@ class SingleMilestone extends Component
     public function deleteMilestone()
     {
         if (Gate::denies('act', $this->milestone)) {
-            return toast($this, 'error', "Oops! You can't perform this action");
+            return toast($this, 'error', config('taskord.error.deny'));
         }
 
         loggy(request(), 'Milestone', auth()->user(), 'Deleted a milestone | Milestone ID: '.$this->milestone->id);

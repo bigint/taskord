@@ -3,14 +3,15 @@
 namespace App\Http\Livewire\Product\Update;
 
 use App\Models\ProductUpdate;
-use GrahamCampbell\Throttle\Facades\Throttle;
-use Helper;
+use DanHarrin\LivewireRateLimiting\Exceptions\TooManyRequestsException;
+use DanHarrin\LivewireRateLimiting\WithRateLimiting;
 use Illuminate\Support\Facades\Gate;
-use Illuminate\Support\Facades\Request;
 use Livewire\Component;
 
 class SingleUpdate extends Component
 {
+    use WithRateLimiting;
+
     public ProductUpdate $update;
 
     public function mount($update)
@@ -21,20 +22,14 @@ class SingleUpdate extends Component
     // TODO
     public function togglePraise()
     {
-        $throttler = Throttle::get(Request::instance(), 20, 5);
-        $throttler->hit();
-        if (count($throttler) > 30) {
-            Helper::flagAccount(auth()->user());
-        }
-
-        if (! $throttler->check()) {
-            loggy(request(), 'Throttle', auth()->user(), 'Rate limited while praising the update');
-
-            return toast($this, 'error', 'Your are rate limited, try again later!');
+        try {
+            $this->rateLimit(50);
+        } catch (TooManyRequestsException $exception) {
+            return toast($this, 'error', config('taskord.error.rate-limit'));
         }
 
         if (Gate::denies('praise', $this->update)) {
-            return toast($this, 'error', "Oops! You can't perform this action");
+            return toast($this, 'error', config('taskord.error.deny'));
         }
 
         if (auth()->user()->hasLiked($this->update)) {
@@ -52,7 +47,7 @@ class SingleUpdate extends Component
     public function deleteUpdate()
     {
         if (! auth()->check()) {
-            return toast($this, 'error', "Oops! You can't perform this action");
+            return toast($this, 'error', config('taskord.error.deny'));
         }
 
         if (auth()->user()->spammy) {
@@ -66,6 +61,6 @@ class SingleUpdate extends Component
             return $this->emitUp('refreshProduct');
         }
 
-        return toast($this, 'error', "Oops! You can't perform this action");
+        return toast($this, 'error', config('taskord.error.deny'));
     }
 }

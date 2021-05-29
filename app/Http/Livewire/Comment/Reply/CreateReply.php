@@ -25,7 +25,7 @@ class CreateReply extends Component
     public function updated($field)
     {
         if (! auth()->check()) {
-            return toast($this, 'error', "Oops! You can't perform this action");
+            return toast($this, 'error', config('taskord.error.deny'));
         }
 
         $this->validateOnly($field);
@@ -34,7 +34,7 @@ class CreateReply extends Component
     public function submit()
     {
         if (Gate::denies('create')) {
-            return toast($this, 'error', "Oops! You can't perform this action");
+            return toast($this, 'error', config('taskord.error.deny'));
         }
 
         $this->validate();

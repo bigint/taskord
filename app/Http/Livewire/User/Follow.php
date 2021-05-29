@@ -4,13 +4,14 @@ namespace App\Http\Livewire\User;
 
 use App\Models\User;
 use App\Notifications\Followed;
-use GrahamCampbell\Throttle\Facades\Throttle;
-use Helper;
-use Illuminate\Support\Facades\Request;
+use DanHarrin\LivewireRateLimiting\Exceptions\TooManyRequestsException;
+use DanHarrin\LivewireRateLimiting\WithRateLimiting;
 use Livewire\Component;
 
 class Follow extends Component
 {
+    use WithRateLimiting;
+
     public User $user;
 
     public function mount($user)
@@ -20,19 +21,14 @@ class Follow extends Component
 
     public function toggleFollow()
     {
-        $throttler = Throttle::get(Request::instance(), 10, 5);
-        $throttler->hit();
-        if (count($throttler) > 20) {
-            Helper::flagAccount(auth()->user());
-        }
-        if (! $throttler->check()) {
-            loggy(request(), 'Throttle', auth()->user(), 'Rate limited while following the user');
-
-            return toast($this, 'error', 'Your are rate limited, try again later!');
+        try {
+            $this->rateLimit(50);
+        } catch (TooManyRequestsException $exception) {
+            return toast($this, 'error', config('taskord.error.rate-limit'));
         }
 
         if (! auth()->check()) {
-            return toast($this, 'error', "Oops! You can't perform this action");
+            return toast($this, 'error', config('taskord.error.deny'));
         }
 
         if (auth()->user()->spammy) {

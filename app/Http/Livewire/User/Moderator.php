@@ -50,7 +50,7 @@ class Moderator extends Component
     public function enrollBeta()
     {
         if (Gate::denies('staff_mode')) {
-            return toast($this, 'error', "Oops! You can't perform this action");
+            return toast($this, 'error', config('taskord.error.deny'));
         }
 
         $this->user->is_beta = ! $this->user->is_beta;
@@ -77,7 +77,7 @@ class Moderator extends Component
     public function enrollStaff()
     {
         if (Gate::denies('staff_mode') or $this->user->id === 1) {
-            return toast($this, 'error', "Oops! You can't perform this action");
+            return toast($this, 'error', config('taskord.error.deny'));
         }
 
         $this->user->is_staff = ! $this->user->is_staff;
@@ -104,7 +104,7 @@ class Moderator extends Component
     public function enrollDeveloper()
     {
         if (Gate::denies('staff_mode') or $this->user->id === 1) {
-            return toast($this, 'error', "Oops! You can't perform this action");
+            return toast($this, 'error', config('taskord.error.deny'));
         }
 
         $this->user->is_contributor = ! $this->user->is_contributor;
@@ -133,7 +133,7 @@ class Moderator extends Component
     public function privateUser()
     {
         if (Gate::denies('staff_mode') or $this->user->id === 1) {
-            return toast($this, 'error', "Oops! You can't perform this action");
+            return toast($this, 'error', config('taskord.error.deny'));
         }
 
         $this->user->is_private = ! $this->user->is_private;
@@ -160,7 +160,7 @@ class Moderator extends Component
     public function flagUser()
     {
         if (Gate::denies('staff_mode') or $this->user->id === 1) {
-            return toast($this, 'error', "Oops! You can't perform this action");
+            return toast($this, 'error', config('taskord.error.deny'));
         }
 
         $this->user->spammy = ! $this->user->spammy;
@@ -187,7 +187,7 @@ class Moderator extends Component
     public function suspendUser()
     {
         if (Gate::denies('staff_mode') or $this->user->id === 1) {
-            return toast($this, 'error', "Oops! You can't perform this action");
+            return toast($this, 'error', config('taskord.error.deny'));
         }
 
         $this->user->is_suspended = ! $this->user->is_suspended;
@@ -223,7 +223,7 @@ class Moderator extends Component
     public function enrollPatron()
     {
         if (Gate::denies('staff_mode') or $this->user->id === 1) {
-            return toast($this, 'error', "Oops! You can't perform this action");
+            return toast($this, 'error', config('taskord.error.deny'));
         }
 
         $this->user->is_patron = ! $this->user->is_patron;
@@ -252,7 +252,7 @@ class Moderator extends Component
     public function verifyUser()
     {
         if (Gate::denies('staff_mode') or $this->user->id === 1) {
-            return toast($this, 'error', "Oops! You can't perform this action");
+            return toast($this, 'error', config('taskord.error.deny'));
         }
 
         $this->user->is_verified = ! $this->user->is_verified;
@@ -281,7 +281,7 @@ class Moderator extends Component
     public function enrollDarkMode()
     {
         if (Gate::denies('staff_mode')) {
-            return toast($this, 'error', "Oops! You can't perform this action");
+            return toast($this, 'error', config('taskord.error.deny'));
         }
 
         $this->user->dark_mode = ! $this->user->dark_mode;
@@ -308,7 +308,7 @@ class Moderator extends Component
     public function masquerade()
     {
         if (Gate::denies('staff_mode') or $this->user->id === 1) {
-            return toast($this, 'error', "Oops! You can't perform this action");
+            return toast($this, 'error', config('taskord.error.deny'));
         }
 
         loggy(
@@ -325,7 +325,7 @@ class Moderator extends Component
     public function resetAvatar()
     {
         if (Gate::denies('staff_mode')) {
-            return toast($this, 'error', "Oops! You can't perform this action");
+            return toast($this, 'error', config('taskord.error.deny'));
         }
 
         $user = User::find($this->user->id);
@@ -345,7 +345,7 @@ class Moderator extends Component
     public function releaseUsername()
     {
         if (Gate::denies('staff_mode')) {
-            return toast($this, 'error', "Oops! You can't perform this action");
+            return toast($this, 'error', config('taskord.error.deny'));
         }
 
         $user = User::find($this->user->id);
@@ -365,7 +365,7 @@ class Moderator extends Component
     public function deleteTasks()
     {
         if (Gate::denies('staff_mode')) {
-            return toast($this, 'error', "Oops! You can't perform this action");
+            return toast($this, 'error', config('taskord.error.deny'));
         }
 
         $user = User::find($this->user->id);
@@ -389,7 +389,7 @@ class Moderator extends Component
     public function deleteComments()
     {
         if (Gate::denies('staff_mode')) {
-            return toast($this, 'error', "Oops! You can't perform this action");
+            return toast($this, 'error', config('taskord.error.deny'));
         }
 
         $user = User::find($this->user->id);
@@ -408,7 +408,7 @@ class Moderator extends Component
     public function deleteQuestions()
     {
         if (Gate::denies('staff_mode')) {
-            return toast($this, 'error', "Oops! You can't perform this action");
+            return toast($this, 'error', config('taskord.error.deny'));
         }
 
         $user = User::find($this->user->id);
@@ -427,7 +427,7 @@ class Moderator extends Component
     public function deleteAnswers()
     {
         if (Gate::denies('staff_mode')) {
-            return toast($this, 'error', "Oops! You can't perform this action");
+            return toast($this, 'error', config('taskord.error.deny'));
         }
 
         $user = User::find($this->user->id);
@@ -446,7 +446,7 @@ class Moderator extends Component
     public function deleteMilestones()
     {
         if (Gate::denies('staff_mode')) {
-            return toast($this, 'error', "Oops! You can't perform this action");
+            return toast($this, 'error', config('taskord.error.deny'));
         }
 
         $user = User::find($this->user->id);
@@ -465,7 +465,7 @@ class Moderator extends Component
     public function deleteProducts()
     {
         if (Gate::denies('staff_mode')) {
-            return toast($this, 'error', "Oops! You can't perform this action");
+            return toast($this, 'error', config('taskord.error.deny'));
         }
 
         $user = User::find($this->user->id);
@@ -492,7 +492,7 @@ class Moderator extends Component
     public function deleteUser()
     {
         if (Gate::denies('staff_mode') or $this->user->id === 1) {
-            return toast($this, 'error', "Oops! You can't perform this action");
+            return toast($this, 'error', config('taskord.error.deny'));
         }
 
         loggy(
@@ -533,7 +533,7 @@ class Moderator extends Component
     public function updateUserStaffNotes()
     {
         if (Gate::denies('staff_mode')) {
-            return toast($this, 'error', "Oops! You can't perform this action");
+            return toast($this, 'error', config('taskord.error.deny'));
         }
 
         $this->user->staff_notes = $this->staffNotes;

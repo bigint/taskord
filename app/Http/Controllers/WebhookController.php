@@ -5,14 +5,15 @@ namespace App\Http\Controllers;
 use App\Actions\CreateNewTask;
 use App\Models\User;
 use App\Models\Webhook;
-use GrahamCampbell\Throttle\Facades\Throttle;
-use Helper;
+use DanHarrin\LivewireRateLimiting\Exceptions\TooManyRequestsException;
+use DanHarrin\LivewireRateLimiting\WithRateLimiting;
 use Illuminate\Http\Request as WebhookRequest;
-use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Str;
 
 class WebhookController extends Controller
 {
+    use WithRateLimiting;
+
     public function createTask($webhook, $task, $done, $done_at, $product_id, $type)
     {
         $ignoreList = [
@@ -151,14 +152,9 @@ class WebhookController extends Controller
 
     public function web($token, WebhookRequest $request)
     {
-        $throttler = Throttle::get(Request::instance(), 100, 5);
-        $throttler->hit();
-        if (count($throttler) > 100) {
-            Helper::flagAccount(auth()->user());
-        }
-        if (! $throttler->check()) {
-            loggy(request(), 'Throttle', auth()->user(), 'Rate limited in Webhook');
-
+        try {
+            $this->rateLimit(50);
+        } catch (TooManyRequestsException $exception) {
             return response('Your are rate limited, try again later', 429);
         }
 

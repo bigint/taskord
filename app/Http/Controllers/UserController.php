@@ -115,7 +115,7 @@ class UserController extends Controller
             return $response;
         }
 
-        return toast($this, 'error', "Oops! You can't perform this action");
+        return toast($this, 'error', config('taskord.error.deny'));
     }
 
     public function exportLogs()
@@ -137,7 +137,7 @@ class UserController extends Controller
             return $response;
         }
 
-        return toast($this, 'error', "Oops! You can't perform this action");
+        return toast($this, 'error', config('taskord.error.deny'));
     }
 
     public function integrationsSettings()

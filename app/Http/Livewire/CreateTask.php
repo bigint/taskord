@@ -4,10 +4,10 @@ namespace App\Http\Livewire;
 
 use App\Actions\CreateNewTask;
 use App\Jobs\CheckGoal;
-use GrahamCampbell\Throttle\Facades\Throttle;
+use DanHarrin\LivewireRateLimiting\Exceptions\TooManyRequestsException;
+use DanHarrin\LivewireRateLimiting\WithRateLimiting;
 use Helper;
 use Illuminate\Support\Facades\Gate;
-use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use Intervention\Image\Facades\Image;
@@ -17,6 +17,7 @@ use Livewire\WithFileUploads;
 class CreateTask extends Component
 {
     use WithFileUploads;
+    use WithRateLimiting;
 
     public $task;
     public $images = [];
@@ -33,7 +34,7 @@ class CreateTask extends Component
     public function checkState()
     {
         if (! auth()->check()) {
-            return toast($this, 'error', "Oops! You can't perform this action");
+            return toast($this, 'error', config('taskord.error.deny'));
         }
 
         auth()->user()->check_state = ! auth()->user()->check_state;
@@ -44,7 +45,7 @@ class CreateTask extends Component
     public function updatedImage()
     {
         if (! auth()->check()) {
-            return toast($this, 'error', "Oops! You can't perform this action");
+            return toast($this, 'error', config('taskord.error.deny'));
         }
 
         $this->validate([
@@ -55,20 +56,14 @@ class CreateTask extends Component
 
     public function submit()
     {
+        try {
+            $this->rateLimit(50);
+        } catch (TooManyRequestsException $exception) {
+            return toast($this, 'error', config('taskord.error.rate-limit'));
+        }
+
         if (Gate::denies('create')) {
-            return toast($this, 'error', "Oops! You can't perform this action");
-        }
-
-        $throttler = Throttle::get(Request::instance(), 20, 5);
-        $throttler->hit();
-        if (count($throttler) > 30) {
-            Helper::flagAccount(auth()->user());
-        }
-
-        if (! $throttler->check()) {
-            loggy(request(), 'Throttle', auth()->user(), 'Rate limited while creating a task');
-
-            return toast($this, 'error', 'Your are rate limited, try again later!');
+            return toast($this, 'error', config('taskord.error.deny'));
         }
 
         $this->validate([

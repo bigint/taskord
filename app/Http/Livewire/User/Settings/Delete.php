@@ -51,7 +51,7 @@ class Delete extends Component
             return redirect()->route('home');
         }
 
-        return toast($this, 'error', "Oops! You can't perform this action");
+        return toast($this, 'error', config('taskord.error.deny'));
     }
 
     public function deleteAccount()
@@ -91,6 +91,6 @@ class Delete extends Component
             return redirect()->route('home');
         }
 
-        return toast($this, 'error', "Oops! You can't perform this action");
+        return toast($this, 'error', config('taskord.error.deny'));
     }
 }

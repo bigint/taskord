@@ -3,14 +3,15 @@
 namespace App\Http\Livewire\User\Settings;
 
 use App\Models\User;
-use GrahamCampbell\Throttle\Facades\Throttle;
-use Helper;
-use Illuminate\Support\Facades\Request;
+use DanHarrin\LivewireRateLimiting\Exceptions\TooManyRequestsException;
+use DanHarrin\LivewireRateLimiting\WithRateLimiting;
 use Illuminate\Support\Str;
 use Livewire\Component;
 
 class Api extends Component
 {
+    use WithRateLimiting;
+
     public User $user;
 
     public $listeners = [
@@ -24,15 +25,10 @@ class Api extends Component
 
     public function regenerateToken()
     {
-        $throttler = Throttle::get(Request::instance(), 5, 5);
-        $throttler->hit();
-        if (count($throttler) > 10) {
-            Helper::flagAccount(auth()->user());
-        }
-        if (! $throttler->check()) {
-            loggy(request(), 'Throttle', auth()->user(), 'Rate limited while generating a API token');
-
-            return toast($this, 'error', 'Your are rate limited, try again later!');
+        try {
+            $this->rateLimit(50);
+        } catch (TooManyRequestsException $exception) {
+            return toast($this, 'error', config('taskord.error.rate-limit'));
         }
 
         if (auth()->user()->id === $this->user->id) {
@@ -44,7 +40,7 @@ class Api extends Component
             return toast($this, 'success', 'New API key been generated successfully');
         }
 
-        return toast($this, 'error', "Oops! You can't perform this action");
+        return toast($this, 'error', config('taskord.error.deny'));
     }
 
     public function render()

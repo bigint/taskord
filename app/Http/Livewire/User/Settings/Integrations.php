@@ -4,14 +4,15 @@ namespace App\Http\Livewire\User\Settings;
 
 use App\Models\User;
 use App\Models\Webhook;
-use GrahamCampbell\Throttle\Facades\Throttle;
-use Helper;
-use Illuminate\Support\Facades\Request;
+use DanHarrin\LivewireRateLimiting\Exceptions\TooManyRequestsException;
+use DanHarrin\LivewireRateLimiting\WithRateLimiting;
 use Illuminate\Support\Str;
 use Livewire\Component;
 
 class Integrations extends Component
 {
+    use WithRateLimiting;
+
     public User $user;
     public $name;
     public $product;
@@ -28,15 +29,10 @@ class Integrations extends Component
 
     public function submit()
     {
-        $throttler = Throttle::get(Request::instance(), 5, 5);
-        $throttler->hit();
-        if (count($throttler) > 10) {
-            Helper::flagAccount(auth()->user());
-        }
-        if (! $throttler->check()) {
-            loggy(request(), 'Throttle', auth()->user(), 'Rate limited while creating an API integration');
-
-            return toast($this, 'error', 'Your are rate limited, try again later!');
+        try {
+            $this->rateLimit(50);
+        } catch (TooManyRequestsException $exception) {
+            return toast($this, 'error', config('taskord.error.rate-limit'));
         }
 
         if (auth()->user()->id === $this->user->id) {
@@ -63,10 +59,10 @@ class Integrations extends Component
                 return toast($this, 'success', 'New webhook has been created!');
             }
 
-            return toast($this, 'error', "Oops! You can't perform this action");
+            return toast($this, 'error', config('taskord.error.deny'));
         }
 
-        return toast($this, 'error', "Oops! You can't perform this action");
+        return toast($this, 'error', config('taskord.error.deny'));
     }
 
     public function deleteWebhook($webhookId)
@@ -80,7 +76,7 @@ class Integrations extends Component
             return toast($this, 'success', 'Webhook has been deleted!');
         }
 
-        return toast($this, 'error', "Oops! You can't perform this action");
+        return toast($this, 'error', config('taskord.error.deny'));
     }
 
     public function render()
