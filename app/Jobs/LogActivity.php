@@ -31,7 +31,7 @@ class LogActivity implements ShouldQueue
 
     public function handle()
     {
-        $geoDetails = $this->getLocation();
+        $geoDetails = $this->getGeoDetails();
 
         activity()
             ->causedBy($this->user)
@@ -55,7 +55,7 @@ class LogActivity implements ShouldQueue
         );
     }
 
-    public function getLocation()
+    public function getGeoDetails()
     {
         try {
             if (App::environment() === 'local') {
