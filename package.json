@@ -25,6 +25,7 @@
         "hotkeys-js": "3.8.5",
         "observe-element-in-viewport": "0.0.15",
         "tippy.js": "6.3.1",
-        "tributejs": "5.1.3"
+        "tributejs": "5.1.3",
+        "web-vitals": "^1.1.2"
     }
 }

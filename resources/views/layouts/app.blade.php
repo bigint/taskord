@@ -108,4 +108,7 @@
 <script src="{{ mix('js/bootstrap.js') }}" defer></script>
 <script src="{{ mix('js/app.js') }}" defer></script>
 @yield('scripts')
+@can('staff.ops')
+    <script src="{{ mix('js/stafftools.js') }}" defer></script>
+@endcan
 </html>

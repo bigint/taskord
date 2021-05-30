@@ -54,14 +54,6 @@ if (darkMode) {
   });
 }
 
-// Toggle stats in adminbar
-var expandStats = document.getElementById("expand-stats");
-if (expandStats) {
-  expandStats.addEventListener("click", async () => {
-    document.getElementById("staffbar-stats").classList.toggle('d-none');
-  });
-}
-
 window.addEventListener("toast", event => {
   var toastElList = [].slice.call(document.querySelectorAll(".toast"));
   var toastList = toastElList.map(function (toastEl) {
