@@ -2,6 +2,7 @@
 
 namespace App\Jobs;
 
+use App\Notifications\TelegramLogger;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
@@ -13,45 +14,48 @@ class LogActivity implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
+    protected $ip;
+    protected $userAgent;
     protected $type;
     protected $user;
     protected $message;
-    protected $ip;
-    protected $userAgent;
 
-    /**
-     * Create a new job instance.
-     *
-     * @return void
-     */
     public function __construct($ip, $userAgent, $type, $user, $message)
     {
+        $this->ip = $ip;
+        $this->userAgent = $userAgent;
         $this->type = $type;
         $this->user = $user;
         $this->message = $message;
-        $this->ip = $ip;
-        $this->userAgent = $userAgent;
     }
 
-    /**
-     * Execute the job.
-     *
-     * @return void
-     */
     public function handle()
     {
+        $geoDetails = $this->getGeoDetails();
+
         activity()
             ->causedBy($this->user)
             ->withProperties([
                 'type' => $this->type,
                 'ip' => $this->ip,
                 'user_agent' => $this->userAgent,
-                'location' => $this->ip === '127.0.0.1' ? null : $this->getLocation(),
+                'location' => $this->ip === '127.0.0.1' ? null : $geoDetails['location'],
             ])
             ->log($this->message);
+
+        return $this->user->notify(
+            new TelegramLogger(
+                $this->ip,
+                $this->userAgent,
+                $this->type,
+                $this->user,
+                $this->message,
+                $geoDetails,
+            )
+        );
     }
 
-    public function getLocation()
+    public function getGeoDetails()
     {
         try {
             if (App::environment() === 'production') {
@@ -61,7 +65,11 @@ class LogActivity implements ShouldQueue
                         return null;
                     }
 
-                    return $ipInfo->city.', '.$ipInfo->regionName.', '.$ipInfo->country;
+                    return [
+                        'location' => $ipInfo->city.', '.$ipInfo->regionName.', '.$ipInfo->country,
+                        'lon' => $ipInfo->lat,
+                        'lat' => $ipInfo->lon,
+                    ];
                 } catch (Exception $e) {
                     return 'IP API Rate limited';
                 }
