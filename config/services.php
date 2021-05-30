@@ -70,4 +70,8 @@ return [
         'public_key' => env('PADDLE_PUBLIC_KEY'),
     ],
 
+    'telegram-bot-api' => [
+        'token' => env('TELEGRAM_BOT_TOKEN')
+    ],
+
 ];

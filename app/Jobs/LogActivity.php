@@ -2,6 +2,7 @@
 
 namespace App\Jobs;
 
+use App\Jobs\TelegramLogger;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
@@ -13,31 +14,21 @@ class LogActivity implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
+    protected $ip;
+    protected $userAgent;
     protected $type;
     protected $user;
     protected $message;
-    protected $ip;
-    protected $userAgent;
 
-    /**
-     * Create a new job instance.
-     *
-     * @return void
-     */
     public function __construct($ip, $userAgent, $type, $user, $message)
     {
+        $this->ip = $ip;
+        $this->userAgent = $userAgent;
         $this->type = $type;
         $this->user = $user;
         $this->message = $message;
-        $this->ip = $ip;
-        $this->userAgent = $userAgent;
     }
 
-    /**
-     * Execute the job.
-     *
-     * @return void
-     */
     public function handle()
     {
         activity()
@@ -49,6 +40,14 @@ class LogActivity implements ShouldQueue
                 'location' => $this->ip === '127.0.0.1' ? null : $this->getLocation(),
             ])
             ->log($this->message);
+
+        return TelegramLogger::dispatch(
+            $this->ip,
+            $this->userAgent,
+            $this->type,
+            $this->user,
+            $this->message
+        );
     }
 
     public function getLocation()
