@@ -25,7 +25,7 @@ class CreateMilestone extends Component
         ]);
 
         $milestone = Milestone::create([
-            'user_id' =>  auth()->user()->id,
+            'user_id' => auth()->user()->id,
             'name' => $this->name,
             'description' => $this->description,
             'start_date' => $this->startDate,

@@ -31,7 +31,9 @@ class MilestoneController extends Controller
             auth()->check() && auth()->user()->staff_mode
         ) {
             return view('milestone/milestone', $response);
-        } elseif ($milestone->user->spammy or $milestone->user->is_private) {
+        }
+
+        if ($milestone->user->spammy or $milestone->user->is_private) {
             return abort(404);
         }
 
@@ -47,9 +49,9 @@ class MilestoneController extends Controller
             return view('milestone.edit', [
                 'milestone' => $milestone,
             ]);
-        } else {
-            return abort(404);
         }
+
+        return abort(404);
     }
 
     public function popover(Milestone $milestone)

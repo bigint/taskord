@@ -8,7 +8,7 @@ use Livewire\Component;
 class Status extends Component
 {
     public $listeners = [
-        'refreshStatus'  => 'render',
+        'refreshStatus' => 'render',
     ];
 
     public User $user;

@@ -18,26 +18,30 @@ class PatronController extends Controller
         ksort($fields);
         foreach ($fields as $k => $v) {
             if (! in_array(gettype($v), ['object', 'array'])) {
-                $fields[$k] = "$v";
+                $fields[$k] = "${v}";
             }
         }
         $data = serialize($fields);
         $verification = openssl_verify($data, $signature, $publicKey, OPENSSL_ALGO_SHA1);
-        if ($verification == 1) {
+        if ($verification === 1) {
             $user = User::whereEmail($request->email)->first();
             if ($request->alert_name === 'subscription_created') {
                 return $this->handleSubscriptionCreated($user, $request);
-            } elseif ($request->alert_name === 'subscription_updated') {
+            }
+
+            if ($request->alert_name === 'subscription_updated') {
                 return $this->handleSubscriptionUpdated($user, $request);
-            } elseif (
+            }
+
+            if (
                 $request->alert_name === 'subscription_cancelled' or
                 $request->alert_name === 'subscription_payment_refunded'
             ) {
-                return $this->handleSubscriptionCancelled($user, $request);
+                return $this->handleSubscriptionCancelled($user);
             }
-        } else {
-            return 'Forbidden';
         }
+
+        return 'Forbidden';
     }
 
     public function handleSubscriptionCreated($user, $request)
@@ -57,12 +61,12 @@ class PatronController extends Controller
                 $user->save();
 
                 return 'Success';
-            } else {
-                return 'Already Subscribed';
             }
-        } else {
-            return 'No user';
+
+            return 'Already Subscribed';
         }
+
+        return 'No user';
     }
 
     public function handleSubscriptionUpdated($user, $request)
@@ -75,12 +79,12 @@ class PatronController extends Controller
             $user->patron->save();
 
             return 'Success';
-        } else {
-            return 'No user';
         }
+
+        return 'No user';
     }
 
-    public function handleSubscriptionCancelled($user, $request)
+    public function handleSubscriptionCancelled($user)
     {
         if ($user) {
             $user->patron->delete();
@@ -89,8 +93,8 @@ class PatronController extends Controller
             $user->save();
 
             return 'Success';
-        } else {
-            return 'No user';
         }
+
+        return 'No user';
     }
 }

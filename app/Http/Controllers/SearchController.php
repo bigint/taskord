@@ -49,7 +49,7 @@ class SearchController extends Controller
             return view('search.result', [
                 'type' => 'tasks',
                 'searchTerm' => $searchTerm,
-                'tasks' =>  $tasks,
+                'tasks' => $tasks,
             ]);
         }
 
@@ -78,7 +78,7 @@ class SearchController extends Controller
             return view('search.result', [
                 'type' => 'comments',
                 'searchTerm' => $searchTerm,
-                'comments' =>  $comments,
+                'comments' => $comments,
             ]);
         }
 
@@ -106,7 +106,7 @@ class SearchController extends Controller
             return view('search.result', [
                 'type' => 'questions',
                 'searchTerm' => $searchTerm,
-                'questions' =>  $questions,
+                'questions' => $questions,
             ]);
         }
 
@@ -134,7 +134,7 @@ class SearchController extends Controller
             return view('search.result', [
                 'type' => 'answers',
                 'searchTerm' => $searchTerm,
-                'answers' =>  $answers,
+                'answers' => $answers,
             ]);
         }
 
@@ -161,7 +161,7 @@ class SearchController extends Controller
             return view('search.result', [
                 'type' => 'products',
                 'searchTerm' => $searchTerm,
-                'products' =>  $products,
+                'products' => $products,
             ]);
         }
 
@@ -183,7 +183,7 @@ class SearchController extends Controller
             return view('search.result', [
                 'type' => 'users',
                 'searchTerm' => $searchTerm,
-                'users' =>  $users,
+                'users' => $users,
             ]);
         }
 

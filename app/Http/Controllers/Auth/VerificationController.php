@@ -3,8 +3,6 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
-use App\Models\User;
-use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\VerifiesEmails;
 use Illuminate\Http\Request;
 
@@ -28,7 +26,7 @@ class VerificationController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = RouteServiceProvider::HOME;
+    protected $redirectTo = '/';
 
     /**
      * Create a new controller instance.
@@ -48,11 +46,11 @@ class VerificationController extends Controller
             session()->flash('global', 'Your email is already verified!');
 
             return redirect()->route('home');
-        } else {
-            $request->user()->sendEmailVerificationNotification();
-            session()->flash('global', 'Verification link has been sent to your email!');
-
-            return redirect()->route('home');
         }
+
+        $request->user()->sendEmailVerificationNotification();
+        session()->flash('global', 'Verification link has been sent to your email!');
+
+        return redirect()->route('home');
     }
 }

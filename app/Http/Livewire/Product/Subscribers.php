@@ -9,9 +9,10 @@ use Livewire\WithPagination;
 class Subscribers extends Component
 {
     use WithPagination;
-    protected $paginationTheme = 'bootstrap';
+
     public Product $product;
     public $readyToLoad = false;
+    protected $paginationTheme = 'bootstrap';
 
     public function loadSubscribers()
     {

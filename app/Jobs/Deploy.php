@@ -23,11 +23,6 @@ class Deploy implements ShouldQueue
         $this->ip = $ip;
     }
 
-    /**
-     * Execute the job.
-     *
-     * @return void
-     */
     public function handle()
     {
         if (App::environment() === 'production') {

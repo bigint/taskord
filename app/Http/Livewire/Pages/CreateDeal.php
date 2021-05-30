@@ -33,7 +33,7 @@ class CreateDeal extends Component
         ]);
 
         $deal = Deal::create([
-            'name' =>  $this->name,
+            'name' => $this->name,
             'description' => $this->description,
             'offer' => $this->offer,
             'coupon' => $this->coupon,

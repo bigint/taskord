@@ -27,7 +27,7 @@ class UserFactory extends Factory
             'username' => str_replace('.', '', $this->faker->unique()->userName),
             'firstname' => $this->faker->firstName,
             'lastname' => $this->faker->lastName,
-            'company' =>  $this->faker->firstName,
+            'company' => $this->faker->firstName,
             'bio' => $this->faker->sentence($nbWords = 6, $variableNbWords = true),
             'avatar' => 'https://avatar.tobi.sh/'.$this->faker->userName.'.svg?text='.strtoupper($this->faker->randomLetter).strtoupper($this->faker->randomLetter),
             'reputation' => $this->faker->numberBetween($min = 50, $max = 150),

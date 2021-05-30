@@ -10,9 +10,9 @@ use Spatie\Activitylog\Models\Activity;
 class Logs extends Component
 {
     use WithPagination;
-    protected $paginationTheme = 'bootstrap';
 
     public User $user;
+    protected $paginationTheme = 'bootstrap';
 
     public function mount($user)
     {

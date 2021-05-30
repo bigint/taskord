@@ -6,7 +6,6 @@ use App\Http\Controllers\Controller;
 use App\Jobs\AuthGetIP;
 use App\Models\User;
 use App\Notifications\Welcome;
-use App\Providers\RouteServiceProvider;
 use App\Rules\ReservedSlug;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
@@ -34,7 +33,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = RouteServiceProvider::HOME;
+    protected $redirectTo = '/';
 
     /**
      * Create a new controller instance.
@@ -50,12 +49,13 @@ class RegisterController extends Controller
      * Get a validator for an incoming registration request.
      *
      * @param  array  $data
+     *
      * @return \Illuminate\Contracts\Validation\Validator
      */
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'username' => ['required', 'alpha_dash', 'string', 'min:2', 'max:20', 'unique:users', new ReservedSlug],
+            'username' => ['required', 'alpha_dash', 'string', 'min:2', 'max:20', 'unique:users', new ReservedSlug()],
             'email' => ['required', 'string', 'email', 'indisposable', 'max:255', 'unique:users'],
             'password' => ['required', 'string', Password::min(8)->uncompromised()],
         ]);
@@ -65,6 +65,7 @@ class RegisterController extends Controller
      * Create a new user instance after a valid registration.
      *
      * @param  array  $data
+     *
      * @return \App\Models\User
      */
     protected function create(array $data)

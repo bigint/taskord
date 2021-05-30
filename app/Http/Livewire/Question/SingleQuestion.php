@@ -72,9 +72,9 @@ class SingleQuestion extends Component
             auth()->user()->touch();
 
             return $this->emit('refreshSingleQuestion');
-        } else {
-            toast($this, 'error', config('taskord.error.deny'));
         }
+
+        return toast($this, 'error', config('taskord.error.deny'));
     }
 
     public function deleteQuestion()

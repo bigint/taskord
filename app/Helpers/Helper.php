@@ -35,7 +35,8 @@ class Helper
      * Toggle praise on a model.
      *
      * @param \Illuminate\Database\Eloquent\Model $entity
-     * @param string                              $type
+     * @param string $type
+     *
      * @return void
      */
     public static function togglePraise(Model $entity, string $type)
@@ -136,7 +137,7 @@ class Helper
     public static function parseUserMentionsToMarkdownLinks($markdown, $mentions)
     {
         foreach ($mentions as $user) {
-            $markdown = str_replace("@$user", sprintf('[@%s](/@%s)', $user, $user), $markdown);
+            $markdown = str_replace("@${user}", sprintf('[@%s](/@%s)', $user, $user), $markdown);
         }
 
         return $markdown;
@@ -173,7 +174,7 @@ class Helper
         if (preg_match($urlRegex, $task, $url)) {
             $truncate = strlen($url[0]) > 30 ? substr($url[0], 0, 30).'...' : $url[0];
 
-            return preg_replace($urlRegex, "<a class='link' target='_blank' href='$url[0]'>$truncate</a>", $task);
+            return preg_replace($urlRegex, "<a class='link' target='_blank' href='{$url[0]}'>${truncate}</a>", $task);
         }
 
         return $task;

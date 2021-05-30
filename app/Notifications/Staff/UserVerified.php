@@ -11,11 +11,6 @@ class UserVerified extends Notification implements ShouldQueue
 {
     use Queueable;
 
-    public function __construct()
-    {
-        //
-    }
-
     public function via()
     {
         return ['mail'];
@@ -23,11 +18,11 @@ class UserVerified extends Notification implements ShouldQueue
 
     public function toMail($notifiable)
     {
-        return (new MailMessage)
-                    ->subject('Your account has been verified ✅')
-                    ->greeting('Hello @'.$notifiable->username.' 👋')
-                    ->line('Your account has been verified by one of the staff members 🎉')
-                    ->line('You can see the verified badge everywhere next to your name.')
-                    ->line('Thank you for using Taskord!');
+        return (new MailMessage())
+            ->subject('Your account has been verified ✅')
+            ->greeting('Hello @'.$notifiable->username.' 👋')
+            ->line('Your account has been verified by one of the staff members 🎉')
+            ->line('You can see the verified badge everywhere next to your name.')
+            ->line('Thank you for using Taskord!');
     }
 }

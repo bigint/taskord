@@ -34,7 +34,7 @@ Auth::routes(['verify' => true]);
 
 // Social Auth
 Route::get('login/{provider}', [SocialController::class, 'redirect']);
-Route::get('login/{provider}/callback', [SocialController::class, 'Callback']);
+Route::get('login/{provider}/callback', [SocialController::class, 'callback']);
 
 // 404 Fallback
 Route::fallback(function () {

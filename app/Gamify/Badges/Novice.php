@@ -17,6 +17,7 @@ class Novice extends BadgeType
      * Check is user qualifies for badge.
      *
      * @param $user
+     *
      * @return bool
      */
     public function qualifier($user)

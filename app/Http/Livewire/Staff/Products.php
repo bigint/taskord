@@ -10,9 +10,8 @@ class Products extends Component
 {
     use WithPagination;
 
-    protected string $paginationTheme = 'bootstrap';
-
     public bool $readyToLoad = false;
+    protected string $paginationTheme = 'bootstrap';
 
     public function loadProducts()
     {
@@ -31,7 +30,7 @@ class Products extends Component
     {
         return view('livewire.staff.products', [
             'products' => $this->readyToLoad ? $this->getProducts() : [],
-            'count'    => $this->readyToLoad ? Product::count('id') : [],
+            'count' => $this->readyToLoad ? Product::count('id') : [],
         ]);
     }
 }

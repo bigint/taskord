@@ -47,7 +47,7 @@ class CreateComment extends Component
         }
 
         $comment = auth()->user()->comments()->create([
-            'task_id' =>  $this->task->id,
+            'task_id' => $this->task->id,
             'comment' => $this->comment,
         ]);
         auth()->user()->touch();

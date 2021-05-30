@@ -43,11 +43,11 @@ class CreateProduct extends Component
 
         $this->validate([
             'name' => ['required', 'max:30'],
-            'slug' => ['required', 'min:3', 'max:20', 'unique:products', 'alpha_dash', new ReservedSlug],
+            'slug' => ['required', 'min:3', 'max:20', 'unique:products', 'alpha_dash', new ReservedSlug()],
             'description' => ['nullable', 'max:160'],
             'website' => ['nullable', 'active_url'],
             'twitter' => ['nullable', 'alpha_dash', 'max:30'],
-            'repo' => ['nullable', 'active_url', new Repo],
+            'repo' => ['nullable', 'active_url', new Repo()],
             'producthunt' => ['nullable', 'alpha_dash', 'max:30'],
             'sponsor' => ['nullable', 'active_url'],
             'avatar' => ['nullable', 'mimes:jpeg,jpg,png,gif', 'max:1024'],
@@ -65,8 +65,8 @@ class CreateProduct extends Component
 
         if ($this->avatar) {
             $img = Image::make($this->avatar)
-                    ->fit(400)
-                    ->encode('webp', 100);
+                ->fit(400)
+                ->encode('webp', 100);
             $imageName = Str::orderedUuid().'.webp';
             Storage::disk('public')->put('logos/'.$imageName, (string) $img);
             $url = config('app.url').'/storage/logos/'.$imageName;

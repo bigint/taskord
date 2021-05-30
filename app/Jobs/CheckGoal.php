@@ -16,11 +16,6 @@ class CheckGoal implements ShouldQueue
     protected $user;
     protected $task;
 
-    /**
-     * Create a new job instance.
-     *
-     * @return void
-     */
     public function __construct($user, $task)
     {
         $this->user = $user;
@@ -33,11 +28,6 @@ class CheckGoal implements ShouldQueue
         $this->user->givePoint(new GoalReached($this->task, $awarded));
     }
 
-    /**
-     * Execute the job.
-     *
-     * @return void
-     */
     public function handle()
     {
         $lastReached = \DB::table('reputations')

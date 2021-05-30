@@ -41,12 +41,12 @@ class CommentPraised extends Notification implements ShouldQueue
         $user = User::find($this->userId);
 
         if (! $user->spammy) {
-            return (new MailMessage)
-                        ->subject('@'.$user->username.' praised your comment')
-                        ->greeting('Hello @'.$notifiable->username.' 👋')
-                        ->line('👏 Your comment was praised by @'.$user->username)
-                        ->line($this->comment->comment)
-                        ->line('Thank you for using Taskord!');
+            return (new MailMessage())
+                ->subject('@'.$user->username.' praised your comment')
+                ->greeting('Hello @'.$notifiable->username.' 👋')
+                ->line('👏 Your comment was praised by @'.$user->username)
+                ->line($this->comment->comment)
+                ->line('Thank you for using Taskord!');
         }
 
         return null;

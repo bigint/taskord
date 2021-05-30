@@ -15,21 +15,6 @@ class Clean implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
-    /**
-     * Create a new job instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        //
-    }
-
-    /**
-     * Execute the job.
-     *
-     * @return void
-     */
     public function handle()
     {
         if (App::environment() === 'production') {
@@ -37,7 +22,7 @@ class Clean implements ShouldQueue
             $res = $client->request('POST', 'https://api.cloudflare.com/client/v4/zones/06be44cac798e7deeb4abda1378c4339/purge_cache', [
                 'headers' => [
                     'X-Auth-Email' => config('services.cloudflare.email'),
-                    'X-Auth-Key'   => config('services.cloudflare.api_key'),
+                    'X-Auth-Key' => config('services.cloudflare.api_key'),
                     'Content-Type' => 'application/json',
                 ],
                 'json' => [

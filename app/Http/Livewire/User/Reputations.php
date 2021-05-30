@@ -9,8 +9,9 @@ use Livewire\WithPagination;
 class Reputations extends Component
 {
     use WithPagination;
-    protected $paginationTheme = 'bootstrap';
+
     public $readyToLoad = false;
+    protected $paginationTheme = 'bootstrap';
 
     public function loadReputations()
     {

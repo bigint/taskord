@@ -9,9 +9,10 @@ use Livewire\WithPagination;
 class Questions extends Component
 {
     use WithPagination;
-    protected $paginationTheme = 'bootstrap';
+
     public User $user;
     public $readyToLoad = false;
+    protected $paginationTheme = 'bootstrap';
 
     public function mount($user)
     {

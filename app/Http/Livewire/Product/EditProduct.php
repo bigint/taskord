@@ -61,11 +61,11 @@ class EditProduct extends Component
 
         $this->validate([
             'name' => ['required', 'max:30'],
-            'slug' => ['required', 'min:3', 'max:20', 'alpha_dash', 'unique:products,slug,'.$this->product->id, new ReservedSlug],
+            'slug' => ['required', 'min:3', 'max:20', 'alpha_dash', 'unique:products,slug,'.$this->product->id, new ReservedSlug()],
             'description' => ['nullable', 'max:160'],
             'website' => ['nullable', 'active_url'],
             'twitter' => ['nullable', 'alpha_dash', 'max:30'],
-            'repo' => ['nullable', 'active_url', new Repo],
+            'repo' => ['nullable', 'active_url', new Repo()],
             'producthunt' => ['nullable', 'alpha_dash', 'max:30'],
             'sponsor' => ['nullable', 'active_url'],
             'avatar' => ['nullable', 'mimes:jpeg,jpg,png,gif', 'max:1024'],
@@ -79,8 +79,8 @@ class EditProduct extends Component
                 Storage::delete($oldAvatar[1]);
             }
             $img = Image::make($this->avatar)
-                    ->fit(400)
-                    ->encode('webp', 100);
+                ->fit(400)
+                ->encode('webp', 100);
             $imageName = Str::orderedUuid().'.webp';
             Storage::disk('public')->put('logos/'.$imageName, (string) $img);
             $avatar = config('app.url').'/storage/logos/'.$imageName;

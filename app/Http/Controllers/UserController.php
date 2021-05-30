@@ -31,7 +31,9 @@ class UserController extends Controller
 
         if (auth()->check() && auth()->user()->id === $user->id or auth()->check() && auth()->user()->staff_mode) {
             return view($type, $response);
-        } elseif ($user->spammy) {
+        }
+
+        if ($user->spammy) {
             return abort(404);
         }
 
@@ -213,14 +215,14 @@ class UserController extends Controller
             return response()->json([
                 'status' => 'disabled',
             ]);
-        } else {
-            auth()->user()->dark_mode = true;
-            auth()->user()->save();
-            loggy(request(), 'User', auth()->user(), 'Enabled dark mode');
-
-            return response()->json([
-                'status' => 'enabled',
-            ]);
         }
+
+        auth()->user()->dark_mode = true;
+        auth()->user()->save();
+        loggy(request(), 'User', auth()->user(), 'Enabled dark mode');
+
+        return response()->json([
+            'status' => 'enabled',
+        ]);
     }
 }

@@ -39,12 +39,12 @@ class Followed extends Notification implements ShouldQueue
         $user = User::find($this->user->id);
 
         if (! $user->spammy) {
-            return (new MailMessage)
-                        ->subject('@'.$user->username.' followed you')
-                        ->greeting('Hello @'.$notifiable->username.' 👋')
-                        ->line('@'.$user->username.' followed you on Taskord.')
-                        ->action('Go to user profile @'.$user->username, url('/@'.$user->username))
-                        ->line('Thank you for using Taskord!');
+            return (new MailMessage())
+                ->subject('@'.$user->username.' followed you')
+                ->greeting('Hello @'.$notifiable->username.' 👋')
+                ->line('@'.$user->username.' followed you on Taskord.')
+                ->action('Go to user profile @'.$user->username, url('/@'.$user->username))
+                ->line('Thank you for using Taskord!');
         }
 
         return null;

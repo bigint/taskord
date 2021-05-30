@@ -26,11 +26,11 @@ class Login extends Notification implements ShouldQueue
     public function toMail($notifiable)
     {
         if (! $notifiable->spammy) {
-            return (new MailMessage)
-                        ->subject('Account security notice - Successful login')
-                        ->greeting('Hello @'.$notifiable->username.' 👋')
-                        ->line('There was a successful login to **'.$notifiable->username.'** from **'.$this->ip.'**. If this was not you please contact us immediately.')
-                        ->line('Thank you for using Taskord!');
+            return (new MailMessage())
+                ->subject('Account security notice - Successful login')
+                ->greeting('Hello @'.$notifiable->username.' 👋')
+                ->line('There was a successful login to **'.$notifiable->username.'** from **'.$this->ip.'**. If this was not you please contact us immediately.')
+                ->line('Thank you for using Taskord!');
         }
 
         return null;

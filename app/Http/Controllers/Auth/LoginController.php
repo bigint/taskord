@@ -7,7 +7,6 @@ use App\Jobs\AuthGetIP;
 use App\Models\User;
 use App\Notifications\Auth\Login;
 use App\Notifications\Auth\MagicLink;
-use App\Providers\RouteServiceProvider;
 use Grosv\LaravelPasswordlessLogin\LoginUrl;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
@@ -32,7 +31,7 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = RouteServiceProvider::HOME;
+    protected $redirectTo = '/';
 
     /**
      * Create a new controller instance.
@@ -57,20 +56,20 @@ class LoginController extends Controller
             $request->session()->flash('error', 'No user found with "'.$request->input('username').'"');
 
             return redirect()->back();
-        } else {
-            if (! $user->spammy) {
-                $generator = new LoginUrl($user);
-                $generator->setRedirectUrl('/');
-                $url = $generator->generate();
-                $user->notify(new MagicLink($url));
-                $request->session()->flash('global', 'Magic link has been sent to your email');
-                AuthGetIP::dispatch($user, $request->ip());
-            } else {
-                $request->session()->flash('global', 'Your account is flagged or suspended 😢');
-            }
-
-            return redirect()->route('home');
         }
+
+        if (! $user->spammy) {
+            $generator = new LoginUrl($user);
+            $generator->setRedirectUrl('/');
+            $url = $generator->generate();
+            $user->notify(new MagicLink($url));
+            $request->session()->flash('global', 'Magic link has been sent to your email');
+            AuthGetIP::dispatch($user, $request->ip());
+        }
+
+        $request->session()->flash('global', 'Your account is flagged or suspended 😢');
+
+        return redirect()->route('home');
     }
 
     public function login(Request $request)
@@ -92,10 +91,10 @@ class LoginController extends Controller
             loggy(request(), 'Auth', auth()->user(), 'Logged in via Taskord auth with '.auth()->user()->email);
 
             return redirect()->route('home');
-        } else {
-            $request->session()->flash('error', 'Invalid login credentials');
-
-            return redirect()->back();
         }
+
+        $request->session()->flash('error', 'Invalid login credentials');
+
+        return redirect()->back();
     }
 }

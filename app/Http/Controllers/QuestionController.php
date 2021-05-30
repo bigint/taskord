@@ -42,23 +42,27 @@ class QuestionController extends Controller
             views($question)->record();
 
             return view('question.question', $response);
-        } elseif (auth()->check() && $question->patron_only) {
+        }
+
+        if (auth()->check() && $question->patron_only) {
             if (auth()->check() && ! auth()->user()->is_patron) {
                 return redirect()->route('patron.home');
-            } else {
-                views($question)->record();
-
-                return view('question.question', $response);
             }
-        } elseif ($question->user->spammy) {
+
+            views($question)->record();
+
+            return view('question.question', $response);
+        }
+
+        if ($question->user->spammy) {
             return abort(404);
         }
 
         if ($question->patron_only) {
             return redirect()->route('patron.home');
-        } else {
-            return view('question.question', $response);
         }
+
+        return view('question.question', $response);
     }
 
     public function edit(Question $question)
@@ -70,8 +74,8 @@ class QuestionController extends Controller
             return view('question.edit', [
                 'question' => $question,
             ]);
-        } else {
-            return abort(404);
         }
+
+        return abort(404);
     }
 }

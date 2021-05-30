@@ -64,7 +64,9 @@ class ProductController extends Controller
 
         if (auth()->check() && auth()->user()->id === $product->user->id or auth()->check() && auth()->user()->staff_mode) {
             return view($type, $response);
-        } elseif ($product->user->spammy) {
+        }
+
+        if ($product->user->spammy) {
             return abort(404);
         }
 
@@ -83,9 +85,9 @@ class ProductController extends Controller
             return view('product.edit', [
                 'product' => $product,
             ]);
-        } else {
-            return abort(404);
         }
+
+        return abort(404);
     }
 
     public function newest()

@@ -7,12 +7,14 @@ use Livewire\WithPagination;
 
 class AllTasks extends Component
 {
+    use WithPagination;
+
     public $listeners = [
         'refreshTasks' => 'render',
     ];
-    use WithPagination;
-    protected $paginationTheme = 'bootstrap';
+
     public $readyToLoad = false;
+    protected $paginationTheme = 'bootstrap';
 
     public function loadAllTasks()
     {

@@ -49,12 +49,12 @@ class Account extends Component
             if ($this->user->is_private) {
                 loggy(request(), 'User', auth()->user(), 'Enrolled as a private user');
 
-                toast($this, 'success', 'All your tasks are now private');
-            } else {
-                loggy(request(), 'User', auth()->user(), 'Enrolled as a public user');
-
-                toast($this, 'success', 'All your tasks are now public');
+                return toast($this, 'success', 'All your tasks are now private');
             }
+
+            loggy(request(), 'User', auth()->user(), 'Enrolled as a public user');
+
+            return toast($this, 'success', 'All your tasks are now public');
         }
 
         return toast($this, 'error', config('taskord.error.deny'));
@@ -63,7 +63,7 @@ class Account extends Component
     public function updated($field)
     {
         $this->validateOnly($field, [
-            'username' => ['required', 'min:2', 'max:20', 'alpha_dash', 'unique:users,username,'.$this->user->id, new ReservedSlug],
+            'username' => ['required', 'min:2', 'max:20', 'alpha_dash', 'unique:users,username,'.$this->user->id, new ReservedSlug()],
             'email' => ['required', 'email', 'max:255', 'indisposable', 'unique:users,email,'.$this->user->id],
         ]);
     }
@@ -72,7 +72,7 @@ class Account extends Component
     {
         if (auth()->user()->id === $this->user->id) {
             $this->validate([
-                'username' => ['required', 'min:2', 'max:20', 'alpha_dash', 'unique:users,username,'.$this->user->id, new ReservedSlug],
+                'username' => ['required', 'min:2', 'max:20', 'alpha_dash', 'unique:users,username,'.$this->user->id, new ReservedSlug()],
                 'email' => ['required', 'email', 'max:255', 'indisposable', 'unique:users,email,'.$this->user->id],
             ]);
 

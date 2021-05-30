@@ -22,7 +22,7 @@ class SocialController extends Controller
         return abort(404);
     }
 
-    public function Callback(Request $request, $provider)
+    public function callback(Request $request, $provider)
     {
         if ($provider === 'twitter') {
             $userSocial = Socialite::driver($provider)->user();
@@ -58,13 +58,13 @@ class SocialController extends Controller
         }
 
         $user = User::create([
-            'username'          => $username,
-            'firstname'         => $userSocial->getName(),
-            'email'             => $userSocial->getEmail(),
-            'avatar'            => $avatar,
-            'provider_id'       => $userSocial->getId(),
-            'provider'          => $provider,
-            'api_token'         => Str::random(60),
+            'username' => $username,
+            'firstname' => $userSocial->getName(),
+            'email' => $userSocial->getEmail(),
+            'avatar' => $avatar,
+            'provider_id' => $userSocial->getId(),
+            'provider' => $provider,
+            'api_token' => Str::random(60),
             'email_verified_at' => date('Y-m-d H:i:s'),
         ]);
         AuthGetIP::dispatch($user, $request->ip());

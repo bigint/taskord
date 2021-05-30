@@ -7,12 +7,12 @@ use Livewire\Component;
 
 class Suggestions extends Component
 {
-    protected $listeners = [
-        'refreshSuggestions' => 'render',
-    ];
     public $readyToLoad = false;
     public $showText;
     public User $user;
+    protected $listeners = [
+        'refreshSuggestions' => 'render',
+    ];
 
     public function mount($user, $showText = true)
     {

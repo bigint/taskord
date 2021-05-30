@@ -38,6 +38,6 @@ class TelegramLogger extends Notification implements ShouldQueue
     {
         return TelegramMessage::create()
             ->to('-1001407763297')
-            ->content('👤 Caused by: *@'.$this->user->username."*\n\n*$this->type • $this->message*");
+            ->content("👤 Caused by: *@ {$this->user->username}*\n\n*{$this->type} • {$this->message}*");
     }
 }

@@ -34,11 +34,11 @@ class AuthMutator
                     'token' => auth()->user()->api_token,
                     'message' => 'Success',
                 ];
-            } else {
-                return [
-                    'message' => 'Invalid Credentials',
-                ];
             }
+
+            return [
+                'message' => 'Invalid Credentials',
+            ];
         }
 
         return null;

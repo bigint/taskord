@@ -29,7 +29,7 @@ class Progress extends Component
         $completed = $this->milestone->tasks()->whereDone(true)->count();
         $pending = $this->milestone->tasks()->whereDone(false)->count();
         $total = $this->milestone->tasks()->count();
-        if ($total != 0) {
+        if ($total !== 0) {
             $percent = number_format($completed / $total * 100, 0);
         } else {
             $percent = 0;

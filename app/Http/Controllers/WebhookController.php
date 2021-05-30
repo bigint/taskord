@@ -26,7 +26,7 @@ class WebhookController extends Controller
             $webhook->user->touch();
 
             $task = (new CreateNewTask($webhook->user, [
-                'user_id' =>  $webhook->user_id,
+                'user_id' => $webhook->user_id,
                 'task' => $task,
                 'done' => $done,
                 'done_at' => $done_at,
@@ -84,7 +84,7 @@ class WebhookController extends Controller
 
         $requestBody = $request->json()->all();
 
-        if (mb_strtolower($requestBody['sender']['type'], 'UTF-8') == 'bot') {
+        if (mb_strtolower($requestBody['sender']['type'], 'UTF-8') === 'bot') {
             return response('Bot cannot log tasks', 200);
         }
 
@@ -169,9 +169,13 @@ class WebhookController extends Controller
 
         if ($webhook->type === 'web') {
             return $this->simpleWebhook($request, $webhook);
-        } elseif ($webhook->type === 'github') {
+        }
+
+        if ($webhook->type === 'github') {
             return $this->githubWebhook($request, $webhook);
-        } elseif ($webhook->type === 'gitlab') {
+        }
+
+        if ($webhook->type === 'gitlab') {
             return $this->gitlabWebhook($request, $webhook);
         }
     }

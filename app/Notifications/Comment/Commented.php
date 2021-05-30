@@ -41,14 +41,14 @@ class Commented extends Notification implements ShouldQueue
         $user = User::find($this->userId);
 
         if (! $user->spammy) {
-            return (new MailMessage)
-                        ->subject('@'.$user->username.' commented on your task')
-                        ->greeting('Hello @'.$notifiable->username.' 👋')
-                        ->line('💬 Your task has new comment by @'.$user->username)
-                        ->line('Task: '.$this->comment->task->task)
-                        ->line('Comment: '.$this->comment->comment)
-                        ->action('Go to Task', url('/task/'.$this->comment->task->id))
-                        ->line('Thank you for using Taskord!');
+            return (new MailMessage())
+                ->subject('@'.$user->username.' commented on your task')
+                ->greeting('Hello @'.$notifiable->username.' 👋')
+                ->line('💬 Your task has new comment by @'.$user->username)
+                ->line('Task: '.$this->comment->task->task)
+                ->line('Comment: '.$this->comment->comment)
+                ->action('Go to Task', url('/task/'.$this->comment->task->id))
+                ->line('Thank you for using Taskord!');
         }
 
         return null;

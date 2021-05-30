@@ -19,7 +19,6 @@ class SingleUpdate extends Component
         $this->update = $update;
     }
 
-    // TODO
     public function togglePraise()
     {
         try {

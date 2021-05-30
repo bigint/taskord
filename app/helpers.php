@@ -16,7 +16,7 @@ if (! function_exists('git')) {
             return null;
         }
 
-        $output = shell_exec(escapeshellcmd("git $args"));
+        $output = shell_exec(escapeshellcmd("git ${args}"));
 
         if (is_null($output) || str_contains('fatal', $output)) {
             return null;

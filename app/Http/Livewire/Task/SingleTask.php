@@ -50,7 +50,7 @@ class SingleTask extends Component
             $this->task->done_at = carbon();
             auth()->user()->touch();
             if (auth()->user()->has_goal) {
-                auth()->user()->daily_goal_reached++;
+                auth()->user()->daily_goal_reached += 1;
                 auth()->user()->save();
                 CheckGoal::dispatch(auth()->user(), $this->task);
             }
@@ -121,7 +121,7 @@ class SingleTask extends Component
 
         $launchFound = false;
         foreach ($launchList as $keyword) {
-            if (preg_match("/\b$keyword\b/", strtolower($this->task->task))) {
+            if (preg_match("/\b${keyword}\b/", strtolower($this->task->task))) {
                 $launchFound = true;
                 break;
             }

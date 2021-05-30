@@ -18,7 +18,9 @@ class TaskController extends Controller
             auth()->check() && auth()->user()->staff_mode
         ) {
             return view('task/task', $response);
-        } elseif ($task->user->spammy or $task->user->is_private) {
+        }
+
+        if ($task->user->spammy or $task->user->is_private) {
             return abort(404);
         }
 
@@ -33,16 +35,20 @@ class TaskController extends Controller
         if (! $comment) {
             return abort(404);
         }
+
         $response = [
             'task' => $task,
             'comment' => $comment,
         ];
+
         if (
             auth()->check() && auth()->user()->id === $task->user->id or
             auth()->check() && auth()->user()->staff_mode
         ) {
             return view('comment/comment', $response);
-        } elseif ($task->user->spammy or $task->user->is_private) {
+        }
+
+        if ($task->user->spammy or $task->user->is_private) {
             return abort(404);
         }
 

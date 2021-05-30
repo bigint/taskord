@@ -25,11 +25,11 @@ class MagicLink extends Notification implements ShouldQueue
 
     public function toMail($notifiable)
     {
-        return (new MailMessage)
-                    ->subject('Magic link to login into Taskord')
-                    ->greeting('Hello @'.$notifiable->username.' 👋')
-                    ->line('Here is your magic link to login into Taskord!.')
-                    ->action('Login now', url($this->url))
-                    ->line('Thank you for using Taskord!');
+        return (new MailMessage())
+            ->subject('Magic link to login into Taskord')
+            ->greeting('Hello @'.$notifiable->username.' 👋')
+            ->line('Here is your magic link to login into Taskord!.')
+            ->action('Login now', url($this->url))
+            ->line('Thank you for using Taskord!');
     }
 }
