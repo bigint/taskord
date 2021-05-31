@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "0a0000c2f2e1a56894b2df2c505325fc",
+    "content-hash": "1fe4cfed6e56e20c1ac86056a7d17331",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -3655,16 +3655,16 @@
         },
         {
             "name": "nuwave/lighthouse",
-            "version": "v5.12.2",
+            "version": "v5.12.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nuwave/lighthouse.git",
-                "reference": "71c9df994226377d270fc17d443c6479d6619dd9"
+                "reference": "d07e0f505b5566916083efaf8a2af7768d83a858"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nuwave/lighthouse/zipball/71c9df994226377d270fc17d443c6479d6619dd9",
-                "reference": "71c9df994226377d270fc17d443c6479d6619dd9",
+                "url": "https://api.github.com/repos/nuwave/lighthouse/zipball/d07e0f505b5566916083efaf8a2af7768d83a858",
+                "reference": "d07e0f505b5566916083efaf8a2af7768d83a858",
                 "shasum": ""
             },
             "require": {
@@ -3780,7 +3780,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-05-27T11:56:13+00:00"
+            "time": "2021-05-31T10:33:30+00:00"
         },
         {
             "name": "nyholm/psr7",
