@@ -17,7 +17,10 @@
                 </div>
                 <div class="mb-3">
                     <label class="form-label fw-bold">Body</label>
-                    <textarea class="form-control @error('body') is-invalid @enderror mentionInput" rows="6" placeholder="What's on your mind?" wire:model.defer="body"></textarea>
+                    <div>
+                        <x:markdown-toolbar htmlFor="question-box" />
+                    </div>
+                    <textarea id="question-box" class="form-control @error('body') is-invalid @enderror mentionInput mt-2" rows="6" placeholder="What's on your mind?" wire:model.defer="body"></textarea>
                     @error('body')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>

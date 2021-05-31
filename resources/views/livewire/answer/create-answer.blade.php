@@ -9,7 +9,8 @@
                 </div>
             @enderror
             <div class="mb-2">
-                <textarea placeholder="Add a answer" class="form-control mentionInput" rows="3" wire:model.lazy="answer"></textarea>
+                <x:markdown-toolbar htmlFor="answer-box" />
+                <textarea placeholder="Add a answer" id="answer-box" class="form-control mentionInput mt-2" rows="3" wire:model.lazy="answer"></textarea>
             </div>
             <div class="d-flex justify-content-between align-items-center">
                 <div class="small fw-bold text-secondary">

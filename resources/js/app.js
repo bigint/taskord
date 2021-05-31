@@ -4,6 +4,7 @@ require("./tippy");
 require("./clipboard");
 require("./site");
 import { isInViewport } from "observe-element-in-viewport";
+import "@github/markdown-toolbar-element";
 
 document.addEventListener("DOMContentLoaded", async () => {
   // Pagination

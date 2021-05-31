@@ -8,7 +8,8 @@
             </div>
         @enderror
         <div class="mb-2">
-            <textarea placeholder="Add a reply" class="form-control mentionInput" rows="3" wire:model.defer="reply"></textarea>
+            <x:markdown-toolbar htmlFor="reply-box-{{ $comment->id }}" />
+            <textarea placeholder="Add a reply" id="reply-box-{{ $comment->id }}" class="form-control mentionInput mt-2" rows="3" wire:model.defer="reply"></textarea>
         </div>
         <div class="d-flex justify-content-between align-items-center">
             <div class="small fw-bold text-secondary">

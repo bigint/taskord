@@ -20,6 +20,7 @@
         "vue-template-compiler": "2.6.12"
     },
     "dependencies": {
+        "@github/markdown-toolbar-element": "^1.5.1",
         "@joeattardi/emoji-button": "4.6.0",
         "bootstrap": "5.0.1",
         "hotkeys-js": "3.8.5",
