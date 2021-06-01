@@ -48,16 +48,16 @@ class StaffController extends Controller
     public static function ciData()
     {
         $client = new Client(['http_errors' => false]);
-        $ci = $client->request('GET', 'https://gitlab.com/api/v4/projects/20359920/pipelines', [
+        $ciData = $client->request('GET', 'https://gitlab.com/api/v4/projects/20359920/pipelines', [
             'query' => [
                 'per_page' => 1,
                 'ref' => 'main',
             ],
         ]);
 
-        if ($ci->getStatusCode() === 200) {
+        if ($ciData->getStatusCode() === 200) {
             return view('site.ci', [
-                'ci' => json_decode($ci->getBody()->getContents())[0],
+                'ci' => json_decode($ciData->getBody()->getContents())[0],
             ]);
         }
 
