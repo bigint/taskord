@@ -17,7 +17,7 @@
                 <div class="card">
                     <div class="card-body d-grid text-center">
                         <div class="h5 text-secondary">
-                            Join Takord today!
+                            Join Taskord today!
                         </div>
                         <a class="btn btn-success text-white mt-2" href="{{ route('login') }}">
                             <x-heroicon-o-logout class="heroicon" />

@@ -17,6 +17,9 @@
     <a class="pe-2" href="{{ route('terms') }}">
         Terms
     </a>
+    <a class="pe-2" href="{{ route('privacy') }}">
+        Privacy
+    </a>
     <a class="pe-2" href="{{ route('sponsors') }}">
         Sponsors
     </a>
