@@ -15,10 +15,7 @@
     <div class="row justify-content-center">
         <div class="col-lg-8">
             <div class="mb-4">
-                @livewire('milestone.single-milestone', [
-                    'type' => $type,
-                    'milestone' => $milestone,
-                ])
+                <livewire:milestone.single-milestone :type="$type" :milestone="$milestone" :wire:key="$milestone->id" />
             </div>
             @livewire('milestone.tasks', [
                 'milestone' => $milestone,

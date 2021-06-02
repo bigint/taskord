@@ -11,6 +11,7 @@ use App\Notifications\Answer\AnswerPraised;
 use App\Notifications\Comment\CommentPraised;
 use App\Notifications\Comment\Reply\ReplyPraised;
 use App\Notifications\Mentioned;
+use App\Notifications\Milestone\MilestonePraised;
 use App\Notifications\Question\NotifySubscribers as QuestionSubscribers;
 use App\Notifications\Question\QuestionPraised;
 use App\Notifications\Task\NotifySubscribers as TaskSubscribers;
@@ -74,6 +75,9 @@ class Helper
                     break;
                 case 'ANSWER':
                     $entity->user->notify(new AnswerPraised($entity, $user->id));
+                    break;
+                case 'MILESTONE':
+                    $entity->user->notify(new MilestonePraised($entity, $user->id));
                     break;
                 default:
                     break;

@@ -16,10 +16,7 @@
         </div>
     @endif
     @foreach ($milestones as $milestone)
-        @livewire('milestone.single-milestone', [
-            'type' => 'milestones.opened',
-            'milestone' => $milestone,
-        ], key($milestone->id))
+        <livewire:milestone.single-milestone type="milestones.opened" :milestone="$milestone" :wire:key="$milestone->id" />
     @endforeach
 
     {{ $readyToLoad ? $milestones->links() : '' }}

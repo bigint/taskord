@@ -52,7 +52,6 @@
         "barryvdh/laravel-debugbar": "3.6.0",
         "facade/ignition": "2.9.0",
         "fakerphp/faker": "1.14.1",
-        "laravel/sail": "1.7.0",
         "mockery/mockery": "1.4.3",
         "nunomaduro/collision": "5.4.0",
         "nunomaduro/phpinsights": "dev-master",
