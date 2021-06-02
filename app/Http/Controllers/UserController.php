@@ -177,13 +177,6 @@ class UserController extends Controller
         ]);
     }
 
-    public function avatar($username)
-    {
-        $avatar = User::whereUsername($username)->first();
-
-        return redirect($avatar->avatar);
-    }
-
     public function mention(Request $request)
     {
         if ($request['query']) {

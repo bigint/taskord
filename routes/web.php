@@ -41,7 +41,11 @@ Route::fallback(function () {
     return response()->view('errors.404', [], 404);
 });
 
-// Home
+// Suspended
+Route::view('suspended', 'auth.suspended')
+    ->name('suspended');
+
+// Home/Dashboard/Landing
 Route::view('/', 'home.home')->name('home');
 
 // Explore
@@ -122,14 +126,6 @@ Route::group([
     Route::view('all', 'notifications.all')
         ->name('all');
 });
-
-// Suspended
-Route::view('suspended', 'auth.suspended')
-    ->name('suspended');
-
-// Avatar
-Route::get('avatar/{username}.png', [UserController::class, 'avatar'])
-    ->name('avatar');
 
 // Webhooks
 Route::group(['prefix' => 'webhook'], function () {
@@ -233,15 +229,7 @@ Route::group([
         ->name('users');
 });
 
-/*
-|--------------------------------------------------------------------------
-| Stafftools
-|--------------------------------------------------------------------------
-|
-| Stafftools are used by the staffs to analyze Taskord.
-| Stafftools routes are not available to normal users.
-|
-*/
+// Stafftools
 Route::group([
     'prefix' => 'stafftools',
     'as' => 'staff.',
@@ -307,6 +295,22 @@ Route::view('tasks', 'tasks.tasks')
     ->name('tasks')
     ->middleware('auth');
 
+// Meetups
+Route::group([
+    'prefix' => 'meetups',
+    'as' => 'meetups.',
+], function () {
+    Route::get('/', [MeetupController::class, 'meetups'])
+        ->middleware('staff')
+        ->name('home');
+    Route::get('/rsvpd', [MeetupController::class, 'rsvpd'])
+        ->middleware('staff')
+        ->name('rsvpd');
+    Route::get('/finished', [MeetupController::class, 'finished'])
+        ->middleware('staff')
+        ->name('finished');
+});
+
 // Pages
 Route::get('about', [PagesController::class, 'about'])
     ->name('about');
@@ -327,36 +331,6 @@ Route::view('open', 'pages.open')
     ->name('open');
 Route::get('deals', [PagesController::class, 'deals'])
     ->name('deals');
-
-// Meetups
-Route::group([
-    'prefix' => 'meetups',
-    'as' => 'meetups.',
-], function () {
-    Route::get('/', [MeetupController::class, 'meetups'])
-        ->middleware('staff')
-        ->name('home');
-    Route::get('/rsvpd', [MeetupController::class, 'rsvpd'])
-        ->middleware('staff')
-        ->name('rsvpd');
-    Route::get('/finished', [MeetupController::class, 'finished'])
-        ->middleware('staff')
-        ->name('finished');
-});
-
-// https://web.dev/change-password-url
-Route::get('.well-known/change-password', function () {
-    return redirect()->route('user.settings.password');
-});
-
-// Sitemaps
-Route::get('sitemap_users.txt', [SitemapController::class, 'users']);
-Route::get('sitemap_products.txt', [SitemapController::class, 'products']);
-Route::get('sitemap_questions.txt', [SitemapController::class, 'questions']);
-Route::get('sitemap_tasks.txt', [SitemapController::class, 'tasks']);
-Route::get('sitemap_comments.txt', [SitemapController::class, 'comments']);
-Route::get('sitemap_milestones.txt', [SitemapController::class, 'milestones']);
-Route::view('sitemap_urls.txt', 'seo.sitemap_urls');
 
 // Status
 Route::group(['prefix' => 'status'], function () {
@@ -408,4 +382,18 @@ Route::group(['prefix' => 'site'], function () {
     Route::get('staffbar', [StaffController::class, 'toggle'])
         ->middleware('staff')
         ->name('staffbar');
+});
+
+// Sitemaps
+Route::get('sitemap_users.txt', [SitemapController::class, 'users']);
+Route::get('sitemap_products.txt', [SitemapController::class, 'products']);
+Route::get('sitemap_questions.txt', [SitemapController::class, 'questions']);
+Route::get('sitemap_tasks.txt', [SitemapController::class, 'tasks']);
+Route::get('sitemap_comments.txt', [SitemapController::class, 'comments']);
+Route::get('sitemap_milestones.txt', [SitemapController::class, 'milestones']);
+Route::view('sitemap_urls.txt', 'seo.sitemap_urls');
+
+// https://web.dev/change-password-url
+Route::get('.well-known/change-password', function () {
+    return redirect()->route('user.settings.password');
 });
