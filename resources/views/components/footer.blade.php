@@ -20,6 +20,11 @@
     <a class="pe-2" href="{{ route('privacy') }}">
         Privacy
     </a>
+    @if (feature('api'))
+        <a class="pe-2" href="{{ route('api') }}">
+            API
+        </a>
+    @endif
     <a class="pe-2" href="{{ route('sponsors') }}">
         Sponsors
     </a>

@@ -21,6 +21,7 @@ return [
     ],
 
     'reserved_slugs' => [
+        'api',
         'launched',
         'new',
         'products',

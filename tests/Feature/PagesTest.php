@@ -89,3 +89,14 @@ it('has reputation page', function ($url, $expected, $auth) {
     ['/reputation', 302, false],
     ['/reputation', 200, true],
 ]);
+
+it('has api page', function ($url, $expected, $auth) {
+    if ($auth) {
+        actingAs(1)->get($url)->assertStatus($expected);
+    } else {
+        $this->get($url)->assertStatus($expected);
+    }
+})->with([
+    ['/api', 200, false],
+    ['/api', 200, true],
+]);
