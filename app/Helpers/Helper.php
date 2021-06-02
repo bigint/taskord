@@ -9,6 +9,7 @@ use App\Models\Product;
 use App\Models\User;
 use App\Notifications\Answer\AnswerPraised;
 use App\Notifications\Comment\CommentPraised;
+use App\Notifications\Comment\Reply\ReplyPraised;
 use App\Notifications\Mentioned;
 use App\Notifications\Question\NotifySubscribers as QuestionSubscribers;
 use App\Notifications\Question\QuestionPraised;
@@ -64,6 +65,9 @@ class Helper
                     break;
                 case 'COMMENT':
                     $entity->user->notify(new CommentPraised($entity, $user->id));
+                    break;
+                case 'REPLY':
+                    $entity->user->notify(new ReplyPraised($entity, $user->id));
                     break;
                 case 'QUESTION':
                     $entity->user->notify(new QuestionPraised($entity, $user->id));

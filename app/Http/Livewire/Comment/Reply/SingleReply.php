@@ -3,17 +3,37 @@
 namespace App\Http\Livewire\Comment\Reply;
 
 use App\Models\CommentReply;
+use DanHarrin\LivewireRateLimiting\WithRateLimiting;
 use Helper;
 use Illuminate\Support\Facades\Gate;
 use Livewire\Component;
 
 class SingleReply extends Component
 {
+    use WithRateLimiting;
+
     public CommentReply $reply;
 
     public function mount($reply)
     {
         $this->reply = $reply;
+    }
+
+    public function togglePraise()
+    {
+        try {
+            $this->rateLimit(50);
+        } catch (TooManyRequestsException $exception) {
+            return toast($this, 'error', config('taskord.error.rate-limit'));
+        }
+
+        if (Gate::denies('praise/subscribe', $this->reply)) {
+            return toast($this, 'error', config('taskord.error.deny'));
+        }
+
+        Helper::togglePraise($this->reply, 'REPLY');
+
+        return loggy(request(), 'Reply', auth()->user(), 'Toggled reply praise | Reply ID: '.$this->reply->id);
     }
 
     public function deleteReply()

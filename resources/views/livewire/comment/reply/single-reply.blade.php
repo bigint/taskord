@@ -15,6 +15,35 @@
         @endif
         <div class="mt-2">
             @auth
+                @if (auth()->user()->hasLiked($reply))
+                    <button type="button" class="btn btn-task btn-success text-white me-1" wire:click="togglePraise" wire:loading.attr="disabled" wire:offline.attr="disabled" aria-label="Praise">
+                        <span wire:loading wire:target="togglePraise" class="spinner-border spinner-border-task" role="status"></span>
+                        <x-heroicon-s-thumb-up wire:loading.remove wire:target="togglePraise" class="heroicon heroicon-15px me-0" />
+                        <span class="small text-white fw-bold">
+                            {{ number_format($reply->likerscount()) }}
+                        </span>
+                        <span class="avatar-stack ms-1">
+                            @foreach($reply->likers->take(5) as $user)
+                                <img loading=lazy class="praise-avatar rounded-circle {{ $loop->last ? 'me-0' : '' }}" src="{{ Helper::getCDNImage($user->avatar, 80) }}" height="15" width="15" alt="{{ $user->username }}'s avatar" />
+                            @endforeach
+                        </span>
+                    </button>
+                @else
+                    <button type="button" class="btn btn-task btn-outline-success me-1" wire:click="togglePraise" wire:loading.attr="disabled" wire:offline.attr="disabled" aria-label="Praises">
+                        <span wire:loading wire:target="togglePraise" class="spinner-border spinner-border-task" role="status"></span>
+                        <x-heroicon-o-thumb-up wire:loading.remove wire:target="togglePraise" class="heroicon heroicon-15px me-0 text-secondary" />
+                        @if ($reply->likerscount() !== 0)
+                            <span class="small text-dark fw-bold">
+                                {{ number_format($reply->likerscount()) }}
+                            </span>
+                            <span class="avatar-stack ms-1">
+                                @foreach($reply->likers->take(5) as $user)
+                                    <img loading=lazy class="praise-avatar rounded-circle {{ $loop->last ? 'me-0' : '' }}" src="{{ Helper::getCDNImage($user->avatar, 80) }}" height="15" width="15" alt="{{ $user->username }}'s avatar" />
+                                @endforeach
+                            </span>
+                        @endif
+                    </button>
+                @endif
                 @can('edit/delete', $reply)
                     <button
                         type="button"

@@ -74,7 +74,11 @@ class LogActivity implements ShouldQueue
                     return 'IP API Rate limited';
                 }
             } else {
-                return 'Test Location';
+                return [
+                    'location' => 'Test Location',
+                    'lon' => '0.000',
+                    'lat' => '0.000',
+                ];
             }
         } catch (Exception $e) {
             return null;

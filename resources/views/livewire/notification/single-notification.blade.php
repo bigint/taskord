@@ -26,6 +26,8 @@
                 <livewire:notification.type.mentioned :data="$data" />
             @elseif ($type === "App\Notifications\Comment\CommentPraised")
                 <livewire:notification.type.comment.comment-praised :data="$data" />
+            @elseif ($type === "App\Notifications\Comment\Reply\ReplyPraised")
+                <livewire:notification.type.comment.reply.reply-praised :data="$data" />
             @elseif ($type === "App\Notifications\Question\QuestionPraised")
                 <livewire:notification.type.question.question-praised :data="$data" />
             @elseif ($type === "App\Notifications\Answer\AnswerPraised")
