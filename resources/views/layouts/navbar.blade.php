@@ -1,16 +1,20 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container-md">
         <a class="navbar-brand" href="{{ url('/') }}">
-            @auth
-                @if (auth()->user()->is_beta)
-                    <img loading=lazy src="https://ik.imagekit.io/taskordimg/beta_J6zazpyIw.svg" height="35" alt="Taskord Beta" title="Taskord Beta">
-                @else
+            @if (feature('pride'))
+                <img loading=lazy src="https://ik.imagekit.io/taskordimg/pride_vocaCTHn-.svg" height="35" alt="Happy Pride month">
+            @else
+                @auth
+                    @if (auth()->user()->is_beta)
+                        <img loading=lazy src="https://ik.imagekit.io/taskordimg/beta_J6zazpyIw.svg" height="35" alt="Taskord Beta" title="Taskord Beta">
+                    @else
+                        <img loading=lazy src="https://ik.imagekit.io/taskordimg/logo_8lLu9EPFa.svg" height="35" alt="Taskord">
+                    @endif
+                @endauth
+                @guest
                     <img loading=lazy src="https://ik.imagekit.io/taskordimg/logo_8lLu9EPFa.svg" height="35" alt="Taskord">
-                @endif
-            @endauth
-            @guest
-                <img loading=lazy src="https://ik.imagekit.io/taskordimg/logo_8lLu9EPFa.svg" height="35" alt="Taskord">
-            @endguest
+                @endguest
+            @endif
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>

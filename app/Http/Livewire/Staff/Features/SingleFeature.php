@@ -29,6 +29,7 @@ class SingleFeature extends Component
         if (! $this->staffStatus) {
             $this->feature->beta = false;
             $this->feature->contributor = false;
+            $this->feature->public = false;
         }
         $this->feature->save();
 
