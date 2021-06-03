@@ -3,6 +3,7 @@
 @import "~bootstrap/scss/bootstrap"; // Bootstrap
 @import "~tributejs/dist/tribute.css"; // Tribute
 @import "floating-labels";
+@import "buttons";
 @import "./form";
 
 a {
@@ -11,29 +12,6 @@ a {
 
 .rm-shadow {
   box-shadow: none !important;
-}
-
-.btn-primary {
-  color: white;
-  background-color: $primary;
-
-  &:hover,
-  &:active,
-  &:focus {
-    background-color: #6f68ee;
-  }
-}
-
-.btn-blurple {
-  color: white;
-  background-color: #7289da;
-
-  &:hover,
-  &:active,
-  &:focus {
-    background-color: #657ac3;
-    color: white;
-  }
 }
 
 .text-gold {
@@ -116,36 +94,6 @@ a {
 .avatar-120 {
   height: 120px !important;
   width: 120px !important;
-}
-
-.btn-task {
-  font-size: 12px;
-  padding: 1px 8px;
-  box-shadow: none !important;
-}
-
-.btn-danger {
-  color: white;
-
-  &:hover,
-  &:focus,
-  &:disabled {
-    color: white;
-  }
-}
-
-.btn-outline-danger,
-.btn-outline-success,
-.btn-outline-primary,
-.btn-outline-info {
-  &:hover,
-  &:active {
-    color: white;
-
-    & > [class*='text-'] {
-      color: inherit !important;
-    }
-  }
 }
 
 // Remove Bootstrap Glow on Input and Button
@@ -424,28 +372,6 @@ input[type="date"]:valid:before {
 
 .tippy-box {
   border-radius: 6px !important;
-}
-
-.btn-social {
-  &.btn-google {
-    color: $google;
-    border-color: $google;
-  }
-
-  &.btn-twitter {
-    color: $twitter;
-    border-color: $twitter;
-  }
-
-  &.btn-github {
-    color: $github;
-    border-color: $github;
-  }
-
-  &.btn-discord {
-    color: $discord;
-    border-color: $discord;
-  }
 }
 
 .cursor-pointer {

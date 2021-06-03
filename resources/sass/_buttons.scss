@@ -1,0 +1,104 @@
+.btn-primary {
+  color: white;
+  background-color: $primary;
+
+  &:hover,
+  &:active,
+  &:focus {
+    background-color: #6f68ee;
+  }
+}
+
+.btn-danger {
+  color: white;
+
+  &:hover,
+  &:focus,
+  &:disabled {
+    color: white;
+  }
+}
+
+.btn-blurple {
+  color: white;
+  background-color: #7289da;
+
+  &:hover,
+  &:active,
+  &:focus {
+    background-color: #657ac3;
+    color: white;
+  }
+}
+
+.btn-outline-danger,
+.btn-outline-success,
+.btn-outline-primary,
+.btn-outline-info {
+  &:hover,
+  &:active {
+    color: white;
+
+    & > [class*='text-'] {
+      color: inherit !important;
+    }
+  }
+}
+
+.btn-task {
+  font-size: 12px;
+  padding: 1px 8px;
+  box-shadow: none !important;
+}
+
+.btn-social {
+  &.btn-google {
+    color: $google;
+    border-color: $google;
+  }
+
+  &.btn-twitter {
+    color: $twitter;
+    border-color: $twitter;
+  }
+
+  &.btn-github {
+    color: $github;
+    border-color: $github;
+  }
+
+  &.btn-discord {
+    color: $discord;
+    border-color: $discord;
+  }
+}
+
+.btn-outline-primary:hover,
+.btn-outline-primary:active {
+  background-color: rgb(110 100 255 / 25%);
+  color: $primary;
+}
+
+.btn-outline-success:hover,
+.btn-outline-success:active {
+  background-color: rgb(110 250 150 / 25%);
+  color: $success;
+}
+
+.btn-outline-secondary:hover,
+.btn-outline-secondary:active {
+  background-color: rgb(110 115 125 / 20%);
+  color: $secondary;
+}
+
+.btn-outline-info:hover,
+.btn-outline-info:active {
+  background-color: rgb(110 180 235 / 25%);
+  color: $info;
+}
+
+.btn-outline-danger:hover,
+.btn-outline-danger:active {
+  background-color: rgb(200 50 50 / 20%);
+  color: $danger;
+}
