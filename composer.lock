@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a30fdb1379094424be1b6cdc76dd5941",
+    "content-hash": "23e80dc919cfbdcde8a3a960687fdbc9",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -6002,16 +6002,16 @@
         },
         {
             "name": "spatie/laravel-backup",
-            "version": "7.5.4",
+            "version": "7.6.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/laravel-backup.git",
-                "reference": "93d340475dd3567ccbc2d6336357c4d28dcda846"
+                "reference": "39dc00988cd28e7cd06237dae27bf463fa9420fd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/laravel-backup/zipball/93d340475dd3567ccbc2d6336357c4d28dcda846",
-                "reference": "93d340475dd3567ccbc2d6336357c4d28dcda846",
+                "url": "https://api.github.com/repos/spatie/laravel-backup/zipball/39dc00988cd28e7cd06237dae27bf463fa9420fd",
+                "reference": "39dc00988cd28e7cd06237dae27bf463fa9420fd",
                 "shasum": ""
             },
             "require": {
@@ -6081,7 +6081,7 @@
             ],
             "support": {
                 "issues": "https://github.com/spatie/laravel-backup/issues",
-                "source": "https://github.com/spatie/laravel-backup/tree/7.5.4"
+                "source": "https://github.com/spatie/laravel-backup/tree/7.6.0"
             },
             "funding": [
                 {
@@ -6093,7 +6093,7 @@
                     "type": "other"
                 }
             ],
-            "time": "2021-05-28T11:05:52+00:00"
+            "time": "2021-06-01T19:58:35+00:00"
         },
         {
             "name": "spatie/laravel-package-tools",
