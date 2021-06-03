@@ -21,7 +21,7 @@
         "jean85/pretty-package-versions": "2.0.4",
         "laravel-notification-channels/telegram": "0.5.1",
         "laravel/envoy": "2.7.0",
-        "laravel/framework": "8.44.0",
+        "laravel/framework": "8.45.0",
         "laravel/horizon": "5.7.8",
         "laravel/socialite": "5.2.3",
         "laravel/tinker": "2.6.1",
