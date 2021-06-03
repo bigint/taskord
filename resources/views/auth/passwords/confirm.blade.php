@@ -44,7 +44,7 @@
                         Forgot Password?
                     </a>
                 @endif
-                <button class="btn btn-lg btn-primary w-100 mt-3" type="submit">
+                <button class="btn btn-lg btn-outline-primary rounded-pill w-100 mt-3" type="submit">
                     <span class="small">
                         <x-heroicon-o-check class="heroicon heroicon-20px" />
                         Confirm Password

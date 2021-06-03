@@ -28,7 +28,7 @@
                 @endif
             @endauth
             @guest
-                <a href="/login" class="btn w-100 btn-success mt-4 text-white fw-bold">
+                <a href="/login" class="btn w-100 btn-outline-primary rounded-pill mt-4 fw-bold">
                     👋 Login or Signup to comment
                 </a>
             @endguest

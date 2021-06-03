@@ -113,7 +113,7 @@
                         <label for="launched" class="form-check-label">This product is launched</label>
                     </div>
                 </div>
-                <button type="submit" class="btn btn-primary">
+                <button type="submit" class="btn btn-outline-primary rounded-pill">
                     Create Product
                 </button>
             </div>

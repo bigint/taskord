@@ -6,7 +6,7 @@
     <p>
         Take a look at your productivity trends and everything you accomplished over the last 12 months in Taskord.
     </p>
-    <a href="#" class="btn btn-success btn-sm text-white" target="_blank">Take a look now</a>
+    <a href="#" class="btn btn-sm btn-outline-success rounded-pill" target="_blank">Take a look now</a>
 </div>
 @endif
 <div class="card">

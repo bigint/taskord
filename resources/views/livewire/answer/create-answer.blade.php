@@ -18,7 +18,7 @@
                     Markdown is supported
                      <x:labels.beta />
                 </div>
-                <button wire:loading.attr="disabled" wire:target="submit" class="btn btn-sm btn-primary" type="submit" wire:click="submit">
+                <button wire:loading.attr="disabled" wire:target="submit" class="btn btn-sm btn-outline-primary rounded-pill" type="submit" wire:click="submit">
                     <x-heroicon-o-plus class="heroicon" />
                     Add answer
                 </button>

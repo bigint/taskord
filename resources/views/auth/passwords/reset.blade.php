@@ -69,7 +69,7 @@
                     >
                     <label for="password-confirm">Confirm Password</label>
                 </div>
-                <button class="btn btn-lg btn-primary w-100" type="submit">
+                <button class="btn btn-lg btn-outline-primary rounded-pill w-100" type="submit">
                     <span class="small">
                         <x-heroicon-o-refresh class="heroicon heroicon-20px" />
                         Reset Password

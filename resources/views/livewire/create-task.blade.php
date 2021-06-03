@@ -31,8 +31,8 @@
                 </div>
             @endif
         @endauth
-        <button wire:offline.attr="disabled" class="btn btn-sm btn-primary d-flex align-items-center" type="submit">
-            <x-heroicon-o-plus class="heroicon" />
+        <button wire:offline.attr="disabled" class="btn btn-sm btn-outline-primary rounded-pill d-flex align-items-center" type="submit">
+            <x-heroicon-o-plus class="heroicon heroicon-15px" />
             <span>Add Task</span>
         </button>
         </div>

@@ -25,7 +25,7 @@
                 <div class="mb-3 text-secondary">
                     Welcome to Taskord, here are some onboarding steps!
                 </div>
-                <a class="btn btn-blurple fw-bold mb-3 me-2" href="https://discord.gg/9M4Q65b" target="_blank" rel="noreferrer">
+                <a class="btn btn-blurple rounded-pill fw-bold mb-3 me-2" href="https://discord.gg/9M4Q65b" target="_blank" rel="noreferrer">
                     <img class="brand-icon" src="https://ik.imagekit.io/taskordimg/icons/discord_tIPeQf-mNx.svg" loading=lazy />
                     Join Taskord's Discord
                 </a>

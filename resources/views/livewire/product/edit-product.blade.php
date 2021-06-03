@@ -121,11 +121,11 @@
                     wire:loading.attr="disabled"
                     wire:offline.attr="disabled"
                     aria-label="Delete"
-                    class="btn btn-danger"
+                    class="btn btn-outline-danger rounded-pill"
                 >
                     <span class="fw-bold">Delete</span> {{ $slug }}
                 </button>
-                <button type="submit" class="btn btn-primary float-end">
+                <button type="submit" class="btn btn-outline-primary rounded-pill float-end">
                     Update
                 </button>
             </div>

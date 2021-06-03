@@ -39,7 +39,7 @@
                         </span>
                     @enderror
                 </div>
-                <button class="btn btn-lg btn-primary w-100" type="submit">
+                <button class="btn btn-lg btn-outline-primary rounded-pill w-100" type="submit">
                     <span class="small">
                         <x-heroicon-o-mail class="heroicon heroicon-20px" />
                         Send Password Reset Link

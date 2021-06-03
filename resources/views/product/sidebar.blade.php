@@ -3,7 +3,7 @@
         @if (auth()->user()->staff_mode or auth()->user()->id === $product->user->id)
             <div class="card mb-4">
                 <div class="card-body d-grid">
-                    <button type="button" class="btn btn-success text-white fw-bold" data-bs-toggle="modal" data-bs-target="#newUpdateModal">
+                    <button type="button" class="btn btn-outline-success rounded-pill fw-bold" data-bs-toggle="modal" data-bs-target="#newUpdateModal">
                         <x-heroicon-o-bell class="heroicon" />
                         Write a product update
                     </button>
@@ -11,7 +11,7 @@
                         <x-heroicon-o-pencil class="heroicon" />
                         Edit Product
                     </a>
-                    <button type="button" class="btn mt-2 btn-success text-white fw-bold" data-bs-toggle="modal" data-bs-target="#addMemberModal">
+                    <button type="button" class="btn mt-2 btn-outline-success rounded-pill fw-bold" data-bs-toggle="modal" data-bs-target="#addMemberModal">
                         <x-heroicon-o-plus class="heroicon" />
                         Add Member
                     </button>
@@ -79,7 +79,7 @@
             Sponsor
         </div>
         <div class="mb-4">
-            <a class="btn w-100 btn-outline-primary" href="{{ $product->sponsor }}" target="_blank" rel="noreferrer">
+            <a class="btn w-100 btn-outline-primary rounded-pill" href="{{ $product->sponsor }}" target="_blank" rel="noreferrer">
                 <img loading=lazy class="rounded sponsor-icon me-1" rel="preload" src="https://favicon.splitbee.io/?url={{ parse_url($product->sponsor)['host'] }}" />
                 <span class="fw-bold">Sponsor {{ $product->name }}</span>
             </a>

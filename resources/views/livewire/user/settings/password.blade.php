@@ -33,7 +33,7 @@
                         </span>
                     @enderror
                 </div>
-                <button type="submit" class="btn btn-primary">Save</button>
+                <button type="submit" class="btn btn-outline-primary rounded-pill">Save</button>
             </form>
         </div>
     </div>

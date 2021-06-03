@@ -5,14 +5,14 @@
             <div>Meet and greet.</div>
         </div>
         <div>
-            <a href="{{ route('meetups.rsvpd') }}" class="btn btn-outline-success">
+            <a href="{{ route('meetups.rsvpd') }}" class="btn btn-outline-success rounded-pill">
                 RSVPd
             </a>
-            <a href="{{ route('meetups.finished') }}" class="btn btn-outline-primary">
+            <a href="{{ route('meetups.finished') }}" class="btn btn-outline-primary rounded-pill">
                 Finished
             </a>
             @auth
-                <button class="btn btn-success text-white" data-bs-toggle="modal" data-bs-target="#newMeetupModal">
+                <button class="btn btn-outline-success rounded-pill" data-bs-toggle="modal" data-bs-target="#newMeetupModal">
                     <x-heroicon-o-plus class="heroicon" />
                     New Meetup
                 </button>

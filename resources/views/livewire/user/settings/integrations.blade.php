@@ -43,8 +43,8 @@
                         </label>
                     </span>
                 </div>
-                <button type="submit" class="btn btn-primary">
-                    Create Hook
+                <button type="submit" class="btn btn-outline-primary rounded-pill">
+                    Create Webhook
                 </button>
             </form>
             @if (session()->has('created'))
@@ -202,8 +202,8 @@
                                 </td>
                                 <td>
                                     <button wire:loading.attr="disabled" wire:click="deleteWebhook({{ $webhook->id }})"
-                                        class="btn btn-sm w-100 btn-danger">
-                                        <x-heroicon-o-trash class="heroicon" />
+                                        class="btn btn-sm w-100 btn-outline-danger rounded-pill">
+                                        <x-heroicon-o-trash class="heroicon heroicon-15px" />
                                         Delete
                                     </button>
                                 </td>

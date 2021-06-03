@@ -44,7 +44,7 @@
                         <div class="fw-bold">Select from date to pick due date</div>
                     @endif
                 </div>
-                <button type="submit" class="btn btn-primary">
+                <button type="submit" class="btn btn-outline-primary rounded-pill">
                     Create
                 </button>
             </div>

@@ -11,7 +11,7 @@
             <div class="mb-3">
                 Resetting your account is will be wiped out all your data immediately and you won't be able to get it back.
             </div>
-            <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#resetAccountModal">
+            <button class="btn btn-outline-danger rounded-pill" data-bs-toggle="modal" data-bs-target="#resetAccountModal">
                 <x-heroicon-o-trash class="heroicon" />
                 Reset now
             </button>
@@ -19,7 +19,7 @@
             <div class="mb-3">
                 Deleting your account is permanent. All your data will be wiped out immediately and you won't be able to get it back.
             </div>
-            <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteAccountModal">
+            <button class="btn btn-outline-danger rounded-pill" data-bs-toggle="modal" data-bs-target="#deleteAccountModal">
                 <x-heroicon-o-trash class="heroicon" />
                 Delete now
             </button>
@@ -36,8 +36,8 @@
                     Are you sure you want to reset your account?
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                    <button wire:loading.attr="disabled" wire:click="resetAccount" type="button" class="btn btn-danger">Reset Account</button>
+                    <button type="button" class="btn btn-outline-secondary rounded-pill" data-bs-dismiss="modal">Cancel</button>
+                    <button wire:loading.attr="disabled" wire:click="resetAccount" type="button" class="btn btn-outline-danger rounded-pill">Reset Account</button>
                 </div>
             </div>
         </div>
@@ -53,8 +53,8 @@
                     Are you sure you want to delete your account?
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                    <button wire:loading.attr="disabled" wire:click="deleteAccount" type="button" class="btn btn-danger">Delete Account</button>
+                    <button type="button" class="btn btn-outline-secondary rounded-pill" data-bs-dismiss="modal">Cancel</button>
+                    <button wire:loading.attr="disabled" wire:click="deleteAccount" type="button" class="btn btn-outline-danger rounded-pill">Delete Account</button>
                 </div>
             </div>
         </div>

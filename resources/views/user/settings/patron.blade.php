@@ -14,7 +14,7 @@
                 </div>
                 <div class="card-body">
                     @if (!$user->is_patron)
-                        <a class="btn btn-success text-white" href="{{ route('patron.home') }}">
+                        <a class="btn btn-outline-success rounded-pill" href="{{ route('patron.home') }}">
                             Support now!
                         </a>
                     @else
@@ -50,13 +50,13 @@
                                 </div>
                                 <div class="mt-2">
                                     @if ($user->patron->update_url)
-                                        <a class="btn btn-success text-white" href="{{ $user->patron->update_url }}" target="_blank" rel="noreferrer">
+                                        <a class="btn btn-outline-success rounded-pill" href="{{ $user->patron->update_url }}" target="_blank" rel="noreferrer">
                                             <x-heroicon-o-pencil class="heroicon" />
                                             Update Payment
                                         </a>
                                     @endif
                                     @if ($user->patron->cancel_url)
-                                        <a class="btn btn-danger" href="{{ $user->patron->cancel_url }}" target="_blank" rel="noreferrer">
+                                        <a class="btn btn-outline-danger rounded-pill" href="{{ $user->patron->cancel_url }}" target="_blank" rel="noreferrer">
                                             <x-heroicon-o-x class="heroicon" />
                                             Cancel Patron
                                         </a>
@@ -65,7 +65,7 @@
                             </div>
                         @else
                             <div>You are using gifted account!</div>
-                            <a class="btn btn-success text-white mt-2" href="{{ route('patron.home') }}">
+                            <a class="btn btn-outline-success rounded-pill mt-2" href="{{ route('patron.home') }}">
                                 Support now!
                             </a>
                         @endif

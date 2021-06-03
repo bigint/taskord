@@ -22,8 +22,8 @@
     </a>
     @auth
         @if ($product->user->id === auth()->user()->id)
-            <button class="btn btn-sm btn-danger float-end" wire:click="removeMember" wire:loading.attr="disabled">
-                <x-heroicon-o-x class="heroicon" />
+            <button class="btn btn-sm btn-outline-danger rounded-pill float-end" wire:click="removeMember" wire:loading.attr="disabled">
+                <x-heroicon-o-x class="heroicon heroicon-15px" />
                 Remove
             </button>
         @endif

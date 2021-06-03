@@ -111,7 +111,7 @@
                     </li>
                     @if (Route::has('register'))
                         <li class="nav-item">
-                            <a class="nav-link text-white btn btn-primary fw-bold" href="{{ route('register') }}">Register</a>
+                            <a class="nav-link text-white btn btn-primary rounded-pill fw-bold px-3" href="{{ route('register') }}">Register</a>
                         </li>
                     @endif
                 @else

@@ -55,10 +55,10 @@
                     <label class="form-label">Avatar</label>
                     <div class="form-file w-25">
                         <input class="form-control form-control-sm" wire:model="avatar" type="file">
-                        <button wire:loading.attr="disabled" wire:click="useGravatar" class="btn btn-success text-white mt-3 me-2">
+                        <button wire:loading.attr="disabled" wire:click="useGravatar" class="btn btn-outline-success rounded-pill mt-3">
                             Use Gravatar
                         </button>
-                        <button wire:loading.attr="disabled" wire:click="resetAvatar" class="btn btn-danger text-white mt-3">
+                        <button wire:loading.attr="disabled" wire:click="resetAvatar" class="btn btn-outline-danger rounded-pill mt-3">
                             Reset
                         </button>
                     </div>
@@ -81,7 +81,7 @@
                         @endif
                     @endif
                 @enderror
-                <button type="submit" class="btn btn-primary">
+                <button type="submit" class="btn btn-outline-primary rounded-pill">
                     Save
                 </button>
             </form>
@@ -110,7 +110,7 @@
                             </span>
                         @enderror
                     </div>
-                    <button type="submit" class="btn btn-primary">
+                    <button type="submit" class="btn btn-outline-primary rounded-pill">
                         Set Goal
                     </button>
                 @endif
@@ -162,7 +162,7 @@
                         </span>
                     @enderror
                 </div>
-                <button type="submit" class="btn btn-primary">
+                <button type="submit" class="btn btn-outline-primary rounded-pill">
                     Save
                 </button>
             </form>
@@ -241,7 +241,7 @@
                         </span>
                     @enderror
                 </div>
-                <button type="submit" class="btn btn-primary">
+                <button type="submit" class="btn btn-outline-primary rounded-pill">
                     Save
                 </button>
             </form>

@@ -32,7 +32,7 @@
                 Sponsor
             </div>
             <div class="mb-4">
-                <a class="btn w-100 btn-outline-primary" href="{{ $user->sponsor }}" target="_blank" rel="noreferrer">
+                <a class="btn w-100 btn-outline-primary rounded-pill" href="{{ $user->sponsor }}" target="_blank" rel="noreferrer">
                     <img loading=lazy class="rounded sponsor-icon me-1" rel="preload" src="https://favicon.splitbee.io/?url={{ parse_url($user->sponsor)['host'] }}" />
                     <span class="fw-bold">Sponsor {{ '@'.$user->username }}</span>
                 </a>

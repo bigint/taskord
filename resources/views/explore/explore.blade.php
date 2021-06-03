@@ -19,11 +19,11 @@
                         <div class="h5 text-secondary">
                             Join Taskord today!
                         </div>
-                        <a class="btn btn-success text-white mt-2" href="{{ route('login') }}">
+                        <a class="btn btn-outline-success rounded-pill mt-2" href="{{ route('login') }}">
                             <x-heroicon-o-logout class="heroicon" />
                             Login
                         </a>
-                        <a class="btn btn-primary text-white mt-2" href="{{ route('register') }}">
+                        <a class="btn btn-outline-primary rounded-pill mt-2" href="{{ route('register') }}">
                             <x-heroicon-o-user-add class="heroicon" />
                             Signup
                         </a>

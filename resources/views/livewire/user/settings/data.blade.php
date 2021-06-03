@@ -16,7 +16,7 @@
                 <div class="mb-3">
                     If you have any questions or concerns about the personal data contained in your downloadable file, please <a href="https://taskord.com/contact" target="_blank">contact us</a>.
                 </div>
-                <a class="btn btn-success text-white" href="{{ route('user.settings.export.account') }}" target="_blank">
+                <a class="btn btn-outline-success rounded-pill" href="{{ route('user.settings.export.account') }}" target="_blank">
                     <x-heroicon-o-download class="heroicon" />
                     Export account now
                 </a>
@@ -27,7 +27,7 @@
                 <div class="mb-3">
                     You can download and review the security log for your user account to better understand actions you've performed and actions others have performed that involve you.
                 </div>
-                <a class="btn btn-success text-white" href="{{ route('user.settings.export.logs') }}" target="_blank">
+                <a class="btn btn-outline-success rounded-pill" href="{{ route('user.settings.export.logs') }}" target="_blank">
                     <x-heroicon-o-download class="heroicon" />
                     Export logs now
                 </a>

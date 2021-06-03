@@ -20,8 +20,8 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button class="btn btn-primary" wire:loading.attr="disabled" wire:click="deploy" data-bs-dismiss="modal">
+                <button type="button" class="btn btn-outline-secondary rounded-pill" data-bs-dismiss="modal">Close</button>
+                <button class="btn btn-outline-primary rounded-pill" wire:loading.attr="disabled" wire:click="deploy" data-bs-dismiss="modal">
                     🚀 Deploy now
                 </button>
             </div>

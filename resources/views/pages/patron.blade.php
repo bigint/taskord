@@ -42,7 +42,7 @@
                             </div>
                         @else
                             <a
-                                class="paddle_button btn btn-primary"
+                                class="paddle_button btn btn-outline-primary rounded-pill"
                                 data-theme="none"
                                 data-product="619848"
                                 data-message="Support $5/month for Taskord!"
@@ -51,7 +51,7 @@
                                 Support $5/month
                             </a>
                             <a
-                                class="paddle_button btn mt-2 btn-primary"
+                                class="paddle_button btn mt-2 btn-outline-primary rounded-pill"
                                 data-theme="none"
                                 data-product="621377"
                                 data-message="Support $10/month for Taskord!"
@@ -60,7 +60,7 @@
                                 Support $10/month
                             </a>
                             <a
-                                class="paddle_button btn mt-2 btn-primary"
+                                class="paddle_button btn mt-2 btn-outline-primary rounded-pill"
                                 data-theme="none"
                                 data-product="621379"
                                 data-message="Support $20/month for Taskord!"
@@ -69,7 +69,7 @@
                                 Support $20/month
                             </a>
                             <a
-                                class="paddle_button btn mt-2 btn-primary"
+                                class="paddle_button btn mt-2 btn-outline-primary rounded-pill"
                                 data-theme="none"
                                 data-product="621380"
                                 data-message="Support $50/month for Taskord!"
@@ -78,7 +78,7 @@
                                 Support $50/month
                             </a>
                             <a
-                                class="paddle_button btn mt-2 btn-primary"
+                                class="paddle_button btn mt-2 btn-outline-primary rounded-pill"
                                 data-theme="none"
                                 data-product="629491"
                                 data-message="Support $100 onetime for lifetime pro in Taskord!"
@@ -89,7 +89,7 @@
                         @endif
                     @endauth
                     @guest
-                        <a class="btn mt-2 btn-success text-white" href="{{ route('login') }}">
+                        <a class="btn mt-2 btn-outline-success rounded-pill" href="{{ route('login') }}">
                             Login to support!
                         </a>
                     @endguest

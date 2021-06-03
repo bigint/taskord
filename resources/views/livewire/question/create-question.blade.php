@@ -73,7 +73,7 @@
                         </div>
                     @endif
                 @endauth
-                <button type="submit" class="btn btn-primary">
+                <button type="submit" class="btn btn-outline-primary rounded-pill">
                     Post
                 </button>
             </div>

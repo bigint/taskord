@@ -69,13 +69,13 @@
                     @endif
                 </div>
                 <div class="btn-group w-100" role="group">
-                    <button class="btn btn-lg btn-primary" name="submit" value="login" type="submit">
+                    <button class="btn btn-lg btn-primary rounded-end rounded-pill" name="submit" value="login" type="submit">
                         <span class="small">
                             <x-heroicon-o-lock-closed class="heroicon heroicon-20px" />
                             Login
                         </span>
                     </button>
-                    <button class="btn btn-lg btn-dark" name="submit" value="magic-link" type="submit">
+                    <button class="btn btn-lg btn-dark rounded-start rounded-pill" name="submit" value="magic-link" type="submit">
                         <span class="small">
                             <x-heroicon-o-mail class="heroicon heroicon-20px" />
                             Magic link
@@ -84,7 +84,7 @@
                 </div>
                 <div class="mt-3 row">
                     <div class="col-6">
-                        <a href="/login/google" class="btn btn-social btn-google w-100">
+                        <a href="/login/google" class="btn btn-social btn-google rounded-pill w-100">
                             <span class="small">
                                 <img class="brand-icon" src="https://ik.imagekit.io/taskordimg/icons/google_LPvasOP5AT.svg" loading=lazy />
                                 Google
@@ -92,7 +92,7 @@
                         </a>
                     </div>
                     <div class="col-6">
-                        <a href="/login/twitter" class="btn btn-social btn-twitter w-100">
+                        <a href="/login/twitter" class="btn btn-social btn-twitter rounded-pill w-100">
                             <span class="small">
                                 <img class="brand-icon" src="https://ik.imagekit.io/taskordimg/icons/twitter_4cXueyhRfH.svg" loading=lazy />
                                 Twitter
@@ -100,7 +100,7 @@
                         </a>
                     </div>
                     <div class="col-6 mt-2">
-                        <a href="/login/github" class="btn btn-social btn-github w-100">
+                        <a href="/login/github" class="btn btn-social btn-github rounded-pill w-100">
                             <span class="small">
                                 <img class="brand-icon github-logo" src="https://ik.imagekit.io/taskordimg/icons/github_9E8bhMFJtH.svg" loading=lazy />
                                 GitHub
@@ -108,7 +108,7 @@
                         </a>
                     </div>
                     <div class="col-6 mt-2">
-                        <a href="/login/discord" class="btn btn-social btn-discord w-100">
+                        <a href="/login/discord" class="btn btn-social btn-discord rounded-pill w-100">
                             <span class="small">
                                 <img class="brand-icon" src="https://ik.imagekit.io/taskordimg/icons/discord_MCCBaztWr.webp" loading=lazy />
                                 Discord
