@@ -24,7 +24,13 @@ class SitemapController extends Controller
 
     public function products()
     {
-        $products = Product::select('slug')
+        $products = Product::select('slug', 'user_id')
+            ->whereHas('user', function ($q) {
+                $q->where([
+                    ['spammy', false],
+                    ['is_private', false],
+                ]);
+            })
             ->get();
 
         return view('seo.sitemap_products', [
@@ -34,7 +40,13 @@ class SitemapController extends Controller
 
     public function questions()
     {
-        $questions = Question::select('id', 'hidden')
+        $questions = Question::select('id', 'hidden', 'user_id')
+            ->whereHas('user', function ($q) {
+                $q->where([
+                    ['spammy', false],
+                    ['is_private', false],
+                ]);
+            })
             ->whereHidden(false)
             ->get();
 
@@ -45,7 +57,13 @@ class SitemapController extends Controller
 
     public function tasks()
     {
-        $tasks = Task::select('id', 'source', 'hidden')
+        $tasks = Task::select('id', 'source', 'hidden', 'user_id')
+            ->whereHas('user', function ($q) {
+                $q->where([
+                    ['spammy', false],
+                    ['is_private', false],
+                ]);
+            })
             ->whereHidden(false)
             ->get();
 
@@ -56,7 +74,13 @@ class SitemapController extends Controller
 
     public function comments()
     {
-        $comments = Comment::select('id', 'hidden', 'task_id')
+        $comments = Comment::select('id', 'hidden', 'task_id', 'user_id')
+            ->whereHas('user', function ($q) {
+                $q->where([
+                    ['spammy', false],
+                    ['is_private', false],
+                ]);
+            })
             ->whereHidden(false)
             ->get();
 
@@ -67,7 +91,7 @@ class SitemapController extends Controller
 
     public function milestones()
     {
-        $milestones = Milestone::select('id', 'hidden')
+        $milestones = Milestone::select('id', 'hidden', 'user_id')
             ->whereHidden(false)
             ->get();
 
