@@ -5,11 +5,11 @@
             <code>{{ $feature->slug }}</code>
             <div class="mt-2">{{ $feature->description }}</div>
             @if ($confirming === $feature->id)
-                <button role="button" class="btn btn-task btn-danger mt-2" wire:click="deleteFeature" wire:loading.attr="disabled" wire:offline.attr="disabled" aria-label="Confirm Delete">
+                <button role="button" class="btn btn-action btn-danger mt-2" wire:click="deleteFeature" wire:loading.attr="disabled" wire:offline.attr="disabled" aria-label="Confirm Delete">
                     Are you sure?
                 </button>
             @else
-                <button role="button" class="btn btn-task btn-outline-danger mt-2" wire:click="confirmDelete" wire:loading.attr="disabled" wire:offline.attr="disabled" aria-label="Delete feature">
+                <button role="button" class="btn btn-action btn-outline-danger mt-2" wire:click="confirmDelete" wire:loading.attr="disabled" wire:offline.attr="disabled" aria-label="Delete feature">
                     <x-heroicon-o-trash class="heroicon heroicon-15px" />
                     Delete feature
                 </button>

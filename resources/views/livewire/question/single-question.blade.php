@@ -52,35 +52,25 @@
         <div class="mt-3">
             @auth
                 @if (auth()->user()->hasLiked($question))
-                    <button role="button" class="btn btn-task btn-success text-white me-1" wire:click="togglePraise" wire:loading.attr="disabled" wire:offline.attr="disabled" aria-label="Praises">
+                    <button role="button" class="btn btn-action btn-praise me-1" wire:click="togglePraise" wire:loading.attr="disabled" wire:offline.attr="disabled" aria-label="Praises">
                         <span wire:loading wire:target="togglePraise" class="spinner-border spinner-border-task" role="status"></span>
-                        <x-heroicon-s-thumb-up wire:loading.remove wire:target="togglePraise" class="heroicon heroicon-15px me-0" />
-                        <span class="small text-white fw-bold">
+                        <x-heroicon-s-heart wire:loading.remove wire:target="togglePraise" class="heroicon heroicon-15px me-0" />
+                        <span class="small fw-bold">
                             {{ number_format($question->likerscount()) }}
-                        </span>
-                        <span class="avatar-stack ms-1">
-                            @foreach($question->likers->take(5) as $user)
-                                <img loading=lazy class="praise-avatar rounded-circle {{ $loop->last ? 'me-0' : '' }}" src="{{ Helper::getCDNImage($user->avatar, 80) }}" height="15" width="15" alt="{{ $user->username }}'s avatar" />
-                            @endforeach
                         </span>
                     </button>
                 @else
-                    <button role="button" class="btn btn-task btn-outline-success me-1" wire:click="togglePraise" wire:loading.attr="disabled" wire:offline.attr="disabled" aria-label="Praises">
+                    <button role="button" class="btn btn-action btn-outline-praise me-1" wire:click="togglePraise" wire:loading.attr="disabled" wire:offline.attr="disabled" aria-label="Praises">
                         <span wire:loading wire:target="togglePraise" class="spinner-border spinner-border-task" role="status"></span>
-                        <x-heroicon-o-thumb-up wire:loading.remove wire:target="togglePraise" class="heroicon heroicon-15px me-0 text-secondary" />
+                        <x-heroicon-o-heart wire:loading.remove wire:target="togglePraise" class="heroicon heroicon-15px me-0" />
                         @if ($question->likerscount() !== 0)
-                            <span class="small text-dark fw-bold">
+                            <span class="small fw-bold">
                                 {{ number_format($question->likerscount()) }}
-                            </span>
-                            <span class="avatar-stack ms-1">
-                                @foreach($question->likers->take(5) as $user)
-                                    <img loading=lazy class="praise-avatar rounded-circle {{ $loop->last ? 'me-0' : '' }}" src="{{ Helper::getCDNImage($user->avatar, 80) }}" height="15" width="15" alt="{{ $user->username }}'s avatar" />
-                                @endforeach
                             </span>
                         @endif
                     </button>
                 @endif
-                <a href="{{ route('question.question', ['id' => $question->id]) }}" class="btn btn-task btn-outline-primary me-1" aria-label="Questions">
+                <a href="{{ route('question.question', ['id' => $question->id]) }}" class="btn btn-action btn-outline-primary me-1" aria-label="Questions">
                     <x-heroicon-o-chat-alt class="heroicon heroicon-15px me-0 text-secondary" />
                     @if ($question->answers->count('id') !== 0)
                         <span class="small text-dark fw-bold">
@@ -90,7 +80,7 @@
                 </a>
                 @can('edit/delete', $question)
                     @if ($type === "question.question")
-                        <a href="{{ route('question.edit', ['question' => $question]) }}" class="btn btn-task btn-outline-info me-1">
+                        <a href="{{ route('question.edit', ['question' => $question]) }}" class="btn btn-action btn-outline-info me-1">
                             <x-heroicon-o-pencil-alt class="heroicon heroicon-15px me-0 text-secondary" />
                             <span class="small text-dark fw-bold">
                                 Edit
@@ -99,7 +89,7 @@
                     @endif
                     <button
                         role="button"
-                        class="btn btn-task btn-outline-danger me-1"
+                        class="btn btn-action btn-outline-danger me-1"
                         onclick="confirm('Are you sure?') || event.stopImmediatePropagation()"
                         wire:click="deleteQuestion"
                         wire:loading.attr="disabled"
@@ -111,7 +101,7 @@
                     @if ($question->is_solvable)
                         <button
                             role="button"
-                            class="btn btn-task btn-outline-success me-1"
+                            class="btn btn-action btn-outline-success me-1"
                             wire:click="toggleSolve"
                             wire:loading.attr="disabled"
                             wire:offline.attr="disabled"
@@ -127,22 +117,17 @@
                     @endif
                 @endcan
                 @can('staff.ops')
-                    <button type="button" class="btn btn-task {{ $question->hidden ? 'btn-info' : 'btn-outline-info' }}" wire:click="hide" wire:loading.attr="disabled" wire:offline.attr="disabled" wire:key="{{ $question->id }}" aria-label="Hide">
+                    <button type="button" class="btn btn-action {{ $question->hidden ? 'btn-info' : 'btn-outline-info' }}" wire:click="hide" wire:loading.attr="disabled" wire:offline.attr="disabled" wire:key="{{ $question->id }}" aria-label="Hide">
                         <x-heroicon-o-eye-off class="heroicon heroicon-15px me-0" />
                     </button>
                 @endcan
             @endauth
             @guest
-                <a href="/login" class="btn btn-task btn-outline-success me-1" aria-label="Praises">
-                    <x-heroicon-o-thumb-up class="heroicon heroicon-15px me-0 text-secondary" />
+                <a href="/login" class="btn btn-action btn-outline-praise me-1" aria-label="Praises">
+                    <x-heroicon-o-heart class="heroicon heroicon-15px me-0" />
                     @if ($question->likerscount() !== 0)
-                        <span class="small text-dark fw-bold">
+                        <span class="small fw-bold">
                             {{ number_format($question->likerscount()) }}
-                        </span>
-                        <span class="avatar-stack ms-1">
-                            @foreach($question->likers->take(5) as $user)
-                                <img loading=lazy class="praise-avatar rounded-circle {{ $loop->last ? 'me-0' : '' }}" src="{{ Helper::getCDNImage($user->avatar, 80) }}" height="15" width="15" alt="{{ $user->username }}'s avatar" />
-                            @endforeach
                         </span>
                     @endif
                 </a>

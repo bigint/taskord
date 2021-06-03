@@ -9,32 +9,22 @@
                 @if (!$update->user->is_private)
                     @if (auth()->user()->hasLiked($update))
                         <span>
-                            <button type="button" class="btn btn-task btn-success text-white me-1" wire:click="togglePraise" wire:loading.attr="disabled" wire:offline.attr="disabled" wire:key="{{ $update->id }}" aria-label="Praise">
+                            <button type="button" class="btn btn-action btn-praise me-1" wire:click="togglePraise" wire:loading.attr="disabled" wire:offline.attr="disabled" wire:key="{{ $update->id }}" aria-label="Praise">
                                 <span wire:loading wire:target="togglePraise" class="spinner-border spinner-border-task" role="status"></span>
-                                <x-heroicon-s-thumb-up wire:loading.remove wire:target="togglePraise" class="heroicon heroicon-15px me-0" />
-                                <span class="small text-white fw-bold">
+                                <x-heroicon-s-heart wire:loading.remove wire:target="togglePraise" class="heroicon heroicon-15px me-0" />
+                                <span class="small fw-bold">
                                     {{ number_format($update->likerscount()) }}
-                                </span>
-                                <span class="avatar-stack ms-1">
-                                    @foreach($update->likers->take(5) as $user)
-                                        <img loading=lazy class="praise-avatar rounded-circle {{ $loop->last ? 'me-0' : '' }}" src="{{ Helper::getCDNImage($user->avatar, 80) }}" height="15" width="15" alt="{{ $user->username }}'s avatar" />
-                                    @endforeach
                                 </span>
                             </button>
                         </span>
                     @else
                         <span>
-                            <button type="button" class="btn btn-task btn-outline-success me-1" wire:click="togglePraise" wire:loading.attr="disabled" wire:offline.attr="disabled" wire:key="{{ $update->id }}" aria-label="Praises">
+                            <button type="button" class="btn btn-action btn-outline-praise me-1" wire:click="togglePraise" wire:loading.attr="disabled" wire:offline.attr="disabled" wire:key="{{ $update->id }}" aria-label="Praises">
                                 <span wire:loading wire:target="togglePraise" class="spinner-border spinner-border-task" role="status"></span>
-                                <x-heroicon-o-thumb-up wire:loading.remove wire:target="togglePraise" class="heroicon heroicon-15px me-0" />
+                                <x-heroicon-o-heart wire:loading.remove wire:target="togglePraise" class="heroicon heroicon-15px me-0" />
                                 @if ($update->likerscount() !== 0)
-                                    <span class="small text-dark fw-bold">
+                                    <span class="small fw-bold">
                                         {{ number_format($update->likerscount()) }}
-                                    </span>
-                                    <span class="avatar-stack ms-1">
-                                        @foreach($update->likers->take(5) as $user)
-                                            <img loading=lazy class="praise-avatar rounded-circle {{ $loop->last ? 'me-0' : '' }}" src="{{ Helper::getCDNImage($user->avatar, 80) }}" height="15" width="15" alt="{{ $user->username }}'s avatar" />
-                                        @endforeach
                                     </span>
                                 @endif
                             </button>
@@ -43,16 +33,11 @@
                 @endif
             @endauth
             @guest
-                <a href="/login" class="btn btn-task btn-outline-success me-1" aria-label="Praises">
-                    <x-heroicon-o-thumb-up class="heroicon heroicon-15px me-0" />
+                <a href="/login" class="btn btn-action btn-outline-praise me-1" aria-label="Praises">
+                    <x-heroicon-o-heart class="heroicon heroicon-15px me-0" />
                     @if ($update->likerscount() !== 0)
-                        <span class="small text-dark fw-bold">
+                        <span class="small fw-bold">
                             {{ number_format($update->likerscount()) }}
-                        </span>
-                        <span class="avatar-stack ms-1">
-                            @foreach($update->likers->take(5) as $user)
-                                <img loading=lazy class="praise-avatar rounded-circle {{ $loop->last ? 'me-0' : '' }}" src="{{ Helper::getCDNImage($user->avatar, 80) }}" height="15" width="15" alt="{{ $user->username }}'s avatar" />
-                            @endforeach
                         </span>
                     @endif
                 </a>
@@ -61,7 +46,7 @@
                 @can('edit/delete', $update)
                     <button
                         type="button"
-                        class="btn btn-task btn-outline-danger"
+                        class="btn btn-action btn-outline-danger"
                         onclick="confirm('Are you sure?') || event.stopImmediatePropagation()"
                         wire:click="deleteUpdate"
                         wire:loading.attr="disabled"

@@ -53,7 +53,7 @@
             @if ($show_delete)
                 <button
                     type="button"
-                    class="btn btn-task btn-outline-danger my-1"
+                    class="btn btn-action btn-outline-danger my-1"
                     onclick="confirm('Are you sure?') || event.stopImmediatePropagation()"
                     wire:click="deleteTask"
                     wire:target="deleteTask"
@@ -64,7 +64,7 @@
                     <x-heroicon-o-trash class="heroicon heroicon-15px me-0 text-secondary" />
                 </button>
             @else
-                <a href="{{ route('task', ['id' => $task->id]) }}" class="btn btn-task btn-outline-success me-1" target="_blank" aria-label="Open task">
+                <a href="{{ route('task', ['id' => $task->id]) }}" class="btn btn-action btn-outline-success me-1" target="_blank" aria-label="Open task">
                     <x-heroicon-o-external-link class="heroicon heroicon-15px me-0" />
                     Open task
                 </a>

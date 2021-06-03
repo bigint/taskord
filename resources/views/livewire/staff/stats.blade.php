@@ -151,7 +151,7 @@
                 <div class="col-md-3 mb-4">
                     <div class="card">
                         <div class="card-header fw-bold d-flex align-items-center">
-                            <x-heroicon-o-thumb-up class="heroicon me-1" />
+                            <x-heroicon-o-heart class="heroicon me-1" />
                             <span>Praises</span>
                         </div>
                         <div class="card-body">

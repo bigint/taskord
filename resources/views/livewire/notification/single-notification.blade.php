@@ -12,7 +12,7 @@
                     <x:shared.user-label-small :user="$user" />
                 @endif
                 @if ($pageType === 'unread')
-                    <button wire:click="markSingleNotificationAsRead" class="btn btn-sm btn-task ms-5" title="Mark as read">
+                    <button wire:click="markSingleNotificationAsRead" class="btn btn-sm btn-action ms-5" title="Mark as read">
                         <span wire:loading.remove wire:target="markSingleNotificationAsRead">
                             <x-heroicon-s-check class="heroicon heroicon-20px text-secondary me-0" />
                         </span>

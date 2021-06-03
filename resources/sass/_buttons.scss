@@ -31,6 +31,24 @@
   }
 }
 
+.btn-praise {
+  color: $pink !important;
+  border-color: $pink;
+  background-color: rgb(190 100 120 / 20%);
+}
+
+.btn-outline-praise {
+  color: $pink;
+  border-color: $pink;
+
+  &:hover,
+  &:active,
+  &:focus {
+    color: $pink;
+    background-color: rgb(190 100 120 / 25%);
+  }
+}
+
 .btn-outline-danger,
 .btn-outline-success,
 .btn-outline-primary,
@@ -45,9 +63,9 @@
   }
 }
 
-.btn-task {
+.btn-action {
   font-size: 12px;
-  padding: 1px 8px;
+  padding: 0px 8px;
   box-shadow: none !important;
 }
 
