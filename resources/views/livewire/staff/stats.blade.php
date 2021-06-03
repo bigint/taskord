@@ -152,12 +152,12 @@
                     <div class="card">
                         <div class="card-header fw-bold d-flex align-items-center">
                             <x-heroicon-o-heart class="heroicon me-1" />
-                            <span>Praises</span>
+                            <span>Likes</span>
                         </div>
                         <div class="card-body">
                             <div class="h5 mb-0">
-                                {{ $stats['praises'] }}
-                                <span class="fw-light">Praises</span>
+                                {{ $stats['likes'] }}
+                                <span class="fw-light">Likes</span>
                             </div>
                         </div>
                     </div>

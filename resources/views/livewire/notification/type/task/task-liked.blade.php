@@ -1,7 +1,7 @@
 <div>
     @if ($task)
         <div class="mt-2 text-secondary">
-            praised your
+            liked your
             <a class="fw-bold" href="{{ route('task', ['id' => $task->id]) }}">
                 task
             </a>

@@ -59,7 +59,7 @@
 ## About Taskord
 
 - **✅ Tasks:** All tasks are public and added to your maker profile.
-- **🔥 Reputation:** Earn reputations by completing, praising, and commenting on tasks and questions, which helps you to stay productive.
+- **🔥 Reputation:** Earn reputations by completing, liking, and commenting on tasks and questions, which helps you to stay productive.
 - **😀 Makers:** Community of peoples who ships constantly.
 - **📦 Products:** Ship your products to Taskord and make regular updates about the product and even add tasks to them.
 - **💬 Q&A:** Get your questions answered and use this feature as discussion too.

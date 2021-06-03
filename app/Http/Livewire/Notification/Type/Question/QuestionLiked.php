@@ -5,7 +5,7 @@ namespace App\Http\Livewire\Notification\Type\Question;
 use App\Models\Question;
 use Livewire\Component;
 
-class QuestionPraised extends Component
+class QuestionLiked extends Component
 {
     public $data;
 
@@ -18,7 +18,7 @@ class QuestionPraised extends Component
     {
         $question = Question::find($this->data['question_id']);
 
-        return view('livewire.notification.type.question.question-praised', [
+        return view('livewire.notification.type.question.question-liked', [
             'question' => $question,
         ]);
     }

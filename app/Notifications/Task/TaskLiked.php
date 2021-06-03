@@ -8,7 +8,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
 
-class TaskPraised extends Notification implements ShouldQueue
+class TaskLiked extends Notification implements ShouldQueue
 {
     use Queueable;
 
@@ -42,9 +42,9 @@ class TaskPraised extends Notification implements ShouldQueue
 
         if (! $user->spammy) {
             return (new MailMessage())
-                ->subject('@'.$user->username.' praised your task')
+                ->subject('@'.$user->username.' liked your task')
                 ->greeting('Hello @'.$notifiable->username.' 👋')
-                ->line('👍 Your task was praised by @'.$user->username)
+                ->line('👍 Your task was liked by @'.$user->username)
                 ->line($this->task->task)
                 ->action('Go to Task', url('/task/'.$this->task->id))
                 ->line('Thank you for using Taskord!');

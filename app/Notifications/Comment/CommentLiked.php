@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Notifications\Answer;
+namespace App\Notifications\Comment;
 
 use App\Models\User;
 use Illuminate\Bus\Queueable;
@@ -8,16 +8,16 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
 
-class AnswerPraised extends Notification implements ShouldQueue
+class CommentLiked extends Notification implements ShouldQueue
 {
     use Queueable;
 
-    protected $answer;
+    protected $comment;
     protected $userId;
 
-    public function __construct($answer, $userId)
+    public function __construct($comment, $userId)
     {
-        $this->answer = $answer;
+        $this->comment = $comment;
         $this->userId = $userId;
     }
 
@@ -42,10 +42,10 @@ class AnswerPraised extends Notification implements ShouldQueue
 
         if (! $user->spammy) {
             return (new MailMessage())
-                ->subject('@'.$user->username.' praised your answer')
+                ->subject('@'.$user->username.' liked your comment')
                 ->greeting('Hello @'.$notifiable->username.' 👋')
-                ->line('👏 Your answer was praised by @'.$user->username)
-                ->line($this->answer->answer)
+                ->line('👏 Your comment was liked by @'.$user->username)
+                ->line($this->comment->comment)
                 ->line('Thank you for using Taskord!');
         }
 
@@ -55,7 +55,8 @@ class AnswerPraised extends Notification implements ShouldQueue
     public function toDatabase()
     {
         return [
-            'answer_id' => $this->answer->id,
+            'comment_id' => $this->comment->id,
+            'task_id' => $this->comment->task->id,
             'user_id' => $this->userId,
         ];
     }

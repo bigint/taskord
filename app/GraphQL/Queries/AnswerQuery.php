@@ -4,7 +4,7 @@ namespace App\GraphQL\Queries;
 
 class AnswerQuery
 {
-    public function hasPraised($answer)
+    public function hasLiked($answer)
     {
         if (auth()->check()) {
             return auth()->user()->hasLiked($answer);

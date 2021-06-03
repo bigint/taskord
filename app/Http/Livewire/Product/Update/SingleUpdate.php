@@ -19,7 +19,7 @@ class SingleUpdate extends Component
         $this->update = $update;
     }
 
-    public function togglePraise()
+    public function toggleLike()
     {
         try {
             $this->rateLimit(50);
@@ -27,7 +27,7 @@ class SingleUpdate extends Component
             return toast($this, 'error', config('taskord.error.rate-limit'));
         }
 
-        if (Gate::denies('praise/subscribe', $this->update)) {
+        if (Gate::denies('like/subscribe', $this->update)) {
             return toast($this, 'error', config('taskord.error.deny'));
         }
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Notifications\Milestone;
+namespace App\Notifications\Comment\Reply;
 
 use App\Models\User;
 use Illuminate\Bus\Queueable;
@@ -8,16 +8,16 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
 
-class MilestonePraised extends Notification implements ShouldQueue
+class ReplyLiked extends Notification implements ShouldQueue
 {
     use Queueable;
 
-    protected $milestone;
+    protected $reply;
     protected $userId;
 
-    public function __construct($milestone, $userId)
+    public function __construct($reply, $userId)
     {
-        $this->milestone = $milestone;
+        $this->reply = $reply;
         $this->userId = $userId;
     }
 
@@ -42,10 +42,10 @@ class MilestonePraised extends Notification implements ShouldQueue
 
         if (! $user->spammy) {
             return (new MailMessage())
-                ->subject('@'.$user->username.' praised your milestone')
+                ->subject('@'.$user->username.' liked your reply')
                 ->greeting('Hello @'.$notifiable->username.' 👋')
-                ->line('👏 Your milestone was praised by @'.$user->username)
-                ->line($this->milestone->title)
+                ->line('👏 Your reply was liked by @'.$user->username)
+                ->line($this->reply->reply)
                 ->line('Thank you for using Taskord!');
         }
 
@@ -55,7 +55,7 @@ class MilestonePraised extends Notification implements ShouldQueue
     public function toDatabase()
     {
         return [
-            'milestone_id' => $this->milestone->id,
+            'reply_id' => $this->reply->id,
             'user_id' => $this->userId,
         ];
     }

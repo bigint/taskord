@@ -41,7 +41,7 @@ class Stats extends Component
         $notifications = DB::table('notifications')->count('id');
         $logs = Activity::count('id');
         $interactions = DB::table('interactions')->count();
-        $praises = DB::table('interactions')->whereRelation('like')->count();
+        $likes = DB::table('interactions')->whereRelation('like')->count();
 
         return [
             'tasks' => number_format($tasks),
@@ -62,7 +62,7 @@ class Stats extends Component
             'notifications' => number_format($notifications),
             'interactions' => number_format($interactions),
             'logs' => number_format($logs),
-            'praises' => number_format($praises),
+            'likes' => number_format($likes),
             'webhooks' => number_format($webhooks),
         ];
     }

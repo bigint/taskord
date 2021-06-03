@@ -63,7 +63,7 @@ class SingleTask extends Component
         return $this->emit('refreshTasks');
     }
 
-    public function togglePraise()
+    public function toggleLike()
     {
         try {
             $this->rateLimit(50);
@@ -71,13 +71,13 @@ class SingleTask extends Component
             return toast($this, 'error', config('taskord.error.rate-limit'));
         }
 
-        if (Gate::denies('praise/subscribe', $this->task)) {
+        if (Gate::denies('like/subscribe', $this->task)) {
             return toast($this, 'error', config('taskord.error.deny'));
         }
 
-        Helper::togglePraise($this->task, 'TASK');
+        Helper::toggleLike($this->task, 'TASK');
 
-        return loggy(request(), 'Task', auth()->user(), 'Toggled task praise | Task ID: '.$this->task->id);
+        return loggy(request(), 'Task', auth()->user(), 'Toggled task like | Task ID: '.$this->task->id);
     }
 
     public function hide()

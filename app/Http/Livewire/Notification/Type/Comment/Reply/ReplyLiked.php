@@ -5,7 +5,7 @@ namespace App\Http\Livewire\Notification\Type\Comment\Reply;
 use App\Models\CommentReply;
 use Livewire\Component;
 
-class ReplyPraised extends Component
+class ReplyLiked extends Component
 {
     public $data;
 
@@ -18,7 +18,7 @@ class ReplyPraised extends Component
     {
         $reply = CommentReply::find($this->data['reply_id']);
 
-        return view('livewire.notification.type.comment.reply.reply-praised', [
+        return view('livewire.notification.type.comment.reply.reply-liked', [
             'reply' => $reply,
         ]);
     }

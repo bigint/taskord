@@ -4,7 +4,7 @@ namespace App\Gamify\Points;
 
 use QCod\Gamify\PointType;
 
-class PraiseCreated extends PointType
+class LikeCreated extends PointType
 {
     public $allowDuplicates = false;
 

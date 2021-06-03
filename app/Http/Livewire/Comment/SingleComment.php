@@ -21,7 +21,7 @@ class SingleComment extends Component
         $this->comment = $comment;
     }
 
-    public function togglePraise()
+    public function toggleLike()
     {
         try {
             $this->rateLimit(50);
@@ -29,13 +29,13 @@ class SingleComment extends Component
             return toast($this, 'error', config('taskord.error.rate-limit'));
         }
 
-        if (Gate::denies('praise/subscribe', $this->comment)) {
+        if (Gate::denies('like/subscribe', $this->comment)) {
             return toast($this, 'error', config('taskord.error.deny'));
         }
 
-        Helper::togglePraise($this->comment, 'COMMENT');
+        Helper::toggleLike($this->comment, 'COMMENT');
 
-        return loggy(request(), 'Comment', auth()->user(), 'Toggled comment praise | Comment ID: '.$this->comment->id);
+        return loggy(request(), 'Comment', auth()->user(), 'Toggled comment like | Comment ID: '.$this->comment->id);
     }
 
     public function toggleCommentBox()

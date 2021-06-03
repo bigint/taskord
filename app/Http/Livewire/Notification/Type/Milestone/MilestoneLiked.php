@@ -5,7 +5,7 @@ namespace App\Http\Livewire\Notification\Type\Milestone;
 use App\Models\Milestone;
 use Livewire\Component;
 
-class MilestonePraised extends Component
+class MilestoneLiked extends Component
 {
     public $data;
 
@@ -18,7 +18,7 @@ class MilestonePraised extends Component
     {
         $milestone = Milestone::find($this->data['milestone_id']);
 
-        return view('livewire.notification.type.milestone.milestone-praised', [
+        return view('livewire.notification.type.milestone.milestone-liked', [
             'milestone' => $milestone,
         ]);
     }

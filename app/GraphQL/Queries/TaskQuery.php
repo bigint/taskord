@@ -4,7 +4,7 @@ namespace App\GraphQL\Queries;
 
 class TaskQuery
 {
-    public function hasPraised($task)
+    public function hasLiked($task)
     {
         if (auth()->check()) {
             return auth()->user()->hasLiked($task);

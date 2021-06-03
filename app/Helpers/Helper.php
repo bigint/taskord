@@ -4,18 +4,18 @@
 
 namespace App\Helpers;
 
-use App\Gamify\Points\PraiseCreated;
+use App\Gamify\Points\LikeCreated;
 use App\Models\Product;
 use App\Models\User;
-use App\Notifications\Answer\AnswerPraised;
-use App\Notifications\Comment\CommentPraised;
-use App\Notifications\Comment\Reply\ReplyPraised;
+use App\Notifications\Answer\AnswerLiked;
+use App\Notifications\Comment\CommentLiked;
+use App\Notifications\Comment\Reply\ReplyLiked;
 use App\Notifications\Mentioned;
-use App\Notifications\Milestone\MilestonePraised;
+use App\Notifications\Milestone\MilestoneLiked;
 use App\Notifications\Question\NotifySubscribers as QuestionSubscribers;
-use App\Notifications\Question\QuestionPraised;
+use App\Notifications\Question\QuestionLiked;
 use App\Notifications\Task\NotifySubscribers as TaskSubscribers;
-use App\Notifications\Task\TaskPraised;
+use App\Notifications\Task\TaskLiked;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\App;
@@ -34,14 +34,14 @@ class Helper
     }
 
     /**
-     * Toggle praise on a model.
+     * Toggle like on a model.
      *
      * @param \Illuminate\Database\Eloquent\Model $entity
      * @param string $type
      *
      * @return void
      */
-    public static function togglePraise(Model $entity, string $type)
+    public static function toggleLike(Model $entity, string $type)
     {
         $user = auth()->user();
         $hasLiked = $user->hasLiked($entity);
@@ -55,29 +55,29 @@ class Helper
             && $entity->source !== 'Gitlab'
         ) {
             $hasLiked
-                ? undoPoint(new PraiseCreated($entity))
-                : givePoint(new PraiseCreated($entity));
+                ? undoPoint(new LikeCreated($entity))
+                : givePoint(new LikeCreated($entity));
         }
 
         if (! $hasLiked) {
             switch ($type) {
                 case 'TASK':
-                    $entity->user->notify(new TaskPraised($entity, $user->id));
+                    $entity->user->notify(new TaskLiked($entity, $user->id));
                     break;
                 case 'COMMENT':
-                    $entity->user->notify(new CommentPraised($entity, $user->id));
+                    $entity->user->notify(new CommentLiked($entity, $user->id));
                     break;
                 case 'REPLY':
-                    $entity->user->notify(new ReplyPraised($entity, $user->id));
+                    $entity->user->notify(new ReplyLiked($entity, $user->id));
                     break;
                 case 'QUESTION':
-                    $entity->user->notify(new QuestionPraised($entity, $user->id));
+                    $entity->user->notify(new QuestionLiked($entity, $user->id));
                     break;
                 case 'ANSWER':
-                    $entity->user->notify(new AnswerPraised($entity, $user->id));
+                    $entity->user->notify(new AnswerLiked($entity, $user->id));
                     break;
                 case 'MILESTONE':
-                    $entity->user->notify(new MilestonePraised($entity, $user->id));
+                    $entity->user->notify(new MilestoneLiked($entity, $user->id));
                     break;
                 default:
                     break;

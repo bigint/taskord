@@ -26,7 +26,7 @@ class SingleQuestion extends Component
         $this->type = $type;
     }
 
-    public function togglePraise()
+    public function toggleLike()
     {
         try {
             $this->rateLimit(50);
@@ -34,13 +34,13 @@ class SingleQuestion extends Component
             return toast($this, 'error', config('taskord.error.rate-limit'));
         }
 
-        if (Gate::denies('praise/subscribe', $this->question)) {
+        if (Gate::denies('like/subscribe', $this->question)) {
             return toast($this, 'error', config('taskord.error.deny'));
         }
 
-        Helper::togglePraise($this->question, 'QUESTION');
+        Helper::toggleLike($this->question, 'QUESTION');
 
-        return loggy(request(), 'Question', auth()->user(), 'Toggled question praise | Question ID: '.$this->question->id);
+        return loggy(request(), 'Question', auth()->user(), 'Toggled question like | Question ID: '.$this->question->id);
     }
 
     public function hide()

@@ -28,7 +28,7 @@ class Subscribe extends Component
             return toast($this, 'error', config('taskord.error.rate-limit'));
         }
 
-        if (Gate::denies('praise/subscribe', $this->product)) {
+        if (Gate::denies('like/subscribe', $this->product)) {
             return toast($this, 'error', config('taskord.error.deny'));
         }
 

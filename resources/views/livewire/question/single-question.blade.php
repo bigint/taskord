@@ -52,17 +52,17 @@
         <div class="mt-3">
             @auth
                 @if (auth()->user()->hasLiked($question))
-                    <button role="button" class="btn btn-action btn-praise me-1" wire:click="togglePraise" wire:loading.attr="disabled" wire:offline.attr="disabled" aria-label="Praises">
-                        <span wire:loading wire:target="togglePraise" class="spinner-border spinner-border-task" role="status"></span>
-                        <x-heroicon-s-heart wire:loading.remove wire:target="togglePraise" class="heroicon heroicon-15px me-0" />
+                    <button role="button" class="btn btn-action btn-like me-1" wire:click="toggleLike" wire:loading.attr="disabled" wire:offline.attr="disabled" aria-label="Likes">
+                        <span wire:loading wire:target="toggleLike" class="spinner-border spinner-border-task" role="status"></span>
+                        <x-heroicon-s-heart wire:loading.remove wire:target="toggleLike" class="heroicon heroicon-15px me-0" />
                         <span class="small fw-bold">
                             {{ number_format($question->likerscount()) }}
                         </span>
                     </button>
                 @else
-                    <button role="button" class="btn btn-action btn-outline-praise me-1" wire:click="togglePraise" wire:loading.attr="disabled" wire:offline.attr="disabled" aria-label="Praises">
-                        <span wire:loading wire:target="togglePraise" class="spinner-border spinner-border-task" role="status"></span>
-                        <x-heroicon-o-heart wire:loading.remove wire:target="togglePraise" class="heroicon heroicon-15px me-0" />
+                    <button role="button" class="btn btn-action btn-outline-like me-1" wire:click="toggleLike" wire:loading.attr="disabled" wire:offline.attr="disabled" aria-label="Likes">
+                        <span wire:loading wire:target="toggleLike" class="spinner-border spinner-border-task" role="status"></span>
+                        <x-heroicon-o-heart wire:loading.remove wire:target="toggleLike" class="heroicon heroicon-15px me-0" />
                         @if ($question->likerscount() !== 0)
                             <span class="small fw-bold">
                                 {{ number_format($question->likerscount()) }}
@@ -123,7 +123,7 @@
                 @endcan
             @endauth
             @guest
-                <a href="/login" class="btn btn-action btn-outline-praise me-1" aria-label="Praises">
+                <a href="/login" class="btn btn-action btn-outline-like me-1" aria-label="Likes">
                     <x-heroicon-o-heart class="heroicon heroicon-15px me-0" />
                     @if ($question->likerscount() !== 0)
                         <span class="small fw-bold">
