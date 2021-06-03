@@ -170,14 +170,35 @@ input[type="color"]:focus,
   }
 }
 
-.bg-hero {
-  background: linear-gradient(90deg, $primary 0%, #6a63ecba 90%);
-  background-size: contain;
-}
-
 .bg-tag {
   background: #eae9ff;
   color: $primary;
+}
+
+.bg-hero {
+  background: linear-gradient(90deg, $primary 0%, #6a63ecba 90%);
+}
+
+.tk-badge {
+  letter-spacing: 0.5px;
+  font-size: 10px;
+  text-shadow: rgb(0 0 0 / 16%) 0px 1px 1px;
+}
+
+.bg-beta {
+  background-image: radial-gradient(at left top, $green-500 0%, $green-600 100%);
+}
+
+.bg-patron {
+  background-image: radial-gradient(at left top, $yellow-600 0%, $yellow-700 100%);
+}
+
+.bg-staffship {
+  background-image: radial-gradient(at left top, $red-500 0%, $red-600 100%);
+}
+
+.bg-staff {
+  background-image: radial-gradient(at left top, $primary 0%, #5a53dc 100%);
 }
 
 .avatar-stack {
@@ -237,10 +258,6 @@ input[type="color"]:focus,
   & > [class^='heroicon'] {
     color: inherit !important;
   }
-}
-
-.bg-patron {
-  background-color: $yellow-100 !important;
 }
 
 .recent-questions {

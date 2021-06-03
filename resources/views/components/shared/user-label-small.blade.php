@@ -6,7 +6,7 @@
     >
         <img loading=lazy class="avatar-25 rounded-circle" src="{{ Helper::getCDNImage($user->avatar, 80) }}" height="40" width="40" alt="{{ $user->username }}'s avatar" />
     </a>
-    <div class="ms-2">
+    <div class="ms-2 d-flex align-items-center">
         <a
             href="{{ route('user.done', ['username' => $user->username]) }}"
             class="fw-bold text-dark user-popover"
@@ -24,16 +24,16 @@
                 <x-heroicon-s-badge-check class="heroicon ms-1 text-primary verified" />
             @endif
             @if ($user->is_patron)
-                <a class="patron" href="{{ route('patron.home') }}" aria-label="Patron">
-                    <x-heroicon-s-star class="heroicon text-gold" />
+                <a class="badge tk-badge bg-patron text-capitalize ms-1" href="{{ route('patron.home') }}">
+                    Patron
                 </a>
             @endif
             @if ($user->is_staff)
-                <span class="staff" title="Staff">
-                    <x-heroicon-o-shield-check class="heroicon text-primary" />
+                <span class="badge tk-badge bg-staff text-capitalize ms-1">
+                    Staff
                 </span>
             @endif
-            <span class="small text-secondary fw-normal">{{ "@" . $user->username }}</span>
+            <span class="small text-secondary fw-normal ms-2">{{ "@" . $user->username }}</span>
         </a>
     </div>
 </div>

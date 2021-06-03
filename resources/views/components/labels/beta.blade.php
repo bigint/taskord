@@ -1,5 +1,5 @@
 <span
-    class="badge-font border border-success fw-bold ms-1 px-2 rounded-pill small text-success text-capitalize"
+    class="badge tk-badge bg-beta text-capitalize ms-1"
     title="Feature Release Label: Beta"
 >
     Beta

@@ -239,8 +239,8 @@
                                         <x-heroicon-s-badge-check class="heroicon heroicon-20px text-primary ms-2 me-0 verified" />
                                     @endif
                                     @if ($user->is_patron)
-                                        <a class="patron" href="{{ route('patron.home') }}" aria-label="Patron">
-                                            <x-heroicon-s-star class="heroicon heroicon-20px ms-2 me-0 text-gold" />
+                                        <a class="badge tk-badge bg-patron text-capitalize ms-1" href="{{ route('patron.home') }}">
+                                            Patron
                                         </a>
                                     @endif
                                     @auth

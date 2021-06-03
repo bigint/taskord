@@ -251,7 +251,7 @@ class Moderator extends Component
 
     public function verifyUser()
     {
-        if (Gate::denies('staff.ops') or $this->user->id === 1) {
+        if (Gate::denies('staff.ops')) {
             return toast($this, 'error', config('taskord.error.deny'));
         }
 

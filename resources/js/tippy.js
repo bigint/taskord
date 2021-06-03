@@ -78,12 +78,6 @@ const initHover = () => {
     },
   });
 
-  tippy(".patron", {
-    placement: "right",
-    animation: "shift-away-subtle",
-    content: "Patron",
-  });
-
   tippy(".verified", {
     placement: "right",
     animation: "shift-away-subtle",
@@ -94,12 +88,6 @@ const initHover = () => {
     placement: "right",
     animation: "shift-away-subtle",
     content: "Private Profile",
-  });
-
-  tippy(".staff", {
-    placement: "right",
-    animation: "shift-away-subtle",
-    content: "Staff",
   });
 };
 

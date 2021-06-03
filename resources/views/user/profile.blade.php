@@ -28,38 +28,40 @@
                     <img loading=lazy class="rounded-circle avatar-120" src="{{ Helper::getCDNImage($user->avatar, 240) }}" height="120" width="120" alt="{{ $user->username }}'s avatar" />
                 </a>
                 <div class="ms-4">
-                    <div class="h5 mb-0">
-                        @if ($user->firstname or $user->lastname)
-                            {{ $user->firstname }}{{ ' '.$user->lastname }}
-                        @else
-                            {{ $user->username }}
-                        @endif
-                        @auth
-                        @endauth
-                        @if ($user->is_private)
-                            <x-heroicon-o-lock-closed class="heroicon heroicon-20px text-primary ms-2 me-0 private" />
-                        @endif
-                        @if ($user->is_verified)
-                            <x-heroicon-s-badge-check class="heroicon heroicon-20px text-primary ms-2 me-0 verified" />
-                        @endif
-                        @if ($user->is_patron)
-                            <a class="patron" href="{{ route('patron.home') }}" aria-label="Patron">
-                                <x-heroicon-s-star class="heroicon heroicon-20px ms-2 me-0 text-gold" />
-                            </a>
-                        @endif
-                        @if ($user->vacation_mode)
-                            <span title="On Vacation">
-                                <x-heroicon-o-sun class="heroicon heroicon-20px ms-2 me-0 text-success" />
-                            </span>
-                        @endif
-                        @auth
-                            @if ($user->isFollowing(auth()->user()))
-                                <span class="ms-2 badge bg-light text-secondary">Follows you</span>
+                    <div class="align-items-center d-flex h5 mb-0">
+                        <div>
+                            @if ($user->firstname or $user->lastname)
+                                {{ $user->firstname }}{{ ' '.$user->lastname }}
+                            @else
+                                {{ $user->username }}
                             @endif
-                            @can('staff.ops')
-                                <span class="ms-2 text-secondary small">#{{ $user->id }}</span>
-                            @endcan
-                        @endauth
+                        </div>
+                        <div class="ms-2 d-flex align-items-center">
+                            @if ($user->is_private)
+                                <x-heroicon-o-lock-closed class="heroicon heroicon-20px text-primary ms-2 me-0 private" />
+                            @endif
+                            @if ($user->is_verified)
+                                <x-heroicon-s-badge-check class="heroicon heroicon-20px text-primary ms-2 me-0 verified" />
+                            @endif
+                            @if ($user->vacation_mode)
+                                <span title="On Vacation">
+                                    <x-heroicon-o-sun class="heroicon heroicon-20px ms-2 me-0 text-success" />
+                                </span>
+                            @endif
+                            @if ($user->is_patron)
+                                <a class="badge tk-badge bg-patron text-capitalize text-white ms-2" href="{{ route('patron.home') }}">
+                                    Patron
+                                </a>
+                            @endif
+                            @auth
+                                @if ($user->isFollowing(auth()->user()))
+                                    <span class="ms-2 badge bg-light text-secondary">Follows you</span>
+                                @endif
+                                @can('staff.ops')
+                                    <span class="badge bg-secondary ms-2 small tk-badge">#{{ $user->id }}</span>
+                                @endcan
+                            @endauth
+                        </div>
                     </div>
                     <div class="text-secondary mb-3">
                         {{ "@" . $user->username }}
@@ -97,7 +99,9 @@
                                 {{ $user->company }}
                             </span>
                             @if ($user->is_staff)
-                                <span class="border border-1 border-info text-info fw-bold ms-1 px-2 rounded-pill small">Staff</span>
+                                <span class="badge tk-badge bg-staff text-capitalize ms-1">
+                                    Staff
+                                </span>
                             @endif
                         @endif
                     </div>
