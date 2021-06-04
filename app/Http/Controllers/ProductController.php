@@ -90,6 +90,23 @@ class ProductController extends Controller
         return abort(404);
     }
 
+    public function verify($slug)
+    {
+        $product = Product::whereSlug($slug)
+            ->firstOrFail();
+
+        if (
+            auth()->check() && auth()->user()->id === $product->user->id or
+            auth()->check() && auth()->user()->staff_mode
+        ) {
+            return view('product.verify', [
+                'product' => $product,
+            ]);
+        }
+
+        return abort(404);
+    }
+
     public function newest()
     {
         return view('products.products', [

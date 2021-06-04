@@ -44,6 +44,7 @@
         "socialiteproviders/github": "4.1.0",
         "socialiteproviders/google": "4.1.0",
         "socialiteproviders/twitter": "4.1.1",
+        "spatie/dns": "^2.0",
         "spatie/laravel-activitylog": "4.0.0",
         "spatie/laravel-backup": "7.6.0",
         "symfony/psr-http-message-bridge": "2.1.0"

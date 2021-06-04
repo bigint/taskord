@@ -4,21 +4,28 @@
             <img loading=lazy class="rounded avatar-120" src="{{ Helper::getCDNImage($product->avatar, 240) }}" height="120" width="120" alt="{{ $product->slug }}'s avatar" />
         </a>
         <div class="ms-4">
-            <div class="h5 mb-0">
-                {{ $product->name }}
-                @if ($product->launched)
-                    <span class="ms-1 small" title="Launched">
-                        🚀
-                    </span>
-                @endif
-                @if ($product->deprecated)
-                    <span class="ms-1 small" title="Deprecated">
-                        <x-heroicon-o-shield-exclamation class="heroicon text-danger" />
-                    </span>
-                @endif
-                @can('staff.ops')
-                    <span class="ms-1 text-secondary small">#{{ $product->id }}</span>
-                @endcan
+            <div class="h5 mb-0 d-flex align-items-center">
+                <div>{{ $product->name }}</div>
+                <div class="d-flex align-items-center">
+                    @if ($product->launched)
+                        <span class="ms-2 small" title="Launched">
+                            🚀
+                        </span>
+                    @endif
+                    @if ($product->deprecated)
+                        <span class="ms-2 small" title="Deprecated">
+                            <x-heroicon-o-shield-exclamation class="heroicon text-danger" />
+                        </span>
+                    @endif
+                    @if ($product->verified_at)
+                        <span class="badge tk-badge bg-beta text-capitalize text-white ms-2">
+                            Verified
+                        </span>
+                    @endif
+                    @can('staff.ops')
+                        <span class="badge bg-secondary ms-2 small tk-badge">#{{ $product->id }}</span>
+                    @endcan
+                </div>
             </div>
             <div class="text-secondary mb-2">
                 {{ "#" . $product->slug }}

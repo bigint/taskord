@@ -107,7 +107,20 @@
                     @enderror
                 </div>
                 <div class="mb-3">
-                    <div class="fw-bold mb-2">Status</div>
+                    <div class="fw-bold mb-2">Verification Status</div>
+                    @if ($product->verified_at)
+                        <div class="fw-bold text-success mb-3">
+                            Your domain has been verified at {{ carbon($product->verified_at)->format('d M Y g:i A') }}
+                        </div>
+                    @else
+                        <div>This product is not yet verified</div>
+                        <div class="mt-2">
+                            <a href="{{ route('product.verify', ['slug' => $product->slug]) }}" class="btn btn-sm btn-outline-success rounded-pill">Verify now</a>
+                        </div>
+                    @endif
+                </div>
+                <div class="mb-3">
+                    <div class="fw-bold mb-2">Launch Status</div>
                     <div class="form-check">
                         <input id="launched" class="form-check-input" type="checkbox" wire:model.defer="launched">
                         <label for="launched" class="form-check-label">This product is launched</label>

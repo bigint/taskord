@@ -145,6 +145,9 @@ Route::group(['prefix' => 'product/{slug}', 'as' => 'product.'], function () {
     Route::get('edit', [ProductController::class, 'edit'])
         ->middleware('auth')
         ->name('edit');
+    Route::get('verify', [ProductController::class, 'verify'])
+        ->middleware('auth')
+        ->name('verify');
 });
 
 // Products

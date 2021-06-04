@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ab6b4e4e570c96a082bd18fb16a2606c",
+    "content-hash": "bee8e06a44a676d220e3aba5433c52e5",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -5908,6 +5908,71 @@
                 }
             ],
             "time": "2021-04-01T07:28:47+00:00"
+        },
+        {
+            "name": "spatie/dns",
+            "version": "2.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/spatie/dns.git",
+                "reference": "b21bb11951082393f35a6e18ffc88eb30e7fe918"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spatie/dns/zipball/b21bb11951082393f35a6e18ffc88eb30e7fe918",
+                "reference": "b21bb11951082393f35a6e18ffc88eb30e7fe918",
+                "shasum": ""
+            },
+            "require": {
+                "ext-mbstring": "*",
+                "php": "^8.0",
+                "symfony/process": "^5.2"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^9.5",
+                "spatie/ray": "^1.22"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Spatie\\Dns\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Harish Toshniwal",
+                    "email": "harish@spatie.be",
+                    "homepage": "https://spatie.be",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Freek Van der Herten",
+                    "email": "freek@spatie.be",
+                    "homepage": "https://spatie.be",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Tom Witkowski",
+                    "email": "dev.gummibeer@gmail.com",
+                    "homepage": "https://gummibeer.de",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Retrieve DNS records",
+            "homepage": "https://github.com/spatie/dns",
+            "keywords": [
+                "dns",
+                "spatie"
+            ],
+            "support": {
+                "issues": "https://github.com/spatie/dns/issues",
+                "source": "https://github.com/spatie/dns/tree/2.0.2"
+            },
+            "time": "2021-06-01T09:52:16+00:00"
         },
         {
             "name": "spatie/laravel-activitylog",

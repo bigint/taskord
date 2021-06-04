@@ -3,7 +3,7 @@
         <div class="toast-body d-flex justify-content-between align-items-center py-3">
             <div class="d-flex align-items-center">
                 <div id="toast-icon" class="me-2"></div>
-                <div id="toast-body"></div>
+                <div id="toast-body" class="me-1"></div>
             </div>
             <button type="button" class="btn-close btn-sm" data-bs-dismiss="toast" aria-label="Close"></button>
         </div>
