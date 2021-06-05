@@ -2,7 +2,6 @@
 
 namespace App\Jobs;
 
-use App\Notifications\TelegramLogger;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
@@ -33,7 +32,7 @@ class LogActivity implements ShouldQueue
     {
         $geoDetails = $this->getGeoDetails();
 
-        activity()
+        return activity()
             ->causedBy($this->user)
             ->withProperties([
                 'type' => $this->type,
@@ -42,17 +41,6 @@ class LogActivity implements ShouldQueue
                 'location' => $this->ip === '127.0.0.1' ? null : $geoDetails['location'],
             ])
             ->log($this->message);
-
-        return $this->user->notify(
-            new TelegramLogger(
-                $this->ip,
-                $this->userAgent,
-                $this->type,
-                $this->user,
-                $this->message,
-                $geoDetails,
-            )
-        );
     }
 
     public function getGeoDetails()

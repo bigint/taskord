@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "2f4494b91b5bc474b3c5a890a14824a9",
+    "content-hash": "871ea37ebe90d1b5fd2a8336e03c2c11",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -2109,71 +2109,6 @@
                 "source": "https://github.com/laragraph/utils"
             },
             "time": "2020-12-30T13:17:17+00:00"
-        },
-        {
-            "name": "laravel-notification-channels/telegram",
-            "version": "0.5.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/laravel-notification-channels/telegram.git",
-                "reference": "2cedb10b78219cc91a285eaa5a3de0db405cc207"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/laravel-notification-channels/telegram/zipball/2cedb10b78219cc91a285eaa5a3de0db405cc207",
-                "reference": "2cedb10b78219cc91a285eaa5a3de0db405cc207",
-                "shasum": ""
-            },
-            "require": {
-                "ext-json": "*",
-                "guzzlehttp/guzzle": "^6.2 || ^7.0",
-                "illuminate/notifications": "^5.5 || ^6.0 || ^7.0 || ^8.0",
-                "illuminate/support": "^5.5 || ^6.0 || ^7.0 || ^8.0",
-                "php": "^7.1 || ^8.0"
-            },
-            "require-dev": {
-                "mockery/mockery": "^1.3",
-                "phpunit/phpunit": "^7.0 || ^8.0"
-            },
-            "type": "library",
-            "extra": {
-                "laravel": {
-                    "providers": [
-                        "NotificationChannels\\Telegram\\TelegramServiceProvider"
-                    ]
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "NotificationChannels\\Telegram\\": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Irfaq Syed",
-                    "email": "syed@lukonet.com",
-                    "homepage": "https://lukonet.com",
-                    "role": "Developer"
-                }
-            ],
-            "description": "Telegram Notifications Channel for Laravel",
-            "homepage": "https://github.com/laravel-notification-channels/telegram",
-            "keywords": [
-                "laravel",
-                "notification",
-                "telegram",
-                "telegram notification",
-                "telegram notifications channel"
-            ],
-            "support": {
-                "issues": "https://github.com/laravel-notification-channels/telegram/issues",
-                "source": "https://github.com/laravel-notification-channels/telegram/tree/0.5.1"
-            },
-            "time": "2020-12-06T19:00:18+00:00"
         },
         {
             "name": "laravel/envoy",
@@ -9558,16 +9493,16 @@
         },
         {
             "name": "composer/composer",
-            "version": "2.1.0",
+            "version": "2.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/composer.git",
-                "reference": "59bb0df323c75308e6a72c6c9bc7dc8cc577f1ca"
+                "reference": "e338749d4e6cc97e1136c210ce0212d4a59e3a58"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/composer/zipball/59bb0df323c75308e6a72c6c9bc7dc8cc577f1ca",
-                "reference": "59bb0df323c75308e6a72c6c9bc7dc8cc577f1ca",
+                "url": "https://api.github.com/repos/composer/composer/zipball/e338749d4e6cc97e1136c210ce0212d4a59e3a58",
+                "reference": "e338749d4e6cc97e1136c210ce0212d4a59e3a58",
                 "shasum": ""
             },
             "require": {
@@ -9636,7 +9571,7 @@
             "support": {
                 "irc": "irc://irc.freenode.org/composer",
                 "issues": "https://github.com/composer/composer/issues",
-                "source": "https://github.com/composer/composer/tree/2.1.0"
+                "source": "https://github.com/composer/composer/tree/2.1.1"
             },
             "funding": [
                 {
@@ -9652,7 +9587,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-06-03T09:30:09+00:00"
+            "time": "2021-06-04T06:46:46+00:00"
         },
         {
             "name": "composer/metadata-minifier",
@@ -10420,16 +10355,16 @@
         },
         {
             "name": "filp/whoops",
-            "version": "2.12.1",
+            "version": "2.13.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/filp/whoops.git",
-                "reference": "c13c0be93cff50f88bbd70827d993026821914dd"
+                "reference": "2edbc73a4687d9085c8f20f398eebade844e8424"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/filp/whoops/zipball/c13c0be93cff50f88bbd70827d993026821914dd",
-                "reference": "c13c0be93cff50f88bbd70827d993026821914dd",
+                "url": "https://api.github.com/repos/filp/whoops/zipball/2edbc73a4687d9085c8f20f398eebade844e8424",
+                "reference": "2edbc73a4687d9085c8f20f398eebade844e8424",
                 "shasum": ""
             },
             "require": {
@@ -10479,7 +10414,7 @@
             ],
             "support": {
                 "issues": "https://github.com/filp/whoops/issues",
-                "source": "https://github.com/filp/whoops/tree/2.12.1"
+                "source": "https://github.com/filp/whoops/tree/2.13.0"
             },
             "funding": [
                 {
@@ -10487,7 +10422,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2021-04-25T12:00:00+00:00"
+            "time": "2021-06-04T12:00:00+00:00"
         },
         {
             "name": "friendsofphp/php-cs-fixer",
@@ -11325,16 +11260,16 @@
         },
         {
             "name": "pestphp/pest-plugin-expectations",
-            "version": "v1.3.0",
+            "version": "v1.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pestphp/pest-plugin-expectations.git",
-                "reference": "4c27ae98979a082200797657432c81be3cf0706b"
+                "reference": "fd313336450fdff2053ff989790aa3fe64b2df32"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pestphp/pest-plugin-expectations/zipball/4c27ae98979a082200797657432c81be3cf0706b",
-                "reference": "4c27ae98979a082200797657432c81be3cf0706b",
+                "url": "https://api.github.com/repos/pestphp/pest-plugin-expectations/zipball/fd313336450fdff2053ff989790aa3fe64b2df32",
+                "reference": "fd313336450fdff2053ff989790aa3fe64b2df32",
                 "shasum": ""
             },
             "require": {
@@ -11377,7 +11312,7 @@
                 "unit"
             ],
             "support": {
-                "source": "https://github.com/pestphp/pest-plugin-expectations/tree/v1.3.0"
+                "source": "https://github.com/pestphp/pest-plugin-expectations/tree/v1.4.0"
             },
             "funding": [
                 {
@@ -11393,7 +11328,7 @@
                     "type": "patreon"
                 }
             ],
-            "time": "2021-05-29T22:52:12+00:00"
+            "time": "2021-06-04T19:16:27+00:00"
         },
         {
             "name": "pestphp/pest-plugin-init",
@@ -13547,16 +13482,16 @@
         },
         {
             "name": "sebastian/type",
-            "version": "2.3.1",
+            "version": "2.3.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/type.git",
-                "reference": "81cd61ab7bbf2de744aba0ea61fae32f721df3d2"
+                "reference": "0d1c587401514d17e8f9258a27e23527cb1b06c1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/type/zipball/81cd61ab7bbf2de744aba0ea61fae32f721df3d2",
-                "reference": "81cd61ab7bbf2de744aba0ea61fae32f721df3d2",
+                "url": "https://api.github.com/repos/sebastianbergmann/type/zipball/0d1c587401514d17e8f9258a27e23527cb1b06c1",
+                "reference": "0d1c587401514d17e8f9258a27e23527cb1b06c1",
                 "shasum": ""
             },
             "require": {
@@ -13591,7 +13526,7 @@
             "homepage": "https://github.com/sebastianbergmann/type",
             "support": {
                 "issues": "https://github.com/sebastianbergmann/type/issues",
-                "source": "https://github.com/sebastianbergmann/type/tree/2.3.1"
+                "source": "https://github.com/sebastianbergmann/type/tree/2.3.2"
             },
             "funding": [
                 {
@@ -13599,7 +13534,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2020-10-26T13:18:59+00:00"
+            "time": "2021-06-04T13:02:07+00:00"
         },
         {
             "name": "sebastian/version",
@@ -14453,5 +14388,5 @@
         "php": "^8.0"
     },
     "platform-dev": [],
-    "plugin-api-version": "2.0.0"
+    "plugin-api-version": "2.1.0"
 }
