@@ -22,7 +22,6 @@ class CalculateStreaks implements ShouldQueue
 
     public function handle()
     {
-        dd('yo');
         $createdAt = $this->user->created_at->format('Y-m-d');
         $currentDate = carbon()->format('Y-m-d');
         $period = CarbonPeriod::create($createdAt, $currentDate);
