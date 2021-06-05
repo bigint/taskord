@@ -2,6 +2,7 @@
 
 namespace App\Jobs;
 
+use Carbon\CarbonPeriod;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
@@ -21,6 +22,7 @@ class CalculateStreaks implements ShouldQueue
 
     public function handle()
     {
+        dd('yo');
         $createdAt = $this->user->created_at->format('Y-m-d');
         $currentDate = carbon()->format('Y-m-d');
         $period = CarbonPeriod::create($createdAt, $currentDate);
