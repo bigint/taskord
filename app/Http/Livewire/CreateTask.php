@@ -3,6 +3,7 @@
 namespace App\Http\Livewire;
 
 use App\Actions\CreateNewTask;
+use App\Jobs\CalculateStreaks;
 use App\Jobs\CheckGoal;
 use DanHarrin\LivewireRateLimiting\Exceptions\TooManyRequestsException;
 use DanHarrin\LivewireRateLimiting\WithRateLimiting;
@@ -116,6 +117,7 @@ class CreateTask extends Component
             auth()->user()->daily_goal_reached += 1;
             auth()->user()->save();
             CheckGoal::dispatch(auth()->user(), $task);
+            CalculateStreaks::dispatch(auth()->user());
         }
         $this->latestTask = $task;
 

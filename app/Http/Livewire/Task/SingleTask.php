@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Task;
 
 use App\Gamify\Points\TaskCompleted;
+use App\Jobs\CalculateStreaks;
 use App\Jobs\CheckGoal;
 use App\Models\Task;
 use DanHarrin\LivewireRateLimiting\Exceptions\TooManyRequestsException;
@@ -53,6 +54,7 @@ class SingleTask extends Component
                 auth()->user()->daily_goal_reached += 1;
                 auth()->user()->save();
                 CheckGoal::dispatch(auth()->user(), $this->task);
+                CalculateStreaks::dispatch(auth()->user());
             }
             givePoint(new TaskCompleted($this->task));
             loggy(request(), 'Task', auth()->user(), "Updated a task as done | Task ID: {$this->task->id}");
