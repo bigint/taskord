@@ -21,6 +21,26 @@ class CalculateStreaks implements ShouldQueue
 
     public function handle()
     {
-        //
+        $createdAt = $this->user->created_at->format('Y-m-d');
+        $currentDate = carbon()->format('Y-m-d');
+        $period = CarbonPeriod::create($createdAt, $currentDate);
+        $streaks = 0;
+        foreach ($period->toArray() as $date) {
+            $count = $this->user->tasks()
+                ->select('id')
+                ->whereUserId($this->user->id)
+                ->whereDate('created_at', carbon($date))
+                ->count();
+            if ($count > 0) {
+                $streaks += 1;
+            } else {
+                $streaks = 0;
+            }
+        }
+
+        if (! $this->user->vacation_mode) {
+            $this->user->streaks = $streaks;
+            $this->user->save();
+        }
     }
 }
