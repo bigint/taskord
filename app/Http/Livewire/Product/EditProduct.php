@@ -123,6 +123,7 @@ class EditProduct extends Component
         }
 
         auth()->user()->touch();
+        $this->emit('refreshProducts');
 
         loggy(request(), 'Product', auth()->user(), "Updated a product | Product ID: #{$this->product->id}");
 

@@ -67,7 +67,10 @@ class AuthServiceProvider extends ServiceProvider
 
     public function canPerformOnEntity(User $user, User $entityUser)
     {
-        if ($user->spammy) {
+        if (
+            $user->spammy or
+            ! $user->hasVerifiedEmail()
+        ) {
             return false;
         }
 

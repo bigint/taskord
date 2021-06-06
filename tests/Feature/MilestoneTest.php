@@ -1,6 +1,9 @@
 <?php
 
 use App\Http\Livewire\Milestone\CreateMilestone;
+use App\Http\Livewire\Milestone\EditMilestone;
+use App\Http\Livewire\Milestone\SingleMilestone;
+use App\Models\Milestone;
 use function Pest\Livewire\livewire;
 use function Tests\actingAs;
 
@@ -45,6 +48,16 @@ it('cannot create milestone as un-authed user', function () {
         ->assertNotEmitted('refreshMilestones');
 });
 
+it('cannot edit milestone as un-authed user', function () {
+    $milestone = Milestone::factory()->create();
+
+    livewire(EditMilestone::class, ['milestone' => $milestone])
+        ->set('name', 'Hello world from test!')
+        ->set('description', 'Hello world from test!')
+        ->call('submit')
+        ->assertNotEmitted('refreshMilestones');
+});
+
 it('can create milestone as authed user', function ($question, $user, $status) {
     if ($status) {
         return actingAs($user)
@@ -61,4 +74,100 @@ it('can create milestone as authed user', function ($question, $user, $status) {
         ->set('description', $question)
         ->call('submit')
         ->assertNotEmitted('refreshMilestones');
-})->with('model-content');
+})->with('model-data');
+
+it('can edit milestone as authed user', function ($milestone, $user, $status) {
+    $newMilestone = Milestone::factory()->create([
+        'user_id' => $user,
+    ]);
+
+    if ($status) {
+        return actingAs($user)
+            ->livewire(EditMilestone::class, ['milestone' => $newMilestone])
+            ->set('name', $milestone)
+            ->set('description', $milestone)
+            ->call('submit')
+            ->assertEmitted('refreshMilestones');
+    }
+
+    return actingAs($user)
+        ->livewire(EditMilestone::class, ['milestone' => $newMilestone])
+        ->set('name', $milestone)
+        ->set('description', $milestone)
+        ->call('submit')
+        ->assertNotEmitted('refreshMilestones');
+})->with('model-data');
+
+it('cannot toggle like on milestone', function ($user, $status) {
+    $milestone = Milestone::factory()->create([
+        'user_id' => $user,
+    ]);
+
+    actingAs($user)
+        ->livewire(SingleMilestone::class, [
+            'milestone' => $milestone,
+            'type' => 'milestones.opened',
+        ])
+        ->call('toggleLike')
+        ->assertNotEmitted('milestoneLiked');
+})->with('like-data');
+
+it('can toggle like on milestone', function ($user, $status) {
+    $milestone = Milestone::factory()->create();
+
+    if ($status) {
+        return actingAs($user)
+            ->livewire(SingleMilestone::class, [
+                'milestone' => $milestone,
+                'type' => 'milestones.opened',
+            ])
+            ->call('toggleLike')
+            ->assertEmitted('milestoneLiked');
+    }
+
+    return actingAs($user)
+        ->livewire(SingleMilestone::class, [
+            'milestone' => $milestone,
+            'type' => 'milestones.opened',
+        ])
+        ->call('toggleLike')
+        ->assertNotEmitted('milestoneLiked');
+})->with('like-data');
+
+it('cannot delete milestone', function ($user, $status) {
+    $milestone = Milestone::factory()->create([
+        'user_id' => 10,
+    ]);
+
+    actingAs($user)
+        ->livewire(SingleMilestone::class, [
+            'milestone' => $milestone,
+            'type' => 'milestones.opened',
+        ])
+        ->call('deleteMilestone')
+        ->assertNotEmitted('refreshMilestones');
+})->with('like-data');
+
+it('can delete milestone', function ($user, $status) {
+    $milestone = Milestone::factory()->create([
+        'user_id' => $user,
+    ]);
+
+    if ($status) {
+        return actingAs($user)
+            ->livewire(SingleMilestone::class, [
+                'milestone' => $milestone,
+                'type' => 'milestones.opened',
+            ])
+            ->call('deleteMilestone')
+            ->assertEmitted('refreshMilestones');
+    }
+
+    return actingAs($user)
+        ->livewire(SingleMilestone::class, [
+            'milestone' => $milestone,
+            'type' => 'milestones.opened',
+        ])
+        ->call('deleteMilestone')
+        ->assertNotEmitted('refreshMilestones');
+})->with('like-data');

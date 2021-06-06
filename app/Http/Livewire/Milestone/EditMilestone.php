@@ -15,7 +15,7 @@ class EditMilestone extends Component
     public $endDate;
 
     protected $rules = [
-        'name' => ['required', 'min:5', 'max:150'],
+        'name' => ['required', 'min:3', 'max:150'],
         'description' => ['required', 'min:3', 'max:10000'],
     ];
 
@@ -53,6 +53,7 @@ class EditMilestone extends Component
         $milestone->end_date = $this->startDate ? $this->endDate : null;
         $milestone->save();
         auth()->user()->touch();
+        $this->emit('refreshMilestones');
 
         loggy(request(), 'Milestone', auth()->user(), "Updated a milestone | Milestone ID: {$milestone->id}");
 

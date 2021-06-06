@@ -32,6 +32,7 @@ class SingleReply extends Component
         }
 
         Helper::toggleLike($this->reply, 'REPLY');
+        $this->emit('replyLiked');
 
         return loggy(request(), 'Reply', auth()->user(), "Toggled reply like | Reply ID: {$this->reply->id}");
     }

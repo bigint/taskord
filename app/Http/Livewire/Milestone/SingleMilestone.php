@@ -35,6 +35,7 @@ class SingleMilestone extends Component
         }
 
         Helper::toggleLike($this->milestone, 'MILESTONE');
+        $this->emit('milestoneLiked');
 
         return loggy(request(), 'Milestone', auth()->user(), "Toggled milestone like | Milestone ID: {$this->milestone->id}");
     }
@@ -81,6 +82,7 @@ class SingleMilestone extends Component
         loggy(request(), 'Milestone', auth()->user(), "Deleted a milestone | Milestone ID: {$this->milestone->id}");
         $this->milestone->delete();
         auth()->user()->touch();
+        $this->emit('refreshMilestones');
 
         return redirect()->route('milestones.opened');
     }

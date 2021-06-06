@@ -67,7 +67,7 @@ class CreateTask extends Component
         }
 
         $this->validate([
-            'task' => ['required', 'min:5', 'max:10000'],
+            'task' => ['required', 'min:3', 'max:10000'],
             'images' => ['max:5'],
             'images.*' => ['nullable', 'mimes:jpeg,jpg,png,gif', 'max:5000'],
         ]);

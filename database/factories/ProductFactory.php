@@ -32,6 +32,7 @@ class ProductFactory extends Factory
             'repo' => 'https://github.com/taskord/taskord',
             'producthunt' => $this->faker->userName,
             'launched' => $this->faker->boolean($chanceOfGettingTrue = 50),
+            'deprecated' => $this->faker->boolean($chanceOfGettingTrue = 5),
             'launched_at' => $this->faker->dateTimeBetween($startDate = '-600 days', $endDate = 'now'),
             'created_at' => $this->faker->dateTimeBetween($startDate = '-600 days', $endDate = 'now'),
             'updated_at' => $this->faker->dateTimeBetween($startDate = '-2 days', $endDate = 'now'),

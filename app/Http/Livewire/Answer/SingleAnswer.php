@@ -33,6 +33,7 @@ class SingleAnswer extends Component
         }
 
         Helper::toggleLike($this->answer, 'ANSWER');
+        $this->emit('answerLiked');
 
         return loggy(request(), 'Answer', auth()->user(), "Toggled answer like | Answer ID: {$this->answer->id}");
     }

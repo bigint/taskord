@@ -42,7 +42,7 @@ class CreateProduct extends Component
         }
 
         $this->validate([
-            'name' => ['required', 'max:30'],
+            'name' => ['required', 'min:3', 'max:30'],
             'slug' => ['required', 'min:3', 'max:20', 'unique:products', 'alpha_dash', new ReservedSlug()],
             'description' => ['nullable', 'max:160'],
             'website' => ['nullable', 'active_url'],
@@ -100,6 +100,7 @@ class CreateProduct extends Component
         }
 
         auth()->user()->touch();
+        $this->emit('refreshProducts');
         loggy(request(), 'Product', auth()->user(), "Created a new product | Product ID: {$product->id}");
 
         return redirect()->route('product.done', ['slug' => $product->slug]);

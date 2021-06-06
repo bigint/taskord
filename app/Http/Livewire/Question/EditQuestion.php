@@ -16,7 +16,7 @@ class EditQuestion extends Component
     public $patronOnly;
 
     protected $rules = [
-        'title' => ['required', 'min:5', 'max:150'],
+        'title' => ['required', 'min:3', 'max:150'],
         'body' => ['required', 'min:3', 'max:20000'],
     ];
 
@@ -62,6 +62,7 @@ class EditQuestion extends Component
         $question->save();
         $question->retag($this->selectedTags);
         auth()->user()->touch();
+        $this->emit('refreshQuestion');
 
         loggy(request(), 'Question', auth()->user(), "Updated a question | Question ID: {$question->id}");
 

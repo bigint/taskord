@@ -76,6 +76,7 @@ class SingleTask extends Component
         }
 
         Helper::toggleLike($this->task, 'TASK');
+        $this->emit('taskLiked');
 
         return loggy(request(), 'Task', auth()->user(), "Toggled task like | Task ID: {$this->task->id}");
     }
