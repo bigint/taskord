@@ -173,3 +173,28 @@ it('can delete question', function ($user, $status) {
         ->call('deleteQuestion')
         ->assertNotEmitted('refreshQuestions');
 })->with('like-data');
+
+it('can hide a question', function ($user, $status) {
+    $question = Question::factory()->create();
+
+    if ($status) {
+        return actingAs($user)
+            ->livewire(SingleQuestion::class, [
+                'question' => $question,
+                'type' => 'question.newest',
+            ])
+            ->call('hide')
+            ->assertEmitted('questionHidden');
+    }
+
+    return actingAs($user)
+        ->livewire(SingleQuestion::class, [
+            'question' => $question,
+            'type' => 'question.newest',
+        ])
+        ->call('hide')
+        ->assertNotEmitted('questionHidden');
+})->with([
+    [1, true],
+    [2, false],
+]);

@@ -173,3 +173,28 @@ it('can delete milestone', function ($user, $status) {
         ->call('deleteMilestone')
         ->assertNotEmitted('refreshMilestones');
 })->with('like-data');
+
+it('can hide a milestone', function ($user, $status) {
+    $milestone = Milestone::factory()->create();
+
+    if ($status) {
+        return actingAs($user)
+            ->livewire(SingleMilestone::class, [
+                'milestone' => $milestone,
+                'type' => 'milestones.opened',
+            ])
+            ->call('hide')
+            ->assertEmitted('milestonesHidden');
+    }
+
+    return actingAs($user)
+        ->livewire(SingleMilestone::class, [
+            'milestone' => $milestone,
+            'type' => 'milestones.opened',
+        ])
+        ->call('hide')
+        ->assertNotEmitted('milestonesHidden');
+})->with([
+    [1, true],
+    [2, false],
+]);

@@ -102,3 +102,22 @@ it('can delete comment', function ($user, $status) {
         ->call('deleteComment')
         ->assertNotEmitted('refreshComments');
 })->with('like-data');
+
+it('can hide a comment', function ($user, $status) {
+    $comment = Comment::factory()->create();
+
+    if ($status) {
+        return actingAs($user)
+            ->livewire(SingleComment::class, ['comment' => $comment])
+            ->call('hide')
+            ->assertEmitted('commentHidden');
+    }
+
+    return actingAs($user)
+        ->livewire(SingleComment::class, ['comment' => $comment])
+        ->call('hide')
+        ->assertNotEmitted('commentHidden');
+})->with([
+    [1, true],
+    [2, false],
+]);

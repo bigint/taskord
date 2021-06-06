@@ -88,6 +88,7 @@ class SingleTask extends Component
         }
 
         Helper::hide($this->task);
+        $this->emit('taskHidden');
         loggy(request(), 'Staff', auth()->user(), "Toggled task hide | Task ID: {$this->task->id}");
 
         return toast($this, 'success', 'Task is hidden from public!');

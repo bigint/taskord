@@ -126,3 +126,22 @@ it('can delete task', function ($user, $status) {
         ->call('deleteTask')
         ->assertNotEmitted('refreshTasks');
 })->with('like-data');
+
+it('can hide a task', function ($user, $status) {
+    $task = Task::factory()->create();
+
+    if ($status) {
+        return actingAs($user)
+            ->livewire(SingleTask::class, ['task' => $task])
+            ->call('hide')
+            ->assertEmitted('taskHidden');
+    }
+
+    return actingAs($user)
+        ->livewire(SingleTask::class, ['task' => $task])
+        ->call('hide')
+        ->assertNotEmitted('taskHidden');
+})->with([
+    [1, true],
+    [2, false],
+]);

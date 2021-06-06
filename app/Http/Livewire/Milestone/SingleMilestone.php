@@ -47,6 +47,7 @@ class SingleMilestone extends Component
         }
 
         Helper::hide($this->milestone);
+        $this->emit('milestonesHidden');
         loggy(request(), 'Staff', auth()->user(), "Toggled hide milestone | Milestone ID: {$this->milestone->id}");
 
         return toast($this, 'success', 'Milestone is hidden from public!');

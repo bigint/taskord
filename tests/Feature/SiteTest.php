@@ -21,7 +21,7 @@ it('has ci data details skeleton', function ($url, $expected, $auth) {
     }
 })->with([
     ['/site/ci-data', 404, false],
-    ['/site/ci-data', 404, true],
+    ['/site/ci-data', 200, true],
 ]);
 
 it('has deployment data details skeleton', function ($url, $expected, $auth) {
@@ -32,7 +32,7 @@ it('has deployment data details skeleton', function ($url, $expected, $auth) {
     }
 })->with([
     ['/site/deployment-data', 404, false],
-    ['/site/deployment-data', 404, true],
+    ['/site/deployment-data', 200, true],
 ]);
 
 it('has commit data details skeleton', function ($url, $expected, $auth) {
@@ -43,5 +43,5 @@ it('has commit data details skeleton', function ($url, $expected, $auth) {
     }
 })->with([
     ['/site/commit-data', 404, false],
-    ['/site/commit-data', 404, true],
+    ['/site/commit-data', 200, true],
 ]);

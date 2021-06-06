@@ -91,3 +91,22 @@ it('can delete answer', function ($user, $status) {
         ->call('deleteAnswer')
         ->assertNotEmitted('answerLiked');
 })->with('like-data');
+
+it('can hide a answer', function ($user, $status) {
+    $answer = Answer::factory()->create();
+
+    if ($status) {
+        return actingAs($user)
+            ->livewire(SingleAnswer::class, ['answer' => $answer])
+            ->call('hide')
+            ->assertEmitted('answersHidden');
+    }
+
+    return actingAs($user)
+        ->livewire(SingleAnswer::class, ['answer' => $answer])
+        ->call('hide')
+        ->assertNotEmitted('answersHidden');
+})->with([
+    [1, true],
+    [2, false],
+]);
