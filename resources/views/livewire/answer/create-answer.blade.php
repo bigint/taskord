@@ -20,7 +20,7 @@
                 </a>
                 <button wire:loading.attr="disabled" wire:target="submit" class="btn btn-sm btn-outline-primary rounded-pill" type="submit" wire:click="submit">
                     <x-heroicon-o-plus class="heroicon" />
-                    Add answer
+                    Answer
                 </button>
             </div>
         </div>
