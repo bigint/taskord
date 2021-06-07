@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "9754f4020886073462cc52c055d5e5e8",
+    "content-hash": "c3752a55d9197d30e35c512dd7330b33",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -3321,16 +3321,16 @@
         },
         {
             "name": "multicaret/laravel-acquaintances",
-            "version": "v3.5.1",
+            "version": "v3.5.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/multicaret/laravel-acquaintances.git",
-                "reference": "5fcf08a61668c586ce8402af442179e0ccee1f1f"
+                "reference": "d7759225c9c8f4a393b580dd6f4ab431e2834957"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/multicaret/laravel-acquaintances/zipball/5fcf08a61668c586ce8402af442179e0ccee1f1f",
-                "reference": "5fcf08a61668c586ce8402af442179e0ccee1f1f",
+                "url": "https://api.github.com/repos/multicaret/laravel-acquaintances/zipball/d7759225c9c8f4a393b580dd6f4ab431e2834957",
+                "reference": "d7759225c9c8f4a393b580dd6f4ab431e2834957",
                 "shasum": ""
             },
             "require": {
@@ -3385,9 +3385,9 @@
             ],
             "support": {
                 "issues": "https://github.com/multicaret/laravel-acquaintances/issues",
-                "source": "https://github.com/multicaret/laravel-acquaintances/tree/v3.5.1"
+                "source": "https://github.com/multicaret/laravel-acquaintances/tree/v3.5.2"
             },
-            "time": "2021-04-21T00:06:17+00:00"
+            "time": "2021-06-07T14:39:37+00:00"
         },
         {
             "name": "nesbot/carbon",

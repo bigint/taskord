@@ -28,7 +28,7 @@
         "livewire/livewire": "2.4.4",
         "mews/purifier": "3.3.5",
         "mll-lab/laravel-graphql-playground": "2.5.0",
-        "multicaret/laravel-acquaintances": "3.5.1",
+        "multicaret/laravel-acquaintances": "3.5.2",
         "nesbot/carbon": "2.48.1",
         "nicolaslopezj/searchable": "1.13.0",
         "nuwave/lighthouse": "5.12.3",
