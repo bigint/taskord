@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "000d2cd34cac31528a506c944171d3d6",
+    "content-hash": "9754f4020886073462cc52c055d5e5e8",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -11004,16 +11004,16 @@
         },
         {
             "name": "pestphp/pest",
-            "version": "v1.3.1",
+            "version": "v1.3.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pestphp/pest.git",
-                "reference": "bb13bdaa80a909226c8948b00bf2f5c32cf8761b"
+                "reference": "17d407a26a9466779c58372fdb2502a0c5a0dc26"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pestphp/pest/zipball/bb13bdaa80a909226c8948b00bf2f5c32cf8761b",
-                "reference": "bb13bdaa80a909226c8948b00bf2f5c32cf8761b",
+                "url": "https://api.github.com/repos/pestphp/pest/zipball/17d407a26a9466779c58372fdb2502a0c5a0dc26",
+                "reference": "17d407a26a9466779c58372fdb2502a0c5a0dc26",
                 "shasum": ""
             },
             "require": {
@@ -11080,7 +11080,7 @@
             ],
             "support": {
                 "issues": "https://github.com/pestphp/pest/issues",
-                "source": "https://github.com/pestphp/pest/tree/v1.3.1"
+                "source": "https://github.com/pestphp/pest/tree/v1.3.2"
             },
             "funding": [
                 {
@@ -11108,7 +11108,7 @@
                     "type": "patreon"
                 }
             ],
-            "time": "2021-06-06T00:07:27+00:00"
+            "time": "2021-06-07T14:27:33+00:00"
         },
         {
             "name": "pestphp/pest-plugin",
@@ -14388,5 +14388,5 @@
         "php": "^8.0"
     },
     "platform-dev": [],
-    "plugin-api-version": "2.1.0"
+    "plugin-api-version": "2.0.0"
 }
