@@ -1,8 +1,8 @@
 <div class="mb-3">
-    <a class="mb-2 btn btn-{{ Route::currentRouteName() === 'products.newest' ? '' : 'outline-' }}primary rounded-pill me-2" href="{{ route('products.newest') }}">
+    <a class="mb-2 btn btn-{{ Route::is('products.newest') ? '' : 'outline-' }}primary rounded-pill me-2" href="{{ route('products.newest') }}">
         Newest
     </a>
-    <a class="mb-2 btn btn-{{ Route::currentRouteName() === 'products.launched' ? '' : 'outline-' }}primary rounded-pill me-2" href="{{ route('products.launched') }}">
+    <a class="mb-2 btn btn-{{ Route::is('products.launched') ? '' : 'outline-' }}primary rounded-pill me-2" href="{{ route('products.launched') }}">
         Launched
     </a>
     @auth

@@ -60,15 +60,15 @@
     </div>
     <div class="card-footer text-muted">
         <a class="text-dark fw-bold me-4" href="{{ route('product.done', ['slug' => $product->slug]) }}">
-            <span class="@if (Route::currentRouteName() === 'product.done') text-primary @endif me-1">Done</span>
+            <span class="{{ Route::is('product.done') ? 'text-primary' : '' }} me-1">Done</span>
             <span class="small fw-normal text-secondary">{{ number_format($done_count) }}</span>
         </a>
         <a class="text-dark fw-bold me-4" href="{{ route('product.pending', ['slug' => $product->slug]) }}">
-            <span class="@if (Route::currentRouteName() === 'product.pending') text-primary @endif me-1">Pending</span>
+            <span class="{{ Route::is('product.pending') ? 'text-primary' : '' }} me-1">Pending</span>
             <span class="small fw-normal text-secondary">{{ number_format($pending_count) }}</span>
         </a>
         <a class="text-dark fw-bold me-4"href="{{ route('product.updates', ['slug' => $product->slug]) }}">
-            <span class="@if (Route::currentRouteName() === 'product.updates') text-primary @endif me-1">Updates</span>
+            <span class="{{ Route::is('product.updates') ? 'text-primary' : '' }} me-1">Updates</span>
             <span class="small fw-normal text-secondary">{{ number_format($updates_count) }}</span>
         </a>
         <a class="text-dark fw-bold me-4" href="{{ route('feed.product', ['slug' => $product->slug]) }}" target="_blank">

@@ -170,32 +170,32 @@
             auth()->check() and auth()->user()->staff_mode
         )
             <a class="text-dark fw-bold me-4" href="{{ route('user.done', ['username' => $user->username]) }}">
-                <span class="@if (Route::currentRouteName() === 'user.done') text-primary @endif me-1">Done</span>
+                <span class="{{ Route::is('user.done') ? 'text-primary' : '' }} me-1">Done</span>
                 <span class="small fw-normal text-secondary">{{ number_format($done_count) }}</span>
             </a>
             <a class="text-dark fw-bold me-4" href="{{ route('user.pending', ['username' => $user->username]) }}">
-                <span class="@if (Route::currentRouteName() === 'user.pending') text-primary @endif me-1">Pending</span>
+                <span class="{{ Route::is('user.pending') ? 'text-primary' : '' }} me-1">Pending</span>
                 <span class="small fw-normal text-secondary">{{ number_format($pending_count) }}</span>
             </a>
         @endif
         <a class="text-dark fw-bold me-4" href="{{ route('user.products', ['username' => $user->username]) }}">
-            <span class="@if (Route::currentRouteName() === 'user.products') text-primary @endif me-1">Products</span>
+            <span class="{{ Route::is('user.products') ? 'text-primary' : '' }} me-1">Products</span>
             <span class="small fw-normal text-secondary">{{ number_format($products_count) }}</span>
         </a>
         <a class="text-dark fw-bold me-4" href="{{ route('user.questions', ['username' => $user->username]) }}">
-            <span class="@if (Route::currentRouteName() === 'user.questions') text-primary @endif me-1">Questions</span>
+            <span class="{{ Route::is('user.questions') ? 'text-primary' : '' }} me-1">Questions</span>
             <span class="small fw-normal text-secondary">{{ number_format($questions_count) }}</span>
         </a>
         <a class="text-dark fw-bold me-4" href="{{ route('user.answers', ['username' => $user->username]) }}">
-            <span class="@if (Route::currentRouteName() === 'user.answers') text-primary @endif me-1">Answers</span>
+            <span class="{{ Route::is('user.answers') ? 'text-primary' : '' }} me-1">Answers</span>
             <span class="small fw-normal text-secondary">{{ number_format($answers_count) }}</span>
         </a>
         <a class="text-dark fw-bold me-4" href="{{ route('user.milestones', ['username' => $user->username]) }}">
-            <span class="@if (Route::currentRouteName() === 'user.milestones') text-primary @endif me-1">Milestones</span>
+            <span class="{{ Route::is('user.milestones') ? 'text-primary' : '' }} me-1">Milestones</span>
             <span class="small fw-normal text-secondary">{{ number_format($milestones_count) }}</span>
         </a>
         <a class="text-dark fw-bold me-4" href="{{ route('user.stats', ['username' => $user->username]) }}">
-            <span class="@if (Route::currentRouteName() === 'user.stats') text-primary @endif me-1">Stats</span>
+            <span class="{{ Route::is('user.stats') ? 'text-primary' : '' }} me-1">Stats</span>
         </a>
         <a class="text-dark fw-bold me-4" href="{{ route('feed.user', ['username' => $user->username]) }}" target="_blank">
             <span>
