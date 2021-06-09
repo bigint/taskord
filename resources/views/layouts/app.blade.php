@@ -86,7 +86,7 @@
             @endif
         @endauth
         @guest
-            @if (Route::current()->getName() === 'home')
+            @if (Route::is('home'))
                 @include('home.hero')
             @endif
         @endguest
