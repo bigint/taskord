@@ -16,9 +16,6 @@
     <a href="https://github.com/taskordhq/web/actions/workflows/test.yml">
         <img src="https://github.com/taskordhq/web/actions/workflows/test.yml/badge.svg?branch=main" alt="GitHub Action">
     </a>
-    <a href="https://buildkite.com/taskord/taskord">
-        <img src="https://badge.buildkite.com/e3ce9c21236dd211742a474b474cb35bbce0c676f9c04ee2ed.svg" alt="Buildkite CI">
-    </a>
     <a href="https://gitlab.styleci.io/repos/20359920?branch=main">
         <img src="https://gitlab.styleci.io/repos/20359920/shield" alt="Style CI">
     </a>
