@@ -156,6 +156,13 @@ class UserController extends Controller
         ]);
     }
 
+    public function sessionsSettings()
+    {
+        return view('user.settings.sessions', [
+            'user' => auth()->user(),
+        ]);
+    }
+
     public function logsSettings()
     {
         return view('user.settings.logs', [

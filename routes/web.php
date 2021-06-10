@@ -103,6 +103,8 @@ Route::group([
         ->name('integrations');
     Route::get('api', [UserController::class, 'apiSettings'])
         ->name('api');
+    Route::get('sessions', [UserController::class, 'sessionsSettings'])
+        ->name('sessions');
     Route::get('logs', [UserController::class, 'logsSettings'])
         ->name('logs');
     Route::get('data', [UserController::class, 'dataSettings'])

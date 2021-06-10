@@ -69,6 +69,14 @@
                 API
             </a>
             <a
+                class="list-group-item text-dark pt-2 pb-2 {{ Route::is('user.settings.sessions') ? 'active text-white' : '' }}"
+                href="{{ route('user.settings.sessions') }}"
+            >
+                <x-heroicon-o-identification class="heroicon" />
+                Sessions
+                <x:labels.beta />
+            </a>
+            <a
                 class="list-group-item text-dark pt-2 pb-2 {{ Route::is('user.settings.logs') ? 'active text-white' : '' }}"
                 href="{{ route('user.settings.logs') }}"
             >
