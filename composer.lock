@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "34809ae74dade2e9053587363c458673",
+    "content-hash": "b8ea658867701870e291fe581a051a71",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -10131,23 +10131,23 @@
         },
         {
             "name": "pestphp/pest",
-            "version": "v1.3.2",
+            "version": "v1.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pestphp/pest.git",
-                "reference": "17d407a26a9466779c58372fdb2502a0c5a0dc26"
+                "reference": "dd2921fd26fa02673077d5b75b8756a6f5adcdbc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pestphp/pest/zipball/17d407a26a9466779c58372fdb2502a0c5a0dc26",
-                "reference": "17d407a26a9466779c58372fdb2502a0c5a0dc26",
+                "url": "https://api.github.com/repos/pestphp/pest/zipball/dd2921fd26fa02673077d5b75b8756a6f5adcdbc",
+                "reference": "dd2921fd26fa02673077d5b75b8756a6f5adcdbc",
                 "shasum": ""
             },
             "require": {
                 "nunomaduro/collision": "^5.0",
                 "pestphp/pest-plugin": "^1.0",
                 "pestphp/pest-plugin-coverage": "^1.0",
-                "pestphp/pest-plugin-expectations": "^1.3",
+                "pestphp/pest-plugin-expectations": "^1.6",
                 "pestphp/pest-plugin-init": "^1.1",
                 "php": "^7.3 || ^8.0",
                 "phpunit/phpunit": ">= 9.3.7 <= 9.5.5"
@@ -10207,7 +10207,7 @@
             ],
             "support": {
                 "issues": "https://github.com/pestphp/pest/issues",
-                "source": "https://github.com/pestphp/pest/tree/v1.3.2"
+                "source": "https://github.com/pestphp/pest/tree/v1.4.0"
             },
             "funding": [
                 {
@@ -10235,7 +10235,7 @@
                     "type": "patreon"
                 }
             ],
-            "time": "2021-06-07T14:27:33+00:00"
+            "time": "2021-06-10T18:26:42+00:00"
         },
         {
             "name": "pestphp/pest-plugin",
@@ -10387,16 +10387,16 @@
         },
         {
             "name": "pestphp/pest-plugin-expectations",
-            "version": "v1.4.0",
+            "version": "v1.6.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pestphp/pest-plugin-expectations.git",
-                "reference": "fd313336450fdff2053ff989790aa3fe64b2df32"
+                "reference": "efc39fb844f26e5f1d0f14784e06c8153c57d78f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pestphp/pest-plugin-expectations/zipball/fd313336450fdff2053ff989790aa3fe64b2df32",
-                "reference": "fd313336450fdff2053ff989790aa3fe64b2df32",
+                "url": "https://api.github.com/repos/pestphp/pest-plugin-expectations/zipball/efc39fb844f26e5f1d0f14784e06c8153c57d78f",
+                "reference": "efc39fb844f26e5f1d0f14784e06c8153c57d78f",
                 "shasum": ""
             },
             "require": {
@@ -10439,7 +10439,7 @@
                 "unit"
             ],
             "support": {
-                "source": "https://github.com/pestphp/pest-plugin-expectations/tree/v1.4.0"
+                "source": "https://github.com/pestphp/pest-plugin-expectations/tree/v1.6.0"
             },
             "funding": [
                 {
@@ -10455,7 +10455,7 @@
                     "type": "patreon"
                 }
             ],
-            "time": "2021-06-04T19:16:27+00:00"
+            "time": "2021-06-10T17:37:27+00:00"
         },
         {
             "name": "pestphp/pest-plugin-init",
