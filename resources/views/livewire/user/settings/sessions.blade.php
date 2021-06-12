@@ -15,30 +15,34 @@
         <ul class="list-group list-group-flush">
             @foreach ($sessions as $session)
                 @php
-                    $isMobile = is_numeric(strpos(strtolower($session->user_agent), "mobile"));
+                    $agent = new Jenssegers\Agent\Agent;
+                    $agent->setUserAgent($session->user_agent);
                 @endphp
                 <li class="list-group-item py-3 d-flex align-items-center">
                     <div class="d-flex align-items-center">
                         <div class="me-2">
-                            @if ($isMobile)
+                            @if ($agent->isPhone())
                                 <x-heroicon-o-device-mobile class="heroicon heroicon-50px text-secondary" />
                             @else
                                 <x-heroicon-o-desktop-computer class="heroicon heroicon-50px text-secondary" />
                             @endif
                         </div>
                         <div>
-                            <div class="fw-bold mb-1 d-flex align-items-center">
+                            <div class="fw-bold mb-1">
                                 {{ $session->ip_address }}
-                                @if (session()->getId() === $session->id)
-                                    <span class="badge bg-success ms-2">Current session</span>
-                                @endif
                             </div>
                             <div class="small">
-                                Last accessed on {{ carbon($session->last_activity)->format('M d, Y') }}
+                                @if (session()->getId() === $session->id)
+                                    Your current session
+                                @else
+                                    Last accessed on {{ carbon($session->last_activity)->format('M d, Y') }}
+                                @endif
                             </div>
-                            <div class="mt-2 small text-secondary" title="{{ $session->user_agent }}">
-                                User agent: {{ Str::limit($session->user_agent, 50) }}
-                            </div>
+                            @if ($agent->browser() and $agent->platform())
+                                <div class="mt-2 small text-secondary" title="{{ $session->user_agent }}">
+                                    {{ $agent->browser() }} on {{ $agent->platform() }}
+                                </div>
+                            @endif
                         </div>
                     </div>
                 </li>
