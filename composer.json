@@ -20,7 +20,7 @@
         "honeybadger-io/honeybadger-laravel": "3.10.0",
         "intervention/image": "2.5.1",
         "jean85/pretty-package-versions": "2.0.4",
-        "jenssegers/agent": "^2.6",
+        "jenssegers/agent": "2.6.4",
         "laravel/envoy": "2.7.0",
         "laravel/framework": "8.46.0",
         "laravel/horizon": "5.7.9",
