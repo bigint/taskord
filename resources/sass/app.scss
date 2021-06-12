@@ -341,23 +341,23 @@ input[type="date"]:valid:before {
 }
 
 .rounded-start {
-  border-bottom-left-radius: 0.4rem !important;
-  border-top-left-radius: 0.4rem !important;
+  border-bottom-left-radius: 0.5rem !important;
+  border-top-left-radius: 0.5rem !important;
 }
 
 .rounded-end {
-  border-top-right-radius: 0.4rem !important;
-  border-bottom-right-radius: 0.4rem !important;
+  border-top-right-radius: 0.5rem !important;
+  border-bottom-right-radius: 0.5rem !important;
 }
 
 .rounded-top {
-  border-top-left-radius: 0.4rem !important;
-  border-top-right-radius: 0.4rem !important;
+  border-top-left-radius: 0.5rem !important;
+  border-top-right-radius: 0.5rem !important;
 }
 
 .rounded-bottom {
-  border-bottom-right-radius: 0.4rem !important;
-  border-bottom-left-radius: 0.4rem !important;
+  border-bottom-right-radius: 0.5rem !important;
+  border-bottom-left-radius: 0.5rem !important;
 }
 
 .card-header:first-child,
@@ -375,7 +375,8 @@ input[type="date"]:valid:before {
 }
 
 .list-group-item:last-child,
-.accordion-flush .accordion-item:last-of-type .accordion-button.collapsed {
+.accordion-flush .accordion-item:last-of-type
+.accordion-button.collapsed {
   border-bottom-right-radius: 0.5rem;
   border-bottom-left-radius: 0.5rem;
 }
