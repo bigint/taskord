@@ -28,10 +28,10 @@
                             @endif
                         </div>
                         <div>
-                            <div class="fw-bold mb-1">
+                            <div class="fw-bold mb-1 text-dark">
                                 {{ $session->ip_address }}
                             </div>
-                            <div class="small">
+                            <div class="small text-dark">
                                 @if (session()->getId() === $session->id)
                                     Your current session
                                 @else
