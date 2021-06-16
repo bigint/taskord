@@ -1,48 +1,26 @@
 <div>
-    @php
-        $deployed = git('rev-parse HEAD') ?: 'Something went wrong!';
-        $remote = $commit->id;
-    @endphp
     <div>
         <span class="fw-bold">Status: </span>
-        @if ($deployed === $remote)
+        @if (count($commits) === 0)
             <span class="badge bg-success">
-                Latest
+                Taskord is up-to-date
             </span>
         @else
             <span class="badge bg-danger">
-                Update available
+                Updates available
             </span>
         @endif
-    </div>
-    <div>
-        <span class="fw-bold">Remote: </span>
-        <code class="fw-bold">
-            {{ $remote }}
-        </code>
-    </div>
-    <div>
-        <span class="fw-bold">Deployed: </span>
-        <code class="fw-bold">
-            {{ $deployed }}
-        </code>
-    </div>
-    <div>
-        <span class="fw-bold">Message: </span>
-        {{ $commit->title }}
-    </div>
-    <div>
-        <span class="fw-bold">Date: </span>
-        {{ carbon($commit->committed_date)->diffForHumans() }}
-    </div>
-    <div>
-        <span class="fw-bold">Author: </span>
-        {{ $commit->committer_name }} - {{ $commit->committer_email }}
-    </div>
-    <div class="mt-2">
-        <a href="{{ $commit->web_url }}" class="fw-bold" target="_blank">
-            Got to commit
-            <x-heroicon-o-external-link class="heroicon" />
-        </a>
+        @if (count($commits) !== 0)
+            <ul class="bg-patron-question mt-3 py-2 rounded border border-warning">
+                @foreach ($commits as $commit)
+                    <li>
+                        <span>{{ $commit->title }}</span>
+                        <a href="{{ $commit->web_url }}" class="fw-bold ms-1" target="_blank">
+                            <x-heroicon-o-external-link class="heroicon heroicon-15px" />
+                        </a>
+                    </li>
+                @endforeach
+            </ul>
+        @endif
     </div>
 </div>
