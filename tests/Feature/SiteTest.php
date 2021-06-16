@@ -35,13 +35,13 @@ it('has deployment data details skeleton', function ($url, $expected, $auth) {
     ['/site/deployment-data', 200, true],
 ]);
 
-it('has commit data details skeleton', function ($url, $expected, $auth) {
+it('has commits data details skeleton', function ($url, $expected, $auth) {
     if ($auth) {
         actingAs(1)->get($url)->assertStatus($expected);
     } else {
         $this->get($url)->assertStatus($expected);
     }
 })->with([
-    ['/site/commit-data', 404, false],
-    ['/site/commit-data', 200, true],
+    ['/site/commits-data', 404, false],
+    ['/site/commits-data', 200, true],
 ]);

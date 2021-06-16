@@ -380,9 +380,9 @@ Route::group(['prefix' => 'popover'], function () {
 Route::group(['prefix' => 'site'], function () {
     Route::view('shortcuts', 'site.shortcuts')
         ->name('shortcuts');
-    Route::get('commit-data', [StaffController::class, 'commitData'])
+    Route::get('commits-data', [StaffController::class, 'commitsData'])
         ->middleware('staff_mode')
-        ->name('commit-data');
+        ->name('commits-data');
     Route::get('ci-data', [StaffController::class, 'ciData'])
         ->middleware('staff_mode')
         ->name('ci-data');

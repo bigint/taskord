@@ -12,7 +12,7 @@ if (deployModal) {
   // Load Commit Data
   deployModal.addEventListener("shown.bs.modal", async () => {
     var deployModalCommitBody = document.getElementById("deployModalCommitBody");
-    const res = await window.fetch(`/site/commit-data`);
+    const res = await window.fetch(`/site/commits-data`);
     deployModalCommitBody.innerHTML = await res.text();
   });
 

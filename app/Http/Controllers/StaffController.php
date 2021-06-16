@@ -27,7 +27,7 @@ class StaffController extends Controller
         ]);
     }
 
-    public static function commitData()
+    public static function commitsData()
     {
         $client = new Client(['http_errors' => false]);
         $commits = $client->request('GET', 'https://gitlab.com/api/v4/projects/20359920/repository/commits', [
@@ -37,7 +37,7 @@ class StaffController extends Controller
         ]);
 
         if ($commits->getStatusCode() === 200) {
-            return view('site.commit', [
+            return view('site.commits', [
                 'commits' => json_decode($commits->getBody()->getContents()),
             ]);
         }
