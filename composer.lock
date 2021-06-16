@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c01e530734504ece67d6945dc8abcc53",
+    "content-hash": "5afe4df7dd37f3243485299e0cd16437",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -1750,16 +1750,16 @@
         },
         {
             "name": "honeybadger-io/honeybadger-laravel",
-            "version": "v3.10.0",
+            "version": "v3.11.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/honeybadger-io/honeybadger-laravel.git",
-                "reference": "92bc254cdf39dc7f60dd04977b3ba4695ea2aa94"
+                "reference": "a5d9d3a6d19ae56e55422273acb2b5ef11e08523"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/honeybadger-io/honeybadger-laravel/zipball/92bc254cdf39dc7f60dd04977b3ba4695ea2aa94",
-                "reference": "92bc254cdf39dc7f60dd04977b3ba4695ea2aa94",
+                "url": "https://api.github.com/repos/honeybadger-io/honeybadger-laravel/zipball/a5d9d3a6d19ae56e55422273acb2b5ef11e08523",
+                "reference": "a5d9d3a6d19ae56e55422273acb2b5ef11e08523",
                 "shasum": ""
             },
             "require": {
@@ -1817,22 +1817,22 @@
             ],
             "support": {
                 "issues": "https://github.com/honeybadger-io/honeybadger-laravel/issues",
-                "source": "https://github.com/honeybadger-io/honeybadger-laravel/tree/v3.10.0"
+                "source": "https://github.com/honeybadger-io/honeybadger-laravel/tree/v3.11.0"
             },
-            "time": "2021-05-09T12:55:34+00:00"
+            "time": "2021-06-16T11:08:07+00:00"
         },
         {
             "name": "honeybadger-io/honeybadger-php",
-            "version": "v2.9.2",
+            "version": "v2.10.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/honeybadger-io/honeybadger-php.git",
-                "reference": "088a92c8abcf3a81c629c2e12d90fe66ef0b5c72"
+                "reference": "1430cd7c138c7426f87d7d1d758b09d03bb65757"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/honeybadger-io/honeybadger-php/zipball/088a92c8abcf3a81c629c2e12d90fe66ef0b5c72",
-                "reference": "088a92c8abcf3a81c629c2e12d90fe66ef0b5c72",
+                "url": "https://api.github.com/repos/honeybadger-io/honeybadger-php/zipball/1430cd7c138c7426f87d7d1d758b09d03bb65757",
+                "reference": "1430cd7c138c7426f87d7d1d758b09d03bb65757",
                 "shasum": ""
             },
             "require": {
@@ -1884,9 +1884,9 @@
             ],
             "support": {
                 "issues": "https://github.com/honeybadger-io/honeybadger-php/issues",
-                "source": "https://github.com/honeybadger-io/honeybadger-php/tree/v2.9.2"
+                "source": "https://github.com/honeybadger-io/honeybadger-php/tree/v2.10.0"
             },
-            "time": "2021-05-10T22:10:18+00:00"
+            "time": "2021-06-16T11:09:35+00:00"
         },
         {
             "name": "intervention/image",
