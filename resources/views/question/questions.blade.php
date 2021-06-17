@@ -26,7 +26,7 @@
                 ])
             </div>
             <div class="col-sm">
-                <livewire:question.trending />
+                
                 <x-footer />
             </div>
         </div>

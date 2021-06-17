@@ -180,7 +180,6 @@ return [
 
         SocialiteProviders\Manager\ServiceProvider::class,
         QCod\Gamify\GamifyServiceProvider::class,
-        CyrildeWit\EloquentViewable\EloquentViewableServiceProvider::class,
         Intervention\Image\ImageServiceProvider::class,
         Propaganistas\LaravelDisposableEmail\DisposableEmailServiceProvider::class,
 

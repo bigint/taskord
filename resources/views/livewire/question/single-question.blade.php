@@ -112,18 +112,6 @@
                     @endif
                 </a>
             @endguest
-            @if (views($question)->remember(now()->addHours(6))->count('id') > 0)
-                <span class="align-middle ms-2 me-2">
-                    <x-heroicon-o-eye class="heroicon" />
-                    <span class="text-secondary">
-                        @php
-                            $views = views($question)->remember(now()->addHours(6))->unique()->count('id')
-                        @endphp
-                        <span class="fw-bold">{{ number_format($views) }}</span>
-                        {{ pluralize('View', $views) }}
-                    </span>
-                </span>
-            @endif
             @if ($type !== "question.question")
                 <a href="{{ route('question.question', ['id' => $question->id]) }}" class="avatar-stack text-dark">
                     @foreach ($question->answers->groupBy('user_id')->take(5) as $answer)
