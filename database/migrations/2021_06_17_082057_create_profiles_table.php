@@ -42,7 +42,6 @@ class CreateProfilesTable extends Migration
             $table->boolean('is_staff')->default(false);
             $table->boolean('is_contributor')->default(false);
             $table->boolean('staff_mode')->default(false);
-            $table->boolean('dark_mode')->default(false);
             $table->boolean('is_beta')->default(false);
             $table->boolean('is_patron')->default(false);
             $table->boolean('is_private')->default(false);
