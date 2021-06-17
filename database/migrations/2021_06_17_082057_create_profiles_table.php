@@ -15,6 +15,31 @@ class CreateProfilesTable extends Migration
     {
         Schema::create('profiles', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
+            $table->string('firstname')->nullable();
+            $table->string('lastname')->nullable();
+            $table->string('avatar')->nullable();
+            $table->text('bio')->nullable();
+            $table->string('location')->nullable();
+            $table->string('company')->nullable();
+            $table->string('website')->nullable();
+            $table->string('twitter')->nullable();
+            $table->string('twitch')->nullable();
+            $table->string('github')->nullable();
+            $table->string('telegram')->nullable();
+            $table->string('youtube')->nullable();
+            $table->boolean('onlyFollowingsTasks')->default(true);
+            $table->boolean('checkState')->default(true);
+            $table->boolean('isStaff')->default(false);
+            $table->boolean('isDeveloper')->default(false);
+            $table->boolean('staffShip')->default(false);
+            $table->boolean('darkMode')->default(false);
+            $table->boolean('isBeta')->default(false);
+            $table->boolean('isPatron')->default(false);
+            $table->boolean('isPrivate')->default(false);
+            $table->boolean('isFlagged')->default(false);
+            $table->boolean('isSuspended')->default(false);
+            $table->string('lastIP')->nullable();
             $table->timestamps();
         });
     }
