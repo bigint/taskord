@@ -28,8 +28,16 @@ class CreateProfilesTable extends Migration
             $table->string('github')->nullable();
             $table->string('telegram')->nullable();
             $table->string('youtube')->nullable();
-            $table->boolean('onlyFollowingsTasks')->default(true);
-            $table->boolean('checkState')->default(true);
+            $table->string('sponsor')->nullable();
+            $table->integer('streaks')->default(0);
+            $table->string('status')->nullable();
+            $table->string('status_emoji')->nullable();
+            $table->boolean('hasGoal')->default(true);
+            $table->integer('daily_goal')->default(0);
+            $table->integer('daily_goal_reached')->default(0);
+            $table->boolean('only_followings_tasks')->default(true);
+            $table->boolean('check_state')->default(true);
+            $table->boolean('isVerified')->default(false);
             $table->boolean('isStaff')->default(false);
             $table->boolean('isDeveloper')->default(false);
             $table->boolean('staffShip')->default(false);
