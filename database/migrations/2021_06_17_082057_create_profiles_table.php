@@ -34,7 +34,7 @@ class CreateProfilesTable extends Migration
             $table->string('status')->nullable();
             $table->string('status_emoji')->nullable();
             $table->boolean('has_goal')->default(true);
-            $table->integer('daily_goal')->default(false);
+            $table->integer('daily_goal')->default(5)->change();
             $table->integer('daily_goal_reached')->default(false);
             $table->boolean('vacation_mode')->default(false);
             $table->boolean('only_followings_tasks')->default(true);
@@ -48,8 +48,12 @@ class CreateProfilesTable extends Migration
             $table->boolean('is_private')->default(false);
             $table->boolean('spammy')->default(false);
             $table->boolean('is_suspended')->default(false);
+            $table->longText('staff_notes')->nullable();
             $table->string('last_ip')->nullable();
+            $table->dateTime('last_active')->nullable();
             $table->string('api_token', 80)->unique()->nullable()->default(null);
+            $table->boolean('notifications_email')->default(true);
+            $table->boolean('notifications_web')->default(true);
             $table->timestamps();
         });
     }
