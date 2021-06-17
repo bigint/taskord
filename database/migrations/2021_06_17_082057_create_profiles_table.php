@@ -75,7 +75,6 @@ class CreateProfilesTable extends Migration
             $table->dropIndex('is_patron');
             $table->dropIndex('is_suspended');
             $table->dropIndex('spammy');
-
             $table->dropColumn('firstname');
             $table->dropColumn('lastname');
             $table->dropColumn('avatar');
