@@ -40,7 +40,7 @@ class CreateProfilesTable extends Migration
             $table->boolean('isVerified')->default(false);
             $table->boolean('is_staff')->default(false);
             $table->boolean('is_contributor')->default(false);
-            $table->boolean('staffShip')->default(false);
+            $table->boolean('staff_mode')->default(false);
             $table->boolean('darkMode')->default(false);
             $table->boolean('isBeta')->default(false);
             $table->boolean('isPatron')->default(false);
