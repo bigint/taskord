@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "6151b24bf98bc61551a48bb2c574e0a4",
+    "content-hash": "76a8252133a797d19beb1024801e10aa",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -3755,16 +3755,16 @@
         },
         {
             "name": "nuwave/lighthouse",
-            "version": "v5.12.7",
+            "version": "v5.13.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nuwave/lighthouse.git",
-                "reference": "bc863f5be618a90836e0834b36d91f9a51a0ddcd"
+                "reference": "0d8f0fb8a3dd2791dda4c772f3db4b53ee072fb3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nuwave/lighthouse/zipball/bc863f5be618a90836e0834b36d91f9a51a0ddcd",
-                "reference": "bc863f5be618a90836e0834b36d91f9a51a0ddcd",
+                "url": "https://api.github.com/repos/nuwave/lighthouse/zipball/0d8f0fb8a3dd2791dda4c772f3db4b53ee072fb3",
+                "reference": "0d8f0fb8a3dd2791dda4c772f3db4b53ee072fb3",
                 "shasum": ""
             },
             "require": {
@@ -3796,7 +3796,7 @@
                 "nunomaduro/larastan": "^0.6 || ^0.7",
                 "orchestra/testbench": "3.6.* || 3.7.* || 3.8.* || 3.9.* || ^4 || ^5 || ^6",
                 "phpbench/phpbench": "1.0.0-alpha4",
-                "phpstan/phpstan": "0.12.88",
+                "phpstan/phpstan": "0.12.89",
                 "phpstan/phpstan-mockery": "^0.12.5",
                 "phpstan/phpstan-phpunit": "^0.12.17",
                 "phpunit/phpunit": "^7.5 || ^8.4 || ^9",
@@ -3880,7 +3880,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-06-11T07:11:47+00:00"
+            "time": "2021-06-17T13:23:22+00:00"
         },
         {
             "name": "opis/closure",
@@ -8540,16 +8540,16 @@
         },
         {
             "name": "webonyx/graphql-php",
-            "version": "v14.8.0",
+            "version": "v14.9.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/webonyx/graphql-php.git",
-                "reference": "7149ebfb0ba4132ca3cc5ef943b8e2ece58a5d5b"
+                "reference": "36b83621deb5eae354347a2e86dc7aec81b32a82"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/webonyx/graphql-php/zipball/7149ebfb0ba4132ca3cc5ef943b8e2ece58a5d5b",
-                "reference": "7149ebfb0ba4132ca3cc5ef943b8e2ece58a5d5b",
+                "url": "https://api.github.com/repos/webonyx/graphql-php/zipball/36b83621deb5eae354347a2e86dc7aec81b32a82",
+                "reference": "36b83621deb5eae354347a2e86dc7aec81b32a82",
                 "shasum": ""
             },
             "require": {
@@ -8594,7 +8594,7 @@
             ],
             "support": {
                 "issues": "https://github.com/webonyx/graphql-php/issues",
-                "source": "https://github.com/webonyx/graphql-php/tree/v14.8.0"
+                "source": "https://github.com/webonyx/graphql-php/tree/v14.9.0"
             },
             "funding": [
                 {
@@ -8602,7 +8602,7 @@
                     "type": "open_collective"
                 }
             ],
-            "time": "2021-06-01T10:24:56+00:00"
+            "time": "2021-06-15T16:14:17+00:00"
         }
     ],
     "packages-dev": [
