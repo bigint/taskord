@@ -39,8 +39,6 @@ class QuestionController extends Controller
             auth()->check() && auth()->user()->id === $question->user->id or
             auth()->check() && auth()->user()->staff_mode
         ) {
-            views($question)->record();
-
             return view('question.question', $response);
         }
 
@@ -48,8 +46,6 @@ class QuestionController extends Controller
             if (auth()->check() && ! auth()->user()->is_patron) {
                 return redirect()->route('patron.home');
             }
-
-            views($question)->record();
 
             return view('question.question', $response);
         }
