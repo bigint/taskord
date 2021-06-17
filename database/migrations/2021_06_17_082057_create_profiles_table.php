@@ -30,6 +30,7 @@ class CreateProfilesTable extends Migration
             $table->string('youtube')->nullable();
             $table->string('sponsor')->nullable();
             $table->integer('streaks')->default(false);
+            $table->string('timezone')->nullable();
             $table->string('status')->nullable();
             $table->string('status_emoji')->nullable();
             $table->boolean('has_goal')->default(true);
@@ -60,5 +61,19 @@ class CreateProfilesTable extends Migration
     public function down()
     {
         Schema::dropIfExists('profiles');
+        $table->dropIndex('id');
+        $table->dropIndex('username');
+        $table->dropIndex('firstname');
+        $table->dropIndex('lastname');
+        $table->dropIndex('email');
+        $table->dropIndex('provider');
+        $table->dropIndex('provider_id');
+        $table->dropIndex('email_verified_at');
+        $table->dropIndex('is_staff');
+        $table->dropIndex('is_contributor');
+        $table->dropIndex('is_beta');
+        $table->dropIndex('is_patron');
+        $table->dropIndex('is_suspended');
+        $table->dropIndex('spammy');
     }
 }
