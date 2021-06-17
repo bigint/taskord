@@ -16,13 +16,7 @@ class Trending extends Component
 
     public function getTrending()
     {
-        return Question::orderByViews()
-            ->has('answers')
-            ->take(5)
-            ->get()
-            ->sortByDesc(function ($question) {
-                return $question->answers->count('id');
-            });
+        return [];
     }
 
     public function render()
