@@ -38,8 +38,8 @@ class CreateProfilesTable extends Migration
             $table->boolean('only_followings_tasks')->default(true);
             $table->boolean('check_state')->default(true);
             $table->boolean('isVerified')->default(false);
-            $table->boolean('isStaff')->default(false);
-            $table->boolean('isDeveloper')->default(false);
+            $table->boolean('is_staff')->default(false);
+            $table->boolean('is_contributor')->default(false);
             $table->boolean('staffShip')->default(false);
             $table->boolean('darkMode')->default(false);
             $table->boolean('isBeta')->default(false);
