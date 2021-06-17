@@ -29,12 +29,13 @@ class CreateProfilesTable extends Migration
             $table->string('telegram')->nullable();
             $table->string('youtube')->nullable();
             $table->string('sponsor')->nullable();
-            $table->integer('streaks')->default(0);
+            $table->integer('streaks')->default(false);
             $table->string('status')->nullable();
             $table->string('status_emoji')->nullable();
             $table->boolean('has_goal')->default(true);
-            $table->integer('daily_goal')->default(0);
-            $table->integer('daily_goal_reached')->default(0);
+            $table->integer('daily_goal')->default(false);
+            $table->integer('daily_goal_reached')->default(false);
+            $table->boolean('vacation_mode')->default(false);
             $table->boolean('only_followings_tasks')->default(true);
             $table->boolean('check_state')->default(true);
             $table->boolean('is_verified')->default(false);
