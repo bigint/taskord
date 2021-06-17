@@ -49,6 +49,7 @@ class CreateProfilesTable extends Migration
             $table->boolean('spammy')->default(false);
             $table->boolean('is_suspended')->default(false);
             $table->string('last_ip')->nullable();
+            $table->string('api_token', 80)->unique()->nullable()->default(null);
             $table->timestamps();
         });
     }
