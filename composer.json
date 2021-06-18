@@ -55,7 +55,7 @@
         "mockery/mockery": "1.4.3",
         "nunomaduro/collision": "5.4.0",
         "nunomaduro/phpinsights": "dev-master",
-        "pestphp/pest": "1.5.0",
+        "pestphp/pest": "1.6.0",
         "pestphp/pest-plugin-laravel": "1.0.0",
         "pestphp/pest-plugin-livewire": "1.0.0",
         "phpunit/phpunit": "9.5.5"

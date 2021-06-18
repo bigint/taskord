@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "76a8252133a797d19beb1024801e10aa",
+    "content-hash": "4372dc6725aea71feb94305b4085bb0a",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -10280,16 +10280,16 @@
         },
         {
             "name": "pestphp/pest",
-            "version": "v1.5.0",
+            "version": "v1.6.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pestphp/pest.git",
-                "reference": "729638a3bb560fb680c9f8bf973ca62e216b767a"
+                "reference": "9b34650e7297c2c506bc88d7528e4e4aba132a77"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pestphp/pest/zipball/729638a3bb560fb680c9f8bf973ca62e216b767a",
-                "reference": "729638a3bb560fb680c9f8bf973ca62e216b767a",
+                "url": "https://api.github.com/repos/pestphp/pest/zipball/9b34650e7297c2c506bc88d7528e4e4aba132a77",
+                "reference": "9b34650e7297c2c506bc88d7528e4e4aba132a77",
                 "shasum": ""
             },
             "require": {
@@ -10355,7 +10355,7 @@
             ],
             "support": {
                 "issues": "https://github.com/pestphp/pest/issues",
-                "source": "https://github.com/pestphp/pest/tree/v1.5.0"
+                "source": "https://github.com/pestphp/pest/tree/v1.6.0"
             },
             "funding": [
                 {
@@ -10383,7 +10383,7 @@
                     "type": "patreon"
                 }
             ],
-            "time": "2021-06-15T22:06:43+00:00"
+            "time": "2021-06-18T11:36:43+00:00"
         },
         {
             "name": "pestphp/pest-plugin",
