@@ -47,10 +47,4 @@
             Jobs
         </a>
     </li>
-    <li class="nav-item">
-        <a class="nav-link rounded-pill {{ Route::is('staff.deployments') ? 'active' : '' }}" href="{{ route('staff.deployments') }}">
-            <x-heroicon-o-cloud class="heroicon heroicon-18px" />
-            Deployments
-        </a>
-    </li>
 </ul>

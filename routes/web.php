@@ -266,9 +266,6 @@ Route::group([
     Route::view('jobs', 'staff.jobs')
         ->middleware('password.confirm')
         ->name('jobs');
-    Route::view('deployments', 'staff.deployments')
-        ->middleware('password.confirm')
-        ->name('deployments');
 });
 
 // Patron
@@ -386,9 +383,6 @@ Route::group(['prefix' => 'site'], function () {
     Route::get('ci-data', [StaffController::class, 'ciData'])
         ->middleware('staff_mode')
         ->name('ci-data');
-    Route::get('deployment-data', [StaffController::class, 'deploymentData'])
-        ->middleware('staff_mode')
-        ->name('deployment-data');
     Route::get('staffbar', [StaffController::class, 'toggle'])
         ->middleware('staff')
         ->name('staffbar');

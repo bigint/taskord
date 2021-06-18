@@ -22,11 +22,4 @@ if (deployModal) {
     const res = await window.fetch(`/site/ci-data`);
     deployModalCIBody.innerHTML = await res.text();
   });
-
-  // Load Deployment Data
-  deployModal.addEventListener("shown.bs.modal", async () => {
-    var deployModalDeploymentBody = document.getElementById("deployModalDeploymentBody");
-    const res = await window.fetch(`/site/deployment-data`);
-    deployModalDeploymentBody.innerHTML = await res.text();
-  });
 }

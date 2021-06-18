@@ -64,26 +64,6 @@ class StaffController extends Controller
         return 'Something went wrong!';
     }
 
-    public static function deploymentData()
-    {
-        $client = new Client(['http_errors' => false]);
-        $deployments = $client->request('GET', 'https://gitlab.com/api/v4/projects/25370928/jobs', [
-            'query' => [
-                'access_token' => config('services.gitlab.pat'),
-                'per_page' => 5,
-                'ref' => 'master',
-            ],
-        ]);
-
-        if ($deployments->getStatusCode() === 200) {
-            return view('site.deployment', [
-                'deployments' => json_decode($deployments->getBody()->getContents()),
-            ]);
-        }
-
-        return 'Something went wrong!';
-    }
-
     public static function system()
     {
         // Uptime

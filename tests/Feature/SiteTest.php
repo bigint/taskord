@@ -24,17 +24,6 @@ it('has ci data details skeleton', function ($url, $expected, $auth) {
     ['/site/ci-data', 200, true],
 ]);
 
-it('has deployment data details skeleton', function ($url, $expected, $auth) {
-    if ($auth) {
-        actingAs(1)->get($url)->assertStatus($expected);
-    } else {
-        $this->get($url)->assertStatus($expected);
-    }
-})->with([
-    ['/site/deployment-data', 404, false],
-    ['/site/deployment-data', 200, true],
-]);
-
 it('has commits data details skeleton', function ($url, $expected, $auth) {
     if ($auth) {
         actingAs(1)->get($url)->assertStatus($expected);

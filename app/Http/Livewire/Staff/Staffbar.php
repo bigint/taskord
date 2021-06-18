@@ -3,7 +3,6 @@
 namespace App\Http\Livewire\Staff;
 
 use App\Jobs\Clean;
-use App\Jobs\Deploy;
 use Illuminate\Support\Facades\Queue;
 use Jean85\PrettyVersions;
 use Livewire\Component;
@@ -16,19 +15,6 @@ class Staffbar extends Component
         loggy(request(), 'Staff', auth()->user(), 'Cleaned the Application');
 
         return toast($this, 'success', 'Cleaning process has been initiated successfully');
-    }
-
-    public function deploy()
-    {
-        if (auth()->id() === 1) {
-            Deploy::dispatch(auth()->user(), request()->ip());
-            Clean::dispatch();
-            loggy(request(), 'Staff', auth()->user(), 'Deployed the Application');
-
-            return toast($this, 'success', 'Deployment process has been initiated successfully 🚀');
-        }
-
-        return toast($this, 'error', 'Permission denied!');
     }
 
     public function render()
