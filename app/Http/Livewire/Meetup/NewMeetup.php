@@ -65,7 +65,6 @@ class NewMeetup extends Component
             'location' => $this->location,
             'date' => $this->date,
         ]);
-        auth()->user()->touch();
 
         return redirect()->route('meetups.home');
     }

@@ -88,12 +88,6 @@ class CreateTask extends Component
 
         $state = auth()->user()->check_state;
 
-        if ($state) {
-            $done_at = carbon();
-        } else {
-            $done_at = null;
-        }
-
         if (! $this->product) {
             $product_id = Helper::getProductIDFromMention($this->task, auth()->user());
         } else {
@@ -104,7 +98,7 @@ class CreateTask extends Component
             'product_id' => $product_id,
             'task' => $this->task,
             'done' => $state,
-            'done_at' => $done_at,
+            'done_at' => $state ? carbon() : null,
             'images' => $images,
             'due_at' => $this->dueAt,
             'type' => $product_id ? 'product' : 'user',

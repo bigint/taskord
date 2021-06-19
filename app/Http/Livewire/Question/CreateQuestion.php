@@ -47,7 +47,6 @@ class CreateQuestion extends Component
         ]);
 
         $question->retag($this->selectedTags);
-        auth()->user()->touch();
         $this->emit('refreshQuestion');
 
         givePoint(new QuestionCreated($question));

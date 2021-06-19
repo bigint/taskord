@@ -68,7 +68,6 @@ class EditQuestion extends Component
         $question->patron_only = $patronOnly;
         $question->save();
         $question->retag($this->selectedTags);
-        auth()->user()->touch();
         $this->emit('refreshQuestion');
 
         loggy(request(), 'Question', auth()->user(), "Updated a question | Question ID: {$question->id}");

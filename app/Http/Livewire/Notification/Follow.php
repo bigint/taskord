@@ -33,7 +33,6 @@ class Follow extends Component
         }
 
         auth()->user()->toggleFollow($this->user);
-        auth()->user()->touch();
         $this->emit('toggleFollow');
 
         if (auth()->user()->isFollowing($this->user)) {

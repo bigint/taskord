@@ -34,7 +34,6 @@ class CreateUpdate extends Component
             'title' => $this->title,
             'body' => $this->body,
         ]);
-        auth()->user()->touch();
         $users = Product::find($this->product->id)->subscribers()->get();
         foreach ($users as $user) {
             $user->notify(new NewProductUpdate($update));

@@ -25,10 +25,12 @@ type Query {
 }
 
 type Mutation {
-    login(
-        email: String! @rules(apply: ["required", "email"])
-        password: String! @rules(apply: ["required"])
-    ): LoginPayload @field(resolver: "AuthMutator")
+    # Auth
+    login(input: LoginInput! @spread): LoginPayload @field(resolver: "AuthMutator")
+
+    # Task
+    createTask(input: CreateTaskInput! @spread): TaskPayload @field(resolver: "TaskMutator@createTask")
+    deleteTask(input: DeleteTaskInput! @spread): TaskPayload @field(resolver: "TaskMutator@deleteTask")
 }
 
 #import auth.graphql

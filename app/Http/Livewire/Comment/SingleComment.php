@@ -66,7 +66,6 @@ class SingleComment extends Component
         loggy(request(), 'Comment', auth()->user(), "Deleted a comment | Comment ID: {$this->comment->id}");
         $this->comment->delete();
         $this->emit('refreshComments');
-        auth()->user()->touch();
 
         return toast($this, 'success', 'Comment has been deleted successfully!');
     }

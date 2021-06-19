@@ -99,7 +99,6 @@ class CreateProduct extends Component
             ]))();
         }
 
-        auth()->user()->touch();
         $this->emit('refreshProducts');
         loggy(request(), 'Product', auth()->user(), "Created a new product | Product ID: {$product->id}");
 

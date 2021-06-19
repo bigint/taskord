@@ -1,6 +1,14 @@
 # Mutation
+
+# Login - login
+input LoginInput {
+    email: String! @rules(apply: ["email"])
+    password: String!
+}
+
 type LoginPayload {
     user: User
     token: String
-    message: String
+    status: Boolean!
+    message: String!
 }

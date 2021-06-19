@@ -35,7 +35,6 @@ class Follow extends Component
         }
 
         auth()->user()->toggleFollow($this->user);
-        auth()->user()->touch();
 
         if (auth()->user()->isFollowing($this->user)) {
             $this->emitUp('refreshSuggestions');

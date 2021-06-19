@@ -59,8 +59,7 @@ class SingleAnswer extends Component
 
         loggy(request(), 'Answer', auth()->user(), "Deleted an answer | Answer ID: {$this->answer->id}");
         $this->answer->delete();
-        $this->emit('refreshAnswers');
 
-        return auth()->user()->touch();
+        return $this->emit('refreshAnswers');
     }
 }

@@ -31,3 +31,21 @@ type Task {
     created_at: DateTime! @cache(maxAge: 3600)
     updated_at: DateTime! @cache(maxAge: 3600)
 }
+
+# Mutation
+
+# Create Task - createTask
+input CreateTaskInput {
+  task: String! @rules(apply: ["min:3", "max:5000"])
+  done: Boolean!
+}
+
+input DeleteTaskInput {
+  id: Int!
+}
+
+type TaskPayload {
+    task: Task
+    status: Boolean!
+    message: String!
+}

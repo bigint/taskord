@@ -41,7 +41,6 @@ class CreateDeal extends Component
             'website' => $this->website,
             'logo' => $this->logo,
         ]);
-        auth()->user()->touch();
         loggy(request(), 'Staff', auth()->user(), "Created a new deal | Deal ID: {$deal->id}");
 
         return redirect()->route('deals');

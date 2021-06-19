@@ -52,7 +52,6 @@ class EditMilestone extends Component
         $milestone->start_date = $this->startDate ? $this->startDate : null;
         $milestone->end_date = $this->startDate ? $this->endDate : null;
         $milestone->save();
-        auth()->user()->touch();
         $this->emit('refreshMilestones');
 
         loggy(request(), 'Milestone', auth()->user(), "Updated a milestone | Milestone ID: {$milestone->id}");

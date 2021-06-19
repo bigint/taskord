@@ -34,7 +34,6 @@ class Subscribe extends Component
 
         auth()->user()->toggleSubscribe($this->product);
         $this->product->refresh();
-        auth()->user()->touch();
         if (auth()->user()->hasSubscribed($this->product)) {
             $this->product->user->notify(new Subscribed($this->product, auth()->user()->id));
         }

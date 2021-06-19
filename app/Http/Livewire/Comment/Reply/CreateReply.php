@@ -50,7 +50,6 @@ class CreateReply extends Component
             'comment_id' => $this->comment->id,
             'reply' => $this->reply,
         ]);
-        auth()->user()->touch();
         $this->emit('refreshReplies');
         $this->reset('reply');
 

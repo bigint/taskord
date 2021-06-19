@@ -51,7 +51,6 @@ class CreateComment extends Component
             'task_id' => $this->task->id,
             'comment' => $this->comment,
         ]);
-        auth()->user()->touch();
         $this->emit('refreshComments');
 
         $this->reset('comment');

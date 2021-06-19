@@ -37,7 +37,6 @@ class Subscribe extends Component
 
         auth()->user()->toggleSubscribe($this->task);
         $this->task->refresh();
-        auth()->user()->touch();
 
         return loggy(request(), 'Task', auth()->user(), "Toggled task subscribe | Task ID: {$this->task->id}");
     }

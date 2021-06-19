@@ -122,7 +122,6 @@ class EditProduct extends Component
             ]))();
         }
 
-        auth()->user()->touch();
         $this->emit('refreshProducts');
 
         loggy(request(), 'Product', auth()->user(), "Updated a product | Product ID: #{$this->product->id}");
@@ -144,7 +143,6 @@ class EditProduct extends Component
         $this->product->tasks()->delete();
         $this->product->webhooks()->delete();
         $this->product->delete();
-        auth()->user()->touch();
 
         return redirect()->route('products.newest');
     }

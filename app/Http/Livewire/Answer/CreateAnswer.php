@@ -46,7 +46,6 @@ class CreateAnswer extends Component
             'question_id' => $this->question->id,
             'answer' => $this->answer,
         ]);
-        auth()->user()->touch();
         $this->emit('refreshAnswers');
 
         $this->reset('answer');

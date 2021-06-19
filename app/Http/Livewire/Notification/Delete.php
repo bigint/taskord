@@ -14,7 +14,6 @@ class Delete extends Component
 
         auth()->user()->notifications()->delete();
         $this->emit('refreshNotifications');
-        auth()->user()->touch();
         loggy(request(), 'Notification', auth()->user(), 'Deleted all notifications');
 
         return toast($this, 'success', 'All notifications has been deleted!');

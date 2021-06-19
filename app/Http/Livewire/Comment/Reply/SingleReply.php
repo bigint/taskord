@@ -46,7 +46,6 @@ class SingleReply extends Component
         loggy(request(), 'Reply', auth()->user(), "Deleted a reply | Reply ID: {$this->reply->id}");
         $this->reply->delete();
         $this->emit('refreshReplies');
-        auth()->user()->touch();
 
         return toast($this, 'success', 'Reply has been deleted successfully!');
     }

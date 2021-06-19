@@ -29,7 +29,6 @@ class CreateMilestone extends Component
             'start_date' => $this->startDate,
             'end_date' => $this->endDate,
         ]);
-        auth()->user()->touch();
         $this->emit('refreshMilestones');
 
         loggy(request(), 'Milestone', auth()->user(), "Created a new milestone | Milestone ID: {$milestone->id}");

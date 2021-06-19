@@ -44,11 +44,9 @@ class SingleTask extends Component
 
         if ($this->task->done) {
             $this->task->done_at = carbon();
-            auth()->user()->touch();
             loggy(request(), 'Task', auth()->user(), "Updated a task as pending | Task ID: {$this->task->id}");
         } else {
             $this->task->done_at = carbon();
-            auth()->user()->touch();
             if (auth()->user()->has_goal) {
                 auth()->user()->daily_goal_reached += 1;
                 auth()->user()->save();
@@ -106,7 +104,6 @@ class SingleTask extends Component
         }
         $this->task->delete();
         $this->emitUp('refreshTasks');
-        auth()->user()->touch();
 
         return toast($this, 'success', 'Task has been deleted successfully!');
     }

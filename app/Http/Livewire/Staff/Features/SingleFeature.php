@@ -85,7 +85,6 @@ class SingleFeature extends Component
 
         loggy(request(), 'Staff', auth()->user(), "Deleted a feature flag | Feature ID: {$this->feature->id}");
         $this->feature->delete();
-        auth()->user()->touch();
 
         return redirect()->route('staff.features');
     }

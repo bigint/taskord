@@ -41,7 +41,6 @@ class Verify extends Component
         }
 
         if (in_array($this->product->txt_code, $txtList)) {
-            auth()->user()->touch();
             $this->product->verified_at = carbon();
             $this->product->save();
             loggy(request(), 'Product', auth()->user(), "Verified the product and domain | Product ID: {$this->product->id}");
