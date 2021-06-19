@@ -39,6 +39,7 @@ class Kernel extends HttpKernel
             \App\Http\Middleware\OnlineStatus::class,
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
             \App\Http\Middleware\CheckUser::class,
+            \App\Http\Middleware\Sentry::class,
         ],
 
         'api' => [
