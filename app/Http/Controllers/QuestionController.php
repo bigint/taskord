@@ -27,9 +27,9 @@ class QuestionController extends Controller
         ]);
     }
 
-    public function question($questionId)
+    public function question($slug)
     {
-        $question = Question::where('id', $questionId)->firstOrFail();
+        $question = Question::where('slug', $slug)->firstOrFail();
         $response = [
             'type' => 'question.question',
             'question' => $question,
@@ -65,8 +65,10 @@ class QuestionController extends Controller
         return view('question.question', $response);
     }
 
-    public function edit(Question $question)
+    public function edit($slug)
     {
+        $question = Question::where('slug', $slug)->firstOrFail();
+
         if (
             auth()->check() && auth()->user()->id === $question->user->id or
             auth()->check() && auth()->user()->staff_mode

@@ -2,7 +2,7 @@
     @if ($question)
         <div class="mt-2 text-secondary">
             liked your
-            <a class="fw-bold" href="{{ route('question.question', ['id' => $question->id]) }}">
+            <a class="fw-bold" href="{{ route('question.question', ['slug' => $question->slug]) }}">
                 question
             </a>
         </div>

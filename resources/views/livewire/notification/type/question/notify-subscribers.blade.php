@@ -2,7 +2,7 @@
     @if ($answer and $answer->question)
         <div class="mt-2 text-secondary">
             answered to the
-            <a class="fw-bold" href="{{ route('question.question', ['id' => $answer->question->id]) }}">
+            <a class="fw-bold" href="{{ route('question.question', ['slug' => $answer->question->slug]) }}">
                 question
             </a>
             you subscribed

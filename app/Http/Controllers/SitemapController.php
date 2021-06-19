@@ -40,7 +40,7 @@ class SitemapController extends Controller
 
     public function questions()
     {
-        $questions = Question::select('id', 'hidden', 'user_id')
+        $questions = Question::select('id', 'slug', 'hidden', 'user_id')
             ->whereHas('user', function ($q) {
                 $q->where([
                     ['spammy', false],

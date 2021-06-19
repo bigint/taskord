@@ -20,7 +20,7 @@
                         <img loading=lazy class="rounded-circle avatar-30" src="{{ Helper::getCDNImage($question->user->avatar, 80) }}" height="30" width="30" alt="{{ $question->user->username }}'s avatar" />
                     </a>
                     <div class="ms-3">
-                        <a href="{{ route('question.question', ['id' => $question->id]) }}" class="align-middle text-dark fw-bold">{{ Str::words($question->title, '10') }}</a>
+                        <a href="{{ route('question.question', ['slug' => $question->slug]) }}" class="align-middle text-dark fw-bold">{{ Str::words($question->title, '10') }}</a>
                         @if ($question->created_at->isToday())
                             <span class="badge bg-hero ms-2 align-middle">New</span>
                         @endif

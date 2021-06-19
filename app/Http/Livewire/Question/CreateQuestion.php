@@ -4,6 +4,7 @@ namespace App\Http\Livewire\Question;
 
 use App\Gamify\Points\QuestionCreated;
 use Illuminate\Support\Facades\Gate;
+use Illuminate\Support\Str;
 use Livewire\Component;
 
 class CreateQuestion extends Component
@@ -34,8 +35,11 @@ class CreateQuestion extends Component
 
         $solvable = ! $this->solvable ? false : true;
         $patronOnly = ! $this->patronOnly ? false : true;
+        $titleSlug = Str::slug(Str::limit($this->title, 240));
+        $randomForSlug = Str::lower(Str::random(10));
 
         $question = auth()->user()->questions()->create([
+            'slug' => $titleSlug.'-'.$randomForSlug,
             'title' => $this->title,
             'body' => $this->body,
             'is_solvable' => $solvable,
@@ -49,6 +53,6 @@ class CreateQuestion extends Component
         givePoint(new QuestionCreated($question));
         loggy(request(), 'Question', auth()->user(), "Created a new question | Question ID: {$question->id}");
 
-        return redirect()->route('question.question', ['id' => $question->id]);
+        return redirect()->route('question.question', ['slug' => $question->slug]);
     }
 }

@@ -25,7 +25,7 @@
                 >
                     <img loading=lazy class="rounded-circle avatar-30" src="{{ Helper::getCDNImage($answer->question->user->avatar, 80) }}" height="30" width="30" alt="{{ $answer->question->user->username }}'s avatar" />
                 </a>
-                <a class="align-middle text-dark ms-2" href="{{ route('question.question', ['id' => $answer->question->id]) }}">
+                <a class="align-middle text-dark ms-2" href="{{ route('question.question', ['slug' => $answer->question->slug]) }}">
                     {{ $answer->question->title }}
                 </a>
             </div>

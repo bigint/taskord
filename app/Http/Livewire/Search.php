@@ -42,7 +42,7 @@ class Search extends Component
             ->search($this->query)
             ->take(3)
             ->get();
-        $this->questions = Question::select('id', 'title', 'user_id')
+        $this->questions = Question::select('id', 'slug', 'title', 'user_id')
             ->whereHas('user', function ($q) {
                 $q->where([
                     ['spammy', false],

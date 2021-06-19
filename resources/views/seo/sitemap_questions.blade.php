@@ -1,3 +1,3 @@
 @foreach ($questions as $question)
-    {{ 'https://taskord.com/question/'.$question->id }}
+    {{ 'https://taskord.com/question/'.$question->slug }}
 @endforeach

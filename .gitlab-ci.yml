@@ -52,7 +52,7 @@ Staging:
   script:
     - cat $PRIVATE_KEY > taskord.pem
     - chmod 400 taskord.pem
-    - ssh -o StrictHostKeyChecking=no -i "taskord.pem" ubuntu@stg-deploy.taskord.com 'cd /var/www/taskord; php vendor/bin/envoy run deploy'
+    - ssh -o StrictHostKeyChecking=no -i "taskord.pem" ubuntu@stg-deploy.taskord.com 'cd /var/www/taskord; php vendor/bin/envoy run deploy; php artisan migrate:fresh --seed'
   only:
     - main
 

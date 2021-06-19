@@ -97,7 +97,7 @@
                 @foreach ($questions as $question)
                     <li class="list-group-item">
                         <span>
-                            <a class="ms-2 text-dark" href="{{ route('question.question', ['id' => $question->id]) }}">
+                            <a class="ms-2 text-dark" href="{{ route('question.question', ['slug' => $question->slug]) }}">
                                 <span class="fw-bold">{{ Str::words($question->title, '8') }}</span>
                             </a>
                         </span>

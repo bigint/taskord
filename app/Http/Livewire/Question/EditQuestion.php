@@ -4,6 +4,7 @@ namespace App\Http\Livewire\Question;
 
 use App\Models\Question;
 use Illuminate\Support\Facades\Gate;
+use Illuminate\Support\Str;
 use Livewire\Component;
 
 class EditQuestion extends Component
@@ -55,6 +56,12 @@ class EditQuestion extends Component
         $solvable = ! $this->solvable ? false : true;
         $patronOnly = ! $this->patronOnly ? false : true;
 
+        if ($question->title !== $this->title) {
+            $titleSlug = Str::slug(Str::limit($this->title, 240));
+            $randomForSlug = Str::lower(Str::random(10));
+            $question->slug = $titleSlug.'-'.$randomForSlug;
+        }
+
         $question->title = $this->title;
         $question->body = $this->body;
         $question->is_solvable = $solvable;
@@ -66,6 +73,6 @@ class EditQuestion extends Component
 
         loggy(request(), 'Question', auth()->user(), "Updated a question | Question ID: {$question->id}");
 
-        return redirect()->route('question.question', ['id' => $question->id]);
+        return redirect()->route('question.question', ['slug' => $question->slug]);
     }
 }

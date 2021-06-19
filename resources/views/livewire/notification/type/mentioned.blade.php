@@ -49,7 +49,7 @@
         @if ($body and $body->question)
             <div class="mt-2 text-secondary">
                 mentioned you in an
-                <a class="fw-bold" href="{{ route('question.question', ['id' => $body->question->id]) }}">
+                <a class="fw-bold" href="{{ route('question.question', ['slug' => $body->question->slug]) }}">
                     answer
                 </a>
             </div>

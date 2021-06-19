@@ -13,7 +13,7 @@
             @foreach ($trending as $question)
                 <div class="d-flex align-items-center justify-content-between py-2 px-3">
                     <div>
-                        <a href="{{ route('question.question', ['id' => $question->id]) }}" class="align-text-top text-dark">
+                        <a href="{{ route('question.question', ['slug' => $question->slug]) }}" class="align-text-top text-dark">
                             <span class="fw-bold">
                                 {{ Str::words($question->title, '10') }}
                             </span>

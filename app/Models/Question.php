@@ -28,6 +28,7 @@ class Question extends Model implements Viewable
     protected static $flushCacheOnUpdate = true;
 
     protected $fillable = [
+        'slug',
         'user_id',
         'title',
         'body',
