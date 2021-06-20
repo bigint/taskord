@@ -45,6 +45,11 @@ input DeleteTaskInput {
     id: Int!
 }
 
+# Like Task - likeTask
+input ToggleLikeTaskInput {
+    id: Int!
+}
+
 type TaskPayload {
     task: Task
     status: Boolean!

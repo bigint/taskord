@@ -71,4 +71,32 @@ class TaskMutator
             'task' => $task,
         ];
     }
+
+    public function toggleLikeTask($_, array $args)
+    {
+        $task = Task::find($args['id']);
+
+        if (! $task) {
+            return [
+                'status' => false,
+                'message' => 'No task found!',
+            ];
+        }
+
+        if (Gate::denies('like/subscribe', $task)) {
+            return [
+                'status' => false,
+                'message' => config('taskord.toast.deny'),
+            ];
+        }
+
+        Helper::toggleLike($task, 'TASK');
+        loggy(request(), 'Task', auth()->user(), "Toggled task like | Task ID: {$task->id}");
+
+        return [
+            'status' => true,
+            'message' => 'Task deleted successfully',
+            'task' => $task,
+        ];
+    }
 }
