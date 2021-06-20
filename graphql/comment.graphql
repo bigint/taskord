@@ -10,3 +10,22 @@ type Comment {
     created_at: DateTime! @cache(maxAge: 3600)
     updated_at: DateTime! @cache(maxAge: 3600)
 }
+
+# Mutation
+
+# Create Comment - createComment
+input CreateCommentInput {
+    taskId: Int!
+    comment: String! @rules(apply: ["min:3", "max:5000"])
+}
+
+# Delete Comment - deleteComment
+input DeleteCommentInput {
+  id: Int!
+}
+
+type CommentPayload {
+    comment: Comment
+    status: Boolean!
+    message: String!
+}
