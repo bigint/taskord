@@ -16,7 +16,7 @@
                     <x-heroicon-o-plus class="heroicon" />
                     New Meetup
                 </button>
-                <livewire:meetup.new-meetup />
+                <livewire:meetups.new-meetup />
             @endauth
         </div>
     </div>

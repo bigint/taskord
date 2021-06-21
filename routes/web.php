@@ -205,7 +205,7 @@ Route::group([
         ->name('opened');
     Route::get('closed', [MilestoneController::class, 'closed'])
         ->name('closed');
-    Route::view('new', 'milestone.new')
+    Route::view('new', 'milestones.new')
         ->middleware('auth')
         ->name('new');
     Route::get('{milestone}/edit', [MilestoneController::class, 'edit'])
@@ -305,13 +305,13 @@ Route::group([
     'as' => 'meetups.',
 ], function () {
     Route::get('/', [MeetupController::class, 'meetups'])
-        ->middleware('staff')
-        ->name('home');
+        ->middleware('feature:meetups')
+        ->name('upcoming');
     Route::get('/rsvpd', [MeetupController::class, 'rsvpd'])
-        ->middleware('staff')
+        ->middleware('feature:meetups')
         ->name('rsvpd');
     Route::get('/finished', [MeetupController::class, 'finished'])
-        ->middleware('staff')
+        ->middleware('feature:meetups')
         ->name('finished');
 });
 

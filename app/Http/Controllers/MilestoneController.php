@@ -8,14 +8,14 @@ class MilestoneController extends Controller
 {
     public function opened()
     {
-        return view('milestone.milestones', [
+        return view('milestones.milestones', [
             'type' => 'milestones.opened',
         ]);
     }
 
     public function closed()
     {
-        return view('milestone.milestones', [
+        return view('milestones.milestones', [
             'type' => 'milestones.closed',
         ]);
     }
@@ -30,14 +30,14 @@ class MilestoneController extends Controller
             auth()->check() && auth()->user()->id === $milestone->user->id or
             auth()->check() && auth()->user()->staff_mode
         ) {
-            return view('milestone/milestone', $response);
+            return view('milestones.milestone', $response);
         }
 
         if ($milestone->user->spammy or $milestone->user->is_private) {
             return abort(404);
         }
 
-        return view('milestone/milestone', $response);
+        return view('milestones.milestone', $response);
     }
 
     public function edit(Milestone $milestone)
@@ -46,7 +46,7 @@ class MilestoneController extends Controller
             auth()->check() && auth()->user()->id === $milestone->user->id or
             auth()->check() && auth()->user()->staff_mode
         ) {
-            return view('milestone.edit', [
+            return view('milestones.edit', [
                 'milestone' => $milestone,
             ]);
         }
@@ -56,7 +56,7 @@ class MilestoneController extends Controller
 
     public function popover(Milestone $milestone)
     {
-        return view('milestone.popover', [
+        return view('milestones.popover', [
             'milestone' => $milestone,
         ]);
     }

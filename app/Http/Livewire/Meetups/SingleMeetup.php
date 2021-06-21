@@ -1,15 +1,20 @@
 <?php
 
-namespace App\Http\Livewire\Meetup;
+namespace App\Http\Livewire\Meetups;
 
 use App\Models\Meetup;
 use DanHarrin\LivewireRateLimiting\Exceptions\TooManyRequestsException;
 use DanHarrin\LivewireRateLimiting\WithRateLimiting;
+use Illuminate\Support\Facades\Gate;
 use Livewire\Component;
 
-class Rsvp extends Component
+class SingleMeetup extends Component
 {
     use WithRateLimiting;
+
+    public $listeners = [
+        'refreshMeetup' => 'render',
+    ];
 
     public Meetup $meetup;
 
@@ -32,6 +37,11 @@ class Rsvp extends Component
 
         auth()->user()->toggleSubscribe($this->meetup);
 
-        return $this->meetup->refresh();
+        return $this->emitSelf('refreshMeetup');
+    }
+
+    public function render()
+    {
+        return view('livewire.meetups.single-meetup');
     }
 }

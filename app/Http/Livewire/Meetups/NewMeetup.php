@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire\Meetup;
+namespace App\Http\Livewire\Meetups;
 
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Storage;

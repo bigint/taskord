@@ -59,7 +59,7 @@
                         </li>
                         @if (feature('meetups'))
                             <li>
-                                <a class="dropdown-item text-dark" href="{{ route('meetups.home') }}">
+                                <a class="dropdown-item text-dark" href="{{ route('meetups.upcoming') }}">
                                     <x-heroicon-o-user-group class="heroicon heroicon-18px text-secondary" />
                                     Meetups
                                      <x:labels.staff-ship />

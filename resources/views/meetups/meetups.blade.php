@@ -8,25 +8,22 @@
 
 @section('content')
     <div class="container-md">
-        <div class="card">
-            @include('meetups.header')
-            <div class="card-body">
-                @if (count($meetups) === 0)
-                    <div class="card-body text-center mt-3 mb-3">
-                        <x-heroicon-o-user-group class="heroicon heroicon-60px text-primary mb-2" />
-                        <div class="h4">
-                            No meetups found
-                        </div>
-                    </div>
-                @endif
-                <div class="container-fluid">
-                    <div class="row">
-                        @foreach ($meetups as $meetup)
-                            @livewire('meetup.single-meetup', ['meetup' => $meetup])
-                        @endforeach
-                        {{ $meetups->links() }}
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                @include('meetups.nav')
+                @livewire('meetups.meetups', [
+                    'type' => $type,
+                    'page' => 1,
+                    'perPage' => 10
+                ])
+            </div>
+            <div class="col-sm">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        WIP
                     </div>
                 </div>
+                <x-footer />
             </div>
         </div>
     </div>

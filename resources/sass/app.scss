@@ -350,7 +350,8 @@ input[type="date"]:valid:before {
   border-bottom-right-radius: 0.5rem !important;
 }
 
-.rounded-top {
+.rounded-top,
+.card-img-top {
   border-top-left-radius: 0.5rem !important;
   border-top-right-radius: 0.5rem !important;
 }

@@ -15,7 +15,7 @@
     <div class="container-md">
         <div class="row justify-content-center">
             <div class="col-lg-8">
-                @include('milestone.nav')
+                @include('milestones.nav')
                 @livewire('milestone.milestones', [
                     'type' => $type,
                     'page' => 1,
