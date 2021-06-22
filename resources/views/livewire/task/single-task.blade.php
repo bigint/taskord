@@ -55,6 +55,11 @@
                     @endforeach
                 </div>
             @endif
+            @if (feature('social_auth'))
+                @if ($task->oembed)
+                    <livewire:task.oembed :oembed="$task->oembed" />
+                @endif
+            @endif
         @endif
         @if ($task->milestone)
             <div class="mt-2">
