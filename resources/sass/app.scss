@@ -2,6 +2,7 @@
 @import "variables";
 @import "~bootstrap/scss/bootstrap"; // Bootstrap
 @import "~tributejs/dist/tribute.css"; // Tribute
+@import "skeleton-screen-css";
 @import "floating-labels";
 @import "buttons";
 @import "./form";
@@ -191,7 +192,7 @@ input[type="color"]:focus,
 }
 
 .bg-oembed {
-  background-color: $gray-100 !important;
+  background-color: $gray-100;
 }
 
 .bg-patron {
@@ -496,6 +497,17 @@ input[type="date"]:valid:before {
 
 .w-20 {
   width: 20% !important;
+}
+
+.ssc-circle,
+.ssc-head-line,
+.ssc-line,
+.ssc-square {
+  background-color: $gray-400;
+
+  &:after {
+    background: linear-gradient(90deg, transparent, #dee2e6, transparent);
+  }
 }
 
 :target {

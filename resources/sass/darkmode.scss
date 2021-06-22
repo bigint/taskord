@@ -258,3 +258,14 @@ hr {
   background-color: $border-bg;
   border: 2px solid $border-bg;
 }
+
+.ssc-circle,
+.ssc-head-line,
+.ssc-line,
+.ssc-square {
+  background-color: #343a40;
+
+  &:after {
+    background: linear-gradient(90deg, transparent, #495057, transparent);
+  }
+}

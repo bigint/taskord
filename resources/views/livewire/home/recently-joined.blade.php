@@ -4,8 +4,8 @@
     </div>
     <div class="card mb-4">
         @if (!$readyToLoad)
-            <div class="card-body text-center">
-                <div class="spinner-border spinner-border-sm taskord-spinner text-secondary" role="status"></div>
+            <div class="card-body">
+                <x:loaders.profile-loader count="5" />
             </div>
         @else
             <div class="card-body">
