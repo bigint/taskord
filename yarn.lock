@@ -4976,7 +4976,7 @@ signal-exit@^3.0.3:
   resolved "https://registry.yarnpkg.com/signal-exit/-/signal-exit-3.0.3.tgz#a1410c2edd8f077b08b4e253c8eacfcaf057461c"
   integrity sha512-VUJ49FC8U1OxwZLxIbTTrDvLnf/6TDgxZcK8wxR8zs13xpx7xbG60ndBlhNrFi2EMuFRoeDoJO7wthSLq42EjA==
 
-skeleton-screen-css@^1.0.1:
+skeleton-screen-css@1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/skeleton-screen-css/-/skeleton-screen-css-1.0.1.tgz#22ccee5e4fb55bb515c5a30ef01e5ca85ec387c3"
   integrity sha512-aU/c1m4I5YSmZ2i19a5ZuPAi/Kq8wajs3IttyfnlUQk1gka1mOMNgX3wZ+yimtYjPDFF3fgqT0irCA5J2Iuimw==
