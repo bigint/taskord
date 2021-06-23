@@ -60,7 +60,7 @@
         "pestphp/pest": "1.7.0",
         "pestphp/pest-plugin-laravel": "1.0.0",
         "pestphp/pest-plugin-livewire": "1.0.0",
-        "phpunit/phpunit": "9.5.5"
+        "phpunit/phpunit": "9.5.6"
     },
     "autoload": {
         "psr-4": {
