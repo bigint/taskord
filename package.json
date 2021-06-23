@@ -22,7 +22,7 @@
     "dependencies": {
         "@github/markdown-toolbar-element": "1.5.1",
         "@joeattardi/emoji-button": "4.6.0",
-        "bootstrap": "5.0.1",
+        "bootstrap": "5.0.2",
         "hotkeys-js": "3.8.7",
         "observe-element-in-viewport": "0.0.15",
         "skeleton-screen-css": "1.0.1",
