@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "04a10321fdd74cc20b35123630e83e19",
+    "content-hash": "335419745186784deff297c7ce302186",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -1260,16 +1260,16 @@
         },
         {
             "name": "embed/embed",
-            "version": "v4.3.3",
+            "version": "v4.3.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/oscarotero/Embed.git",
-                "reference": "9ac514957d830999464dfa5240893ada5555f895"
+                "reference": "3efed0e92bc3e26e4c77d6ead4b230076ce766ec"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/oscarotero/Embed/zipball/9ac514957d830999464dfa5240893ada5555f895",
-                "reference": "9ac514957d830999464dfa5240893ada5555f895",
+                "url": "https://api.github.com/repos/oscarotero/Embed/zipball/3efed0e92bc3e26e4c77d6ead4b230076ce766ec",
+                "reference": "3efed0e92bc3e26e4c77d6ead4b230076ce766ec",
                 "shasum": ""
             },
             "require": {
@@ -1329,9 +1329,9 @@
             "support": {
                 "email": "oom@oscarotero.com",
                 "issues": "https://github.com/oscarotero/Embed/issues",
-                "source": "https://github.com/oscarotero/Embed/tree/v4.3.3"
+                "source": "https://github.com/oscarotero/Embed/tree/v4.3.4"
             },
-            "time": "2021-06-22T07:08:46+00:00"
+            "time": "2021-06-22T18:10:12+00:00"
         },
         {
             "name": "ezyang/htmlpurifier",
