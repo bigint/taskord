@@ -1,14 +1,14 @@
 @extends('layouts.app')
 
 @if ($type === 'questions.newest')
-@section('pageTitle', 'Questions / Newest ·')
-@section('title', 'Questions / Newest ·')
+    @section('pageTitle', 'Questions / Newest ·')
+    @section('title', 'Questions / Newest ·')
 @elseif ($type === 'questions.unanswered')
-@section('pageTitle', 'Questions / Unanswered ·')
-@section('title', 'Questions / Unanswered ·')
+    @section('pageTitle', 'Questions / Unanswered ·')
+    @section('title', 'Questions / Unanswered ·')
 @else
-@section('pageTitle', 'Questions / Popular ·')
-@section('title', 'Questions / Popular ·')
+    @section('pageTitle', 'Questions / Popular ·')
+    @section('title', 'Questions / Popular ·')
 @endif
 @section('description', 'Browse questions and discuss, answer, give feedbacks, etc.')
 @section('image', '')
@@ -20,9 +20,9 @@
             <div class="col-lg-8">
                 @include('question.nav')
                 @livewire('question.questions', [
-                    'type' => $type,
-                    'page' => 1,
-                    'perPage' => 10
+                'type' => $type,
+                'page' => 1,
+                'perPage' => 10
                 ])
             </div>
             <div class="col-sm">

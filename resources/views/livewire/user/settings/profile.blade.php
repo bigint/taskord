@@ -8,7 +8,8 @@
             <form wire:submit.prevent="updateProfile">
                 <div class="mb-3">
                     <label class="form-label">Firstname</label>
-                    <input type="text" class="form-control @error('firstname') is-invalid @enderror" value="{{ $user->firstname }}" wire:model.defer="firstname">
+                    <input type="text" class="form-control @error('firstname') is-invalid @enderror"
+                        value="{{ $user->firstname }}" wire:model.defer="firstname">
                     @error('firstname')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
@@ -17,7 +18,8 @@
                 </div>
                 <div class="mb-3">
                     <label class="form-label">Lastname</label>
-                    <input type="text" class="form-control @error('lastname') is-invalid @enderror" value="{{ $user->lastname }}" wire:model.defer="lastname">
+                    <input type="text" class="form-control @error('lastname') is-invalid @enderror"
+                        value="{{ $user->lastname }}" wire:model.defer="lastname">
                     @error('lastname')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
@@ -26,7 +28,8 @@
                 </div>
                 <div class="mb-3">
                     <label class="form-label">Bio</label>
-                    <textarea class="form-control @error('bio') is-invalid @enderror"rows="3" wire:model.defer="bio">{{ $user->bio }}</textarea>
+                    <textarea class="form-control @error('bio') is-invalid @enderror" rows="3"
+                        wire:model.defer="bio">{{ $user->bio }}</textarea>
                     @error('bio')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
@@ -35,7 +38,8 @@
                 </div>
                 <div class="mb-3">
                     <label class="form-label">Location</label>
-                    <input type="text" class="form-control @error('location') is-invalid @enderror" value="{{ $user->location }}" wire:model.defer="location">
+                    <input type="text" class="form-control @error('location') is-invalid @enderror"
+                        value="{{ $user->location }}" wire:model.defer="location">
                     @error('location')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
@@ -44,7 +48,8 @@
                 </div>
                 <div class="mb-3">
                     <label class="form-label">Company</label>
-                    <input type="text" class="form-control @error('company') is-invalid @enderror" value="{{ $user->company }}" wire:model.defer="company">
+                    <input type="text" class="form-control @error('company') is-invalid @enderror"
+                        value="{{ $user->company }}" wire:model.defer="company">
                     @error('company')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
@@ -55,10 +60,12 @@
                     <label class="form-label">Avatar</label>
                     <div class="form-file w-25">
                         <input class="form-control form-control-sm" wire:model="avatar" type="file">
-                        <button wire:loading.attr="disabled" wire:click="useGravatar" class="btn btn-outline-success rounded-pill mt-3">
+                        <button wire:loading.attr="disabled" wire:click="useGravatar"
+                            class="btn btn-outline-success rounded-pill mt-3">
                             Use Gravatar
                         </button>
-                        <button wire:loading.attr="disabled" wire:click="resetAvatar" class="btn btn-outline-danger rounded-pill mt-3">
+                        <button wire:loading.attr="disabled" wire:click="resetAvatar"
+                            class="btn btn-outline-danger rounded-pill mt-3">
                             Reset
                         </button>
                     </div>
@@ -71,12 +78,15 @@
                 @else
                     @if ($avatar)
                         <div>
-                            <img loading=lazy class="avatar-100 rounded-circle mt-2 mb-3" src="{{ $avatar->temporaryUrl() }}" height="100" width="100" />
+                            <img loading=lazy class="avatar-100 rounded-circle mt-2 mb-3"
+                                src="{{ $avatar->temporaryUrl() }}" height="100" width="100" />
                         </div>
                     @else
                         @if ($user->avatar)
                             <div>
-                                <img loading=lazy class="avatar-100 rounded-circle mt-2 mb-3" src="{{ Helper::getCDNImage($user->avatar, 240) }}" height="100" width="100" alt="{{ $user->username }}'s avatar" />
+                                <img loading=lazy class="avatar-100 rounded-circle mt-2 mb-3"
+                                    src="{{ Helper::getCDNImage($user->avatar, 240) }}" height="100" width="100"
+                                    alt="{{ $user->username }}'s avatar" />
                             </div>
                         @endif
                     @endif
@@ -96,14 +106,16 @@
             <form wire:submit.prevent="updateGoal">
                 <div>
                     <div class="form-check">
-                        <input wire:click="enableGoal" id="enableGoal" class="form-check-input" type="checkbox" wire:model="hasGoal">
+                        <input wire:click="enableGoal" id="enableGoal" class="form-check-input" type="checkbox"
+                            wire:model="hasGoal">
                         <label for="enableGoal" class="form-check-label">Enable Goal</label>
                     </div>
                 </div>
                 @if ($hasGoal)
                     <div class="mt-2 mb-3">
                         <label class="form-label mt-2">Number of tasks</label>
-                        <input type="text" class="form-control @error('dailyGoal') is-invalid @enderror" value="{{ $user->daily_goal }}" wire:model.defer="dailyGoal">
+                        <input type="text" class="form-control @error('dailyGoal') is-invalid @enderror"
+                            value="{{ $user->daily_goal }}" wire:model.defer="dailyGoal">
                         @error('dailyGoal')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -122,12 +134,13 @@
             <span class="h5">Vacation mode</span>
             <div>
                 When turned on, your streaks will remain intact even if you don't create a task.
-                 <x:labels.beta />
+                <x:labels.beta />
             </div>
         </div>
         <div class="card-body">
             <div class="form-check">
-                <input wire:click="toggleVacationMode" id="toggleVacationMode" class="form-check-input" type="checkbox" {{ $user->vacation_mode ? 'checked' : '' }}>
+                <input wire:click="toggleVacationMode" id="toggleVacationMode" class="form-check-input" type="checkbox"
+                    {{ $user->vacation_mode ? 'checked' : '' }}>
                 <label for="toggleVacationMode" class="form-check-label">Enable vacation mode</label>
             </div>
         </div>
@@ -139,8 +152,10 @@
         </div>
         <div class="card-body">
             <div class="form-check">
-                <input wire:click="onlyFollowingsTasks" id="onlyFollowingsTasks" class="form-check-input" type="checkbox" {{ $user->only_followings_tasks ? 'checked' : '' }}>
-                <label for="onlyFollowingsTasks" class="form-check-label">Show only following user's tasks on homepage</label>
+                <input wire:click="onlyFollowingsTasks" id="onlyFollowingsTasks" class="form-check-input"
+                    type="checkbox" {{ $user->only_followings_tasks ? 'checked' : '' }}>
+                <label for="onlyFollowingsTasks" class="form-check-label">Show only following user's tasks on
+                    homepage</label>
             </div>
         </div>
     </div>
@@ -155,7 +170,8 @@
                     <span class="input-group-text">
                         <x-heroicon-o-heart class="heroicon text-danger" />
                     </span>
-                    <input type="text" class="form-control @error('sponsor') is-invalid @enderror" placeholder="Sponsor URL" value="{{ $user->sponsor }}" wire:model.defer="sponsor">
+                    <input type="text" class="form-control @error('sponsor') is-invalid @enderror"
+                        placeholder="Sponsor URL" value="{{ $user->sponsor }}" wire:model.defer="sponsor">
                     @error('sponsor')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
@@ -179,7 +195,8 @@
                     <span class="input-group-text">
                         <x-heroicon-o-link class="heroicon" />
                     </span>
-                    <input type="text" class="form-control @error('website') is-invalid @enderror" placeholder="Website" value="{{ $user->website }}" wire:model.defer="website">
+                    <input type="text" class="form-control @error('website') is-invalid @enderror" placeholder="Website"
+                        value="{{ $user->website }}" wire:model.defer="website">
                     @error('website')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
@@ -188,9 +205,11 @@
                 </div>
                 <div class="input-group mb-3">
                     <span class="input-group-text">
-                        <img src="https://ik.imagekit.io/taskordimg/icons/twitter_4cXueyhRfH.svg" height="15" width="15" loading=lazy />
+                        <img src="https://ik.imagekit.io/taskordimg/icons/twitter_4cXueyhRfH.svg" height="15" width="15"
+                            loading=lazy />
                     </span>
-                    <input type="text" class="form-control @error('twitter') is-invalid @enderror" placeholder="Twitter" value="{{ $user->twitter }}" wire:model.defer="twitter">
+                    <input type="text" class="form-control @error('twitter') is-invalid @enderror" placeholder="Twitter"
+                        value="{{ $user->twitter }}" wire:model.defer="twitter">
                     @error('twitter')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
@@ -199,9 +218,11 @@
                 </div>
                 <div class="input-group mb-3">
                     <span class="input-group-text">
-                        <img src="https://ik.imagekit.io/taskordimg/icons/twitch_ZzpKWQt7T.svg" height="15" width="15" loading=lazy />
+                        <img src="https://ik.imagekit.io/taskordimg/icons/twitch_ZzpKWQt7T.svg" height="15" width="15"
+                            loading=lazy />
                     </span>
-                    <input type="text" class="form-control @error('twitch') is-invalid @enderror" placeholder="Twitch" value="{{ $user->twitch }}" wire:model.defer="twitch">
+                    <input type="text" class="form-control @error('twitch') is-invalid @enderror" placeholder="Twitch"
+                        value="{{ $user->twitch }}" wire:model.defer="twitch">
                     @error('twitch')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
@@ -210,9 +231,11 @@
                 </div>
                 <div class="input-group mb-3">
                     <span class="input-group-text">
-                        <img src="https://ik.imagekit.io/taskordimg/icons/telegram_4ea__J3dwB.svg" height="15" width="15" loading=lazy />
+                        <img src="https://ik.imagekit.io/taskordimg/icons/telegram_4ea__J3dwB.svg" height="15"
+                            width="15" loading=lazy />
                     </span>
-                    <input type="text" class="form-control @error('telegram') is-invalid @enderror" placeholder="Telegram" value="{{ $user->telegram }}" wire:model.defer="telegram">
+                    <input type="text" class="form-control @error('telegram') is-invalid @enderror"
+                        placeholder="Telegram" value="{{ $user->telegram }}" wire:model.defer="telegram">
                     @error('telegram')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
@@ -221,9 +244,11 @@
                 </div>
                 <div class="input-group mb-3">
                     <span class="input-group-text">
-                        <img class="github-logo" src="https://ik.imagekit.io/taskordimg/icons/github_9E8bhMFJtH.svg" height="15" width="15" loading=lazy />
+                        <img class="github-logo" src="https://ik.imagekit.io/taskordimg/icons/github_9E8bhMFJtH.svg"
+                            height="15" width="15" loading=lazy />
                     </span>
-                    <input type="text" class="form-control @error('github') is-invalid @enderror" placeholder="GitHub" value="{{ $user->github }}" wire:model.defer="github">
+                    <input type="text" class="form-control @error('github') is-invalid @enderror" placeholder="GitHub"
+                        value="{{ $user->github }}" wire:model.defer="github">
                     @error('github')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
@@ -232,9 +257,11 @@
                 </div>
                 <div class="input-group mb-3">
                     <span class="input-group-text">
-                        <img src="https://ik.imagekit.io/taskordimg/icons/youtube_qUsz_87ogn.svg" height="15" width="15" loading=lazy />
+                        <img src="https://ik.imagekit.io/taskordimg/icons/youtube_qUsz_87ogn.svg" height="15" width="15"
+                            loading=lazy />
                     </span>
-                    <input type="text" class="form-control @error('youtube') is-invalid @enderror" placeholder="YouTube" value="{{ $user->youtube }}" wire:model.defer="youtube">
+                    <input type="text" class="form-control @error('youtube') is-invalid @enderror" placeholder="YouTube"
+                        value="{{ $user->youtube }}" wire:model.defer="youtube">
                     @error('youtube')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>

@@ -16,15 +16,31 @@
 
     @if ($readyToLoad)
         <script>
-        var options = {
-            chart: { type: 'bar', height: 300, animations: { enabled: false }},
-            dataLabels: { enabled: false },
-            series: [{name: 'Tasks', data: <?php echo $all_tasks ?> }],
-            xaxis: { categories: <?php echo $week_dates ?>, labels: { show: false } }
-        }
+            var options = {
+                chart: {
+                    type: 'bar',
+                    height: 300,
+                    animations: {
+                        enabled: false
+                    }
+                },
+                dataLabels: {
+                    enabled: false
+                },
+                series: [{
+                    name: 'Tasks',
+                    data: <?php echo $all_tasks; ?>
+                }],
+                xaxis: {
+                    categories: <?php echo $week_dates; ?>,
+                    labels: {
+                        show: false
+                    }
+                }
+            }
 
-        var allTasks = new ApexCharts(document.querySelector("#allTasks"), options);
-        allTasks.render();
+            var allTasks = new ApexCharts(document.querySelector("#allTasks"), options);
+            allTasks.render();
         </script>
     @endif
 </div>

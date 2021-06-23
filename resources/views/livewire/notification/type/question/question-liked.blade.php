@@ -8,8 +8,8 @@
         </div>
         <div class="mt-3">
             @livewire('question.single-question', [
-                'type' => 'question.newest',
-                'question' => $question,
+            'type' => 'question.newest',
+            'question' => $question,
             ], key($question->id))
         </div>
     @else

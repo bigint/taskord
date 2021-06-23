@@ -8,7 +8,8 @@
             <form wire:submit.prevent="updatePassword">
                 <div class="mb-3">
                     <label class="form-label">Existing Password</label>
-                    <input type="password" class="form-control @error('currentPassword') is-invalid @enderror" wire:model.defer="currentPassword">
+                    <input type="password" class="form-control @error('currentPassword') is-invalid @enderror"
+                        wire:model.defer="currentPassword">
                     @error('currentPassword')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
@@ -17,7 +18,8 @@
                 </div>
                 <div class="mb-3">
                     <label class="form-label">New Password</label>
-                    <input type="password" class="form-control @error('newPassword') is-invalid @enderror" wire:model="newPassword">
+                    <input type="password" class="form-control @error('newPassword') is-invalid @enderror"
+                        wire:model="newPassword">
                     @error('newPassword')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
@@ -26,7 +28,8 @@
                 </div>
                 <div class="mb-3">
                     <label class="form-label">Confirm Password</label>
-                    <input type="password" class="form-control @error('confirmPassword') is-invalid @enderror" wire:model="confirmPassword">
+                    <input type="password" class="form-control @error('confirmPassword') is-invalid @enderror"
+                        wire:model="confirmPassword">
                     @error('confirmPassword')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>

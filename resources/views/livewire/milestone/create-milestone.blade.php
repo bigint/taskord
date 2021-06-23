@@ -8,7 +8,8 @@
             <div class="card-body">
                 <div class="mb-3">
                     <label class="form-label fw-bold">Name</label>
-                    <input type="text" class="form-control @error('name') is-invalid @enderror" placeholder="Add new feature!" wire:model.defer="name">
+                    <input type="text" class="form-control @error('name') is-invalid @enderror"
+                        placeholder="Add new feature!" wire:model.defer="name">
                     @error('name')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
@@ -20,16 +21,19 @@
                     <div>
                         <x:markdown-toolbar htmlFor="milestone-box" />
                     </div>
-                    <textarea id="milestone-box" class="form-control @error('description') is-invalid @enderror mentionInput mt-3" rows="6" placeholder="What's on your mind?" wire:model.lazy="description"></textarea>
+                    <textarea id="milestone-box"
+                        class="form-control @error('description') is-invalid @enderror mentionInput mt-3" rows="6"
+                        placeholder="What's on your mind?" wire:model.lazy="description"></textarea>
                     @error('description')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
                         </span>
                     @enderror
-                    <a class="small fw-bold text-secondary mt-3" href="https://guides.github.com/features/mastering-markdown" target="_blank">
+                    <a class="small fw-bold text-secondary mt-3"
+                        href="https://guides.github.com/features/mastering-markdown" target="_blank">
                         <x-heroicon-o-pencil-alt class="heroicon" />
                         Markdown is supported
-                         <x:labels.beta />
+                        <x:labels.beta />
                     </a>
                     <div class="mb-3">
                         <label class="form-label fw-bold mt-3">Start Date</label>
@@ -38,7 +42,8 @@
                     @if ($startDate)
                         <div class="mb-3">
                             <label class="form-label fw-bold">End Date</label>
-                            <input class="form-control" wire:model="endDate" type="date" min="{{ carbon($startDate)->format('Y-m-d') }}" />
+                            <input class="form-control" wire:model="endDate" type="date"
+                                min="{{ carbon($startDate)->format('Y-m-d') }}" />
                         </div>
                     @else
                         <div class="fw-bold">Select from date to pick due date</div>

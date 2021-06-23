@@ -8,7 +8,8 @@
             <div class="card-body">
                 <div class="mb-3">
                     <label class="form-label fw-bold">Title</label>
-                    <input type="text" class="form-control @error('title') is-invalid @enderror" placeholder="Ask and discuss!" wire:model.defer="title">
+                    <input type="text" class="form-control @error('title') is-invalid @enderror"
+                        placeholder="Ask and discuss!" wire:model.defer="title">
                     @error('title')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
@@ -20,16 +21,19 @@
                     <div>
                         <x:markdown-toolbar htmlFor="question-box" />
                     </div>
-                    <textarea id="question-box" class="form-control @error('body') is-invalid @enderror mentionInput mt-3" rows="6" placeholder="What's on your mind?" wire:model.lazy="body"></textarea>
+                    <textarea id="question-box"
+                        class="form-control @error('body') is-invalid @enderror mentionInput mt-3" rows="6"
+                        placeholder="What's on your mind?" wire:model.lazy="body"></textarea>
                     @error('body')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
                         </span>
                     @enderror
-                    <a class="small fw-bold text-secondary mt-3" href="https://guides.github.com/features/mastering-markdown" target="_blank">
+                    <a class="small fw-bold text-secondary mt-3"
+                        href="https://guides.github.com/features/mastering-markdown" target="_blank">
                         <x-heroicon-o-pencil-alt class="heroicon" />
                         Markdown is supported
-                         <x:labels.beta />
+                        <x:labels.beta />
                     </a>
                 </div>
                 <div class="mb-3">

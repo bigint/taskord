@@ -18,13 +18,15 @@
                 </a>
                 @if ($oembed->thumbnail_url)
                     @if ($oembed->type === 'summary_large_image')
-                        <img class="rounded border w-100 mt-3" src="{{ Helper::getCDNImage($oembed->thumbnail_url) }}" alt="{{ $oembed->title }}">
+                        <img class="rounded border w-100 mt-3" src="{{ Helper::getCDNImage($oembed->thumbnail_url) }}"
+                            alt="{{ $oembed->title }}">
                     @endif
                 @endif
             </div>
             @if ($oembed->thumbnail_url)
                 @if ($oembed->type !== 'summary_large_image')
-                    <img class="rounded border w-20 ms-4" src="{{ Helper::getCDNImage($oembed->thumbnail_url) }}" alt="{{ $oembed->title }}">
+                    <img class="rounded border w-20 ms-4" src="{{ Helper::getCDNImage($oembed->thumbnail_url) }}"
+                        alt="{{ $oembed->title }}">
                 @endif
             @endif
         </div>

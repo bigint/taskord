@@ -3,26 +3,32 @@
         <span class="float-start">
             <span class="fw-bold">
                 <x-heroicon-o-terminal class="heroicon me-1" />
-                <a class="text-white" href="https://gitlab.com/taskord/taskord/-/tree/{{ $branch_name }}" target="_blank" rel="noreferrer">{{ $branch_name }}</a>
+                <a class="text-white" href="https://gitlab.com/taskord/taskord/-/tree/{{ $branch_name }}"
+                    target="_blank" rel="noreferrer">{{ $branch_name }}</a>
                 <x-heroicon-s-arrow-sm-right class="heroicon mx-0" />
-                <a class="text-white" href="https://gitlab.com/taskord/taskord/-/commit/{{ $head_ref }}" target="_blank" rel="noreferrer">{{ Str::limit($head_ref, 8, '') }}</a>
+                <a class="text-white" href="https://gitlab.com/taskord/taskord/-/commit/{{ $head_ref }}"
+                    target="_blank" rel="noreferrer">{{ Str::limit($head_ref, 8, '') }}</a>
             </span>
             <a class="text-white-50 ms-3 d-none d-md-inline"
-                href="https://github.com/laravel/framework/releases/tag/v{{ $laravel_version }}" target="_blank" rel="noreferrer">
+                href="https://github.com/laravel/framework/releases/tag/v{{ $laravel_version }}" target="_blank"
+                rel="noreferrer">
                 <x-heroicon-o-chip class="heroicon" />
                 Laravel {{ $laravel_version }}.<span class="fw-bold">{{ $laravel_ref }}</span>
             </a>
         </span>
         <span class="float-end">
             @php
-                $response = bcmul((microtime(true) - LARAVEL_START), '1000', 0);
+                $response = bcmul(microtime(true) - LARAVEL_START, '1000', 0);
             @endphp
-            <span class="fw-bold me-3 border rounded-pill px-1 cursor-pointer {{ $response >= 200 ? 'border-warning' : 'border-success' }}" title="Response total">
+            <span
+                class="fw-bold me-3 border rounded-pill px-1 cursor-pointer {{ $response >= 200 ? 'border-warning' : 'border-success' }}"
+                title="Response total">
                 <span>{{ $response >= 200 ? '🐢' : '⚡️' }}</span>
                 <span>{{ $response }}ms</span>
             </span>
             <span id="staffbar-stats" class="d-none">
-                <a class="fw-bold me-3 text-white" href="/stafftools/horizon" title="Pending jobs" target="_blank" rel="noreferrer">
+                <a class="fw-bold me-3 text-white" href="/stafftools/horizon" title="Pending jobs" target="_blank"
+                    rel="noreferrer">
                     <x-heroicon-o-collection class="heroicon" />
                     {{ $jobs }}
                     <span class="fw-normal text-white-50">

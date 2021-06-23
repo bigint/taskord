@@ -38,8 +38,9 @@
                                 </a>
                             </td>
                             <td>
-                                <a href="{{ route('user.done', ['username' => $product->user->username]) }}" target="_blank">
-                                    {{ '@'.$product->user->username }}
+                                <a href="{{ route('user.done', ['username' => $product->user->username]) }}"
+                                    target="_blank">
+                                    {{ '@' . $product->user->username }}
                                 </a>
                             </td>
                             <td>

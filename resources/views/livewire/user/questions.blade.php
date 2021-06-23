@@ -17,8 +17,8 @@
     @endif
     @foreach ($questions as $question)
         @livewire('question.single-question', [
-            'type' => 'question.newest',
-            'question' => $question,
+        'type' => 'question.newest',
+        'question' => $question,
         ], key($question->id))
     @endforeach
 

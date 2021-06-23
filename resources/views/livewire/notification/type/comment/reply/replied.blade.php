@@ -2,7 +2,8 @@
     @if ($reply)
         <div class="mt-2 text-secondary">
             replied to your
-            <a class="fw-bold" href="{{ route('comment', ['id' => $reply->comment->task->id, 'comment_id' => $reply->comment->id]) }}#reply_{{ $reply->id }}">
+            <a class="fw-bold"
+                href="{{ route('comment', ['id' => $reply->comment->task->id, 'comment_id' => $reply->comment->id]) }}#reply_{{ $reply->id }}">
                 comment
             </a>
         </div>

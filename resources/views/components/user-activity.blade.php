@@ -4,21 +4,19 @@
         if (!$user) {
             $user = \App\Models\User::whereUsername('ghost')->first();
         }
-        $agent = new Jenssegers\Agent\Agent;
+        $agent = new Jenssegers\Agent\Agent();
         $agent->setUserAgent($activity->getExtraProperty('user_agent'));
     @endphp
     <a href="{{ route('user.done', ['username' => $user->username]) }}">
-        <img loading=lazy class="avatar-30 rounded-circle me-3" src="{{ Helper::getCDNImage($user->avatar, 80) }}" height="40" width="40" alt="{{ $user->username }}'s avatar" />
+        <img loading=lazy class="avatar-30 rounded-circle me-3" src="{{ Helper::getCDNImage($user->avatar, 80) }}"
+            height="40" width="40" alt="{{ $user->username }}'s avatar" />
     </a>
     <div>
         <div>
             <div class="fw-bold text-dark">
-                <a
-                    href="{{ route('user.done', ['username' => $user->username]) }}"
-                    class="fw-bold user-popover"
-                    data-id="{{ $user->id }}"
-                >
-                    {{ "@" . $user->username }}
+                <a href="{{ route('user.done', ['username' => $user->username]) }}" class="fw-bold user-popover"
+                    data-id="{{ $user->id }}">
+                    {{ '@' . $user->username }}
                 </a>
                 •
                 @if (count($activity->properties) !== 0)
@@ -73,7 +71,8 @@
                 <span class="vertical-separator"></span>
             @endcan
             @if ($activity->getExtraProperty('ip'))
-                <a class="font-monospace fw-bold" href="https://ipinfo.io/{{ $activity->getExtraProperty('ip') }}" target="_blank" rel="noreferrer">
+                <a class="font-monospace fw-bold" href="https://ipinfo.io/{{ $activity->getExtraProperty('ip') }}"
+                    target="_blank" rel="noreferrer">
                     {{ Str::limit($activity->getExtraProperty('ip'), 15, '..') }}
                 </a>
                 <span class="vertical-separator"></span>

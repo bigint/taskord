@@ -16,7 +16,8 @@
             @else
                 <ul class="list-group list-group-flush">
                     @foreach ($users as $user)
-                        <li class="list-group-item d-flex align-items-center justify-content-between py-2" wire:key="{{ $user->id }}">
+                        <li class="list-group-item d-flex align-items-center justify-content-between py-2"
+                            wire:key="{{ $user->id }}">
                             <x:shared.user-label-big :user="$user" />
                             <span>
                                 <livewire:home.follow :user="$user" :showText="$showText" :wire:key="$user->id" />

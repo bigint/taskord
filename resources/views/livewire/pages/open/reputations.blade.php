@@ -16,15 +16,31 @@
 
     @if ($readyToLoad)
         <script>
-        var options = {
-            chart: { type: 'line', height: 300, animations: { enabled: false }},
-            dataLabels: { enabled: false },
-            series: [{name: 'Reputations', data: <?php echo $reputations ?> }],
-            xaxis: { categories: <?php echo $week_dates ?>, labels: { show: false } }
-        }
+            var options = {
+                chart: {
+                    type: 'line',
+                    height: 300,
+                    animations: {
+                        enabled: false
+                    }
+                },
+                dataLabels: {
+                    enabled: false
+                },
+                series: [{
+                    name: 'Reputations',
+                    data: <?php echo $reputations; ?>
+                }],
+                xaxis: {
+                    categories: <?php echo $week_dates; ?>,
+                    labels: {
+                        show: false
+                    }
+                }
+            }
 
-        var reputations = new ApexCharts(document.querySelector("#reputations"), options);
-        reputations.render();
+            var reputations = new ApexCharts(document.querySelector("#reputations"), options);
+            reputations.render();
         </script>
     @endif
 </div>

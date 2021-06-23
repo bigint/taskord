@@ -7,13 +7,8 @@
         <div class="row justify-content-center">
             <div class="col-md-4">
                 <div class="text-center mb-4">
-                    <img
-                        class="mb-4"
-                        src="https://ik.imagekit.io/taskordimg/logo_FLhAmih_U.svg"
-                        alt="Taskord Logo"
-                        height="60"
-                        loading=lazy
-                    >
+                    <img class="mb-4" src="https://ik.imagekit.io/taskordimg/logo_FLhAmih_U.svg" alt="Taskord Logo"
+                        height="60" loading=lazy>
                     <h1 class="h3 mb-3 fw-bold">
                         Account suspended
                     </h1>

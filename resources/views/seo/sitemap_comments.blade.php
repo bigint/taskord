@@ -1,3 +1,3 @@
 @foreach ($comments as $comment)
-    {{ 'https://taskord.com/task/'.$comment->task->id.'/'.$comment->id }}
+    {{ 'https://taskord.com/task/' . $comment->task->id . '/' . $comment->id }}
 @endforeach

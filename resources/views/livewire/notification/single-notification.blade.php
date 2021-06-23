@@ -10,15 +10,17 @@
             <div class="d-flex justify-content-between">
                 <x:shared.user-label-small :user="$user" />
                 @if ($pageType === 'unread')
-                    <button wire:click="markSingleNotificationAsRead" class="btn btn-sm btn-action ms-5 float-end" title="Mark as read">
+                    <button wire:click="markSingleNotificationAsRead" class="btn btn-sm btn-action ms-5 float-end"
+                        title="Mark as read">
                         <span wire:loading.remove wire:target="markSingleNotificationAsRead">
                             <x-heroicon-s-check class="heroicon heroicon-20px text-secondary me-0" />
                         </span>
-                        <span wire:loading wire:target="markSingleNotificationAsRead" class="spinner-border spinner-border-sm"></span>
+                        <span wire:loading wire:target="markSingleNotificationAsRead"
+                            class="spinner-border spinner-border-sm"></span>
                     </button>
                 @endif
             </div>
-            @if ($type === "App\Notifications\Task\TaskLiked")
+            @if ($type === 'App\Notifications\Task\TaskLiked')
                 <livewire:notification.type.task.task-liked :data="$data" />
             @elseif ($type === "App\Notifications\Mentioned")
                 <livewire:notification.type.mentioned :data="$data" />
@@ -56,7 +58,7 @@
                 </div>
                 <div class="mt-2">
                     @livewire('notification.follow', [
-                        'user' => $user
+                    'user' => $user
                     ])
                 </div>
             @elseif ($type === "App\Notifications\Welcome")

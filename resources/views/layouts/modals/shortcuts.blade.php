@@ -11,8 +11,9 @@
                 </div>
             </div>
             <div class="d-flex justify-content-between modal-footer">
-                 <x:labels.beta />
-                <button type="button" class="btn btn-outline-secondary rounded-pill" data-bs-dismiss="modal">Close</button>
+                <x:labels.beta />
+                <button type="button" class="btn btn-outline-secondary rounded-pill"
+                    data-bs-dismiss="modal">Close</button>
             </div>
         </div>
     </div>

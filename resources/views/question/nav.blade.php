@@ -1,11 +1,14 @@
 <div class="mb-3">
-    <a class="mb-2 btn btn-{{ Route::is('questions.newest') ? '' : 'outline-' }}primary rounded-pill me-2" href="{{ route('questions.newest') }}">
+    <a class="mb-2 btn btn-{{ Route::is('questions.newest') ? '' : 'outline-' }}primary rounded-pill me-2"
+        href="{{ route('questions.newest') }}">
         Newest
     </a>
-    <a class="mb-2 btn btn-{{ Route::is('questions.unanswered') ? '' : 'outline-' }}primary rounded-pill me-2" href="{{ route('questions.unanswered') }}">
+    <a class="mb-2 btn btn-{{ Route::is('questions.unanswered') ? '' : 'outline-' }}primary rounded-pill me-2"
+        href="{{ route('questions.unanswered') }}">
         Unanswered
     </a>
-    <a class="mb-2 btn btn-{{ Route::is('questions.popular') ? '' : 'outline-' }}primary rounded-pill me-2" href="{{ route('questions.popular') }}">
+    <a class="mb-2 btn btn-{{ Route::is('questions.popular') ? '' : 'outline-' }}primary rounded-pill me-2"
+        href="{{ route('questions.popular') }}">
         Popular
     </a>
     @auth

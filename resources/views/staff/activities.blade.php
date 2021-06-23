@@ -7,12 +7,12 @@
 @section('url', url()->current())
 
 @section('content')
-<div class="container-fluid">
-    <div class="row justify-content-center">
-        <div class="container-md">
-            @include('staff.nav')
-            <livewire:staff.activities />
+    <div class="container-fluid">
+        <div class="row justify-content-center">
+            <div class="container-md">
+                @include('staff.nav')
+                <livewire:staff.activities />
+            </div>
         </div>
     </div>
-</div>
 @endsection

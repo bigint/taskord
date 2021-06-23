@@ -1,5 +1,6 @@
 <span class="dropdown">
-    <button class="btn btn-action btn-outline-info dropdown-toggle" id="milestoneMenuItem" data-bs-toggle="dropdown" aria-expanded="false">
+    <button class="btn btn-action btn-outline-info dropdown-toggle" id="milestoneMenuItem" data-bs-toggle="dropdown"
+        aria-expanded="false">
         <x-heroicon-o-truck class="heroicon heroicon-15px text-secondary" />
     </button>
     <ul class="dropdown-menu" aria-labelledby="milestoneMenuItem">
@@ -29,7 +30,7 @@
         <div class="dropdown-divider"></div>
         <li>
             <span class="p-2">
-                 <x:labels.beta />
+                <x:labels.beta />
             </span>
         </li>
     </ul>

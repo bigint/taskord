@@ -19,7 +19,8 @@
         @if ($body and $body->task)
             <div class="mt-2 text-secondary">
                 mentioned you in a
-                <a class="fw-bold" href="{{ route('comment', ['id' => $body->task->id, 'comment_id' => $body->id]) }}">
+                <a class="fw-bold"
+                    href="{{ route('comment', ['id' => $body->task->id, 'comment_id' => $body->id]) }}">
                     comment
                 </a>
             </div>
@@ -33,7 +34,8 @@
         @if ($body and $body->comment)
             <div class="mt-2 text-secondary">
                 mentioned you in a
-                <a class="fw-bold" href="{{ route('comment', ['id' => $body->comment->task->id, 'comment_id' => $body->comment->id]) }}#reply_{{ $body->id }}">
+                <a class="fw-bold"
+                    href="{{ route('comment', ['id' => $body->comment->task->id, 'comment_id' => $body->comment->id]) }}#reply_{{ $body->id }}">
                     reply
                 </a>
             </div>

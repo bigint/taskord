@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -20,9 +21,11 @@
     @auth
         @if (App::environment() === 'production')
             @if (auth()->user()->is_beta)
-                <link rel="icon" href="https://ik.imagekit.io/taskordimg/beta_J6zazpyIw.svg" sizes="any" type="image/svg+xml">
+                <link rel="icon" href="https://ik.imagekit.io/taskordimg/beta_J6zazpyIw.svg" sizes="any"
+                    type="image/svg+xml">
             @else
-                <link rel="icon" href="https://ik.imagekit.io/taskordimg/logo_FLhAmih_U.svg" sizes="any" type="image/svg+xml">
+                <link rel="icon" href="https://ik.imagekit.io/taskordimg/logo_FLhAmih_U.svg" sizes="any"
+                    type="image/svg+xml">
             @endif
         @else
             <link rel="icon" href="https://ik.imagekit.io/taskordimg/dev_nRoZHKwhy.svg" sizes="any" type="image/svg+xml">
@@ -47,6 +50,7 @@
     @endif
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
 </head>
+
 <body>
     <div id="app">
         @can('staff.ops')
@@ -70,7 +74,9 @@
                         Your account has been flagged.
                     </div>
                     <div class="mt-1">
-                        Because of that, your profile will be hidden from the public. If you believe this is a mistake, <a href="https://forms.clickup.com/f/357rd-767/8PPJM0SN435CWUX4X2" target="_blank" rel="noreferrer">contact support</a> to have your account status reviewed.
+                        Because of that, your profile will be hidden from the public. If you believe this is a mistake, <a
+                            href="https://forms.clickup.com/f/357rd-767/8PPJM0SN435CWUX4X2" target="_blank"
+                            rel="noreferrer">contact support</a> to have your account status reviewed.
                     </div>
                 </div>
             @endif
@@ -82,8 +88,10 @@
                     </div>
                     <form class="mt-1" method="POST" action="{{ route('verification.resend') }}">
                         @csrf
-                        Before proceeding, please check your email for a verification link. If you did not receive the email,
-                        <button type="submit" class="align-baseline btn m-0 p-0 rm-shadow text-primary">click here to request another</button>.
+                        Before proceeding, please check your email for a verification link. If you did not receive the
+                        email,
+                        <button type="submit" class="align-baseline btn m-0 p-0 rm-shadow text-primary">click here to
+                            request another</button>.
                     </form>
                 </div>
             @endif
@@ -106,4 +114,5 @@
 @can('staff.ops')
     <script src="{{ mix('js/stafftools.js') }}" defer></script>
 @endcan
+
 </html>

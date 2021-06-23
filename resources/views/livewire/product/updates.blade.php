@@ -8,9 +8,7 @@
         </div>
     @endif
     @foreach ($updates as $update)
-        @livewire('product.update.single-update', [
-            'update' => $update,
-        ])
+        @livewire('product.update.single-update', ['update' => $update])
     @endforeach
     {{ $updates->links() }}
 </div>

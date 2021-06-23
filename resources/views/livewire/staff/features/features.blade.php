@@ -5,7 +5,8 @@
             Taskord Feature flags
         </div>
         <div>
-            <button type="button" class="btn btn-outline-primary rounded-pill" data-bs-toggle="modal" data-bs-target="#newFeatureModal">
+            <button type="button" class="btn btn-outline-primary rounded-pill" data-bs-toggle="modal"
+                data-bs-target="#newFeatureModal">
                 Create Feature flag
             </button>
         </div>

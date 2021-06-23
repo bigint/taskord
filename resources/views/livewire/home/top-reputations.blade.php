@@ -30,31 +30,30 @@
                                 </span>
                             @endif
                         </span>
-                        <a
-                            href="{{ route('user.done', ['username' => $user->username]) }}"
-                            class="user-popover"
-                            data-id="{{ $user->id }}"
-                        >
-                            <img loading=lazy class="rounded-circle avatar-30 mt-1 ms-2" src="{{ Helper::getCDNImage($user->avatar, 80) }}" height="30" width="30" alt="{{ $user->username }}'s avatar" />
+                        <a href="{{ route('user.done', ['username' => $user->username]) }}" class="user-popover"
+                            data-id="{{ $user->id }}">
+                            <img loading=lazy class="rounded-circle avatar-30 mt-1 ms-2"
+                                src="{{ Helper::getCDNImage($user->avatar, 80) }}" height="30" width="30"
+                                alt="{{ $user->username }}'s avatar" />
                         </a>
-                        <a
-                            href="{{ route('user.done', ['username' => $user->username]) }}"
+                        <a href="{{ route('user.done', ['username' => $user->username]) }}"
                             class="ms-2 me-2 align-text-top fw-bold text-dark user-popover"
-                            data-id="{{ $user->id }}"
-                        >
+                            data-id="{{ $user->id }}">
                             @if ($user->firstname or $user->lastname)
-                                {{ $user->firstname }}{{ ' '.$user->lastname }}
+                                {{ $user->firstname }}{{ ' ' . $user->lastname }}
                             @else
                                 {{ $user->username }}
                             @endif
                             @if ($user->status)
-                                <span class="ms-1 small" title="{{ $user->status }}">{{ $user->status_emoji }}</span>
+                                <span class="ms-1 small"
+                                    title="{{ $user->status }}">{{ $user->status_emoji }}</span>
                             @endif
                             @if ($user->is_verified)
                                 <x-heroicon-s-badge-check class="heroicon ms-1 text-primary verified" />
                             @endif
                         </a>
-                        <span class="badge rounded-pill score bg-warning text-reputation align-middle" title="🔥 {{ number_format($user->getPoints()) }}">
+                        <span class="badge rounded-pill score bg-warning text-reputation align-middle"
+                            title="🔥 {{ number_format($user->getPoints()) }}">
                             <x-heroicon-o-fire class="heroicon heroicon-15px text-danger" />
                             {{ $user->getPoints(true) }}
                         </span>

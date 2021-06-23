@@ -17,11 +17,12 @@
                     </div>
                 </div>
             @endif
-            @foreach($points as $point)
+            @foreach ($points as $point)
                 <div class="d-flex w-100 justify-content-between">
                     <div class="mb-1">
                         <x-heroicon-o-sparkles class="heroicon text-secondary me-2" />
-                        <span class="fw-bold">{{ $point->point }} {{ $point->point > 1 ? 'points' : 'point' }}</span>
+                        <span class="fw-bold">{{ $point->point }}
+                            {{ $point->point > 1 ? 'points' : 'point' }}</span>
                         @if ($point->name === 'TaskCreated')
                             earned for creating a new task 🆕
                         @endif
@@ -54,8 +55,8 @@
                     </div>
                     <small class="text-secondary">{{ carbon($point->created_at)->diffForHumans() }}</small>
                 </div>
-                @if (! $loop->last)
-                    <hr/>
+                @if (!$loop->last)
+                    <hr />
                 @endif
             @endforeach
             <div class="mt-4">

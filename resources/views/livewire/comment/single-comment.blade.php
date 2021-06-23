@@ -2,10 +2,8 @@
     <div class="card-body">
         <div class="align-items-center d-flex mb-2">
             <x:shared.user-label-small :user="$comment->user" />
-            <a
-                class="align-text-top small float-end ms-auto text-secondary"
-                href="{{ route('comment', ['id' => $comment->task->id, 'comment_id' => $comment->id]) }}"
-            >
+            <a class="align-text-top small float-end ms-auto text-secondary"
+                href="{{ route('comment', ['id' => $comment->task->id, 'comment_id' => $comment->id]) }}">
                 {{ carbon($comment->created_at)->diffForHumans() }}
             </a>
         </div>
@@ -28,19 +26,15 @@
                     @endif
                 </button>
                 @can('edit/delete', $comment)
-                    <button
-                        type="button"
-                        class="btn btn-action btn-outline-danger"
-                        onclick="confirm('Are you sure?') || event.stopImmediatePropagation()"
-                        wire:click="deleteComment"
-                        wire:loading.attr="disabled"
-                        aria-label="Delete"
-                    >
+                    <button type="button" class="btn btn-action btn-outline-danger"
+                        onclick="confirm('Are you sure?') || event.stopImmediatePropagation()" wire:click="deleteComment"
+                        wire:loading.attr="disabled" aria-label="Delete">
                         <x-heroicon-o-trash class="heroicon heroicon-15px me-0 text-secondary" />
                     </button>
                 @endcan
                 @can('staff.ops')
-                    <button type="button" class="btn btn-action {{ $comment->hidden ? 'btn-info' : 'btn-outline-info' }} ms-1" wire:click="hide" wire:loading.attr="disabled" wire:key="{{ $comment->id }}" aria-label="Hide">
+                    <button type="button" class="btn btn-action {{ $comment->hidden ? 'btn-info' : 'btn-outline-info' }} ms-1"
+                        wire:click="hide" wire:loading.attr="disabled" wire:key="{{ $comment->id }}" aria-label="Hide">
                         <x-heroicon-o-eye-off class="heroicon heroicon-15px me-0" />
                     </button>
                 @endcan
@@ -68,14 +62,14 @@
                 </div>
             @else
                 <div class="p-2 border-1 border-top d-flex align-items-center">
-                    <a
-                        href="{{ route('user.done', ['username' => auth()->user()->username]) }}"
-                        class="user-popover ms-2"
-                        data-id="{{ auth()->id() }}"
-                    >
-                        <img loading=lazy class="avatar-25 rounded-circle" src="{{ Helper::getCDNImage(auth()->user()->avatar, 80) }}" height="40" width="40" alt="{{ auth()->user()->username }}'s avatar" />
+                    <a href="{{ route('user.done', ['username' => auth()->user()->username]) }}" class="user-popover ms-2"
+                        data-id="{{ auth()->id() }}">
+                        <img loading=lazy class="avatar-25 rounded-circle"
+                            src="{{ Helper::getCDNImage(auth()->user()->avatar, 80) }}" height="40" width="40"
+                            alt="{{ auth()->user()->username }}'s avatar" />
                     </a>
-                    <div class="ms-2 w-100 btn btn-sm border-1 border-reply text-dark text-start bg-white" wire:click="toggleCommentBox">
+                    <div class="ms-2 w-100 btn btn-sm border-1 border-reply text-dark text-start bg-white"
+                        wire:click="toggleCommentBox">
                         Reply now
                     </div>
                 </div>

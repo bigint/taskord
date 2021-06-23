@@ -6,7 +6,8 @@
 <div class="d-flex p-3">
     <div>
         <a href="{{ route('user.done', ['username' => $user->username]) }}">
-            <img loading=lazy class="avatar-50 rounded-circle" src="{{ Helper::getCDNImage($user->avatar, 80) }}" height="50" width="50" alt="{{ $user->username }}'s avatar" />
+            <img loading=lazy class="avatar-50 rounded-circle" src="{{ Helper::getCDNImage($user->avatar, 80) }}"
+                height="50" width="50" alt="{{ $user->username }}'s avatar" />
         </a>
         @if ($user->is_patron)
             <div class="border border-primary mt-2 ps-1 pe-1 rounded-pill small text-center text-primary">Patron</div>
@@ -15,7 +16,7 @@
     <div class="ms-3">
         <a class="fw-bold text-dark" href="{{ route('user.done', ['username' => $user->username]) }}">
             @if ($user->firstname or $user->lastname)
-                {{ $user->firstname }}{{ ' '.$user->lastname }}
+                {{ $user->firstname }}{{ ' ' . $user->lastname }}
             @else
                 {{ $user->username }}
             @endif
@@ -24,7 +25,8 @@
             @endif
         </a>
         <div>
-            <a class="small text-dark" href="{{ route('user.done', ['username' => $user->username]) }}">{{ '@'.$user->username }}</a>
+            <a class="small text-dark"
+                href="{{ route('user.done', ['username' => $user->username]) }}">{{ '@' . $user->username }}</a>
         </div>
         @if ($user->bio)
             <div class="mt-2 text-dark">{{ $user->bio }}</div>

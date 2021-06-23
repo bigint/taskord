@@ -15,7 +15,7 @@
         @else
             <ul class="list-group list-group-flush">
                 @foreach ($activities as $activity)
-                <x-user-activity :activity="$activity" />
+                    <x-user-activity :activity="$activity" />
                 @endforeach
             </ul>
         @endif

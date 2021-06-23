@@ -4,10 +4,12 @@
             <ul class="nav nav-tabs d-flex justify-content-between px-3">
                 <div class="d-flex">
                     <li class="nav-item">
-                        <div class="cursor-pointer nav-link active" :class="{ 'bg-white active': tab === 'edit' }" x-on:click="tab = 'edit'">Edit</div>
+                        <div class="cursor-pointer nav-link active" :class="{ 'bg-white active': tab === 'edit' }"
+                            x-on:click="tab = 'edit'">Edit</div>
                     </li>
                     <li class="nav-item">
-                        <div class="cursor-pointer nav-link" :class="{ 'active bg-white': tab === 'preview' }" x-on:click="tab = 'preview'">Preview</div>
+                        <div class="cursor-pointer nav-link" :class="{ 'active bg-white': tab === 'preview' }"
+                            x-on:click="tab = 'preview'">Preview</div>
                     </li>
                 </div>
                 <div x-show="tab === 'edit'" class="pt-1">
@@ -24,7 +26,8 @@
                 </div>
             @enderror
             <div class="mb-2">
-                <textarea x-show="tab === 'edit'" placeholder="Leave a reply" id="reply-box-{{ $comment->id }}" class="form-control mentionInput" rows="3" wire:model.lazy="reply"></textarea>
+                <textarea x-show="tab === 'edit'" placeholder="Leave a reply" id="reply-box-{{ $comment->id }}"
+                    class="form-control mentionInput" rows="3" wire:model.lazy="reply"></textarea>
                 <div x-show="tab === 'preview'">
                     <div wire:loading>
                         Loading preview...
@@ -39,12 +42,15 @@
                 </div>
             </div>
             <div class="d-flex justify-content-between align-items-center">
-                <a class="small fw-bold text-secondary" href="https://guides.github.com/features/mastering-markdown" target="_blank">
+                <a class="small fw-bold text-secondary" href="https://guides.github.com/features/mastering-markdown"
+                    target="_blank">
                     <x-heroicon-o-pencil-alt class="heroicon" />
                     Markdown is supported
                     <x:labels.beta />
                 </a>
-                <button wire:loading.attr="disabled" wire:target="submit" class="btn btn-sm btn-outline-primary rounded-pill" type="submit" wire:click="submit" x-on:click="tab = 'edit'">
+                <button wire:loading.attr="disabled" wire:target="submit"
+                    class="btn btn-sm btn-outline-primary rounded-pill" type="submit" wire:click="submit"
+                    x-on:click="tab = 'edit'">
                     <x-heroicon-o-plus class="heroicon heroicon-15px" />
                     Reply
                 </button>

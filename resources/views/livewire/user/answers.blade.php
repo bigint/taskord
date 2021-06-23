@@ -18,19 +18,19 @@
     @foreach ($answers as $answer)
         <div class="card mb-4">
             <div class="card-header h6 py-3">
-                <a
-                    href="{{ route('user.done', ['username' => $answer->question->user->username]) }}"
-                    class="user-popover"
-                    data-id="{{ $answer->question->user->id }}"
-                >
-                    <img loading=lazy class="rounded-circle avatar-30" src="{{ Helper::getCDNImage($answer->question->user->avatar, 80) }}" height="30" width="30" alt="{{ $answer->question->user->username }}'s avatar" />
+                <a href="{{ route('user.done', ['username' => $answer->question->user->username]) }}"
+                    class="user-popover" data-id="{{ $answer->question->user->id }}">
+                    <img loading=lazy class="rounded-circle avatar-30"
+                        src="{{ Helper::getCDNImage($answer->question->user->avatar, 80) }}" height="30" width="30"
+                        alt="{{ $answer->question->user->username }}'s avatar" />
                 </a>
-                <a class="align-middle text-dark ms-2" href="{{ route('question.question', ['slug' => $answer->question->slug]) }}">
+                <a class="align-middle text-dark ms-2"
+                    href="{{ route('question.question', ['slug' => $answer->question->slug]) }}">
                     {{ $answer->question->title }}
                 </a>
             </div>
             @livewire('answer.single-answer', [
-                'answer' => $answer
+            'answer' => $answer
             ], key($answer->id))
         </div>
     @endforeach

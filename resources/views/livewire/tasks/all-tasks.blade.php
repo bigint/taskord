@@ -4,7 +4,10 @@
             <div class="h5">
                 All Tasks
             </div>
-            <span class="fw-bold">{{ $readyToLoad ? auth()->user()->tasks()->whereDone(false)->count('id') : '···' }}</span>
+            <span
+                class="fw-bold">{{ $readyToLoad
+    ? auth()->user()->tasks()->whereDone(false)->count('id')
+    : '···' }}</span>
             Pending Tasks
         </div>
         <ul class="list-group list-group-flush">
@@ -21,9 +24,9 @@
                     </div>
                 </div>
             @endif
-            @foreach($tasks as $task)
+            @foreach ($tasks as $task)
                 @livewire('tasks.single-task', [
-                    'task' => $task
+                'task' => $task
                 ], key($task->id))
             @endforeach
             {{ $readyToLoad ? $tasks->links() : '' }}

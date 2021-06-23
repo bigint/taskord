@@ -6,7 +6,8 @@
             total users
         </div>
         <div class="d-flex align-items-center">
-            <div class="spinner-border spinner-border-sm taskord-spinner text-secondary" wire:loading wire:target="query" role="status"></div>
+            <div class="spinner-border spinner-border-sm taskord-spinner text-secondary" wire:loading
+                wire:target="query" role="status"></div>
             <input wire:model="query" type="text" class="form-control ms-2" placeholder="Search users...">
         </div>
     </div>
@@ -54,10 +55,12 @@
                                 <span class="fw-bold">{{ number_format($user->getPoints()) }}</span> Reputations
                             </div>
                             <div class="col-lg">
-                                <span class="fw-bold">{{ $user->tasks()->whereDone(true)->count('id') }}</span> Completed tasks
+                                <span class="fw-bold">{{ $user->tasks()->whereDone(true)->count('id') }}</span>
+                                Completed tasks
                             </div>
                             <div class="col-lg">
-                                <span class="fw-bold">{{ $user->tasks()->whereDone(false)->count('id') }}</span> Pending tasks
+                                <span class="fw-bold">{{ $user->tasks()->whereDone(false)->count('id') }}</span>
+                                Pending tasks
                             </div>
                             <div class="col-lg">
                                 <span class="fw-bold">{{ $user->comments()->count('id') }}</span> Comments
@@ -69,10 +72,14 @@
                                 <span class="fw-bold">{{ $user->answers()->count('id') }}</span> Answers
                             </div>
                             <div class="col-lg">
-                                <span class="fw-bold">{{ $user->milestones()->whereStatus(true)->count('id') }}</span> Open milestones
+                                <span
+                                    class="fw-bold">{{ $user->milestones()->whereStatus(true)->count('id') }}</span>
+                                Open milestones
                             </div>
                             <div class="col-lg">
-                                <span class="fw-bold">{{ $user->milestones()->whereStatus(false)->count('id') }}</span> Closed milestones
+                                <span
+                                    class="fw-bold">{{ $user->milestones()->whereStatus(false)->count('id') }}</span>
+                                Closed milestones
                             </div>
                             <div class="col-lg">
                                 <span class="fw-bold">{{ $user->ownedProducts('id')->count('id') }}</span> Products
@@ -87,8 +94,10 @@
                                 <span class="fw-bold">{{ $user->webhooks()->count('id') }}</span> Webhooks
                             </div>
                             <div class="col-lg">
-                                <span class="fw-bold">{{ Spatie\Activitylog\Models\Activity::causedBy($user)->count('id') }}</span> Logs
-                            </div> 
+                                <span
+                                    class="fw-bold">{{ Spatie\Activitylog\Models\Activity::causedBy($user)->count('id') }}</span>
+                                Logs
+                            </div>
                         </div>
                         <hr />
                         <div class="row">
@@ -109,7 +118,8 @@
                                 <div class="mt-1">
                                     <span>IP:</span>
                                     @if ($user->last_ip)
-                                        <a class="fw-bold" href="https://ipinfo.io/{{ $user->last_ip }}" title="{{ $user->last_ip }}" target="_blank" rel="noreferrer">
+                                        <a class="fw-bold" href="https://ipinfo.io/{{ $user->last_ip }}"
+                                            title="{{ $user->last_ip }}" target="_blank" rel="noreferrer">
                                             {{ Str::limit($user->last_ip, 15, '..') }}
                                         </a>
                                     @else
@@ -167,7 +177,9 @@
                                     <span>Via:</span>
                                     @if ($user->provider === 'google')
                                         <span>
-                                            <img class="brand-icon" src="https://ik.imagekit.io/taskordimg/icons/google_LPvasOP5AT.svg" loading=lazy />
+                                            <img class="brand-icon"
+                                                src="https://ik.imagekit.io/taskordimg/icons/google_LPvasOP5AT.svg"
+                                                loading=lazy />
                                             <span>Google</span>
                                         </span>
                                     @elseif ($user->provider === 'twitter')

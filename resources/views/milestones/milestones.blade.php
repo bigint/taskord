@@ -1,11 +1,11 @@
 @extends('layouts.app')
 
 @if ($type === 'milestones.opened')
-@section('pageTitle', 'Milestones / Opened ·')
-@section('title', 'Milestones / Opened ·')
+    @section('pageTitle', 'Milestones / Opened ·')
+    @section('title', 'Milestones / Opened ·')
 @else
-@section('pageTitle', 'Milestones / Closed ·')
-@section('title', 'Milestones / Closed ·')
+    @section('pageTitle', 'Milestones / Closed ·')
+    @section('title', 'Milestones / Closed ·')
 @endif
 @section('description', 'Browse milestones.')
 @section('image', '')
@@ -17,9 +17,9 @@
             <div class="col-lg-8">
                 @include('milestones.nav')
                 @livewire('milestone.milestones', [
-                    'type' => $type,
-                    'page' => 1,
-                    'perPage' => 10
+                'type' => $type,
+                'page' => 1,
+                'perPage' => 10
                 ])
             </div>
             <div class="col-sm">

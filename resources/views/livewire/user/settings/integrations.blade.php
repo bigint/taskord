@@ -8,7 +8,8 @@
             <span class="h5">Create Webhook</span>
             <form wire:submit.prevent="submit">
                 <div class="mb-3 mt-3">
-                    <input type="text" class="form-control @error('name') is-invalid @enderror" wire:model.defer="name" placeholder="Webhook Name">
+                    <input type="text" class="form-control @error('name') is-invalid @enderror" wire:model.defer="name"
+                        placeholder="Webhook Name">
                     @error('name')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
@@ -17,7 +18,8 @@
                     @if (auth()->user()->ownedProducts->merge(auth()->user()->products)->count('id') > 0)
                         <select class="form-select mt-3" wire:model.defer="product">
                             <option selected>Choose Product (optional)</option>
-                            @foreach (auth()->user()->ownedProducts->merge(auth()->user()->products) as $product)
+                            @foreach (auth()->user()->ownedProducts->merge(auth()->user()->products)
+    as $product)
                                 <option value="{{ $product->id }}">{{ $product->name }}</option>
                             @endforeach
                         </select>
@@ -25,19 +27,22 @@
                 </div>
                 <div class="mb-3 d-flex">
                     <span class="form-check">
-                        <input class="form-check-input" type="radio" id="web" name="type" value="web" wire:model.defer="type" checked>
+                        <input class="form-check-input" type="radio" id="web" name="type" value="web"
+                            wire:model.defer="type" checked>
                         <label class="form-check-label" for="web">
                             Simple Webhook
                         </label>
                     </span>
                     <span class="form-check ms-3">
-                        <input class="form-check-input" type="radio" id="github" name="type" value="github" wire:model.defer="type">
+                        <input class="form-check-input" type="radio" id="github" name="type" value="github"
+                            wire:model.defer="type">
                         <label class="form-check-label" for="github">
                             GitHub
                         </label>
                     </span>
                     <span class="form-check ms-3">
-                        <input class="form-check-input" type="radio" id="gitlab" name="type" value="gitlab" wire:model.defer="type">
+                        <input class="form-check-input" type="radio" id="gitlab" name="type" value="gitlab"
+                            wire:model.defer="type">
                         <label class="form-check-label" for="gitlab">
                             GitLab
                         </label>
@@ -52,7 +57,8 @@
                     <span class="h5">
                         Here's your webhook for Taskord. Keep it secret.
                     </span>
-                    <div class="small text-secondary">Make sure you save it - you won't be able to access it again.</div>
+                    <div class="small text-secondary">Make sure you save it - you won't be able to access it again.
+                    </div>
                     <div class="fw-bold text-primary font-monospace mt-2">
                         https://taskord.com/webhook/web/{{ session('created')->token }}
                     </div>
@@ -70,7 +76,8 @@
                 <div class="accordion-item">
                     <h2 class="accordion-header" id="simple-webhook">
                         <button class="accordion-button bg-light text-dark" type="button" data-bs-toggle="collapse"
-                            data-bs-target="#collapse-simple-webhook" aria-expanded="true" aria-controls="collapse-simple-webhook">
+                            data-bs-target="#collapse-simple-webhook" aria-expanded="true"
+                            aria-controls="collapse-simple-webhook">
                             <x-heroicon-o-globe-alt class="heroicon me-2" />
                             Simple Webhook
                         </button>
@@ -107,14 +114,17 @@
                 </div>
                 <div class="accordion-item">
                     <h2 class="accordion-header" id="github-webhook">
-                        <button class="accordion-button collapsed bg-light text-dark" type="button" data-bs-toggle="collapse"
-                            data-bs-target="#collapse-github-webhook" aria-expanded="false" aria-controls="collapse-github-webhook">
-                            <img class="me-2 github-logo" src="https://ik.imagekit.io/taskordimg/icons/github_9E8bhMFJtH.svg" height="15" width="15" loading=lazy />
+                        <button class="accordion-button collapsed bg-light text-dark" type="button"
+                            data-bs-toggle="collapse" data-bs-target="#collapse-github-webhook" aria-expanded="false"
+                            aria-controls="collapse-github-webhook">
+                            <img class="me-2 github-logo"
+                                src="https://ik.imagekit.io/taskordimg/icons/github_9E8bhMFJtH.svg" height="15"
+                                width="15" loading=lazy />
                             GitHub
                         </button>
                     </h2>
-                    <div id="collapse-github-webhook" class="accordion-collapse collapse" aria-labelledby="github-webhook"
-                        data-bs-parent="#webhookDocs">
+                    <div id="collapse-github-webhook" class="accordion-collapse collapse"
+                        aria-labelledby="github-webhook" data-bs-parent="#webhookDocs">
                         <div class="accordion-body">
                             <ol class="mb-0">
                                 <li>Go to repository settings</li>
@@ -130,10 +140,11 @@
                 </div>
                 <div class="accordion-item rounded-bottom">
                     <h2 class="accordion-header" id="gitlab-webhook">
-                        <button class="accordion-button collapsed bg-light text-dark" type="button" data-bs-toggle="collapse"
-                            data-bs-target="#collapse-gitlab-webhook" aria-expanded="false"
+                        <button class="accordion-button collapsed bg-light text-dark" type="button"
+                            data-bs-toggle="collapse" data-bs-target="#collapse-gitlab-webhook" aria-expanded="false"
                             aria-controls="collapse-gitlab-webhook">
-                            <img class="me-2" src="https://ik.imagekit.io/taskordimg/icons/gitlab_j_ySNAHxP.svg" height="15" width="15" loading=lazy />
+                            <img class="me-2" src="https://ik.imagekit.io/taskordimg/icons/gitlab_j_ySNAHxP.svg"
+                                height="15" width="15" loading=lazy />
                             GitLab
                         </button>
                     </h2>
@@ -178,7 +189,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach($user->webhooks as $webhook)
+                        @foreach ($user->webhooks as $webhook)
                             <tr>
                                 <td>
                                     @if ($webhook->type === 'web')
@@ -186,9 +197,12 @@
                                             <x-heroicon-o-globe-alt class="heroicon text-info" />
                                         </span>
                                     @elseif ($webhook->type === 'github')
-                                        <img class="github-logo" src="https://ik.imagekit.io/taskordimg/icons/github_9E8bhMFJtH.svg" height="15" width="15" loading=lazy />
+                                        <img class="github-logo"
+                                            src="https://ik.imagekit.io/taskordimg/icons/github_9E8bhMFJtH.svg"
+                                            height="15" width="15" loading=lazy />
                                     @elseif ($webhook->type === 'gitlab')
-                                        <img src="https://ik.imagekit.io/taskordimg/icons/gitlab_j_ySNAHxP.svg" height="15" width="15" loading=lazy />
+                                        <img src="https://ik.imagekit.io/taskordimg/icons/gitlab_j_ySNAHxP.svg"
+                                            height="15" width="15" loading=lazy />
                                     @endif
                                 </td>
                                 <td class="fw-bold">
@@ -201,7 +215,8 @@
                                     {{ $webhook->created_at->format('M d, Y') }}
                                 </td>
                                 <td>
-                                    <button wire:loading.attr="disabled" wire:click="deleteWebhook({{ $webhook->id }})"
+                                    <button wire:loading.attr="disabled"
+                                        wire:click="deleteWebhook({{ $webhook->id }})"
                                         class="btn btn-sm w-100 btn-outline-danger rounded-pill">
                                         <x-heroicon-o-trash class="heroicon heroicon-15px" />
                                         Delete

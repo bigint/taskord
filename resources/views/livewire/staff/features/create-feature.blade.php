@@ -1,4 +1,5 @@
-<div wire:ignore.self class="modal fade" id="newFeatureModal" tabindex="-1" role="dialog" aria-labelledby="newFeatureModalTitle" aria-hidden="true">
+<div wire:ignore.self class="modal fade" id="newFeatureModal" tabindex="-1" role="dialog"
+    aria-labelledby="newFeatureModalTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -9,7 +10,8 @@
                 <div class="modal-body">
                     <div class="mb-3">
                         <label class="form-label fw-bold">Name</label>
-                        <input type="text" class="form-control @error('name') is-invalid @enderror" placeholder="Name of the feature" wire:model.defer="name">
+                        <input type="text" class="form-control @error('name') is-invalid @enderror"
+                            placeholder="Name of the feature" wire:model.defer="name">
                         @error('name')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -18,7 +20,8 @@
                     </div>
                     <div class="mb-3">
                         <label class="form-label fw-bold">Slug</label>
-                        <input type="text" class="form-control @error('slug') is-invalid @enderror" placeholder="Slug of the feature" wire:model.defer="slug">
+                        <input type="text" class="form-control @error('slug') is-invalid @enderror"
+                            placeholder="Slug of the feature" wire:model.defer="slug">
                         @error('slug')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -27,7 +30,8 @@
                     </div>
                     <div>
                         <label class="form-label fw-bold">Description</label>
-                        <textarea class="form-control @error('description') is-invalid @enderror mentionInput" rows="6" placeholder="What does this feature do?" wire:model.defer="description"></textarea>
+                        <textarea class="form-control @error('description') is-invalid @enderror mentionInput" rows="6"
+                            placeholder="What does this feature do?" wire:model.defer="description"></textarea>
                         @error('description')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -36,7 +40,8 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-outline-secondary rounded-pill" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-outline-secondary rounded-pill"
+                        data-bs-dismiss="modal">Close</button>
                     <button type="submit" class="btn btn-outline-primary rounded-pill">
                         Create
                     </button>

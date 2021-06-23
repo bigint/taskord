@@ -7,14 +7,14 @@
 @section('url', url()->current())
 
 @section('content')
-<div class="container-fluid">
-    <div class="row justify-content-center">
-        <div class="container-md">
-            @include('staff.nav')
-            <div class="card">
-                <iframe src="horizon" style="height:75vh">
+    <div class="container-fluid">
+        <div class="row justify-content-center">
+            <div class="container-md">
+                @include('staff.nav')
+                <div class="card">
+                    <iframe src="horizon" style="height:75vh">
+                </div>
             </div>
         </div>
     </div>
-</div>
 @endsection

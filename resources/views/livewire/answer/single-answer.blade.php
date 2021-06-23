@@ -19,19 +19,15 @@
             <x:like-button :entity="$answer" />
         @endauth
         @can('edit/delete', $answer)
-            <button
-                type="button"
-                class="btn btn-action btn-outline-danger"
-                onclick="confirm('Are you sure?') || event.stopImmediatePropagation()"
-                wire:click="deleteAnswer"
-                wire:loading.attr="disabled"
-                aria-label="Delete"
-            >
+            <button type="button" class="btn btn-action btn-outline-danger"
+                onclick="confirm('Are you sure?') || event.stopImmediatePropagation()" wire:click="deleteAnswer"
+                wire:loading.attr="disabled" aria-label="Delete">
                 <x-heroicon-o-trash class="heroicon heroicon-15px me-0 text-secondary" />
             </button>
         @endcan
         @can('staff.ops')
-            <button type="button" class="btn btn-action {{ $answer->hidden ? 'btn-info' : 'btn-outline-info' }} ms-1" wire:click="hide" wire:loading.attr="disabled" wire:key="{{ $answer->id }}" aria-label="Hide">
+            <button type="button" class="btn btn-action {{ $answer->hidden ? 'btn-info' : 'btn-outline-info' }} ms-1"
+                wire:click="hide" wire:loading.attr="disabled" wire:key="{{ $answer->id }}" aria-label="Hide">
                 <x-heroicon-o-eye-off class="heroicon heroicon-15px me-0" />
             </button>
         @endcan

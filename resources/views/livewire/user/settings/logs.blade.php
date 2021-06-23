@@ -19,6 +19,6 @@
         </ul>
         <div class="mt-3">
             {{ $activities->links() }}
-        <div>
-    </div>
-</div>
+            <div>
+            </div>
+        </div>

@@ -13,8 +13,9 @@
         @if ($milestone->hidden)
             <span class="fst-italic text-secondary">Milestone was hidden by moderator</span>
         @else
-            <a href="{{ route('milestones.milestone', ['milestone' => $milestone]) }}" class="h5 align-text-top fw-bold text-dark">
-                @if ($type !== "milestones.milestone")
+            <a href="{{ route('milestones.milestone', ['milestone' => $milestone]) }}"
+                class="h5 align-text-top fw-bold text-dark">
+                @if ($type !== 'milestones.milestone')
                     {{ Str::words($milestone->name, '10') }}
                 @else
                     {{ $milestone->name }}
@@ -55,39 +56,38 @@
             @auth
                 <x:like-button :entity="$milestone" />
                 @can('edit/delete', $milestone)
-                    @if ($type === "milestones.milestone")
-                        <a href="{{ route('milestones.edit', ['milestone' => $milestone]) }}" class="btn btn-action btn-outline-info me-1">
+                    @if ($type === 'milestones.milestone')
+                        <a href="{{ route('milestones.edit', ['milestone' => $milestone]) }}"
+                            class="btn btn-action btn-outline-info me-1">
                             <x-heroicon-o-pencil-alt class="heroicon heroicon-15px me-0 text-secondary" />
                             <span class="small text-dark fw-bold">
                                 Edit
                             </span>
                         </a>
                     @endif
-                    <button
-                        role="button"
-                        class="btn btn-action btn-outline-danger me-1"
-                        onclick="confirm('Are you sure?') || event.stopImmediatePropagation()"
-                        wire:click="deleteMilestone"
-                        wire:loading.attr="disabled"
-                        aria-label="Delete"
-                    >
+                    <button role="button" class="btn btn-action btn-outline-danger me-1"
+                        onclick="confirm('Are you sure?') || event.stopImmediatePropagation()" wire:click="deleteMilestone"
+                        wire:loading.attr="disabled" aria-label="Delete">
                         <x-heroicon-o-trash class="heroicon heroicon-15px me-0 text-secondary" />
                     </button>
                 @endcan
                 @can('staff.ops')
-                    <button type="button" class="btn btn-action {{ $milestone->hidden ? 'btn-info' : 'btn-outline-info' }}" wire:click="hide" wire:loading.attr="disabled" wire:key="{{ $milestone->id }}" aria-label="Hide">
+                    <button type="button" class="btn btn-action {{ $milestone->hidden ? 'btn-info' : 'btn-outline-info' }}"
+                        wire:click="hide" wire:loading.attr="disabled" wire:key="{{ $milestone->id }}" aria-label="Hide">
                         <x-heroicon-o-eye-off class="heroicon heroicon-15px me-0" />
                     </button>
                 @endcan
-                @if ($type === "milestones.milestone")
+                @if ($type === 'milestones.milestone')
                     @can('edit/delete', $milestone)
                         @if ($milestone->status)
-                            <button type="button" class="btn btn-danger btn-action float-end" wire:click="toggleStatus" wire:loading.attr="disabled">
+                            <button type="button" class="btn btn-danger btn-action float-end" wire:click="toggleStatus"
+                                wire:loading.attr="disabled">
                                 <x-heroicon-o-x class="heroicon heroicon-15px" />
                                 Close Milestone
                             </button>
                         @else
-                            <button type="button" class="btn btn-success btn-action text-white float-end" wire:click="toggleStatus" wire:loading.attr="disabled">
+                            <button type="button" class="btn btn-success btn-action text-white float-end"
+                                wire:click="toggleStatus" wire:loading.attr="disabled">
                                 <x-heroicon-o-check class="heroicon heroicon-15px" />
                                 Open Milestone
                             </button>

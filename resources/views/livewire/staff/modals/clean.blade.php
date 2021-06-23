@@ -1,4 +1,5 @@
-<div wire:ignore.self class="modal fade" data-bs-backdrop="static" id="cleanModal" tabindex="-1" aria-labelledby="cleanModalLabel" aria-hidden="true">
+<div wire:ignore.self class="modal fade" data-bs-backdrop="static" id="cleanModal" tabindex="-1"
+    aria-labelledby="cleanModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -16,8 +17,10 @@
                 </ul>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-outline-secondary rounded-pill" data-bs-dismiss="modal">Close</button>
-                <button class="btn btn-outline-primary rounded-pill" wire:loading.attr="disabled" wire:click="clean" data-bs-dismiss="modal">
+                <button type="button" class="btn btn-outline-secondary rounded-pill"
+                    data-bs-dismiss="modal">Close</button>
+                <button class="btn btn-outline-primary rounded-pill" wire:loading.attr="disabled" wire:click="clean"
+                    data-bs-dismiss="modal">
                     Clean Cache
                 </button>
             </div>

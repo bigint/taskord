@@ -5,11 +5,13 @@
             <code>{{ $feature->slug }}</code>
             <div class="mt-2">{{ $feature->description }}</div>
             @if ($confirming === $feature->id)
-                <button role="button" class="btn btn-action btn-danger mt-2" wire:click="deleteFeature" wire:loading.attr="disabled" aria-label="Confirm Delete">
+                <button role="button" class="btn btn-action btn-danger mt-2" wire:click="deleteFeature"
+                    wire:loading.attr="disabled" aria-label="Confirm Delete">
                     Are you sure?
                 </button>
             @else
-                <button role="button" class="btn btn-action btn-outline-danger mt-2" wire:click="confirmDelete" wire:loading.attr="disabled" aria-label="Delete feature">
+                <button role="button" class="btn btn-action btn-outline-danger mt-2" wire:click="confirmDelete"
+                    wire:loading.attr="disabled" aria-label="Delete feature">
                     <x-heroicon-o-trash class="heroicon heroicon-15px" />
                     Delete feature
                 </button>
@@ -22,19 +24,23 @@
         </div>
         <div>
             <div class="form-check form-switch">
-                <input class="form-check-input" type="checkbox" id="staffCheckBox" wire:click="staffToggle" wire:model="staffStatus">
+                <input class="form-check-input" type="checkbox" id="staffCheckBox" wire:click="staffToggle"
+                    wire:model="staffStatus">
                 <label class="form-check-label" for="staffCheckBox">Enable for <b>staff</b></label>
             </div>
             <div class="form-check form-switch">
-                <input class="form-check-input" type="checkbox" id="contributorCheckBox" wire:click="contributorToggle" wire:model="contributorStatus">
+                <input class="form-check-input" type="checkbox" id="contributorCheckBox" wire:click="contributorToggle"
+                    wire:model="contributorStatus">
                 <label class="form-check-label" for="contributorCheckBox">Enable for <b>contributors</b></label>
             </div>
             <div class="form-check form-switch">
-                <input class="form-check-input" type="checkbox" id="betaCheckBox" wire:click="betaToggle" wire:model="betaStatus">
+                <input class="form-check-input" type="checkbox" id="betaCheckBox" wire:click="betaToggle"
+                    wire:model="betaStatus">
                 <label class="form-check-label" for="betaCheckBox">Enable for <b>beta</b></label>
             </div>
             <div class="form-check form-switch">
-                <input class="form-check-input" type="checkbox" id="publicCheckBox" wire:click="publicToggle" wire:model="publicStatus">
+                <input class="form-check-input" type="checkbox" id="publicCheckBox" wire:click="publicToggle"
+                    wire:model="publicStatus">
                 <label class="form-check-label" for="publicCheckBox">Enable for <b>public</b></label>
             </div>
         </div>

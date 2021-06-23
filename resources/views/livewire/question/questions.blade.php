@@ -17,8 +17,8 @@
     @endif
     @foreach ($questions as $question)
         @livewire('question.single-question', [
-            'type' => $type,
-            'question' => $question,
+        'type' => $type,
+        'question' => $question,
         ], key($question->id))
     @endforeach
     @if ($readyToLoad and $questions->hasMorePages())

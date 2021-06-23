@@ -21,14 +21,9 @@
                 </a>
             @endguest
             @can('edit/delete', $update)
-                <button
-                    type="button"
-                    class="btn btn-action btn-outline-danger"
-                    onclick="confirm('Are you sure?') || event.stopImmediatePropagation()"
-                    wire:click="deleteUpdate"
-                    wire:loading.attr="disabled"
-                    aria-label="Delete"
-                >
+                <button type="button" class="btn btn-action btn-outline-danger"
+                    onclick="confirm('Are you sure?') || event.stopImmediatePropagation()" wire:click="deleteUpdate"
+                    wire:loading.attr="disabled" aria-label="Delete">
                     <x-heroicon-o-trash class="heroicon heroicon-15px me-0" />
                 </button>
             @endcan

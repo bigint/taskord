@@ -3,7 +3,8 @@
         <div class="text-center pb-4">
             <div class="h4">Welcome to Taskord 👋</div>
             <div class="lead">
-                <span class="fw-bold">Don't fake just make!</span> Get things done in public with awesome community of makers.
+                <span class="fw-bold">Don't fake just make!</span> Get things done in public with awesome community of
+                makers.
             </div>
         </div>
         <div class="row align-items-center">

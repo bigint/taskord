@@ -12,9 +12,9 @@
             <div class="col-lg-8">
                 @include('meetups.nav')
                 @livewire('meetups.meetups', [
-                    'type' => $type,
-                    'page' => 1,
-                    'perPage' => 10
+                'type' => $type,
+                'page' => 1,
+                'perPage' => 10
                 ])
             </div>
             <div class="col-sm">

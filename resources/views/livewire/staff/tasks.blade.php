@@ -28,8 +28,9 @@
                         <tr>
                             <th>{{ $task->id }}</th>
                             <td>
-                                <a href="{{ route('user.done', ['username' => $task->user->username]) }}" target="_blank">
-                                    {{ '@'.$task->user->username }}
+                                <a href="{{ route('user.done', ['username' => $task->user->username]) }}"
+                                    target="_blank">
+                                    {{ '@' . $task->user->username }}
                                 </a>
                             </td>
                             <td>
