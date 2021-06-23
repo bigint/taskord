@@ -54,7 +54,7 @@
         "facade/ignition": "2.10.2",
         "fakerphp/faker": "1.14.1",
         "mockery/mockery": "1.4.3",
-        "nunomaduro/collision": "5.4.0",
+        "nunomaduro/collision": "5.5.0",
         "nunomaduro/phpinsights": "dev-master",
         "pestphp/pest": "1.7.0",
         "pestphp/pest-plugin-laravel": "1.0.0",
