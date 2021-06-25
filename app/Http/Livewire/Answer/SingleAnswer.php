@@ -54,6 +54,20 @@ class SingleAnswer extends Component
         return toast($this, 'success', 'Answer is hidden from public!');
     }
 
+    public function editAnswer()
+    {
+        if (Gate::denies('edit/delete', $this->answer)) {
+            return toast($this, 'error', config('taskord.toast.deny'));
+        }
+
+        $this->edit = ! $this->edit;
+    }
+
+    public function answerEdited()
+    {
+        $this->edit = false;
+    }
+
     public function deleteAnswer()
     {
         if (Gate::denies('edit/delete', $this->answer)) {
