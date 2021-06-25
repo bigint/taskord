@@ -24,15 +24,6 @@ class CreateComment extends Component
         $this->task = $task;
     }
 
-    public function updated($field)
-    {
-        if (! auth()->check()) {
-            return toast($this, 'error', config('taskord.toast.deny'));
-        }
-
-        $this->validateOnly($field);
-    }
-
     public function submit()
     {
         if (Gate::denies('create')) {

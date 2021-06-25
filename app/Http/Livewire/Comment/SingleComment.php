@@ -13,8 +13,11 @@ class SingleComment extends Component
 {
     use WithRateLimiting;
 
+    protected $listeners = ['commentEdited' => 'commentEdited'];
+
     public Comment $comment;
     public $showReplyBox = false;
+    public $edit = false;
 
     public function mount($comment)
     {
@@ -55,6 +58,20 @@ class SingleComment extends Component
         loggy(request(), 'Staff', auth()->user(), "Toggled hide comment | Comment ID: {$this->comment->id}");
 
         return toast($this, 'success', 'Comment is hidden from public!');
+    }
+
+    public function editComment()
+    {
+        if (Gate::denies('edit/delete', $this->comment)) {
+            return toast($this, 'error', config('taskord.toast.deny'));
+        }
+
+        $this->edit = ! $this->edit;
+    }
+
+    public function commentEdited()
+    {
+        $this->edit = false;
     }
 
     public function deleteComment()

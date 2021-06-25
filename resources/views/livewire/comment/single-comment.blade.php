@@ -10,9 +10,15 @@
         @if ($comment->hidden)
             <span class="body-font fst-italic text-secondary">Comment was hidden by moderator</span>
         @else
-            <span class="body-font">
-                {!! markdown($comment->comment) !!}
-            </span>
+            @if ($edit)
+                <div class="mt-3">
+                    <livewire:comment.edit-comment :comment="$comment" />
+                </div>
+            @else
+                <span class="body-font">
+                    {!! markdown($comment->comment) !!}
+                </span>
+            @endif
         @endif
         <div class="mt-2">
             @auth
@@ -26,6 +32,10 @@
                     @endif
                 </button>
                 @can('edit/delete', $comment)
+                    <button type="button" class="btn btn-action btn-outline-primary me-1" wire:click="editComment"
+                        wire:loading.attr="disabled" aria-label="Edit">
+                        <x-heroicon-o-pencil class="heroicon heroicon-15px me-0 text-secondary" />
+                    </button>
                     <button type="button" class="btn btn-action btn-outline-danger"
                         onclick="confirm('Are you sure?') || event.stopImmediatePropagation()" wire:click="deleteComment"
                         wire:loading.attr="disabled" aria-label="Delete">
