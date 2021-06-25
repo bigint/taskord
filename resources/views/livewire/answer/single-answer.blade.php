@@ -12,7 +12,7 @@
     @else
         @if ($edit)
             <div class="mt-3">
-                <livewire:comment.edit-comment :comment="$comment" />
+                <livewire:answer.edit-answer :answer="$answer" />
             </div>
         @else
             <span class="body-font">

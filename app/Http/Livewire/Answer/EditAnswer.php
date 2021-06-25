@@ -28,18 +28,18 @@ class EditAnswer extends Component
         }
 
         $this->validate();
-        $comment = Comment::find($this->commentId);
-        $comment->comment = $this->comment;
-        $comment->save();
-        $this->emit('commentEdited');
+        $answer = Answer::find($this->answerId);
+        $answer->answer = $this->answer;
+        $answer->save();
+        $this->emit('answerEdited');
 
-        loggy(request(), 'Comment', auth()->user(), "Edited a comment | Comment ID: {$this->commentId}");
+        loggy(request(), 'Answer', auth()->user(), "Edited a answer | Answer ID: {$this->answerId}");
 
-        return toast($this, 'success', 'Comment has been edited!');
+        return toast($this, 'success', 'Answer has been edited!');
     }
 
     public function render()
     {
-        return view('livewire.comment.create-comment');
+        return view('livewire.answer.create-answer');
     }
 }
