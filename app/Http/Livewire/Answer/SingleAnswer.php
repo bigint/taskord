@@ -13,7 +13,10 @@ class SingleAnswer extends Component
 {
     use WithRateLimiting;
 
+    protected $listeners = ['answerEdited' => 'answerEdited'];
+
     public Answer $answer;
+    public $edit = false;
 
     public function mount($answer)
     {
