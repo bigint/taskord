@@ -50,7 +50,7 @@
         "symfony/psr-http-message-bridge": "2.1.0"
     },
     "require-dev": {
-        "barryvdh/laravel-debugbar": "^3.6",
+        "barryvdh/laravel-debugbar": "3.6.2",
         "facade/ignition": "2.10.2",
         "fakerphp/faker": "1.14.1",
         "mockery/mockery": "1.4.3",
