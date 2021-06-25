@@ -11,7 +11,7 @@
         <span class="body-font fst-italic text-secondary">Answer was hidden by moderator</span>
     @else
         @if ($edit)
-            <div class="mt-3">
+            <div class="mb-3">
                 <livewire:answer.edit-answer :answer="$answer" />
             </div>
         @else
