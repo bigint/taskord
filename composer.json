@@ -9,7 +9,7 @@
     "license": "MIT",
     "require": {
         "php": "^8.0",
-        "barryvdh/laravel-debugbar": "^3.6",
+        "barryvdh/laravel-debugbar": "3.6.2",
         "blade-ui-kit/blade-heroicons": "1.2.0",
         "cyrildewit/eloquent-viewable": "6.0.2",
         "danharrin/livewire-rate-limiting": "0.3.0",
