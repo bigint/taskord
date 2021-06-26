@@ -6,6 +6,7 @@ use App\Gamify\Points\CommentCreated;
 use App\Models\Task;
 use App\Notifications\Comment\Commented;
 use Helper;
+use Illuminate\Contracts\View\View;
 use Illuminate\Support\Facades\Gate;
 use Livewire\Component;
 
@@ -60,7 +61,7 @@ class CreateComment extends Component
         return toast($this, 'success', 'Comment has been added!');
     }
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.comment.create-comment');
     }

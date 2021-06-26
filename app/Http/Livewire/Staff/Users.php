@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Staff;
 
 use App\Models\User;
+use Illuminate\Contracts\View\View;
 use Livewire\Component;
 use Livewire\WithPagination;
 
@@ -26,7 +27,7 @@ class Users extends Component
             ->paginate(20);
     }
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.staff.users', [
             'users' => $this->readyToLoad ? $this->getUsers() : [],

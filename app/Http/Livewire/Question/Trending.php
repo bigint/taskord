@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Question;
 
 use App\Models\Question;
+use Illuminate\Contracts\View\View;
 use Livewire\Component;
 
 class Trending extends Component
@@ -26,7 +27,7 @@ class Trending extends Component
             });
     }
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.question.trending', [
             'trending' => $this->readyToLoad ? $this->getTrending() : [],

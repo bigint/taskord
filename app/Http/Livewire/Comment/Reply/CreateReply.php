@@ -5,6 +5,7 @@ namespace App\Http\Livewire\Comment\Reply;
 use App\Models\Comment;
 use App\Notifications\Comment\Reply\Replied;
 use Helper;
+use Illuminate\Contracts\View\View;
 use Illuminate\Support\Facades\Gate;
 use Livewire\Component;
 
@@ -63,7 +64,7 @@ class CreateReply extends Component
         return toast($this, 'success', 'Reply has been added!');
     }
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.comment.reply.create-reply');
     }

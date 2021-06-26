@@ -5,6 +5,7 @@ namespace App\Http\Livewire\Products;
 use App\Actions\CreateNewTask;
 use App\Rules\Repo;
 use App\Rules\ReservedSlug;
+use Illuminate\Contracts\View\View;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Storage;
@@ -105,7 +106,7 @@ class CreateProduct extends Component
         return redirect()->route('product.done', ['slug' => $product->slug]);
     }
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.products.create-product');
     }

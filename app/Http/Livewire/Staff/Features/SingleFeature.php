@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Staff\Features;
 
 use App\Models\Feature;
+use Illuminate\Contracts\View\View;
 use Livewire\Component;
 
 class SingleFeature extends Component
@@ -89,7 +90,7 @@ class SingleFeature extends Component
         return redirect()->route('staff.features');
     }
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.staff.features.single-feature');
     }

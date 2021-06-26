@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Staff\Features;
 
 use App\Models\Feature;
+use Illuminate\Contracts\View\View;
 use Livewire\Component;
 use Livewire\WithPagination;
 
@@ -18,7 +19,7 @@ class Features extends Component
         $this->readyToLoad = true;
     }
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.staff.features.features', [
             'features' => $this->readyToLoad ? Feature::latest()->paginate(10) : [],

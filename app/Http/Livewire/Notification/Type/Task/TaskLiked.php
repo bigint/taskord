@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Notification\Type\Task;
 
 use App\Models\Task;
+use Illuminate\Contracts\View\View;
 use Livewire\Component;
 
 class TaskLiked extends Component
@@ -14,7 +15,7 @@ class TaskLiked extends Component
         $this->data = $data;
     }
 
-    public function render()
+    public function render(): View
     {
         $task = Task::find($this->data['task_id']);
 

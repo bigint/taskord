@@ -4,6 +4,7 @@ namespace App\Http\Livewire\Task;
 
 use App\Models\Milestone;
 use App\Models\Task;
+use Illuminate\Contracts\View\View;
 use Illuminate\Support\Facades\Gate;
 use Livewire\Component;
 
@@ -42,7 +43,7 @@ class SelectMilestone extends Component
         return toast($this, 'success', "Task has been added to the milestone <b>{$milestone->name}</b>");
     }
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.task.select-milestone');
     }

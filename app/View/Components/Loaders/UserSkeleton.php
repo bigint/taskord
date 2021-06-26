@@ -2,6 +2,7 @@
 
 namespace App\View\Components\Loaders;
 
+use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 
 class UserSkeleton extends Component
@@ -13,7 +14,7 @@ class UserSkeleton extends Component
         $this->count = $count;
     }
 
-    public function render()
+    public function render(): View
     {
         return view('components.loaders.user-skeleton');
     }

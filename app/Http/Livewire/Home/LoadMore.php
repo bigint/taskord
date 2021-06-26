@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Home;
 
 use App\Models\Task;
+use Illuminate\Contracts\View\View;
 use Livewire\Component;
 
 class LoadMore extends Component
@@ -26,7 +27,7 @@ class LoadMore extends Component
         $this->loadMore = true;
     }
 
-    public function render()
+    public function render(): View
     {
         if ($this->loadMore) {
             if (auth()->check() && auth()->user()->only_followings_tasks) {

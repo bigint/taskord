@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Task;
 
+use Illuminate\Contracts\View\View;
 use Livewire\Component;
 
 class Comments extends Component
@@ -28,7 +29,7 @@ class Comments extends Component
             ->get();
     }
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.task.comments', [
             'comments' => $this->readyToLoad ? $this->getComments() : [],

@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Notification\Type\Comment\Reply;
 
 use App\Models\CommentReply;
+use Illuminate\Contracts\View\View;
 use Livewire\Component;
 
 class ReplyLiked extends Component
@@ -14,7 +15,7 @@ class ReplyLiked extends Component
         $this->data = $data;
     }
 
-    public function render()
+    public function render(): View
     {
         $reply = CommentReply::find($this->data['reply_id']);
 

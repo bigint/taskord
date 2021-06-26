@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Product;
 
 use App\Models\Product;
+use Illuminate\Contracts\View\View;
 use Livewire\Component;
 
 class Updates extends Component
@@ -18,7 +19,7 @@ class Updates extends Component
         $this->product = $product;
     }
 
-    public function render()
+    public function render(): View
     {
         $updates = $this->product->productUpdates()
             ->with(['user'])

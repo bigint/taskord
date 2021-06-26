@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Milestone;
 
 use App\Models\Milestone;
+use Illuminate\Contracts\View\View;
 use Livewire\Component;
 
 class Tasks extends Component
@@ -34,7 +35,7 @@ class Tasks extends Component
             ->paginate(10, '*', null, $this->page);
     }
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.milestone.tasks', [
             'tasks' => $this->readyToLoad ? $this->getTasks() : [],

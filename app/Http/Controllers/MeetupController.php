@@ -3,10 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\Meetup;
+use Illuminate\Contracts\View\View;
 
 class MeetupController extends Controller
 {
-    public function meetups()
+    public function meetups(): View
     {
         $meetups = Meetup::where('date', '>=', date('Y-m-d'))
             ->orderBy('date')
@@ -18,7 +19,7 @@ class MeetupController extends Controller
         ]);
     }
 
-    public function finished()
+    public function finished(): View
     {
         $meetups = Meetup::where('date', '<=', date('Y-m-d'))
             ->latest()
@@ -30,7 +31,7 @@ class MeetupController extends Controller
         ]);
     }
 
-    public function rsvpd()
+    public function rsvpd(): View
     {
         $meetups = auth()->user()->subscriptions(Meetup::class)
             ->orderBy('date')

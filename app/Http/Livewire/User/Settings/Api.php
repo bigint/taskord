@@ -5,6 +5,7 @@ namespace App\Http\Livewire\User\Settings;
 use App\Models\User;
 use DanHarrin\LivewireRateLimiting\Exceptions\TooManyRequestsException;
 use DanHarrin\LivewireRateLimiting\WithRateLimiting;
+use Illuminate\Contracts\View\View;
 use Illuminate\Support\Str;
 use Livewire\Component;
 
@@ -43,7 +44,7 @@ class Api extends Component
         return toast($this, 'error', config('taskord.toast.deny'));
     }
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.user.settings.api');
     }

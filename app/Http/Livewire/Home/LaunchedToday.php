@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Home;
 
 use App\Models\Product;
+use Illuminate\Contracts\View\View;
 use Livewire\Component;
 
 class LaunchedToday extends Component
@@ -25,7 +26,7 @@ class LaunchedToday extends Component
             ->get();
     }
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.home.launched-today', [
             'launched_today' => $this->readyToLoad ? $this->getLaunchedToday() : [],

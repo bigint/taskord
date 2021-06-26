@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Comment;
 
 use App\Models\Task;
+use Illuminate\Contracts\View\View;
 use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Collection;
@@ -37,7 +38,7 @@ class LoadMore extends Component
         $this->loadMore = true;
     }
 
-    public function render()
+    public function render(): View
     {
         if ($this->loadMore) {
             $comments = $this->task->comments()

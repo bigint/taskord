@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Product;
 
 use App\Models\Product;
+use Illuminate\Contracts\View\View;
 use Livewire\Component;
 
 class LoadMore extends Component
@@ -30,7 +31,7 @@ class LoadMore extends Component
         $this->loadMore = true;
     }
 
-    public function render()
+    public function render(): View
     {
         if ($this->loadMore) {
             $members = $this->product->members->pluck('id');

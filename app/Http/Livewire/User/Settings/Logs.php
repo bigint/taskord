@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\User\Settings;
 
 use App\Models\User;
+use Illuminate\Contracts\View\View;
 use Livewire\Component;
 use Livewire\WithPagination;
 use Spatie\Activitylog\Models\Activity;
@@ -19,7 +20,7 @@ class Logs extends Component
         $this->user = $user;
     }
 
-    public function render()
+    public function render(): View
     {
         $activities = Activity::causedBy($this->user)
             ->latest()

@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Milestone;
 
 use App\Models\Milestone;
+use Illuminate\Contracts\View\View;
 use Livewire\Component;
 
 class LoadMoreTasks extends Component
@@ -28,7 +29,7 @@ class LoadMoreTasks extends Component
         $this->loadMore = true;
     }
 
-    public function render()
+    public function render(): View
     {
         if ($this->loadMore) {
             $tasks = $this->milestone->tasks()

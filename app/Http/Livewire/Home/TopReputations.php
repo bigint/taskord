@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Home;
 
 use App\Models\User;
+use Illuminate\Contracts\View\View;
 use Livewire\Component;
 
 class TopReputations extends Component
@@ -27,7 +28,7 @@ class TopReputations extends Component
             ->get();
     }
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.home.top-reputations', [
             'reputations' => $this->readyToLoad ? $this->getTopReputations() : [],

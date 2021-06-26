@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cookie;
 use Illuminate\Support\Facades\Route;
@@ -10,7 +11,7 @@ use Spatie\Activitylog\Models\Activity;
 
 class UserController extends Controller
 {
-    public function profile($username)
+    public function profile($username): View
     {
         $user = User::withCount(['questions', 'answers', 'milestones'])
             ->whereUsername($username)->firstOrFail();
@@ -41,49 +42,49 @@ class UserController extends Controller
         return view($type, $response);
     }
 
-    public function profileSettings()
+    public function profileSettings(): View
     {
         return view('user.settings.profile', [
             'user' => auth()->user(),
         ]);
     }
 
-    public function appearanceSettings()
+    public function appearanceSettings(): View
     {
         return view('user.settings.appearance', [
             'user' => auth()->user(),
         ]);
     }
 
-    public function accountSettings()
+    public function accountSettings(): View
     {
         return view('user.settings.account', [
             'user' => auth()->user(),
         ]);
     }
 
-    public function productsSettings()
+    public function productsSettings(): View
     {
         return view('user.settings.products', [
             'user' => auth()->user(),
         ]);
     }
 
-    public function patronSettings()
+    public function patronSettings(): View
     {
         return view('user.settings.patron', [
             'user' => auth()->user(),
         ]);
     }
 
-    public function passwordSettings()
+    public function passwordSettings(): View
     {
         return view('user.settings.password', [
             'user' => auth()->user(),
         ]);
     }
 
-    public function notifySettings()
+    public function notifySettings(): View
     {
         return view('user.settings.notifications', [
             'user' => auth()->user(),
@@ -143,42 +144,42 @@ class UserController extends Controller
         return toast($this, 'error', config('taskord.toast.deny'));
     }
 
-    public function integrationsSettings()
+    public function integrationsSettings(): View
     {
         return view('user.settings.integrations', [
             'user' => auth()->user(),
         ]);
     }
 
-    public function apiSettings()
+    public function apiSettings(): View
     {
         return view('user.settings.api', [
             'user' => auth()->user(),
         ]);
     }
 
-    public function sessionsSettings()
+    public function sessionsSettings(): View
     {
         return view('user.settings.sessions', [
             'user' => auth()->user(),
         ]);
     }
 
-    public function logsSettings()
+    public function logsSettings(): View
     {
         return view('user.settings.logs', [
             'user' => auth()->user(),
         ]);
     }
 
-    public function dataSettings()
+    public function dataSettings(): View
     {
         return view('user.settings.data', [
             'user' => auth()->user(),
         ]);
     }
 
-    public function deleteSettings()
+    public function deleteSettings(): View
     {
         return view('user.settings.delete', [
             'user' => auth()->user(),
@@ -199,7 +200,7 @@ class UserController extends Controller
         return $users;
     }
 
-    public function popover(User $user)
+    public function popover(User $user): View
     {
         return view('user.popover', [
             'user' => $user,

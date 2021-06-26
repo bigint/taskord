@@ -6,6 +6,7 @@ use App\Models\User;
 use App\Models\Webhook;
 use DanHarrin\LivewireRateLimiting\Exceptions\TooManyRequestsException;
 use DanHarrin\LivewireRateLimiting\WithRateLimiting;
+use Illuminate\Contracts\View\View;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Str;
 use Livewire\Component;
@@ -72,7 +73,7 @@ class Integrations extends Component
         return toast($this, 'success', 'Webhook has been deleted!');
     }
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.user.settings.integrations');
     }

@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Staff;
 
 use App\Models\Product;
+use Illuminate\Contracts\View\View;
 use Livewire\Component;
 use Livewire\WithPagination;
 
@@ -26,7 +27,7 @@ class Products extends Component
             ->paginate(50);
     }
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.staff.products', [
             'products' => $this->readyToLoad ? $this->getProducts() : [],

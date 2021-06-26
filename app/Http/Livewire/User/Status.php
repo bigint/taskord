@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\User;
 
 use App\Models\User;
+use Illuminate\Contracts\View\View;
 use Livewire\Component;
 
 class Status extends Component
@@ -61,7 +62,7 @@ class Status extends Component
         return toast($this, 'success', 'Status cleared successfully!');
     }
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.user.status');
     }

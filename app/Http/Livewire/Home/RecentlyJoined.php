@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Home;
 
 use App\Models\User;
+use Illuminate\Contracts\View\View;
 use Livewire\Component;
 
 class RecentlyJoined extends Component
@@ -26,7 +27,7 @@ class RecentlyJoined extends Component
             ->get();
     }
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.home.recently-joined', [
             'recently_joined' => $this->readyToLoad ? $this->getRecentlyJoined() : [],

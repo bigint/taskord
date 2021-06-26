@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Home;
 
 use App\Models\Task;
+use Illuminate\Contracts\View\View;
 use Livewire\Component;
 
 class Onboarding extends Component
@@ -30,7 +31,7 @@ class Onboarding extends Component
         return count($completed);
     }
 
-    public function render()
+    public function render(): View
     {
         $taskCount = auth()->user()->tasks()->count('id');
         $likeCount = auth()->user()->likes(Task::class)->count();

@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Products;
 
 use App\Models\Product;
+use Illuminate\Contracts\View\View;
 use Livewire\Component;
 
 class ActiveProducts extends Component
@@ -25,7 +26,7 @@ class ActiveProducts extends Component
             });
     }
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.products.active-products', [
             'products' => $this->readyToLoad ? $this->getActiveProducts() : [],

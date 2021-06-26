@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Notification\Type\Product;
 
 use App\Models\Product;
+use Illuminate\Contracts\View\View;
 use Livewire\Component;
 
 class Subscribed extends Component
@@ -14,7 +15,7 @@ class Subscribed extends Component
         $this->data = $data;
     }
 
-    public function render()
+    public function render(): View
     {
         $product = Product::find($this->data['product_id']);
 

@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Notification\Type\Question;
 
 use App\Models\Answer;
+use Illuminate\Contracts\View\View;
 use Livewire\Component;
 
 class NotifySubscribers extends Component
@@ -14,7 +15,7 @@ class NotifySubscribers extends Component
         $this->data = $data;
     }
 
-    public function render()
+    public function render(): View
     {
         $answer = Answer::find($this->data['answer_id']);
 

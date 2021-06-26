@@ -3,31 +3,32 @@
 namespace App\Http\Controllers;
 
 use App\Models\Question;
+use Illuminate\Contracts\View\View;
 
 class QuestionController extends Controller
 {
-    public function newest()
+    public function newest(): View
     {
         return view('question.questions', [
             'type' => 'questions.newest',
         ]);
     }
 
-    public function unanswered()
+    public function unanswered(): View
     {
         return view('question.questions', [
             'type' => 'questions.unanswered',
         ]);
     }
 
-    public function popular()
+    public function popular(): View
     {
         return view('question.questions', [
             'type' => 'questions.popular',
         ]);
     }
 
-    public function question($slug)
+    public function question($slug): View
     {
         $question = Question::where('slug', $slug)->firstOrFail();
         $response = [
@@ -65,7 +66,7 @@ class QuestionController extends Controller
         return view('question.question', $response);
     }
 
-    public function edit($slug)
+    public function edit($slug): View
     {
         $question = Question::where('slug', $slug)->firstOrFail();
 

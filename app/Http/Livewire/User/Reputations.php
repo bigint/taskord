@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\User;
 
+use Illuminate\Contracts\View\View;
 use Illuminate\Support\Facades\DB;
 use Livewire\Component;
 use Livewire\WithPagination;
@@ -26,7 +27,7 @@ class Reputations extends Component
             ->paginate(50);
     }
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.user.reputations', [
             'points' => $this->readyToLoad ? $this->getReputations() : [],

@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Answer;
 
 use App\Models\Answer;
+use Illuminate\Contracts\View\View;
 use Illuminate\Support\Facades\Gate;
 use Livewire\Component;
 
@@ -38,7 +39,7 @@ class EditAnswer extends Component
         return toast($this, 'success', 'Answer has been edited!');
     }
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.answer.create-answer');
     }

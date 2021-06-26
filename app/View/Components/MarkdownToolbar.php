@@ -2,6 +2,7 @@
 
 namespace App\View\Components;
 
+use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 
 class MarkdownToolbar extends Component
@@ -13,7 +14,7 @@ class MarkdownToolbar extends Component
         $this->htmlFor = $htmlFor;
     }
 
-    public function render()
+    public function render(): View
     {
         return view('components.markdown-toolbar');
     }

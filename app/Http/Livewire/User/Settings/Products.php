@@ -5,6 +5,7 @@ namespace App\Http\Livewire\User\Settings;
 use App\Models\Product;
 use App\Models\User;
 use App\Notifications\Product\MemberLeft;
+use Illuminate\Contracts\View\View;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
 use Livewire\Component;
@@ -26,11 +27,6 @@ class Products extends Component
             })->get();
     }
 
-    public function render()
-    {
-        return view('livewire.user.settings.products');
-    }
-
     public function leaveProduct(Product $product)
     {
         $product->members()->detach($this->user);
@@ -41,5 +37,10 @@ class Products extends Component
         loggy(request(), 'Product', $this->user, "Left the team | Product ID: #{$product->id}");
 
         return toast($this, 'success', 'You are no longer member of the team!');
+    }
+
+    public function render(): View
+    {
+        return view('livewire.user.settings.products');
     }
 }

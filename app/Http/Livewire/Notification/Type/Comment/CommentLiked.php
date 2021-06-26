@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Notification\Type\Comment;
 
 use App\Models\Comment;
+use Illuminate\Contracts\View\View;
 use Livewire\Component;
 
 class CommentLiked extends Component
@@ -14,7 +15,7 @@ class CommentLiked extends Component
         $this->data = $data;
     }
 
-    public function render()
+    public function render(): View
     {
         $comment = Comment::find($this->data['comment_id']);
 

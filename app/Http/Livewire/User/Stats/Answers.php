@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\User\Stats;
 
 use Carbon\CarbonPeriod;
+use Illuminate\Contracts\View\View;
 use Livewire\Component;
 
 class Answers extends Component
@@ -20,7 +21,7 @@ class Answers extends Component
         $this->readyToLoad = true;
     }
 
-    public function render()
+    public function render(): View
     {
         $createdAt = $this->user->created_at->format('Y-m-d');
         $currentDate = carbon()->format('Y-m-d');

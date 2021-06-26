@@ -4,6 +4,7 @@ namespace App\Http\Livewire\Product;
 
 use App\Models\Product;
 use Carbon\CarbonPeriod;
+use Illuminate\Contracts\View\View;
 use Livewire\Component;
 
 class Graph extends Component
@@ -21,7 +22,7 @@ class Graph extends Component
         $this->readyToLoad = true;
     }
 
-    public function render()
+    public function render(): View
     {
         $startDate = carbon('60 days ago')->format('Y-m-d');
         $currentDate = carbon()->format('Y-m-d');

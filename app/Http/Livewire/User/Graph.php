@@ -4,6 +4,7 @@ namespace App\Http\Livewire\User;
 
 use App\Models\User;
 use Carbon\CarbonPeriod;
+use Illuminate\Contracts\View\View;
 use Livewire\Component;
 
 class Graph extends Component
@@ -46,7 +47,7 @@ class Graph extends Component
         return $week_dates;
     }
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.user.graph', [
             'week_dates' => $this->readyToLoad ? json_encode($this->getGraph('week_dates'), JSON_NUMERIC_CHECK) : [],

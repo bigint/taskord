@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Home;
 
 use App\Models\Task;
+use Illuminate\Contracts\View\View;
 use Livewire\Component;
 
 class Tasks extends Component
@@ -57,7 +58,7 @@ class Tasks extends Component
             ->paginate(10, '*', null, $this->page);
     }
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.home.tasks', [
             'tasks' => $this->readyToLoad ? $this->getTasks() : [],

@@ -5,6 +5,7 @@ namespace App\Http\Livewire\Question;
 use App\Models\Question;
 use DanHarrin\LivewireRateLimiting\Exceptions\TooManyRequestsException;
 use DanHarrin\LivewireRateLimiting\WithRateLimiting;
+use Illuminate\Contracts\View\View;
 use Illuminate\Support\Facades\Gate;
 use Livewire\Component;
 
@@ -41,7 +42,7 @@ class Subscribe extends Component
         return loggy(request(), 'Question', auth()->user(), "Toggled question subscribe | Question ID: {$this->question->id}");
     }
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.question.subscribe');
     }

@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Home;
 
 use App\Models\User;
+use Illuminate\Contracts\View\View;
 use Livewire\Component;
 
 class Suggestions extends Component
@@ -41,7 +42,7 @@ class Suggestions extends Component
             ->shuffle();
     }
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.home.suggestions', [
             'users' => $this->readyToLoad ? $this->getSuggestions() : [],

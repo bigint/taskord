@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\User;
 
 use App\Models\User;
+use Illuminate\Contracts\View\View;
 use Livewire\Component;
 use Livewire\WithPagination;
 
@@ -32,7 +33,7 @@ class Answers extends Component
             ->paginate(10);
     }
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.user.answers', [
             'answers' => $this->readyToLoad ? $this->getAnswers() : [],

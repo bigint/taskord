@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Notification\Type\Milestone;
 
 use App\Models\Milestone;
+use Illuminate\Contracts\View\View;
 use Livewire\Component;
 
 class MilestoneLiked extends Component
@@ -14,7 +15,7 @@ class MilestoneLiked extends Component
         $this->data = $data;
     }
 
-    public function render()
+    public function render(): View
     {
         $milestone = Milestone::find($this->data['milestone_id']);
 

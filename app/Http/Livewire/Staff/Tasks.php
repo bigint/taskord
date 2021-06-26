@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Staff;
 
 use App\Models\Task;
+use Illuminate\Contracts\View\View;
 use Livewire\Component;
 use Livewire\WithPagination;
 
@@ -23,7 +24,7 @@ class Tasks extends Component
         return Task::latest()->paginate(50);
     }
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.staff.tasks', [
             'tasks' => $this->readyToLoad ? $this->getTasks() : [],

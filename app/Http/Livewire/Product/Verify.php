@@ -5,6 +5,7 @@ namespace App\Http\Livewire\Product;
 use App\Models\Product;
 use DanHarrin\LivewireRateLimiting\Exceptions\TooManyRequestsException;
 use DanHarrin\LivewireRateLimiting\WithRateLimiting;
+use Illuminate\Contracts\View\View;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Str;
 use Livewire\Component;
@@ -56,7 +57,7 @@ class Verify extends Component
         return parse_url($url)['host'];
     }
 
-    public function render()
+    public function render(): View
     {
         if (! $this->product->txt_code) {
             $this->product->txt_code = "_taskord-challenge-{$this->product->slug}-".Str::uuid();

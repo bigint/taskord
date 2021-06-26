@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Notification\Type\Question;
 
 use App\Models\Question;
+use Illuminate\Contracts\View\View;
 use Livewire\Component;
 
 class QuestionLiked extends Component
@@ -14,7 +15,7 @@ class QuestionLiked extends Component
         $this->data = $data;
     }
 
-    public function render()
+    public function render(): View
     {
         $question = Question::find($this->data['question_id']);
 

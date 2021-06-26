@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Explore;
 
 use App\Models\User;
+use Illuminate\Contracts\View\View;
 use Livewire\Component;
 
 class TrendingMakers extends Component
@@ -31,7 +32,7 @@ class TrendingMakers extends Component
             ->sortByDesc('reputations');
     }
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.explore.trending-makers', [
             'users' => $this->readyToLoad ? $this->getTrendingMakers() : [],

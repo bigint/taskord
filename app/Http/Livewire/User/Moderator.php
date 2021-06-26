@@ -6,6 +6,7 @@ use App\Models\User;
 use App\Notifications\Staff\ContributorEnabled;
 use App\Notifications\Staff\PatronGifted;
 use App\Notifications\Staff\UserVerified;
+use Illuminate\Contracts\View\View;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Storage;
@@ -358,7 +359,7 @@ class Moderator extends Component
         return toast($this, 'success', config('taskord.toast.settings-updated'));
     }
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.user.moderator', [
             'user' => $this->readyToLoad ? $this->user : [],

@@ -2,6 +2,7 @@
 
 namespace App\View\Components;
 
+use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 
 class LikeButton extends Component
@@ -13,7 +14,7 @@ class LikeButton extends Component
         $this->entity = $entity;
     }
 
-    public function render()
+    public function render(): View
     {
         return view('components.like-button');
     }

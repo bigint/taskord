@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Product;
 
 use App\Models\Product;
+use Illuminate\Contracts\View\View;
 use Livewire\Component;
 
 class SingleProduct extends Component
@@ -14,7 +15,7 @@ class SingleProduct extends Component
         $this->product = $product;
     }
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.product.single-product');
     }

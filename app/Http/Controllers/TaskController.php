@@ -3,10 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\Task;
+use Illuminate\Contracts\View\View;
 
 class TaskController extends Controller
 {
-    public function task($id)
+    public function task($id): View
     {
         $task = Task::where('id', $id)
             ->with(['user', 'product', 'milestone', 'comments.user', 'oembed'])
@@ -28,7 +29,7 @@ class TaskController extends Controller
         return view('task.task', $response);
     }
 
-    public function comment($id, $comment_id)
+    public function comment($id, $comment_id): View
     {
         $task = Task::where('id', $id)
             ->with(['user', 'comments.user'])

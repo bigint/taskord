@@ -3,24 +3,25 @@
 namespace App\Http\Controllers;
 
 use App\Models\Milestone;
+use Illuminate\Contracts\View\View;
 
 class MilestoneController extends Controller
 {
-    public function opened()
+    public function opened(): View
     {
         return view('milestones.milestones', [
             'type' => 'milestones.opened',
         ]);
     }
 
-    public function closed()
+    public function closed(): View
     {
         return view('milestones.milestones', [
             'type' => 'milestones.closed',
         ]);
     }
 
-    public function milestone(Milestone $milestone)
+    public function milestone(Milestone $milestone): View
     {
         $response = [
             'type' => 'milestones.milestone',
@@ -40,7 +41,7 @@ class MilestoneController extends Controller
         return view('milestones.milestone', $response);
     }
 
-    public function edit(Milestone $milestone)
+    public function edit(Milestone $milestone): View
     {
         if (
             auth()->check() && auth()->user()->id === $milestone->user->id or
@@ -54,7 +55,7 @@ class MilestoneController extends Controller
         return abort(404);
     }
 
-    public function popover(Milestone $milestone)
+    public function popover(Milestone $milestone): View
     {
         return view('milestones.popover', [
             'milestone' => $milestone,

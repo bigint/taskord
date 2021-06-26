@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Tasks;
 
+use Illuminate\Contracts\View\View;
 use Livewire\Component;
 use Livewire\WithPagination;
 
@@ -29,7 +30,7 @@ class AllTasks extends Component
             ->paginate(30);
     }
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.tasks.all-tasks', [
             'tasks' => $this->readyToLoad ? $this->getAllTasks() : [],

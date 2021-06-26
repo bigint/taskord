@@ -3,6 +3,7 @@
 namespace App\View\Components\Shared;
 
 use App\Models\User;
+use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 
 class UserLabelBig extends Component
@@ -14,7 +15,7 @@ class UserLabelBig extends Component
         $this->user = $user;
     }
 
-    public function render()
+    public function render(): View
     {
         return view('components.shared.user-label-big');
     }

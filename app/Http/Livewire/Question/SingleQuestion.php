@@ -6,6 +6,7 @@ use App\Models\Question;
 use DanHarrin\LivewireRateLimiting\Exceptions\TooManyRequestsException;
 use DanHarrin\LivewireRateLimiting\WithRateLimiting;
 use Helper;
+use Illuminate\Contracts\View\View;
 use Illuminate\Support\Facades\Gate;
 use Livewire\Component;
 
@@ -91,7 +92,7 @@ class SingleQuestion extends Component
         return redirect()->route('questions.newest');
     }
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.question.single-question');
     }

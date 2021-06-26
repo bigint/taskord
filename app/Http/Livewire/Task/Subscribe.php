@@ -5,6 +5,7 @@ namespace App\Http\Livewire\Task;
 use App\Models\Task;
 use DanHarrin\LivewireRateLimiting\Exceptions\TooManyRequestsException;
 use DanHarrin\LivewireRateLimiting\WithRateLimiting;
+use Illuminate\Contracts\View\View;
 use Illuminate\Support\Facades\Gate;
 use Livewire\Component;
 
@@ -41,7 +42,7 @@ class Subscribe extends Component
         return loggy(request(), 'Task', auth()->user(), "Toggled task subscribe | Task ID: {$this->task->id}");
     }
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.task.subscribe');
     }

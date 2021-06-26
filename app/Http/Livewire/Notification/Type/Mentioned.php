@@ -6,6 +6,7 @@ use App\Models\Answer;
 use App\Models\Comment;
 use App\Models\CommentReply;
 use App\Models\Task;
+use Illuminate\Contracts\View\View;
 use Livewire\Component;
 
 class Mentioned extends Component
@@ -17,7 +18,7 @@ class Mentioned extends Component
         $this->data = $data;
     }
 
-    public function render()
+    public function render(): View
     {
         if ($this->data['body_type'] === 'task') {
             $body = Task::find($this->data['body_id']);

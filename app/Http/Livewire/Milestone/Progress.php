@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Milestone;
 
 use App\Models\Milestone;
+use Illuminate\Contracts\View\View;
 use Livewire\Component;
 
 class Progress extends Component
@@ -24,7 +25,7 @@ class Progress extends Component
         $this->readyToLoad = true;
     }
 
-    public function render()
+    public function render(): View
     {
         $completed = $this->milestone->tasks()->whereDone(true)->count();
         $pending = $this->milestone->tasks()->whereDone(false)->count();

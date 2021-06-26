@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\User;
 
 use App\Models\User;
+use Illuminate\Contracts\View\View;
 use Livewire\Component;
 use Livewire\WithPagination;
 
@@ -29,7 +30,7 @@ class Following extends Component
         $this->user = $user;
     }
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.user.following', [
             'followings' => $this->readyToLoad ? $this->getFollowing() : [],

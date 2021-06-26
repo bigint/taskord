@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\User;
 
 use App\Models\User;
+use Illuminate\Contracts\View\View;
 use Livewire\Component;
 
 class SidebarProducts extends Component
@@ -27,7 +28,7 @@ class SidebarProducts extends Component
             ->merge($this->user->products);
     }
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.user.sidebar-products', [
             'products' => $this->readyToLoad ? $this->getProducts() : [],

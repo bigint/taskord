@@ -6,6 +6,7 @@ use App\Models\Product;
 use App\Notifications\Product\Subscribed;
 use DanHarrin\LivewireRateLimiting\Exceptions\TooManyRequestsException;
 use DanHarrin\LivewireRateLimiting\WithRateLimiting;
+use Illuminate\Contracts\View\View;
 use Illuminate\Support\Facades\Gate;
 use Livewire\Component;
 
@@ -41,7 +42,7 @@ class Subscribe extends Component
         return loggy(request(), 'Product', auth()->user(), "Toggled product subscribe | Product ID: {$this->product->id}");
     }
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.product.subscribe');
     }

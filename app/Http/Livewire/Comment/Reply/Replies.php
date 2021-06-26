@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Comment\Reply;
 
 use App\Models\Comment;
+use Illuminate\Contracts\View\View;
 use Livewire\Component;
 
 class Replies extends Component
@@ -25,7 +26,7 @@ class Replies extends Component
             ->get();
     }
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.comment.reply.replies', [
             'replies' => $this->getReplies(),

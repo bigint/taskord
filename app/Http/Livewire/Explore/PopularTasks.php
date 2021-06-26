@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Explore;
 
 use App\Models\Task;
+use Illuminate\Contracts\View\View;
 use Livewire\Component;
 
 class PopularTasks extends Component
@@ -37,7 +38,7 @@ class PopularTasks extends Component
             ->shuffle();
     }
 
-    public function render()
+    public function render(): View
     {
         return view('livewire.explore.popular-tasks', [
             'tasks' => $this->readyToLoad ? $this->getPopularTasks() : [],
