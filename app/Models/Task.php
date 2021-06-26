@@ -38,8 +38,16 @@ class Task extends Model
         'hidden',
     ];
     protected $casts = [
-        'images' => 'array',
+        'user_id' => 'integer',
+        'product_id' => 'integer',
+        'task' => 'string',
+        'done' => 'boolean',
+        'source' => 'string',
+        'done_at' => 'datetime',
         'due_at' => 'datetime',
+        'images' => 'array',
+        'type' => 'string',
+        'hidden' => 'boolean',
     ];
     protected $searchable = [
         'columns' => [

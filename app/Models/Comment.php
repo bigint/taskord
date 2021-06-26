@@ -29,6 +29,12 @@ class Comment extends Model
         'comment',
         'hidden',
     ];
+    protected $casts = [
+        'user_id' => 'integer',
+        'task_id' => 'integer',
+        'comment' => 'string',
+        'hidden' => 'boolean',
+    ];
     protected $searchable = [
         'columns' => [
             'comments.comment' => 10,

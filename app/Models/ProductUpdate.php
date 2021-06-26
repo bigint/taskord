@@ -26,6 +26,12 @@ class ProductUpdate extends Model
         'title',
         'body',
     ];
+    protected $casts = [
+        'user_id' => 'integer',
+        'product_id' => 'integer',
+        'title' => 'string',
+        'body' => 'string',
+    ];
 
     /**
      * @return BelongsTo

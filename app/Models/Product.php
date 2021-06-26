@@ -39,6 +39,17 @@ class Product extends Model
         'launched_at',
     ];
     protected $casts = [
+        'user_id' => 'integer',
+        'name' => 'string',
+        'slug' => 'string',
+        'description' => 'string',
+        'avatar' => 'string',
+        'website' => 'string',
+        'twitter' => 'string',
+        'repo' => 'string',
+        'producthunt' => 'string',
+        'sponsor' => 'string',
+        'launched' => 'boolean',
         'launched_at' => 'datetime',
     ];
     protected $searchable = [

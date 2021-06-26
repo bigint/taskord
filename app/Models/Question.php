@@ -30,14 +30,24 @@ class Question extends Model implements Viewable
     protected static $flushCacheOnUpdate = true;
 
     protected $fillable = [
-        'slug',
         'user_id',
+        'slug',
         'title',
         'body',
         'is_solvable',
         'solved',
         'patron_only',
         'hidden',
+    ];
+    protected $casts = [
+        'user_id' => 'integer',
+        'slug' => 'string',
+        'title' => 'string',
+        'body' => 'string',
+        'is_solvable' => 'boolean',
+        'solved' => 'boolean',
+        'patron_only' => 'boolean',
+        'hidden' => 'boolean',
     ];
     protected $searchable = [
         'columns' => [

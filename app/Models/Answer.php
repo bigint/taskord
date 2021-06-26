@@ -28,6 +28,12 @@ class Answer extends Model
         'answer',
         'hidden',
     ];
+    protected $casts = [
+        'user_id' => 'integer',
+        'question_id' => 'integer',
+        'answer' => 'string',
+        'hidden' => 'boolean',
+    ];
     protected $searchable = [
         'columns' => [
             'answers.answer' => 10,

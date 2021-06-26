@@ -22,6 +22,11 @@ class Feature extends Model
         'description',
         'slug',
     ];
+    protected $casts = [
+        'name' => 'string',
+        'description' => 'string',
+        'slug' => 'string',
+    ];
 
     public static function enabled($slug)
     {

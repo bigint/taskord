@@ -31,6 +31,17 @@ class Meetup extends Model
         'date',
         'hidden',
     ];
+    protected $casts = [
+        'user_id' => 'integer',
+        'name' => 'string',
+        'slug' => 'string',
+        'tagline' => 'string',
+        'description' => 'string',
+        'location' => 'string',
+        'cover' => 'string',
+        'date' => 'date',
+        'hidden' => 'boolean',
+    ];
 
     /**
      * @return BelongsTo

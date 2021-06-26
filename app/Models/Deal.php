@@ -26,4 +26,13 @@ class Deal extends Model
         'website',
         'logo',
     ];
+    protected $casts = [
+        'name' => 'string',
+        'offer' => 'integer',
+        'coupon' => 'string',
+        'referral' => 'string',
+        'description' => 'string',
+        'website' => 'string',
+        'logo' => 'string',
+    ];
 }

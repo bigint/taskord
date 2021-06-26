@@ -26,6 +26,12 @@ class CommentReply extends Model
         'reply',
         'hidden',
     ];
+    protected $casts = [
+        'user_id' => 'integer',
+        'comment_id' => 'integer',
+        'reply' => 'string',
+        'hidden' => 'boolean',
+    ];
 
     /**
      * @return BelongsTo
