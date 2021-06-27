@@ -56,6 +56,7 @@ class Moderator extends Component
         $this->user->is_beta = ! $this->user->is_beta;
         $this->user->timestamps = false;
         $this->user->save();
+        $this->emit('modSettingsUpdated');
 
         return toast($this, 'success', config('taskord.toast.settings-updated'));
     }
@@ -69,6 +70,7 @@ class Moderator extends Component
         $this->user->is_staff = ! $this->user->is_staff;
         $this->user->timestamps = false;
         $this->user->save();
+        $this->emit('modSettingsUpdated');
 
         return toast($this, 'success', config('taskord.toast.settings-updated'));
     }
@@ -82,6 +84,7 @@ class Moderator extends Component
         $this->user->is_contributor = ! $this->user->is_contributor;
         $this->user->timestamps = false;
         $this->user->save();
+        $this->emit('modSettingsUpdated');
 
         if ($this->user->is_contributor) {
             $this->user->notify(new ContributorEnabled(true));
@@ -99,6 +102,7 @@ class Moderator extends Component
         $this->user->is_private = ! $this->user->is_private;
         $this->user->timestamps = false;
         $this->user->save();
+        $this->emit('modSettingsUpdated');
 
         return toast($this, 'success', config('taskord.toast.settings-updated'));
     }
@@ -112,6 +116,7 @@ class Moderator extends Component
         $this->user->spammy = ! $this->user->spammy;
         $this->user->timestamps = false;
         $this->user->save();
+        $this->emit('modSettingsUpdated');
 
         return toast($this, 'success', config('taskord.toast.settings-updated'));
     }
@@ -134,6 +139,7 @@ class Moderator extends Component
 
         $this->user->timestamps = false;
         $this->user->save();
+        $this->emit('modSettingsUpdated');
 
         return toast($this, 'success', config('taskord.toast.settings-updated'));
     }
@@ -151,6 +157,7 @@ class Moderator extends Component
         if ($this->user->is_patron) {
             $this->user->notify(new PatronGifted(true));
         }
+        $this->emit('modSettingsUpdated');
 
         return toast($this, 'success', config('taskord.toast.settings-updated'));
     }
@@ -168,6 +175,7 @@ class Moderator extends Component
         if ($this->user->is_verified) {
             $this->user->notify(new UserVerified(true));
         }
+        $this->emit('modSettingsUpdated');
 
         return toast($this, 'success', config('taskord.toast.settings-updated'));
     }
@@ -355,6 +363,7 @@ class Moderator extends Component
 
         $this->user->staff_notes = $this->staffNotes;
         $this->user->save();
+        $this->emit('modSettingsUpdated');
 
         return toast($this, 'success', config('taskord.toast.settings-updated'));
     }
