@@ -1,8 +1,8 @@
 <span>
-    <div class="align-items-center d-flex">
+    <div class="align-items-start d-flex">
         <x:shared.user-label-big :user="$task->user" />
-        <span class="d-flex align-items-center small float-end ms-auto text-secondary cursor-pointer"
-            data-bs-toggle="collapse" data-bs-target="#taskExpand-{{ $task->id }}" aria-expanded="false">
+        <a class="d-flex align-items-center small float-end ms-auto text-secondary"
+            href="{{ route('task', ['id' => $task->id]) }}">
             @if ($task->source === 'GitLab')
                 <img class="task-icon me-2" src="https://ik.imagekit.io/taskordimg/icons/gitlab_j_ySNAHxP.svg"
                     alt="GitHub Icon" />
@@ -11,7 +11,7 @@
                     src="https://ik.imagekit.io/taskordimg/icons/github_9E8bhMFJtH.svg" alt="GitLab Icon" />
             @endif
             {{ !$task->done_at ? carbon($task->created_at)->diffForHumans() : carbon($task->done_at)->diffForHumans() }}
-        </span>
+        </a>
     </div>
     <div class="pt-3">
         @if ($task->hidden)
@@ -116,19 +116,5 @@
                 ])
             @endif
         @endif
-    </div>
-    <div class="collapse mt-3 text-secondary" id="taskExpand-{{ $task->id }}">
-        <a class="text-secondary" href="{{ route('task', ['id' => $task->id]) }}">
-            <x-heroicon-o-calendar class="heroicon heroicon-15px" />
-            @auth
-                {{ !$task->done_at
-    ? carbon($task->created_at)->setTimezone(auth()->user()->timezone)->format('g:i A · M d, Y')
-    : carbon($task->done_at)->setTimezone(auth()->user()->timezone)->format('g:i A · M d, Y') }}
-            @else
-                {{ !$task->done_at ? $task->created_at->format('g:i A · M d, Y') : carbon($task->done_at)->format('g:i A · M d, Y') }}
-            @endauth
-            · via
-            <span class="fw-bold">{{ $task->source }}</span>
-        </a>
     </div>
 </span>
