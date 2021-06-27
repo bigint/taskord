@@ -33,9 +33,25 @@
     @elseif ($data['body_type'] === 'comment_reply')
         @if ($body and $body->comment)
             <div class="mt-2 text-secondary">
-                mentioned you in a
+                mentioned you in a comment
                 <a class="fw-bold"
                     href="{{ route('comment', ['taskId' => $body->comment->task->id, 'commentId' => $body->comment->id]) }}#reply_{{ $body->id }}">
+                    reply
+                </a>
+            </div>
+            <div class="card mt-3">
+                <div class="card-body body-font">
+                    {!! markdown($body->reply) !!}
+                </div>
+            </div>
+        @else
+            <div class="body-font fst-italic text-secondary mt-2">Notification source was deleted</div>
+        @endif
+    @elseif ($data['body_type'] === 'answer_reply')
+        @if ($body and $body->answer)
+            <div class="mt-2 text-secondary">
+                mentioned you in a answer
+                <a class="fw-bold" href="">
                     reply
                 </a>
             </div>
@@ -55,7 +71,7 @@
                     answer
                 </a>
             </div>
-            <div class="mb-3">
+            <div class="mt-3">
                 <livewire:answer.single-answer :answer="$body" :wire:key="$body->id" />
             </div>
         @else
