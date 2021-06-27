@@ -133,6 +133,14 @@ class User extends Authenticatable implements MustVerifyEmail
     }
 
     /**
+     * @return HasMany
+     */
+    public function answerReplies(): HasMany
+    {
+        return $this->hasMany(AnswerReply::class);
+    }
+
+    /**
      * @return HasOne
      */
     public function patron(): HasOne

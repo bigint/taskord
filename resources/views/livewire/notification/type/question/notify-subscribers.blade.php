@@ -6,7 +6,7 @@
                 question
             </a>
             you subscribed
-            <div class="card mt-3">
+            <div class="mb-3">
                 <livewire:answer.single-answer :answer="$answer" :wire:key="$answer->id" />
             </div>
         </div>

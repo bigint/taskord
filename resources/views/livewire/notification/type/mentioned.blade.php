@@ -55,7 +55,7 @@
                     answer
                 </a>
             </div>
-            <div class="card mt-3">
+            <div class="mb-3">
                 <livewire:answer.single-answer :answer="$body" :wire:key="$body->id" />
             </div>
         @else

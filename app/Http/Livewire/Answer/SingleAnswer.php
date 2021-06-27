@@ -16,6 +16,7 @@ class SingleAnswer extends Component
     protected $listeners = ['answerEdited' => 'answerEdited'];
 
     public Answer $answer;
+    public $showReplyBox = false;
     public $edit = false;
 
     public function mount($answer)
@@ -39,6 +40,11 @@ class SingleAnswer extends Component
         $this->emit('answerLiked');
 
         return loggy(request(), 'Answer', auth()->user(), "Toggled answer like | Answer ID: {$this->answer->id}");
+    }
+
+    public function toggleReplyBox()
+    {
+        $this->showReplyBox = ! $this->showReplyBox;
     }
 
     public function hide()

@@ -6,7 +6,7 @@
                 question
             </a>
         </div>
-        <div class="card mt-3">
+        <div class="my-3">
             <livewire:answer.single-answer :answer="$answer" :wire:key="$answer->id" />
         </div>
     @else

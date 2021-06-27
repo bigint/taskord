@@ -132,9 +132,7 @@
                                         {{ $answer->question->title }}
                                     </a>
                                 </div>
-                                @livewire('answer.single-answer', [
-                                'answer' => $answer
-                                ], key($answer->id))
+                                <livewire:answer.single-answer :answer="$answer" :wire:key="$answer->id" />
                             </div>
                         @endforeach
                         <div class="mt-3">

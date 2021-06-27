@@ -50,6 +50,8 @@
                 <livewire:notification.type.question.notify-subscribers :data="$data" />
             @elseif ($type === "App\Notifications\Comment\Reply\Replied")
                 <livewire:notification.type.comment.reply.replied :data="$data" />
+            @elseif ($type === "App\Notifications\Answer\Reply\Replied")
+                <livewire:notification.type.answer.reply.replied :data="$data" />
             @elseif ($type === "App\Notifications\Milestone\MilestoneLiked")
                 <livewire:notification.type.milestone.milestone-liked :data="$data" />
             @elseif ($type === "App\Notifications\Followed")

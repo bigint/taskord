@@ -1,13 +1,15 @@
 <div>
-    @if ($answer)
+    @if ($reply)
         <div class="mt-2 text-secondary">
             liked your
-            <a class="fw-bold" href="{{ route('question.question', ['slug' => $answer->question->slug]) }}">
+            <a class="fw-bold" href="">
                 answer
             </a>
         </div>
-        <div class="mb-3">
-            <livewire:answer.single-answer :answer="$answer" :wire:key="$answer->id" />
+        <div class="card mt-3">
+            <div class="card-body body-font">
+                {!! markdown($reply->reply) !!}
+            </div>
         </div>
     @else
         <div class="body-font fst-italic text-secondary mt-2">Notification source was deleted</div>

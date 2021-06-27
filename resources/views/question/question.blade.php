@@ -22,9 +22,11 @@
                 </div>
                 @auth
                     @if (!auth()->user()->spammy)
-                        @livewire('answer.create-answer', [
-                        'question' => $question
-                        ])
+                        <div class="mb-3">
+                            @livewire('answer.create-answer', [
+                            'question' => $question
+                            ])
+                        </div>
                     @endif
                 @endauth
                 @guest

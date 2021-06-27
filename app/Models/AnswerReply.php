@@ -5,40 +5,32 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Eloquent\Relations\HasMany;
 use Multicaret\Acquaintances\Traits\CanBeLiked;
-use Nicolaslopezj\Searchable\SearchableTrait;
 use Rennokki\QueryCache\Traits\QueryCacheable;
 
-class Answer extends Model
+class AnswerReply extends Model
 {
-    use CanBeLiked;
     use HasFactory;
+    use CanBeLiked;
     use QueryCacheable;
-    use SearchableTrait;
 
     public $cacheFor = 3600;
-    public $cacheTags = ['answers'];
-    public $cachePrefix = 'answers_';
+    public $cacheTags = ['answer_replies'];
+    public $cachePrefix = 'answer_replies_';
 
     protected static $flushCacheOnUpdate = true;
 
     protected $fillable = [
         'user_id',
-        'question_id',
-        'answer',
+        'answer_id',
+        'reply',
         'hidden',
     ];
     protected $casts = [
         'user_id' => 'integer',
-        'question_id' => 'integer',
-        'answer' => 'string',
+        'answer_id' => 'integer',
+        'reply' => 'string',
         'hidden' => 'boolean',
-    ];
-    protected $searchable = [
-        'columns' => [
-            'answers.answer' => 10,
-        ],
     ];
 
     /**
@@ -52,16 +44,8 @@ class Answer extends Model
     /**
      * @return BelongsTo
      */
-    public function question(): BelongsTo
+    public function answer(): BelongsTo
     {
-        return $this->belongsTo(Question::class);
-    }
-
-    /**
-     * @return HasMany
-     */
-    public function replies(): HasMany
-    {
-        return $this->hasMany(AnswerReply::class);
+        return $this->belongsTo(Answer::class);
     }
 }

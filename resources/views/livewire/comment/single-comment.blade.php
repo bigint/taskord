@@ -29,7 +29,7 @@
         <div class="mt-2">
             @auth
                 <x:like-button :entity="$comment" />
-                <button class="btn btn-action btn-outline-primary me-1" wire:click="toggleCommentBox">
+                <button class="btn btn-action btn-outline-primary me-1" wire:click="toggleReplyBox">
                     <x-heroicon-o-chat-alt class="heroicon heroicon-15px me-0 text-secondary" />
                     @if ($comment->replies()->count('id') !== 0)
                         <span class="small text-dark fw-bold">
@@ -85,11 +85,11 @@
                             alt="{{ auth()->user()->username }}'s avatar" />
                     </a>
                     <div class="ms-2 w-100 btn btn-sm border-1 border-reply text-dark text-start bg-white"
-                        wire:click="toggleCommentBox">
+                        wire:click="toggleReplyBox">
                         Reply now
                     </div>
                 </div>
-                <div wire:loading wire:target="toggleCommentBox">
+                <div wire:loading wire:target="toggleReplyBox">
                     <div class="spinner-border spinner-border-sm taskord-spinner text-secondary m-3" role="status"></div>
                 </div>
             @endif
