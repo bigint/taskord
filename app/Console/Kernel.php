@@ -30,6 +30,7 @@ class Kernel extends ConsoleKernel
         $schedule->command('user:reset-goal')->dailyAt('00:00');
         $schedule->command('user:streaks')->hourly();
         $schedule->command('auth:clear-resets')->weekly();
+        $schedule->command('cloudflare:reload')->daily();
     }
 
     /**
