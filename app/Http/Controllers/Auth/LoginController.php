@@ -75,7 +75,7 @@ class LoginController extends Controller
         return redirect()->route('home');
     }
 
-    public function login(Request $request)
+    public function login(Request $request): RedirectResponse
     {
         if ($request->input('submit') === 'magic-link') {
             return $this->sendLoginLink($request);
