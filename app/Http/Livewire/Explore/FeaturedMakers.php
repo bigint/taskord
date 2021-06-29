@@ -2,9 +2,9 @@
 
 namespace App\Http\Livewire\Explore;
 
-use Livewire\Component;
 use App\Models\User;
 use Illuminate\View\View;
+use Livewire\Component;
 
 class FeaturedMakers extends Component
 {
