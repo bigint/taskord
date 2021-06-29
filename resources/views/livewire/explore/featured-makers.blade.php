@@ -5,10 +5,7 @@
         <ul class="list-group list-group-flush">
             @foreach ($users as $user)
                 <li class="list-group-item d-flex align-items-center justify-content-between py-3">
-                    <div class="d-flex align-items-center">
-                        <span class="small me-2 text-secondary">{{ $loop->index + 1 }}</span>
-                        <x:shared.user-label-big :user="$user" />
-                    </div>
+                    <x:shared.user-label-big :user="$user" />
                     <div class="d-flex">
                         @if ($user->sponsor)
                             <a class="btn btn-sm btn-outline-primary rounded-pill me-2" href="{{ $user->sponsor }}"

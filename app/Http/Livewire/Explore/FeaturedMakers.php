@@ -25,7 +25,8 @@ class FeaturedMakers extends Component
             ->where('featured_at', '<>', null)
             ->latest('featured_at')
             ->take(10)
-            ->get();
+            ->get()
+            ->shuffle();
     }
 
     public function render(): View
