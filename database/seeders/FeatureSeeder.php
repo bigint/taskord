@@ -15,12 +15,6 @@ class FeatureSeeder extends Seeder
     public function run()
     {
         Feature::factory()->create([
-            'name'        => 'Task oEmbed',
-            'slug'        => 'oembed',
-            'description' => 'oEmbed for Tasks',
-        ]);
-
-        Feature::factory()->create([
             'name'        => 'Social auth',
             'slug'        => 'social_auth',
             'description' => 'Social authentication for Taskord',

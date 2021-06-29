@@ -53,10 +53,8 @@
                     @endforeach
                 </div>
             @endif
-            @if (feature('oembed'))
-                @if ($task->oembed)
-                    <livewire:task.oembed :oembed="$task->oembed" />
-                @endif
+            @if ($task->oembed)
+                <livewire:task.oembed :oembed="$task->oembed" />
             @endif
         @endif
         @if ($task->milestone)
