@@ -15,12 +15,6 @@ class FeatureSeeder extends Seeder
     public function run()
     {
         Feature::factory()->create([
-            'name'        => 'Social auth',
-            'slug'        => 'social_auth',
-            'description' => 'Social authentication for Taskord',
-        ]);
-
-        Feature::factory()->create([
             'name'        => 'Pride flag 🏳️‍🌈',
             'slug'        => 'pride',
             'description' => 'Pride month logo on the navbar',
