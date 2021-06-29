@@ -156,6 +156,25 @@ it('can edit (verifyUser) settings', function ($status) {
     [false],
 ]);
 
+it('can edit (featureUser) settings', function ($status) {
+    $newUser = User::factory()->create();
+
+    if ($status) {
+        return actingAs(1)
+            ->livewire(Moderator::class, ['user' => $newUser])
+            ->call('featureUser')
+            ->assertEmitted('modSettingsUpdated');
+    }
+
+    return actingAs($newUser->id)
+        ->livewire(Moderator::class, ['user' => $newUser])
+        ->call('featureUser')
+        ->assertNotEmitted('modSettingsUpdated');
+})->with([
+    [true],
+    [false],
+]);
+
 it('can edit (masquerade) settings', function ($status) {
     $newUser = User::factory()->create();
 

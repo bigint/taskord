@@ -162,6 +162,25 @@ class Moderator extends Component
         return toast($this, 'success', config('taskord.toast.settings-updated'));
     }
 
+    public function featureUser()
+    {
+        if (Gate::denies('staff.ops')) {
+            return toast($this, 'error', config('taskord.toast.deny'));
+        }
+
+        if ($this->user->featured_at) {
+            $this->user->featured_at = null;
+        } else {
+            $this->user->featured_at = carbon();
+        }
+        $this->user->timestamps = false;
+        $this->user->save();
+        // TODO: Featured email to user
+        $this->emit('modSettingsUpdated');
+
+        return toast($this, 'success', config('taskord.toast.settings-updated'));
+    }
+
     public function verifyUser()
     {
         if (Gate::denies('staff.ops')) {

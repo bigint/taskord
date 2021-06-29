@@ -1,4 +1,4 @@
-<ul class="nav nav-pills justify-content-center align-items-center explore-nav bg-white py-3">
+<ul class="nav nav-pills justify-content-center align-items-center explore-nav bg-white border-bottom py-3">
     <li class="nav-item px-1">
         <a class="nav-link {{ Route::is('explore.explore') ? 'active' : '' }}"
             href="{{ route('explore.explore') }}">Popular Tasks</a>
@@ -6,8 +6,8 @@
     @if (feature('explore_makers'))
         <li class="nav-item px-1">
             <a class="nav-link {{ Route::is('explore.makers') ? 'active' : '' }}"
-                href="{{ route('explore.makers') }}">Makers
-                <x:labels.staff-ship />
+                href="{{ route('explore.makers') }}">Featured Makers
+                <x:labels.beta />
             </a>
         </li>
     @endif

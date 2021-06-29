@@ -127,29 +127,33 @@
                         wire:model="isVerified">
                     <label for="verifyUser" class="ms-1 text-success fw-bold">Verify this user</label>
                 </div>
-                @if (!$user->is_staff)
-                    <div class="mt-3">
-                        <button wire:loading.attr="disabled" wire:click="masquerade"
-                            class="btn btn-sm btn-outline-info rounded-pill fw-bold">
-                            <x-heroicon-o-eye class="heroicon heroicon-15px" />
-                            Masquerade
-                        </button>
-                    </div>
-                    <div class="text-info h5 mt-3">
-                        <x-heroicon-o-pencil-alt class="heroicon heroicon-20px" />
-                        {{ __('Notes') }}
-                        <form wire:submit.prevent="updateUserStaffNotes">
-                            <textarea name="staff_notes" id="staff_notes" class="form-control mt-3" rows="3"
-                                wire:model="staffNotes" placeholder="Important information about this user..">
-    </textarea>
-                            <button wire:click="updateUserStaffNotes" type="button"
-                                class="btn btn-sm btn-outline-primary rounded-pill mt-2">
-                                <x-heroicon-o-save class="heroicon heroicon-15px" />
-                                Save Notes
-                            </button>
-                        </form>
-                    </div>
-                @endif
+                <div class="mt-3">
+                    <button wire:loading.attr="disabled" wire:click="featureUser"
+                        class="btn btn-sm {{ $user->featured_at ? 'btn-outline-warning' : 'btn-outline-success' }} rounded-pill fw-bold">
+                        <x-heroicon-o-fire class="heroicon heroicon-15px" />
+                        {{ $user->featured_at ? 'Unfeature' : 'Feature' }} this user
+                    </button>
+                    @if ($user->featured_at)
+                        <div class="small mt-2 fw-bold text-secondary">
+                            <x-heroicon-o-clock class="heroicon heroicon-15px text-secondary" />
+                            {{ carbon($user->featured_at)->format('M d, Y g:i A') }}
+                        </div>
+                    @endif
+                </div>
+                <hr>
+                <div class="text-secondary h5 mb-3">
+                    <x-heroicon-o-user class="heroicon heroicon-20px" />
+                    Notes
+                </div>
+                <form wire:submit.prevent="updateUserStaffNotes">
+                    <textarea class="form-control mt-3" rows="3" wire:model.lazy="staffNotes"
+                        placeholder="Staff notes"></textarea>
+                    <button wire:loading.attr="disabled" wire:click="updateUserStaffNotes" type="button"
+                        class="btn btn-sm btn-outline-primary rounded-pill mt-2">
+                        <x-heroicon-o-save class="heroicon heroicon-15px" />
+                        Save Notes
+                    </button>
+                </form>
                 @if (!$user->is_staff)
                     <hr>
                     <div class="text-danger h5 mb-3">
@@ -167,6 +171,13 @@
                         <label for="suspendUser" class="ms-1 text-danger fw-bold">Suspend this user</label>
                     </div>
                     <div class="mt-3">
+                        <button wire:loading.attr="disabled" wire:click="masquerade"
+                            class="btn btn-sm btn-outline-info rounded-pill fw-bold">
+                            <x-heroicon-o-eye class="heroicon heroicon-15px" />
+                            Masquerade
+                        </button>
+                    </div>
+                    <div class="mt-2">
                         <button wire:loading.attr="disabled" wire:click="resetAvatar"
                             class="btn btn-sm btn-outline-danger rounded-pill fw-bold">
                             <x-heroicon-o-refresh class="heroicon heroicon-15px" />
