@@ -33,7 +33,7 @@
                 @endif
                 @can('staff.ops')
                     <button onclick="confirm('Are you sure?') || event.stopImmediatePropagation()" wire:click="deleteBadge"
-                        wire:loading.attr="disabled" class="btn btn-sm btn-outline-danger rounded-pill">
+                        wire:loading.attr="disabled" class="ms-1 btn btn-sm btn-outline-danger rounded-pill">
                         <x-heroicon-o-trash class="heroicon heroicon-15px" />
                         Delete
                     </button>

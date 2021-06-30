@@ -1,6 +1,14 @@
 <div wire:init="loadBadges">
     @if (!$readyToLoad)
-        Loading
+        <div>
+            <x:loaders.badge-skeleton count="1" />
+        </div>
+        <div class="mt-2">
+            <x:loaders.badge-skeleton count="1" />
+        </div>
+        <div class="mt-2">
+            <x:loaders.badge-skeleton count="1" />
+        </div>
     @else
         @if (count($badges) === 0)
             <div class="card-body text-center mt-3 mb-3">
