@@ -2,17 +2,10 @@
 
 namespace App\Http\Livewire\Badges;
 
-use App\Actions\CreateNewTask;
-use App\Rules\Repo;
-use App\Rules\ReservedSlug;
-use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Gate;
-use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use Illuminate\View\View;
-use Intervention\Image\Facades\Image;
 use Livewire\Component;
-use Livewire\WithFileUploads;
 
 class CreateBadge extends Component
 {
