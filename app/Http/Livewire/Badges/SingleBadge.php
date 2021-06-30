@@ -3,8 +3,8 @@
 namespace App\Http\Livewire\Badges;
 
 use App\Models\ProfileBadge;
-use Livewire\Component;
 use Illuminate\View\View;
+use Livewire\Component;
 
 class SingleBadge extends Component
 {
