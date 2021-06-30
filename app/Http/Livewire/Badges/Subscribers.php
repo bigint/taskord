@@ -2,9 +2,9 @@
 
 namespace App\Http\Livewire\Badges;
 
-use Livewire\Component;
 use App\Models\ProfileBadge;
 use Illuminate\View\View;
+use Livewire\Component;
 use Livewire\WithPagination;
 
 class Subscribers extends Component

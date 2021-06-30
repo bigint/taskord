@@ -2,9 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use Illuminate\View\View;
 use App\Models\ProfileBadge;
+use Illuminate\View\View;
 
 class BadgeController extends Controller
 {

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BadgeController;
 use App\Http\Controllers\FeedController;
 use App\Http\Controllers\MeetupController;
 use App\Http\Controllers\MilestoneController;
@@ -15,7 +16,6 @@ use App\Http\Controllers\StatusController;
 use App\Http\Controllers\TaskController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\WebhookController;
-use App\Http\Controllers\BadgeController;
 use Illuminate\Support\Facades\Route;
 
 /*
