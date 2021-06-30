@@ -3,11 +3,11 @@
 namespace App\Http\Livewire\Badges;
 
 use App\Models\ProfileBadge;
-use Illuminate\View\View;
-use Livewire\Component;
 use DanHarrin\LivewireRateLimiting\Exceptions\TooManyRequestsException;
 use DanHarrin\LivewireRateLimiting\WithRateLimiting;
 use Illuminate\Support\Facades\Gate;
+use Illuminate\View\View;
+use Livewire\Component;
 
 class SingleBadge extends Component
 {
@@ -34,10 +34,10 @@ class SingleBadge extends Component
 
         if ($this->badge->isSubscribedBy(auth()->user())) {
             auth()->user()->unsubscribe($this->badge);
-            toast($this, 'success', "Badge has been removed from your profile successfully");
+            toast($this, 'success', 'Badge has been removed from your profile successfully');
         } else {
             auth()->user()->subscribe($this->badge);
-            toast($this, 'success', "Badge has been added to your profile successfully");
+            toast($this, 'success', 'Badge has been added to your profile successfully');
         }
 
         $this->emit('badgeAdded');
