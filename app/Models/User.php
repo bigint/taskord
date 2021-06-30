@@ -121,6 +121,14 @@ class User extends Authenticatable implements MustVerifyEmail
     /**
      * @return HasMany
      */
+    public function profileBadges(): HasMany
+    {
+        return $this->hasMany(ProfileBadge::class);
+    }
+
+    /**
+     * @return HasMany
+     */
     public function questions(): HasMany
     {
         return $this->hasMany(Question::class);

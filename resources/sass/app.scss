@@ -457,11 +457,21 @@ input[type="date"]:valid:before {
 }
 
 .explore-nav {
-  margin-top: -23px;
+  margin-top: -24px;
+}
+
+.badge-bg {
+  margin-top: -24px;
+  padding-top: 5rem !important;
+  padding-bottom: 5rem !important;
 }
 
 .explore-user-card {
   margin-top: -40px;
+}
+
+.badge-card {
+  margin-top: -60px;
 }
 
 .bg-staffbar {

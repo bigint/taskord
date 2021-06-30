@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Http\Livewire\Product;
+namespace App\Http\Livewire\Badges;
 
-use App\Models\Product;
+use App\Models\ProfileBadge;
 use Illuminate\View\View;
 use Livewire\Component;
 use Livewire\WithPagination;
@@ -11,13 +11,13 @@ class Subscribers extends Component
 {
     use WithPagination;
 
-    public Product $product;
+    public ProfileBadge $badge;
     public $readyToLoad = false;
     protected $paginationTheme = 'bootstrap';
 
-    public function mount($product)
+    public function mount($badge)
     {
-        $this->product = $product;
+        $this->badge = $badge;
     }
 
     public function loadSubscribers()
@@ -27,9 +27,9 @@ class Subscribers extends Component
 
     public function render(): View
     {
-        $subscribers = $this->product->subscribers()->paginate(10);
+        $subscribers = $this->badge->subscribers()->paginate(10);
 
-        return view('livewire.product.subscribers', [
+        return view('livewire.badges.subscribers', [
             'subscribers' => $this->readyToLoad ? $subscribers : [],
         ]);
     }

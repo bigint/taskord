@@ -23,5 +23,6 @@ class DatabaseSeeder extends Seeder
         $this->call(MilestoneSeeder::class);
         $this->call(MeetupSeeder::class);
         $this->call(FeatureSeeder::class);
+        $this->call(ProfileBadgeSeeder::class);
     }
 }

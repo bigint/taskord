@@ -15,6 +15,12 @@ class FeatureSeeder extends Seeder
     public function run()
     {
         Feature::factory()->create([
+            'name'        => 'Badges',
+            'slug'        => 'badges',
+            'description' => 'Badges to user profile',
+        ]);
+
+        Feature::factory()->create([
             'name'        => 'Pride flag 🏳️‍🌈',
             'slug'        => 'pride',
             'description' => 'Pride month logo on the navbar',

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BadgeController;
 use App\Http\Controllers\FeedController;
 use App\Http\Controllers\MeetupController;
 use App\Http\Controllers\MilestoneController;
@@ -213,6 +214,22 @@ Route::group([
         ->name('edit');
     Route::get('{milestone}', [MilestoneController::class, 'milestone'])
         ->name('milestone');
+});
+
+// Badges
+Route::group([
+    'prefix' => 'badges',
+    'as'     => 'badges.',
+], function () {
+    Route::view('', 'badges.badges')
+        ->middleware('feature:badges')
+        ->name('badges');
+    Route::view('new', 'badges.new')
+        ->middleware('staff_mode')
+        ->name('new');
+    Route::get('{slug}', [BadgeController::class, 'badge'])
+        ->middleware('feature:badges')
+        ->name('badge');
 });
 
 // Search
