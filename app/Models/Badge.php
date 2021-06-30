@@ -2,13 +2,11 @@
 
 namespace App\Models;
 
-use Rennokki\QueryCache\Traits\QueryCacheable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Nicolaslopezj\Searchable\SearchableTrait;
 use Multicaret\Acquaintances\Traits\CanBeSubscribed;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Eloquent\Relations\HasMany;
+use Nicolaslopezj\Searchable\SearchableTrait;
+use Rennokki\QueryCache\Traits\QueryCacheable;
 
 class Badge extends Model
 {
