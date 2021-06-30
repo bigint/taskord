@@ -2,11 +2,11 @@
 
 namespace App\Http\Livewire\Badges;
 
+use App\Models\ProfileBadge;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Str;
 use Illuminate\View\View;
 use Livewire\Component;
-use App\Models\ProfileBadge;
 
 class EditBadge extends Component
 {
@@ -20,7 +20,7 @@ class EditBadge extends Component
         $this->badge = $badge;
         $this->title = $badge->title;
         $this->icon = $badge->icon;
-        $this->color = "";
+        $this->color = '';
     }
 
     public function submit()
@@ -34,7 +34,7 @@ class EditBadge extends Component
             'color' => ['required', 'max:10'],
             'icon' => ['required', 'active_url'],
         ]);
-        
+
         $badge = ProfileBadge::where('id', $this->badge->id)->firstOrFail();
 
         if ($badge->title !== $this->title) {
