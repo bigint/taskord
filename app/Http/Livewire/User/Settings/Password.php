@@ -30,20 +30,20 @@ class Password extends Component
 
     public function updatePassword()
     {
-            $this->validate([
-                'currentPassword' => ['required'],
-                'newPassword'     => ['required', 'string', PasswordRule::min(8)->uncompromised()],
-                'confirmPassword' => ['required', 'same:newPassword'],
-            ]);
+        $this->validate([
+            'currentPassword' => ['required'],
+            'newPassword'     => ['required', 'string', PasswordRule::min(8)->uncompromised()],
+            'confirmPassword' => ['required', 'same:newPassword'],
+        ]);
 
-            if (! Hash::check($this->currentPassword, auth()->user()->password)) {
-                toast($this, 'error', 'Current password does not match!');
-            }
+        if (! Hash::check($this->currentPassword, auth()->user()->password)) {
+            toast($this, 'error', 'Current password does not match!');
+        }
 
-            auth()->user()->password = Hash::make($this->newPassword);
-            auth()->user()->save();
-            loggy(request(), 'User', auth()->user(), 'Changed account password');
+        auth()->user()->password = Hash::make($this->newPassword);
+        auth()->user()->save();
+        loggy(request(), 'User', auth()->user(), 'Changed account password');
 
-            return toast($this, 'success', 'Your password has been changed!');
+        return toast($this, 'success', 'Your password has been changed!');
     }
 }
