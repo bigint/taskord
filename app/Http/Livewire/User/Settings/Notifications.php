@@ -16,21 +16,21 @@ class Notifications extends Component
 
     public function notificationsEmail()
     {
-            $this->user->notifications_email = ! $this->user->notifications_email;
-            $this->user->save();
-            $this->emit('toggledNotificationsEmail');
-            loggy(request(), 'User', auth()->user(), 'Toggled the email notification settings');
+        $this->user->notifications_email = ! $this->user->notifications_email;
+        $this->user->save();
+        $this->emit('toggledNotificationsEmail');
+        loggy(request(), 'User', auth()->user(), 'Toggled the email notification settings');
 
-            return toast($this, 'success', 'Notification settings has been updated');
+        return toast($this, 'success', 'Notification settings has been updated');
     }
 
     public function notificationsWeb()
     {
-            $this->user->notifications_web = ! $this->user->notifications_web;
-            $this->user->save();
-            $this->emit('toggledNotificationsWeb');
-            loggy(request(), 'User', auth()->user(), 'Toggled the web notification settings');
+        $this->user->notifications_web = ! $this->user->notifications_web;
+        $this->user->save();
+        $this->emit('toggledNotificationsWeb');
+        loggy(request(), 'User', auth()->user(), 'Toggled the web notification settings');
 
-            return toast($this, 'success', 'Notification settings has been updated');
+        return toast($this, 'success', 'Notification settings has been updated');
     }
 }
