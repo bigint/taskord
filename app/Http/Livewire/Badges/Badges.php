@@ -3,9 +3,6 @@
 namespace App\Http\Livewire\Badges;
 
 use App\Models\ProfileBadge;
-use Illuminate\Pagination\LengthAwarePaginator;
-use Illuminate\Pagination\Paginator;
-use Illuminate\Support\Collection;
 use Illuminate\View\View;
 use Livewire\Component;
 use Livewire\WithPagination;
