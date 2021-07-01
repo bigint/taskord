@@ -30,8 +30,6 @@
             'badge' => $badge,
             ], key($badge->id))
         @endforeach
-        @if ($badges->hasMorePages())
-            <livewire:badges.load-more :page="$page" :perPage="$perPage" />
-        @endif
+        {{ $badges->links() }}
     @endif
 </div>
