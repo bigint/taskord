@@ -35,7 +35,7 @@
         "nicolaslopezj/searchable": "1.13.0",
         "nuwave/lighthouse": "5.15.0",
         "predis/predis": "1.1.7",
-        "propaganistas/laravel-disposable-email": "2.1.4",
+        "propaganistas/laravel-disposable-email": "2.1.5",
         "qcod/laravel-gamify": "1.0.5",
         "rennokki/laravel-eloquent-query-cache": "2.6.0",
         "rtconner/laravel-tagging": "4.1.1",
