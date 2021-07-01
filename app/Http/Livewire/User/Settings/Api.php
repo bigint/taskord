@@ -32,12 +32,12 @@ class Api extends Component
             return toast($this, 'error', config('taskord.error.rate-limit'));
         }
 
-            auth()->user()->api_token = Str::random(60);
-            auth()->user()->save();
-            $this->emit('refreshApiToken');
-            loggy(request(), 'User', auth()->user(), 'Created a new API key');
+        auth()->user()->api_token = Str::random(60);
+        auth()->user()->save();
+        $this->emit('refreshApiToken');
+        loggy(request(), 'User', auth()->user(), 'Created a new API key');
 
-            return toast($this, 'success', 'New API key been generated successfully');
+        return toast($this, 'success', 'New API key been generated successfully');
     }
 
     public function render(): View
