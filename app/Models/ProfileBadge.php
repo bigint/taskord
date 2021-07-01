@@ -36,6 +36,11 @@ class ProfileBadge extends Model
         'icon' => 'string',
         'color' => 'string',
     ];
+    protected $searchable = [
+        'columns' => [
+            'profile_badges.title' => 10,
+        ],
+    ];
 
     /**
      * @return BelongsTo

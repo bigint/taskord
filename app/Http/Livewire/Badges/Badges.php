@@ -11,6 +11,7 @@ use Livewire\Component;
 
 class Badges extends Component
 {
+    public $query;
     public $page;
     public $perPage;
     public $readyToLoad = false;
@@ -29,6 +30,7 @@ class Badges extends Component
     public function getBadges()
     {
         return ProfileBadge::with(['user'])
+            ->search($this->query)
             ->latest()
             ->get();
     }

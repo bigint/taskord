@@ -10,10 +10,6 @@
     <div class="container-md">
         <div class="row justify-content-center">
             <div class="col-lg-8">
-                <h5 class="mb-3 d-flex align-items-center">
-                    <span class="me-2">Explore Badges</span>
-                    <x:labels.beta />
-                </h5>
                 @livewire('badges.badges', [
                 'page' => 1,
                 'perPage' => 10

@@ -6,8 +6,6 @@
             total users
         </div>
         <div class="d-flex align-items-center">
-            <div class="spinner-border spinner-border-sm taskord-spinner text-secondary" wire:loading
-                wire:target="query" role="status"></div>
             <input wire:model="query" type="text" class="form-control ms-2" placeholder="Search users...">
         </div>
     </div>
