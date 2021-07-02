@@ -3,9 +3,7 @@
 namespace App\Http\Livewire\Product;
 
 use App\Models\Product;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Gate;
-use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use Illuminate\View\View;
 use Livewire\Component;
