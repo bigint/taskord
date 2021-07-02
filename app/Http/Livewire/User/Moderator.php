@@ -54,7 +54,6 @@ class Moderator extends Component
         }
 
         $this->user->is_beta = ! $this->user->is_beta;
-        $this->user->timestamps = false;
         $this->user->save();
         $this->emit('modSettingsUpdated');
 
@@ -68,7 +67,6 @@ class Moderator extends Component
         }
 
         $this->user->is_staff = ! $this->user->is_staff;
-        $this->user->timestamps = false;
         $this->user->save();
         $this->emit('modSettingsUpdated');
 
@@ -82,7 +80,6 @@ class Moderator extends Component
         }
 
         $this->user->is_contributor = ! $this->user->is_contributor;
-        $this->user->timestamps = false;
         $this->user->save();
         $this->emit('modSettingsUpdated');
 
@@ -100,7 +97,6 @@ class Moderator extends Component
         }
 
         $this->user->is_private = ! $this->user->is_private;
-        $this->user->timestamps = false;
         $this->user->save();
         $this->emit('modSettingsUpdated');
 
@@ -114,7 +110,6 @@ class Moderator extends Component
         }
 
         $this->user->spammy = ! $this->user->spammy;
-        $this->user->timestamps = false;
         $this->user->save();
         $this->emit('modSettingsUpdated');
 
@@ -137,7 +132,6 @@ class Moderator extends Component
             $this->spammy = false;
         }
 
-        $this->user->timestamps = false;
         $this->user->save();
         $this->emit('modSettingsUpdated');
 
@@ -151,7 +145,6 @@ class Moderator extends Component
         }
 
         $this->user->is_patron = ! $this->user->is_patron;
-        $this->user->timestamps = false;
         $this->user->save();
 
         if ($this->user->is_patron) {
@@ -173,7 +166,6 @@ class Moderator extends Component
         } else {
             $this->user->featured_at = carbon();
         }
-        $this->user->timestamps = false;
         $this->user->save();
         // TODO: Featured email to user
         $this->emit('modSettingsUpdated');
@@ -188,7 +180,6 @@ class Moderator extends Component
         }
 
         $this->user->is_verified = ! $this->user->is_verified;
-        $this->user->timestamps = false;
         $this->user->save();
 
         if ($this->user->is_verified) {
@@ -216,10 +207,8 @@ class Moderator extends Component
             return toast($this, 'error', config('taskord.toast.deny'));
         }
 
-        $user = User::find($this->user->id);
-        $user->timestamps = false;
-        $user->avatar = 'https://avatar.tobi.sh/'.Str::orderedUuid().'.svg?text='.strtoupper(substr($user->username, 0, 2));
-        $user->save();
+        $this->user->avatar = 'https://avatar.tobi.sh/'.Str::orderedUuid().'.svg?text='.strtoupper(substr($this->user->username, 0, 2));
+        $this->user->save();
         toast($this, 'success', config('taskord.toast.settings-updated'));
 
         return redirect()->route('user.done', ['username' => $this->user->username]);
@@ -231,13 +220,11 @@ class Moderator extends Component
             return toast($this, 'error', config('taskord.toast.deny'));
         }
 
-        $user = User::find($this->user->id);
-        $user->timestamps = false;
-        $user->username = strtolower(Str::random(6));
-        $user->save();
+        $this->user->username = strtolower(Str::random(6));
+        $this->user->save();
         toast($this, 'success', config('taskord.toast.settings-updated'));
 
-        return redirect()->route('user.done', ['username' => $user->username]);
+        return redirect()->route('user.done', ['username' => $this->user->username]);
     }
 
     public function deleteTasks()
@@ -246,14 +233,12 @@ class Moderator extends Component
             return toast($this, 'error', config('taskord.toast.deny'));
         }
 
-        $user = User::find($this->user->id);
-        $user->timestamps = false;
-        foreach ($user->tasks as $task) {
+        foreach ($this->user->tasks as $task) {
             foreach ($task->images ?? [] as $image) {
                 Storage::delete($image);
             }
         }
-        $user->tasks()->delete();
+        $this->user->tasks()->delete();
         toast($this, 'success', config('taskord.toast.settings-updated'));
 
         return redirect()->route('user.done', ['username' => $this->user->username]);
@@ -265,9 +250,7 @@ class Moderator extends Component
             return toast($this, 'error', config('taskord.toast.deny'));
         }
 
-        $user = User::find($this->user->id);
-        $user->timestamps = false;
-        $user->comments()->delete();
+        $this->user->comments()->delete();
         toast($this, 'success', config('taskord.toast.settings-updated'));
 
         return redirect()->route('user.done', ['username' => $this->user->username]);
@@ -279,9 +262,7 @@ class Moderator extends Component
             return toast($this, 'error', config('taskord.toast.deny'));
         }
 
-        $user = User::find($this->user->id);
-        $user->timestamps = false;
-        $user->questions()->delete();
+        $this->user->questions()->delete();
         toast($this, 'success', config('taskord.toast.settings-updated'));
 
         return redirect()->route('user.done', ['username' => $this->user->username]);
@@ -293,9 +274,7 @@ class Moderator extends Component
             return toast($this, 'error', config('taskord.toast.deny'));
         }
 
-        $user = User::find($this->user->id);
-        $user->timestamps = false;
-        $user->answers()->delete();
+        $this->user->answers()->delete();
         toast($this, 'success', config('taskord.toast.settings-updated'));
 
         return redirect()->route('user.done', ['username' => $this->user->username]);
@@ -307,9 +286,7 @@ class Moderator extends Component
             return toast($this, 'error', config('taskord.toast.deny'));
         }
 
-        $user = User::find($this->user->id);
-        $user->timestamps = false;
-        $user->milestones()->delete();
+        $this->user->milestones()->delete();
         toast($this, 'success', config('taskord.toast.settings-updated'));
 
         return redirect()->route('user.done', ['username' => $this->user->username]);
@@ -322,7 +299,6 @@ class Moderator extends Component
         }
 
         $user = User::find($this->user->id);
-        $user->timestamps = false;
         foreach ($user->ownedProducts as $product) {
             $product->tasks()->delete();
             $product->webhooks()->delete();
