@@ -34,7 +34,9 @@
                     </div>
                     <div wire:loading.remove>
                         @if ($reply)
-                            {!! markdown($reply) !!}
+                            <span class="body-font">
+                                {!! markdown($reply) !!}
+                            </span>
                         @else
                             Nothing to preview...
                         @endif
