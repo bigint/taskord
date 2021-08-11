@@ -60,7 +60,7 @@
         "nunomaduro/patrol": "1.0.2",
         "nunomaduro/phpinsights": "dev-master",
         "pestphp/pest": "1.8.0",
-        "pestphp/pest-plugin-laravel": "1.0.0",
+        "pestphp/pest-plugin-laravel": "1.1.0",
         "pestphp/pest-plugin-livewire": "1.0.0",
         "phpunit/phpunit": "9.5.8"
     },
