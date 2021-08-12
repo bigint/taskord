@@ -1,8 +1,6 @@
 <div class="card" wire:init="loadUser">
     @if (!$readyToLoad)
-        <div class="card-body text-center">
-            <div class="spinner-border spinner-border-sm taskord-spinner text-secondary" role="status"></div>
-        </div>
+        <x:loaders.user-card-skeleton />
     @else
         <ul class="list-group list-group-flush">
             <li class="list-group-item text-center py-3">
