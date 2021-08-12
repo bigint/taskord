@@ -1,5 +1,5 @@
 <span class="float-end">
-    <div class="form-check">
+    <div class="form-check form-switch">
         <input wire:click="onlyFollowingsTasks" class="form-check-input" type="checkbox" id="onlyFollowingsTasks"
             {{ auth()->user()->only_followings_tasks ? 'checked' : '' }}>
         <label class="form-check-label" for="onlyFollowingsTasks">
