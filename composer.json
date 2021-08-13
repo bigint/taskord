@@ -56,7 +56,7 @@
         "facade/ignition": "2.11.2",
         "fakerphp/faker": "1.15.0",
         "mockery/mockery": "1.4.3",
-        "nunomaduro/collision": "5.7.0",
+        "nunomaduro/collision": "5.8.0",
         "nunomaduro/patrol": "1.0.2",
         "nunomaduro/phpinsights": "dev-master",
         "pestphp/pest": "1.15.0",
