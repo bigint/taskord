@@ -911,10 +911,10 @@
   dependencies:
     "@fortawesome/fontawesome-common-types" "^0.2.35"
 
-"@github/markdown-toolbar-element@1.5.1":
-  version "1.5.1"
-  resolved "https://registry.yarnpkg.com/@github/markdown-toolbar-element/-/markdown-toolbar-element-1.5.1.tgz#15d084f4e7da8adac8c3a2fa2556316140b81c9b"
-  integrity sha512-cb4CHCgTfIfZrxde9DWJH3pBLZC8YSA2xdNg9Eix0DQbaGIvKPGEQ4se0VUyK773GHeIsNgJDocS+VtYmR6xmQ==
+"@github/markdown-toolbar-element@2.0.0":
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/@github/markdown-toolbar-element/-/markdown-toolbar-element-2.0.0.tgz#06149f690aee2d342c02a92bd14e9fe041142e48"
+  integrity sha512-8Rf1Cgg9BgHru1y3XsE5kOkWkA+alshI/UbbY70UH8Qqg4gWwQTFl9p6ZnF5gx67WQoXamOs9ceCNjAdaoCJTA==
 
 "@joeattardi/emoji-button@4.6.0":
   version "4.6.0"
