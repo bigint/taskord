@@ -916,16 +916,17 @@
   resolved "https://registry.yarnpkg.com/@github/markdown-toolbar-element/-/markdown-toolbar-element-2.0.0.tgz#06149f690aee2d342c02a92bd14e9fe041142e48"
   integrity sha512-8Rf1Cgg9BgHru1y3XsE5kOkWkA+alshI/UbbY70UH8Qqg4gWwQTFl9p6ZnF5gx67WQoXamOs9ceCNjAdaoCJTA==
 
-"@joeattardi/emoji-button@4.6.0":
-  version "4.6.0"
-  resolved "https://registry.yarnpkg.com/@joeattardi/emoji-button/-/emoji-button-4.6.0.tgz#93a78abb19c61ce9dcc464d15f373743b15cd2a2"
-  integrity sha512-KwOE1j+YxX47JmT0pXNCa+9Ai4Wf2fmABtvuxy6JBJ5QV0HdoThRKjL6CxAreVwwLbNQ/PDoR36xpc5QJjLXPA==
+"@joeattardi/emoji-button@4.6.1":
+  version "4.6.1"
+  resolved "https://registry.yarnpkg.com/@joeattardi/emoji-button/-/emoji-button-4.6.1.tgz#6083399e5c81e58528fbb61c8d510f97cf5c01d5"
+  integrity sha512-SEs4m7sackuVjIEn5jl4fKr/wLHgFO+eQdXiyKKSqbB5F5Dae5E2s7eyU4xWRdhR8+miaAhqXsnW/Mi8S4k9Ww==
   dependencies:
     "@fortawesome/fontawesome-svg-core" "^1.2.28"
     "@fortawesome/free-regular-svg-icons" "^5.13.0"
     "@fortawesome/free-solid-svg-icons" "^5.13.0"
     "@popperjs/core" "^2.4.0"
     "@types/twemoji" "^12.1.1"
+    escape-html "^1.0.3"
     focus-trap "^5.1.0"
     fuzzysort "^1.1.4"
     tiny-emitter "^2.1.0"
@@ -2416,7 +2417,7 @@ escalade@^3.1.1:
   resolved "https://registry.yarnpkg.com/escalade/-/escalade-3.1.1.tgz#d8cfdc7000965c5a0174b4a82eaa5c0552742e40"
   integrity sha512-k0er2gUkLf8O0zKJiAhmkTnJlTvINGv7ygDNPbeIsX/TJjGJZHuh9B2UxbsaEkmlEo9MfhrSzmhIlhRlI2GXnw==
 
-escape-html@~1.0.3:
+escape-html@^1.0.3, escape-html@~1.0.3:
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/escape-html/-/escape-html-1.0.3.tgz#0258eae4d3d0c0974de1c169188ef0051d1d1988"
   integrity sha1-Aljq5NPQwJdN4cFpGI7wBR0dGYg=
