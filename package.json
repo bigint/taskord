@@ -16,7 +16,7 @@
         "postcss": "8.3.11",
         "resolve-url-loader": "4.0.0",
         "sass": "1.42.1",
-        "sass-loader": "12.2.0",
+        "sass-loader": "12.3.0",
         "vue-template-compiler": "2.6.14"
     },
     "dependencies": {
